@@ -861,7 +861,7 @@ function renderParty(members){{
       <div>
         <div class="party-col-hdr col-dem">Democrat · ${{min.length}}</div>
         ${{min.map(card).join('')}}
-        ${{ind.length?`<div class="party-col-hdr col-ind" style="margin-top:10px">Independent · ${{ind.length}}</div>${{ind.map(card).join('')}}`:''))}}
+        ${{ind.length?`<div class="party-col-hdr col-ind" style="margin-top:10px">Independent · ${{ind.length}}</div>${{ind.map(card).join('')}}`:''}}
       </div>
     </div>`;
   }}
