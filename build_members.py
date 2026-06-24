@@ -329,24 +329,21 @@ def build_html(members_json):
   /* Leader grid — side by side */
   .leader-grid{{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}}
 
-  /* Member card */
+  /* Member card — collapsed only, clean grid */
   .member-card {{
     border:1px solid var(--bdr);border-radius:10px;
     background:var(--bg-card);margin-bottom:8px;
-    cursor:pointer;transition:background 0.15s;
+    cursor:pointer;transition:background 0.15s, transform 0.15s;
     overflow:hidden;
   }}
-  .member-card:hover {{background:var(--bg-card-h)}}
-  .card-leader{{border-left:3px solid var(--gold)}}
-  .card-chair{{border-left:3px solid rgba(200,169,110,0.5)}}
-  .card-ranking{{border-left:3px solid var(--bdr)}}
+  .member-card:hover {{ background:var(--bg-card-h); transform:translateY(-1px); }}
+  .card-leader {{ border-left:3px solid var(--gold); }}
+  .card-chair  {{ border-left:3px solid rgba(200,169,110,0.5); }}
+  .card-ranking{{ border-left:3px solid var(--bdr); }}
 
-  /* Collapsed face */
-  .card-face {{
-    display:flex;align-items:center;gap:12px;padding:10px 12px;
-  }}
+  .card-face {{ display:flex;align-items:center;gap:12px;padding:10px 12px; }}
 
-  /* Photo — 80×100px as requested */
+  /* Photo — 80×100px */
   .photo {{
     width:80px;height:100px;border-radius:6px;
     object-fit:cover;object-position:top;
@@ -359,89 +356,124 @@ def build_html(members_json):
     font-family:'Playfair Display',serif;font-size:28px;font-weight:700;
     flex-shrink:0;color:white;border:1px solid rgba(255,255,255,0.1);
   }}
-  .i-rep{{background:rgba(160,50,50,0.75)}}
-  .i-dem{{background:rgba(50,100,160,0.75)}}
-  .i-ind{{background:rgba(100,50,160,0.75)}}
+  .i-rep{{ background:rgba(160,50,50,0.75); }}
+  .i-dem{{ background:rgba(50,100,160,0.75); }}
+  .i-ind{{ background:rgba(100,50,160,0.75); }}
 
-  /* Collapsed info */
-  .card-face .info {{flex:1;min-width:0}}
-  .mname {{
-    font-size:13px;font-weight:700;color:var(--text);
-    line-height:1.3;margin-bottom:3px;
-  }}
-  .mmeta {{
-    font-family:'IBM Plex Mono',monospace;font-size:10px;
-    color:var(--text-m);margin-bottom:5px;
-  }}
+  .card-face .info {{ flex:1;min-width:0; }}
+  .mname {{ font-size:13px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px; }}
+  .mmeta {{ font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-m);margin-bottom:5px; }}
   .mrole {{
     display:inline-block;font-family:'IBM Plex Mono',monospace;
     font-size:9px;letter-spacing:0.05em;padding:2px 6px;
-    border-radius:3px;text-transform:uppercase;font-weight:700;
-    line-height:1.4;
+    border-radius:3px;text-transform:uppercase;font-weight:700;line-height:1.4;
   }}
-  .role-leader{{background:rgba(200,169,110,0.15);color:var(--gold);border:1px solid rgba(200,169,110,0.35)}}
-  .role-whip{{background:rgba(160,120,200,0.1);color:var(--purple);border:1px solid rgba(160,120,200,0.3)}}
-  .role-chair{{background:rgba(200,169,110,0.08);color:var(--gold);border:1px solid rgba(200,169,110,0.2)}}
-  .role-rm{{background:var(--bg-sec);color:var(--text-s);border:1px solid var(--bdr)}}
+  .role-leader {{ background:rgba(200,169,110,0.15);color:var(--gold);border:1px solid rgba(200,169,110,0.35); }}
+  .role-whip   {{ background:rgba(160,120,200,0.1);color:var(--purple);border:1px solid rgba(160,120,200,0.3); }}
+  .role-chair  {{ background:rgba(200,169,110,0.08);color:var(--gold);border:1px solid rgba(200,169,110,0.2); }}
+  .role-rm     {{ background:var(--bg-sec);color:var(--text-s);border:1px solid var(--bdr); }}
 
-  .chevron {{
-    font-size:10px;color:var(--text-f);flex-shrink:0;
-    transition:transform 0.2s;margin-left:4px;
-  }}
-  .member-card.open .chevron {{transform:rotate(180deg)}}
+  .pbadge {{ font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px; }}
+  .b-rep{{ background:var(--rep-bg);color:var(--rep);border:1px solid var(--rep-br); }}
+  .b-dem{{ background:var(--dem-bg);color:var(--dem);border:1px solid var(--dem-br); }}
+  .b-ind{{ background:var(--ind-bg);color:var(--ind);border:1px solid var(--ind-br); }}
 
-  /* Expanded body */
-  .card-body {{
-    display:none;
-    padding:0 12px 14px 12px;
-    border-top:1px solid var(--bdr);
-    margin-top:0;
-  }}
-  .member-card.open .card-body {{display:block}}
-
-  .card-body-inner {{
-    display:flex;gap:14px;padding-top:12px;
-  }}
-
-  /* Larger photo in expanded view */
-  .photo-lg {{
-    width:100px;height:125px;border-radius:6px;
-    object-fit:cover;object-position:top;
-    flex-shrink:0;background:var(--bg-sec);
-    border:1px solid var(--bdr);
-  }}
-  .initials-lg {{
-    width:100px;height:125px;border-radius:6px;
+  /* ── Modal ── */
+  .modal-overlay {{
+    position:fixed;inset:0;z-index:1000;
+    background:rgba(0,0,0,0.7);
     display:flex;align-items:center;justify-content:center;
-    font-family:'Playfair Display',serif;font-size:36px;font-weight:700;
-    flex-shrink:0;color:white;
+    opacity:0;pointer-events:none;
+    transition:opacity 0.25s;
+    padding:20px;
   }}
-
-  .card-details {{flex:1;min-width:0}}
-  .detail-section {{margin-bottom:10px}}
-  .detail-label {{
+  .modal-overlay.visible {{
+    opacity:1;pointer-events:all;
+  }}
+  .modal {{
+    background:var(--bg);
+    border:1px solid var(--bdr-h);
+    border-radius:16px;
+    width:100%;max-width:480px;
+    max-height:85vh;
+    overflow-y:auto;
+    position:relative;
+    transform:scale(0.85);
+    opacity:0;
+    transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s;
+    transform-origin:center center;
+  }}
+  .modal-overlay.visible .modal {{
+    transform:scale(1);
+    opacity:1;
+  }}
+  .modal-close {{
+    position:sticky;top:0;z-index:10;
+    display:flex;justify-content:flex-end;
+    padding:12px 14px 0;
+    background:var(--bg);
+  }}
+  .modal-close button {{
+    background:var(--bg-sec);border:1px solid var(--bdr);
+    border-radius:20px;padding:4px 12px;
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    color:var(--text-m);cursor:pointer;
+    transition:background 0.15s;
+  }}
+  .modal-close button:hover {{ background:var(--bdr); }}
+  .modal-body {{ padding:0 18px 24px; }}
+  .modal-photo-wrap {{
+    display:flex;justify-content:center;margin-bottom:16px;padding-top:8px;
+  }}
+  .modal-photo {{
+    width:120px;height:150px;border-radius:10px;
+    object-fit:cover;object-position:top;
+    border:2px solid var(--bdr-h);
+    background:var(--bg-sec);
+  }}
+  .modal-initials {{
+    width:120px;height:150px;border-radius:10px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:42px;font-weight:700;
+    color:white;
+  }}
+  .modal-name {{
+    font-family:'Playfair Display',serif;
+    font-size:22px;font-weight:700;
+    color:var(--text-h);text-align:center;
+    margin-bottom:4px;line-height:1.2;
+  }}
+  .modal-sub {{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;color:var(--text-m);
+    text-align:center;letter-spacing:0.06em;
+    margin-bottom:16px;
+  }}
+  .modal-divider {{
+    border:none;border-top:1px solid var(--bdr-sec);
+    margin:14px 0;
+  }}
+  .modal-section-label {{
     font-family:'IBM Plex Mono',monospace;font-size:9px;
-    letter-spacing:0.1em;text-transform:uppercase;
-    color:var(--text-d);margin-bottom:4px;
+    letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--text-d);margin-bottom:6px;
   }}
-  .detail-value {{
-    font-size:12px;color:var(--text-s);line-height:1.5;
+  .modal-section-value {{
+    font-size:13px;color:var(--text-s);line-height:1.6;
+    margin-bottom:14px;
   }}
-  .cmte-row {{
-    font-size:11px;color:var(--text-s);line-height:1.6;
-    padding-left:10px;border-left:2px solid var(--bdr);
-    margin-bottom:3px;
+  .modal-cmte {{
+    font-size:12px;color:var(--text-s);line-height:1.6;
+    padding:6px 10px;border-left:2px solid var(--bdr);
+    margin-bottom:6px;
   }}
-  .cmte-role-badge {{
-    font-family:'IBM Plex Mono',monospace;font-size:9px;
-    color:var(--gold);margin-right:4px;font-weight:700;
+  .modal-cmte-badge {{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;
+    font-size:9px;font-weight:700;letter-spacing:0.05em;
+    padding:1px 5px;border-radius:3px;margin-bottom:3px;
   }}
-
-  /* Party badge */
-  .pbadge{{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px}}
-  .b-rep{{background:var(--rep-bg);color:var(--rep);border:1px solid var(--rep-br)}}
-  .b-dem{{background:var(--dem-bg);color:var(--dem);border:1px solid var(--dem-br)}}
-  .b-ind{{background:var(--ind-bg);color:var(--ind);border:1px solid var(--ind-br)}}
+  .badge-chair   {{ background:rgba(200,169,110,0.15);color:var(--gold);border:1px solid rgba(200,169,110,0.3); }}
+  .badge-rm      {{ background:var(--bg-sec);color:var(--text-s);border:1px solid var(--bdr); }}
 
   /* State / committee group views */
   .group-block{{margin-bottom:14px}}
@@ -496,6 +528,13 @@ def build_html(members_json):
 
 <div class="content" id="content"></div>
 
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal">
+    <div class="modal-close"><button onclick="closeModal(null)">✕ Close</button></div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
 <script>
 const DATA     = {members_json};
 const SENATORS = DATA.senators || [];
@@ -520,7 +559,7 @@ matchMedia('(prefers-color-scheme:light)').addEventListener('change',e=>{{
 }});
 
 // ── Card builder ───────────────────────────────────────────────────────────────
-function roleHtml(m, small=true){{
+function roleHtml(m){{
   if(!m.leadership) return '';
   const l = m.leadership.label.toLowerCase();
   let cls = 'role-chair';
@@ -548,46 +587,87 @@ function photoEl(m, cls, initCls){{
     : `<div class="${{initCls}} i-${{m.party_class}}">${{m.initials}}</div>`;
 }}
 
-function yearsInOffice(m){{
-  // Find earliest term start
-  return ''; // data doesn't include term history in current dataset
-}}
-
 function fullRoleDescription(m){{
   if(!m.leadership) return '';
   const label = m.leadership.label;
   const tier  = m.leadership.tier;
-  if(tier === 1) return label + (m.chamber==='senate' ? ' of the United States Senate' : ' of the United States House of Representatives');
-  if(tier === 2) return label + (m.chamber==='senate' ? ', United States Senate' : ', United States House of Representatives');
-  // Chair/RM — the label already has committee name
-  return label.replace('RM,', 'Ranking Member,').replace('Chair,', 'Chair,');
+  if(tier<=2) return label + (m.chamber==='senate'
+    ? ' of the United States Senate'
+    : ' of the United States House of Representatives');
+  return label.replace(/^RM,\s*/,'Ranking Member, ');
 }}
 
 function committeeRows(m){{
   const cmtes = (m.committees||[]);
-  if(!cmtes.length) return '<div class="detail-value" style="color:var(--text-f);font-style:italic">No committee data available</div>';
-  // Sort: Chair first, then Ranking Member, then Member
-  const order = {{'Chair':0,'Ranking Member':1,'Chairman':0,'Chairwoman':0,'Chairperson':0,'Member':2}};
+  if(!cmtes.length) return '<p style="color:var(--text-f);font-style:italic;font-size:12px">No committee data available</p>';
+  const order = {{'Chair':0,'Chairman':0,'Chairwoman':0,'Chairperson':0,'Ranking Member':1,'Member':2}};
   const sorted = [...cmtes].sort((a,b)=>((order[a.role]||2)-(order[b.role]||2)));
   return sorted.map(c=>{{
-    const isChairRole = c.role && (c.role.toLowerCase().includes('chair') && !c.role.toLowerCase().includes('ranking'));
-    const isRM = c.role && c.role.toLowerCase().includes('ranking');
-    const badge = isChairRole ? `<span class="cmte-role-badge">Chair</span>`
-                : isRM       ? `<span class="cmte-role-badge" style="color:var(--text-s)">Ranking Member</span>`
-                : '';
-    return `<div class="cmte-row">${{badge}}${{c.committee}}</div>`;
+    const isChair = c.role&&c.role.toLowerCase().includes('chair')&&!c.role.toLowerCase().includes('ranking');
+    const isRM    = c.role&&c.role.toLowerCase().includes('ranking');
+    const badge   = isChair ? `<div><span class="modal-cmte-badge badge-chair">Chair</span></div>`
+                  : isRM    ? `<div><span class="modal-cmte-badge badge-rm">Ranking Member</span></div>`
+                  : '';
+    return `<div class="modal-cmte">${{badge}}${{c.committee}}</div>`;
   }}).join('');
 }}
 
-function card(m){{
-  const pc  = m.party_class;
-  const cc  = roleClass(m);
-  const dist = m.district ? ` · District ${{m.district}}` : '';
+// ── Modal ─────────────────────────────────────────────────────────────────────
+function openModal(m){{
+  const pc        = m.party_class;
   const partyFull = pc==='rep'?'Republican':pc==='dem'?'Democrat':'Independent';
-  const chamberFull = m.chamber==='senate'?'United States Senate':'United States House of Representatives';
+  const chamberFull = m.chamber==='senate'
+    ? 'United States Senate'
+    : 'United States House of Representatives';
+  const dist     = m.district ? `District ${{m.district}} · ` : '';
   const fullRole = fullRoleDescription(m);
 
-  return `<div class="member-card ${{cc}}" onclick="this.classList.toggle('open')">
+  const photoHtml = m.photo_url
+    ? `<img class="modal-photo" src="${{m.photo_url}}"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+         alt="${{m.name}}">
+       <div class="modal-initials i-${{pc}}" style="display:none">${{m.initials}}</div>`
+    : `<div class="modal-initials i-${{pc}}">${{m.initials}}</div>`;
+
+  document.getElementById('modal-body').innerHTML = `
+    <div class="modal-photo-wrap">${{photoHtml}}</div>
+    <div class="modal-name">${{m.name}}</div>
+    <div class="modal-sub">
+      ${{dist}}${{m.state}} · ${{partyFull}} ·
+      <span class="pbadge b-${{pc}}">${{m.party_short}}</span>
+    </div>
+    <hr class="modal-divider">
+    <div class="modal-section-label">Chamber</div>
+    <div class="modal-section-value">${{chamberFull}}</div>
+    ${{fullRole ? `
+    <div class="modal-section-label">Leadership Role</div>
+    <div class="modal-section-value">${{fullRole}}</div>` : ''}}
+    <hr class="modal-divider">
+    <div class="modal-section-label">Committee Assignments</div>
+    ${{committeeRows(m)}}
+  `;
+
+  const overlay = document.getElementById('modal-overlay');
+  overlay.classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}}
+
+function closeModal(e){{
+  if(e && e.target !== document.getElementById('modal-overlay')) return;
+  document.getElementById('modal-overlay').classList.remove('visible');
+  document.body.style.overflow = '';
+}}
+
+document.addEventListener('keydown', e => {{ if(e.key==='Escape') closeModal(null); }});
+
+// ── Card (collapsed only — tap opens modal) ───────────────────────────────────
+function card(m){{
+  const pc = m.party_class;
+  const cc = roleClass(m);
+  const dist = m.district ? ` · D.${{m.district}}` : '';
+  // Store member data on element via index in global array
+  const idx = CURRENT_MEMBERS.push(m) - 1;
+  return `<div class="member-card ${{cc}}" onclick="openModal(CURRENT_MEMBERS[${{idx}}])">
     <div class="card-face">
       ${{photoEl(m,'photo','initials-box')}}
       <div class="info">
@@ -595,41 +675,11 @@ function card(m){{
         <div class="mmeta">${{m.state}}${{dist}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span></div>
         ${{roleHtml(m)}}
       </div>
-      <span class="chevron">▼</span>
-    </div>
-    <div class="card-body">
-      <div class="card-body-inner">
-        ${{photoEl(m,'photo-lg','initials-lg')}}
-        <div class="card-details">
-          <div class="detail-section">
-            <div class="detail-label">Full Name</div>
-            <div class="detail-value">${{m.name}}</div>
-          </div>
-          <div class="detail-section">
-            <div class="detail-label">Chamber</div>
-            <div class="detail-value">${{chamberFull}}</div>
-          </div>
-          <div class="detail-section">
-            <div class="detail-label">Party</div>
-            <div class="detail-value">${{partyFull}}</div>
-          </div>
-          <div class="detail-section">
-            <div class="detail-label">State${{m.district?' · District':''}}</div>
-            <div class="detail-value">${{m.state}}${{m.district?' · District '+m.district:''}}</div>
-          </div>
-          ${{fullRole ? `<div class="detail-section">
-            <div class="detail-label">Leadership Role</div>
-            <div class="detail-value">${{fullRole}}</div>
-          </div>` : ''}}
-          <div class="detail-section">
-            <div class="detail-label">Committee Assignments</div>
-            ${{committeeRows(m)}}
-          </div>
-        </div>
-      </div>
     </div>
   </div>`;
 }}
+
+let CURRENT_MEMBERS = [];
 
 // ── Filter ────────────────────────────────────────────────────────────────────
 function filtered(){{
@@ -721,6 +771,7 @@ function renderLeadership(members){{
 
 // ── Main render ───────────────────────────────────────────────────────────────
 function render(){{
+  CURRENT_MEMBERS = []; // reset before each render
   const members = filtered();
   let html = '';
   if(group==='party')      html = renderParty(members);
