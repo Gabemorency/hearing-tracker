@@ -330,31 +330,115 @@ def build_html(members_json):
   .leader-grid{{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}}
 
   /* Member card */
-  .member-card{{border:1px solid var(--bdr);border-radius:8px;padding:10px 12px;background:var(--bg-card);display:flex;align-items:center;gap:10px;margin-bottom:7px;transition:background 0.15s;cursor:default}}
-  .member-card:hover{{background:var(--bg-card-h)}}
+  .member-card {{
+    border:1px solid var(--bdr);border-radius:10px;
+    background:var(--bg-card);margin-bottom:8px;
+    cursor:pointer;transition:background 0.15s;
+    overflow:hidden;
+  }}
+  .member-card:hover {{background:var(--bg-card-h)}}
   .card-leader{{border-left:3px solid var(--gold)}}
   .card-chair{{border-left:3px solid rgba(200,169,110,0.5)}}
   .card-ranking{{border-left:3px solid var(--bdr)}}
 
-  /* Photo */
-  .photo{{width:40px;height:50px;border-radius:4px;object-fit:cover;flex-shrink:0;background:var(--bg-sec)}}
-  .initials-box{{width:40px;height:50px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;flex-shrink:0;color:white}}
-  .i-rep{{background:rgba(180,60,60,0.7)}}
-  .i-dem{{background:rgba(60,110,170,0.7)}}
-  .i-ind{{background:rgba(110,60,170,0.7)}}
+  /* Collapsed face */
+  .card-face {{
+    display:flex;align-items:center;gap:12px;padding:10px 12px;
+  }}
 
-  /* Info */
-  .info{{flex:1;min-width:0}}
-  .mname{{font-size:12px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}}
-  .mmeta{{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-m);margin-bottom:3px}}
-  .mrole{{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.05em;padding:1px 5px;border-radius:3px;text-transform:uppercase;font-weight:700}}
+  /* Photo — 80×100px as requested */
+  .photo {{
+    width:80px;height:100px;border-radius:6px;
+    object-fit:cover;object-position:top;
+    flex-shrink:0;background:var(--bg-sec);
+    border:1px solid var(--bdr);
+  }}
+  .initials-box {{
+    width:80px;height:100px;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:28px;font-weight:700;
+    flex-shrink:0;color:white;border:1px solid rgba(255,255,255,0.1);
+  }}
+  .i-rep{{background:rgba(160,50,50,0.75)}}
+  .i-dem{{background:rgba(50,100,160,0.75)}}
+  .i-ind{{background:rgba(100,50,160,0.75)}}
+
+  /* Collapsed info */
+  .card-face .info {{flex:1;min-width:0}}
+  .mname {{
+    font-size:13px;font-weight:700;color:var(--text);
+    line-height:1.3;margin-bottom:3px;
+  }}
+  .mmeta {{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    color:var(--text-m);margin-bottom:5px;
+  }}
+  .mrole {{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;
+    font-size:9px;letter-spacing:0.05em;padding:2px 6px;
+    border-radius:3px;text-transform:uppercase;font-weight:700;
+    line-height:1.4;
+  }}
   .role-leader{{background:rgba(200,169,110,0.15);color:var(--gold);border:1px solid rgba(200,169,110,0.35)}}
   .role-whip{{background:rgba(160,120,200,0.1);color:var(--purple);border:1px solid rgba(160,120,200,0.3)}}
   .role-chair{{background:rgba(200,169,110,0.08);color:var(--gold);border:1px solid rgba(200,169,110,0.2)}}
   .role-rm{{background:var(--bg-sec);color:var(--text-s);border:1px solid var(--bdr)}}
 
+  .chevron {{
+    font-size:10px;color:var(--text-f);flex-shrink:0;
+    transition:transform 0.2s;margin-left:4px;
+  }}
+  .member-card.open .chevron {{transform:rotate(180deg)}}
+
+  /* Expanded body */
+  .card-body {{
+    display:none;
+    padding:0 12px 14px 12px;
+    border-top:1px solid var(--bdr);
+    margin-top:0;
+  }}
+  .member-card.open .card-body {{display:block}}
+
+  .card-body-inner {{
+    display:flex;gap:14px;padding-top:12px;
+  }}
+
+  /* Larger photo in expanded view */
+  .photo-lg {{
+    width:100px;height:125px;border-radius:6px;
+    object-fit:cover;object-position:top;
+    flex-shrink:0;background:var(--bg-sec);
+    border:1px solid var(--bdr);
+  }}
+  .initials-lg {{
+    width:100px;height:125px;border-radius:6px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:36px;font-weight:700;
+    flex-shrink:0;color:white;
+  }}
+
+  .card-details {{flex:1;min-width:0}}
+  .detail-section {{margin-bottom:10px}}
+  .detail-label {{
+    font-family:'IBM Plex Mono',monospace;font-size:9px;
+    letter-spacing:0.1em;text-transform:uppercase;
+    color:var(--text-d);margin-bottom:4px;
+  }}
+  .detail-value {{
+    font-size:12px;color:var(--text-s);line-height:1.5;
+  }}
+  .cmte-row {{
+    font-size:11px;color:var(--text-s);line-height:1.6;
+    padding-left:10px;border-left:2px solid var(--bdr);
+    margin-bottom:3px;
+  }}
+  .cmte-role-badge {{
+    font-family:'IBM Plex Mono',monospace;font-size:9px;
+    color:var(--gold);margin-right:4px;font-weight:700;
+  }}
+
   /* Party badge */
-  .pbadge{{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;padding:1px 4px;border-radius:3px;margin-left:3px}}
+  .pbadge{{font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;margin-left:4px}}
   .b-rep{{background:var(--rep-bg);color:var(--rep);border:1px solid var(--rep-br)}}
   .b-dem{{background:var(--dem-bg);color:var(--dem);border:1px solid var(--dem-br)}}
   .b-ind{{background:var(--ind-bg);color:var(--ind);border:1px solid var(--ind-br)}}
@@ -436,7 +520,7 @@ matchMedia('(prefers-color-scheme:light)').addEventListener('change',e=>{{
 }});
 
 // ── Card builder ───────────────────────────────────────────────────────────────
-function roleHtml(m){{
+function roleHtml(m, small=true){{
   if(!m.leadership) return '';
   const l = m.leadership.label.toLowerCase();
   let cls = 'role-chair';
@@ -446,7 +530,7 @@ function roleHtml(m){{
   return `<span class="mrole ${{cls}}">${{m.leadership.label}}</span>`;
 }}
 
-function cardClass(m){{
+function roleClass(m){{
   if(!m.leadership) return '';
   const t = m.leadership.tier;
   if(t<=3) return 'card-leader';
@@ -455,25 +539,94 @@ function cardClass(m){{
   return '';
 }}
 
-function card(m){{
-  const pc = m.party_class;
-  const photoEl = m.photo_url
-    ? `<img class="photo" src="${{m.photo_url}}"
+function photoEl(m, cls, initCls){{
+  return m.photo_url
+    ? `<img class="${{cls}}" src="${{m.photo_url}}"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
          alt="${{m.name}}" loading="lazy">
-       <div class="initials-box i-${{pc}}" style="display:none">${{m.initials}}</div>`
-    : `<div class="initials-box i-${{pc}}">${{m.initials}}</div>`;
-  const dist = m.district ? ` · D.${{m.district}}` : '';
-  return `<div class="member-card ${{cardClass(m)}}"
-    data-name="${{m.name.toLowerCase()}}"
-    data-state="${{m.state.toLowerCase()}}"
-    data-cmte="${{m.committees.map(c=>c.committee).join('|').toLowerCase()}}"
-    data-role="${{(m.leadership?.label||'').toLowerCase()}}">
-    ${{photoEl}}
-    <div class="info">
-      <div class="mname">${{m.name}}</div>
-      <div class="mmeta">${{m.state}}${{dist}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span></div>
-      ${{roleHtml(m)}}
+       <div class="${{initCls}} i-${{m.party_class}}" style="display:none">${{m.initials}}</div>`
+    : `<div class="${{initCls}} i-${{m.party_class}}">${{m.initials}}</div>`;
+}}
+
+function yearsInOffice(m){{
+  // Find earliest term start
+  return ''; // data doesn't include term history in current dataset
+}}
+
+function fullRoleDescription(m){{
+  if(!m.leadership) return '';
+  const label = m.leadership.label;
+  const tier  = m.leadership.tier;
+  if(tier === 1) return label + (m.chamber==='senate' ? ' of the United States Senate' : ' of the United States House of Representatives');
+  if(tier === 2) return label + (m.chamber==='senate' ? ', United States Senate' : ', United States House of Representatives');
+  // Chair/RM — the label already has committee name
+  return label.replace('RM,', 'Ranking Member,').replace('Chair,', 'Chair,');
+}}
+
+function committeeRows(m){{
+  const cmtes = (m.committees||[]);
+  if(!cmtes.length) return '<div class="detail-value" style="color:var(--text-f);font-style:italic">No committee data available</div>';
+  // Sort: Chair first, then Ranking Member, then Member
+  const order = {{'Chair':0,'Ranking Member':1,'Chairman':0,'Chairwoman':0,'Chairperson':0,'Member':2}};
+  const sorted = [...cmtes].sort((a,b)=>((order[a.role]||2)-(order[b.role]||2)));
+  return sorted.map(c=>{{
+    const isChairRole = c.role && (c.role.toLowerCase().includes('chair') && !c.role.toLowerCase().includes('ranking'));
+    const isRM = c.role && c.role.toLowerCase().includes('ranking');
+    const badge = isChairRole ? `<span class="cmte-role-badge">Chair</span>`
+                : isRM       ? `<span class="cmte-role-badge" style="color:var(--text-s)">Ranking Member</span>`
+                : '';
+    return `<div class="cmte-row">${{badge}}${{c.committee}}</div>`;
+  }}).join('');
+}}
+
+function card(m){{
+  const pc  = m.party_class;
+  const cc  = roleClass(m);
+  const dist = m.district ? ` · District ${{m.district}}` : '';
+  const partyFull = pc==='rep'?'Republican':pc==='dem'?'Democrat':'Independent';
+  const chamberFull = m.chamber==='senate'?'United States Senate':'United States House of Representatives';
+  const fullRole = fullRoleDescription(m);
+
+  return `<div class="member-card ${{cc}}" onclick="this.classList.toggle('open')">
+    <div class="card-face">
+      ${{photoEl(m,'photo','initials-box')}}
+      <div class="info">
+        <div class="mname">${{m.name}}</div>
+        <div class="mmeta">${{m.state}}${{dist}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span></div>
+        ${{roleHtml(m)}}
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="card-body">
+      <div class="card-body-inner">
+        ${{photoEl(m,'photo-lg','initials-lg')}}
+        <div class="card-details">
+          <div class="detail-section">
+            <div class="detail-label">Full Name</div>
+            <div class="detail-value">${{m.name}}</div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-label">Chamber</div>
+            <div class="detail-value">${{chamberFull}}</div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-label">Party</div>
+            <div class="detail-value">${{partyFull}}</div>
+          </div>
+          <div class="detail-section">
+            <div class="detail-label">State${{m.district?' · District':''}}</div>
+            <div class="detail-value">${{m.state}}${{m.district?' · District '+m.district:''}}</div>
+          </div>
+          ${{fullRole ? `<div class="detail-section">
+            <div class="detail-label">Leadership Role</div>
+            <div class="detail-value">${{fullRole}}</div>
+          </div>` : ''}}
+          <div class="detail-section">
+            <div class="detail-label">Committee Assignments</div>
+            ${{committeeRows(m)}}
+          </div>
+        </div>
+      </div>
     </div>
   </div>`;
 }}
