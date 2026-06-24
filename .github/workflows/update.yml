@@ -2,7 +2,7 @@ name: Update Hearing Tracker
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # every 30 minutes
+    - cron: '7 */2 * * *'   # every 7 minutes past 2 hours
   workflow_dispatch:        # manual trigger from GitHub Actions tab
 
 jobs:
