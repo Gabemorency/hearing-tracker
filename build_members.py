@@ -140,15 +140,10 @@ def build():
             tl = title.lower() if title else ""
             if "chair" in tl and "ranking" not in tl:
                 if bid not in chair_map:
-                    # Shorten committee name for display
-                    short = re.sub(r"^(House|Senate)\s+(Committee on|Select Committee on|Special Committee on)\s+", "", cmte_name)
-                    short = short[:35]
-                    chair_map[bid] = {"label": f"Chair, {short}", "tier": 4}
+                    chair_map[bid] = {"label": "Chair", "tier": 4, "committee": cmte_name}
             elif "ranking" in tl:
                 if bid not in chair_map:
-                    short = re.sub(r"^(House|Senate)\s+(Committee on|Select Committee on|Special Committee on)\s+", "", cmte_name)
-                    short = short[:30]
-                    chair_map[bid] = {"label": f"RM, {short}", "tier": 5}
+                    chair_map[bid] = {"label": "Ranking Member", "tier": 5, "committee": cmte_name}
 
     # Build member objects
     print("🔨 Building member objects...")
@@ -341,7 +336,7 @@ def build_html(members_json):
   .card-chair  {{ border-left:3px solid rgba(200,169,110,0.5); }}
   .card-ranking{{ border-left:3px solid var(--bdr); }}
 
-  .card-face {{ display:flex;align-items:center;gap:12px;padding:10px 12px; }}
+  .card-face {{ display:flex;align-items:center;gap:12px;padding:12px 14px; }}
 
   /* Photo — 80×100px */
   .photo {{
@@ -360,7 +355,7 @@ def build_html(members_json):
   .i-dem{{ background:rgba(50,100,160,0.75); }}
   .i-ind{{ background:rgba(100,50,160,0.75); }}
 
-  .card-face .info {{ flex:1;min-width:0; }}
+  .card-face .info {{ flex:1;min-width:0;overflow:hidden; }}
   .mname {{ font-size:13px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px; }}
   .mmeta {{ font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-m);margin-bottom:4px; }}
   .mrole {{
@@ -552,12 +547,16 @@ matchMedia('(prefers-color-scheme:light)').addEventListener('change',e=>{{
 // ── Card builder ───────────────────────────────────────────────────────────────
 function roleHtml(m){{
   if(!m.leadership) return '';
-  const l = m.leadership.label.toLowerCase();
+  const tier  = m.leadership.tier;
+  const label = m.leadership.label;
+  const l     = label.toLowerCase();
   let cls = 'role-chair';
   if(l.includes('leader')||l.includes('speaker')||l.includes('pro tempore')) cls='role-leader';
   else if(l.includes('whip')) cls='role-whip';
-  else if(l.includes('rm,')||l.includes('ranking')) cls='role-rm';
-  return `<span class="mrole ${{cls}}">${{m.leadership.label}}</span>`;
+  else if(l.includes('ranking')) cls='role-rm';
+  // Clean short display — never include truncated committee name
+  const display = tier<=3 ? label : tier===4 ? 'Chair' : 'Ranking Member';
+  return `<span class="mrole ${{cls}}">${{display}}</span>`;
 }}
 
 function roleClass(m){{
@@ -708,40 +707,50 @@ function renderParty(members){{
   const ind = rest.filter(m=>m.party_class==='ind');
   let h = '';
 
+  // ── Tier 1: Party Leadership (Majority/Minority Leader, Speaker, Whips etc.)
   if(leaders.length){{
-    h += `<div class="section-hdr">── Party Leadership</div><div class="leader-grid">`;
-    const mL = leaders.filter(m=>m.party_class==='rep');
-    const iL = leaders.filter(m=>m.party_class!=='rep');
-    const mx = Math.max(mL.length,iL.length);
+    h += `<div class="section-hdr">── Party Leadership</div>`;
+    h += `<div class="leader-grid">`;
+    const majL = leaders.filter(m=>m.party_class==='rep').sort((a,b)=>a.leadership.tier-b.leadership.tier);
+    const minL = leaders.filter(m=>m.party_class!=='rep').sort((a,b)=>a.leadership.tier-b.leadership.tier);
+    const mx = Math.max(majL.length, minL.length);
     for(let i=0;i<mx;i++){{
-      h += mL[i]?card(mL[i]):'<div></div>';
-      h += iL[i]?card(iL[i]):'<div></div>';
+      h += majL[i] ? card(majL[i]) : '<div></div>';
+      h += minL[i] ? card(minL[i]) : '<div></div>';
     }}
-    h += '</div>';
+    h += `</div>`;
   }}
 
+  // ── Tier 2: Committee Chairs (majority) paired with Ranking Members (minority)
   if(chairs.length||rankings.length){{
-    h += `<div class="section-hdr">── Committee Chairs & Ranking Members</div><div class="leader-grid">`;
-    const mC = [...chairs,...rankings].filter(m=>m.party_class==='rep');
-    const iC = [...chairs,...rankings].filter(m=>m.party_class!=='rep');
-    const mx = Math.max(mC.length,iC.length);
+    h += `<div class="section-hdr">── Committee Chairs & Ranking Members</div>`;
+    h += `<div class="leader-grid">`;
+    const allChairs   = chairs.sort((a,b)=>  (a.leadership.committee||'').localeCompare(b.leadership.committee||''));
+    const allRankings = rankings.sort((a,b)=>(a.leadership.committee||'').localeCompare(b.leadership.committee||''));
+    const mx = Math.max(allChairs.length, allRankings.length);
     for(let i=0;i<mx;i++){{
-      h += mC[i]?card(mC[i]):'<div></div>';
-      h += iC[i]?card(iC[i]):'<div></div>';
+      h += allChairs[i]   ? card(allChairs[i])   : '<div></div>';
+      h += allRankings[i] ? card(allRankings[i]) : '<div></div>';
     }}
-    h += '</div>';
+    h += `</div>`;
   }}
 
+  // ── Tier 3: All other members, two-column party split
   if(rest.length){{
     h += `<div class="section-hdr">── All Members</div>
     <div class="party-cols">
-      <div><div class="party-col-hdr col-rep">Republican · ${{maj.length}}</div>${{maj.map(card).join('')}}</div>
       <div>
-        <div class="party-col-hdr col-dem">Democrat · ${{min.length}}</div>${{min.map(card).join('')}}
-        ${{ind.length?`<div class="party-col-hdr col-ind" style="margin-top:10px">Independent · ${{ind.length}}</div>${{ind.map(card).join('')}}`:''}}
+        <div class="party-col-hdr col-rep">Republican · ${{maj.length}}</div>
+        ${{maj.map(card).join('')}}
+      </div>
+      <div>
+        <div class="party-col-hdr col-dem">Democrat · ${{min.length}}</div>
+        ${{min.map(card).join('')}}
+        ${{ind.length ? `<div class="party-col-hdr col-ind" style="margin-top:10px">Independent · ${{ind.length}}</div>${{ind.map(card).join('')}}` : ''}}
       </div>
     </div>`;
   }}
+
   return h || '<div class="empty">No members found.</div>';
 }}
 
