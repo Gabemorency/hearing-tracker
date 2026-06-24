@@ -621,75 +621,286 @@ def build_html(hearings):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
+  /* ── CSS custom properties — dark mode (default) ── */
+  :root {{
+    --bg:           #0D0C0A;
+    --bg-secondary: #0A0908;
+    --bg-card:      rgba(255,255,255,0.018);
+    --bg-card-open: rgba(255,255,255,0.038);
+    --bg-header:    rgba(200,169,110,0.025);
+    --bg-source:    rgba(255,255,255,0.012);
+
+    --text-primary:   #E8E0D0;
+    --text-heading:   #F0E8D8;
+    --text-secondary: #A09080;
+    --text-muted:     #908070;
+    --text-dim:       #706860;
+    --text-faint:     #4A4540;
+
+    --border:         rgba(255,255,255,0.07);
+    --border-header:  rgba(200,169,110,0.18);
+    --border-stat:    rgba(255,255,255,0.04);
+    --border-filter:  rgba(255,255,255,0.05);
+    --border-source:  rgba(255,255,255,0.04);
+    --border-body:    rgba(255,255,255,0.06);
+    --scrollbar:      #2A2820;
+
+    --gold:   #C8A96E;
+    --blue:   #7FB3D3;
+    --purple: #B39DDB;
+
+    --senate-bg:     rgba(200,169,110,0.13);
+    --senate-border: rgba(200,169,110,0.35);
+    --senate-accent: rgba(200,169,110,0.5);
+    --house-bg:      rgba(100,160,200,0.11);
+    --house-border:  rgba(100,160,200,0.30);
+    --house-accent:  rgba(100,160,200,0.45);
+    --joint-bg:      rgba(160,120,200,0.11);
+    --joint-border:  rgba(160,120,200,0.30);
+    --joint-accent:  rgba(160,120,200,0.45);
+
+    --toggle-bg:     rgba(255,255,255,0.06);
+    --toggle-border: rgba(255,255,255,0.12);
+    --toggle-icon:   '☀️';
+  }}
+
+  /* ── Light mode overrides ── */
+  :root.light {{
+    --bg:           #F5F3EE;
+    --bg-secondary: #EDEAE3;
+    --bg-card:      rgba(255,255,255,0.7);
+    --bg-card-open: rgba(255,255,255,0.95);
+    --bg-header:    rgba(200,169,110,0.06);
+    --bg-source:    rgba(0,0,0,0.03);
+
+    --text-primary:   #1A1714;
+    --text-heading:   #0E0C0A;
+    --text-secondary: #5A5040;
+    --text-muted:     #7A6A58;
+    --text-dim:       #9A8A78;
+    --text-faint:     #C0B0A0;
+
+    --border:         rgba(0,0,0,0.08);
+    --border-header:  rgba(200,169,110,0.3);
+    --border-stat:    rgba(0,0,0,0.06);
+    --border-filter:  rgba(0,0,0,0.06);
+    --border-source:  rgba(0,0,0,0.06);
+    --border-body:    rgba(0,0,0,0.07);
+    --scrollbar:      #D0C8BC;
+
+    --senate-bg:     rgba(200,169,110,0.12);
+    --senate-border: rgba(180,140,80,0.4);
+    --senate-accent: rgba(180,140,80,0.6);
+    --house-bg:      rgba(60,130,180,0.08);
+    --house-border:  rgba(60,130,180,0.3);
+    --house-accent:  rgba(60,130,180,0.5);
+    --joint-bg:      rgba(120,80,180,0.08);
+    --joint-border:  rgba(120,80,180,0.3);
+    --joint-accent:  rgba(120,80,180,0.5);
+
+    --toggle-bg:     rgba(0,0,0,0.05);
+    --toggle-border: rgba(0,0,0,0.12);
+    --toggle-icon:   '🌙';
+  }}
+
+  /* ── System preference default (runs before JS) ── */
+  @media (prefers-color-scheme: light) {{
+    :root:not(.dark) {{
+      --bg:           #F5F3EE;
+      --bg-secondary: #EDEAE3;
+      --bg-card:      rgba(255,255,255,0.7);
+      --bg-card-open: rgba(255,255,255,0.95);
+      --bg-header:    rgba(200,169,110,0.06);
+      --bg-source:    rgba(0,0,0,0.03);
+      --text-primary:   #1A1714;
+      --text-heading:   #0E0C0A;
+      --text-secondary: #5A5040;
+      --text-muted:     #7A6A58;
+      --text-dim:       #9A8A78;
+      --text-faint:     #C0B0A0;
+      --border:         rgba(0,0,0,0.08);
+      --border-header:  rgba(200,169,110,0.3);
+      --border-stat:    rgba(0,0,0,0.06);
+      --border-filter:  rgba(0,0,0,0.06);
+      --border-source:  rgba(0,0,0,0.06);
+      --border-body:    rgba(0,0,0,0.07);
+      --scrollbar:      #D0C8BC;
+      --senate-bg:     rgba(200,169,110,0.12);
+      --senate-border: rgba(180,140,80,0.4);
+      --senate-accent: rgba(180,140,80,0.6);
+      --house-bg:      rgba(60,130,180,0.08);
+      --house-border:  rgba(60,130,180,0.3);
+      --house-accent:  rgba(60,130,180,0.5);
+      --joint-bg:      rgba(120,80,180,0.08);
+      --joint-border:  rgba(120,80,180,0.3);
+      --joint-accent:  rgba(120,80,180,0.5);
+      --toggle-bg:     rgba(0,0,0,0.05);
+      --toggle-border: rgba(0,0,0,0.12);
+    }}
+  }}
+
   *, *::before, *::after {{ box-sizing: border-box; margin: 0; padding: 0; }}
-  body {{ background: #0D0C0A; color: #E8E0D0; font-family: 'IBM Plex Sans', sans-serif; min-height: 100vh; }}
+
+  body {{
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'IBM Plex Sans', sans-serif;
+    min-height: 100vh;
+    transition: background 0.2s, color 0.2s;
+  }}
+
   ::-webkit-scrollbar {{ width: 4px; }}
-  ::-webkit-scrollbar-thumb {{ background: #2A2820; border-radius: 2px; }}
-  .header {{ border-bottom: 1px solid rgba(200,169,110,0.18); padding: 20px 20px 16px; background: rgba(200,169,110,0.025); }}
-  .header-eyebrow {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #C8A96E; text-transform: uppercase; margin-bottom: 6px; }}
-  .header h1 {{ font-family: 'Playfair Display', serif; font-size: clamp(20px,5vw,26px); font-weight: 700; color: #F0E8D8; letter-spacing: -0.01em; margin-bottom: 6px; }}
-  .header-timestamp {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #908070; letter-spacing: 0.04em; line-height: 1.5; }}
-  .stats {{ display: flex; border-bottom: 1px solid rgba(255,255,255,0.05); background: #0A0908; }}
-  .stat {{ flex: 1; padding: 12px 8px; text-align: center; border-right: 1px solid rgba(255,255,255,0.04); }}
+  ::-webkit-scrollbar-thumb {{ background: var(--scrollbar); border-radius: 2px; }}
+
+  /* ── Header ── */
+  .header {{
+    border-bottom: 1px solid var(--border-header);
+    padding: 20px 20px 16px;
+    background: var(--bg-header);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }}
+  .header-left {{ flex: 1; }}
+  .header-eyebrow {{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.18em;
+    color: var(--gold); text-transform: uppercase; margin-bottom: 6px;
+  }}
+  .header h1 {{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px,5vw,26px); font-weight: 700;
+    color: var(--text-heading); letter-spacing: -0.01em; margin-bottom: 6px;
+  }}
+  .header-timestamp {{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--text-muted); letter-spacing: 0.04em; line-height: 1.5;
+  }}
+
+  /* ── Theme toggle button ── */
+  .theme-toggle {{
+    background: var(--toggle-bg);
+    border: 1px solid var(--toggle-border);
+    border-radius: 8px;
+    padding: 7px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-left: 12px;
+    margin-top: 2px;
+    transition: background 0.15s, border-color 0.15s;
+  }}
+  .theme-toggle:hover {{
+    background: rgba(200,169,110,0.1);
+    border-color: rgba(200,169,110,0.3);
+  }}
+
+  /* ── Stats ── */
+  .stats {{ display: flex; border-bottom: 1px solid var(--border-filter); background: var(--bg-secondary); }}
+  .stat {{ flex: 1; padding: 12px 8px; text-align: center; border-right: 1px solid var(--border-stat); }}
   .stat-number {{ font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1; }}
-  .stat-label {{ font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #706860; text-transform: uppercase; margin-top: 3px; }}
-  .filters {{ display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; }}
-  .filter-btn {{ background: transparent; border: 1px solid rgba(255,255,255,0.07); color: #908070; border-radius: 5px; padding: 5px 12px; font-size: 11px; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; cursor: pointer; transition: all 0.15s; }}
-  .filter-btn.active {{ background: rgba(200,169,110,0.13); border-color: rgba(200,169,110,0.4); color: #C8A96E; }}
+  .stat-label {{ font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; margin-top: 3px; }}
+
+  /* ── Filters ── */
+  .filters {{ display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--border-filter); flex-wrap: wrap; }}
+  .filter-btn {{
+    background: transparent; border: 1px solid var(--border);
+    color: var(--text-muted); border-radius: 5px; padding: 5px 12px;
+    font-size: 11px; font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.06em; cursor: pointer; transition: all 0.15s;
+  }}
+  .filter-btn.active {{
+    background: var(--senate-bg);
+    border-color: var(--senate-border);
+    color: var(--gold);
+  }}
+
+  /* ── Cards ── */
   .cards {{ padding: 14px 16px; }}
-  .count-label {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #706860; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }}
-  .card {{ border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 14px 16px; cursor: pointer; margin-bottom: 9px; background: rgba(255,255,255,0.018); transition: background 0.15s; }}
-  .card.open {{ background: rgba(255,255,255,0.038); }}
+  .count-label {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }}
+
+  .card {{
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 14px 16px; cursor: pointer; margin-bottom: 9px;
+    background: var(--bg-card); transition: background 0.15s;
+  }}
+  .card.open {{ background: var(--bg-card-open); }}
   .card.cancelled {{ opacity: 0.5; }}
   .card.cancelled .card-committee {{ text-decoration: line-through; }}
   .card.has-changes {{ border-top: 2px solid rgba(255,200,50,0.5); }}
+
+  .chamber-senate {{ border-left: 3px solid var(--senate-accent); }}
+  .chamber-house  {{ border-left: 3px solid var(--house-accent); }}
+  .chamber-joint  {{ border-left: 3px solid var(--joint-accent); }}
+
   .card-top {{ display: flex; gap: 10px; justify-content: space-between; align-items: flex-start; }}
   .card-left {{ flex: 1; min-width: 0; }}
   .card-meta {{ display: flex; align-items: center; gap: 7px; margin-bottom: 5px; flex-wrap: wrap; }}
+
   .tag {{ border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace; flex-shrink: 0; }}
-  .tag-senate {{ background: rgba(200,169,110,0.13); color: #C8A96E; border: 1px solid rgba(200,169,110,0.35); }}
-  .tag-house  {{ background: rgba(100,160,200,0.11); color: #7FB3D3; border: 1px solid rgba(100,160,200,0.30); }}
-  .tag-joint  {{ background: rgba(160,120,200,0.11); color: #B39DDB; border: 1px solid rgba(160,120,200,0.30); }}
+  .tag-senate {{ background: var(--senate-bg); color: var(--gold); border: 1px solid var(--senate-border); }}
+  .tag-house  {{ background: var(--house-bg);  color: var(--blue); border: 1px solid var(--house-border); }}
+  .tag-joint  {{ background: var(--joint-bg);  color: var(--purple); border: 1px solid var(--joint-border); }}
   .tag-cancelled {{ background: rgba(200,60,60,0.15); color: #E07070; border: 1px solid rgba(200,60,60,0.3); }}
-  .card-time {{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #A09080; letter-spacing: 0.04em; }}
-  .card-committee {{ font-size: 13px; font-weight: 600; color: #DDD5C5; line-height: 1.4; margin-bottom: 3px; }}
-  .card-topic {{ font-size: 12px; color: #A09080; line-height: 1.4; }}
+
+  .card-time {{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-secondary); letter-spacing: 0.04em; }}
+  .card-committee {{ font-size: 13px; font-weight: 600; color: var(--text-primary); line-height: 1.4; margin-bottom: 3px; }}
+  .card-topic {{ font-size: 12px; color: var(--text-secondary); line-height: 1.4; }}
   .card-right {{ text-align: right; min-width: 96px; flex-shrink: 0; }}
   .card-building {{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; margin-bottom: 2px; }}
-  .card-room {{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #908070; }}
+  .card-room {{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); }}
+
+  .bc-senate {{ color: var(--gold); }}
+  .bc-house  {{ color: var(--blue); }}
+  .bc-joint  {{ color: var(--purple); }}
+
   .change-pills {{ display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }}
   .change-pill {{ font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 10px; background: rgba(255,200,50,0.1); color: #E0B830; border: 1px solid rgba(255,200,50,0.25); }}
   .change-pill.cancelled-pill {{ background: rgba(200,60,60,0.12); color: #E07070; border-color: rgba(200,60,60,0.3); }}
-  .card-body {{ margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); display: none; }}
+
+  .card-body {{ margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-body); display: none; }}
   .card.open .card-body {{ display: block; }}
   .card-section {{ margin-bottom: 10px; }}
   .card-section-label {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }}
-  .card-section-value {{ font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: #A09080; line-height: 1.65; }}
-  .witness {{ font-size: 12px; color: #B0A090; line-height: 1.5; padding-left: 10px; margin-bottom: 4px; }}
-  .source-note {{ margin-top: 20px; padding: 12px 14px; background: rgba(255,255,255,0.012); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #706860; line-height: 1.6; }}
-  .empty {{ text-align: center; padding: 40px; color: #3A3530; font-size: 13px; }}
-  .chamber-senate {{ border-left: 3px solid rgba(200,169,110,0.5); }}
-  .chamber-house  {{ border-left: 3px solid rgba(100,160,200,0.45); }}
-  .chamber-joint  {{ border-left: 3px solid rgba(160,120,200,0.45); }}
-  .bc-senate {{ color: #C8A96E; }} .bc-house {{ color: #7FB3D3; }} .bc-joint {{ color: #B39DDB; }}
-  .sl-senate {{ color: #C8A96E; }} .sl-house {{ color: #7FB3D3; }} .sl-joint {{ color: #B39DDB; }}
-  .wb-senate {{ border-left: 2px solid rgba(200,169,110,0.5); }}
-  .wb-house  {{ border-left: 2px solid rgba(100,160,200,0.45); }}
-  .wb-joint  {{ border-left: 2px solid rgba(160,120,200,0.45); }}
+  .card-section-value {{ font-size: 12px; color: var(--text-secondary); line-height: 1.65; }}
+
+  .sl-senate {{ color: var(--gold); }}
+  .sl-house  {{ color: var(--blue); }}
+  .sl-joint  {{ color: var(--purple); }}
+
+  .witness {{ font-size: 12px; color: var(--text-secondary); line-height: 1.5; padding-left: 10px; margin-bottom: 4px; }}
+  .wb-senate {{ border-left: 2px solid var(--senate-accent); }}
+  .wb-house  {{ border-left: 2px solid var(--house-accent); }}
+  .wb-joint  {{ border-left: 2px solid var(--joint-accent); }}
+
+  .source-note {{
+    margin-top: 20px; padding: 12px 14px;
+    background: var(--bg-source); border: 1px solid var(--border-source);
+    border-radius: 6px; font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--text-dim); line-height: 1.6;
+  }}
+  .empty {{ text-align: center; padding: 40px; color: var(--text-faint); font-size: 13px; }}
 </style>
 </head>
 <body>
+
 <div class="header">
-  <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
-  <h1>Today's Hearings</h1>
-  <div class="header-timestamp">As of {generated} · {today_long} · Updates every 15 min · Schedules subject to change.</div>
+  <div class="header-left">
+    <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
+    <h1>Today's Hearings</h1>
+    <div class="header-timestamp">As of {generated} · {today_long} · Updates every 20 min · Schedules subject to change.</div>
+  </div>
+  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
+
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#888">{tc}</div><div class="stat-label">Total</div></div>
-  <div class="stat"><div class="stat-number" style="color:#C8A96E">{sc}</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:#7FB3D3">{hc}</div><div class="stat-label">House</div></div>
-  <div class="stat"><div class="stat-number" style="color:#B39DDB">{jc}</div><div class="stat-label">Joint</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">{tc}</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--gold)">{sc}</div><div class="stat-label">Senate</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">{hc}</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--purple)">{jc}</div><div class="stat-label">Joint</div></div>
 </div>
+
 <div class="filters">
   <button class="filter-btn active" onclick="setFilter('All')">All</button>
   <button class="filter-btn" onclick="setFilter('Senate')">Senate</button>
@@ -698,45 +909,98 @@ def build_html(hearings):
   <button class="filter-btn" onclick="setFilter('Updated')">⚡ Updated</button>
   <button class="filter-btn" onclick="setFilter('Cancelled')">✕ Cancelled</button>
 </div>
+
 <div class="cards">
   <div class="count-label" id="count-label"></div>
   <div id="card-list"></div>
-  <div class="source-note">ℹ Auto-updated every 15 min · docs.house.gov · senate.gov · Individual committee pages</div>
+  <div class="source-note">ℹ Auto-updated every 20 min · docs.house.gov · senate.gov · Individual committee pages</div>
 </div>
+
 <script>
 const HEARINGS = {hearings_json};
+
+// ── Theme system ──────────────────────────────────────────────────────────────
+function getSystemTheme() {{
+  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+}}
+
+function applyTheme(theme) {{
+  const root = document.documentElement;
+  root.classList.remove('light', 'dark');
+  root.classList.add(theme);
+  const btn = document.getElementById('theme-toggle');
+  btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+  btn.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+}}
+
+function toggleTheme() {{
+  const current = document.documentElement.classList.contains('light') ? 'light' : 'dark';
+  const next = current === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('theme', next);
+  applyTheme(next);
+}}
+
+// On load: use stored preference, or fall back to system
+(function() {{
+  const stored = localStorage.getItem('theme');
+  applyTheme(stored || getSystemTheme());
+}})();
+
+// Listen for system theme changes (e.g. auto dark mode at sunset)
+window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {{
+  if (!localStorage.getItem('theme')) {{
+    applyTheme(e.matches ? 'light' : 'dark');
+  }}
+}});
+
+// ── Cards ─────────────────────────────────────────────────────────────────────
 function cls(c) {{ return c==='Senate'?'senate':c==='House'?'house':'joint'; }}
+
 function buildCards(filter) {{
   let filtered;
   if (filter==='All')           filtered = HEARINGS;
   else if (filter==='Updated')  filtered = HEARINGS.filter(h=>h.changes&&h.changes.length>0);
   else if (filter==='Cancelled')filtered = HEARINGS.filter(h=>h.cancelled);
   else filtered = HEARINGS.filter(h=>h.chamber===filter);
+
   document.getElementById('count-label').textContent =
     filtered.length+' hearing'+(filtered.length!==1?'s':'')+' — tap any card to expand';
+
   const list = document.getElementById('card-list');
   list.innerHTML = '';
+
   if (!filtered.length) {{
     list.innerHTML='<div class="empty">No '+(filter!=='All'?filter.toLowerCase()+' ':'')+'hearings found.</div>';
     return;
   }}
+
   filtered.forEach(h => {{
     const c = cls(h.chamber);
     const hasChanges = h.changes&&h.changes.length>0;
     const card = document.createElement('div');
     card.className = ['card','chamber-'+c,h.cancelled?'cancelled':'',hasChanges?'has-changes':''].filter(Boolean).join(' ');
+
     const pills = hasChanges
       ? '<div class="change-pills">'+h.changes.map(ch=>
           '<span class="change-pill'+(ch.toLowerCase().includes('cancel')?' cancelled-pill':'')+
           '">⚡ '+ch+'</span>').join('')+'</div>'
       : '';
-    const chairVal = h.chair || '<span style="color:#4A4540;font-style:italic">Not yet posted</span>';
-    const aboutHtml = (h.details && h.details.trim() && h.details.trim() !== h.topic.trim() && h.details.length > h.topic.length + 20)
+
+    const chairVal = h.chair
+      ? h.chair
+      : '<span style="color:var(--text-faint);font-style:italic">Not yet posted</span>';
+
+    const aboutHtml = (h.details && h.details.trim() &&
+                       h.details.trim() !== h.topic.trim() &&
+                       h.details.length > h.topic.length + 20)
       ? '<div class="card-section"><div class="card-section-label sl-'+c+'">About</div><div class="card-section-value">'+h.details+'</div></div>'
       : '';
-    const witnessHtml = h.witnesses && h.witnesses.length && !h.witnesses.every(w=>w==='Witnesses not yet publicly posted')
+
+    const witnessHtml = h.witnesses && h.witnesses.length &&
+                        !h.witnesses.every(w=>w==='Witnesses not yet publicly posted')
       ? h.witnesses.map(w=>'<div class="witness wb-'+c+'">'+w+'</div>').join('')
-      : '<div style="color:#4A4540;font-style:italic;font-size:12px;padding-left:10px">Not yet posted</div>';
+      : '<div style="color:var(--text-faint);font-style:italic;font-size:12px;padding-left:10px">Not yet posted</div>';
+
     card.innerHTML = `
       <div class="card-top">
         <div class="card-left">
@@ -765,16 +1029,19 @@ function buildCards(filter) {{
           ${{witnessHtml}}
         </div>
       </div>`;
+
     card.addEventListener('click',()=>card.classList.toggle('open'));
     list.appendChild(card);
   }});
 }}
+
 function setFilter(f) {{
   document.querySelectorAll('.filter-btn').forEach(b=>
     b.classList.toggle('active',
       b.textContent.replace('⚡ ','').replace('✕ ','')===f||(f==='All'&&b.textContent==='All')));
   buildCards(f);
 }}
+
 buildCards('All');
 </script>
 </body>
