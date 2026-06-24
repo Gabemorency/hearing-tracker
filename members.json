@@ -1,6 +1,6 @@
 {
   "date": "2026-06-24",
-  "generated": "6:06 PM ET",
+  "generated": "6:21 PM ET",
   "senators": [
     {
       "bioguide_id": "B001299",
@@ -16,8 +16,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001299.jpg",
       "initials": "JB",
       "leadership": {
-        "label": "Chair, Health, Education, Labor, and Pensi",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Health, Education, Labor, and Pensions — Employment and Workplace Safety"
       },
       "committees": [
         {
@@ -101,8 +102,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001261.jpg",
       "initials": "JB",
       "leadership": {
-        "label": "Chair, Energy and Natural Resources — Publ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Energy and Natural Resources — Public Lands, Forests, and Mining"
       },
       "committees": [
         {
@@ -186,8 +188,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001243.jpg",
       "initials": "MB",
       "leadership": {
-        "label": "Chair, Commerce, Science, and Transportati",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Commerce, Science, and Transportation — Consumer Protection, Technology, and Data Privacy"
       },
       "committees": [
         {
@@ -281,8 +284,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001236.jpg",
       "initials": "JB",
       "leadership": {
-        "label": "Chair, Agriculture, Nutrition, and Forestr",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry"
       },
       "committees": [
         {
@@ -401,8 +405,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001319.jpg",
       "initials": "KB",
       "leadership": {
-        "label": "Chair, Appropriations — Department of Home",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations — Department of Homeland Security"
       },
       "committees": [
         {
@@ -511,8 +516,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001305.jpg",
       "initials": "TB",
       "leadership": {
-        "label": "Chair, Commerce, Science, and Transportati",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Commerce, Science, and Transportation — Science, Manufacturing, and Competitiveness"
       },
       "committees": [
         {
@@ -591,8 +597,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001047.jpg",
       "initials": "SC",
       "leadership": {
-        "label": "Chair, Appropriations — Departments of Lab",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies"
       },
       "committees": [
         {
@@ -701,8 +708,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001075.jpg",
       "initials": "BC",
       "leadership": {
-        "label": "Chair, Health, Education, Labor, and Pensi",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Health, Education, Labor, and Pensions"
       },
       "committees": [
         {
@@ -786,8 +794,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001035.jpg",
       "initials": "SC",
       "leadership": {
-        "label": "Chair, Appropriations",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations"
       },
       "committees": [
         {
@@ -886,8 +895,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001056.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "Chair, Finance — International Trade, Cust",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Finance — International Trade, Customs, and Global Competitiveness"
       },
       "committees": [
         {
@@ -991,8 +1001,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001095.jpg",
       "initials": "TC",
       "leadership": {
-        "label": "Chair, Intelligence",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Select Committee on Intelligence"
       },
       "committees": [
         {
@@ -1061,8 +1072,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001096.jpg",
       "initials": "KC",
       "leadership": {
-        "label": "Chair, Armed Services — Airland",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Armed Services — Airland"
       },
       "committees": [
         {
@@ -1151,8 +1163,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C000880.jpg",
       "initials": "MC",
       "leadership": {
-        "label": "Chair, Finance",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Finance"
       },
       "committees": [
         {
@@ -1236,8 +1249,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001098.jpg",
       "initials": "TC",
       "leadership": {
-        "label": "Chair, Commerce, Science, and Transportati",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Commerce, Science, and Transportation"
       },
       "committees": [
         {
@@ -1341,8 +1355,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001114.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "Chair, Environment and Public Works — Chem",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Environment and Public Works — Chemical Safety, Waste Management, Environmental Justice, and Regulatory Oversight"
       },
       "committees": [
         {
@@ -1426,8 +1441,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000618.jpg",
       "initials": "SD",
       "leadership": {
-        "label": "Chair, Energy and Natural Resources — Nati",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Energy and Natural Resources — National Parks"
       },
       "committees": [
         {
@@ -1511,8 +1527,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000295.jpg",
       "initials": "JE",
       "leadership": {
-        "label": "Chair, Agriculture, Nutrition, and Forestr",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Rural Development, Energy, and Credit"
       },
       "committees": [
         {
@@ -1591,8 +1608,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000463.jpg",
       "initials": "DF",
       "leadership": {
-        "label": "Chair, Appropriations — Legislative Branch",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations — Legislative Branch"
       },
       "committees": [
         {
@@ -1721,8 +1739,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000359.jpg",
       "initials": "LG",
       "leadership": {
-        "label": "Chair, Appropriations — State, Foreign Ope",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs"
       },
       "committees": [
         {
@@ -1826,8 +1845,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000386.jpg",
       "initials": "CG",
       "leadership": {
-        "label": "Chair, Finance — Social Security, Pensions",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Finance — Social Security, Pensions, and Family Policy"
       },
       "committees": [
         {
@@ -1906,8 +1926,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H000601.jpg",
       "initials": "BH",
       "leadership": {
-        "label": "Chair, Appropriations — Financial Services",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations — Financial Services and General Government"
       },
       "committees": [
         {
@@ -2011,8 +2032,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001089.jpg",
       "initials": "JH",
       "leadership": {
-        "label": "Chair, Homeland Security and Governmental ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Homeland Security and Governmental Affairs — Disaster Management, District of Columbia, and Census"
       },
       "committees": [
         {
@@ -2091,8 +2113,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001061.jpg",
       "initials": "JH",
       "leadership": {
-        "label": "Chair, Agriculture, Nutrition, and Forestr",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety"
       },
       "committees": [
         {
@@ -2186,8 +2209,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001079.jpg",
       "initials": "CH",
       "leadership": {
-        "label": "Chair, Agriculture, Nutrition, and Forestr",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade"
       },
       "committees": [
         {
@@ -2286,8 +2310,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000293.jpg",
       "initials": "RJ",
       "leadership": {
-        "label": "Chair, Finance — Fiscal Responsibility and",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Finance — Fiscal Responsibility and Economic Growth"
       },
       "committees": [
         {
@@ -2351,8 +2376,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000393.jpg",
       "initials": "JK",
       "leadership": {
-        "label": "Chair, Appropriations — Energy and Water D",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations — Energy and Water Development"
       },
       "committees": [
         {
@@ -2456,8 +2482,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000575.jpg",
       "initials": "JL",
       "leadership": {
-        "label": "Chair, Finance — Energy, Natural Resources",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Finance — Energy, Natural Resources, and Infrastructure"
       },
       "committees": [
         {
@@ -2521,8 +2548,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000577.jpg",
       "initials": "ML",
       "leadership": {
-        "label": "Chair, Energy and Natural Resources",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Energy and Natural Resources"
       },
       "committees": [
         {
@@ -2616,8 +2644,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000571.jpg",
       "initials": "CL",
       "leadership": {
-        "label": "Chair, Environment and Public Works — Clea",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Environment and Public Works — Clean Air, Climate, and Nuclear Innovation and Safety"
       },
       "committees": [
         {
@@ -2696,8 +2725,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001198.jpg",
       "initials": "RM",
       "leadership": {
-        "label": "Chair, Agriculture, Nutrition, and Forestr",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Conservation, Forestry, Natural Resources, and Biotechnology"
       },
       "committees": [
         {
@@ -2771,8 +2801,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M000355.jpg",
       "initials": "MM",
       "leadership": {
-        "label": "Chair, Agriculture, Nutrition, and Forestr",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Food and Nutrition, Specialty Crops, Organics, and Research"
       },
       "committees": [
         {
@@ -2861,8 +2892,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001243.jpg",
       "initials": "DM",
       "leadership": {
-        "label": "Chair, Energy and Natural Resources — Ener",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Energy and Natural Resources — Energy"
       },
       "committees": [
         {
@@ -2946,8 +2978,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M000934.jpg",
       "initials": "JM",
       "leadership": {
-        "label": "Chair, Appropriations — Commerce, Justice,",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations — Commerce, Justice, Science, and Related Agencies"
       },
       "committees": [
         {
@@ -3051,8 +3084,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001153.jpg",
       "initials": "LM",
       "leadership": {
-        "label": "Chair, Appropriations — Department of Inte",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Appropriations — Department of Interior, Environment, and Related Agencies"
       },
       "committees": [
         {
@@ -3141,8 +3175,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000603.jpg",
       "initials": "RP",
       "leadership": {
-        "label": "Chair, Homeland Security and Governmental ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Homeland Security and Governmental Affairs"
       },
       "committees": [
         {
@@ -3226,8 +3261,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000618.jpg",
       "initials": "PR",
       "leadership": {
-        "label": "Chair, Environment and Public Works — Fish",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water"
       },
       "committees": [
         {
@@ -3311,8 +3347,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000584.jpg",
       "initials": "JR",
       "leadership": {
-        "label": "Chair, Foreign Relations",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Foreign Relations"
       },
       "committees": [
         {
@@ -3411,8 +3448,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000605.jpg",
       "initials": "MR",
       "leadership": {
-        "label": "Chair, Armed Services — Cybersecurity",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Armed Services — Cybersecurity"
       },
       "committees": [
         {
@@ -3521,8 +3559,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001227.jpg",
       "initials": "ES",
       "leadership": {
-        "label": "Chair, the Judiciary — the Constitution",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on the Judiciary — the Constitution"
       },
       "committees": [
         {
@@ -3621,8 +3660,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001184.jpg",
       "initials": "TS",
       "leadership": {
-        "label": "Chair, Banking, Housing, and Urban Affairs",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Banking, Housing, and Urban Affairs"
       },
       "committees": [
         {
@@ -3716,8 +3756,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001217.jpg",
       "initials": "RS",
       "leadership": {
-        "label": "Chair, Armed Services — Seapower",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Armed Services — Seapower"
       },
       "committees": [
         {
@@ -3801,8 +3842,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001198.jpg",
       "initials": "DS",
       "leadership": {
-        "label": "Chair, Armed Services — Readiness and Mana",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Armed Services — Readiness and Management Support"
       },
       "committees": [
         {
@@ -3886,8 +3928,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000476.jpg",
       "initials": "TT",
       "leadership": {
-        "label": "Chair, Banking, Housing, and Urban Affairs",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Banking, Housing, and Urban Affairs — Financial Institutions and Consumer Protection"
       },
       "committees": [
         {
@@ -3981,8 +4024,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000278.jpg",
       "initials": "TT",
       "leadership": {
-        "label": "Chair, Armed Services — Personnel",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Armed Services — Personnel"
       },
       "committees": [
         {
@@ -4066,8 +4110,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000437.jpg",
       "initials": "RW",
       "leadership": {
-        "label": "Chair, Armed Services",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Armed Services"
       },
       "committees": [
         {
@@ -4181,8 +4226,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/Y/Y000064.jpg",
       "initials": "TY",
       "leadership": {
-        "label": "Chair, Commerce, Science, and Transportati",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Senate Committee on Commerce, Science, and Transportation — Surface Transportation, Freight, Pipelines, and Safety"
       },
       "committees": [
         {
@@ -4256,8 +4302,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000382.jpg",
       "initials": "AA",
       "leadership": {
-        "label": "RM, Environment and Public Works —",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Environment and Public Works — Transportation and Infrastructure"
       },
       "committees": [
         {
@@ -4331,8 +4378,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001230.jpg",
       "initials": "TB",
       "leadership": {
-        "label": "RM, Appropriations — Departments o",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies"
       },
       "committees": [
         {
@@ -4426,8 +4474,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001267.jpg",
       "initials": "MB",
       "leadership": {
-        "label": "RM, Agriculture, Nutrition, and Fo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Conservation, Forestry, Natural Resources, and Biotechnology"
       },
       "committees": [
         {
@@ -4491,8 +4540,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001277.jpg",
       "initials": "RB",
       "leadership": {
-        "label": "RM, Homeland Security and Governme",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Homeland Security and Governmental Affairs — Permanent Subcommittee on Investigations"
       },
       "committees": [
         {
@@ -4581,8 +4631,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001303.jpg",
       "initials": "LR",
       "leadership": {
-        "label": "RM, Commerce, Science, and Transpo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Commerce, Science, and Transportation — Coast Guard, Maritime, and Fisheries"
       },
       "committees": [
         {
@@ -4681,8 +4732,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001288.jpg",
       "initials": "CB",
       "leadership": {
-        "label": "RM, Agriculture, Nutrition, and Fo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade"
       },
       "committees": [
         {
@@ -4771,8 +4823,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C000127.jpg",
       "initials": "MC",
       "leadership": {
-        "label": "RM, Commerce, Science, and Transpo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Commerce, Science, and Transportation"
       },
       "committees": [
         {
@@ -4856,8 +4909,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001088.jpg",
       "initials": "CC",
       "leadership": {
-        "label": "RM, Appropriations — Department of",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Department of Defense"
       },
       "committees": [
         {
@@ -4971,8 +5025,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001113.jpg",
       "initials": "CM",
       "leadership": {
-        "label": "RM, Banking, Housing, and Urban Af",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Banking, Housing, and Urban Affairs — Financial Institutions and Consumer Protection"
       },
       "committees": [
         {
@@ -5056,8 +5111,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000622.jpg",
       "initials": "TD",
       "leadership": {
-        "label": "RM, Commerce, Science, and Transpo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Commerce, Science, and Transportation — Aviation, Space, and Innovation"
       },
       "committees": [
         {
@@ -5141,8 +5197,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000563.jpg",
       "initials": "RD",
       "leadership": {
-        "label": "RM, the Judiciary",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on the Judiciary"
       },
       "committees": [
         {
@@ -5221,8 +5278,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000479.jpg",
       "initials": "JF",
       "leadership": {
-        "label": "RM, Homeland Security and Governme",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Homeland Security and Governmental Affairs — Border Management, Federal Workforce, and Regulatory Affairs"
       },
       "committees": [
         {
@@ -5291,8 +5349,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000574.jpg",
       "initials": "RG",
       "leadership": {
-        "label": "RM, Energy and Natural Resources —",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Energy and Natural Resources — Energy"
       },
       "committees": [
         {
@@ -5371,8 +5430,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000555.jpg",
       "initials": "KG",
       "leadership": {
-        "label": "RM, Appropriations — Transportatio",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies"
       },
       "committees": [
         {
@@ -5451,8 +5511,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001076.jpg",
       "initials": "MH",
       "leadership": {
-        "label": "RM, Finance — Health Care",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Finance — Health Care"
       },
       "committees": [
         {
@@ -5531,8 +5592,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001046.jpg",
       "initials": "MH",
       "leadership": {
-        "label": "RM, Appropriations — Legislative B",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Legislative Branch"
       },
       "committees": [
         {
@@ -5616,8 +5678,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H000273.jpg",
       "initials": "JH",
       "leadership": {
-        "label": "RM, Commerce, Science, and Transpo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Commerce, Science, and Transportation — Consumer Protection, Technology, and Data Privacy"
       },
       "committees": [
         {
@@ -5701,8 +5764,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001042.jpg",
       "initials": "MH",
       "leadership": {
-        "label": "RM, Armed Services — Readiness and",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Armed Services — Readiness and Management Support"
       },
       "committees": [
         {
@@ -5796,8 +5860,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000384.jpg",
       "initials": "TK",
       "leadership": {
-        "label": "RM, Armed Services — Seapower",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Armed Services — Seapower"
       },
       "committees": [
         {
@@ -5876,8 +5941,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000377.jpg",
       "initials": "MK",
       "leadership": {
-        "label": "RM, Armed Services — Airland",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Armed Services — Airland"
       },
       "committees": [
         {
@@ -5951,8 +6017,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000394.jpg",
       "initials": "AK",
       "leadership": {
-        "label": "RM, Banking, Housing, and Urban Af",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Banking, Housing, and Urban Affairs — National Security and International Trade and Finance"
       },
       "committees": [
         {
@@ -6046,8 +6113,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000383.jpg",
       "initials": "AJ",
       "leadership": {
-        "label": "RM, Armed Services — Strategic For",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Armed Services — Strategic Forces"
       },
       "committees": [
         {
@@ -6116,8 +6184,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000367.jpg",
       "initials": "AK",
       "leadership": {
-        "label": "RM, Agriculture, Nutrition, and Fo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry"
       },
       "committees": [
         {
@@ -6226,8 +6295,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000570.jpg",
       "initials": "BL",
       "leadership": {
-        "label": "RM, Agriculture, Nutrition, and Fo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Food and Nutrition, Specialty Crops, Organics, and Research"
       },
       "committees": [
         {
@@ -6321,8 +6391,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M000133.jpg",
       "initials": "EM",
       "leadership": {
-        "label": "RM, Health, Education, Labor, and ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Health, Education, Labor, and Pensions — Primary Health and Retirement Security"
       },
       "committees": [
         {
@@ -6401,8 +6472,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001176.jpg",
       "initials": "JM",
       "leadership": {
-        "label": "RM, Appropriations — Department of",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Department of Interior, Environment, and Related Agencies"
       },
       "committees": [
         {
@@ -6511,8 +6583,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001169.jpg",
       "initials": "CM",
       "leadership": {
-        "label": "RM, Appropriations — Department of",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Department of Homeland Security"
       },
       "committees": [
         {
@@ -6596,8 +6669,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001111.jpg",
       "initials": "PM",
       "leadership": {
-        "label": "RM, Appropriations",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations"
       },
       "committees": [
         {
@@ -6706,8 +6780,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/O/O000174.jpg",
       "initials": "JO",
       "leadership": {
-        "label": "RM, Appropriations — Military Cons",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Military Construction, Veterans Affairs, and Related Agencies"
       },
       "committees": [
         {
@@ -6766,8 +6841,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000145.jpg",
       "initials": "AP",
       "leadership": {
-        "label": "RM, Rules and Administration",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Rules and Administration"
       },
       "committees": [
         {
@@ -6871,8 +6947,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000595.jpg",
       "initials": "GP",
       "leadership": {
-        "label": "RM, Commerce, Science, and Transpo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Commerce, Science, and Transportation — Surface Transportation, Freight, Pipelines, and Safety"
       },
       "committees": [
         {
@@ -6986,8 +7063,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000122.jpg",
       "initials": "JR",
       "leadership": {
-        "label": "RM, Appropriations — Financial Ser",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Financial Services and General Government"
       },
       "committees": [
         {
@@ -7106,8 +7184,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000608.jpg",
       "initials": "JR",
       "leadership": {
-        "label": "RM, Armed Services — Cybersecurity",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Armed Services — Cybersecurity"
       },
       "committees": [
         {
@@ -7191,8 +7270,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000033.jpg",
       "initials": "BS",
       "leadership": {
-        "label": "RM, Finance — Social Security, Pen",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Finance — Social Security, Pensions, and Family Policy"
       },
       "committees": [
         {
@@ -7281,8 +7361,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001194.jpg",
       "initials": "BS",
       "leadership": {
-        "label": "RM, Appropriations — State, Foreig",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs"
       },
       "committees": [
         {
@@ -7391,8 +7472,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001150.jpg",
       "initials": "AS",
       "leadership": {
-        "label": "RM, Environment and Public Works —",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water"
       },
       "committees": [
         {
@@ -7476,8 +7558,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001181.jpg",
       "initials": "JS",
       "leadership": {
-        "label": "RM, Appropriations — Agriculture, ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Agriculture, Rural Development, Food and Drug Administration, and Related Agencies"
       },
       "committees": [
         {
@@ -7606,8 +7689,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001208.jpg",
       "initials": "ES",
       "leadership": {
-        "label": "RM, Agriculture, Nutrition, and Fo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety"
       },
       "committees": [
         {
@@ -7681,8 +7765,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001203.jpg",
       "initials": "TS",
       "leadership": {
-        "label": "RM, Banking, Housing, and Urban Af",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Banking, Housing, and Urban Affairs — Housing, Transportation, and Community Development"
       },
       "committees": [
         {
@@ -7766,8 +7851,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/V/V000128.jpg",
       "initials": "CH",
       "leadership": {
-        "label": "RM, Appropriations — Commerce, Jus",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Appropriations — Commerce, Justice, Science, and Related Agencies"
       },
       "committees": [
         {
@@ -7861,8 +7947,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000805.jpg",
       "initials": "MW",
       "leadership": {
-        "label": "RM, Banking, Housing, and Urban Af",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Banking, Housing, and Urban Affairs — Securities, Insurance, and Investment"
       },
       "committees": [
         {
@@ -7936,8 +8023,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000790.jpg",
       "initials": "RW",
       "leadership": {
-        "label": "RM, Banking, Housing, and Urban Af",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Banking, Housing, and Urban Affairs — Economic Policy"
       },
       "committees": [
         {
@@ -8021,8 +8109,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000817.jpg",
       "initials": "EW",
       "leadership": {
-        "label": "RM, Armed Services — Personnel",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Armed Services — Personnel"
       },
       "committees": [
         {
@@ -8121,8 +8210,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000800.jpg",
       "initials": "PW",
       "leadership": {
-        "label": "RM, Agriculture, Nutrition, and Fo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Rural Development, Energy, and Credit"
       },
       "committees": [
         {
@@ -8206,8 +8296,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000802.jpg",
       "initials": "SW",
       "leadership": {
-        "label": "RM, Environment and Public Works",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Environment and Public Works"
       },
       "committees": [
         {
@@ -8311,8 +8402,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000779.jpg",
       "initials": "RW",
       "leadership": {
-        "label": "RM, Energy and Natural Resources —",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "Senate Committee on Energy and Natural Resources — Water and Power"
       },
       "committees": [
         {
@@ -8974,8 +9066,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000055.jpg",
       "initials": "RA",
       "leadership": {
-        "label": "Chair, Appropriations — Labor, Health and ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Labor, Health and Human Services, Education, and Related Agencies"
       },
       "committees": [
         {
@@ -9014,8 +9107,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000379.jpg",
       "initials": "MA",
       "leadership": {
-        "label": "Chair, Small Business — Oversight, Investi",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Small Business — Oversight, Investigations, and Regulations"
       },
       "committees": [
         {
@@ -9074,8 +9168,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000372.jpg",
       "initials": "RA",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Communication",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Communications and Technology"
       },
       "committees": [
         {
@@ -9124,8 +9219,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000369.jpg",
       "initials": "MA",
       "leadership": {
-        "label": "Chair, Appropriations — Homeland Security",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Homeland Security"
       },
       "committees": [
         {
@@ -9179,8 +9275,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000375.jpg",
       "initials": "JA",
       "leadership": {
-        "label": "Chair, the Budget",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on the Budget"
       },
       "committees": [
         {
@@ -9224,8 +9321,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001291.jpg",
       "initials": "BB",
       "leadership": {
-        "label": "Chair, Science, Space, and Technology",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Science, Space, and Technology"
       },
       "committees": [
         {
@@ -9264,8 +9362,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001298.jpg",
       "initials": "DB",
       "leadership": {
-        "label": "Chair, Armed Services — Cyber, Information",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Armed Services — Cyber, Information Technologies, and Innovation"
       },
       "committees": [
         {
@@ -9314,8 +9413,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001307.jpg",
       "initials": "JB",
       "leadership": {
-        "label": "Chair, Agriculture — Conservation, Researc",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Conservation, Research, and Biotechnology"
       },
       "committees": [
         {
@@ -9389,8 +9489,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001306.jpg",
       "initials": "TB",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Oversight and",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Oversight and Investigations"
       },
       "committees": [
         {
@@ -9429,8 +9530,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001282.jpg",
       "initials": "AB",
       "leadership": {
-        "label": "Chair, Financial Services — Financial Inst",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — Financial Institutions"
       },
       "committees": [
         {
@@ -9479,8 +9581,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001321.jpg",
       "initials": "TB",
       "leadership": {
-        "label": "Chair, Veterans' Affairs — Technology Mode",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Veterans' Affairs — Technology Modernization"
       },
       "committees": [
         {
@@ -9534,8 +9637,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001323.jpg",
       "initials": "NI",
       "leadership": {
-        "label": "Chair, Natural Resources — Energy and Mine",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Energy and Mineral Resources"
       },
       "committees": [
         {
@@ -9609,8 +9713,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001301.jpg",
       "initials": "JB",
       "leadership": {
-        "label": "Chair, Armed Services — Readiness",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Armed Services — Readiness"
       },
       "committees": [
         {
@@ -9664,8 +9769,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B000740.jpg",
       "initials": "SB",
       "leadership": {
-        "label": "Chair, Appropriations — Transportation, Ho",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies"
       },
       "committees": [
         {
@@ -9714,8 +9820,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001302.jpg",
       "initials": "AB",
       "leadership": {
-        "label": "Chair, the Judiciary — Crime and Federal G",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on the Judiciary — Crime and Federal Government Surveillance"
       },
       "committees": [
         {
@@ -9764,8 +9871,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001257.jpg",
       "initials": "GB",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Commerce, Man",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Commerce, Manufacturing, and Trade"
       },
       "committees": [
         {
@@ -9809,8 +9917,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B000825.jpg",
       "initials": "LB",
       "leadership": {
-        "label": "Chair, Natural Resources — Oversight and I",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Oversight and Investigations"
       },
       "committees": [
         {
@@ -9864,8 +9973,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001295.jpg",
       "initials": "MB",
       "leadership": {
-        "label": "Chair, Veterans' Affairs",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Veterans' Affairs"
       },
       "committees": [
         {
@@ -9919,8 +10029,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001317.jpg",
       "initials": "JB",
       "leadership": {
-        "label": "Chair, Homeland Security — Oversight, Inve",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Homeland Security — Oversight, Investigations, and Accountability"
       },
       "committees": [
         {
@@ -9959,8 +10070,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001260.jpg",
       "initials": "VB",
       "leadership": {
-        "label": "Chair, Ways and Means — Health",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Ways and Means — Health"
       },
       "committees": [
         {
@@ -9999,8 +10111,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001309.jpg",
       "initials": "TB",
       "leadership": {
-        "label": "Chair, Oversight and Government Reform — D",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency"
       },
       "committees": [
         {
@@ -10069,8 +10182,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001316.jpg",
       "initials": "EB",
       "leadership": {
-        "label": "Chair, Oversight and Government Reform — E",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Oversight and Government Reform — Economic Growth, Energy Policy, and Regulatory Affairs"
       },
       "committees": [
         {
@@ -10129,8 +10243,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C000059.jpg",
       "initials": "KC",
       "leadership": {
-        "label": "Chair, Appropriations — Defense",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Defense"
       },
       "committees": [
         {
@@ -10164,8 +10279,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001051.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "Chair, Appropriations — Military Construct",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Military Construction, Veterans Affairs, and Related Agencies"
       },
       "committees": [
         {
@@ -10204,8 +10320,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001133.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "Chair, Appropriations — Homeland Security",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Homeland Security"
       },
       "committees": [
         {
@@ -10259,8 +10376,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001115.jpg",
       "initials": "MC",
       "leadership": {
-        "label": "Chair, Appropriations — Energy and Water D",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Energy and Water Development and Related Agencies"
       },
       "committees": [
         {
@@ -10314,8 +10432,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001053.jpg",
       "initials": "TC",
       "leadership": {
-        "label": "Chair, Appropriations",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations"
       },
       "committees": [
         {
@@ -10339,8 +10458,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001129.jpg",
       "initials": "MC",
       "leadership": {
-        "label": "Chair, Transportation and Infrastructure —",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Transportation and Infrastructure — Water Resources and Environment"
       },
       "committees": [
         {
@@ -10399,8 +10519,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001108.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "Chair, Oversight and Government Reform",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Oversight and Government Reform"
       },
       "committees": [
         {
@@ -10439,8 +10560,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001087.jpg",
       "initials": "EC",
       "leadership": {
-        "label": "Chair, Transportation and Infrastructure",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Transportation and Infrastructure"
       },
       "committees": [
         {
@@ -10489,8 +10611,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001120.jpg",
       "initials": "DC",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Environment",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Environment"
       },
       "committees": [
         {
@@ -10544,8 +10667,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000626.jpg",
       "initials": "WD",
       "leadership": {
-        "label": "Chair, Financial Services — National Secur",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — National Security, Illicit Finance, and International Financial Institutions"
       },
       "committees": [
         {
@@ -10599,8 +10723,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000594.jpg",
       "initials": "MC",
       "leadership": {
-        "label": "Chair, Agriculture — Nutrition and Foreign",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Nutrition and Foreign Agriculture"
       },
       "committees": [
         {
@@ -10649,8 +10774,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000616.jpg",
       "initials": "SD",
       "leadership": {
-        "label": "Chair, Armed Services — Strategic Forces",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Armed Services — Strategic Forces"
       },
       "committees": [
         {
@@ -10699,8 +10825,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000600.jpg",
       "initials": "MD",
       "leadership": {
-        "label": "Chair, Appropriations",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations"
       },
       "committees": [
         {
@@ -10734,8 +10861,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000628.jpg",
       "initials": "ND",
       "leadership": {
-        "label": "Chair, Energy and Commerce",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce"
       },
       "committees": [
         {
@@ -10779,8 +10907,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000246.jpg",
       "initials": "CE",
       "leadership": {
-        "label": "Chair, Appropriations — National Security,",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — National Security, Department of State, and Related Programs"
       },
       "committees": [
         {
@@ -10819,8 +10948,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000071.jpg",
       "initials": "JE",
       "leadership": {
-        "label": "Chair, Small Business — Rural Development,",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Small Business — Rural Development, Energy, and Supply Chains"
       },
       "committees": [
         {
@@ -10874,8 +11004,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000294.jpg",
       "initials": "TE",
       "leadership": {
-        "label": "Chair, Financial Services — Digital Assets",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — Digital Assets, Financial Technology, and Artificial Intelligence"
       },
       "committees": [
         {
@@ -10904,8 +11035,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000298.jpg",
       "initials": "RE",
       "leadership": {
-        "label": "Chair, Ways and Means — Social Security",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Ways and Means — Social Security"
       },
       "committees": [
         {
@@ -10949,8 +11081,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000235.jpg",
       "initials": "ME",
       "leadership": {
-        "label": "Chair, Natural Resources — Water, Wildlife",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Water, Wildlife and Fisheries"
       },
       "committees": [
         {
@@ -10999,8 +11132,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000246.jpg",
       "initials": "PF",
       "leadership": {
-        "label": "Chair, Armed Services — Military Personnel",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Armed Services — Military Personnel"
       },
       "committees": [
         {
@@ -11059,8 +11193,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000475.jpg",
       "initials": "BF",
       "leadership": {
-        "label": "Chair, Agriculture — Nutrition and Foreign",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Nutrition and Foreign Agriculture"
       },
       "committees": [
         {
@@ -11134,8 +11269,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000470.jpg",
       "initials": "MF",
       "leadership": {
-        "label": "Chair, Rules — Rules and Organization of t",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Rules — Rules and Organization of the House"
       },
       "committees": [
         {
@@ -11179,8 +11315,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000471.jpg",
       "initials": "SF",
       "leadership": {
-        "label": "Chair, the Judiciary — The Administrative ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on the Judiciary — The Administrative State, Regulatory Reform, and Antitrust"
       },
       "committees": [
         {
@@ -11229,8 +11366,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000466.jpg",
       "initials": "BF",
       "leadership": {
-        "label": "Chair, House Permanent Select Committee on",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Permanent Select Committee on Intelligence — Central Intelligence Agency"
       },
       "committees": [
         {
@@ -11279,8 +11417,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000459.jpg",
       "initials": "CF",
       "leadership": {
-        "label": "Chair, Appropriations — Energy and Water D",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Energy and Water Development and Related Agencies"
       },
       "committees": [
         {
@@ -11329,8 +11468,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000474.jpg",
       "initials": "MF",
       "leadership": {
-        "label": "Chair, Financial Services — Housing and In",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — Housing and Insurance"
       },
       "committees": [
         {
@@ -11364,8 +11504,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000450.jpg",
       "initials": "VF",
       "leadership": {
-        "label": "Chair, Rules",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Rules"
       },
       "committees": [
         {
@@ -11409,8 +11550,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000472.jpg",
       "initials": "SF",
       "leadership": {
-        "label": "Chair, Science, Space, and Technology — En",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Science, Space, and Technology — Environment"
       },
       "committees": [
         {
@@ -11459,8 +11601,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000469.jpg",
       "initials": "RF",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Commerce, Man",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Commerce, Manufacturing, and Trade"
       },
       "committees": [
         {
@@ -11514,8 +11657,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000597.jpg",
       "initials": "AG",
       "leadership": {
-        "label": "Chair, Homeland Security",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Homeland Security"
       },
       "committees": [
         {
@@ -11564,8 +11708,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000593.jpg",
       "initials": "CG",
       "leadership": {
-        "label": "Chair, Homeland Security — Transportation ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Homeland Security — Transportation and Maritime Security"
       },
       "committees": [
         {
@@ -11619,8 +11764,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000565.jpg",
       "initials": "PG",
       "leadership": {
-        "label": "Chair, Natural Resources — Oversight and I",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Oversight and Investigations"
       },
       "committees": [
         {
@@ -11669,8 +11815,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000546.jpg",
       "initials": "SG",
       "leadership": {
-        "label": "Chair, Transportation and Infrastructure",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Transportation and Infrastructure"
       },
       "committees": [
         {
@@ -11704,8 +11851,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000568.jpg",
       "initials": "HG",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Health",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Health"
       },
       "committees": [
         {
@@ -11764,8 +11912,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000576.jpg",
       "initials": "GG",
       "leadership": {
-        "label": "Chair, Oversight and Government Reform — H",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Oversight and Government Reform — Health Care and Financial Services"
       },
       "committees": [
         {
@@ -11829,8 +11978,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000591.jpg",
       "initials": "MG",
       "leadership": {
-        "label": "Chair, Ethics",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Ethics"
       },
       "committees": [
         {
@@ -11884,8 +12034,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000558.jpg",
       "initials": "BG",
       "leadership": {
-        "label": "Chair, Energy and Commerce",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce"
       },
       "committees": [
         {
@@ -11909,8 +12060,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001096.jpg",
       "initials": "HH",
       "leadership": {
-        "label": "Chair, Natural Resources — Water, Wildlife",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Water, Wildlife and Fisheries"
       },
       "committees": [
         {
@@ -11964,8 +12116,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001099.jpg",
       "initials": "MH",
       "leadership": {
-        "label": "Chair, Science, Space, and Technology — Sp",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Science, Space, and Technology — Space and Aeronautics"
       },
       "committees": [
         {
@@ -12014,8 +12167,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001052.jpg",
       "initials": "AH",
       "leadership": {
-        "label": "Chair, Appropriations — Agriculture, Rural",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Agriculture, Rural Development, Food and Drug Administration, and Related Agencies"
       },
       "committees": [
         {
@@ -12049,8 +12203,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001086.jpg",
       "initials": "DH",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Health",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Health"
       },
       "committees": [
         {
@@ -12089,8 +12244,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001077.jpg",
       "initials": "CH",
       "leadership": {
-        "label": "Chair, Oversight and Government Reform — F",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Oversight and Government Reform — Federal Law Enforcement"
       },
       "committees": [
         {
@@ -12144,8 +12300,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001072.jpg",
       "initials": "JH",
       "leadership": {
-        "label": "Chair, Financial Services",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services"
       },
       "committees": [
         {
@@ -12184,8 +12341,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001067.jpg",
       "initials": "RH",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Communication",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Communications and Technology"
       },
       "committees": [
         {
@@ -12214,8 +12372,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001058.jpg",
       "initials": "BH",
       "leadership": {
-        "label": "Chair, Foreign Affairs — South and Central",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Foreign Affairs — South and Central Asia"
       },
       "committees": [
         {
@@ -12264,8 +12423,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001100.jpg",
       "initials": "JH",
       "leadership": {
-        "label": "Chair, Natural Resources — Indian and Insu",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Indian and Insular Affairs"
       },
       "committees": [
         {
@@ -12334,8 +12494,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/I/I000056.jpg",
       "initials": "DI",
       "leadership": {
-        "label": "Chair, the Judiciary — Courts, Intellectua",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on the Judiciary — Courts, Intellectual Property, Artificial Intelligence, and the Internet"
       },
       "committees": [
         {
@@ -12399,8 +12560,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000311.jpg",
       "initials": "BJ",
       "leadership": {
-        "label": "Chair, Small Business — Innovation, Entrep",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Small Business — Innovation, Entrepreneurship, and Workforce Development"
       },
       "committees": [
         {
@@ -12464,8 +12626,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000304.jpg",
       "initials": "RJ",
       "leadership": {
-        "label": "Chair, Armed Services — Intelligence and S",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Armed Services — Intelligence and Special Operations"
       },
       "committees": [
         {
@@ -12549,8 +12712,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000301.jpg",
       "initials": "DJ",
       "leadership": {
-        "label": "Chair, Agriculture — Commodity Markets, Di",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Commodity Markets, Digital Assets, and Rural Development"
       },
       "committees": [
         {
@@ -12609,8 +12773,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000289.jpg",
       "initials": "JJ",
       "leadership": {
-        "label": "Chair, the Judiciary",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on the Judiciary"
       },
       "committees": [
         {
@@ -12639,8 +12804,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000295.jpg",
       "initials": "DJ",
       "leadership": {
-        "label": "Chair, Appropriations — Financial Services",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Financial Services and General Government"
       },
       "committees": [
         {
@@ -12679,8 +12845,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000302.jpg",
       "initials": "JJ",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Oversight and",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Oversight and Investigations"
       },
       "committees": [
         {
@@ -12719,8 +12886,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000376.jpg",
       "initials": "MK",
       "leadership": {
-        "label": "Chair, Ways and Means — Tax",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Ways and Means — Tax"
       },
       "committees": [
         {
@@ -12754,8 +12922,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000388.jpg",
       "initials": "TK",
       "leadership": {
-        "label": "Chair, Armed Services — Seapower and Proje",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Armed Services — Seapower and Projection Forces"
       },
       "committees": [
         {
@@ -12819,8 +12988,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000403.jpg",
       "initials": "MK",
       "leadership": {
-        "label": "Chair, Natural Resources — Federal Lands",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Federal Lands"
       },
       "committees": [
         {
@@ -12889,8 +13059,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000399.jpg",
       "initials": "JK",
       "leadership": {
-        "label": "Chair, Veterans' Affairs — Oversight and I",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Veterans' Affairs — Oversight and Investigations"
       },
       "committees": [
         {
@@ -12959,8 +13130,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000397.jpg",
       "initials": "YK",
       "leadership": {
-        "label": "Chair, Foreign Affairs — East Asia and Pac",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Foreign Affairs — East Asia and Pacific"
       },
       "committees": [
         {
@@ -13014,8 +13186,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000585.jpg",
       "initials": "DL",
       "leadership": {
-        "label": "Chair, Ways and Means — Work and Welfare",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Ways and Means — Work and Welfare"
       },
       "committees": [
         {
@@ -13074,8 +13247,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000598.jpg",
       "initials": "NL",
       "leadership": {
-        "label": "Chair, Appropriations — Financial Services",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Financial Services and General Government"
       },
       "committees": [
         {
@@ -13129,8 +13303,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000600.jpg",
       "initials": "NL",
       "leadership": {
-        "label": "Chair, Rules — Legislative and Budget Proc",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Rules — Legislative and Budget Process"
       },
       "committees": [
         {
@@ -13184,8 +13359,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000566.jpg",
       "initials": "RL",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Energy",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Energy"
       },
       "committees": [
         {
@@ -13224,8 +13400,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000599.jpg",
       "initials": "ML",
       "leadership": {
-        "label": "Chair, Foreign Affairs — Middle East and N",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Foreign Affairs — Middle East and North Africa"
       },
       "committees": [
         {
@@ -13274,8 +13451,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000597.jpg",
       "initials": "LL",
       "leadership": {
-        "label": "Chair, House Administration",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on House Administration"
       },
       "committees": [
         {
@@ -13339,8 +13517,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000595.jpg",
       "initials": "JL",
       "leadership": {
-        "label": "Chair, Appropriations — Labor, Health and ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Labor, Health and Human Services, Education, and Related Agencies"
       },
       "committees": [
         {
@@ -13384,8 +13563,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000583.jpg",
       "initials": "BL",
       "leadership": {
-        "label": "Chair, Financial Services — Financial Inst",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — Financial Institutions"
       },
       "committees": [
         {
@@ -13434,8 +13614,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000491.jpg",
       "initials": "FL",
       "leadership": {
-        "label": "Chair, Agriculture — Conservation, Researc",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Conservation, Research, and Biotechnology"
       },
       "committees": [
         {
@@ -13489,8 +13670,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000603.jpg",
       "initials": "ML",
       "leadership": {
-        "label": "Chair, Veterans' Affairs — Disability Assi",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Veterans' Affairs — Disability Assistance and Memorial Affairs"
       },
       "committees": [
         {
@@ -13554,8 +13736,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M000194.jpg",
       "initials": "NM",
       "leadership": {
-        "label": "Chair, Oversight and Government Reform — C",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Oversight and Government Reform — Cybersecurity, Information Technology, and Government Innovation"
       },
       "committees": [
         {
@@ -13629,8 +13812,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001230.jpg",
       "initials": "RM",
       "leadership": {
-        "label": "Chair, Education and Workforce — Workforce",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Education and Workforce — Workforce Protections"
       },
       "committees": [
         {
@@ -13699,8 +13883,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001228.jpg",
       "initials": "CM",
       "leadership": {
-        "label": "Chair, Appropriations — Interior, Environm",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Interior, Environment, and Related Agencies"
       },
       "committees": [
         {
@@ -13754,8 +13939,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M000871.jpg",
       "initials": "TM",
       "leadership": {
-        "label": "Chair, Agriculture — Livestock, Dairy, and",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Livestock, Dairy, and Poultry"
       },
       "committees": [
         {
@@ -13814,8 +14000,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001199.jpg",
       "initials": "BM",
       "leadership": {
-        "label": "Chair, Foreign Affairs",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Foreign Affairs"
       },
       "committees": [
         {
@@ -13859,8 +14046,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001157.jpg",
       "initials": "MM",
       "leadership": {
-        "label": "Chair, Homeland Security",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Homeland Security"
       },
       "committees": [
         {
@@ -13899,8 +14087,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001177.jpg",
       "initials": "TM",
       "leadership": {
-        "label": "Chair, the Judiciary — Immigration Integri",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on the Judiciary — Immigration Integrity, Security, and Enforcement"
       },
       "committees": [
         {
@@ -13954,8 +14143,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001218.jpg",
       "initials": "RM",
       "leadership": {
-        "label": "Chair, Science, Space, and Technology — In",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Science, Space, and Technology — Investigations and Oversight"
       },
       "committees": [
         {
@@ -14009,8 +14199,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001204.jpg",
       "initials": "DM",
       "leadership": {
-        "label": "Chair, Financial Services — Oversight and ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — Oversight and Investigations"
       },
       "committees": [
         {
@@ -14059,8 +14250,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001215.jpg",
       "initials": "MM",
       "leadership": {
-        "label": "Chair, Veterans' Affairs — Health",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Veterans' Affairs — Health"
       },
       "committees": [
         {
@@ -14109,8 +14301,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001216.jpg",
       "initials": "CM",
       "leadership": {
-        "label": "Chair, Foreign Affairs — Oversight and Int",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Foreign Affairs — Oversight and Intelligence"
       },
       "committees": [
         {
@@ -14164,8 +14357,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001194.jpg",
       "initials": "JM",
       "leadership": {
-        "label": "Chair, the Strategic Competition Between t",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Select Committee on the Strategic Competition Between the United States and the Chinese Communist Party"
       },
       "committees": [
         {
@@ -14209,8 +14403,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001212.jpg",
       "initials": "BM",
       "leadership": {
-        "label": "Chair, Agriculture — Forestry and Horticul",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Forestry and Horticulture"
       },
       "committees": [
         {
@@ -14269,8 +14464,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001236.jpg",
       "initials": "TM",
       "leadership": {
-        "label": "Chair, Financial Services — Oversight and ",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — Oversight and Investigations"
       },
       "committees": [
         {
@@ -14314,8 +14510,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001235.jpg",
       "initials": "RM",
       "leadership": {
-        "label": "Chair, Appropriations — Legislative Branch",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Legislative Branch"
       },
       "committees": [
         {
@@ -14354,8 +14551,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000026.jpg",
       "initials": "TN",
       "leadership": {
-        "label": "Chair, Transportation and Infrastructure —",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Transportation and Infrastructure — Aviation"
       },
       "committees": [
         {
@@ -14414,8 +14612,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000189.jpg",
       "initials": "DN",
       "leadership": {
-        "label": "Chair, Agriculture — Forestry and Horticul",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Forestry and Horticulture"
       },
       "committees": [
         {
@@ -14474,8 +14673,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000193.jpg",
       "initials": "ZN",
       "leadership": {
-        "label": "Chair, Financial Services — National Secur",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — National Security, Illicit Finance, and International Financial Institutions"
       },
       "committees": [
         {
@@ -14534,8 +14734,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/O/O000019.jpg",
       "initials": "JO",
       "leadership": {
-        "label": "Chair, Science, Space, and Technology — Re",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Science, Space, and Technology — Research and Technology"
       },
       "committees": [
         {
@@ -14589,8 +14790,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/O/O000175.jpg",
       "initials": "AO",
       "leadership": {
-        "label": "Chair, Homeland Security — Cybersecurity a",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Homeland Security — Cybersecurity and Infrastructure Protection"
       },
       "committees": [
         {
@@ -14649,8 +14851,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/O/O000086.jpg",
       "initials": "BO",
       "leadership": {
-        "label": "Chair, Education and Workforce — Higher Ed",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Education and Workforce — Higher Education and Workforce Development"
       },
       "committees": [
         {
@@ -14709,8 +14912,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000609.jpg",
       "initials": "GP",
       "leadership": {
-        "label": "Chair, Energy and Commerce — Environment",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Energy and Commerce — Environment"
       },
       "committees": [
         {
@@ -14764,8 +14968,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000605.jpg",
       "initials": "SP",
       "leadership": {
-        "label": "Chair, Transportation and Infrastructure —",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Transportation and Infrastructure — Economic Development, Public Buildings, and Emergency Management"
       },
       "committees": [
         {
@@ -14844,8 +15049,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000048.jpg",
       "initials": "AP",
       "leadership": {
-        "label": "Chair, Homeland Security — Counterterroris",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Homeland Security — Counterterrorism and Intelligence"
       },
       "committees": [
         {
@@ -14894,8 +15100,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000395.jpg",
       "initials": "HR",
       "leadership": {
-        "label": "Chair, Appropriations — Commerce, Justice,",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Commerce, Justice, Science, and Related Agencies"
       },
       "committees": [
         {
@@ -14934,8 +15141,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000575.jpg",
       "initials": "MR",
       "leadership": {
-        "label": "Chair, Armed Services",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Armed Services"
       },
       "committees": [
         {
@@ -14959,8 +15167,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000612.jpg",
       "initials": "JR",
       "leadership": {
-        "label": "Chair, Agriculture — Commodity Markets, Di",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Commodity Markets, Digital Assets, and Rural Development"
       },
       "committees": [
         {
@@ -15019,8 +15228,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000603.jpg",
       "initials": "DR",
       "leadership": {
-        "label": "Chair, Agriculture — General Farm Commodit",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — General Farm Commodities, Risk Management, and Credit"
       },
       "committees": [
         {
@@ -15089,8 +15299,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000614.jpg",
       "initials": "CR",
       "leadership": {
-        "label": "Chair, the Judiciary — The Constitution an",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on the Judiciary — The Constitution and Limited Government"
       },
       "committees": [
         {
@@ -15139,8 +15350,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000168.jpg",
       "initials": "MS",
       "leadership": {
-        "label": "Chair, Foreign Affairs — Western Hemispher",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Foreign Affairs — Western Hemisphere"
       },
       "committees": [
         {
@@ -15194,8 +15406,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001183.jpg",
       "initials": "DS",
       "leadership": {
-        "label": "Chair, Joint Economic Committee",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Joint Economic Committee"
       },
       "committees": [
         {
@@ -15234,8 +15447,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001189.jpg",
       "initials": "AS",
       "leadership": {
-        "label": "Chair, Agriculture",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture"
       },
       "committees": [
         {
@@ -15319,8 +15533,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001224.jpg",
       "initials": "KS",
       "leadership": {
-        "label": "Chair, Foreign Affairs — Europe",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Foreign Affairs — Europe"
       },
       "committees": [
         {
@@ -15379,8 +15594,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000250.jpg",
       "initials": "PS",
       "leadership": {
-        "label": "Chair, Oversight and Government Reform — G",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Oversight and Government Reform — Government Operations"
       },
       "committees": [
         {
@@ -15429,8 +15645,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001148.jpg",
       "initials": "MS",
       "leadership": {
-        "label": "Chair, Appropriations — Interior, Environm",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Interior, Environment, and Related Agencies"
       },
       "committees": [
         {
@@ -15469,8 +15686,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001172.jpg",
       "initials": "AS",
       "leadership": {
-        "label": "Chair, Ways and Means — Trade",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Ways and Means — Trade"
       },
       "committees": [
         {
@@ -15509,8 +15727,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000522.jpg",
       "initials": "CS",
       "leadership": {
-        "label": "Chair, Foreign Affairs — Africa",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Foreign Affairs — Africa"
       },
       "committees": [
         {
@@ -15544,8 +15763,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001195.jpg",
       "initials": "JS",
       "leadership": {
-        "label": "Chair, Joint Committee on Taxation",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Joint Committee on Taxation"
       },
       "committees": [
         {
@@ -15574,8 +15794,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001212.jpg",
       "initials": "PS",
       "leadership": {
-        "label": "Chair, Natural Resources — Energy and Mine",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Energy and Mineral Resources"
       },
       "committees": [
         {
@@ -15639,8 +15860,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001213.jpg",
       "initials": "BS",
       "leadership": {
-        "label": "Chair, Joint Committee on Printing",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "Joint Committee on Printing"
       },
       "committees": [
         {
@@ -15689,8 +15911,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001220.jpg",
       "initials": "DS",
       "leadership": {
-        "label": "Chair, Appropriations — Commerce, Justice,",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Commerce, Justice, Science, and Related Agencies"
       },
       "committees": [
         {
@@ -15744,8 +15967,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000467.jpg",
       "initials": "GT",
       "leadership": {
-        "label": "Chair, Agriculture",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture"
       },
       "committees": [
         {
@@ -15784,8 +16008,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000165.jpg",
       "initials": "TT",
       "leadership": {
-        "label": "Chair, Natural Resources — Federal Lands",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources — Federal Lands"
       },
       "committees": [
         {
@@ -15834,8 +16059,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000480.jpg",
       "initials": "WI",
       "leadership": {
-        "label": "Chair, Oversight and Government Reform — M",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Oversight and Government Reform — Military and Foreign Affairs"
       },
       "committees": [
         {
@@ -15889,8 +16115,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/V/V000129.jpg",
       "initials": "DV",
       "leadership": {
-        "label": "Chair, Appropriations — Legislative Branch",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Legislative Branch"
       },
       "committees": [
         {
@@ -15939,8 +16166,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/V/V000133.jpg",
       "initials": "JD",
       "leadership": {
-        "label": "Chair, the Judiciary — Oversight",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on the Judiciary — Oversight"
       },
       "committees": [
         {
@@ -15994,8 +16222,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/V/V000134.jpg",
       "initials": "BD",
       "leadership": {
-        "label": "Chair, Small Business — Economic Growth, T",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Small Business — Economic Growth, Tax, and Capital Access"
       },
       "committees": [
         {
@@ -16054,8 +16283,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/V/V000135.jpg",
       "initials": "DO",
       "leadership": {
-        "label": "Chair, Agriculture — Livestock, Dairy, and",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Agriculture — Livestock, Dairy, and Poultry"
       },
       "committees": [
         {
@@ -16119,8 +16349,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000812.jpg",
       "initials": "AW",
       "leadership": {
-        "label": "Chair, Financial Services — Capital Market",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Financial Services — Capital Markets"
       },
       "committees": [
         {
@@ -16169,8 +16400,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000798.jpg",
       "initials": "TW",
       "leadership": {
-        "label": "Chair, Education and Workforce",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Education and Workforce"
       },
       "committees": [
         {
@@ -16209,8 +16441,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000814.jpg",
       "initials": "RS",
       "leadership": {
-        "label": "Chair, Science, Space, and Technology — En",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Science, Space, and Technology — Energy"
       },
       "committees": [
         {
@@ -16259,8 +16492,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000806.jpg",
       "initials": "DW",
       "leadership": {
-        "label": "Chair, Transportation and Infrastructure —",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Transportation and Infrastructure — Railroads, Pipelines, and Hazardous Materials"
       },
       "committees": [
         {
@@ -16329,8 +16563,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000821.jpg",
       "initials": "BW",
       "leadership": {
-        "label": "Chair, Natural Resources",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources"
       },
       "committees": [
         {
@@ -16374,8 +16609,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000816.jpg",
       "initials": "RW",
       "leadership": {
-        "label": "Chair, Small Business",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Small Business"
       },
       "committees": [
         {
@@ -16414,8 +16650,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000804.jpg",
       "initials": "RW",
       "leadership": {
-        "label": "Chair, Natural Resources",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Natural Resources"
       },
       "committees": [
         {
@@ -16469,8 +16706,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000809.jpg",
       "initials": "SW",
       "leadership": {
-        "label": "Chair, Appropriations — Transportation, Ho",
-        "tier": 4
+        "label": "Chair",
+        "tier": 4,
+        "committee": "House Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies"
       },
       "committees": [
         {
@@ -16509,8 +16747,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000370.jpg",
       "initials": "AA",
       "leadership": {
-        "label": "RM, Education and Workforce — High",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Education and Workforce — Higher Education and Workforce Development"
       },
       "committees": [
         {
@@ -16559,8 +16798,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000380.jpg",
       "initials": "GA",
       "leadership": {
-        "label": "RM, Science, Space, and Technology",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Science, Space, and Technology — Environment"
       },
       "committees": [
         {
@@ -16609,8 +16849,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000381.jpg",
       "initials": "YA",
       "leadership": {
-        "label": "RM, Natural Resources — Energy and",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Natural Resources — Energy and Mineral Resources"
       },
       "committees": [
         {
@@ -16659,8 +16900,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001281.jpg",
       "initials": "JB",
       "leadership": {
-        "label": "RM, Financial Services — National ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Financial Services — National Security, Illicit Finance, and International Financial Institutions"
       },
       "committees": [
         {
@@ -16694,8 +16936,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001287.jpg",
       "initials": "AB",
       "leadership": {
-        "label": "RM, Foreign Affairs — East Asia an",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Foreign Affairs — East Asia and Pacific"
       },
       "committees": [
         {
@@ -16744,8 +16987,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B000490.jpg",
       "initials": "SJ",
       "leadership": {
-        "label": "RM, Appropriations — Agriculture, ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Agriculture, Rural Development, Food and Drug Administration, and Related Agencies"
       },
       "committees": [
         {
@@ -16784,8 +17028,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001278.jpg",
       "initials": "SB",
       "leadership": {
-        "label": "RM, Education and Workforce — Earl",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Education and Workforce — Early Childhood, Elementary, and Secondary Education"
       },
       "committees": [
         {
@@ -16834,8 +17079,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001296.jpg",
       "initials": "BB",
       "leadership": {
-        "label": "RM, the Budget",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on the Budget"
       },
       "committees": [
         {
@@ -16874,8 +17120,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001313.jpg",
       "initials": "SB",
       "leadership": {
-        "label": "RM, Oversight and Government Refor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Oversight and Government Reform — Cybersecurity, Information Technology, and Government Innovation"
       },
       "committees": [
         {
@@ -16924,8 +17171,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001285.jpg",
       "initials": "JB",
       "leadership": {
-        "label": "RM, Veterans' Affairs — Health",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Veterans' Affairs — Health"
       },
       "committees": [
         {
@@ -16984,8 +17232,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001315.jpg",
       "initials": "NB",
       "leadership": {
-        "label": "RM, Veterans' Affairs — Technology",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Veterans' Affairs — Technology Modernization"
       },
       "committees": [
         {
@@ -17034,8 +17283,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001112.jpg",
       "initials": "SC",
       "leadership": {
-        "label": "RM, Transportation and Infrastruct",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Transportation and Infrastructure — Coast Guard and Maritime Transportation"
       },
       "committees": [
         {
@@ -17094,8 +17344,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001072.jpg",
       "initials": "AC",
       "leadership": {
-        "label": "RM, Transportation and Infrastruct",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Transportation and Infrastructure — Aviation"
       },
       "committees": [
         {
@@ -17144,8 +17395,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001066.jpg",
       "initials": "KC",
       "leadership": {
-        "label": "RM, Energy and Commerce — Energy",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Energy and Commerce — Energy"
       },
       "committees": [
         {
@@ -17189,8 +17441,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001091.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "RM, Foreign Affairs — Western Hemi",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Foreign Affairs — Western Hemisphere"
       },
       "committees": [
         {
@@ -17244,8 +17497,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001123.jpg",
       "initials": "GJ",
       "leadership": {
-        "label": "RM, Small Business — Contracting a",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Small Business — Contracting and Infrastructure"
       },
       "committees": [
         {
@@ -17294,8 +17548,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001067.jpg",
       "initials": "YC",
       "leadership": {
-        "label": "RM, Energy and Commerce — Oversigh",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Energy and Commerce — Oversight and Investigations"
       },
       "committees": [
         {
@@ -17334,8 +17589,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001061.jpg",
       "initials": "EC",
       "leadership": {
-        "label": "RM, Financial Services — Housing a",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Financial Services — Housing and Insurance"
       },
       "committees": [
         {
@@ -17369,8 +17625,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C000537.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "RM, Appropriations — Transportatio",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies"
       },
       "committees": [
         {
@@ -17409,8 +17666,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001110.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "RM, Homeland Security — Border Sec",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Homeland Security — Border Security and Enforcement"
       },
       "committees": [
         {
@@ -17459,8 +17717,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001059.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "RM, Agriculture — Livestock, Dairy",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Agriculture — Livestock, Dairy, and Poultry"
       },
       "committees": [
         {
@@ -17504,8 +17763,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001069.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "RM, Armed Services — Seapower and ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Armed Services — Seapower and Projection Forces"
       },
       "committees": [
         {
@@ -17554,8 +17814,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001119.jpg",
       "initials": "AC",
       "leadership": {
-        "label": "RM, Agriculture",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Agriculture"
       },
       "committees": [
         {
@@ -17579,8 +17840,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001130.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "RM, the Judiciary — Oversight",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on the Judiciary — Oversight"
       },
       "committees": [
         {
@@ -17629,8 +17891,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001121.jpg",
       "initials": "JC",
       "leadership": {
-        "label": "RM, Armed Services — Intelligence ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Armed Services — Intelligence and Special Operations"
       },
       "committees": [
         {
@@ -17679,8 +17942,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001063.jpg",
       "initials": "HC",
       "leadership": {
-        "label": "RM, Appropriations — Homeland Secu",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Homeland Security"
       },
       "committees": [
         {
@@ -17719,8 +17983,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000629.jpg",
       "initials": "SD",
       "leadership": {
-        "label": "RM, Agriculture — General Farm Com",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Agriculture — General Farm Commodities, Risk Management, and Credit"
       },
       "committees": [
         {
@@ -17769,8 +18034,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000096.jpg",
       "initials": "DD",
       "leadership": {
-        "label": "RM, Ways and Means — Work and Welf",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Ways and Means — Work and Welfare"
       },
       "committees": [
         {
@@ -17804,8 +18070,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000230.jpg",
       "initials": "DD",
       "leadership": {
-        "label": "RM, Agriculture — Commodity Market",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Agriculture — Commodity Markets, Digital Assets, and Rural Development"
       },
       "committees": [
         {
@@ -17859,8 +18126,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000197.jpg",
       "initials": "DD",
       "leadership": {
-        "label": "RM, Energy and Commerce — Health",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Energy and Commerce — Health"
       },
       "committees": [
         {
@@ -17899,8 +18167,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000216.jpg",
       "initials": "RD",
       "leadership": {
-        "label": "RM, Appropriations",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations"
       },
       "committees": [
         {
@@ -17929,8 +18198,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000623.jpg",
       "initials": "MD",
       "leadership": {
-        "label": "RM, Ethics",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Ethics"
       },
       "committees": [
         {
@@ -17994,8 +18264,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000635.jpg",
       "initials": "MD",
       "leadership": {
-        "label": "RM, Natural Resources — Oversight ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Natural Resources — Oversight and Investigations"
       },
       "committees": [
         {
@@ -18044,8 +18315,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000399.jpg",
       "initials": "LD",
       "leadership": {
-        "label": "RM, Ways and Means — Health",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Ways and Means — Health"
       },
       "committees": [
         {
@@ -18094,8 +18366,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000297.jpg",
       "initials": "AE",
       "leadership": {
-        "label": "RM, Appropriations — Legislative B",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Legislative Branch"
       },
       "committees": [
         {
@@ -18129,8 +18402,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000454.jpg",
       "initials": "BF",
       "leadership": {
-        "label": "RM, Financial Services — Financial",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Financial Services — Financial Institutions"
       },
       "committees": [
         {
@@ -18174,8 +18448,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000477.jpg",
       "initials": "VF",
       "leadership": {
-        "label": "RM, Science, Space, and Technology",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Science, Space, and Technology — Space and Aeronautics"
       },
       "committees": [
         {
@@ -18224,8 +18499,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000462.jpg",
       "initials": "LF",
       "leadership": {
-        "label": "RM, Appropriations — National Secu",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — National Security, Department of State, and Related Programs"
       },
       "committees": [
         {
@@ -18259,8 +18535,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000476.jpg",
       "initials": "MF",
       "leadership": {
-        "label": "RM, Oversight and Government Refor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Oversight and Government Reform — Economic Growth, Energy Policy, and Regulatory Affairs"
       },
       "committees": [
         {
@@ -18309,8 +18586,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000559.jpg",
       "initials": "JG",
       "leadership": {
-        "label": "RM, Armed Services — Readiness",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Armed Services — Readiness"
       },
       "committees": [
         {
@@ -18369,8 +18647,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000598.jpg",
       "initials": "RG",
       "leadership": {
-        "label": "RM, Oversight and Government Refor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Oversight and Government Reform"
       },
       "committees": [
         {
@@ -18409,8 +18688,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000585.jpg",
       "initials": "JG",
       "leadership": {
-        "label": "RM, House Permanent Select Committ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Permanent Select Committee on Intelligence — Central Intelligence Agency"
       },
       "committees": [
         {
@@ -18459,8 +18739,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000583.jpg",
       "initials": "JG",
       "leadership": {
-        "label": "RM, House Permanent Select Committ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Permanent Select Committee on Intelligence — National Security Agency and Cyber"
       },
       "committees": [
         {
@@ -18514,8 +18795,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000553.jpg",
       "initials": "AG",
       "leadership": {
-        "label": "RM, Financial Services — Oversight",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Financial Services — Oversight and Investigations"
       },
       "committees": [
         {
@@ -18564,8 +18846,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001081.jpg",
       "initials": "JH",
       "leadership": {
-        "label": "RM, Agriculture — Nutrition and Fo",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Agriculture — Nutrition and Foreign Agriculture"
       },
       "committees": [
         {
@@ -18614,8 +18897,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001047.jpg",
       "initials": "JH",
       "leadership": {
-        "label": "RM, House Permanent Select Committ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Permanent Select Committee on Intelligence"
       },
       "committees": [
         {
@@ -18644,8 +18928,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001085.jpg",
       "initials": "CH",
       "leadership": {
-        "label": "RM, Armed Services — Military Pers",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Armed Services — Military Personnel"
       },
       "committees": [
         {
@@ -18694,8 +18979,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H000874.jpg",
       "initials": "SH",
       "leadership": {
-        "label": "RM, Appropriations — Financial Ser",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Financial Services and General Government"
       },
       "committees": [
         {
@@ -18734,8 +19020,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001094.jpg",
       "initials": "VH",
       "leadership": {
-        "label": "RM, Natural Resources — Water, Wil",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Natural Resources — Water, Wildlife and Fisheries"
       },
       "committees": [
         {
@@ -18789,8 +19076,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/H/H001068.jpg",
       "initials": "JH",
       "leadership": {
-        "label": "RM, Natural Resources",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Natural Resources"
       },
       "committees": [
         {
@@ -18834,8 +19122,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000305.jpg",
       "initials": "SJ",
       "leadership": {
-        "label": "RM, Foreign Affairs — Africa",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Foreign Affairs — Africa"
       },
       "committees": [
         {
@@ -18884,8 +19173,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000298.jpg",
       "initials": "PJ",
       "leadership": {
-        "label": "RM, the Judiciary — Immigration In",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on the Judiciary — Immigration Integrity, Security, and Enforcement"
       },
       "committees": [
         {
@@ -18939,8 +19229,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000288.jpg",
       "initials": "HJ",
       "leadership": {
-        "label": "RM, the Judiciary — Courts, Intell",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on the Judiciary — Courts, Intellectual Property, Artificial Intelligence, and the Internet"
       },
       "committees": [
         {
@@ -18999,8 +19290,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000400.jpg",
       "initials": "SK",
       "leadership": {
-        "label": "RM, Foreign Affairs — South and Ce",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Foreign Affairs — South and Central Asia"
       },
       "committees": [
         {
@@ -19049,8 +19341,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000009.jpg",
       "initials": "MK",
       "leadership": {
-        "label": "RM, Appropriations — Energy and Wa",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Energy and Water Development and Related Agencies"
       },
       "committees": [
         {
@@ -19094,8 +19387,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000375.jpg",
       "initials": "WK",
       "leadership": {
-        "label": "RM, Foreign Affairs — Europe",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Foreign Affairs — Europe"
       },
       "committees": [
         {
@@ -19144,8 +19438,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000402.jpg",
       "initials": "TK",
       "leadership": {
-        "label": "RM, Homeland Security — Emergency ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Homeland Security — Emergency Management and Technology"
       },
       "committees": [
         {
@@ -19194,8 +19489,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000389.jpg",
       "initials": "RK",
       "leadership": {
-        "label": "RM, the Strategic Competition Betw",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Select Committee on the Strategic Competition Between the United States and the Chinese Communist Party"
       },
       "committees": [
         {
@@ -19249,8 +19545,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000391.jpg",
       "initials": "RK",
       "leadership": {
-        "label": "RM, Oversight and Government Refor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Oversight and Government Reform — Health Care and Financial Services"
       },
       "committees": [
         {
@@ -19294,8 +19591,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000560.jpg",
       "initials": "RL",
       "leadership": {
-        "label": "RM, Transportation and Infrastruct",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Transportation and Infrastructure"
       },
       "committees": [
         {
@@ -19319,8 +19617,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000557.jpg",
       "initials": "JL",
       "leadership": {
-        "label": "RM, Ways and Means — Social Securi",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Ways and Means — Social Security"
       },
       "committees": [
         {
@@ -19354,8 +19653,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000602.jpg",
       "initials": "SL",
       "leadership": {
-        "label": "RM, Oversight and Government Refor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Oversight and Government Reform — Federal Law Enforcement"
       },
       "committees": [
         {
@@ -19399,8 +19699,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000273.jpg",
       "initials": "TF",
       "leadership": {
-        "label": "RM, Natural Resources — Indian and",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Natural Resources — Indian and Insular Affairs"
       },
       "committees": [
         {
@@ -19444,8 +19745,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000397.jpg",
       "initials": "ZL",
       "leadership": {
-        "label": "RM, Science, Space, and Technology",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Science, Space, and Technology"
       },
       "committees": [
         {
@@ -19489,8 +19791,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000562.jpg",
       "initials": "SL",
       "leadership": {
-        "label": "RM, Financial Services — Digital A",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Financial Services — Digital Assets, Financial Technology, and Artificial Intelligence"
       },
       "committees": [
         {
@@ -19544,8 +19847,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001223.jpg",
       "initials": "SM",
       "leadership": {
-        "label": "RM, Homeland Security — Counterter",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Homeland Security — Counterterrorism and Intelligence"
       },
       "committees": [
         {
@@ -19594,8 +19898,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001163.jpg",
       "initials": "DM",
       "leadership": {
-        "label": "RM, Energy and Commerce — Communic",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Energy and Commerce — Communications and Technology"
       },
       "committees": [
         {
@@ -19629,8 +19934,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001208.jpg",
       "initials": "LM",
       "leadership": {
-        "label": "RM, the Judiciary — Crime and Fede",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on the Judiciary — Crime and Federal Government Surveillance"
       },
       "committees": [
         {
@@ -19674,8 +19980,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001143.jpg",
       "initials": "BM",
       "leadership": {
-        "label": "RM, Appropriations — Defense",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Defense"
       },
       "committees": [
         {
@@ -19709,8 +20016,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001220.jpg",
       "initials": "MM",
       "leadership": {
-        "label": "RM, Veterans' Affairs — Disability",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Veterans' Affairs — Disability Assistance and Memorial Affairs"
       },
       "committees": [
         {
@@ -19764,8 +20072,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M000312.jpg",
       "initials": "JM",
       "leadership": {
-        "label": "RM, Rules",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Rules"
       },
       "committees": [
         {
@@ -19804,8 +20113,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001229.jpg",
       "initials": "LM",
       "leadership": {
-        "label": "RM, Small Business — Economic Grow",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Small Business — Economic Growth, Tax, and Capital Access"
       },
       "committees": [
         {
@@ -19859,8 +20169,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001137.jpg",
       "initials": "GM",
       "leadership": {
-        "label": "RM, Foreign Affairs",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Foreign Affairs"
       },
       "committees": [
         {
@@ -19899,8 +20210,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001188.jpg",
       "initials": "GM",
       "leadership": {
-        "label": "RM, Appropriations — Commerce, Jus",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Commerce, Justice, Science, and Related Agencies"
       },
       "committees": [
         {
@@ -19934,8 +20246,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M000687.jpg",
       "initials": "KM",
       "leadership": {
-        "label": "RM, Oversight and Government Refor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Oversight and Government Reform — Government Operations"
       },
       "committees": [
         {
@@ -19984,8 +20297,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001206.jpg",
       "initials": "JM",
       "leadership": {
-        "label": "RM, House Administration",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on House Administration"
       },
       "committees": [
         {
@@ -20039,8 +20353,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001234.jpg",
       "initials": "KM",
       "leadership": {
-        "label": "RM, Small Business — Rural Develop",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Small Business — Rural Development, Energy, and Supply Chains"
       },
       "committees": [
         {
@@ -20089,8 +20404,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001217.jpg",
       "initials": "JM",
       "leadership": {
-        "label": "RM, Foreign Affairs — Oversight an",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Foreign Affairs — Oversight and Intelligence"
       },
       "committees": [
         {
@@ -20144,8 +20460,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001196.jpg",
       "initials": "SM",
       "leadership": {
-        "label": "RM, Armed Services — Strategic For",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Armed Services — Strategic Forces"
       },
       "committees": [
         {
@@ -20199,8 +20516,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000002.jpg",
       "initials": "JN",
       "leadership": {
-        "label": "RM, the Judiciary — The Administra",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on the Judiciary — The Administrative State, Regulatory Reform, and Antitrust"
       },
       "committees": [
         {
@@ -20249,8 +20567,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000015.jpg",
       "initials": "RN",
       "leadership": {
-        "label": "RM, Ways and Means",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Ways and Means"
       },
       "committees": [
         {
@@ -20279,8 +20598,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000191.jpg",
       "initials": "JN",
       "leadership": {
-        "label": "RM, Natural Resources — Federal La",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Natural Resources — Federal Lands"
       },
       "committees": [
         {
@@ -20339,8 +20659,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000188.jpg",
       "initials": "DN",
       "leadership": {
-        "label": "RM, Armed Services — Tactical Air ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Armed Services — Tactical Air and Land Forces"
       },
       "committees": [
         {
@@ -20394,8 +20715,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000147.jpg",
       "initials": "EN",
       "leadership": {
-        "label": "RM, Transportation and Infrastruct",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Transportation and Infrastructure — Highways and Transit"
       },
       "committees": [
         {
@@ -20454,8 +20776,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/O/O000173.jpg",
       "initials": "IO",
       "leadership": {
-        "label": "RM, Education and Workforce — Work",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Education and Workforce — Workforce Protections"
       },
       "committees": [
         {
@@ -20494,8 +20817,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000034.jpg",
       "initials": "FJ",
       "leadership": {
-        "label": "RM, Energy and Commerce",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Energy and Commerce"
       },
       "committees": [
         {
@@ -20519,8 +20843,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000614.jpg",
       "initials": "CP",
       "leadership": {
-        "label": "RM, Veterans' Affairs — Economic O",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Veterans' Affairs — Economic Opportunity"
       },
       "committees": [
         {
@@ -20574,8 +20899,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000597.jpg",
       "initials": "CP",
       "leadership": {
-        "label": "RM, Appropriations — Interior, Env",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Interior, Environment, and Related Agencies"
       },
       "committees": [
         {
@@ -20614,8 +20940,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/Q/Q000023.jpg",
       "initials": "MQ",
       "leadership": {
-        "label": "RM, House Permanent Select Committ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Permanent Select Committee on Intelligence — Defense Intelligence and Overhead Architecture"
       },
       "committees": [
         {
@@ -20669,8 +20996,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000617.jpg",
       "initials": "DR",
       "leadership": {
-        "label": "RM, Veterans' Affairs — Oversight ",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Veterans' Affairs — Oversight and Investigations"
       },
       "committees": [
         {
@@ -20719,8 +21047,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000606.jpg",
       "initials": "JR",
       "leadership": {
-        "label": "RM, the Judiciary",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on the Judiciary"
       },
       "committees": [
         {
@@ -20744,8 +21073,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/R/R000305.jpg",
       "initials": "DR",
       "leadership": {
-        "label": "RM, Science, Space, and Technology",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Science, Space, and Technology — Energy"
       },
       "committees": [
         {
@@ -20799,8 +21129,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001226.jpg",
       "initials": "AS",
       "leadership": {
-        "label": "RM, Agriculture — Forestry and Hor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Agriculture — Forestry and Horticulture"
       },
       "committees": [
         {
@@ -20849,8 +21180,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001205.jpg",
       "initials": "MS",
       "leadership": {
-        "label": "RM, the Judiciary — The Constituti",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on the Judiciary — The Constitution and Limited Government"
       },
       "committees": [
         {
@@ -20894,8 +21226,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001145.jpg",
       "initials": "JS",
       "leadership": {
-        "label": "RM, Energy and Commerce — Commerce",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Energy and Commerce — Commerce, Manufacturing, and Trade"
       },
       "committees": [
         {
@@ -20929,8 +21262,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001221.jpg",
       "initials": "HS",
       "leadership": {
-        "label": "RM, Small Business — Innovation, E",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Small Business — Innovation, Entrepreneurship, and Workforce Development"
       },
       "committees": [
         {
@@ -20989,8 +21323,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000185.jpg",
       "initials": "RS",
       "leadership": {
-        "label": "RM, Education and Workforce",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Education and Workforce"
       },
       "committees": [
         {
@@ -21019,8 +21354,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001185.jpg",
       "initials": "TS",
       "leadership": {
-        "label": "RM, House Administration — Electio",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on House Administration — Elections"
       },
       "committees": [
         {
@@ -21074,8 +21410,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000344.jpg",
       "initials": "BS",
       "leadership": {
-        "label": "RM, Financial Services — Capital M",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Financial Services — Capital Markets"
       },
       "committees": [
         {
@@ -21129,8 +21466,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000510.jpg",
       "initials": "AS",
       "leadership": {
-        "label": "RM, Armed Services",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Armed Services"
       },
       "committees": [
         {
@@ -21154,8 +21492,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001218.jpg",
       "initials": "MS",
       "leadership": {
-        "label": "RM, Oversight and Government Refor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency"
       },
       "committees": [
         {
@@ -21199,8 +21538,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001211.jpg",
       "initials": "GS",
       "leadership": {
-        "label": "RM, Transportation and Infrastruct",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Transportation and Infrastructure — Economic Development, Public Buildings, and Emergency Management"
       },
       "committees": [
         {
@@ -21254,8 +21594,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001215.jpg",
       "initials": "HS",
       "leadership": {
-        "label": "RM, Science, Space, and Technology",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Science, Space, and Technology — Research and Technology"
       },
       "committees": [
         {
@@ -21304,8 +21645,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001230.jpg",
       "initials": "SS",
       "leadership": {
-        "label": "RM, Oversight and Government Refor",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Oversight and Government Reform — Military and Foreign Affairs"
       },
       "committees": [
         {
@@ -21364,8 +21706,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001223.jpg",
       "initials": "ES",
       "leadership": {
-        "label": "RM, Science, Space, and Technology",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Science, Space, and Technology — Investigations and Oversight"
       },
       "committees": [
         {
@@ -21414,8 +21757,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001156.jpg",
       "initials": "LS",
       "leadership": {
-        "label": "RM, Ways and Means — Trade",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Ways and Means — Trade"
       },
       "committees": [
         {
@@ -21449,8 +21793,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000472.jpg",
       "initials": "MT",
       "leadership": {
-        "label": "RM, Veterans' Affairs",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Veterans' Affairs"
       },
       "committees": [
         {
@@ -21494,8 +21839,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000488.jpg",
       "initials": "ST",
       "leadership": {
-        "label": "RM, Homeland Security — Oversight,",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Homeland Security — Oversight, Investigations, and Accountability"
       },
       "committees": [
         {
@@ -21534,8 +21880,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000193.jpg",
       "initials": "BT",
       "leadership": {
-        "label": "RM, Homeland Security",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Homeland Security"
       },
       "committees": [
         {
@@ -21559,8 +21906,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000460.jpg",
       "initials": "MT",
       "leadership": {
-        "label": "RM, Ways and Means — Tax",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Ways and Means — Tax"
       },
       "committees": [
         {
@@ -21594,8 +21942,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000468.jpg",
       "initials": "DT",
       "leadership": {
-        "label": "RM, Transportation and Infrastruct",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Transportation and Infrastructure — Railroads, Pipelines, and Hazardous Materials"
       },
       "committees": [
         {
@@ -21654,8 +22003,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000487.jpg",
       "initials": "JT",
       "leadership": {
-        "label": "RM, Agriculture — Conservation, Re",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Agriculture — Conservation, Research, and Biotechnology"
       },
       "committees": [
         {
@@ -21709,8 +22059,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000469.jpg",
       "initials": "PT",
       "leadership": {
-        "label": "RM, Energy and Commerce — Environm",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Energy and Commerce — Environment"
       },
       "committees": [
         {
@@ -21754,8 +22105,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000474.jpg",
       "initials": "NT",
       "leadership": {
-        "label": "RM, House Administration — Moderni",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on House Administration — Modernization and Innovation"
       },
       "committees": [
         {
@@ -21799,8 +22151,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000491.jpg",
       "initials": "DT",
       "leadership": {
-        "label": "RM, Small Business — Oversight, In",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Small Business — Oversight, Investigations, and Regulations"
       },
       "committees": [
         {
@@ -21849,8 +22202,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/V/V000081.jpg",
       "initials": "NV",
       "leadership": {
-        "label": "RM, Small Business",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Small Business"
       },
       "committees": [
         {
@@ -21889,8 +22243,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000797.jpg",
       "initials": "DS",
       "leadership": {
-        "label": "RM, Appropriations — Military Cons",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Appropriations — Military Construction, Veterans Affairs, and Related Agencies"
       },
       "committees": [
         {
@@ -21929,8 +22284,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000187.jpg",
       "initials": "MW",
       "leadership": {
-        "label": "RM, Financial Services",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Financial Services"
       },
       "committees": [
         {
@@ -21954,8 +22310,9 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/W/W000808.jpg",
       "initials": "FW",
       "leadership": {
-        "label": "RM, Transportation and Infrastruct",
-        "tier": 5
+        "label": "Ranking Member",
+        "tier": 5,
+        "committee": "House Committee on Transportation and Infrastructure — Water Resources and Environment"
       },
       "committees": [
         {
