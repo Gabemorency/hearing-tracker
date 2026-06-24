@@ -79,10 +79,10 @@
     "details": "Open executive session to consider five pending federal judicial nominations \u2014 one circuit court nominee for the 8th Circuit and four district court nominees across Texas, Michigan, and Pennsylvania.",
     "witnesses": [
       "Kasdin Miller Mitchell \u2014 Nominee, U.S. District Judge, Northern District of Texas",
-      "Angela Veronica Colmenero \u2014 Nominee, U.S. District Judge, Southern District of Texas",
-      "Daniel Mack Traynor (ND) \u2014 Nominee, U.S. Circuit Judge, 8th Circuit",
+      "Antonio M. Pozos \u2014 Nominee, U.S. District Judge, Eastern District of Pennsylvania",
       "Michael C. Martin \u2014 Nominee, U.S. District Judge, Eastern District of Michigan",
-      "Antonio M. Pozos \u2014 Nominee, U.S. District Judge, Eastern District of Pennsylvania"
+      "Angela Veronica Colmenero \u2014 Nominee, U.S. District Judge, Southern District of Texas",
+      "Daniel Mack Traynor (ND) \u2014 Nominee, U.S. Circuit Judge, 8th Circuit"
     ],
     "cancelled": true,
     "changes": [
@@ -133,8 +133,10 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 1:15 PM"
+    ]
   },
   "Senate|Finance \u2014 Subcommittee on Social Securit|3:00 PM ET": {
     "chamber": "Senate",
@@ -148,8 +150,10 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 1:15 PM"
+    ]
   },
   "Senate|Select Committee on Intelligence|3:00 PM ET": {
     "chamber": "Senate",
@@ -222,11 +226,11 @@
     "topic": "Future of Payments: Promoting Innovation and Fair Markets",
     "details": "Full committee hearing on the evolving payments landscape, examining digital payments, fintech competition, stablecoin regulation, and regulatory frameworks for promoting innovation while protecting consumers.",
     "witnesses": [
-      "Mrs. Paige Paridon",
-      "Ms. Tara Flynn",
       "Mr. David Portilla",
+      "Mrs. Paige Paridon",
+      "Ms. Rachel Anderika",
       "Mrs. Eileen O'Mara",
-      "Ms. Rachel Anderika"
+      "Ms. Tara Flynn"
     ],
     "cancelled": false,
     "changes": []
@@ -296,7 +300,7 @@
     "committee": "Permanent Select Committee on Intelligence",
     "chair": "Rep. Mike Turner (R-OH), Chair \u00b7 Ranking: Rep. Jim Himes (D-CT)",
     "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
+    "building": "Classified",
     "room": "Closed",
     "topic": "Effectiveness of the Intelligence Community's Inspector General (CLOSED)",
     "details": "Closed hearing examining the effectiveness and independence of the Intelligence Community Inspector General. No public witness list or agenda.",
@@ -306,7 +310,8 @@
     "cancelled": false,
     "changes": [
       "Location changed to Rayburn (RHOB) \u00b7 10:27 AM",
-      "Witness added: Closed session \u2014 witnesses not publicly disclosed \u00b7 11:07 AM"
+      "Witness added: Closed session \u2014 witnesses not publicly disclosed \u00b7 11:07 AM",
+      "Location changed to Classified \u00b7 1:15 PM"
     ]
   },
   "House|Veterans' Affairs \u2014 Subcommittee on Over|2:15 PM ET": {
@@ -326,6 +331,149 @@
       "Reginald Neal",
       "Mark Engelbaum"
     ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Subcommittee on Investigations and Overs|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2318 RHOB",
+    "topic": "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Subcommittee on the Administrative State|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2141 RHOB",
+    "topic": "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry",
+    "witnesses": [],
+    "details": "",
+    "cancelled": true,
+    "changes": []
+  },
+  "House|Subcommittee on Environment (Committee o|10:15 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Environment (Committee on Energy and Commerce)",
+    "chair": "",
+    "time": "10:15 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2123 RHOB",
+    "topic": "Trash to Treasure: Examining Legislation to Support Domestic Critical Mineral Recovery and Recycling",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Subcommittee on Higher Education and Wor|10:15 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
+    "chair": "",
+    "time": "10:15 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2175 RHOB",
+    "topic": "Workforce Rewired: Modern Apprenticeships for a Modern Economy",
+    "witnesses": [],
+    "details": "",
+    "cancelled": true,
+    "changes": []
+  },
+  "House|Committee on House Administration|10:15 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on House Administration",
+    "chair": "",
+    "time": "10:15 AM ET",
+    "building": "Longworth (LHOB)",
+    "room": "1310 LHOB",
+    "topic": "Committee on House Administration Full Committee Markup on Various Measures",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Appropriations|11:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Appropriations",
+    "chair": "",
+    "time": "11:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2359 RHOB",
+    "topic": "Fiscal Year 2027 Defense Bill",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Subcommittee on Energy (Committee on Ene|2:00 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Energy (Committee on Energy and Commerce)",
+    "chair": "",
+    "time": "2:00 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2123 RHOB",
+    "topic": "Subcommittee Markup of Eight Pieces of Legislation",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Subcommittee on Oversight and Investigat|2:15 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)",
+    "chair": "",
+    "time": "2:15 PM ET",
+    "building": "Cannon (CHOB)",
+    "room": "360 CHOB",
+    "topic": "Failure at the Front Gate: Examining VA Police and Security Deficiencies\u201d (Postponed)",
+    "witnesses": [],
+    "details": "",
+    "cancelled": true,
+    "changes": []
+  },
+  "Senate|Homeland Security and Governmental Affai|9:30 AM ET": {
+    "chamber": "Senate",
+    "committee": "Homeland Security and Governmental Affairs",
+    "chair": "",
+    "time": "9:30 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-342",
+    "topic": "Hearings to examine reforming the U.S. Postal Service's business model.",
+    "witnesses": [],
+    "details": "Hearings to examine reforming the U.S. Postal Service's business model.",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Commerce, Science, and Transportation|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Commerce, Science, and Transportation",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Russell (SR)",
+    "room": "SR-253",
+    "topic": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Departm",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Departm",
+    "cancelled": false,
+    "changes": []
+  },
+  "Joint|United States Senate Caucus on Internati|2:00 PM ET": {
+    "chamber": "Joint",
+    "committee": "United States Senate Caucus on International Narcotics Control",
+    "chair": "",
+    "time": "2:00 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-419",
+    "topic": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
+    "witnesses": [],
+    "details": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
     "cancelled": false,
     "changes": []
   }
