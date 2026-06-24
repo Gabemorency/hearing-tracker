@@ -1,0 +1,38 @@
+name: Nightly Baseline Builder
+
+on:
+  schedule:
+    - cron: '0 1 * * 2-6'  # 9 PM ET = 1 AM UTC, Mon-Fri (builds for next day)
+  workflow_dispatch:         # manual trigger anytime
+
+jobs:
+  build-baseline:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install playwright beautifulsoup4 lxml pdfplumber requests
+
+      - name: Install Chromium
+        run: playwright install chromium
+
+      - name: Build baseline for tomorrow
+        run: python build_baseline.py
+
+      - name: Commit baseline
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add baseline.json
+          git diff --cached --quiet || git commit -m "Nightly baseline $(date -u '+%Y-%m-%d')"
+          git push
