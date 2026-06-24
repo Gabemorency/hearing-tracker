@@ -125,12 +125,11 @@ def build():
             bid   = m.get("bioguide", "")
             title = m.get("title", "")
             rank  = m.get("rank", 99)
-            party = m.get("party", "")
             if not bid:
                 continue
             if bid not in cmte_roles_map:
                 cmte_roles_map[bid] = []
-            role = title if title else ("Member")
+            role = title if title else "Member"
             cmte_roles_map[bid].append({
                 "committee": cmte_name,
                 "role":      role,
@@ -144,6 +143,119 @@ def build():
             elif "ranking" in tl:
                 if bid not in chair_map:
                     chair_map[bid] = {"label": "Ranking Member", "tier": 5, "committee": cmte_name}
+
+    # ── Caucus membership ──────────────────────────────────────────────────────
+    print("📥 Fetching caucus membership lists...")
+    caucus_map = {}  # bioguide -> [caucus_key, ...]
+
+    # Caucus definitions: key, display name, scrape URL, fallback bioguide list
+    CAUCUSES = [
+        ("cbc",        "Black Caucus",                    "https://cbc.house.gov/membership/"),
+        ("chc",        "Hispanic Caucus",                 "https://chc.house.gov/members"),
+        ("capac",      "Asian Pacific American Caucus",   "https://capac.house.gov/members"),
+        ("progressive","Progressive Caucus",              "https://progressives.house.gov/caucus-members"),
+        ("newdems",    "New Democrat Coalition",          "https://newdemocratcoalition.house.gov/members"),
+        ("rsc",        "Republican Study Committee",      "https://rsc-pfluger.house.gov/members"),
+    ]
+
+    # Build a name->bioguide lookup for matching scraped names
+    name_to_bio = {}
+    for m in legislators:
+        name  = m.get("name", {})
+        bid   = m.get("id", {}).get("bioguide", "")
+        full  = name.get("official_full", "")
+        last  = name.get("last", "")
+        first = name.get("first", "")
+        if bid:
+            if full:
+                name_to_bio[full.lower()] = bid
+            name_to_bio[f"{first} {last}".strip().lower()] = bid
+            name_to_bio[last.lower()] = bid  # last name fallback
+
+    def scrape_caucus(url):
+        """Fetch a caucus page and extract member names."""
+        try:
+            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
+            if r.status_code != 200:
+                return []
+            from html.parser import HTMLParser
+            class NameParser(HTMLParser):
+                def __init__(self):
+                    super().__init__()
+                    self.names = []
+                    self.in_name = False
+                def handle_starttag(self, tag, attrs):
+                    attrs = dict(attrs)
+                    cls = attrs.get("class", "")
+                    if any(x in cls for x in ["name","member","legislator","title"]):
+                        self.in_name = True
+                def handle_endtag(self, tag):
+                    self.in_name = False
+                def handle_data(self, data):
+                    if self.in_name:
+                        data = data.strip()
+                        if len(data) > 3:
+                            self.names.append(data)
+            # Extract all text and look for "Rep." or "Sen." patterns
+            import re as _re
+            text = _re.sub(r"<[^>]+>", " ", r.text)
+            # Match "Rep. Firstname Lastname" or "Sen. Firstname Lastname"
+            matches = _re.findall(
+                r"(?:Rep\.|Sen\.|Representative|Senator)\s+([A-Z][a-z]+(?:\s+[A-Z][a-zA-Z\-\']+){1,3})",
+                text
+            )
+            return list(dict.fromkeys(matches))
+        except Exception as e:
+            print(f"    Caucus scrape error: {e}")
+            return []
+
+    def match_names_to_bioguides(names):
+        bids = set()
+        for name in names:
+            nl = name.lower().strip()
+            # Try full name first
+            if nl in name_to_bio:
+                bids.add(name_to_bio[nl])
+                continue
+            # Try last name
+            parts = nl.split()
+            if parts:
+                last = parts[-1]
+                if last in name_to_bio:
+                    bids.add(name_to_bio[last])
+        return bids
+
+    for key, label, url in CAUCUSES:
+        names = scrape_caucus(url)
+        bids  = match_names_to_bioguides(names)
+        print(f"  {label}: {len(bids)} members matched")
+        for bid in bids:
+            if bid not in caucus_map:
+                caucus_map[bid] = []
+            if key not in caucus_map[bid]:
+                caucus_map[bid].append(key)
+
+    # Tri-Caucus = CBC + CHC + CAPAC combined
+    for bid, keys in caucus_map.items():
+        if set(keys) & {"cbc","chc","capac"}:
+            if "tricaucus" not in keys:
+                caucus_map[bid].append("tricaucus")
+
+    # Freedom Caucus — no official list, use GovTrack known members
+    # (static list, updated manually when needed)
+    FREEDOM_CAUCUS_BIOGUIDES = [
+        "B001306","B001297","B001291","B001302","C001118","C001093",
+        "C001108","D000615","D000616","F000475","G000590","G000596",
+        "G000578","G000599","H001082","H001071","J000299","L000564",
+        "M001177","M001187","M001198","M001205","N000190","O000172",
+        "P000609","R000603","R000609","S001212","S001215","T000479",
+        "W000806","W000827","W000821",
+    ]
+    for bid in FREEDOM_CAUCUS_BIOGUIDES:
+        if bid not in caucus_map:
+            caucus_map[bid] = []
+        if "freedom" not in caucus_map[bid]:
+            caucus_map[bid].append("freedom")
 
     # Build member objects
     print("🔨 Building member objects...")
@@ -190,6 +302,7 @@ def build():
             "initials":    initials(full_name),
             "leadership":  leadership,
             "committees":  cmte_roles_map.get(bioguide_id, []),
+            "caucuses":    caucus_map.get(bioguide_id, []),
         }
 
         if chamber == "senate":
@@ -501,6 +614,18 @@ def build_html(members_json):
     <button class="group-btn" onclick="setGroup('committee',this)">Committee</button>
     <button class="group-btn" onclick="setGroup('leadership',this)">Leadership</button>
   </div>
+  <div class="group-row">
+    <span class="group-label">Congressional Caucuses</span>
+    <button class="group-btn caucus-btn active" onclick="setCaucus('all',this)">All</button>
+    <button class="group-btn caucus-btn" onclick="setCaucus('cbc',this)">Black Caucus</button>
+    <button class="group-btn caucus-btn" onclick="setCaucus('chc',this)">Hispanic Caucus</button>
+    <button class="group-btn caucus-btn" onclick="setCaucus('capac',this)">Asian Pacific American Caucus</button>
+    <button class="group-btn caucus-btn" onclick="setCaucus('tricaucus',this)">Tri-Caucus</button>
+    <button class="group-btn caucus-btn" onclick="setCaucus('progressive',this)">Progressive Caucus</button>
+    <button class="group-btn caucus-btn" onclick="setCaucus('newdems',this)">New Democrat Coalition</button>
+    <button class="group-btn caucus-btn" onclick="setCaucus('rsc',this)">Republican Study Committee</button>
+    <button class="group-btn caucus-btn" onclick="setCaucus('freedom',this)">Freedom Caucus</button>
+  </div>
 </div>
 
 <div class="chamber-tabs">
@@ -527,6 +652,7 @@ const SENATORS = DATA.senators || [];
 const REPS     = DATA.reps     || [];
 let chamber = 'senate';
 let group   = 'party';
+let caucus  = 'all';
 
 // ── Theme ──────────────────────────────────────────────────────────────────────
 function sysTheme(){{ return matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'; }}
@@ -684,9 +810,16 @@ let CURRENT_MEMBERS = [];
 function filtered(){{
   const q = document.getElementById('search').value.toLowerCase().trim();
   // When searching, pull from ALL members regardless of chamber tab
-  const pool = q
+  let pool = q
     ? [...SENATORS, ...REPS]
     : chamber==='senate' ? SENATORS : REPS;
+
+  // Apply caucus filter
+  if(caucus !== 'all') {{
+    pool = pool.filter(m => (m.caucuses||[]).includes(caucus));
+  }}
+
+  // Apply search
   if(!q) return pool;
   return pool.filter(m=>
     m.name.toLowerCase().includes(q) ||
@@ -694,6 +827,13 @@ function filtered(){{
     (m.committees||[]).some(c=>c.committee.toLowerCase().includes(q)) ||
     (m.leadership?.label||'').toLowerCase().includes(q)
   );
+}}
+
+function setCaucus(c, btn){{
+  caucus = c;
+  document.querySelectorAll('.caucus-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  render();
 }}
 
 // ── Render modes ──────────────────────────────────────────────────────────────
