@@ -1,20 +1,47 @@
 """
-Congressional Hearing Tracker — Full Playwright scraper
-- Merge strategy: nightly verified baseline is never overwritten, only enriched
-- Extracts chair, witnesses, and descriptions from committee pages
-- Change detection via snapshot.json diff
-- Runs every 15 min via GitHub Actions
+Congressional Hearing Tracker — Scraper (runs every 15 min)
+Fixes:
+  - Auto DST timezone (no manual changes needed ever)
+  - Smart cancellation: only flags if cancellation is within 300 chars of today's date
+  - Chair false-positive fix: ignores "Ranking Member" and generic titles
+  - DataTables full-load: multiple strategies to show all rows
+  - PDF witness lists via pdfplumber
+  - Merge strategy: baseline is never overwritten, only enriched
 """
 
 import asyncio
 import json
 import os
 import re
+import io
 from datetime import datetime, timezone, timedelta
 from playwright.async_api import async_playwright
 
-# ── Timezone ───────────────────────────────────────────────────────────────────
-ET_OFFSET   = timedelta(hours=-4)  # EDT; change to -5 Nov-Mar
+try:
+    import pdfplumber
+    HAS_PDF = True
+except ImportError:
+    HAS_PDF = False
+
+try:
+    import requests as req_lib
+    HAS_REQUESTS = True
+except ImportError:
+    HAS_REQUESTS = False
+
+# ── Auto DST timezone ──────────────────────────────────────────────────────────
+def get_et_offset():
+    now_utc = datetime.now(timezone.utc)
+    year = now_utc.year
+    def nth_sunday(month, n):
+        d = datetime(year, month, 1, tzinfo=timezone.utc)
+        days_to_sun = (6 - d.weekday()) % 7
+        return (d + timedelta(days=days_to_sun + 7*(n-1))).replace(hour=7)
+    dst_start = nth_sunday(3, 2)   # 2nd Sunday March
+    dst_end   = nth_sunday(11, 1)  # 1st Sunday November
+    return timedelta(hours=-4) if dst_start <= now_utc < dst_end else timedelta(hours=-5)
+
+ET_OFFSET   = get_et_offset()
 now_utc     = datetime.now(timezone.utc)
 now_et      = now_utc + ET_OFFSET
 today_str   = now_et.strftime("%B %-d, %Y")
@@ -23,6 +50,7 @@ today_id    = now_et.strftime("%m%d%Y")
 today_iso   = now_et.strftime("%Y-%m-%d")
 generated   = now_et.strftime("%-I:%M %p ET")
 change_time = now_et.strftime("%-I:%M %p")
+tz_label    = "EDT" if ET_OFFSET.seconds//3600 == 20 else "EST"  # 20h = -4h unsigned
 
 today_variants = [
     today_str, today_long,
@@ -39,9 +67,8 @@ today_variants = [
     now_et.strftime("%a, %b %-d"),
 ]
 
-SNAPSHOT_FILE  = "snapshot.json"
-BASELINE_FILE  = "baseline.json"  # nightly verified data — never overwritten by scraper
-
+SNAPSHOT_FILE = "snapshot.json"
+BASELINE_FILE = "baseline.json"
 HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                          "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
 
@@ -91,10 +118,27 @@ HOUSE_COMMITTEE_PAGES = [
 def hearing_key(h):
     return f"{h['chamber']}|{h['committee'][:40]}|{h['time']}"
 
+def detect_cancellation_near_date(text, window=400):
+    """
+    Smart cancellation: only returns True if a cancellation keyword appears
+    within `window` characters of today's date string in the text.
+    Prevents false positives from old/unrelated postponed hearings on the page.
+    """
+    cancel_words = ["postponed", "cancelled", "canceled", "rescheduled",
+                    "withdrawn", "notice of cancellation"]
+    for variant in today_variants:
+        idx = text.lower().find(variant.lower())
+        if idx == -1:
+            continue
+        surrounding = text[max(0, idx - window//2) : idx + window].lower()
+        if any(w in surrounding for w in cancel_words):
+            return True
+    return False
+
 def detect_cancellation(text):
+    """Loose check — only used on topic/committee name strings, not full pages."""
     return any(w in text.lower() for w in
-               ["postponed", "cancelled", "canceled", "rescheduled",
-                "withdrawn", "notice of cancellation"])
+               ["postponed", "cancelled", "canceled", "rescheduled", "withdrawn"])
 
 def is_today(text):
     return any(v in text for v in today_variants)
@@ -105,14 +149,21 @@ def extract_witnesses(text):
         line = line.strip()
         if re.match(r"^(Mr\.|Ms\.|Mrs\.|Dr\.|The Honorable|Prof\.|Hon\.)", line):
             clean = re.sub(r"\s+", " ", line).strip(" ,;")
-            if clean and 10 < len(clean) < 120:
+            if clean and 10 < len(clean) < 150:
                 witnesses.append(clean)
     return list(dict.fromkeys(witnesses))
 
+# False positive chair titles to reject
+BAD_CHAIR_STRINGS = [
+    "ranking member", "the ranking", "vice chair", "ex officio",
+    "presiding", "members", "staff director", "chief counsel",
+]
+
 def extract_chair(text):
+    """Extract committee chair, rejecting known false positive patterns."""
     patterns = [
         r"(?:Chairman|Chairwoman|Chair)\s+(Sen\.|Rep\.)?\s*([\w\s]+?)\s*\([RD]",
-        r"(?:Sen\.|Rep\.)\s+([\w\s]+),\s+Chair",
+        r"(?:Sen\.|Rep\.)\s+([\w\s]+),\s+(?:Chair|Chairman|Chairwoman)",
         r"Chaired by[:\s]+([\w\s,\.]+?)(?:\n|$)",
         r"Chair(?:man|woman)?[:\s]+([\w\s]+?)(?:\n|,|\.|$)",
     ]
@@ -120,9 +171,25 @@ def extract_chair(text):
         match = re.search(pattern, text, re.IGNORECASE)
         if match:
             chair = match.group(match.lastindex).strip().strip(".,")
+            # Reject false positives
+            if any(bad in chair.lower() for bad in BAD_CHAIR_STRINGS):
+                continue
             if 5 < len(chair) < 60:
                 return chair
     return ""
+
+def extract_pdf_witnesses(pdf_bytes):
+    """Extract witness names from a PDF byte string."""
+    if not HAS_PDF:
+        return []
+    try:
+        with pdfplumber.open(io.BytesIO(pdf_bytes)) as pdf:
+            text = "\n".join(
+                (page.extract_text() or "") for page in pdf.pages[:5]
+            )
+        return extract_witnesses(text)
+    except:
+        return []
 
 def building_from_room(room):
     mapping = {"SR": "Russell (SR)", "SD": "Dirksen (SD)",
@@ -153,6 +220,21 @@ def save_json(path, data):
     with open(path, "w") as f:
         json.dump(data, f, indent=2)
 
+def norm_time(t):
+    return re.sub(r"\s*(ET|EDT|EST)\s*$", "", str(t)).strip().upper().replace(" ", "")
+
+def norm_cmte(c):
+    return re.sub(r"[^a-z0-9]", "", str(c).lower())
+
+def fuzzy_match(h1, h2):
+    if h1["chamber"] != h2["chamber"]:
+        return False
+    t1, t2 = norm_time(h1["time"]), norm_time(h2["time"])
+    c1, c2 = norm_cmte(h1["committee"]), norm_cmte(h2["committee"])
+    time_ok = t1 == t2 or t1[:5] == t2[:5]
+    cmte_ok = c1[:20] == c2[:20] or c1 in c2 or c2 in c1
+    return time_ok and cmte_ok
+
 def diff_hearing(old, new):
     changes = []
     if old.get("time") != new.get("time"):
@@ -163,7 +245,8 @@ def diff_hearing(old, new):
         changes.append(f"Location changed to {new.get('building','TBD')}")
     old_w = set(old.get("witnesses", []))
     new_w = set(new.get("witnesses", []))
-    added = new_w - old_w
+    added = new_w - old_w - {"Witnesses not yet publicly posted",
+                              "Not yet posted", "Closed session — witnesses not publicly disclosed"}
     if added:
         preview = ", ".join(list(added)[:2])
         extra   = f" +{len(added)-2} more" if len(added) > 2 else ""
@@ -172,11 +255,70 @@ def diff_hearing(old, new):
         changes.append("CANCELLED")
     return changes
 
-# ── Scraper ────────────────────────────────────────────────────────────────────
+# ── DataTables show-all helper ─────────────────────────────────────────────────
+async def datatables_show_all(page):
+    """
+    Multiple strategies to make senate.gov's DataTables show every row.
+    Tries them in sequence — first one that works wins.
+    """
+    strategies = [
+        # Strategy 1: Select -1 (All) from the length dropdown
+        """
+        (function() {
+            const sel = document.querySelector(
+                'select[name$="_length"], .dataTables_length select, select');
+            if (!sel) return 'no_select';
+            const opts = Array.from(sel.options).map(o => o.value);
+            const best = ['-1','200','100','50'].find(v => opts.includes(v));
+            if (best) { sel.value = best; sel.dispatchEvent(new Event('change',{bubbles:true})); return best; }
+            return 'no_match';
+        })()
+        """,
+        # Strategy 2: Call DataTable API directly via jQuery
+        """
+        (function() {
+            try {
+                if (typeof jQuery !== 'undefined') {
+                    jQuery('table').each(function() {
+                        try { jQuery(this).DataTable().page.len(-1).draw(); } catch(e) {}
+                    });
+                    return 'jquery_ok';
+                }
+                return 'no_jquery';
+            } catch(e) { return 'error:' + e.message; }
+        })()
+        """,
+        # Strategy 3: Force all hidden rows to display via CSS
+        """
+        (function() {
+            let shown = 0;
+            document.querySelectorAll('table tbody tr').forEach(r => {
+                if (r.style.display === 'none' || r.classList.contains('odd') || r.classList.contains('even')) {
+                    r.style.display = '';
+                    shown++;
+                }
+            });
+            return 'forced:' + shown;
+        })()
+        """,
+    ]
+    for i, strategy in enumerate(strategies):
+        try:
+            result = await page.evaluate(strategy)
+            print(f"  DataTables strategy {i+1}: {result}")
+            if str(result) not in ['no_select', 'no_match', 'no_jquery', 'forced:0']:
+                await asyncio.sleep(3)
+                return True
+        except Exception as e:
+            print(f"  DataTables strategy {i+1} error: {e}")
+    await asyncio.sleep(2)
+    return False
+
+# ── Main scraper ───────────────────────────────────────────────────────────────
 async def scrape():
-    scraped       = []
-    witness_cache = {}
-    chair_cache   = {}
+    scraped         = []
+    witness_cache   = {}
+    chair_cache     = {}
     cancelled_cache = set()
 
     async with async_playwright() as p:
@@ -215,7 +357,7 @@ async def scrape():
                     "topic":     topic,
                     "witnesses": [],
                     "details":   "",
-                    "cancelled": detect_cancellation(topic) or detect_cancellation(committee),
+                    "cancelled": detect_cancellation(topic),
                     "changes":   [],
                 })
             await page.close()
@@ -223,7 +365,7 @@ async def scrape():
         except Exception as e:
             print(f"❌ House: {e}")
 
-        # ── Senate — senate.gov ───────────────────────────────────────────────
+        # ── Senate — senate.gov with multi-strategy show-all ─────────────────
         senate_from_main = []
         try:
             page = await context.new_page()
@@ -232,21 +374,21 @@ async def scrape():
                 wait_until="networkidle", timeout=30000)
             try:
                 await page.wait_for_selector(
-                    "input[type='search'], .dataTables_filter, table tbody tr td",
+                    "select, .dataTables_length, table tbody tr td",
                     timeout=15000)
             except:
                 pass
-            await asyncio.sleep(5)
+            await asyncio.sleep(3)
+
+            # Try all DataTables show-all strategies
+            await datatables_show_all(page)
 
             full_text = await page.inner_text("body")
-            date_lines = [l.strip() for l in full_text.split("\n")
-                         if re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)", l)
-                         and len(l.strip()) < 80]
-            print(f"Senate date lines: {date_lines[:6]}")
             print(f"Senate today found: {is_today(full_text)}")
+            rows = await page.query_selector_all("table tr")
+            print(f"Senate rows after show-all: {len(rows)}")
 
-            rows = await page.query_selector_all("table tr, .committee-table tr")
-            print(f"Senate rows: {len(rows)}")
+            seen_senate = set()
             for row in rows:
                 text = await row.inner_text()
                 if not is_today(text):
@@ -272,9 +414,17 @@ async def scrape():
                 if not full_cmte or full_cmte == "—":
                     continue
 
-                topic = topic_cell.strip()[:200]
+                dk = f"{full_cmte[:25]}|{time_val}"
+                if dk in seen_senate:
+                    continue
+                seen_senate.add(dk)
+
+                topic   = topic_cell.strip()[:200]
+                chamber = "Joint" if any(x in full_cmte for x in
+                          ["Joint Economic", "Joint Committee", "Caucus"]) else "Senate"
+
                 senate_from_main.append({
-                    "chamber":   "Senate",
+                    "chamber":   chamber,
                     "committee": full_cmte,
                     "chair":     "",
                     "time":      f"{time_val} ET",
@@ -283,10 +433,10 @@ async def scrape():
                     "topic":     topic,
                     "witnesses": [],
                     "details":   topic,
-                    "cancelled": detect_cancellation(topic) or detect_cancellation(committee),
+                    "cancelled": detect_cancellation(topic),
                     "changes":   [],
                 })
-                print(f"  Senate row: {full_cmte} | {time_val} | {room_val}")
+                print(f"  Senate: {full_cmte} | {time_val} | {room_val}")
 
             await page.close()
             print(f"✅ Senate main: {len(senate_from_main)} hearings")
@@ -295,10 +445,10 @@ async def scrape():
 
         scraped.extend(senate_from_main)
 
-        # ── Committee pages — chairs, witnesses, cancellations ────────────────
-        for chamber_label, pages in [("Senate", SENATE_COMMITTEE_PAGES),
-                                      ("House",  HOUSE_COMMITTEE_PAGES)]:
-            for name, url in pages:
+        # ── Committee pages — witnesses, chairs, PDFs, cancellations ─────────
+        for chamber_label, pages_list in [("Senate", SENATE_COMMITTEE_PAGES),
+                                           ("House",  HOUSE_COMMITTEE_PAGES)]:
+            for name, url in pages_list:
                 try:
                     page = await context.new_page()
                     await page.goto(url, wait_until="networkidle", timeout=20000)
@@ -311,26 +461,45 @@ async def scrape():
 
                     print(f"  📋 {chamber_label} {name}: today found")
 
-                    # Cancellation
-                    if detect_cancellation(text):
-                        idx = max((text.find(v) for v in today_variants if v in text), default=-1)
-                        if idx != -1:
-                            surrounding = text[max(0, idx-300):idx+600]
-                            if detect_cancellation(surrounding):
-                                cancelled_cache.add(name.lower())
-                                print(f"  ⚠️  Cancellation: {name}")
+                    # Smart cancellation — only flag if near today's date
+                    if detect_cancellation_near_date(text):
+                        cancelled_cache.add(name.lower())
+                        print(f"  ⚠️  Cancellation: {name}")
 
-                    # Witnesses
+                    # Witnesses from page text
                     witnesses = extract_witnesses(text)
                     if witnesses:
                         witness_cache[name.lower()] = witnesses
                         print(f"  👤 {name}: {len(witnesses)} witnesses")
 
-                    # Chair
+                    # Chair — with false positive rejection
                     chair = extract_chair(text)
                     if chair:
                         chair_cache[name.lower()] = chair
                         print(f"  🪑 {name}: {chair}")
+
+                    # PDF witness lists
+                    if HAS_PDF and HAS_REQUESTS:
+                        pdf_links = await page.query_selector_all(
+                            "a[href$='.pdf'], a[href*='witness'], a[href*='Witness']")
+                        for link in pdf_links[:3]:
+                            try:
+                                pdf_url = await link.get_attribute("href")
+                                if not pdf_url:
+                                    continue
+                                if not pdf_url.startswith("http"):
+                                    base = "/".join(url.split("/")[:3])
+                                    pdf_url = base + ("" if pdf_url.startswith("/") else "/") + pdf_url
+                                r = req_lib.get(pdf_url, headers=HEADERS, timeout=10)
+                                if r.status_code == 200:
+                                    pdf_witnesses = extract_pdf_witnesses(r.content)
+                                    if pdf_witnesses:
+                                        existing = witness_cache.get(name.lower(), [])
+                                        witness_cache[name.lower()] = list(
+                                            dict.fromkeys(existing + pdf_witnesses))
+                                        print(f"  📄 PDF: {name} +{len(pdf_witnesses)} witnesses")
+                            except:
+                                pass
 
                     await page.close()
                 except Exception as e:
@@ -342,7 +511,7 @@ async def scrape():
 
         await browser.close()
 
-    # ── Apply enrichment to scraped hearings ──────────────────────────────────
+    # ── Apply enrichment ──────────────────────────────────────────────────────
     for h in scraped:
         cmte_lower = h["committee"].lower()
         for key, witnesses in witness_cache.items():
@@ -361,51 +530,49 @@ async def scrape():
                 break
 
     # ── Merge with baseline ───────────────────────────────────────────────────
-    # Baseline = nightly verified data written by me each evening
-    # Scraper enriches baseline — never deletes hearings from it
-    baseline = load_json(BASELINE_FILE)
-    scraped_by_key = {hearing_key(h): h for h in scraped}
+    baseline      = load_json(BASELINE_FILE)
+    tomorrow_iso  = (now_et + timedelta(days=1)).strftime("%Y-%m-%d")
+    baseline_date = baseline.get("date", "")
+    baseline_valid = baseline_date in [today_iso, tomorrow_iso]
 
     merged = []
 
-    if baseline and baseline.get("date") == today_iso:
-        # We have a verified baseline for today — use it as foundation
-        print(f"✅ Baseline found for {today_iso} — merging")
+    if baseline_valid and baseline.get("hearings"):
+        print(f"✅ Baseline found for {baseline_date} — merging {len(baseline['hearings'])} hearings")
         for h in baseline.get("hearings", []):
-            key = hearing_key(h)
-            scraped_version = scraped_by_key.get(key)
+            scraped_match = next((s for s in scraped if fuzzy_match(h, s)), None)
 
-            if scraped_version:
-                # Update mutable fields from scraper, keep verified fields
+            if scraped_match:
                 enriched = dict(h)
-                # Only update time/room if scraper found something different
-                if scraped_version["time"] != "TBD ET" and scraped_version["time"] != h["time"]:
-                    enriched["time"]     = scraped_version["time"]
-                if scraped_version["room"] != "TBD" and scraped_version["room"]:
-                    enriched["room"]     = scraped_version["room"]
-                if scraped_version["building"] and scraped_version["building"] != "Dirksen (SD)":
-                    enriched["building"] = scraped_version["building"]
-                # Enrich witnesses — merge, don't replace
+                if norm_time(scraped_match["time"]) not in ["TBD", ""]:
+                    if scraped_match["time"] != h["time"]:
+                        enriched["time"] = scraped_match["time"]
+                if scraped_match["room"] not in ["TBD", "", "Closed"]:
+                    enriched["room"]     = scraped_match["room"]
+                    enriched["building"] = scraped_match["building"]
                 existing_w = set(h.get("witnesses", []))
-                new_w      = set(scraped_version.get("witnesses", []))
-                enriched["witnesses"] = list(existing_w | new_w) or h.get("witnesses", [])
-                # Enrich chair
-                if scraped_version.get("chair") and not h.get("chair"):
-                    enriched["chair"] = scraped_version["chair"]
-                # Cancellation
-                if scraped_version.get("cancelled"):
+                new_w      = set(scraped_match.get("witnesses", []))
+                merged_w   = list(existing_w | new_w)
+                enriched["witnesses"] = merged_w if merged_w else h.get("witnesses", [])
+                if scraped_match.get("chair") and not h.get("chair"):
+                    enriched["chair"] = scraped_match["chair"]
+                if scraped_match.get("cancelled"):
                     enriched["cancelled"] = True
                 enriched["changes"] = h.get("changes", [])
                 merged.append(enriched)
             else:
-                # Hearing not found by scraper — keep from baseline, mark as unconfirmed
                 kept = dict(h)
                 kept["changes"] = h.get("changes", [])
                 merged.append(kept)
-                print(f"  📌 Kept from baseline (not found by scraper): {h['committee']}")
+                print(f"  📌 Kept from baseline: {h['committee']}")
+
+        # Add new hearings found by scraper not in baseline
+        for s in scraped:
+            if not any(fuzzy_match(s, m) for m in merged):
+                merged.append(s)
+                print(f"  ➕ New from scraper: {s['committee']}")
     else:
-        # No baseline for today — use scraped data directly
-        print(f"⚠️  No baseline for today — using scraped data only")
+        print(f"⚠️  No valid baseline — using scraped data only")
         merged = scraped
 
     # ── Change detection ──────────────────────────────────────────────────────
@@ -417,8 +584,7 @@ async def scrape():
             changes = diff_hearing(old, h)
             if changes:
                 new_stamps = [f"{c} · {change_time}" for c in changes]
-                # Append to existing changes, don't replace
-                existing = old.get("changes", [])
+                existing   = old.get("changes", [])
                 h["changes"] = existing + [s for s in new_stamps if s not in existing]
                 print(f"  🔄 {h['committee']}: {changes}")
             else:
@@ -426,16 +592,16 @@ async def scrape():
 
     save_json(SNAPSHOT_FILE, {hearing_key(h): h for h in merged})
 
-    # Sort: Senate, House, Joint; then by time
+    # Sort
     def sort_key(h):
         order = {"Senate": 0, "House": 1, "Joint": 2}
         return (order.get(h["chamber"], 3), h.get("time", ""))
     merged.sort(key=sort_key)
 
-    s = sum(1 for h in merged if h["chamber"] == "Senate")
-    ho = sum(1 for h in merged if h["chamber"] == "House")
-    j  = sum(1 for h in merged if h["chamber"] == "Joint")
-    print(f"\n📊 Total: {len(merged)} ({s} Senate · {ho} House · {j} Joint)")
+    sc = sum(1 for h in merged if h["chamber"] == "Senate")
+    hc = sum(1 for h in merged if h["chamber"] == "House")
+    jc = sum(1 for h in merged if h["chamber"] == "Joint")
+    print(f"\n📊 Total: {len(merged)} ({sc} Senate · {hc} House · {jc} Joint)")
     return merged
 
 # ── Build HTML ─────────────────────────────────────────────────────────────────
@@ -499,7 +665,6 @@ def build_html(hearings):
   .card-section {{ margin-bottom: 10px; }}
   .card-section-label {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }}
   .card-section-value {{ font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: #A09080; line-height: 1.65; }}
-  .card-section-value.dim {{ color: #4A4540; font-style: italic; }}
   .witness {{ font-size: 12px; color: #B0A090; line-height: 1.5; padding-left: 10px; margin-bottom: 4px; }}
   .source-note {{ margin-top: 20px; padding: 12px 14px; background: rgba(255,255,255,0.012); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #706860; line-height: 1.6; }}
   .empty {{ text-align: center; padding: 40px; color: #3A3530; font-size: 13px; }}
@@ -565,12 +730,13 @@ function buildCards(filter) {{
           '<span class="change-pill'+(ch.toLowerCase().includes('cancel')?' cancelled-pill':'')+
           '">⚡ '+ch+'</span>').join('')+'</div>'
       : '';
-    const chairVal   = h.chair     || '<span class="dim">Not yet posted</span>';
-    const detailsVal = h.details   || h.topic || '';
-    const witnessHtml = h.witnesses && h.witnesses.length
+    const chairVal = h.chair || '<span style="color:#4A4540;font-style:italic">Not yet posted</span>';
+    const aboutHtml = (h.details && h.details.trim() && h.details.trim() !== h.topic.trim() && h.details.length > h.topic.length + 20)
+      ? '<div class="card-section"><div class="card-section-label sl-'+c+'">About</div><div class="card-section-value">'+h.details+'</div></div>'
+      : '';
+    const witnessHtml = h.witnesses && h.witnesses.length && !h.witnesses.every(w=>w==='Witnesses not yet publicly posted')
       ? h.witnesses.map(w=>'<div class="witness wb-'+c+'">'+w+'</div>').join('')
-      : '<div class="witness wb-'+c+'" style="color:#4A4540;font-style:italic">Not yet posted</div>';
-
+      : '<div style="color:#4A4540;font-style:italic;font-size:12px;padding-left:10px">Not yet posted</div>';
     card.innerHTML = `
       <div class="card-top">
         <div class="card-left">
@@ -593,7 +759,7 @@ function buildCards(filter) {{
           <div class="card-section-label sl-${{c}}">Chair</div>
           <div class="card-section-value">${{chairVal}}</div>
         </div>
-        ${{detailsVal ? '<div class="card-section"><div class="card-section-label sl-'+c+'">About</div><div class="card-section-value">'+detailsVal+'</div></div>' : ''}}
+        ${{aboutHtml}}
         <div class="card-section">
           <div class="card-section-label sl-${{c}}">Witnesses</div>
           ${{witnessHtml}}
@@ -614,9 +780,8 @@ buildCards('All');
 </body>
 </html>"""
 
-# ── Entry point ────────────────────────────────────────────────────────────────
 async def main():
-    print(f"🗓  Scraping for {today_long}...")
+    print(f"🗓  Scraping for {today_long} ({tz_label})...")
     hearings = await scrape()
     with open("index.html", "w", encoding="utf-8") as f:
         f.write(build_html(hearings))
