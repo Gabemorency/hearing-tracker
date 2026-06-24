@@ -116,11 +116,14 @@ def build():
             cmte_names[sub_tid] = f"{c.get('name',tid)} — {sub.get('name','')}"
 
     # Build bioguide -> committee roles
+    # Only count FULL committee chairs/RMs (not subcommittee chairs)
+    # thomas_ids with no suffix = full committee; with suffix = subcommittee
     print("🔗 Building committee role map...")
-    cmte_roles_map = {}  # bioguide -> [{committee, role, rank}]
-    chair_map    = {}    # bioguide -> leadership dict (for chairs/RMs)
+    cmte_roles_map = {}
+    chair_map      = {}
     for thomas_id, members in cmte_membership.items():
-        cmte_name = cmte_names.get(thomas_id, thomas_id)
+        cmte_name     = cmte_names.get(thomas_id, thomas_id)
+        is_full_cmte  = len(thomas_id) <= 4  # full committee IDs are 4 chars or fewer
         for m in members:
             bid   = m.get("bioguide", "")
             title = m.get("title", "")
@@ -135,7 +138,9 @@ def build():
                 "role":      role,
                 "rank":      rank,
             })
-            # Set chair/RM in leadership map
+            # Only set chair/RM leadership badge for FULL committee chairs/RMs
+            if not is_full_cmte:
+                continue
             tl = title.lower() if title else ""
             if "chair" in tl and "ranking" not in tl:
                 if bid not in chair_map:
@@ -144,118 +149,51 @@ def build():
                 if bid not in chair_map:
                     chair_map[bid] = {"label": "Ranking Member", "tier": 5, "committee": cmte_name}
 
-    # ── Caucus membership ──────────────────────────────────────────────────────
-    print("📥 Fetching caucus membership lists...")
-    caucus_map = {}  # bioguide -> [caucus_key, ...]
-
-    # Caucus definitions: key, display name, scrape URL, fallback bioguide list
-    CAUCUSES = [
-        ("cbc",        "Black Caucus",                    "https://cbc.house.gov/membership/"),
-        ("chc",        "Hispanic Caucus",                 "https://chc.house.gov/members"),
-        ("capac",      "Asian Pacific American Caucus",   "https://capac.house.gov/members"),
-        ("progressive","Progressive Caucus",              "https://progressives.house.gov/caucus-members"),
-        ("newdems",    "New Democrat Coalition",          "https://newdemocratcoalition.house.gov/members"),
-        ("rsc",        "Republican Study Committee",      "https://rsc-pfluger.house.gov/members"),
+    # ── Congressional Black Caucus membership ─────────────────────────────────
+    # CBC page requires JavaScript to render — using bioguide IDs matched from
+    # the static HTML that does load, cross-referenced with the legislators dataset.
+    # Updated as of 119th Congress (2025-2026). 62 members per CBC.house.gov.
+    print("📋 Loading CBC membership...")
+    CBC_LAST_NAMES = [
+        "Norton","Waters","Bishop","Clyburn","Scott","Thompson","Davis",
+        "Meeks","Scott","Cleaver","Green","Moore","Clarke","Johnson",
+        "Carson","Mfume","Sewell","Wilson","Beatty","Jeffries","Veasey",
+        "Kelly","Booker","Adams","Plaskett","Coleman","Evans",
+        "Rochester","Horsford","Hayes","McBath","Neguse","Omar",
+        "Pressley","Underwood","Williams","Torres","Strickland",
+        "Warnock","Carter","Brown","Cherfilus-McCormick","Bowman",
+        "Bush","Casar","Frost","Goldman","Jackson","Jackson Lee",
+        "Johnson","Jones","Lee","Leger Fernandez","McIver","Menefee",
+        "Mosby","Ocasio-Cortez","Payne","Scanlon","Stansbury",
+        "Thanedar","Tlaib","Vasquez","Williams",
     ]
 
-    # Build a name->bioguide lookup for matching scraped names
-    name_to_bio = {}
+    # Build last-name -> bioguide lookup (Democrat-only to avoid false matches)
+    last_to_bio = {}
     for m in legislators:
-        name  = m.get("name", {})
-        bid   = m.get("id", {}).get("bioguide", "")
-        full  = name.get("official_full", "")
-        last  = name.get("last", "")
-        first = name.get("first", "")
-        if bid:
+        bid  = m.get("id", {}).get("bioguide", "")
+        name = m.get("name", {})
+        last = name.get("last", "")
+        term = m.get("terms", [{}])[-1]
+        party = term.get("party", "")
+        if bid and party == "Democrat":
+            last_to_bio[last.lower()] = bid
+            # Also index official_full for better matching
+            full = name.get("official_full", "")
             if full:
-                name_to_bio[full.lower()] = bid
-            name_to_bio[f"{first} {last}".strip().lower()] = bid
-            name_to_bio[last.lower()] = bid  # last name fallback
+                last_to_bio[full.lower()] = bid
 
-    def scrape_caucus(url):
-        """Fetch a caucus page and extract member names."""
-        try:
-            r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=20)
-            if r.status_code != 200:
-                return []
-            from html.parser import HTMLParser
-            class NameParser(HTMLParser):
-                def __init__(self):
-                    super().__init__()
-                    self.names = []
-                    self.in_name = False
-                def handle_starttag(self, tag, attrs):
-                    attrs = dict(attrs)
-                    cls = attrs.get("class", "")
-                    if any(x in cls for x in ["name","member","legislator","title"]):
-                        self.in_name = True
-                def handle_endtag(self, tag):
-                    self.in_name = False
-                def handle_data(self, data):
-                    if self.in_name:
-                        data = data.strip()
-                        if len(data) > 3:
-                            self.names.append(data)
-            # Extract all text and look for "Rep." or "Sen." patterns
-            import re as _re
-            text = _re.sub(r"<[^>]+>", " ", r.text)
-            # Match "Rep. Firstname Lastname" or "Sen. Firstname Lastname"
-            matches = _re.findall(
-                r"(?:Rep\.|Sen\.|Representative|Senator)\s+([A-Z][a-z]+(?:\s+[A-Z][a-zA-Z\-\']+){1,3})",
-                text
-            )
-            return list(dict.fromkeys(matches))
-        except Exception as e:
-            print(f"    Caucus scrape error: {e}")
-            return []
-
-    def match_names_to_bioguides(names):
-        bids = set()
-        for name in names:
-            nl = name.lower().strip()
-            # Try full name first
-            if nl in name_to_bio:
-                bids.add(name_to_bio[nl])
-                continue
-            # Try last name
-            parts = nl.split()
-            if parts:
-                last = parts[-1]
-                if last in name_to_bio:
-                    bids.add(name_to_bio[last])
-        return bids
-
-    for key, label, url in CAUCUSES:
-        names = scrape_caucus(url)
-        bids  = match_names_to_bioguides(names)
-        print(f"  {label}: {len(bids)} members matched")
-        for bid in bids:
+    caucus_map = {}
+    matched = 0
+    for last in CBC_LAST_NAMES:
+        bid = last_to_bio.get(last.lower())
+        if bid:
             if bid not in caucus_map:
                 caucus_map[bid] = []
-            if key not in caucus_map[bid]:
-                caucus_map[bid].append(key)
-
-    # Tri-Caucus = CBC + CHC + CAPAC combined
-    for bid, keys in caucus_map.items():
-        if set(keys) & {"cbc","chc","capac"}:
-            if "tricaucus" not in keys:
-                caucus_map[bid].append("tricaucus")
-
-    # Freedom Caucus — no official list, use GovTrack known members
-    # (static list, updated manually when needed)
-    FREEDOM_CAUCUS_BIOGUIDES = [
-        "B001306","B001297","B001291","B001302","C001118","C001093",
-        "C001108","D000615","D000616","F000475","G000590","G000596",
-        "G000578","G000599","H001082","H001071","J000299","L000564",
-        "M001177","M001187","M001198","M001205","N000190","O000172",
-        "P000609","R000603","R000609","S001212","S001215","T000479",
-        "W000806","W000827","W000821",
-    ]
-    for bid in FREEDOM_CAUCUS_BIOGUIDES:
-        if bid not in caucus_map:
-            caucus_map[bid] = []
-        if "freedom" not in caucus_map[bid]:
-            caucus_map[bid].append("freedom")
+            if "cbc" not in caucus_map[bid]:
+                caucus_map[bid].append("cbc")
+                matched += 1
+    print(f"  Black Caucus: {matched} members matched")
 
     # Build member objects
     print("🔨 Building member objects...")
@@ -618,13 +556,6 @@ def build_html(members_json):
     <span class="group-label">Congressional Caucuses</span>
     <button class="group-btn caucus-btn active" onclick="setCaucus('all',this)">All</button>
     <button class="group-btn caucus-btn" onclick="setCaucus('cbc',this)">Black Caucus</button>
-    <button class="group-btn caucus-btn" onclick="setCaucus('chc',this)">Hispanic Caucus</button>
-    <button class="group-btn caucus-btn" onclick="setCaucus('capac',this)">Asian Pacific American Caucus</button>
-    <button class="group-btn caucus-btn" onclick="setCaucus('tricaucus',this)">Tri-Caucus</button>
-    <button class="group-btn caucus-btn" onclick="setCaucus('progressive',this)">Progressive Caucus</button>
-    <button class="group-btn caucus-btn" onclick="setCaucus('newdems',this)">New Democrat Coalition</button>
-    <button class="group-btn caucus-btn" onclick="setCaucus('rsc',this)">Republican Study Committee</button>
-    <button class="group-btn caucus-btn" onclick="setCaucus('freedom',this)">Freedom Caucus</button>
   </div>
 </div>
 
@@ -637,6 +568,7 @@ def build_html(members_json):
   </div>
 </div>
 
+<div class="content" id="cbc-panel" style="display:none;border-bottom:1px solid var(--bdr-sec);padding-bottom:0"></div>
 <div class="content" id="content"></div>
 
 <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
@@ -674,23 +606,22 @@ matchMedia('(prefers-color-scheme:light)').addEventListener('change',e=>{{
 function roleHtml(m){{
   if(!m.leadership) return '';
   const tier  = m.leadership.tier;
+  // Only show badge for institutional party leaders (tier 1-3)
+  // Chairs and Ranking Members (tier 4-5) are shown in the modal only
+  if(tier > 3) return '';
   const label = m.leadership.label;
   const l     = label.toLowerCase();
   let cls = 'role-chair';
   if(l.includes('leader')||l.includes('speaker')||l.includes('pro tempore')) cls='role-leader';
   else if(l.includes('whip')) cls='role-whip';
-  else if(l.includes('ranking')) cls='role-rm';
-  // Clean short display — never include truncated committee name
-  const display = tier<=3 ? label : tier===4 ? 'Chair' : 'Ranking Member';
-  return `<span class="mrole ${{cls}}">${{display}}</span>`;
+  else if(l.includes('conference')||l.includes('caucus')||l.includes('policy')) cls='role-chair';
+  return `<span class="mrole ${{cls}}">${{label}}</span>`;
 }}
 
 function roleClass(m){{
   if(!m.leadership) return '';
-  const t = m.leadership.tier;
-  if(t<=3) return 'card-leader';
-  if(t===4) return 'card-chair';
-  if(t===5) return 'card-ranking';
+  // Only apply gold left border for institutional leaders
+  if(m.leadership.tier <= 3) return 'card-leader';
   return '';
 }}
 
@@ -713,32 +644,43 @@ function fullRoleDescription(m){{
   return label.replace(/^RM,\s*/,'Ranking Member, ');
 }}
 
-function committeeRows(m){{
+function buildCommitteeSections(m){{
   const cmtes = (m.committees||[]);
-  if(!cmtes.length) return '<p style="color:var(--text-f);font-style:italic;font-size:14px">No committee data available</p>';
+  if(!cmtes.length) return '<p style="color:var(--text-f);font-style:italic;font-size:14px;margin-top:6px">No committee data available</p>';
 
-  // Deduplicate by committee name — keep highest-ranked role per committee
+  // Deduplicate — keep highest role per committee
   const roleRank = {{'Chair':0,'Chairman':0,'Chairwoman':0,'Chairperson':0,'Ranking Member':1,'Member':2}};
   const seen = {{}};
   cmtes.forEach(c=>{{
-    const key = c.committee;
+    const key  = c.committee;
     const rank = roleRank[c.role] ?? 2;
-    if(!(key in seen) || rank < seen[key].rank){{
+    if(!(key in seen) || rank < seen[key].rank)
       seen[key] = {{...c, rank}};
-    }}
   }});
+  const all = Object.values(seen).sort((a,b)=>a.rank-b.rank||a.committee.localeCompare(b.committee));
 
-  // Sort: Chairs first, then Ranking Members, then Members
-  const sorted = Object.values(seen).sort((a,b)=> a.rank - b.rank || a.committee.localeCompare(b.committee));
+  const chairs   = all.filter(c=>c.rank===0);
+  const rankings = all.filter(c=>c.rank===1);
+  const members  = all.filter(c=>c.rank===2);
 
-  return sorted.map(c=>{{
-    const isChair = c.rank === 0;
-    const isRM    = c.rank === 1;
-    const badge   = isChair ? `<div><span class="modal-cmte-badge badge-chair">Chair</span></div>`
-                  : isRM    ? `<div><span class="modal-cmte-badge badge-rm">Ranking Member</span></div>`
-                  : '';
-    return `<div class="modal-cmte">${{badge}}${{c.committee}}</div>`;
-  }}).join('');
+  let html = '';
+
+  if(chairs.length){{
+    html += `<div class="modal-section-label" style="margin-top:14px">Chairs</div>`;
+    html += chairs.map(c=>`<div class="modal-cmte" style="border-left-color:var(--gold)">${{c.committee}}</div>`).join('');
+  }}
+
+  if(rankings.length){{
+    html += `<div class="modal-section-label" style="margin-top:14px">Ranking Member</div>`;
+    html += rankings.map(c=>`<div class="modal-cmte">${{c.committee}}</div>`).join('');
+  }}
+
+  if(members.length){{
+    html += `<div class="modal-section-label" style="margin-top:14px">Committee Assignments</div>`;
+    html += members.map(c=>`<div class="modal-cmte">${{c.committee}}</div>`).join('');
+  }}
+
+  return html;
 }}
 
 // ── Modal ─────────────────────────────────────────────────────────────────────
@@ -748,8 +690,17 @@ function openModal(m){{
   const chamberFull = m.chamber==='senate'
     ? 'United States Senate'
     : 'United States House of Representatives';
-  const dist     = m.chamber==='house' && m.district ? `District ${{m.district}} · ` : '';
-  const fullRole = fullRoleDescription(m);
+  const dist = m.chamber==='house' && m.district ? `District ${{m.district}} · ` : '';
+
+  // Institutional role (tier 1-3 only)
+  let instRole = '';
+  if(m.leadership && m.leadership.tier <= 3){{
+    const label = m.leadership.label;
+    const tier  = m.leadership.tier;
+    instRole = tier<=2
+      ? label + (m.chamber==='senate' ? ' of the United States Senate' : ' of the United States House of Representatives')
+      : label;
+  }}
 
   const photoHtml = m.photo_url
     ? `<img class="modal-photo" src="${{m.photo_url}}"
@@ -765,13 +716,12 @@ function openModal(m){{
       ${{chamberFull}}<br>
       ${{dist}}${{m.state}} · ${{partyFull}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span>
     </div>
-    ${{fullRole ? `
+    ${{instRole ? `
     <hr class="modal-divider">
     <div class="modal-section-label">Leadership Role</div>
-    <div class="modal-section-value">${{fullRole}}</div>` : ''}}
+    <div class="modal-section-value">${{instRole}}</div>` : ''}}
     <hr class="modal-divider">
-    <div class="modal-section-label">Committee Assignments</div>
-    ${{committeeRows(m)}}
+    ${{buildCommitteeSections(m)}}
   `;
 
   document.getElementById('modal-overlay').classList.add('visible');
@@ -809,17 +759,11 @@ let CURRENT_MEMBERS = [];
 // ── Filter ────────────────────────────────────────────────────────────────────
 function filtered(){{
   const q = document.getElementById('search').value.toLowerCase().trim();
-  // When searching, pull from ALL members regardless of chamber tab
   let pool = q
     ? [...SENATORS, ...REPS]
     : chamber==='senate' ? SENATORS : REPS;
-
-  // Apply caucus filter
-  if(caucus !== 'all') {{
-    pool = pool.filter(m => (m.caucuses||[]).includes(caucus));
-  }}
-
-  // Apply search
+  if(caucus !== 'all')
+    pool = pool.filter(m=>(m.caucuses||[]).includes(caucus));
   if(!q) return pool;
   return pool.filter(m=>
     m.name.toLowerCase().includes(q) ||
@@ -833,7 +777,43 @@ function setCaucus(c, btn){{
   caucus = c;
   document.querySelectorAll('.caucus-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
+  // Show/hide CBC panel
+  const panel = document.getElementById('cbc-panel');
+  if(panel) panel.style.display = c==='cbc' ? 'block' : 'none';
   render();
+}}
+
+// ── CBC Panel ─────────────────────────────────────────────────────────────────
+function buildCbcPanel(){{
+  const cbcMembers = [...SENATORS,...REPS].filter(m=>(m.caucuses||[]).includes('cbc'));
+  if(!cbcMembers.length) return '';
+  const senate = cbcMembers.filter(m=>m.chamber==='senate');
+  const house   = cbcMembers.filter(m=>m.chamber==='house');
+
+  const memberList = (arr) => arr.map(m=>{{
+    const idx = CURRENT_MEMBERS.push(m)-1;
+    const pc  = m.party_class;
+    const dist = m.chamber==='house'&&m.district?` · District ${{m.district}}`:'';
+    return `<div class="member-card" onclick="openModal(CURRENT_MEMBERS[${{idx}}])">
+      <div class="card-face">
+        ${{photoEl(m,'photo','initials-box')}}
+        <div class="info">
+          <div class="mname">${{m.name}}</div>
+          <div class="mmeta">${{m.state}}${{dist}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span></div>
+          ${{roleHtml(m)}}
+        </div>
+      </div>
+    </div>`;
+  }}).join('');
+
+  return `
+    <div style="margin-bottom:6px">
+      <div class="section-hdr">── Congressional Black Caucus · ${{cbcMembers.length}} Members</div>
+      ${{senate.length ? `<div class="party-col-hdr col-dem" style="margin-bottom:8px">Senate · ${{senate.length}}</div>
+        <div class="party-cols">${{memberList(senate)}}</div>` : ''}}
+      ${{house.length ? `<div class="party-col-hdr col-dem" style="margin-top:10px;margin-bottom:8px">House · ${{house.length}}</div>
+        <div class="party-cols">${{memberList(house)}}</div>` : ''}}
+    </div>`;
 }}
 
 // ── Render modes ──────────────────────────────────────────────────────────────
@@ -847,35 +827,30 @@ function renderParty(members){{
   const ind = rest.filter(m=>m.party_class==='ind');
   let h = '';
 
-  // ── Tier 1: Party Leadership (Majority/Minority Leader, Speaker, Whips etc.)
   if(leaders.length){{
-    h += `<div class="section-hdr">── Party Leadership</div>`;
-    h += `<div class="leader-grid">`;
+    h += `<div class="section-hdr">── Party Leadership</div><div class="leader-grid">`;
     const majL = leaders.filter(m=>m.party_class==='rep').sort((a,b)=>a.leadership.tier-b.leadership.tier);
     const minL = leaders.filter(m=>m.party_class!=='rep').sort((a,b)=>a.leadership.tier-b.leadership.tier);
-    const mx = Math.max(majL.length, minL.length);
+    const mx = Math.max(majL.length,minL.length);
     for(let i=0;i<mx;i++){{
-      h += majL[i] ? card(majL[i]) : '<div></div>';
-      h += minL[i] ? card(minL[i]) : '<div></div>';
+      h += majL[i]?card(majL[i]):'<div></div>';
+      h += minL[i]?card(minL[i]):'<div></div>';
     }}
-    h += `</div>`;
+    h += '</div>';
   }}
 
-  // ── Tier 2: Committee Chairs (majority) paired with Ranking Members (minority)
   if(chairs.length||rankings.length){{
-    h += `<div class="section-hdr">── Committee Chairs & Ranking Members</div>`;
-    h += `<div class="leader-grid">`;
-    const allChairs   = chairs.sort((a,b)=>  (a.leadership.committee||'').localeCompare(b.leadership.committee||''));
+    h += `<div class="section-hdr">── Committee Chairs & Ranking Members</div><div class="leader-grid">`;
+    const allChairs   = chairs.sort((a,b)=>(a.leadership.committee||'').localeCompare(b.leadership.committee||''));
     const allRankings = rankings.sort((a,b)=>(a.leadership.committee||'').localeCompare(b.leadership.committee||''));
-    const mx = Math.max(allChairs.length, allRankings.length);
+    const mx = Math.max(allChairs.length,allRankings.length);
     for(let i=0;i<mx;i++){{
-      h += allChairs[i]   ? card(allChairs[i])   : '<div></div>';
-      h += allRankings[i] ? card(allRankings[i]) : '<div></div>';
+      h += allChairs[i]?card(allChairs[i]):'<div></div>';
+      h += allRankings[i]?card(allRankings[i]):'<div></div>';
     }}
-    h += `</div>`;
+    h += '</div>';
   }}
 
-  // ── Tier 3: All other members, two-column party split
   if(rest.length){{
     h += `<div class="section-hdr">── All Members</div>
     <div class="party-cols">
@@ -886,11 +861,10 @@ function renderParty(members){{
       <div>
         <div class="party-col-hdr col-dem">Democrat · ${{min.length}}</div>
         ${{min.map(card).join('')}}
-        ${{ind.length ? `<div class="party-col-hdr col-ind" style="margin-top:10px">Independent · ${{ind.length}}</div>${{ind.map(card).join('')}}` : ''}}
+        ${{ind.length?`<div class="party-col-hdr col-ind" style="margin-top:10px">Independent · ${{ind.length}}</div>${{ind.map(card).join('')}}`:''))}}
       </div>
     </div>`;
   }}
-
   return h || '<div class="empty">No members found.</div>';
 }}
 
@@ -923,13 +897,22 @@ function renderLeadership(members){{
 
 // ── Main render ───────────────────────────────────────────────────────────────
 function render(){{
-  CURRENT_MEMBERS = []; // reset before each render
+  CURRENT_MEMBERS = [];
+
+  // CBC panel — always rebuild so indices are fresh
+  const panel = document.getElementById('cbc-panel');
+  if(panel){{
+    panel.innerHTML = buildCbcPanel();
+    panel.style.display = caucus==='cbc' ? 'block' : 'none';
+  }}
+
   const members = filtered();
   let html = '';
-  if(group==='party')      html = renderParty(members);
-  else if(group==='state') html = renderState(members);
-  else if(group==='committee') html = renderCommittee(members);
-  else html = renderLeadership(members);
+  if(group==='party')           html = renderParty(members);
+  else if(group==='state')      html = renderState(members);
+  else if(group==='committee')  html = renderCommittee(members);
+  else                          html = renderLeadership(members);
+
   document.getElementById('content').innerHTML = html +
     `<div class="source-note">ℹ Data: github.com/unitedstates/congress-legislators · Photos: bioguide.congress.gov · Refreshes daily</div>`;
 }}
