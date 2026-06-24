@@ -11,30 +11,24 @@
   body { background: #0D0C0A; color: #E8E0D0; font-family: 'IBM Plex Sans', sans-serif; min-height: 100vh; }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: #2A2820; border-radius: 2px; }
-
   .header { border-bottom: 1px solid rgba(200,169,110,0.18); padding: 20px 20px 16px; background: rgba(200,169,110,0.025); }
   .header-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #C8A96E; text-transform: uppercase; margin-bottom: 6px; }
   .header h1 { font-family: 'Playfair Display', serif; font-size: clamp(20px,5vw,26px); font-weight: 700; color: #F0E8D8; letter-spacing: -0.01em; margin-bottom: 6px; }
   .header-timestamp { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #908070; letter-spacing: 0.04em; line-height: 1.5; }
-
   .stats { display: flex; border-bottom: 1px solid rgba(255,255,255,0.05); background: #0A0908; }
   .stat { flex: 1; padding: 12px 8px; text-align: center; border-right: 1px solid rgba(255,255,255,0.04); }
   .stat-number { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1; }
   .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #706860; text-transform: uppercase; margin-top: 3px; }
-
   .filters { display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; }
   .filter-btn { background: transparent; border: 1px solid rgba(255,255,255,0.07); color: #908070; border-radius: 5px; padding: 5px 12px; font-size: 11px; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; cursor: pointer; transition: all 0.15s; }
   .filter-btn.active { background: rgba(200,169,110,0.13); border-color: rgba(200,169,110,0.4); color: #C8A96E; }
-
   .cards { padding: 14px 16px; }
   .count-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #706860; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
-
-  .card { border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 14px 16px; cursor: pointer; margin-bottom: 9px; background: rgba(255,255,255,0.018); transition: background 0.15s; position: relative; }
+  .card { border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 14px 16px; cursor: pointer; margin-bottom: 9px; background: rgba(255,255,255,0.018); transition: background 0.15s; }
   .card.open { background: rgba(255,255,255,0.038); }
   .card.cancelled { opacity: 0.5; }
   .card.cancelled .card-committee { text-decoration: line-through; }
-  .card.has-changes { border-top: 2px solid rgba(255, 200, 50, 0.5); }
-
+  .card.has-changes { border-top: 2px solid rgba(255,200,50,0.5); }
   .card-top { display: flex; gap: 10px; justify-content: space-between; align-items: flex-start; }
   .card-left { flex: 1; min-width: 0; }
   .card-meta { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; flex-wrap: wrap; }
@@ -43,28 +37,23 @@
   .tag-house  { background: rgba(100,160,200,0.11); color: #7FB3D3; border: 1px solid rgba(100,160,200,0.30); }
   .tag-joint  { background: rgba(160,120,200,0.11); color: #B39DDB; border: 1px solid rgba(160,120,200,0.30); }
   .tag-cancelled { background: rgba(200,60,60,0.15); color: #E07070; border: 1px solid rgba(200,60,60,0.3); }
-
   .card-time { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #A09080; letter-spacing: 0.04em; }
   .card-committee { font-size: 13px; font-weight: 600; color: #DDD5C5; line-height: 1.4; margin-bottom: 3px; }
   .card-topic { font-size: 12px; color: #A09080; line-height: 1.4; }
   .card-right { text-align: right; min-width: 96px; flex-shrink: 0; }
   .card-building { font-family: 'IBM Plex Mono', monospace; font-size: 11px; margin-bottom: 2px; }
   .card-room { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #908070; }
-
   .change-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
   .change-pill { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 10px; background: rgba(255,200,50,0.1); color: #E0B830; border: 1px solid rgba(255,200,50,0.25); }
   .change-pill.cancelled-pill { background: rgba(200,60,60,0.12); color: #E07070; border-color: rgba(200,60,60,0.3); }
-
   .card-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); display: none; }
   .card.open .card-body { display: block; }
   .card-chair { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #A09080; letter-spacing: 0.05em; margin-bottom: 10px; }
   .card-details { font-size: 12px; color: #A09080; line-height: 1.65; margin-bottom: 10px; }
   .witnesses-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
   .witness { font-size: 12px; color: #B0A090; line-height: 1.5; padding-left: 10px; margin-bottom: 4px; }
-
   .source-note { margin-top: 20px; padding: 12px 14px; background: rgba(255,255,255,0.012); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #706860; line-height: 1.6; }
   .empty { text-align: center; padding: 40px; color: #3A3530; font-size: 13px; }
-
   .chamber-senate { border-left: 3px solid rgba(200,169,110,0.5); }
   .chamber-house  { border-left: 3px solid rgba(100,160,200,0.45); }
   .chamber-joint  { border-left: 3px solid rgba(160,120,200,0.45); }
@@ -76,20 +65,17 @@
 </style>
 </head>
 <body>
-
 <div class="header">
   <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
   <h1>Today's Hearings</h1>
-  <div class="header-timestamp">As of 10:15 AM ET · Wednesday, June 24, 2026 · Auto-updates hourly · Schedules subject to change.</div>
+  <div class="header-timestamp">As of 10:27 AM ET · Wednesday, June 24, 2026 · Updates every 15 min · Schedules subject to change.</div>
 </div>
-
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#888">13</div><div class="stat-label">Total</div></div>
-  <div class="stat"><div class="stat-number" style="color:#C8A96E">0</div><div class="stat-label">Senate</div></div>
+  <div class="stat"><div class="stat-number" style="color:#888">16</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#C8A96E">3</div><div class="stat-label">Senate</div></div>
   <div class="stat"><div class="stat-number" style="color:#7FB3D3">13</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:#B39DDB">0</div><div class="stat-label">Joint</div></div>
 </div>
-
 <div class="filters">
   <button class="filter-btn active" onclick="setFilter('All')">All</button>
   <button class="filter-btn" onclick="setFilter('Senate')">Senate</button>
@@ -98,72 +84,47 @@
   <button class="filter-btn" onclick="setFilter('Updated')">⚡ Updated</button>
   <button class="filter-btn" onclick="setFilter('Cancelled')">✕ Cancelled</button>
 </div>
-
 <div class="cards">
   <div class="count-label" id="count-label"></div>
   <div id="card-list"></div>
-  <div class="source-note">
-    ℹ Auto-updated hourly via GitHub Actions · Sources: docs.house.gov · senate.gov · Individual committee pages · Nightly verification by Claude
-  </div>
+  <div class="source-note">ℹ Auto-updated every 15 min · docs.house.gov · senate.gov · Individual committee pages </div>
 </div>
-
 <script>
-const HEARINGS = [{"chamber": "House", "committee": "Committee on Homeland Security", "chair": "", "time": "10:00 AM ET", "building": "Cannon (CHOB)", "room": "310 CHOB", "topic": "H.R. 3106, (Mr. Kennedy of New York) the “Weatherizing Infrastructure in the North and Terrorism Emergency Readiness Act of 2025”; H.R. 5109, (Mr. Carter of Louisiana) To require the Administrator of the Transportation Security Administration of the United States to develop guidelines to improve returning citizens' access to the Transportation Worker Identification Credential program, to assist individuals in custody of Federal, State, and local prisons in pre-applying or preparing applications for Transportation Worker Identification Credential cards, and to assist individuals requesting an appeal or waiver of preliminary determination of ineligibility, and for other purposes; H.R. 5517, (Mr. Langworthy) the “Northern Border Security Enhancement and Review Act”; H.R. 7427, (Ms. Goldman of New York) the “SAFE VISITS Act”; H.R. 7436, (Mr. Magaziner) the “Department of Homeland Security Intelligence and Analysis Training Act”; H.R. 7443, (Mr. Pfluger) the “I&A Mission Reorientation Act of 2026”; H.R. 7448, (Ms. Pou) the “Modernizing and Improving the National Terrorism Advisory System Act of 2026”; H.R. 7574, (Mr. Evans of Colorado) the “ELO Realignment and Strategic Engagement Reform Act of 2026”; H.R. 8168, (Mr. Van Epps) the “Major Non-NATO Ally Terror Threat Assessment Act”; H.R. 8535, (Mr. Walkinshaw) the “Measuring Illicit Fentanyl Trafficking Act”; H.R. 8770, (Mr. Strong) the “SAFEGUARDS Act of 2026\"; H.R. 8874, (Mr. Carter of Louisiana) the “Homeland Security Capabilities Preservation Reporting Act of 2026”; H.R. 8897, (Mr. Mackenzie) the “Improving Travel for American Families Act”; H.R. 9327, (Mr. Joyce of Ohio) the “PEARL Act”; H.R. 9328, (Mrs. Biggs of South Carolina) the “Improving Travel for Military Members Act”; H.R. 9382, (Mr. Kennedy of New York) the “NEXUS for Families Act”; H.R. 9388, (Mr. Gimenez) the “One-Stop Pilot Program Extension Act”; H.R. 9391, (Mr. Garbarino) the “Reimbursable Screening Services Program Extension Act of 2026”; H.R. 9394, (Mr. Strong) the “Civil Preparedness for Agroterrorism Exercise Act of 2026", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2318 RHOB", "topic": "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Agriculture", "chair": "", "time": "10:00 AM ET", "building": "Longworth (LHOB)", "room": "1300 LHOB", "topic": "To Review the Implementation of Farm Safety Net, Disaster, and Conservation Programs", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Financial Services", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2128 RHOB", "topic": "Future of Payments: Promoting Innovation and Fair Markets", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2141 RHOB", "topic": "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Environment (Committee on Energy and Commerce)", "chair": "", "time": "10:15 AM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Trash to Treasure: Examining Legislation to Support Domestic Critical Mineral Recovery and Recycling", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)", "chair": "", "time": "10:15 AM ET", "building": "Rayburn (RHOB)", "room": "2175 RHOB", "topic": "Workforce Rewired: Modern Apprenticeships for a Modern Economy", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on House Administration", "chair": "", "time": "10:15 AM ET", "building": "Longworth (LHOB)", "room": "1310 LHOB", "topic": "Committee on House Administration Full Committee Markup on Various Measures", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Natural Resources", "chair": "", "time": "10:30 AM ET", "building": "Longworth (LHOB)", "room": "1324 LHOB", "topic": "Markup of H.R. 9250 (Rep. Westerman), “Great American Outdoors Act 250", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Appropriations", "chair": "", "time": "11:00 AM ET", "building": "Rayburn (RHOB)", "room": "2359 RHOB", "topic": "Fiscal Year 2027 Defense Bill", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Permanent Select Committee on Intelligence", "chair": "", "time": "2:00 PM ET", "building": "Classified", "room": "Closed", "topic": "Effectiveness of the Intelligence Community's Inspector General (CLOSED)", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Energy (Committee on Energy and Commerce)", "chair": "", "time": "2:00 PM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Subcommittee Markup of Eight Pieces of Legislation", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)", "chair": "", "time": "2:15 PM ET", "building": "Cannon (CHOB)", "room": "360 CHOB", "topic": "Failure at the Front Gate: Examining VA Police and Security Deficiencies” (Postponed)", "witnesses": [], "details": "", "cancelled": true, "changes": []}];
-
-function cls(c) { return c === 'Senate' ? 'senate' : c === 'House' ? 'house' : 'joint'; }
-
+const HEARINGS = [{"chamber": "Senate", "committee": "Indian Affairs", "chair": "", "time": "10:00 AM ET", "building": "Dirksen (SD)", "room": "TBD", "topic": "Nomination Hearing to consider Mark Cruz to be Director of the Indian Health Service, Department of Health and Human Services", "witnesses": [], "details": "Nomination Hearing to consider Mark Cruz to be Director of the Indian Health Service, Department of Health and Human Services", "cancelled": false, "changes": []}, {"chamber": "Senate", "committee": "Indian Affairs", "chair": "", "time": "10:00 AM ET", "building": "Dirksen (SD)", "room": "TBD", "topic": "Nomination Hearing to consider Mark Cruz to be Director of the Indian Health Service, Department of Health and Human Services", "witnesses": [], "details": "Nomination Hearing to consider Mark Cruz to be Director of the Indian Health Service, Department of Health and Human Services", "cancelled": false, "changes": []}, {"chamber": "Senate", "committee": "Homeland Security", "chair": "", "time": "9:30am ET", "building": "Dirksen (SD)", "room": "SD-342", "topic": "Senate Dirksen Building, SD-342", "witnesses": [], "details": "Senate Dirksen Building, SD-342", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Homeland Security", "chair": "", "time": "10:00 AM ET", "building": "Cannon (CHOB)", "room": "310 CHOB", "topic": "H.R. 3106, (Mr. Kennedy of New York) the “Weatherizing Infrastructure in the North and Terrorism Emergency Readiness Act of 2025”; H.R. 5109, (Mr. Carter of Louisiana) To require the Administrator of the Transportation Security Administration of the United States to develop guidelines to improve returning citizens' access to the Transportation Worker Identification Credential program, to assist individuals in custody of Federal, State, and local prisons in pre-applying or preparing applications for Transportation Worker Identification Credential cards, and to assist individuals requesting an appeal or waiver of preliminary determination of ineligibility, and for other purposes; H.R. 5517, (Mr. Langworthy) the “Northern Border Security Enhancement and Review Act”; H.R. 7427, (Ms. Goldman of New York) the “SAFE VISITS Act”; H.R. 7436, (Mr. Magaziner) the “Department of Homeland Security Intelligence and Analysis Training Act”; H.R. 7443, (Mr. Pfluger) the “I&A Mission Reorientation Act of 2026”; H.R. 7448, (Ms. Pou) the “Modernizing and Improving the National Terrorism Advisory System Act of 2026”; H.R. 7574, (Mr. Evans of Colorado) the “ELO Realignment and Strategic Engagement Reform Act of 2026”; H.R. 8168, (Mr. Van Epps) the “Major Non-NATO Ally Terror Threat Assessment Act”; H.R. 8535, (Mr. Walkinshaw) the “Measuring Illicit Fentanyl Trafficking Act”; H.R. 8770, (Mr. Strong) the “SAFEGUARDS Act of 2026\"; H.R. 8874, (Mr. Carter of Louisiana) the “Homeland Security Capabilities Preservation Reporting Act of 2026”; H.R. 8897, (Mr. Mackenzie) the “Improving Travel for American Families Act”; H.R. 9327, (Mr. Joyce of Ohio) the “PEARL Act”; H.R. 9328, (Mrs. Biggs of South Carolina) the “Improving Travel for Military Members Act”; H.R. 9382, (Mr. Kennedy of New York) the “NEXUS for Families Act”; H.R. 9388, (Mr. Gimenez) the “One-Stop Pilot Program Extension Act”; H.R. 9391, (Mr. Garbarino) the “Reimbursable Screening Services Program Extension Act of 2026”; H.R. 9394, (Mr. Strong) the “Civil Preparedness for Agroterrorism Exercise Act of 2026", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2318 RHOB", "topic": "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Agriculture", "chair": "", "time": "10:00 AM ET", "building": "Longworth (LHOB)", "room": "1300 LHOB", "topic": "To Review the Implementation of Farm Safety Net, Disaster, and Conservation Programs", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Financial Services", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2128 RHOB", "topic": "Future of Payments: Promoting Innovation and Fair Markets", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2141 RHOB", "topic": "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Environment (Committee on Energy and Commerce)", "chair": "", "time": "10:15 AM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Trash to Treasure: Examining Legislation to Support Domestic Critical Mineral Recovery and Recycling", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)", "chair": "", "time": "10:15 AM ET", "building": "Rayburn (RHOB)", "room": "2175 RHOB", "topic": "Workforce Rewired: Modern Apprenticeships for a Modern Economy", "witnesses": [], "details": "", "cancelled": true, "changes": ["CANCELLED · 10:27 AM"]}, {"chamber": "House", "committee": "Committee on House Administration", "chair": "", "time": "10:15 AM ET", "building": "Longworth (LHOB)", "room": "1310 LHOB", "topic": "Committee on House Administration Full Committee Markup on Various Measures", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Natural Resources", "chair": "", "time": "10:30 AM ET", "building": "Longworth (LHOB)", "room": "1324 LHOB", "topic": "Markup of H.R. 9250 (Rep. Westerman), “Great American Outdoors Act 250", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Appropriations", "chair": "", "time": "11:00 AM ET", "building": "Rayburn (RHOB)", "room": "2359 RHOB", "topic": "Fiscal Year 2027 Defense Bill", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Permanent Select Committee on Intelligence", "chair": "", "time": "2:00 PM ET", "building": "Rayburn (RHOB)", "room": "Closed", "topic": "Effectiveness of the Intelligence Community's Inspector General (CLOSED)", "witnesses": [], "details": "", "cancelled": false, "changes": ["Location changed to Rayburn (RHOB) · 10:27 AM"]}, {"chamber": "House", "committee": "Subcommittee on Energy (Committee on Energy and Commerce)", "chair": "", "time": "2:00 PM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Subcommittee Markup of Eight Pieces of Legislation", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)", "chair": "", "time": "2:15 PM ET", "building": "Cannon (CHOB)", "room": "360 CHOB", "topic": "Failure at the Front Gate: Examining VA Police and Security Deficiencies” (Postponed)", "witnesses": [], "details": "", "cancelled": true, "changes": []}];
+function cls(c) { return c==='Senate'?'senate':c==='House'?'house':'joint'; }
 function buildCards(filter) {
   let filtered;
-  if (filter === 'All')       filtered = HEARINGS;
-  else if (filter === 'Updated')   filtered = HEARINGS.filter(h => h.changes && h.changes.length > 0);
-  else if (filter === 'Cancelled') filtered = HEARINGS.filter(h => h.cancelled);
-  else filtered = HEARINGS.filter(h => h.chamber === filter);
-
+  if (filter==='All')        filtered = HEARINGS;
+  else if (filter==='Updated')    filtered = HEARINGS.filter(h=>h.changes&&h.changes.length>0);
+  else if (filter==='Cancelled')  filtered = HEARINGS.filter(h=>h.cancelled);
+  else filtered = HEARINGS.filter(h=>h.chamber===filter);
   document.getElementById('count-label').textContent =
-    filtered.length + ' hearing' + (filtered.length !== 1 ? 's' : '') + ' — tap any card to expand';
-
+    filtered.length+' hearing'+(filtered.length!==1?'s':'')+' — tap any card to expand';
   const list = document.getElementById('card-list');
   list.innerHTML = '';
-
   if (!filtered.length) {
-    list.innerHTML = '<div class="empty">No ' + (filter !== 'All' ? filter.toLowerCase() + ' ' : '') + 'hearings found.</div>';
+    list.innerHTML = '<div class="empty">No '+(filter!=='All'?filter.toLowerCase()+' ':'')+'hearings found.</div>';
     return;
   }
-
   filtered.forEach(h => {
     const c = cls(h.chamber);
+    const hasChanges = h.changes&&h.changes.length>0;
     const card = document.createElement('div');
-    const hasChanges = h.changes && h.changes.length > 0;
-    card.className = [
-      'card',
-      'chamber-' + c,
-      h.cancelled ? 'cancelled' : '',
-      hasChanges   ? 'has-changes' : '',
-    ].filter(Boolean).join(' ');
-
-    const changePills = hasChanges
-      ? '<div class="change-pills">' +
-          h.changes.map(ch => {
-            const isCancelled = ch.toLowerCase().includes('cancel');
-            return '<span class="change-pill' + (isCancelled ? ' cancelled-pill' : '') + '">⚡ ' + ch + '</span>';
-          }).join('') +
-        '</div>'
+    card.className = ['card','chamber-'+c,h.cancelled?'cancelled':'',hasChanges?'has-changes':''].filter(Boolean).join(' ');
+    const pills = hasChanges
+      ? '<div class="change-pills">'+h.changes.map(ch=>'<span class="change-pill'+(ch.toLowerCase().includes('cancel')?' cancelled-pill':'')+'">⚡ '+ch+'</span>').join('')+'</div>'
       : '';
-
-    const cancelledTag = h.cancelled
-      ? '<span class="tag tag-cancelled">Cancelled</span>' : '';
-
     card.innerHTML = `
       <div class="card-top">
         <div class="card-left">
           <div class="card-meta">
             <span class="tag tag-${c}">${h.chamber}</span>
-            ${cancelledTag}
+            ${h.cancelled?'<span class="tag tag-cancelled">Cancelled</span>':''}
             <span class="card-time">${h.time}</span>
           </div>
           <div class="card-committee">${h.committee}</div>
           <div class="card-topic">${h.topic}</div>
-          ${changePills}
+          ${pills}
         </div>
         <div class="card-right">
           <div class="card-building bc-${c}">${h.building}</div>
@@ -171,24 +132,18 @@ function buildCards(filter) {
         </div>
       </div>
       <div class="card-body">
-        ${h.chair ? '<div class="card-chair">◆ ' + h.chair + '</div>' : ''}
-        ${h.details ? '<div class="card-details">' + h.details + '</div>' : ''}
-        ${h.witnesses && h.witnesses.length
-          ? '<div class="witnesses-label wl-' + c + '">Witnesses</div>' +
-            h.witnesses.map(w => '<div class="witness wb-' + c + '">' + w + '</div>').join('')
-          : ''}
-      </div>
-    `;
-    card.addEventListener('click', () => card.classList.toggle('open'));
+        ${h.chair?'<div class="card-chair">◆ '+h.chair+'</div>':''}
+        ${h.details?'<div class="card-details">'+h.details+'</div>':''}
+        ${h.witnesses&&h.witnesses.length?'<div class="witnesses-label wl-'+c+'">Witnesses</div>'+h.witnesses.map(w=>'<div class="witness wb-'+c+'">'+w+'</div>').join(''):''}
+      </div>`;
+    card.addEventListener('click',()=>card.classList.toggle('open'));
     list.appendChild(card);
   });
 }
-
 function setFilter(f) {
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.textContent.includes(f) || (f==='All' && b.textContent==='All')));
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.toggle('active',b.textContent.replace('⚡ ','').replace('✕ ','')===f||(f==='All'&&b.textContent==='All')));
   buildCards(f);
 }
-
 buildCards('All');
 </script>
 </body>

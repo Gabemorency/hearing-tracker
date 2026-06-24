@@ -87,8 +87,10 @@
     "topic": "Workforce Rewired: Modern Apprenticeships for a Modern Economy",
     "witnesses": [],
     "details": "",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 10:27 AM"
+    ]
   },
   "House|Committee on House Administration|10:15 AM ET": {
     "chamber": "House",
@@ -134,13 +136,15 @@
     "committee": "Permanent Select Committee on Intelligence",
     "chair": "",
     "time": "2:00 PM ET",
-    "building": "Classified",
+    "building": "Rayburn (RHOB)",
     "room": "Closed",
     "topic": "Effectiveness of the Intelligence Community's Inspector General (CLOSED)",
     "witnesses": [],
     "details": "",
     "cancelled": false,
-    "changes": []
+    "changes": [
+      "Location changed to Rayburn (RHOB) \u00b7 10:27 AM"
+    ]
   },
   "House|Subcommittee on Energy (Committee on Ene|2:00 PM ET": {
     "chamber": "House",
@@ -166,6 +170,32 @@
     "witnesses": [],
     "details": "",
     "cancelled": true,
+    "changes": []
+  },
+  "Senate|Homeland Security|9:30am ET": {
+    "chamber": "Senate",
+    "committee": "Homeland Security",
+    "chair": "",
+    "time": "9:30am ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-342",
+    "topic": "Senate Dirksen Building, SD-342",
+    "witnesses": [],
+    "details": "Senate Dirksen Building, SD-342",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Indian Affairs|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Indian Affairs",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "TBD",
+    "topic": "Nomination Hearing to consider Mark Cruz to be Director of the Indian Health Service, Department of Health and Human Services",
+    "witnesses": [],
+    "details": "Nomination Hearing to consider Mark Cruz to be Director of the Indian Health Service, Department of Health and Human Services",
+    "cancelled": false,
     "changes": []
   }
 }
