@@ -1,6 +1,6 @@
 {
   "date": "2026-06-24",
-  "generated": "6:21 PM ET",
+  "generated": "6:30 PM ET",
   "senators": [
     {
       "bioguide_id": "B001299",
@@ -86,7 +86,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001261",
@@ -172,7 +173,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001243",
@@ -268,7 +270,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001236",
@@ -389,7 +392,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001319",
@@ -500,7 +504,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001305",
@@ -581,7 +586,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001047",
@@ -692,7 +698,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001075",
@@ -778,7 +785,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001035",
@@ -879,7 +887,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001056",
@@ -985,7 +994,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001095",
@@ -1056,7 +1066,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001096",
@@ -1147,7 +1158,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C000880",
@@ -1233,7 +1245,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001098",
@@ -1339,7 +1352,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001114",
@@ -1425,7 +1439,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000618",
@@ -1511,7 +1526,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000295",
@@ -1592,7 +1608,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000463",
@@ -1723,7 +1740,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000359",
@@ -1829,7 +1847,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000386",
@@ -1910,7 +1929,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H000601",
@@ -2016,7 +2036,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001089",
@@ -2097,7 +2118,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001061",
@@ -2193,7 +2215,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001079",
@@ -2294,7 +2317,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000293",
@@ -2360,7 +2384,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000393",
@@ -2466,7 +2491,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000575",
@@ -2532,7 +2558,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000577",
@@ -2628,7 +2655,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000571",
@@ -2709,7 +2737,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001198",
@@ -2785,6 +2814,9 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -2876,7 +2908,8 @@
           "role": "Vice Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001243",
@@ -2962,7 +2995,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M000934",
@@ -3068,7 +3102,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001153",
@@ -3159,7 +3194,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000603",
@@ -3245,7 +3281,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000618",
@@ -3331,7 +3368,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000584",
@@ -3432,7 +3470,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000605",
@@ -3543,7 +3582,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001227",
@@ -3644,7 +3684,8 @@
           "role": "Vice Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001184",
@@ -3740,7 +3781,8 @@
           "role": "Ex Officio",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001217",
@@ -3826,6 +3868,10 @@
           "role": "Chairman",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -3912,7 +3958,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000476",
@@ -4008,7 +4055,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000278",
@@ -4094,7 +4142,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000437",
@@ -4210,7 +4259,8 @@
           "role": "Cochairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "Y000064",
@@ -4286,7 +4336,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000382",
@@ -4362,7 +4413,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001230",
@@ -4458,7 +4510,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001267",
@@ -4524,7 +4577,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001277",
@@ -4615,7 +4669,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001303",
@@ -4716,7 +4771,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001288",
@@ -4807,6 +4863,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -4893,7 +4953,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001088",
@@ -5009,7 +5070,8 @@
           "role": "Vice Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001113",
@@ -5095,6 +5157,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -5181,6 +5247,10 @@
           "role": "Member",
           "rank": 7
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -5262,7 +5332,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000479",
@@ -5333,7 +5404,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000574",
@@ -5414,7 +5486,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000555",
@@ -5495,6 +5568,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -5576,7 +5653,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001046",
@@ -5662,7 +5740,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H000273",
@@ -5748,7 +5827,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001042",
@@ -5844,7 +5924,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000384",
@@ -5925,7 +6006,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000377",
@@ -6001,7 +6083,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000394",
@@ -6097,6 +6180,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -6168,7 +6255,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000367",
@@ -6279,7 +6367,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000570",
@@ -6375,7 +6464,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M000133",
@@ -6456,7 +6546,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001176",
@@ -6567,7 +6658,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001169",
@@ -6653,7 +6745,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001111",
@@ -6764,7 +6857,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "O000174",
@@ -6825,7 +6919,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000145",
@@ -6931,6 +7026,10 @@
           "role": "Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -7047,7 +7146,8 @@
           "role": "Ex Officio",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000122",
@@ -7168,7 +7268,8 @@
           "role": "Ex Officio",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000608",
@@ -7254,6 +7355,10 @@
           "role": "Member",
           "rank": 7
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -7345,7 +7450,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001194",
@@ -7456,6 +7562,10 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -7542,7 +7652,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001181",
@@ -7673,7 +7784,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001208",
@@ -7749,7 +7861,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001203",
@@ -7835,7 +7948,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000128",
@@ -7931,7 +8045,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000805",
@@ -8007,7 +8122,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000790",
@@ -8093,7 +8209,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000817",
@@ -8194,7 +8311,8 @@
           "role": "Ex Officio",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000800",
@@ -8280,7 +8398,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000802",
@@ -8386,7 +8505,8 @@
           "role": "Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000779",
@@ -8477,7 +8597,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000383",
@@ -8514,7 +8635,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001104",
@@ -8616,7 +8738,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000312",
@@ -8683,7 +8806,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001244",
@@ -8785,7 +8909,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001242",
@@ -8872,7 +8997,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S000148",
@@ -8899,7 +9025,8 @@
           "role": "Ex Officio",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001232",
@@ -8961,7 +9088,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000250",
@@ -9048,7 +9176,8 @@
           "role": "Ex Officio",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     }
   ],
   "reps": [
@@ -9091,7 +9220,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000379",
@@ -9152,7 +9282,8 @@
           "role": "Vice Chair",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000372",
@@ -9203,7 +9334,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000369",
@@ -9259,7 +9391,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000375",
@@ -9305,7 +9438,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001291",
@@ -9346,6 +9480,9 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -9397,7 +9534,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001307",
@@ -9473,7 +9611,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001306",
@@ -9514,6 +9653,9 @@
           "role": "Member",
           "rank": 8
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -9565,7 +9707,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001321",
@@ -9621,7 +9764,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001323",
@@ -9697,7 +9841,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001301",
@@ -9753,7 +9898,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B000740",
@@ -9804,7 +9950,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001302",
@@ -9855,6 +10002,9 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -9901,7 +10051,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B000825",
@@ -9957,7 +10108,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001295",
@@ -10013,7 +10165,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001317",
@@ -10054,7 +10207,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001260",
@@ -10095,7 +10249,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001309",
@@ -10166,7 +10321,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001316",
@@ -10227,7 +10383,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C000059",
@@ -10263,7 +10420,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001051",
@@ -10304,7 +10462,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001133",
@@ -10360,7 +10519,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001115",
@@ -10416,7 +10576,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001053",
@@ -10442,7 +10603,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001129",
@@ -10503,7 +10665,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001108",
@@ -10544,6 +10707,9 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -10595,7 +10761,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001120",
@@ -10651,7 +10818,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000626",
@@ -10707,7 +10875,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000594",
@@ -10758,7 +10927,8 @@
           "role": "Vice Chairwoman",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000616",
@@ -10809,6 +10979,9 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -10845,7 +11018,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000628",
@@ -10891,7 +11065,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000246",
@@ -10932,7 +11107,8 @@
           "role": "Vice Chair",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000071",
@@ -10988,7 +11164,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000294",
@@ -11019,7 +11196,8 @@
           "role": "Vice Chairman",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000298",
@@ -11065,7 +11243,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000235",
@@ -11116,7 +11295,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000246",
@@ -11177,7 +11357,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000475",
@@ -11253,6 +11434,9 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -11299,7 +11483,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000471",
@@ -11350,7 +11535,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000466",
@@ -11401,7 +11587,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000459",
@@ -11452,7 +11639,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000474",
@@ -11488,7 +11676,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000450",
@@ -11534,7 +11723,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000472",
@@ -11585,7 +11775,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000469",
@@ -11641,7 +11832,8 @@
           "role": "Vice Chair",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000597",
@@ -11692,7 +11884,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000593",
@@ -11748,7 +11941,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000565",
@@ -11799,7 +11993,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000546",
@@ -11835,7 +12030,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000568",
@@ -11896,7 +12092,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000576",
@@ -11962,7 +12159,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000591",
@@ -12018,7 +12216,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000558",
@@ -12044,7 +12243,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001096",
@@ -12100,7 +12300,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001099",
@@ -12151,7 +12352,8 @@
           "role": "Member",
           "rank": 14
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001052",
@@ -12187,7 +12389,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001086",
@@ -12228,7 +12431,8 @@
           "role": "Vice Chair",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001077",
@@ -12284,7 +12488,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001072",
@@ -12325,7 +12530,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001067",
@@ -12356,7 +12562,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001058",
@@ -12407,7 +12614,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001100",
@@ -12478,7 +12686,8 @@
           "role": "Member",
           "rank": 20
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "I000056",
@@ -12544,7 +12753,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000311",
@@ -12610,7 +12820,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000304",
@@ -12696,7 +12907,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000301",
@@ -12757,7 +12969,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000289",
@@ -12788,7 +13001,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000295",
@@ -12829,7 +13043,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000302",
@@ -12870,7 +13085,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000376",
@@ -12906,7 +13122,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000388",
@@ -12972,7 +13189,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000403",
@@ -13043,7 +13261,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000399",
@@ -13114,7 +13333,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000397",
@@ -13170,7 +13390,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000585",
@@ -13231,7 +13452,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000598",
@@ -13287,7 +13509,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000600",
@@ -13343,7 +13566,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000566",
@@ -13384,7 +13608,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000599",
@@ -13435,7 +13660,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000597",
@@ -13501,7 +13727,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000595",
@@ -13547,7 +13774,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000583",
@@ -13598,7 +13826,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000491",
@@ -13654,7 +13883,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000603",
@@ -13720,7 +13950,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M000194",
@@ -13796,7 +14027,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001230",
@@ -13867,7 +14099,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001228",
@@ -13923,7 +14156,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M000871",
@@ -13984,7 +14218,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001199",
@@ -14030,7 +14265,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001157",
@@ -14071,7 +14307,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001177",
@@ -14127,6 +14364,9 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -14183,7 +14423,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001204",
@@ -14234,7 +14475,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001215",
@@ -14285,7 +14527,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001216",
@@ -14341,7 +14584,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001194",
@@ -14387,7 +14631,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001212",
@@ -14448,7 +14693,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001236",
@@ -14494,7 +14740,8 @@
           "role": "Member",
           "rank": 14
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001235",
@@ -14535,7 +14782,8 @@
           "role": "Vice Chair",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "N000026",
@@ -14596,7 +14844,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "N000189",
@@ -14657,7 +14906,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "N000193",
@@ -14718,7 +14968,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "O000019",
@@ -14774,7 +15025,8 @@
           "role": "Member",
           "rank": 11
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "O000175",
@@ -14835,7 +15087,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "O000086",
@@ -14896,7 +15149,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000609",
@@ -14952,6 +15206,9 @@
           "role": "Chair",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -15033,7 +15290,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000048",
@@ -15084,7 +15342,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000395",
@@ -15125,7 +15384,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000575",
@@ -15151,7 +15411,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000612",
@@ -15212,7 +15473,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000603",
@@ -15283,6 +15545,9 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -15334,7 +15599,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S000168",
@@ -15390,7 +15656,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001183",
@@ -15431,7 +15698,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001189",
@@ -15517,7 +15785,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001224",
@@ -15578,7 +15847,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S000250",
@@ -15629,7 +15899,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001148",
@@ -15670,7 +15941,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001172",
@@ -15711,7 +15983,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S000522",
@@ -15747,7 +16020,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001195",
@@ -15778,7 +16052,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001212",
@@ -15844,6 +16119,9 @@
           "role": "Member",
           "rank": 8
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -15895,7 +16173,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001220",
@@ -15951,7 +16230,8 @@
           "role": "Chairman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000467",
@@ -15992,7 +16272,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000165",
@@ -16043,7 +16324,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000480",
@@ -16099,7 +16381,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000129",
@@ -16150,7 +16433,8 @@
           "role": "Chair",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000133",
@@ -16206,7 +16490,8 @@
           "role": "Member",
           "rank": 11
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000134",
@@ -16267,7 +16552,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000135",
@@ -16333,7 +16619,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000812",
@@ -16384,7 +16671,8 @@
           "role": "Chairwoman",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000798",
@@ -16425,7 +16713,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000814",
@@ -16476,7 +16765,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000806",
@@ -16547,6 +16837,9 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -16593,6 +16886,9 @@
           "role": "Member",
           "rank": 7
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -16634,7 +16930,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000804",
@@ -16690,7 +16987,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000809",
@@ -16731,7 +17029,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000370",
@@ -16782,7 +17081,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000380",
@@ -16833,7 +17133,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000381",
@@ -16884,6 +17185,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -16920,7 +17225,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001287",
@@ -16971,7 +17277,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B000490",
@@ -17012,7 +17319,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001278",
@@ -17063,6 +17371,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -17104,6 +17416,10 @@
           "role": "Member",
           "rank": 7
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -17155,7 +17471,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001285",
@@ -17216,7 +17533,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001315",
@@ -17267,7 +17585,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001112",
@@ -17328,6 +17647,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -17379,7 +17702,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001066",
@@ -17425,7 +17749,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001091",
@@ -17481,7 +17806,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001123",
@@ -17532,6 +17858,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -17573,7 +17903,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001061",
@@ -17609,6 +17940,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "cbc",
+        "tricaucus"
       ]
     },
     {
@@ -17650,7 +17985,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001110",
@@ -17701,6 +18037,10 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -17747,7 +18087,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001069",
@@ -17798,7 +18139,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001119",
@@ -17824,7 +18166,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001130",
@@ -17875,7 +18218,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001121",
@@ -17926,7 +18270,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001063",
@@ -17967,7 +18312,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000629",
@@ -18018,7 +18364,8 @@
           "role": "Member",
           "rank": 22
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000096",
@@ -18054,7 +18401,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000230",
@@ -18110,7 +18458,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000197",
@@ -18151,7 +18500,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000216",
@@ -18182,7 +18532,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000623",
@@ -18248,6 +18599,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -18299,7 +18654,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000399",
@@ -18350,7 +18706,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000297",
@@ -18386,7 +18743,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000454",
@@ -18432,7 +18790,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000477",
@@ -18483,6 +18842,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -18519,7 +18882,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000476",
@@ -18570,7 +18934,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000559",
@@ -18631,6 +18996,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -18672,6 +19041,10 @@
           "role": "Member",
           "rank": 24
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -18723,6 +19096,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -18779,6 +19156,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -18830,6 +19211,10 @@
           "role": "Member",
           "rank": 6
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -18881,7 +19266,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001047",
@@ -18912,7 +19298,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001085",
@@ -18963,7 +19350,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H000874",
@@ -19004,7 +19392,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001094",
@@ -19060,7 +19449,8 @@
           "role": "Member",
           "rank": 11
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001068",
@@ -19106,7 +19496,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000305",
@@ -19157,6 +19548,10 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -19213,6 +19608,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -19274,7 +19673,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000400",
@@ -19325,6 +19725,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -19371,7 +19775,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000375",
@@ -19422,7 +19827,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000402",
@@ -19473,6 +19879,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -19529,6 +19939,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -19575,6 +19989,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -19601,7 +20019,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000557",
@@ -19637,7 +20056,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000602",
@@ -19683,7 +20103,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000273",
@@ -19729,7 +20150,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000397",
@@ -19775,7 +20197,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000562",
@@ -19831,7 +20254,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001223",
@@ -19882,7 +20306,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001163",
@@ -19918,7 +20343,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001208",
@@ -19964,6 +20390,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -20000,7 +20430,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001220",
@@ -20056,7 +20487,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M000312",
@@ -20097,7 +20529,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001229",
@@ -20153,7 +20586,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001137",
@@ -20194,6 +20628,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -20230,7 +20668,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M000687",
@@ -20281,7 +20720,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001206",
@@ -20337,7 +20777,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001234",
@@ -20388,7 +20829,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001217",
@@ -20444,7 +20886,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001196",
@@ -20500,7 +20943,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "N000002",
@@ -20551,6 +20995,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -20582,7 +21030,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "N000191",
@@ -20643,7 +21092,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "N000188",
@@ -20699,7 +21149,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "N000147",
@@ -20760,7 +21211,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "O000173",
@@ -20801,7 +21253,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000034",
@@ -20827,7 +21280,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000614",
@@ -20883,7 +21337,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000597",
@@ -20924,7 +21379,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "Q000023",
@@ -20980,7 +21436,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000617",
@@ -21031,7 +21488,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000606",
@@ -21057,6 +21515,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -21113,6 +21575,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -21164,6 +21630,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -21210,7 +21680,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001145",
@@ -21246,6 +21717,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -21307,7 +21782,8 @@
           "role": "Member",
           "rank": 12
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S000185",
@@ -21338,7 +21814,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001185",
@@ -21394,7 +21871,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S000344",
@@ -21450,6 +21928,10 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -21476,6 +21958,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -21522,7 +22008,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001211",
@@ -21578,7 +22065,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001215",
@@ -21629,6 +22117,11 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus",
+        "freedom"
       ]
     },
     {
@@ -21690,7 +22183,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001223",
@@ -21741,6 +22235,10 @@
           "role": "Member",
           "rank": 12
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -21777,7 +22275,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000472",
@@ -21823,7 +22322,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000488",
@@ -21864,6 +22364,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -21890,7 +22394,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000460",
@@ -21926,7 +22431,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000468",
@@ -21987,7 +22493,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000487",
@@ -22043,7 +22550,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000469",
@@ -22089,6 +22597,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -22135,6 +22647,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -22186,6 +22702,10 @@
           "role": "Member",
           "rank": 9
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -22227,7 +22747,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000797",
@@ -22268,7 +22789,8 @@
           "role": "Ranking Member",
           "rank": 1
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000187",
@@ -22294,6 +22816,10 @@
           "role": "Ranking Member",
           "rank": 1
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -22350,7 +22876,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "A000371",
@@ -22382,6 +22909,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -22419,7 +22950,8 @@
           "role": "Member",
           "rank": 11
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001318",
@@ -22456,7 +22988,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001300",
@@ -22493,7 +23026,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001322",
@@ -22555,7 +23089,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001314",
@@ -22592,7 +23127,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001324",
@@ -22639,6 +23175,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -22691,7 +23231,8 @@
           "role": "Member",
           "rank": 13
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001292",
@@ -22728,7 +23269,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001325",
@@ -22790,7 +23332,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001327",
@@ -22857,7 +23400,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "B001326",
@@ -22889,7 +23433,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001039",
@@ -22936,7 +23481,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001126",
@@ -22988,7 +23534,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001103",
@@ -23030,7 +23577,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001125",
@@ -23082,7 +23630,8 @@
           "role": "Member",
           "rank": 12
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001131",
@@ -23129,7 +23678,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001055",
@@ -23161,6 +23711,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -23203,7 +23757,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001080",
@@ -23245,7 +23800,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001101",
@@ -23261,7 +23817,8 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001101.jpg",
       "initials": "KC",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001118",
@@ -23328,6 +23885,9 @@
           "role": "Member",
           "rank": 6
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -23365,7 +23925,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001068",
@@ -23417,7 +23978,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001136",
@@ -23464,7 +24026,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001132",
@@ -23511,7 +24074,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "C001137",
@@ -23563,7 +24127,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000631",
@@ -23605,7 +24170,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000617",
@@ -23642,6 +24208,10 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -23689,7 +24259,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000624",
@@ -23741,6 +24312,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -23788,7 +24363,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "D000634",
@@ -23840,7 +24416,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000301",
@@ -23887,7 +24464,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000299",
@@ -23924,7 +24502,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000296",
@@ -23956,7 +24535,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "E000300",
@@ -24008,7 +24588,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000482",
@@ -24045,7 +24626,8 @@
           "role": "Member",
           "rank": 16
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000446",
@@ -24097,7 +24679,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000110",
@@ -24134,7 +24717,8 @@
           "role": "Member",
           "rank": 11
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000481",
@@ -24186,7 +24770,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000484",
@@ -24238,7 +24823,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000468",
@@ -24275,6 +24861,10 @@
           "role": "Member",
           "rank": 9
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -24337,7 +24927,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000483",
@@ -24389,7 +24980,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000478",
@@ -24441,7 +25033,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "F000485",
@@ -24457,7 +25050,8 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/F/F000485.jpg",
       "initials": "CF",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000607",
@@ -24473,7 +25067,8 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000607.jpg",
       "initials": "JG",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000587",
@@ -24510,7 +25105,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000586",
@@ -24562,7 +25158,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000603",
@@ -24624,7 +25221,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000602",
@@ -24676,7 +25274,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000600",
@@ -24708,7 +25307,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000592",
@@ -24760,7 +25360,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000599",
@@ -24802,6 +25403,11 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus",
+        "freedom"
       ]
     },
     {
@@ -24839,7 +25445,8 @@
           "role": "Member",
           "rank": 13
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000581",
@@ -24871,7 +25478,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000589",
@@ -24923,7 +25531,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000604",
@@ -24975,7 +25584,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000605",
@@ -25022,7 +25632,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "G000606",
@@ -25069,7 +25680,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001098",
@@ -25121,7 +25733,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001090",
@@ -25153,6 +25766,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -25205,7 +25822,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001102",
@@ -25272,7 +25890,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001082",
@@ -25304,6 +25923,9 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -25351,7 +25973,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001091",
@@ -25398,7 +26021,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001066",
@@ -25430,6 +26054,10 @@
           "role": "Member",
           "rank": 6
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -25482,7 +26110,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "H001095",
@@ -25529,7 +26158,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "I000058",
@@ -25566,7 +26196,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000309",
@@ -25613,7 +26244,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000307",
@@ -25650,7 +26282,8 @@
           "role": "Member",
           "rank": 12
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000294",
@@ -25666,7 +26299,8 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000294.jpg",
       "initials": "HJ",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": []
     },
     {
       "bioguide_id": "J000299",
@@ -25682,7 +26316,10 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000299.jpg",
       "initials": "MJ",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": [
+        "freedom"
+      ]
     },
     {
       "bioguide_id": "J000310",
@@ -25744,7 +26381,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000398",
@@ -25796,7 +26434,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000385",
@@ -25833,7 +26472,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000401",
@@ -25849,7 +26489,8 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000401.jpg",
       "initials": "KK",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000404",
@@ -25916,7 +26557,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000405",
@@ -25988,7 +26630,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "K000392",
@@ -26020,7 +26663,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000601",
@@ -26057,7 +26701,8 @@
           "role": "Member",
           "rank": 13
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000606",
@@ -26104,6 +26749,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -26151,6 +26800,10 @@
           "role": "Member",
           "rank": 6
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -26183,7 +26836,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "L000607",
@@ -26220,6 +26874,10 @@
           "role": "Member",
           "rank": 9
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -26252,6 +26910,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -26309,7 +26971,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M000317",
@@ -26346,7 +27009,8 @@
           "role": "Member",
           "rank": 10
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001231",
@@ -26393,7 +27057,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001184",
@@ -26445,7 +27110,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001238",
@@ -26487,7 +27153,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001136",
@@ -26534,7 +27201,8 @@
           "role": "Member",
           "rank": 11
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001232",
@@ -26576,6 +27244,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -26608,7 +27280,8 @@
           "role": "Member",
           "rank": 12
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001237",
@@ -26655,7 +27328,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001240",
@@ -26712,7 +27386,8 @@
           "role": "Member",
           "rank": 22
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001239",
@@ -26764,7 +27439,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001246",
@@ -26780,7 +27456,8 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001246.jpg",
       "initials": "AM",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001245",
@@ -26802,7 +27479,8 @@
           "role": "Member",
           "rank": 17
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001226",
@@ -26839,6 +27517,10 @@
           "role": "Member",
           "rank": 10
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -26906,7 +27588,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001205",
@@ -26938,6 +27621,9 @@
           "role": "Member",
           "rank": 6
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -27010,7 +27696,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001222",
@@ -27057,7 +27744,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001241",
@@ -27104,6 +27792,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -27146,7 +27838,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001213",
@@ -27188,7 +27881,8 @@
           "role": "Member",
           "rank": 9
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001224",
@@ -27235,7 +27929,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001219",
@@ -27297,7 +27992,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001214",
@@ -27329,7 +28025,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "M001225",
@@ -27366,6 +28063,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -27423,7 +28124,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "N000190",
@@ -27470,6 +28172,9 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -27507,6 +28212,9 @@
           "role": "Member",
           "rank": 10
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -27554,7 +28262,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "O000177",
@@ -27626,7 +28335,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000613",
@@ -27658,6 +28368,10 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -27715,7 +28429,8 @@
           "role": "Member",
           "rank": 16
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000197",
@@ -27731,7 +28446,8 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/P/P000197.jpg",
       "initials": "NP",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000608",
@@ -27773,6 +28489,10 @@
           "role": "Member",
           "rank": 5
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -27805,7 +28525,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000610",
@@ -27857,7 +28578,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000607",
@@ -27889,7 +28611,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000621",
@@ -27936,7 +28659,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "P000617",
@@ -27978,6 +28702,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -28040,7 +28768,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000621",
@@ -28087,7 +28816,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000610",
@@ -28124,7 +28854,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000622",
@@ -28166,7 +28897,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000620",
@@ -28213,7 +28945,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000599",
@@ -28250,7 +28983,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000619",
@@ -28302,7 +29036,8 @@
           "role": "Member",
           "rank": 17
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "R000609",
@@ -28339,6 +29074,9 @@
           "role": "Member",
           "rank": 2
         }
+      ],
+      "caucuses": [
+        "freedom"
       ]
     },
     {
@@ -28391,7 +29129,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001176",
@@ -28407,7 +29146,8 @@
       "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001176.jpg",
       "initials": "SS",
       "leadership": null,
-      "committees": []
+      "committees": [],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001228",
@@ -28479,7 +29219,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001190",
@@ -28521,7 +29262,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001216",
@@ -28558,6 +29300,10 @@
           "role": "Member",
           "rank": 6
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -28610,7 +29356,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001231",
@@ -28657,6 +29404,10 @@
           "role": "Member",
           "rank": 4
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -28704,7 +29455,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001225",
@@ -28751,7 +29503,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001200",
@@ -28798,7 +29551,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S000929",
@@ -28820,7 +29574,8 @@
           "role": "Member",
           "rank": 6
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001196",
@@ -28882,7 +29637,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001214",
@@ -28934,7 +29690,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001159",
@@ -28981,6 +29738,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -29018,7 +29779,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "S001201",
@@ -29050,6 +29812,10 @@
           "role": "Member",
           "rank": 8
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -29102,7 +29868,8 @@
           "role": "Member",
           "rank": 23
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000478",
@@ -29159,7 +29926,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000481",
@@ -29196,7 +29964,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000486",
@@ -29238,7 +30007,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "T000482",
@@ -29275,6 +30045,10 @@
           "role": "Member",
           "rank": 7
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -29317,7 +30091,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "U000040",
@@ -29349,7 +30124,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000139",
@@ -29386,7 +30162,8 @@
           "role": "Member",
           "rank": 5
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000130",
@@ -29423,6 +30200,10 @@
           "role": "Member",
           "rank": 7
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -29470,7 +30251,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000131",
@@ -29507,7 +30289,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "V000138",
@@ -29554,7 +30337,8 @@
           "role": "Member",
           "rank": 8
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000831",
@@ -29601,6 +30385,10 @@
           "role": "Member",
           "rank": 7
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -29638,6 +30426,10 @@
           "role": "Member",
           "rank": 3
         }
+      ],
+      "caucuses": [
+        "capac",
+        "tricaucus"
       ]
     },
     {
@@ -29685,7 +30477,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000829",
@@ -29757,7 +30550,8 @@
           "role": "Member",
           "rank": 17
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000788",
@@ -29789,7 +30583,8 @@
           "role": "Member",
           "rank": 7
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "W000795",
@@ -29851,7 +30646,8 @@
           "role": "Member",
           "rank": 2
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "Y000067",
@@ -29893,7 +30689,8 @@
           "role": "Member",
           "rank": 3
         }
-      ]
+      ],
+      "caucuses": []
     },
     {
       "bioguide_id": "Z000018",
@@ -29945,7 +30742,8 @@
           "role": "Member",
           "rank": 4
         }
-      ]
+      ],
+      "caucuses": []
     }
   ]
 }
