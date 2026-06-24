@@ -25,7 +25,18 @@ except ImportError:
     HAS_PDF = False
 
 # ── Timezone & dates ───────────────────────────────────────────────────────────
-ET_OFFSET    = timedelta(hours=-4)   # EDT; change to -5 Nov-Mar
+def get_et_offset():
+    now_utc = datetime.now(timezone.utc)
+    year = now_utc.year
+    def nth_sunday(month, n):
+        d = datetime(year, month, 1, tzinfo=timezone.utc)
+        days_to_sun = (6 - d.weekday()) % 7
+        return (d + timedelta(days=days_to_sun + 7*(n-1))).replace(hour=7)
+    dst_start = nth_sunday(3, 2)
+    dst_end   = nth_sunday(11, 1)
+    return timedelta(hours=-4) if dst_start <= now_utc < dst_end else timedelta(hours=-5)
+
+ET_OFFSET    = get_et_offset()   # Auto DST — no manual changes needed
 now_et       = datetime.now(timezone.utc) + ET_OFFSET
 tomorrow_et  = now_et + timedelta(days=1)
 
@@ -113,9 +124,32 @@ def is_target(text):
     return any(v in text for v in target_variants)
 
 def detect_cancellation(text):
+    """Loose check for short strings like topic/committee names."""
     return any(w in text.lower() for w in
                ["postponed", "cancelled", "canceled", "rescheduled",
                 "withdrawn", "notice of cancellation"])
+
+def detect_cancellation_near_date(text, variants, window=400):
+    """
+    Smart cancellation: only returns True if a cancellation keyword
+    appears within `window` chars of the target date string.
+    Prevents false positives from old hearings listed on the page.
+    """
+    cancel_words = ["postponed", "cancelled", "canceled", "rescheduled",
+                    "withdrawn", "notice of cancellation"]
+    for variant in variants:
+        idx = text.lower().find(variant.lower())
+        if idx == -1:
+            continue
+        surrounding = text[max(0, idx - window//2) : idx + window].lower()
+        if any(w in surrounding for w in cancel_words):
+            return True
+    return False
+
+BAD_CHAIR_STRINGS = [
+    "ranking member", "the ranking", "vice chair", "ex officio",
+    "presiding", "members", "staff director", "chief counsel",
+]
 
 def extract_witnesses(text):
     witnesses = []
@@ -128,9 +162,10 @@ def extract_witnesses(text):
     return list(dict.fromkeys(witnesses))
 
 def extract_chair(text):
+    """Extract committee chair, rejecting known false positive patterns."""
     patterns = [
         r"(?:Chairman|Chairwoman|Chair)\s+(Sen\.|Rep\.)?\s*([\w\s]+?)\s*\([RD]",
-        r"(?:Sen\.|Rep\.)\s+([\w\s]+),\s+Chair",
+        r"(?:Sen\.|Rep\.)\s+([\w\s]+),\s+(?:Chair|Chairman|Chairwoman)",
         r"Chaired by[:\s]+([\w\s,\.]+?)(?:\n|$)",
         r"Chair(?:man|woman)?[:\s]+([\w\s]+?)(?:\n|,|\.|$)",
     ]
@@ -138,6 +173,8 @@ def extract_chair(text):
         match = re.search(pattern, text, re.IGNORECASE)
         if match:
             chair = match.group(match.lastindex).strip().strip(".,")
+            if any(bad in chair.lower() for bad in BAD_CHAIR_STRINGS):
+                continue
             if 5 < len(chair) < 60:
                 return chair
     return ""
@@ -462,7 +499,7 @@ async def build():
                 print(f"  📋 {chamber_label} {name}: target date found")
 
                 # Cancellation
-                if detect_cancellation(text):
+                if detect_cancellation_near_date(text, target_variants):
                     idx = max((text.find(v) for v in target_variants if v in text), default=-1)
                     if idx != -1:
                         surrounding = text[max(0, idx-300):idx+600]
