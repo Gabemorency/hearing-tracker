@@ -21,7 +21,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install playwright beautifulsoup4 lxml pdfplumber requests
+        run: pip install playwright beautifulsoup4 lxml pdfplumber requests pyyaml
 
       - name: Install Chromium
         run: playwright install chromium
