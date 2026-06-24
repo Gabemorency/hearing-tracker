@@ -59,11 +59,11 @@
     "topic": "Nominations: Chapman (NTSB), Eppler (DOT CFO), Hedlund (STB), Lorenze & Sessions (CPSC)",
     "details": "Full committee confirmation hearing for five nominees across transportation safety and consumer product safety agencies \u2014 covering the National Transportation Safety Board, Department of Transportation CFO, Surface Transportation Board, and two Consumer Product Safety Commission seats.",
     "witnesses": [
-      "Thomas B. Chapman (MD) \u2014 Nominee, Member, National Transportation Safety Board",
+      "Karen Sessions (TX) \u2014 Nominee, Commissioner, Consumer Product Safety Commission",
       "Edward Eppler (CT) \u2014 Nominee, Chief Financial Officer, Dept. of Transportation",
+      "Thomas B. Chapman (MD) \u2014 Nominee, Member, National Transportation Safety Board",
       "Karen Jean Hedlund (NY) \u2014 Nominee, Member, Surface Transportation Board",
-      "Brien Lorenze (VA) \u2014 Nominee, Commissioner, Consumer Product Safety Commission",
-      "Karen Sessions (TX) \u2014 Nominee, Commissioner, Consumer Product Safety Commission"
+      "Brien Lorenze (VA) \u2014 Nominee, Commissioner, Consumer Product Safety Commission"
     ],
     "cancelled": false,
     "changes": []
@@ -80,9 +80,9 @@
     "witnesses": [
       "Michael C. Martin \u2014 Nominee, U.S. District Judge, Eastern District of Michigan",
       "Angela Veronica Colmenero \u2014 Nominee, U.S. District Judge, Southern District of Texas",
-      "Antonio M. Pozos \u2014 Nominee, U.S. District Judge, Eastern District of Pennsylvania",
+      "Daniel Mack Traynor (ND) \u2014 Nominee, U.S. Circuit Judge, 8th Circuit",
       "Kasdin Miller Mitchell \u2014 Nominee, U.S. District Judge, Northern District of Texas",
-      "Daniel Mack Traynor (ND) \u2014 Nominee, U.S. Circuit Judge, 8th Circuit"
+      "Antonio M. Pozos \u2014 Nominee, U.S. District Judge, Eastern District of Pennsylvania"
     ],
     "cancelled": true,
     "changes": [
@@ -99,9 +99,9 @@
     "topic": "Global Reach of Mexican Drug Cartels and Risks to U.S. National Security",
     "details": "Hearing examining the expanding international footprint of Mexican drug cartels, their connections to foreign adversaries, and the corresponding national security threats posed to the United States.",
     "witnesses": [
-      "The Honorable Markwayne Mullin \u2014 Co-Chair",
       "The Honorable Troy Edgar \u2014 Co-Chair",
-      "Additional witnesses not yet publicly posted"
+      "Additional witnesses not yet publicly posted",
+      "The Honorable Markwayne Mullin \u2014 Co-Chair"
     ],
     "cancelled": false,
     "changes": []
@@ -195,8 +195,8 @@
     "topic": "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud",
     "details": "Oversight hearing examining how the False Claims Act is being used \u2014 and could be strengthened \u2014 to combat fraud in federally funded research grants across universities and research institutions.",
     "witnesses": [
-      "Mr. Aaron Lukas",
-      "The Honorable Christopher Fox"
+      "The Honorable Christopher Fox",
+      "Mr. Aaron Lukas"
     ],
     "cancelled": false,
     "changes": []
@@ -226,10 +226,10 @@
     "topic": "Future of Payments: Promoting Innovation and Fair Markets",
     "details": "Full committee hearing on the evolving payments landscape, examining digital payments, fintech competition, stablecoin regulation, and regulatory frameworks for promoting innovation while protecting consumers.",
     "witnesses": [
-      "Mrs. Paige Paridon",
-      "Mr. David Portilla",
-      "Ms. Rachel Anderika",
       "Mrs. Eileen O'Mara",
+      "Mr. David Portilla",
+      "Mrs. Paige Paridon",
+      "Ms. Rachel Anderika",
       "Ms. Tara Flynn"
     ],
     "cancelled": false,
@@ -247,8 +247,10 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 4:05 PM"
+    ]
   },
   "House|Energy & Commerce \u2014 Subcommittee on Envi|10:15 AM ET": {
     "chamber": "House",
@@ -277,8 +279,10 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 4:05 PM"
+    ]
   },
   "House|Natural Resources|10:30 AM ET": {
     "chamber": "House",
@@ -324,67 +328,17 @@
     "topic": "Failure at the Front Gate: Examining VA Police and Security Deficiencies",
     "details": "Oversight hearing on security and policing deficiencies at VA facilities nationwide, including inadequate personnel levels, training gaps, inconsistent use-of-force policies, and infrastructure vulnerabilities at medical centers.",
     "witnesses": [
-      "Patrick Hernandez",
-      "Brett Simms",
+      "Mark Engelbaum",
       "Triana McNeil \u2014 Government Accountability Office (GAO)",
+      "Brett Simms",
+      "Patrick Hernandez",
       "Matthew Leffler",
-      "Reginald Neal",
-      "Mark Engelbaum"
+      "Reginald Neal"
     ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Investigations and Overs|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2318 RHOB",
-    "topic": "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on the Administrative State|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2141 RHOB",
-    "topic": "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry",
-    "witnesses": [],
-    "details": "",
     "cancelled": true,
-    "changes": []
-  },
-  "House|Subcommittee on Environment (Committee o|10:15 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Environment (Committee on Energy and Commerce)",
-    "chair": "",
-    "time": "10:15 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Trash to Treasure: Examining Legislation to Support Domestic Critical Mineral Recovery and Recycling",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Higher Education and Wor|10:15 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
-    "chair": "",
-    "time": "10:15 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2175 RHOB",
-    "topic": "Workforce Rewired: Modern Apprenticeships for a Modern Economy",
-    "witnesses": [],
-    "details": "",
-    "cancelled": true,
-    "changes": []
+    "changes": [
+      "CANCELLED \u00b7 4:05 PM"
+    ]
   },
   "House|Committee on House Administration|10:15 AM ET": {
     "chamber": "House",
@@ -422,58 +376,6 @@
     "topic": "Subcommittee Markup of Eight Pieces of Legislation",
     "witnesses": [],
     "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Oversight and Investigat|2:15 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)",
-    "chair": "",
-    "time": "2:15 PM ET",
-    "building": "Cannon (CHOB)",
-    "room": "360 CHOB",
-    "topic": "Failure at the Front Gate: Examining VA Police and Security Deficiencies\u201d (Postponed)",
-    "witnesses": [],
-    "details": "",
-    "cancelled": true,
-    "changes": []
-  },
-  "Senate|Homeland Security and Governmental Affai|9:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Homeland Security and Governmental Affairs",
-    "chair": "",
-    "time": "9:30 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-342",
-    "topic": "Hearings to examine reforming the U.S. Postal Service's business model.",
-    "witnesses": [],
-    "details": "Hearings to examine reforming the U.S. Postal Service's business model.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Commerce, Science, and Transportation|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Commerce, Science, and Transportation",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Russell (SR)",
-    "room": "SR-253",
-    "topic": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Departm",
-    "witnesses": [],
-    "details": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Departm",
-    "cancelled": false,
-    "changes": []
-  },
-  "Joint|United States Senate Caucus on Internati|2:00 PM ET": {
-    "chamber": "Joint",
-    "committee": "United States Senate Caucus on International Narcotics Control",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-419",
-    "topic": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
-    "witnesses": [],
-    "details": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
     "cancelled": false,
     "changes": []
   }
