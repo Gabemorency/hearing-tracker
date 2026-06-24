@@ -224,15 +224,93 @@ def norm_time(t):
     return re.sub(r"\s*(ET|EDT|EST)\s*$", "", str(t)).strip().upper().replace(" ", "")
 
 def norm_cmte(c):
-    return re.sub(r"[^a-z0-9]", "", str(c).lower())
+    """
+    Aggressively normalize committee names so that variations from
+    different sources all reduce to the same string.
+    e.g. "Senate Committee on Commerce, Science, and Transportation"
+         "Commerce, Science & Transportation"
+         "Senate Commerce, Science, and Transportation Subcommittee on Aviation"
+    all normalize similarly enough to match.
+    """
+    s = str(c).lower()
+    # Remove common prefixes
+    for prefix in [
+        "united states senate committee on the",
+        "united states senate committee on",
+        "senate committee on the",
+        "senate committee on",
+        "house committee on the",
+        "house committee on",
+        "subcommittee on the",
+        "subcommittee on",
+        "u.s. senate committee on",
+        "u.s. house committee on",
+        "committee on the",
+        "committee on",
+        "permanent select committee on",
+        "select committee on",
+        "special committee on",
+        "joint committee on",
+        "caucus on",
+    ]:
+        if s.startswith(prefix):
+            s = s[len(prefix):].strip()
+            break
+    # Normalize punctuation and conjunctions
+    s = s.replace("&", "and")
+    s = s.replace(",", " ")
+    s = s.replace(".", " ")
+    s = s.replace("-", " ")
+    # Remove all non-alphanumeric except spaces
+    s = re.sub(r"[^a-z0-9 ]", "", s)
+    # Collapse whitespace
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+def cmte_similarity(c1, c2):
+    """
+    Returns True if two committee name strings are similar enough
+    to be considered the same committee.
+    Uses multiple strategies to handle prefix/suffix differences.
+    """
+    n1, n2 = norm_cmte(c1), norm_cmte(c2)
+    if not n1 or not n2:
+        return False
+    # Exact match after normalization
+    if n1 == n2:
+        return True
+    # One contains the other (handles "Commerce" vs "Commerce Science Transportation")
+    if n1 in n2 or n2 in n1:
+        return True
+    # First N characters match (handles trailing subcommittee info)
+    min_len = min(len(n1), len(n2))
+    if min_len >= 8 and n1[:min_len//2] == n2[:min_len//2]:
+        return True
+    # Word overlap — if 60%+ of shorter string's words appear in longer
+    w1, w2 = set(n1.split()), set(n2.split())
+    if not w1 or not w2:
+        return False
+    shorter = w1 if len(w1) <= len(w2) else w2
+    longer  = w1 if len(w1) > len(w2) else w2
+    # Ignore very common words
+    stop = {"the", "and", "of", "on", "for", "in", "to", "a", "an"}
+    shorter_content = shorter - stop
+    if not shorter_content:
+        return False
+    overlap = len(shorter_content & longer) / len(shorter_content)
+    return overlap >= 0.6
 
 def fuzzy_match(h1, h2):
+    """Match two hearings if they're the same event from different sources."""
+    # Must be same chamber (Joint can match Senate for JEC etc.)
     if h1["chamber"] != h2["chamber"]:
-        return False
+        # Allow Joint to match Senate
+        chambers = {h1["chamber"], h2["chamber"]}
+        if not (chambers <= {"Senate", "Joint"}):
+            return False
     t1, t2 = norm_time(h1["time"]), norm_time(h2["time"])
-    c1, c2 = norm_cmte(h1["committee"]), norm_cmte(h2["committee"])
-    time_ok = t1 == t2 or t1[:5] == t2[:5]
-    cmte_ok = c1[:20] == c2[:20] or c1 in c2 or c2 in c1
+    time_ok = t1 == t2 or t1[:5] == t2[:5] or t1 == "TBD" or t2 == "TBD"
+    cmte_ok = cmte_similarity(h1["committee"], h2["committee"])
     return time_ok and cmte_ok
 
 def diff_hearing(old, new):
@@ -529,6 +607,41 @@ async def scrape():
                 h["cancelled"] = True
                 break
 
+    # ── Global deduplication of scraped list ──────────────────────────────────
+    # Different sources (senate.gov, committee pages, congress.gov) can return
+    # the same hearing with slightly different committee name strings.
+    # We keep the "best" version — the one with the most data.
+    deduped = []
+    for h in scraped:
+        # Check if this hearing already exists in deduped
+        match = next((d for d in deduped if fuzzy_match(h, d)), None)
+        if match:
+            # Merge: keep whichever has more data per field
+            if len(h.get("topic", "")) > len(match.get("topic", "")):
+                match["topic"] = h["topic"]
+            if len(h.get("details", "")) > len(match.get("details", "")):
+                match["details"] = h["details"]
+            if h.get("chair") and not match.get("chair"):
+                match["chair"] = h["chair"]
+            if h.get("witnesses") and not match.get("witnesses"):
+                match["witnesses"] = h["witnesses"]
+            elif h.get("witnesses") and match.get("witnesses"):
+                # Merge witness lists
+                existing = set(match["witnesses"])
+                new_w    = set(h["witnesses"])
+                match["witnesses"] = list(existing | new_w)
+            if h.get("room") and h["room"] != "TBD" and match.get("room") == "TBD":
+                match["room"]     = h["room"]
+                match["building"] = h["building"]
+            if h.get("cancelled"):
+                match["cancelled"] = True
+            print(f"  🔀 Dedup merged: {h['committee'][:50]}")
+        else:
+            deduped.append(h)
+
+    scraped = deduped
+    print(f"  After dedup: {len(scraped)} unique hearings")
+
     # ── Merge with baseline ───────────────────────────────────────────────────
     baseline      = load_json(BASELINE_FILE)
     tomorrow_iso  = (now_et + timedelta(days=1)).strftime("%Y-%m-%d")
@@ -752,16 +865,15 @@ def build_html(hearings):
   ::-webkit-scrollbar {{ width: 4px; }}
   ::-webkit-scrollbar-thumb {{ background: var(--scrollbar); border-radius: 2px; }}
 
-  /* ── Header ── */
   .header {{
     border-bottom: 1px solid var(--border-header);
-    padding: 20px 20px 16px;
+    padding: 20px 20px 0;
     background: var(--bg-header);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
   }}
-  .header-left {{ flex: 1; }}
+  .header-left {{ flex: 1; margin-bottom: 14px; }}
   .header-eyebrow {{
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px; letter-spacing: 0.18em;
@@ -889,10 +1001,14 @@ def build_html(hearings):
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of {generated} · {today_long} · Updates approximately every 2 hrs · Schedules subject to change.</div>
+    <div class="header-timestamp">As of {generated} · {today_long} · Updates every 20 min · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
+<nav style="display:flex;gap:0;border-bottom:1px solid var(--border-section);background:var(--bg-secondary);padding:0 4px;">
+  <a href="index.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gold);text-decoration:none;padding:10px 14px;border-bottom:2px solid var(--gold);">Hearings</a>
+  <a href="members.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--text-muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;">Members</a>
+</nav>
 
 <div class="stats">
   <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">{tc}</div><div class="stat-label">Total</div></div>
@@ -913,7 +1029,7 @@ def build_html(hearings):
 <div class="cards">
   <div class="count-label" id="count-label"></div>
   <div id="card-list"></div>
-  <div class="source-note">ℹ Auto-updated every 20 min · docs.house.gov · senate.gov · Individual committee pages</div>
+  <div class="source-note">ℹ Auto-updated every 2 hrs · docs.house.gov · senate.gov · Individual committee pages</div>
 </div>
 
 <script>
