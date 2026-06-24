@@ -54,7 +54,7 @@
   "House|Subcommittee on the Administrative State|10:00 AM ET": {
     "chamber": "House",
     "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
-    "chair": "",
+    "chair": "The Ranking Member",
     "time": "10:00 AM ET",
     "building": "Rayburn (RHOB)",
     "room": "2141 RHOB",
@@ -231,7 +231,7 @@
   "Senate|Judiciary|10:15 AM ET": {
     "chamber": "Senate",
     "committee": "Judiciary",
-    "chair": "",
+    "chair": "The Ranking Member",
     "time": "10:15 AM ET",
     "building": "Hart (SH)",
     "room": "SH-216",
