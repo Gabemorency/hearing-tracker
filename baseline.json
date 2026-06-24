@@ -1,0 +1,301 @@
+{
+  "date": "2026-06-24",
+  "hearings": [
+    {
+      "chamber": "Senate",
+      "committee": "Homeland Security & Governmental Affairs",
+      "chair": "Sen. Rand Paul (R-KY), Chair · Ranking: Sen. Gary Peters (D-MI)",
+      "time": "9:30 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-342",
+      "topic": "Reforming the U.S. Postal Service's Business Model",
+      "details": "Full committee hearing examining structural, financial, and operational reforms to the U.S. Postal Service, which faces ongoing solvency and delivery challenges.",
+      "witnesses": ["Witnesses not yet publicly posted"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Environment and Public Works",
+      "chair": "Sen. Shelley Moore Capito (R-WV), Chair · Ranking: Sen. Sheldon Whitehouse (D-RI)",
+      "time": "10:00 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-406",
+      "topic": "Nomination: Kevin Lilly — Assistant Secretary for Fish and Wildlife, Dept. of the Interior",
+      "details": "Full committee confirmation hearing for the nominee to lead Fish and Wildlife policy at the Interior Department. Lilly is from Texas and previously served in natural resources roles.",
+      "witnesses": [
+        "Kevin Lilly (TX) — Nominee, Assistant Secretary for Fish and Wildlife, U.S. Dept. of the Interior"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Indian Affairs",
+      "chair": "Sen. Lisa Murkowski (R-AK), Chair · Ranking: Sen. Brian Schatz (D-HI)",
+      "time": "10:00 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-628",
+      "topic": "Nomination: Mark Cruz — Director, Indian Health Service",
+      "details": "Confirmation hearing for the nominee to lead the Indian Health Service, which provides healthcare to approximately 2.6 million American Indians and Alaska Natives.",
+      "witnesses": [
+        "Mark Cruz (OR) — Nominee, Director of the Indian Health Service, Dept. of Health & Human Services"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Commerce, Science & Transportation",
+      "chair": "Sen. Ted Cruz (R-TX), Chair · Ranking: Sen. Maria Cantwell (D-WA)",
+      "time": "10:00 AM ET",
+      "building": "Russell (SR)",
+      "room": "SR-253",
+      "topic": "Nominations: Chapman (NTSB), Eppler (DOT CFO), Hedlund (STB), Lorenze & Sessions (CPSC)",
+      "details": "Full committee confirmation hearing for five nominees across transportation safety and consumer product safety agencies — covering the National Transportation Safety Board, Department of Transportation CFO, Surface Transportation Board, and two Consumer Product Safety Commission seats.",
+      "witnesses": [
+        "Thomas B. Chapman (MD) — Nominee, Member, National Transportation Safety Board",
+        "Edward Eppler (CT) — Nominee, Chief Financial Officer, Dept. of Transportation",
+        "Karen Jean Hedlund (NY) — Nominee, Member, Surface Transportation Board",
+        "Brien Lorenze (VA) — Nominee, Commissioner, Consumer Product Safety Commission",
+        "Karen Sessions (TX) — Nominee, Commissioner, Consumer Product Safety Commission"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Judiciary",
+      "chair": "Sen. Chuck Grassley (R-IA), Chair · Ranking: Sen. Dick Durbin (D-IL)",
+      "time": "10:15 AM ET",
+      "building": "Hart (SH)",
+      "room": "SH-216",
+      "topic": "Business Meeting: Federal Judicial Nominations — Circuit & District Court Judges",
+      "details": "Open executive session to consider five pending federal judicial nominations — one circuit court nominee for the 8th Circuit and four district court nominees across Texas, Michigan, and Pennsylvania.",
+      "witnesses": [
+        "Daniel Mack Traynor (ND) — Nominee, U.S. Circuit Judge, 8th Circuit",
+        "Angela Veronica Colmenero — Nominee, U.S. District Judge, Southern District of Texas",
+        "Kasdin Miller Mitchell — Nominee, U.S. District Judge, Northern District of Texas",
+        "Michael C. Martin — Nominee, U.S. District Judge, Eastern District of Michigan",
+        "Antonio M. Pozos — Nominee, U.S. District Judge, Eastern District of Pennsylvania"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Caucus on International Narcotics Control",
+      "chair": "Sen. Markwayne Mullin (R-OK) · Sen. Troy Edgar (R-CA), Co-Chairs",
+      "time": "2:00 PM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-419",
+      "topic": "Global Reach of Mexican Drug Cartels and Risks to U.S. National Security",
+      "details": "Hearing examining the expanding international footprint of Mexican drug cartels, their connections to foreign adversaries, and the corresponding national security threats posed to the United States.",
+      "witnesses": [
+        "The Honorable Markwayne Mullin — Co-Chair",
+        "The Honorable Troy Edgar — Co-Chair",
+        "Additional witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Joint",
+      "committee": "Joint Economic Committee",
+      "chair": "Sen. Mike Lee (R-UT), Chair · Ranking: Rep. Don Beyer (D-VA)",
+      "time": "2:00 PM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-G50",
+      "topic": "Protecting Patients and Taxpayers: Combating Healthcare Fraud and Leakage to Strengthen Program Integrity",
+      "details": "Joint hearing examining healthcare fraud, waste, and program integrity issues affecting Medicare, Medicaid, and other federal health programs. Focuses on policy mechanisms to reduce improper payments and protect taxpayer funds.",
+      "witnesses": ["Witnesses not yet publicly posted"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Judiciary — Subcommittee on the Constitution",
+      "chair": "Sen. Mike Lee (R-UT), Subcommittee Chair",
+      "time": "2:30 PM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-226",
+      "topic": "Protecting American Citizenship III: Denaturalization and Its Constitutional Limits",
+      "details": "Third in a series of subcommittee hearings on American citizenship law. Examines denaturalization — the legal process by which citizenship can be revoked — and its constitutional boundaries under the 14th Amendment and relevant Supreme Court precedent.",
+      "witnesses": ["Witnesses not yet publicly posted"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Finance — Subcommittee on Social Security, Pensions & Family Policy",
+      "chair": "Sen. Bill Cassidy (R-LA), Subcommittee Chair",
+      "time": "3:00 PM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-215",
+      "topic": "The Future of Social Security",
+      "details": "Hearing examining the long-term fiscal outlook of the Social Security program, projected insolvency timelines, and potential policy reforms including benefit adjustments, payroll tax changes, and retirement age modifications.",
+      "witnesses": ["Witnesses not yet publicly posted"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Select Committee on Intelligence",
+      "chair": "Sen. Tom Cotton (R-AR), Chair · Ranking: Sen. Mark Warner (D-VA)",
+      "time": "3:00 PM ET",
+      "building": "Hart (SH)",
+      "room": "SH-219",
+      "topic": "Closed Briefing on Certain Intelligence Matters",
+      "details": "Closed briefing. Details are classified. No public witness list or agenda.",
+      "witnesses": ["Closed session — witnesses not publicly disclosed"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Homeland Security",
+      "chair": "Rep. Mark Green (R-TN), Chair · Ranking: Rep. Bennie Thompson (D-MS)",
+      "time": "10:00 AM ET",
+      "building": "Cannon (CHOB)",
+      "room": "310 CHOB",
+      "topic": "Various Measures — Full Committee Markup",
+      "details": "Full committee markup session for pending legislation within the Homeland Security Committee's jurisdiction.",
+      "witnesses": ["Markup — no external witnesses"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Science, Space & Technology — Subcommittee on Investigations & Oversight",
+      "chair": "Rep. Jay Obernolte (R-CA), Subcommittee Chair",
+      "time": "10:00 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2318 RHOB",
+      "topic": "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud",
+      "details": "Oversight hearing examining how the False Claims Act is being used — and could be strengthened — to combat fraud in federally funded research grants across universities and research institutions.",
+      "witnesses": [
+        "Mr. Aaron Lukas",
+        "The Honorable Christopher Fox"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Agriculture",
+      "chair": "Rep. GT Thompson (R-PA), Chair · Ranking: Rep. David Scott (D-GA)",
+      "time": "10:00 AM ET",
+      "building": "Longworth (LHOB)",
+      "room": "1300 LHOB",
+      "topic": "Review of Farm Safety Net, Disaster, and Conservation Programs",
+      "details": "Full committee hearing reviewing the implementation and effectiveness of existing farm safety net programs, disaster assistance mechanisms, and conservation initiatives ahead of the next Farm Bill reauthorization cycle.",
+      "witnesses": ["Witnesses not yet publicly posted"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Financial Services",
+      "chair": "Rep. French Hill (R-AR), Chair · Ranking: Rep. Maxine Waters (D-CA)",
+      "time": "10:00 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2128 RHOB",
+      "topic": "Future of Payments: Promoting Innovation and Fair Markets",
+      "details": "Full committee hearing on the evolving payments landscape, examining digital payments, fintech competition, stablecoin regulation, and regulatory frameworks for promoting innovation while protecting consumers.",
+      "witnesses": [
+        "Mrs. Paige Paridon",
+        "Ms. Tara Flynn",
+        "Mr. David Portilla",
+        "Mrs. Eileen O'Mara",
+        "Ms. Rachel Anderika"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Judiciary — Subcommittee on Administrative State, Regulatory Reform & Antitrust",
+      "chair": "Rep. Thomas Massie (R-KY), Subcommittee Chair",
+      "time": "10:00 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2141 RHOB",
+      "topic": "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry",
+      "details": "Hearing examining antitrust and regulatory issues in the airline industry, including market concentration following recent mergers, DOT and DOJ oversight, consumer protections, and whether current regulatory frameworks adequately promote competition.",
+      "witnesses": ["Witnesses not yet publicly posted"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Energy & Commerce — Subcommittee on Environment",
+      "chair": "Rep. Jeff Duncan (R-SC), Subcommittee Chair",
+      "time": "10:15 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2123 RHOB",
+      "topic": "Trash to Treasure: Domestic Critical Mineral Recovery and Recycling",
+      "details": "Hearing on legislative proposals to expand domestic recovery and recycling of critical minerals from electronic waste and other waste streams, reducing U.S. dependence on foreign mineral supply chains — particularly from China.",
+      "witnesses": ["Witnesses not yet publicly posted"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Education & Workforce — Subcommittee on Higher Education & Workforce Development",
+      "chair": "Rep. Burgess Owens (R-UT), Subcommittee Chair",
+      "time": "10:15 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2175 RHOB",
+      "topic": "Workforce Rewired: Modern Apprenticeships for a Modern Economy",
+      "details": "Hearing examining the role of apprenticeship programs in expanding workforce access to high-demand sectors including technology, healthcare, advanced manufacturing, and skilled trades. Explores registered apprenticeship expansion and employer incentives.",
+      "witnesses": ["Witnesses not yet publicly posted"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Natural Resources",
+      "chair": "Rep. Bruce Westerman (R-AR), Chair · Ranking: Rep. Raúl Grijalva (D-AZ)",
+      "time": "10:30 AM ET",
+      "building": "Longworth (LHOB)",
+      "room": "1324 LHOB",
+      "topic": "Markup: H.R. 9250 — Great American Outdoors Act 250",
+      "details": "Full committee markup of H.R. 9250, the Great American Outdoors Act 250, legislation tied to America's 250th anniversary focusing on deferred maintenance on public lands and expanding outdoor recreation access.",
+      "witnesses": ["Markup — no external witnesses"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Permanent Select Committee on Intelligence",
+      "chair": "Rep. Mike Turner (R-OH), Chair · Ranking: Rep. Jim Himes (D-CT)",
+      "time": "2:00 PM ET",
+      "building": "Classified",
+      "room": "Closed",
+      "topic": "Effectiveness of the Intelligence Community's Inspector General (CLOSED)",
+      "details": "Closed hearing examining the effectiveness and independence of the Intelligence Community Inspector General. No public witness list or agenda.",
+      "witnesses": ["Closed session — witnesses not publicly disclosed"],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Veterans' Affairs — Subcommittee on Oversight & Investigations",
+      "chair": "Rep. Mike Bost (R-IL), Chair · Ranking: Rep. Julia Brownley (D-CA)",
+      "time": "2:15 PM ET",
+      "building": "Cannon (CHOB)",
+      "room": "360 CHOB",
+      "topic": "Failure at the Front Gate: Examining VA Police and Security Deficiencies",
+      "details": "Oversight hearing on security and policing deficiencies at VA facilities nationwide, including inadequate personnel levels, training gaps, inconsistent use-of-force policies, and infrastructure vulnerabilities at medical centers.",
+      "witnesses": [
+        "Patrick Hernandez",
+        "Brett Simms",
+        "Triana McNeil — Government Accountability Office (GAO)",
+        "Matthew Leffler",
+        "Reginald Neal",
+        "Mark Engelbaum"
+      ],
+      "cancelled": false,
+      "changes": []
+    }
+  ]
+}
