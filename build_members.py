@@ -195,6 +195,36 @@ def build():
                 matched += 1
     print(f"  Black Caucus: {matched} members matched")
 
+    # ── Hardcoded 119th Congress institutional leadership ──────────────────────
+    # These positions change only after elections or resignations.
+    # Bioguide IDs are stable and authoritative.
+    # Tiers: 1 = top leaders, 2 = whips, 3 = conference/caucus/policy chairs
+    INSTITUTIONAL_LEADERSHIP = {{
+        # Senate Republican Leadership
+        "T000250": {{"label": "Senate Majority Leader",         "tier": 1}},  # John Thune
+        "G000386": {{"label": "President Pro Tempore",          "tier": 1}},  # Chuck Grassley
+        "B001261": {{"label": "Senate Majority Whip",           "tier": 2}},  # John Barrasso
+        "C001095": {{"label": "Senate Conference Chair",        "tier": 3}},  # Tom Cotton
+        "L000575": {{"label": "Senate Conference Vice Chair",   "tier": 3}},  # James Lankford
+        "C001047": {{"label": "Senate Policy Committee Chair",  "tier": 3}},  # Shelley Moore Capito
+        # Senate Democratic Leadership
+        "S000148": {{"label": "Senate Minority Leader",         "tier": 1}},  # Chuck Schumer
+        "D000563": {{"label": "Senate Minority Whip",           "tier": 2}},  # Dick Durbin
+        "K000367": {{"label": "Steering & Policy Committee Chair","tier": 3}}, # Amy Klobuchar
+        "B001288": {{"label": "Strategic Communications Chair", "tier": 3}},  # Cory Booker
+        "W000802": {{"label": "Senate Caucus Secretary",        "tier": 3}},  # Sheldon Whitehouse (acting)
+        # House Republican Leadership
+        "J000255": {{"label": "Speaker of the House",           "tier": 1}},  # Mike Johnson
+        "S001176": {{"label": "House Majority Leader",          "tier": 1}},  # Steve Scalise
+        "E000294": {{"label": "House Majority Whip",            "tier": 2}},  # Tom Emmer
+        "M001215": {{"label": "House Conference Chair",         "tier": 3}},  # Lisa McClain
+        # House Democratic Leadership
+        "J000294": {{"label": "House Minority Leader",          "tier": 1}},  # Hakeem Jeffries
+        "C001101": {{"label": "House Minority Whip",            "tier": 2}},  # Katherine Clark
+        "A000371": {{"label": "House Democratic Caucus Chair",  "tier": 3}},  # Pete Aguilar
+        "N000191": {{"label": "Asst. Democratic Leader",        "tier": 3}},  # Joe Neguse
+    }}
+
     # Build member objects
     print("🔨 Building member objects...")
     senators = []
@@ -219,11 +249,15 @@ def build():
         party    = term.get("party", "")
         district = term.get("district", "")
 
-        # Leadership: check term title first, then chair_map
-        leadership_title = term.get("leadership_title", "")
-        leadership = get_leadership(leadership_title)
-        if not leadership and bioguide_id in chair_map:
-            leadership = chair_map[bioguide_id]
+        # Leadership: institutional leaders first (hardcoded, most reliable)
+        # then fall back to term title, then committee chair_map
+        if bioguide_id in INSTITUTIONAL_LEADERSHIP:
+            leadership = INSTITUTIONAL_LEADERSHIP[bioguide_id]
+        else:
+            leadership_title = term.get("leadership_title", "")
+            leadership = get_leadership(leadership_title)
+            if not leadership and bioguide_id in chair_map:
+                leadership = chair_map[bioguide_id]
 
         member = {
             "bioguide_id": bioguide_id,
