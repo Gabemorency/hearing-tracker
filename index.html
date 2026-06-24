@@ -3,179 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Congressional Hearing Tracker</title>
+<title>Congressional Hearing Tracker — June 24, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { font-size: 16px; }
-  body {
-    background: #0D0C0A;
-    color: #E8E0D0;
-    font-family: 'IBM Plex Sans', sans-serif;
-    min-height: 100vh;
-  }
+  body { background: #0D0C0A; color: #E8E0D0; font-family: 'IBM Plex Sans', sans-serif; min-height: 100vh; }
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-thumb { background: #2A2820; border-radius: 2px; }
 
-  /* ── Header ── */
-  .header {
-    border-bottom: 1px solid rgba(200,169,110,0.18);
-    padding: 20px 20px 16px;
-    background: rgba(200,169,110,0.025);
-  }
-  .header-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    color: #C8A96E;
-    text-transform: uppercase;
-    margin-bottom: 6px;
-  }
-  .header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(20px, 5vw, 26px);
-    font-weight: 700;
-    color: #F0E8D8;
-    letter-spacing: -0.01em;
-    margin-bottom: 6px;
-  }
-  .header-timestamp {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: #908070;
-    letter-spacing: 0.04em;
-    line-height: 1.5;
-  }
+  .header { border-bottom: 1px solid rgba(200,169,110,0.18); padding: 20px 20px 16px; background: rgba(200,169,110,0.025); }
+  .header-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.18em; color: #C8A96E; text-transform: uppercase; margin-bottom: 6px; }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: clamp(20px,5vw,26px); font-weight: 700; color: #F0E8D8; letter-spacing: -0.01em; margin-bottom: 6px; }
+  .header-timestamp { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #908070; letter-spacing: 0.04em; line-height: 1.5; }
 
-  /* ── Stats bar ── */
-  .stats {
-    display: flex;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    background: #0A0908;
-  }
-  .stat {
-    flex: 1;
-    padding: 12px 8px;
-    text-align: center;
-    border-right: 1px solid rgba(255,255,255,0.04);
-  }
-  .stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1;
-  }
-  .stat-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    color: #706860;
-    text-transform: uppercase;
-    margin-top: 3px;
-  }
+  .stats { display: flex; border-bottom: 1px solid rgba(255,255,255,0.05); background: #0A0908; }
+  .stat { flex: 1; padding: 12px 8px; text-align: center; border-right: 1px solid rgba(255,255,255,0.04); }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1; }
+  .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: #706860; text-transform: uppercase; margin-top: 3px; }
 
-  /* ── Filters ── */
-  .filters {
-    display: flex;
-    gap: 6px;
-    padding: 12px 16px;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    flex-wrap: wrap;
-  }
-  .filter-btn {
-    background: transparent;
-    border: 1px solid rgba(255,255,255,0.07);
-    color: #908070;
-    border-radius: 5px;
-    padding: 5px 12px;
-    font-size: 11px;
-    font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.06em;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-  .filter-btn.active {
-    background: rgba(200,169,110,0.13);
-    border-color: rgba(200,169,110,0.4);
-    color: #C8A96E;
-  }
+  .filters { display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; }
+  .filter-btn { background: transparent; border: 1px solid rgba(255,255,255,0.07); color: #908070; border-radius: 5px; padding: 5px 12px; font-size: 11px; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.06em; cursor: pointer; transition: all 0.15s; }
+  .filter-btn.active { background: rgba(200,169,110,0.13); border-color: rgba(200,169,110,0.4); color: #C8A96E; }
 
-  /* ── Cards ── */
   .cards { padding: 14px 16px; }
-  .count-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: #706860;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-  .card {
-    border: 1px solid rgba(255,255,255,0.07);
-    border-radius: 8px;
-    padding: 14px 16px;
-    cursor: pointer;
-    margin-bottom: 9px;
-    background: rgba(255,255,255,0.018);
-    transition: background 0.15s;
-  }
+  .count-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #706860; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
+
+  .card { border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 14px 16px; cursor: pointer; margin-bottom: 9px; background: rgba(255,255,255,0.018); transition: background 0.15s; position: relative; }
   .card.open { background: rgba(255,255,255,0.038); }
+  .card.cancelled { opacity: 0.5; }
+  .card.cancelled .card-committee { text-decoration: line-through; }
+  .card.has-changes { border-top: 2px solid rgba(255, 200, 50, 0.5); }
+
   .card-top { display: flex; gap: 10px; justify-content: space-between; align-items: flex-start; }
   .card-left { flex: 1; min-width: 0; }
   .card-meta { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; flex-wrap: wrap; }
-  .tag {
-    border-radius: 4px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    padding: 2px 7px;
-    text-transform: uppercase;
-    font-family: 'IBM Plex Mono', monospace;
-    flex-shrink: 0;
-  }
+  .tag { border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace; flex-shrink: 0; }
   .tag-senate { background: rgba(200,169,110,0.13); color: #C8A96E; border: 1px solid rgba(200,169,110,0.35); }
   .tag-house  { background: rgba(100,160,200,0.11); color: #7FB3D3; border: 1px solid rgba(100,160,200,0.30); }
   .tag-joint  { background: rgba(160,120,200,0.11); color: #B39DDB; border: 1px solid rgba(160,120,200,0.30); }
+  .tag-cancelled { background: rgba(200,60,60,0.15); color: #E07070; border: 1px solid rgba(200,60,60,0.3); }
+
   .card-time { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #A09080; letter-spacing: 0.04em; }
-  .card-committee { font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 600; color: #DDD5C5; line-height: 1.4; margin-bottom: 3px; }
-  .card-topic { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: #A09080; line-height: 1.4; }
+  .card-committee { font-size: 13px; font-weight: 600; color: #DDD5C5; line-height: 1.4; margin-bottom: 3px; }
+  .card-topic { font-size: 12px; color: #A09080; line-height: 1.4; }
   .card-right { text-align: right; min-width: 96px; flex-shrink: 0; }
   .card-building { font-family: 'IBM Plex Mono', monospace; font-size: 11px; margin-bottom: 2px; }
   .card-room { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #908070; }
+
+  .change-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
+  .change-pill { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 10px; background: rgba(255,200,50,0.1); color: #E0B830; border: 1px solid rgba(255,200,50,0.25); }
+  .change-pill.cancelled-pill { background: rgba(200,60,60,0.12); color: #E07070; border-color: rgba(200,60,60,0.3); }
+
   .card-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.06); display: none; }
   .card.open .card-body { display: block; }
   .card-chair { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #A09080; letter-spacing: 0.05em; margin-bottom: 10px; }
-  .card-details { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: #A09080; line-height: 1.65; margin-bottom: 10px; }
+  .card-details { font-size: 12px; color: #A09080; line-height: 1.65; margin-bottom: 10px; }
   .witnesses-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
-  .witness { font-family: 'IBM Plex Sans', sans-serif; font-size: 12px; color: #B0A090; line-height: 1.5; padding-left: 10px; margin-bottom: 4px; }
+  .witness { font-size: 12px; color: #B0A090; line-height: 1.5; padding-left: 10px; margin-bottom: 4px; }
 
-  /* ── Source note ── */
-  .source-note {
-    margin-top: 20px;
-    padding: 12px 14px;
-    background: rgba(255,255,255,0.012);
-    border: 1px solid rgba(255,255,255,0.04);
-    border-radius: 6px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    color: #706860;
-    line-height: 1.6;
-  }
+  .source-note { margin-top: 20px; padding: 12px 14px; background: rgba(255,255,255,0.012); border: 1px solid rgba(255,255,255,0.04); border-radius: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #706860; line-height: 1.6; }
+  .empty { text-align: center; padding: 40px; color: #3A3530; font-size: 13px; }
 
-  /* chamber accent colors for card border-left */
   .chamber-senate { border-left: 3px solid rgba(200,169,110,0.5); }
   .chamber-house  { border-left: 3px solid rgba(100,160,200,0.45); }
   .chamber-joint  { border-left: 3px solid rgba(160,120,200,0.45); }
-  .building-senate { color: #C8A96E; }
-  .building-house  { color: #7FB3D3; }
-  .building-joint  { color: #B39DDB; }
-  .witnesses-senate { color: #C8A96E; }
-  .witnesses-house  { color: #7FB3D3; }
-  .witnesses-joint  { color: #B39DDB; }
-  .witness-border-senate { border-left: 2px solid rgba(200,169,110,0.5); }
-  .witness-border-house  { border-left: 2px solid rgba(100,160,200,0.45); }
-  .witness-border-joint  { border-left: 2px solid rgba(160,120,200,0.45); }
+  .bc-senate { color: #C8A96E; } .bc-house { color: #7FB3D3; } .bc-joint { color: #B39DDB; }
+  .wl-senate { color: #C8A96E; } .wl-house { color: #7FB3D3; } .wl-joint { color: #B39DDB; }
+  .wb-senate { border-left: 2px solid rgba(200,169,110,0.5); }
+  .wb-house  { border-left: 2px solid rgba(100,160,200,0.45); }
+  .wb-joint  { border-left: 2px solid rgba(160,120,200,0.45); }
 </style>
 </head>
 <body>
@@ -183,14 +80,14 @@
 <div class="header">
   <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
   <h1>Today's Hearings</h1>
-  <div class="header-timestamp" id="timestamp"></div>
+  <div class="header-timestamp">As of 10:15 AM ET · Wednesday, June 24, 2026 · Auto-updates hourly · Schedules subject to change.</div>
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#888" id="total-count">0</div><div class="stat-label">Total</div></div>
-  <div class="stat"><div class="stat-number" style="color:#C8A96E" id="senate-count">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:#7FB3D3" id="house-count">0</div><div class="stat-label">House</div></div>
-  <div class="stat"><div class="stat-number" style="color:#B39DDB" id="joint-count">0</div><div class="stat-label">Joint</div></div>
+  <div class="stat"><div class="stat-number" style="color:#888">13</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#C8A96E">0</div><div class="stat-label">Senate</div></div>
+  <div class="stat"><div class="stat-number" style="color:#7FB3D3">13</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:#B39DDB">0</div><div class="stat-label">Joint</div></div>
 </div>
 
 <div class="filters">
@@ -198,323 +95,101 @@
   <button class="filter-btn" onclick="setFilter('Senate')">Senate</button>
   <button class="filter-btn" onclick="setFilter('House')">House</button>
   <button class="filter-btn" onclick="setFilter('Joint')">Joint</button>
+  <button class="filter-btn" onclick="setFilter('Updated')">⚡ Updated</button>
+  <button class="filter-btn" onclick="setFilter('Cancelled')">✕ Cancelled</button>
 </div>
 
 <div class="cards">
   <div class="count-label" id="count-label"></div>
   <div id="card-list"></div>
   <div class="source-note">
-    ℹ Sources: senate.gov/committees/hearings_meetings.htm · docs.house.gov/Committee/Calendar · epw.senate.gov/hearings · congress.gov/committee-schedule/weekly/2026/06/22
+    ℹ Auto-updated hourly via GitHub Actions · Sources: docs.house.gov · senate.gov · Individual committee pages · Nightly verification by Claude
   </div>
 </div>
 
 <script>
-// ── DATA — replace this block each night ──────────────────────────────────────
-const GENERATED_AT = "9:30 PM ET";
-const DATE_LABEL   = "Wednesday, June 24, 2026";
+const HEARINGS = [{"chamber": "House", "committee": "Committee on Homeland Security", "chair": "", "time": "10:00 AM ET", "building": "Cannon (CHOB)", "room": "310 CHOB", "topic": "H.R. 3106, (Mr. Kennedy of New York) the “Weatherizing Infrastructure in the North and Terrorism Emergency Readiness Act of 2025”; H.R. 5109, (Mr. Carter of Louisiana) To require the Administrator of the Transportation Security Administration of the United States to develop guidelines to improve returning citizens' access to the Transportation Worker Identification Credential program, to assist individuals in custody of Federal, State, and local prisons in pre-applying or preparing applications for Transportation Worker Identification Credential cards, and to assist individuals requesting an appeal or waiver of preliminary determination of ineligibility, and for other purposes; H.R. 5517, (Mr. Langworthy) the “Northern Border Security Enhancement and Review Act”; H.R. 7427, (Ms. Goldman of New York) the “SAFE VISITS Act”; H.R. 7436, (Mr. Magaziner) the “Department of Homeland Security Intelligence and Analysis Training Act”; H.R. 7443, (Mr. Pfluger) the “I&A Mission Reorientation Act of 2026”; H.R. 7448, (Ms. Pou) the “Modernizing and Improving the National Terrorism Advisory System Act of 2026”; H.R. 7574, (Mr. Evans of Colorado) the “ELO Realignment and Strategic Engagement Reform Act of 2026”; H.R. 8168, (Mr. Van Epps) the “Major Non-NATO Ally Terror Threat Assessment Act”; H.R. 8535, (Mr. Walkinshaw) the “Measuring Illicit Fentanyl Trafficking Act”; H.R. 8770, (Mr. Strong) the “SAFEGUARDS Act of 2026\"; H.R. 8874, (Mr. Carter of Louisiana) the “Homeland Security Capabilities Preservation Reporting Act of 2026”; H.R. 8897, (Mr. Mackenzie) the “Improving Travel for American Families Act”; H.R. 9327, (Mr. Joyce of Ohio) the “PEARL Act”; H.R. 9328, (Mrs. Biggs of South Carolina) the “Improving Travel for Military Members Act”; H.R. 9382, (Mr. Kennedy of New York) the “NEXUS for Families Act”; H.R. 9388, (Mr. Gimenez) the “One-Stop Pilot Program Extension Act”; H.R. 9391, (Mr. Garbarino) the “Reimbursable Screening Services Program Extension Act of 2026”; H.R. 9394, (Mr. Strong) the “Civil Preparedness for Agroterrorism Exercise Act of 2026", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2318 RHOB", "topic": "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Agriculture", "chair": "", "time": "10:00 AM ET", "building": "Longworth (LHOB)", "room": "1300 LHOB", "topic": "To Review the Implementation of Farm Safety Net, Disaster, and Conservation Programs", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Financial Services", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2128 RHOB", "topic": "Future of Payments: Promoting Innovation and Fair Markets", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2141 RHOB", "topic": "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Environment (Committee on Energy and Commerce)", "chair": "", "time": "10:15 AM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Trash to Treasure: Examining Legislation to Support Domestic Critical Mineral Recovery and Recycling", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)", "chair": "", "time": "10:15 AM ET", "building": "Rayburn (RHOB)", "room": "2175 RHOB", "topic": "Workforce Rewired: Modern Apprenticeships for a Modern Economy", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on House Administration", "chair": "", "time": "10:15 AM ET", "building": "Longworth (LHOB)", "room": "1310 LHOB", "topic": "Committee on House Administration Full Committee Markup on Various Measures", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Natural Resources", "chair": "", "time": "10:30 AM ET", "building": "Longworth (LHOB)", "room": "1324 LHOB", "topic": "Markup of H.R. 9250 (Rep. Westerman), “Great American Outdoors Act 250", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Appropriations", "chair": "", "time": "11:00 AM ET", "building": "Rayburn (RHOB)", "room": "2359 RHOB", "topic": "Fiscal Year 2027 Defense Bill", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Permanent Select Committee on Intelligence", "chair": "", "time": "2:00 PM ET", "building": "Classified", "room": "Closed", "topic": "Effectiveness of the Intelligence Community's Inspector General (CLOSED)", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Energy (Committee on Energy and Commerce)", "chair": "", "time": "2:00 PM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Subcommittee Markup of Eight Pieces of Legislation", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)", "chair": "", "time": "2:15 PM ET", "building": "Cannon (CHOB)", "room": "360 CHOB", "topic": "Failure at the Front Gate: Examining VA Police and Security Deficiencies” (Postponed)", "witnesses": [], "details": "", "cancelled": true, "changes": []}];
 
-const HEARINGS = [
-  // SENATE
-  {
-    chamber: "Senate",
-    committee: "Homeland Security & Governmental Affairs",
-    chair: "Sen. Rand Paul (R-KY), Chair",
-    time: "9:30 AM ET",
-    building: "Dirksen (SD)",
-    room: "SD-342",
-    topic: "Reforming the U.S. Postal Service's Business Model",
-    witnesses: ["Witnesses not yet publicly posted"],
-    details: "Full committee hearing examining structural and financial reforms to the U.S. Postal Service.",
-  },
-  {
-    chamber: "Senate",
-    committee: "Environment and Public Works",
-    chair: "Sen. Shelley Moore Capito (R-WV), Chair",
-    time: "10:00 AM ET",
-    building: "Dirksen (SD)",
-    room: "SD-406",
-    topic: "Nomination: Kevin Lilly — Assistant Secretary for Fish and Wildlife, Dept. of the Interior",
-    witnesses: ["Kevin Lilly (TX) — Nominee, Assistant Secretary for Fish and Wildlife, U.S. Dept. of the Interior"],
-    details: "Full committee confirmation hearing for the nominee to lead Fish and Wildlife policy at the Interior Department.",
-  },
-  {
-    chamber: "Senate",
-    committee: "Indian Affairs",
-    chair: "Sen. Lisa Murkowski (R-AK), Chair",
-    time: "10:00 AM ET",
-    building: "Dirksen (SD)",
-    room: "SD-628",
-    topic: "Nomination: Mark Cruz — Director, Indian Health Service",
-    witnesses: ["Mark Cruz (OR) — Nominee, Director of the Indian Health Service, Dept. of Health & Human Services"],
-    details: "Confirmation hearing for the nominee to lead the Indian Health Service, which serves approximately 2.6 million American Indians and Alaska Natives.",
-  },
-  {
-    chamber: "Senate",
-    committee: "Commerce, Science & Transportation",
-    chair: "Sen. Ted Cruz (R-TX), Chair",
-    time: "10:00 AM ET",
-    building: "Russell (SR)",
-    room: "SR-253",
-    topic: "Nominations: Chapman (NTSB), Eppler (DOT CFO), Hedlund (STB), Lorenze & Sessions (CPSC)",
-    witnesses: [
-      "Thomas B. Chapman (MD) — Nominee, Member, National Transportation Safety Board",
-      "Edward Eppler (CT) — Nominee, Chief Financial Officer, Dept. of Transportation",
-      "Karen Jean Hedlund (NY) — Nominee, Member, Surface Transportation Board",
-      "Brien Lorenze (VA) — Nominee, Commissioner, Consumer Product Safety Commission",
-      "Karen Sessions (TX) — Nominee, Commissioner, Consumer Product Safety Commission",
-    ],
-    details: "Full committee confirmation hearing for five nominees across transportation safety and consumer product safety agencies.",
-  },
-  {
-    chamber: "Senate",
-    committee: "Judiciary",
-    chair: "Sen. Chuck Grassley (R-IA), Chair",
-    time: "10:15 AM ET",
-    building: "Hart (SH)",
-    room: "SH-216",
-    topic: "Business Meeting: Federal Judicial Nominations — Circuit & District Court Judges",
-    witnesses: [
-      "Daniel Mack Traynor (ND) — Nominee, U.S. Circuit Judge, 8th Circuit",
-      "Angela Veronica Colmenero — Nominee, U.S. District Judge, S. District of Texas",
-      "Kasdin Miller Mitchell — Nominee, U.S. District Judge, N. District of Texas",
-      "Michael C. Martin — Nominee, U.S. District Judge, E. District of Michigan",
-      "Antonio M. Pozos — Nominee, U.S. District Judge, E. District of Pennsylvania",
-    ],
-    details: "Executive session to consider five pending federal judicial nominations — one circuit court and four district court nominees.",
-  },
-  {
-    chamber: "Senate",
-    committee: "Caucus on International Narcotics Control",
-    chair: "Sen. Markwayne Mullin (R-OK) · Sen. Troy Edgar (R-CA), Co-Chairs",
-    time: "2:00 PM ET",
-    building: "Dirksen (SD)",
-    room: "SD-419",
-    topic: "Global Reach of Mexican Drug Cartels and Risks to U.S. National Security",
-    witnesses: ["Additional witnesses not yet publicly posted"],
-    details: "Hearing examining the expanding international footprint of Mexican drug cartels and national security threats to the United States.",
-  },
-  {
-    chamber: "Joint",
-    committee: "Joint Economic Committee",
-    chair: "Sen. Mike Lee (R-UT), Chair",
-    time: "2:00 PM ET",
-    building: "Dirksen (SD)",
-    room: "SD-G50",
-    topic: "Protecting Patients and Taxpayers: Combating Healthcare Fraud and Leakage",
-    witnesses: ["Witnesses not yet publicly posted"],
-    details: "Joint hearing examining healthcare fraud, waste, and program integrity issues affecting Medicare, Medicaid, and other federal health programs.",
-  },
-  {
-    chamber: "Senate",
-    committee: "Judiciary — Subcommittee on the Constitution",
-    chair: "Sen. Mike Lee (R-UT), Subcommittee Chair",
-    time: "2:30 PM ET",
-    building: "Dirksen (SD)",
-    room: "SD-226",
-    topic: "Protecting American Citizenship III: Denaturalization and Its Constitutional Limits",
-    witnesses: ["Witnesses not yet publicly posted"],
-    details: "Subcommittee hearing on denaturalization law and its constitutional boundaries, part of an ongoing citizenship series.",
-  },
-  {
-    chamber: "Senate",
-    committee: "Finance — Subcommittee on Social Security, Pensions & Family Policy",
-    chair: "Sen. Bill Cassidy (R-LA), Subcommittee Chair",
-    time: "3:00 PM ET",
-    building: "Dirksen (SD)",
-    room: "SD-215",
-    topic: "The Future of Social Security",
-    witnesses: ["Witnesses not yet publicly posted"],
-    details: "Hearing examining the long-term fiscal outlook and policy options for the Social Security program.",
-  },
-  {
-    chamber: "Senate",
-    committee: "Select Committee on Intelligence",
-    chair: "Sen. Tom Cotton (R-AR), Chair",
-    time: "3:00 PM ET",
-    building: "Hart (SH)",
-    room: "SH-219",
-    topic: "Closed Briefing on Certain Intelligence Matters",
-    witnesses: ["Closed session — witnesses not publicly disclosed"],
-    details: "Closed briefing. Details are classified. No public witness list or agenda.",
-  },
-  // HOUSE
-  {
-    chamber: "House",
-    committee: "Homeland Security",
-    chair: "Rep. Mark Green (R-TN), Chair",
-    time: "10:00 AM ET",
-    building: "Cannon (CHOB)",
-    room: "310 CHOB",
-    topic: "Various Measures — Full Committee Markup",
-    witnesses: ["Markup — no external witnesses"],
-    details: "Full committee markup of pending legislation within the Homeland Security Committee's jurisdiction.",
-  },
-  {
-    chamber: "House",
-    committee: "Science, Space & Technology — Subcommittee on Investigations & Oversight",
-    chair: "Rep. Jay Obernolte (R-CA), Subcommittee Chair",
-    time: "10:00 AM ET",
-    building: "Rayburn (RHOB)",
-    room: "2318 RHOB",
-    topic: "Safeguarding Federal Research Funds: The False Claims Act's Role in Combating Grant Fraud",
-    witnesses: ["Mr. Aaron Lukas", "The Honorable Christopher Fox"],
-    details: "Oversight hearing on the False Claims Act's role in combating fraud in federally funded research grants.",
-  },
-  {
-    chamber: "House",
-    committee: "Agriculture",
-    chair: "Rep. GT Thompson (R-PA), Chair",
-    time: "10:00 AM ET",
-    building: "Longworth (LHOB)",
-    room: "1300 LHOB",
-    topic: "Review of Farm Safety Net, Disaster, and Conservation Programs",
-    witnesses: ["Witnesses not yet publicly posted"],
-    details: "Full committee hearing reviewing farm safety net programs, disaster assistance, and conservation initiatives.",
-  },
-  {
-    chamber: "House",
-    committee: "Financial Services",
-    chair: "Rep. French Hill (R-AR), Chair",
-    time: "10:00 AM ET",
-    building: "Rayburn (RHOB)",
-    room: "2128 RHOB",
-    topic: "Future of Payments: Promoting Innovation and Fair Markets",
-    witnesses: ["Mrs. Paige Paridon", "Ms. Tara Flynn", "Mr. David Portilla", "Mrs. Eileen O'Mara", "Ms. Rachel Anderika"],
-    details: "Full committee hearing on digital payments, fintech competition, and regulatory frameworks for fair markets.",
-  },
-  {
-    chamber: "House",
-    committee: "Judiciary — Subcommittee on Administrative State, Regulatory Reform & Antitrust",
-    chair: "Rep. Thomas Massie (R-KY), Subcommittee Chair",
-    time: "10:00 AM ET",
-    building: "Rayburn (RHOB)",
-    room: "2141 RHOB",
-    topic: "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry",
-    witnesses: ["Witnesses not yet publicly posted"],
-    details: "Hearing on antitrust and regulatory issues in the airline industry, including market concentration and recent mergers.",
-  },
-  {
-    chamber: "House",
-    committee: "Energy & Commerce — Subcommittee on Environment",
-    chair: "Rep. Jeff Duncan (R-SC), Subcommittee Chair",
-    time: "10:15 AM ET",
-    building: "Rayburn (RHOB)",
-    room: "2123 RHOB",
-    topic: "Trash to Treasure: Domestic Critical Mineral Recovery and Recycling",
-    witnesses: ["Witnesses not yet publicly posted"],
-    details: "Hearing on legislation to expand domestic recovery and recycling of critical minerals from waste streams.",
-  },
-  {
-    chamber: "House",
-    committee: "Education & Workforce — Subcommittee on Higher Education & Workforce Development",
-    chair: "Rep. Burgess Owens (R-UT), Subcommittee Chair",
-    time: "10:15 AM ET",
-    building: "Rayburn (RHOB)",
-    room: "2175 RHOB",
-    topic: "Workforce Rewired: Modern Apprenticeships for a Modern Economy",
-    witnesses: ["Witnesses not yet publicly posted"],
-    details: "Hearing on apprenticeship programs for high-demand sectors including technology, healthcare, and skilled trades.",
-  },
-  {
-    chamber: "House",
-    committee: "Natural Resources",
-    chair: "Rep. Bruce Westerman (R-AR), Chair",
-    time: "10:30 AM ET",
-    building: "Longworth (LHOB)",
-    room: "1324 LHOB",
-    topic: "Markup: H.R. 9250 — Great American Outdoors Act 250",
-    witnesses: ["Markup — no external witnesses"],
-    details: "Full committee markup of H.R. 9250, focused on public lands and outdoor recreation for America's 250th anniversary.",
-  },
-  {
-    chamber: "House",
-    committee: "Permanent Select Committee on Intelligence",
-    chair: "Rep. Mike Turner (R-OH), Chair",
-    time: "2:00 PM ET",
-    building: "Classified",
-    room: "Closed",
-    topic: "Effectiveness of the Intelligence Community's Inspector General (CLOSED)",
-    witnesses: ["Closed session — witnesses not publicly disclosed"],
-    details: "Closed hearing on the effectiveness of the Intelligence Community Inspector General.",
-  },
-  {
-    chamber: "House",
-    committee: "Veterans' Affairs — Subcommittee on Oversight & Investigations",
-    chair: "Rep. Mike Bost (R-IL), Chair",
-    time: "2:15 PM ET",
-    building: "Cannon (CHOB)",
-    room: "360 CHOB",
-    topic: "Failure at the Front Gate: Examining VA Police and Security Deficiencies",
-    witnesses: ["Patrick Hernandez", "Brett Simms", "Triana McNeil — GAO", "Matthew Leffler", "Reginald Neal", "Mark Engelbaum"],
-    details: "Oversight hearing on security and policing deficiencies at VA facilities.",
-  },
-];
-// ── END DATA — everything below this line never changes ───────────────────────
-
-let currentFilter = "All";
-
-function chamberClass(c) {
-  return c === "Senate" ? "senate" : c === "House" ? "house" : "joint";
-}
+function cls(c) { return c === 'Senate' ? 'senate' : c === 'House' ? 'house' : 'joint'; }
 
 function buildCards(filter) {
-  const list = document.getElementById("card-list");
-  const label = document.getElementById("count-label");
-  const filtered = filter === "All" ? HEARINGS : HEARINGS.filter(h => h.chamber === filter);
-  label.textContent = `${filtered.length} hearing${filtered.length !== 1 ? "s" : ""} — tap any card to expand`;
-  list.innerHTML = "";
-  filtered.forEach((h, i) => {
-    const cls = chamberClass(h.chamber);
-    const card = document.createElement("div");
-    card.className = `card chamber-${cls}`;
+  let filtered;
+  if (filter === 'All')       filtered = HEARINGS;
+  else if (filter === 'Updated')   filtered = HEARINGS.filter(h => h.changes && h.changes.length > 0);
+  else if (filter === 'Cancelled') filtered = HEARINGS.filter(h => h.cancelled);
+  else filtered = HEARINGS.filter(h => h.chamber === filter);
+
+  document.getElementById('count-label').textContent =
+    filtered.length + ' hearing' + (filtered.length !== 1 ? 's' : '') + ' — tap any card to expand';
+
+  const list = document.getElementById('card-list');
+  list.innerHTML = '';
+
+  if (!filtered.length) {
+    list.innerHTML = '<div class="empty">No ' + (filter !== 'All' ? filter.toLowerCase() + ' ' : '') + 'hearings found.</div>';
+    return;
+  }
+
+  filtered.forEach(h => {
+    const c = cls(h.chamber);
+    const card = document.createElement('div');
+    const hasChanges = h.changes && h.changes.length > 0;
+    card.className = [
+      'card',
+      'chamber-' + c,
+      h.cancelled ? 'cancelled' : '',
+      hasChanges   ? 'has-changes' : '',
+    ].filter(Boolean).join(' ');
+
+    const changePills = hasChanges
+      ? '<div class="change-pills">' +
+          h.changes.map(ch => {
+            const isCancelled = ch.toLowerCase().includes('cancel');
+            return '<span class="change-pill' + (isCancelled ? ' cancelled-pill' : '') + '">⚡ ' + ch + '</span>';
+          }).join('') +
+        '</div>'
+      : '';
+
+    const cancelledTag = h.cancelled
+      ? '<span class="tag tag-cancelled">Cancelled</span>' : '';
+
     card.innerHTML = `
       <div class="card-top">
         <div class="card-left">
           <div class="card-meta">
-            <span class="tag tag-${cls}">${h.chamber}</span>
+            <span class="tag tag-${c}">${h.chamber}</span>
+            ${cancelledTag}
             <span class="card-time">${h.time}</span>
           </div>
           <div class="card-committee">${h.committee}</div>
           <div class="card-topic">${h.topic}</div>
+          ${changePills}
         </div>
         <div class="card-right">
-          <div class="card-building building-${cls}">${h.building}</div>
+          <div class="card-building bc-${c}">${h.building}</div>
           <div class="card-room">${h.room}</div>
         </div>
       </div>
       <div class="card-body">
-        ${h.chair ? `<div class="card-chair">◆ ${h.chair}</div>` : ""}
-        <div class="card-details">${h.details}</div>
-        ${h.witnesses?.length ? `
-          <div class="witnesses-label witnesses-${cls}">Witnesses</div>
-          ${h.witnesses.map(w => `<div class="witness witness-border-${cls}">${w}</div>`).join("")}
-        ` : ""}
+        ${h.chair ? '<div class="card-chair">◆ ' + h.chair + '</div>' : ''}
+        ${h.details ? '<div class="card-details">' + h.details + '</div>' : ''}
+        ${h.witnesses && h.witnesses.length
+          ? '<div class="witnesses-label wl-' + c + '">Witnesses</div>' +
+            h.witnesses.map(w => '<div class="witness wb-' + c + '">' + w + '</div>').join('')
+          : ''}
       </div>
     `;
-    card.addEventListener("click", () => card.classList.toggle("open"));
+    card.addEventListener('click', () => card.classList.toggle('open'));
     list.appendChild(card);
   });
 }
 
 function setFilter(f) {
-  currentFilter = f;
-  document.querySelectorAll(".filter-btn").forEach(b => {
-    b.classList.toggle("active", b.textContent === f);
-  });
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b.textContent.includes(f) || (f==='All' && b.textContent==='All')));
   buildCards(f);
 }
 
-function init() {
-  document.getElementById("timestamp").textContent =
-    `As of ${GENERATED_AT} · ${DATE_LABEL} · Schedules subject to change.`;
-  document.getElementById("total-count").textContent  = HEARINGS.length;
-  document.getElementById("senate-count").textContent = HEARINGS.filter(h => h.chamber === "Senate").length;
-  document.getElementById("house-count").textContent  = HEARINGS.filter(h => h.chamber === "House").length;
-  document.getElementById("joint-count").textContent  = HEARINGS.filter(h => h.chamber === "Joint").length;
-  buildCards("All");
-}
-
-init();
+buildCards('All');
 </script>
 </body>
 </html>
