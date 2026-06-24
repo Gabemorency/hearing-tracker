@@ -24,14 +24,26 @@ today_iso   = now_et.strftime("%Y-%m-%d")          # 2026-06-24
 generated   = now_et.strftime("%-I:%M %p ET")
 change_time = now_et.strftime("%-I:%M %p")
 
-# Short month+day variants senate.gov might use
+# All date format variants senate.gov DataTables might render
 today_variants = [
-    today_str,                                      # June 24, 2026
-    today_long,                                     # Wednesday, June 24, 2026
-    now_et.strftime("%b. %-d, %Y"),                # Jun. 24, 2026
-    now_et.strftime("%-d-%b-%Y").upper(),           # 24-JUN-2026
-    today_iso,                                      # 2026-06-24
-    now_et.strftime("%m/%d/%Y"),                   # 06/24/2026
+    today_str,                                        # June 24, 2026
+    today_long,                                       # Wednesday, June 24, 2026
+    now_et.strftime("%b. %-d, %Y"),                  # Jun. 24, 2026
+    now_et.strftime("%b %-d, %Y"),                   # Jun 24, 2026
+    now_et.strftime("%-d-%b-%Y").upper(),             # 24-JUN-2026
+    now_et.strftime("%-d-%b-%y").upper(),             # 24-JUN-26
+    today_iso,                                        # 2026-06-24
+    now_et.strftime("%m/%d/%Y"),                     # 06/24/2026
+    now_et.strftime("%m/%d/%y"),                     # 06/24/26
+    now_et.strftime("Jun %d, %Y"),                   # Jun 24, 2026 (zero-padded)
+    now_et.strftime("%d-%b-%Y").upper(),              # 24-JUN-2026 (zero-padded)
+    # senate.gov DataTables encodes dates as sortable integers like 062426
+    now_et.strftime("%m%d%y"),                       # 062426
+    now_et.strftime("%m%d%Y"),                       # 06242026
+    # The senate.gov page shows "Today, Jun 24, 2026" or "Wed, Jun 24, 2026"
+    "Today,",                                         # catches "Today, Jun 24"
+    now_et.strftime("Wed, Jun"),                      # day-of-week short
+    now_et.strftime("%a, %b %-d"),                   # Wed, Jun 24
 ]
 
 SNAPSHOT_FILE = "snapshot.json"
@@ -222,10 +234,16 @@ async def scrape():
                                               timeout=15000)
             except:
                 pass
-            await asyncio.sleep(3)  # extra buffer for DataTables
+            await asyncio.sleep(5)  # extra buffer for DataTables
 
             # Get all text content and look for today's date
             full_text = await page.inner_text("body")
+
+            # Debug: show what date-like strings actually appear on the page
+            date_lines = [l.strip() for l in full_text.split("\n")
+                         if re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|TODAY|today)", l)
+                         and len(l.strip()) < 80]
+            print(f"Senate date lines found on page: {date_lines[:10]}")
             print(f"Senate page loaded — today found: {is_today(full_text)}")
 
             # Try to find the data table rows
