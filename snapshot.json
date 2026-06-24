@@ -61,8 +61,10 @@
     "topic": "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry",
     "witnesses": [],
     "details": "",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 10:33 AM"
+    ]
   },
   "House|Subcommittee on Environment (Committee o|10:15 AM ET": {
     "chamber": "House",
@@ -172,16 +174,29 @@
     "cancelled": true,
     "changes": []
   },
-  "Senate|Homeland Security|9:30am ET": {
+  "Senate|Homeland Security and Governmental Affai|9:30 AM ET": {
     "chamber": "Senate",
-    "committee": "Homeland Security",
+    "committee": "Homeland Security and Governmental Affairs",
     "chair": "",
-    "time": "9:30am ET",
+    "time": "9:30 AM ET",
     "building": "Dirksen (SD)",
     "room": "SD-342",
-    "topic": "Senate Dirksen Building, SD-342",
+    "topic": "Hearings to examine reforming the U.S. Postal Service's business model.",
     "witnesses": [],
-    "details": "Senate Dirksen Building, SD-342",
+    "details": "Hearings to examine reforming the U.S. Postal Service's business model.",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Environment and Public Works|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Environment and Public Works",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-406",
+    "topic": "Hearings to examine the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
+    "witnesses": [],
+    "details": "Hearings to examine the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
     "cancelled": false,
     "changes": []
   },
@@ -191,11 +206,39 @@
     "chair": "",
     "time": "10:00 AM ET",
     "building": "Dirksen (SD)",
-    "room": "TBD",
-    "topic": "Nomination Hearing to consider Mark Cruz to be Director of the Indian Health Service, Department of Health and Human Services",
+    "room": "SD-628",
+    "topic": "Hearings to examine the nomination of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
     "witnesses": [],
-    "details": "Nomination Hearing to consider Mark Cruz to be Director of the Indian Health Service, Department of Health and Human Services",
+    "details": "Hearings to examine the nomination of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
     "cancelled": false,
+    "changes": [
+      "Room changed to SD-628 \u00b7 10:33 AM"
+    ]
+  },
+  "Senate|Commerce, Science, and Transportation|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Commerce, Science, and Transportation",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Russell (SR)",
+    "room": "SR-253",
+    "topic": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Departm",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Departm",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Judiciary|10:15 AM ET": {
+    "chamber": "Senate",
+    "committee": "Judiciary",
+    "chair": "",
+    "time": "10:15 AM ET",
+    "building": "Hart (SH)",
+    "room": "SH-216",
+    "topic": "Hearings to examine the nominations of Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, Matthew R. Byrne, to be United States District Judge for the South",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, Matthew R. Byrne, to be United States District Judge for the South",
+    "cancelled": true,
     "changes": []
   }
 }
