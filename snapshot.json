@@ -78,10 +78,10 @@
     "topic": "Business Meeting: Federal Judicial Nominations \u2014 Circuit & District Court Judges",
     "details": "Open executive session to consider five pending federal judicial nominations \u2014 one circuit court nominee for the 8th Circuit and four district court nominees across Texas, Michigan, and Pennsylvania.",
     "witnesses": [
-      "Kasdin Miller Mitchell \u2014 Nominee, U.S. District Judge, Northern District of Texas",
-      "Antonio M. Pozos \u2014 Nominee, U.S. District Judge, Eastern District of Pennsylvania",
       "Michael C. Martin \u2014 Nominee, U.S. District Judge, Eastern District of Michigan",
       "Angela Veronica Colmenero \u2014 Nominee, U.S. District Judge, Southern District of Texas",
+      "Antonio M. Pozos \u2014 Nominee, U.S. District Judge, Eastern District of Pennsylvania",
+      "Kasdin Miller Mitchell \u2014 Nominee, U.S. District Judge, Northern District of Texas",
       "Daniel Mack Traynor (ND) \u2014 Nominee, U.S. Circuit Judge, 8th Circuit"
     ],
     "cancelled": true,
@@ -226,8 +226,8 @@
     "topic": "Future of Payments: Promoting Innovation and Fair Markets",
     "details": "Full committee hearing on the evolving payments landscape, examining digital payments, fintech competition, stablecoin regulation, and regulatory frameworks for promoting innovation while protecting consumers.",
     "witnesses": [
-      "Mr. David Portilla",
       "Mrs. Paige Paridon",
+      "Mr. David Portilla",
       "Ms. Rachel Anderika",
       "Mrs. Eileen O'Mara",
       "Ms. Tara Flynn"
