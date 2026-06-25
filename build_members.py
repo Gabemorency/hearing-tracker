@@ -281,6 +281,10 @@ def build():
         party    = term.get("party", "")
         district = term.get("district", "")
 
+        # Non-voting delegates represent territories, not states
+        TERRITORIES = {"DC", "PR", "VI", "GU", "AS", "MP"}
+        is_delegate = chamber == "house" and state in TERRITORIES
+
         # Leadership: institutional leaders first (hardcoded, most reliable)
         # then fall back to term title, then committee chair_map
         if bioguide_id in INSTITUTIONAL_LEADERSHIP:
@@ -307,6 +311,7 @@ def build():
             "leadership":  leadership,
             "committees":  cmte_roles_map.get(bioguide_id, []),
             "caucuses":    caucus_map.get(bioguide_id, []),
+            "delegate":    is_delegate,
         }
 
         if chamber == "senate":
@@ -960,18 +965,31 @@ function renderParty(members){{
   }}
 
   if(rest.length){{
-    h += `<div class="section-hdr">── Remaining Members · ${{rest.length}}</div>
-    <div class="party-cols">
-      <div>
-        <div class="party-col-hdr col-rep">Republican · ${{maj.length}}</div>
-        ${{maj.map(card).join('')}}
-      </div>
-      <div>
-        <div class="party-col-hdr col-dem">Democrat · ${{min.length}}</div>
-        ${{min.map(card).join('')}}
-        ${{ind.length?`<div class="party-col-hdr col-ind" style="margin-top:10px">Independent · ${{ind.length}}</div>${{ind.map(card).join('')}}`:''}}
-      </div>
-    </div>`;
+    const voting    = rest.filter(m=>!m.delegate);
+    const delegates = rest.filter(m=>m.delegate);
+    const vmaj = voting.filter(m=>m.party_class==='rep');
+    const vmin = voting.filter(m=>m.party_class==='dem');
+    const vind = voting.filter(m=>m.party_class==='ind');
+
+    if(voting.length){{
+      h += `<div class="section-hdr">── Remaining Members · ${{voting.length}}</div>
+      <div class="party-cols">
+        <div>
+          <div class="party-col-hdr col-rep">Republican · ${{vmaj.length}}</div>
+          ${{vmaj.map(card).join('')}}
+        </div>
+        <div>
+          <div class="party-col-hdr col-dem">Democrat · ${{vmin.length}}</div>
+          ${{vmin.map(card).join('')}}
+          ${{vind.length?`<div class="party-col-hdr col-ind" style="margin-top:10px">Independent · ${{vind.length}}</div>${{vind.map(card).join('')}}`:''}}
+        </div>
+      </div>`;
+    }}
+
+    if(delegates.length){{
+      h += `<div class="section-hdr" style="margin-top:16px">── Non-Voting Delegates & Commissioners · ${{delegates.length}}</div>
+      <div class="party-cols">${{delegates.map(card).join('')}}</div>`;
+    }}
   }}
   return h || '<div class="empty">No members found.</div>';
 }}
@@ -1041,7 +1059,9 @@ function setGroup(g,btn){{
 
 // Init
 document.getElementById('cnt-senate').textContent = SENATORS.length;
-document.getElementById('cnt-house').textContent  = REPS.length;
+const votingReps = REPS.filter(m=>!m.delegate).length;
+const delegateReps = REPS.filter(m=>m.delegate).length;
+document.getElementById('cnt-house').textContent = votingReps + ' + ' + delegateReps;
 render();
 </script>
 </body>
