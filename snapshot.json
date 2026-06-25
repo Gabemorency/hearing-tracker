@@ -284,6 +284,21 @@
     "cancelled": false,
     "changes": []
   },
+  "House|Subcommittee on Health (Committee on Ene|1:00 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Health (Committee on Energy and Commerce)",
+    "chair": "",
+    "time": "1:00 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2123 RHOB",
+    "topic": "Markup of Fifteen Bills (Rescheduled)",
+    "details": "Markup of Fifteen Bills (Rescheduled)",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": true,
+    "changes": []
+  },
   "House|Committee on Ways and Means|2:00 PM ET": {
     "chamber": "House",
     "committee": "Committee on Ways and Means",
@@ -312,21 +327,6 @@
       "Witnesses not yet publicly posted"
     ],
     "cancelled": true,
-    "changes": []
-  },
-  "House|Subcommittee on Health (Committee on Ene|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Health (Committee on Energy and Commerce)",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Markup of Fifteen Bills",
-    "details": "430 Dirksen Senate Office Building",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
     "changes": []
   },
   "House|Subcommittee on Disability Assistance an|3:15 PM ET": {
@@ -400,6 +400,19 @@
       "Location changed to Classified \u00b7 1:15 PM",
       "Location changed to Rayburn (RHOB) \u00b7 5:38 PM"
     ]
+  },
+  "House|Subcommittee on Energy (Committee on Ene|2:00 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Energy (Committee on Energy and Commerce)",
+    "chair": "",
+    "time": "2:00 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2123 RHOB",
+    "topic": "Subcommittee Markup of Eight Pieces of Legislation",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": []
   },
   "House|Subcommittee on Oversight and Investigat|2:15 PM ET": {
     "chamber": "House",
