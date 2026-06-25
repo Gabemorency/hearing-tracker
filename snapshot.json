@@ -21,8 +21,8 @@
     "time": "10:00 AM ET",
     "building": "Dirksen (SD)",
     "room": "SD-419",
-    "topic": "Hearings to examine the nomination of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, Department of State.",
-    "details": "Hearings to examine the nomination of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, Department of State.",
+    "topic": "Hearings to examine the nominations of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, John Hurley, of Calif",
+    "details": "Hearings to examine the nominations of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, John Hurley, of Calif",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
@@ -53,21 +53,6 @@
     "room": "SD-G50",
     "topic": "To receive a briefing on Russia's tech authoritarianism on the occupied territories of Ukraine.",
     "details": "To receive a briefing on Russia's tech authoritarianism on the occupied territories of Ukraine.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Armed Services|9:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Armed Services",
-    "chair": "",
-    "time": "9:30 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-G50",
-    "topic": "Hearings to examine the nominations of Jules Hurst III, of Virginia, to be Under Secretary (Comptroller), Richard O'Malley, of Wisconsin, to be a Deputy Under Secretary, Roger Mason, of Virginia, to b",
-    "details": "Hearings to examine the nominations of Jules Hurst III, of Virginia, to be Under Secretary (Comptroller), Richard O'Malley, of Wisconsin, to be a Deputy Under Secretary, Roger Mason, of Virginia, to b",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
@@ -199,15 +184,18 @@
     "committee": "Subcommittee on Homeland Security (Committee on Appropriations)",
     "chair": "Tom Cole",
     "time": "10:00 AM ET",
-    "building": "Cannon (CHOB)",
-    "room": "310 CHOB",
+    "building": "Rayburn (RHOB)",
+    "room": "2358-C RHOB",
     "topic": "Oversight Hearing \u2013 Department of Homeland Security",
     "details": "Capitol Complex, 2358-C RHOB, Washington, DC, 20515, USA",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
     "cancelled": true,
-    "changes": []
+    "changes": [
+      "Room changed to 2358-C RHOB \u00b7 12:12 AM",
+      "Location changed to Rayburn (RHOB) \u00b7 12:12 AM"
+    ]
   },
   "House|Subcommittee on Delivering on Government|10:00 AM ET": {
     "chamber": "House",
@@ -251,7 +239,7 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": true,
+    "cancelled": false,
     "changes": []
   },
   "House|Subcommittee on Oversight and Investigat|10:15 AM ET": {
@@ -342,228 +330,6 @@
       "Witnesses not yet publicly posted"
     ],
     "cancelled": true,
-    "changes": []
-  },
-  "House|Subcommittee on the Administrative State|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2141 RHOB",
-    "topic": "The 30,000 Foot View: Competition and Regulation in the U.S. Airline Industry",
-    "witnesses": [],
-    "details": "",
-    "cancelled": true,
-    "changes": []
-  },
-  "House|Committee on Natural Resources|10:30 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Natural Resources",
-    "chair": "",
-    "time": "10:30 AM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1324 LHOB",
-    "topic": "Markup of H.R. 9250 (Rep. Westerman), \u201cGreat American Outdoors Act 250",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Appropriations|11:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Appropriations",
-    "chair": "",
-    "time": "11:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2359 RHOB",
-    "topic": "Fiscal Year 2027 Defense Bill",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Permanent Select Committee on Intelligen|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Permanent Select Committee on Intelligence",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "Closed",
-    "topic": "Effectiveness of the Intelligence Community's Inspector General (CLOSED)",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": [
-      "Location changed to Rayburn (RHOB) \u00b7 10:27 AM",
-      "Witness added: Closed session \u2014 witnesses not publicly disclosed \u00b7 11:07 AM",
-      "Location changed to Classified \u00b7 1:15 PM",
-      "Location changed to Rayburn (RHOB) \u00b7 5:38 PM"
-    ]
-  },
-  "House|Subcommittee on Energy (Committee on Ene|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Energy (Committee on Energy and Commerce)",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Subcommittee Markup of Eight Pieces of Legislation",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Oversight and Investigat|2:15 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)",
-    "chair": "",
-    "time": "2:15 PM ET",
-    "building": "Cannon (CHOB)",
-    "room": "360 CHOB",
-    "topic": "Failure at the Front Gate: Examining VA Police and Security Deficiencies\u201d (Postponed)",
-    "witnesses": [],
-    "details": "",
-    "cancelled": true,
-    "changes": []
-  },
-  "Senate|Homeland Security and Governmental Affai|9:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Homeland Security and Governmental Affairs",
-    "chair": "",
-    "time": "9:30 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-342",
-    "topic": "Hearings to examine reforming the U.S. Postal Service's business model.",
-    "witnesses": [],
-    "details": "Hearings to examine reforming the U.S. Postal Service's business model.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Environment and Public Works|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Environment and Public Works",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-406",
-    "topic": "Hearings to examine the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
-    "witnesses": [],
-    "details": "Hearings to examine the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife.",
-    "cancelled": false,
-    "changes": [
-      "Witness added: Kevin Lilly (TX) \u2014 Nominee, Assistant Secretary for Fish and Wildlife, U.S. Dept. of the Interior \u00b7 11:07 AM"
-    ]
-  },
-  "Senate|Indian Affairs|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Indian Affairs",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-628",
-    "topic": "Hearings to examine the nomination of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
-    "witnesses": [],
-    "details": "Hearings to examine the nomination of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
-    "cancelled": false,
-    "changes": [
-      "Room changed to SD-628 \u00b7 10:33 AM",
-      "Witness added: Mark Cruz (OR) \u2014 Nominee, Director of the Indian Health Service, Dept. of Health & Human Services \u00b7 11:07 AM"
-    ]
-  },
-  "Senate|Commerce, Science, and Transportation|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Commerce, Science, and Transportation",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Russell (SR)",
-    "room": "SR-253",
-    "topic": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Departm",
-    "witnesses": [],
-    "details": "Hearings to examine the nominations of Thomas B. Chapman, of Maryland, to be a Member of the National Transportation Safety Board, Edward Eppler, of Connecticut, to be Chief Financial Officer, Departm",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Judiciary|10:15 AM ET": {
-    "chamber": "Senate",
-    "committee": "Judiciary",
-    "chair": "",
-    "time": "10:15 AM ET",
-    "building": "Hart (SH)",
-    "room": "SH-216",
-    "topic": "Hearings to examine the nominations of Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, Matthew R. Byrne, to be United States District Judge for the South",
-    "witnesses": [],
-    "details": "Hearings to examine the nominations of Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, Matthew R. Byrne, to be United States District Judge for the South",
-    "cancelled": true,
-    "changes": [
-      "Witnesses added: Kasdin Miller Mitchell \u2014 Nominee, U.S. District Judge, Northern District of Texas, Angela Veronica Colmenero \u2014 Nominee, U.S. District Judge, Southern District of Texas +3 more \u00b7 11:07 AM"
-    ]
-  },
-  "Joint|United States Senate Caucus on Internati|2:00 PM ET": {
-    "chamber": "Joint",
-    "committee": "United States Senate Caucus on International Narcotics Control",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-419",
-    "topic": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
-    "witnesses": [],
-    "details": "Hearings to examine the global reach of Mexican drug cartels and risks to U.S. national security.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Joint|Joint Economic Committee|2:00 PM ET": {
-    "chamber": "Joint",
-    "committee": "Joint Economic Committee",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-G50",
-    "topic": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
-    "witnesses": [],
-    "details": "Hearings to examine protecting patients and taxpayers, focusing on combating healthcare fraud and leakage to strengthen program integrity.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Judiciary \u2014 Subcommittee on Constitution|2:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Judiciary \u2014 Subcommittee on Constitution",
-    "chair": "",
-    "time": "2:30 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-226",
-    "topic": "Hearings to examine protecting American citizenship, focusing on America 250 and American citizenship.",
-    "witnesses": [],
-    "details": "Hearings to examine protecting American citizenship, focusing on America 250 and American citizenship.",
-    "cancelled": true,
-    "changes": []
-  },
-  "Senate|Finance \u2014 Subcommittee on Social Securit|3:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Finance \u2014 Subcommittee on Social Security, Pensions, and Family Policy",
-    "chair": "",
-    "time": "3:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-215",
-    "topic": "Hearings to examine the future of social security.",
-    "witnesses": [],
-    "details": "Hearings to examine the future of social security.",
-    "cancelled": true,
-    "changes": [
-      "CANCELLED \u00b7 1:15 PM"
-    ]
-  },
-  "Senate|Intelligence|3:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Intelligence",
-    "chair": "",
-    "time": "3:00 PM ET",
-    "building": "Hart (SH)",
-    "room": "SH-219",
-    "topic": "To receive a closed briefing on certain intelligence matters.",
-    "witnesses": [],
-    "details": "To receive a closed briefing on certain intelligence matters.",
-    "cancelled": false,
     "changes": []
   }
 }
