@@ -179,48 +179,77 @@ def build():
     # ── Congressional Black Caucus membership ─────────────────────────────────
     # CBC page requires JavaScript to render — using bioguide IDs matched from
     # the static HTML that does load, cross-referenced with the legislators dataset.
-    # Updated as of 119th Congress (2025-2026). 62 members per CBC.house.gov.
+    # CBC members — bioguide IDs matched directly from cbc.house.gov/membership/
+    # As of June 2026: 61 active members
+    # (Cherfilus-McCormick resigned Apr 2026, David Scott GA-13 deceased, Sylvester Turner TX-18 deceased)
     print("📋 Loading CBC membership...")
-    CBC_LAST_NAMES = [
-        "Norton","Waters","Bishop","Clyburn","Scott","Thompson","Davis",
-        "Meeks","Scott","Cleaver","Green","Moore","Clarke","Johnson",
-        "Carson","Mfume","Sewell","Wilson","Beatty","Jeffries","Veasey",
-        "Kelly","Booker","Adams","Plaskett","Coleman","Evans",
-        "Rochester","Horsford","Hayes","McBath","Neguse","Omar",
-        "Pressley","Underwood","Williams","Torres","Strickland",
-        "Warnock","Carter","Brown","Cherfilus-McCormick","Bowman",
-        "Bush","Casar","Frost","Goldman","Jackson","Jackson Lee",
-        "Johnson","Jones","Lee","Leger Fernandez","McIver","Menefee",
-        "Mosby","Ocasio-Cortez","Payne","Scanlon","Stansbury",
-        "Thanedar","Tlaib","Vasquez","Williams",
+    CBC_BIOGUIDES = [
+        "N000147",  # Eleanor Holmes Norton (DC)
+        "W000187",  # Maxine Waters (CA)
+        "B000490",  # Sanford D. Bishop, Jr. (GA)
+        "C000537",  # James E. Clyburn (SC)
+        "S000185",  # Robert C. Bobby Scott (VA)
+        "T000193",  # Bennie G. Thompson (MS)
+        "D000096",  # Danny K. Davis (IL)
+        "M001137",  # Gregory W. Meeks (NY)
+        "C001061",  # Emanuel Cleaver (MO)
+        "G000553",  # Al Green (TX)
+        "M001160",  # Gwen Moore (WI)
+        "C001067",  # Yvette D. Clarke (NY) - CBC Chair
+        "J000288",  # Henry C. Hank Johnson Jr (GA)
+        "C001072",  # Andre Carson (IN)
+        "M000687",  # Kweisi Mfume (MD)
+        "S001185",  # Terri A. Sewell (AL)
+        "W000808",  # Frederica S. Wilson (FL)
+        "B001281",  # Joyce Beatty (OH)
+        "J000294",  # Hakeem S. Jeffries (NY)
+        "V000131",  # Marc A. Veasey (TX)
+        "K000385",  # Robin L. Kelly (IL)
+        "B001288",  # Cory A. Booker (NJ)
+        "A000370",  # Alma S. Adams (NC)
+        "P000610",  # Stacey E. Plaskett (VI)
+        "W000822",  # Bonnie Watson Coleman (NJ)
+        "E000296",  # Dwight Evans (PA)
+        "B001303",  # Lisa Blunt Rochester (DE)
+        "H001066",  # Steven Horsford (NV)
+        "H001081",  # Jahana Hayes (CT)
+        "M001208",  # Lucy McBath (GA)
+        "N000191",  # Joe Neguse (CO)
+        "O000173",  # Ilhan Omar (MN)
+        "P000617",  # Ayanna Pressley (MA)
+        "U000040",  # Lauren Underwood (IL)
+        "W000788",  # Nikema Williams (GA)
+        "T000486",  # Ritchie Torres (NY)
+        "S001159",  # Marilyn Strickland (WA)
+        "W000790",  # Raphael G. Warnock (GA)
+        "C001125",  # Troy A. Carter (LA)
+        "B001313",  # Shontel M. Brown (OH)
+        "C001130",  # Jasmine Crockett (TX)
+        "D000230",  # Donald G. Davis (NC)
+        "F000477",  # Valerie P. Foushee (NC)
+        "F000476",  # Maxwell Frost (FL)
+        "I000058",  # Glenn Ivey (MD)
+        "J000309",  # Jonathan L. Jackson (IL)
+        "K000400",  # Sydney Kamlager-Dove (CA)
+        "L000602",  # Summer L. Lee (PA)
+        "S001223",  # Emilia Strong Sykes (OH)
+        "M001227",  # Jennifer L. McClellan (VA)
+        "A000380",  # Gabe Amo (RI)
+        "M001229",  # LaMonica McIver (NJ)
+        "A000382",  # Angela D. Alsobrooks (MD)
+        "B001324",  # Wesley Bell (MO)
+        "B001326",  # Janelle S. Bynum (OR)
+        "C001136",  # Herbert C. Conaway Jr (NJ)
+        "F000110",  # Cleo Fields (LA)
+        "F000481",  # Shomari Figures (AL)
+        "S001231",  # Lateefah Simon (CA)
+        "M001245",  # Christian D. Menefee (TX)
     ]
 
-    # Build last-name -> bioguide lookup (Democrat-only to avoid false matches)
-    last_to_bio = {}
-    for m in legislators:
-        bid  = m.get("id", {}).get("bioguide", "")
-        name = m.get("name", {})
-        last = name.get("last", "")
-        term = m.get("terms", [{}])[-1]
-        party = term.get("party", "")
-        if bid and party == "Democrat":
-            last_to_bio[last.lower()] = bid
-            # Also index official_full for better matching
-            full = name.get("official_full", "")
-            if full:
-                last_to_bio[full.lower()] = bid
-
     caucus_map = {}
-    matched = 0
-    for last in CBC_LAST_NAMES:
-        bid = last_to_bio.get(last.lower())
-        if bid:
-            if bid not in caucus_map:
-                caucus_map[bid] = []
-            if "cbc" not in caucus_map[bid]:
-                caucus_map[bid].append("cbc")
-                matched += 1
-    print(f"  Black Caucus: {matched} members matched")
+    for bid in CBC_BIOGUIDES:
+        caucus_map[bid] = ["cbc"]
+    print(f"  Black Caucus: {len(CBC_BIOGUIDES)} members loaded")
 
     # ── Hardcoded 119th Congress institutional leadership ──────────────────────
     # These positions change only after elections or resignations.
