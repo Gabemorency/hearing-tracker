@@ -1,7 +1,829 @@
 {
   "date": "2026-06-24",
-  "generated": "6:59 PM ET",
+  "generated": "8:29 PM ET",
   "senators": [
+    {
+      "bioguide_id": "G000386",
+      "name": "Chuck Grassley",
+      "first": "Charles",
+      "last": "Grassley",
+      "chamber": "senate",
+      "state": "IA",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000386.jpg",
+      "initials": "CG",
+      "leadership": {
+        "label": "President Pro Tempore",
+        "tier": 1
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
+          "role": "Member",
+          "rank": 9
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Food and Nutrition, Specialty Crops, Organics, and Research",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Rural Development, Energy, and Credit",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Finance",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Finance — International Trade, Customs, and Global Competitiveness",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Finance — Social Security, Pensions, and Family Policy",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Finance — Taxation and IRS Oversight",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on the Budget",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on the Judiciary",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Joint Committee on Taxation",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "United States Senate Caucus on International Narcotics Control",
+          "role": "Member",
+          "rank": 2
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "S000148",
+      "name": "Charles E. Schumer",
+      "first": "Charles",
+      "last": "Schumer",
+      "chamber": "senate",
+      "state": "NY",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000148.jpg",
+      "initials": "CS",
+      "leadership": {
+        "label": "Senate Minority Leader",
+        "tier": 1
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Rules and Administration",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Select Committee on Intelligence",
+          "role": "Ex Officio",
+          "rank": 10
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "T000250",
+      "name": "John Thune",
+      "first": "John",
+      "last": "Thune",
+      "chamber": "senate",
+      "state": "SD",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000250.jpg",
+      "initials": "JT",
+      "leadership": {
+        "label": "Senate Majority Leader",
+        "tier": 1
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
+          "role": "Member",
+          "rank": 10
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Conservation, Forestry, Natural Resources, and Biotechnology",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Aviation, Space, and Innovation",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Telecommunications and Media",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Consumer Protection, Technology, and Data Privacy",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Surface Transportation, Freight, Pipelines, and Safety",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Finance",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on Finance — Health Care",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Finance — International Trade, Customs, and Global Competitiveness",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Finance — Taxation and IRS Oversight",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Select Committee on Intelligence",
+          "role": "Ex Officio",
+          "rank": 10
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "B001261",
+      "name": "John Barrasso",
+      "first": "John",
+      "last": "Barrasso",
+      "chamber": "senate",
+      "state": "WY",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001261.jpg",
+      "initials": "JB",
+      "leadership": {
+        "label": "Senate Majority Whip",
+        "tier": 2
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Energy and Natural Resources",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Energy and Natural Resources — Energy",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Energy and Natural Resources — National Parks",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Energy and Natural Resources — Public Lands, Forests, and Mining",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Finance",
+          "role": "Member",
+          "rank": 10
+        },
+        {
+          "committee": "Senate Committee on Finance — Energy, Natural Resources, and Infrastructure",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Finance — Health Care",
+          "role": "Member",
+          "rank": 7
+        },
+        {
+          "committee": "Senate Committee on Finance — Taxation and IRS Oversight",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations — Africa and Global Health Policy",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations — Europe and Regional Security Cooperation",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations — Multilateral International Development, Multilateral Institutions, and International Economic, Energy, and Environmental Policy",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations — State Department and USAID Management, International Operations, and Bilateral International Development",
+          "role": "Member",
+          "rank": 3
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "D000563",
+      "name": "Richard J. Durbin",
+      "first": "Richard",
+      "last": "Durbin",
+      "chamber": "senate",
+      "state": "IL",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000563.jpg",
+      "initials": "RD",
+      "leadership": {
+        "label": "Senate Minority Whip",
+        "tier": 2
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on Appropriations",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Department of Defense",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Energy and Water Development",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Financial Services and General Government",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on the Judiciary",
+          "role": "Ranking Member",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Crime and Counterterrorism",
+          "role": "Ranking Member",
+          "rank": 1
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "B001288",
+      "name": "Cory A. Booker",
+      "first": "Cory",
+      "last": "Booker",
+      "chamber": "senate",
+      "state": "NJ",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001288.jpg",
+      "initials": "CB",
+      "leadership": {
+        "label": "Strategic Communications Chair",
+        "tier": 3
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
+          "role": "Ranking Member",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Food and Nutrition, Specialty Crops, Organics, and Research",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations — Africa and Global Health Policy",
+          "role": "Ranking Member",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations — Europe and Regional Security Cooperation",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Foreign Relations — Near East, South Asia, Central Asia, and Counterterrorism",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on Small Business and Entrepreneurship",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on the Judiciary",
+          "role": "Member",
+          "rank": 7
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Antitrust, Competition Policy, and Consumer Rights",
+          "role": "Ranking Member",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Crime and Counterterrorism",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Border Security and Immigration",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — the Constitution",
+          "role": "Member",
+          "rank": 4
+        }
+      ],
+      "caucuses": [
+        "cbc"
+      ]
+    },
+    {
+      "bioguide_id": "C001047",
+      "name": "Shelley Moore Capito",
+      "first": "Shelley",
+      "last": "Capito",
+      "chamber": "senate",
+      "state": "WV",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001047.jpg",
+      "initials": "SC",
+      "leadership": {
+        "label": "Senate Policy Committee Chair",
+        "tier": 3
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Appropriations",
+          "role": "Member",
+          "rank": 8
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Commerce, Justice, Science, and Related Agencies",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Department of Defense",
+          "role": "Member",
+          "rank": 8
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Department of Homeland Security",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Department of Interior, Environment, and Related Agencies",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation",
+          "role": "Member",
+          "rank": 14
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Aviation, Space, and Innovation",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Telecommunications and Media",
+          "role": "Member",
+          "rank": 13
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Consumer Protection, Technology, and Data Privacy",
+          "role": "Member",
+          "rank": 7
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Surface Transportation, Freight, Pipelines, and Safety",
+          "role": "Member",
+          "rank": 8
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works — Chemical Safety, Waste Management, Environmental Justice, and Regulatory Oversight",
+          "role": "Ex Officio",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works — Clean Air, Climate, and Nuclear Innovation and Safety",
+          "role": "Ex Officio",
+          "rank": 9
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "role": "Ex Officio",
+          "rank": 7
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works — Transportation and Infrastructure",
+          "role": "Ex Officio",
+          "rank": 9
+        },
+        {
+          "committee": "Senate Committee on Rules and Administration",
+          "role": "Member",
+          "rank": 3
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "C001095",
+      "name": "Tom Cotton",
+      "first": "Tom",
+      "last": "Cotton",
+      "chamber": "senate",
+      "state": "AR",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001095.jpg",
+      "initials": "TC",
+      "leadership": {
+        "label": "Senate Conference Chair",
+        "tier": 3
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Armed Services",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Armed Services — Airland",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Armed Services — Cybersecurity",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Armed Services — Emerging Threats and Capabilities",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Armed Services — Strategic Forces",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Energy and Natural Resources",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Energy and Natural Resources — Energy",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on Energy and Natural Resources — Public Lands, Forests, and Mining",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Joint Economic Committee",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Select Committee on Intelligence",
+          "role": "Chairman",
+          "rank": 1
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "K000367",
+      "name": "Amy Klobuchar",
+      "first": "Amy",
+      "last": "Klobuchar",
+      "chamber": "senate",
+      "state": "MN",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000367.jpg",
+      "initials": "AK",
+      "leadership": {
+        "label": "Steering & Policy Chair",
+        "tier": 3
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
+          "role": "Ranking Member",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
+          "role": "Ex Officio",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Conservation, Forestry, Natural Resources, and Biotechnology",
+          "role": "Ex Officio",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Food and Nutrition, Specialty Crops, Organics, and Research",
+          "role": "Ex Officio",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety",
+          "role": "Ex Officio",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Rural Development, Energy, and Credit",
+          "role": "Ex Officio",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Telecommunications and Media",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Consumer Protection, Technology, and Data Privacy",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Commerce, Science, and Transportation — Surface Transportation, Freight, Pipelines, and Safety",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Rules and Administration",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "Senate Committee on the Judiciary",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Antitrust, Competition Policy, and Consumer Rights",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Crime and Counterterrorism",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Border Security and Immigration",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Privacy, Technology, and the Law",
+          "role": "Ranking Member",
+          "rank": 1
+        },
+        {
+          "committee": "Joint Committee of Congress on the Library",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Joint Economic Committee",
+          "role": "Member",
+          "rank": 2
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "L000575",
+      "name": "James Lankford",
+      "first": "James",
+      "last": "Lankford",
+      "chamber": "senate",
+      "state": "OK",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": "",
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000575.jpg",
+      "initials": "JL",
+      "leadership": {
+        "label": "Senate Conference Vice Chair",
+        "tier": 3
+      },
+      "committees": [
+        {
+          "committee": "Senate Committee on Finance",
+          "role": "Member",
+          "rank": 7
+        },
+        {
+          "committee": "Senate Committee on Finance — Energy, Natural Resources, and Infrastructure",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Committee on Finance — Health Care",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Finance — Taxation and IRS Oversight",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on Homeland Security and Governmental Affairs",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "Senate Committee on Homeland Security and Governmental Affairs — Permanent Subcommittee on Investigations",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "Senate Committee on Homeland Security and Governmental Affairs — Border Management, Federal Workforce, and Regulatory Affairs",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Select Committee on Ethics",
+          "role": "Chairman",
+          "rank": 1
+        },
+        {
+          "committee": "Senate Select Committee on Intelligence",
+          "role": "Member",
+          "rank": 6
+        }
+      ],
+      "caucuses": []
+    },
     {
       "bioguide_id": "B001236",
       "name": "John Boozman",
@@ -120,118 +942,6 @@
           "committee": "Commission on Security and Cooperation in Europe",
           "role": "Member",
           "rank": 2
-        }
-      ],
-      "caucuses": []
-    },
-    {
-      "bioguide_id": "C001047",
-      "name": "Shelley Moore Capito",
-      "first": "Shelley",
-      "last": "Capito",
-      "chamber": "senate",
-      "state": "WV",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001047.jpg",
-      "initials": "SC",
-      "leadership": {
-        "label": "Chair",
-        "tier": 4,
-        "committee": "Senate Committee on Environment and Public Works"
-      },
-      "committees": [
-        {
-          "committee": "Senate Committee on Appropriations",
-          "role": "Member",
-          "rank": 8
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Commerce, Justice, Science, and Related Agencies",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Department of Defense",
-          "role": "Member",
-          "rank": 8
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Department of Homeland Security",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Department of Interior, Environment, and Related Agencies",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation",
-          "role": "Member",
-          "rank": 14
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Aviation, Space, and Innovation",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Telecommunications and Media",
-          "role": "Member",
-          "rank": 13
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Consumer Protection, Technology, and Data Privacy",
-          "role": "Member",
-          "rank": 7
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Surface Transportation, Freight, Pipelines, and Safety",
-          "role": "Member",
-          "rank": 8
-        },
-        {
-          "committee": "Senate Committee on Environment and Public Works",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Environment and Public Works — Chemical Safety, Waste Management, Environmental Justice, and Regulatory Oversight",
-          "role": "Ex Officio",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Environment and Public Works — Clean Air, Climate, and Nuclear Innovation and Safety",
-          "role": "Ex Officio",
-          "rank": 9
-        },
-        {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
-          "role": "Ex Officio",
-          "rank": 7
-        },
-        {
-          "committee": "Senate Committee on Environment and Public Works — Transportation and Infrastructure",
-          "role": "Ex Officio",
-          "rank": 9
-        },
-        {
-          "committee": "Senate Committee on Rules and Administration",
-          "role": "Member",
-          "rank": 3
         }
       ],
       "caucuses": []
@@ -650,78 +1360,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "C001095",
-      "name": "Tom Cotton",
-      "first": "Tom",
-      "last": "Cotton",
-      "chamber": "senate",
-      "state": "AR",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001095.jpg",
-      "initials": "TC",
-      "leadership": {
-        "label": "Chair",
-        "tier": 4,
-        "committee": "Senate Select Committee on Intelligence"
-      },
-      "committees": [
-        {
-          "committee": "Senate Committee on Armed Services",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Armed Services — Airland",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Armed Services — Cybersecurity",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Armed Services — Emerging Threats and Capabilities",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Armed Services — Strategic Forces",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Energy and Natural Resources",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on Energy and Natural Resources — Energy",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Energy and Natural Resources — Public Lands, Forests, and Mining",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Joint Economic Committee",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Select Committee on Intelligence",
-          "role": "Chairman",
-          "rank": 1
-        }
-      ],
-      "caucuses": []
-    },
-    {
       "bioguide_id": "C000880",
       "name": "Mike Crapo",
       "first": "Michael",
@@ -1100,155 +1738,6 @@
           "committee": "Senate Committee on the Judiciary — Privacy, Technology, and the Law",
           "role": "Member",
           "rank": 2
-        }
-      ],
-      "caucuses": []
-    },
-    {
-      "bioguide_id": "G000386",
-      "name": "Chuck Grassley",
-      "first": "Charles",
-      "last": "Grassley",
-      "chamber": "senate",
-      "state": "IA",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/G/G000386.jpg",
-      "initials": "CG",
-      "leadership": {
-        "label": "Chair",
-        "tier": 4,
-        "committee": "Senate Committee on the Judiciary"
-      },
-      "committees": [
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
-          "role": "Member",
-          "rank": 9
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Food and Nutrition, Specialty Crops, Organics, and Research",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Rural Development, Energy, and Credit",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Finance",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Finance — International Trade, Customs, and Global Competitiveness",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Finance — Social Security, Pensions, and Family Policy",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Finance — Taxation and IRS Oversight",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on the Budget",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on the Judiciary",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Joint Committee on Taxation",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "United States Senate Caucus on International Narcotics Control",
-          "role": "Member",
-          "rank": 2
-        }
-      ],
-      "caucuses": []
-    },
-    {
-      "bioguide_id": "L000575",
-      "name": "James Lankford",
-      "first": "James",
-      "last": "Lankford",
-      "chamber": "senate",
-      "state": "OK",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/L/L000575.jpg",
-      "initials": "JL",
-      "leadership": {
-        "label": "Chair",
-        "tier": 4,
-        "committee": "Senate Select Committee on Ethics"
-      },
-      "committees": [
-        {
-          "committee": "Senate Committee on Finance",
-          "role": "Member",
-          "rank": 7
-        },
-        {
-          "committee": "Senate Committee on Finance — Energy, Natural Resources, and Infrastructure",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Finance — Health Care",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on Finance — Taxation and IRS Oversight",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Homeland Security and Governmental Affairs",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Homeland Security and Governmental Affairs — Permanent Subcommittee on Investigations",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Homeland Security and Governmental Affairs — Border Management, Federal Workforce, and Regulatory Affairs",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Select Committee on Ethics",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Select Committee on Intelligence",
-          "role": "Member",
-          "rank": 6
         }
       ],
       "caucuses": []
@@ -2602,88 +3091,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "D000563",
-      "name": "Richard J. Durbin",
-      "first": "Richard",
-      "last": "Durbin",
-      "chamber": "senate",
-      "state": "IL",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/D/D000563.jpg",
-      "initials": "RD",
-      "leadership": {
-        "label": "Ranking Member",
-        "tier": 5,
-        "committee": "Senate Committee on the Judiciary"
-      },
-      "committees": [
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Appropriations",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Department of Defense",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Energy and Water Development",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Financial Services and General Government",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on the Judiciary",
-          "role": "Ranking Member",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — Crime and Counterterrorism",
-          "role": "Ranking Member",
-          "rank": 1
-        }
-      ],
-      "caucuses": []
-    },
-    {
       "bioguide_id": "G000555",
       "name": "Kirsten E. Gillibrand",
       "first": "Kirsten",
@@ -2930,118 +3337,6 @@
           "committee": "Senate Select Committee on Intelligence",
           "role": "Member",
           "rank": 3
-        }
-      ],
-      "caucuses": []
-    },
-    {
-      "bioguide_id": "K000367",
-      "name": "Amy Klobuchar",
-      "first": "Amy",
-      "last": "Klobuchar",
-      "chamber": "senate",
-      "state": "MN",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/K/K000367.jpg",
-      "initials": "AK",
-      "leadership": {
-        "label": "Ranking Member",
-        "tier": 5,
-        "committee": "Senate Committee on Agriculture, Nutrition, and Forestry"
-      },
-      "committees": [
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
-          "role": "Ranking Member",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
-          "role": "Ex Officio",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Conservation, Forestry, Natural Resources, and Biotechnology",
-          "role": "Ex Officio",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Food and Nutrition, Specialty Crops, Organics, and Research",
-          "role": "Ex Officio",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety",
-          "role": "Ex Officio",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Rural Development, Energy, and Credit",
-          "role": "Ex Officio",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Telecommunications and Media",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Consumer Protection, Technology, and Data Privacy",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Surface Transportation, Freight, Pipelines, and Safety",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Rules and Administration",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on the Judiciary",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — Antitrust, Competition Policy, and Consumer Rights",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — Crime and Counterterrorism",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — Border Security and Immigration",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — Privacy, Technology, and the Law",
-          "role": "Ranking Member",
-          "rank": 1
-        },
-        {
-          "committee": "Joint Committee of Congress on the Library",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Joint Economic Committee",
-          "role": "Member",
-          "rank": 2
         }
       ],
       "caucuses": []
@@ -4511,89 +4806,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "B001261",
-      "name": "John Barrasso",
-      "first": "John",
-      "last": "Barrasso",
-      "chamber": "senate",
-      "state": "WY",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001261.jpg",
-      "initials": "JB",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "Senate Committee on Energy and Natural Resources",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Energy and Natural Resources — Energy",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Energy and Natural Resources — National Parks",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Energy and Natural Resources — Public Lands, Forests, and Mining",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Finance",
-          "role": "Member",
-          "rank": 10
-        },
-        {
-          "committee": "Senate Committee on Finance — Energy, Natural Resources, and Infrastructure",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on Finance — Health Care",
-          "role": "Member",
-          "rank": 7
-        },
-        {
-          "committee": "Senate Committee on Finance — Taxation and IRS Oversight",
-          "role": "Chairman",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations — Africa and Global Health Policy",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations — Europe and Regional Security Cooperation",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations — Multilateral International Development, Multilateral Institutions, and International Economic, Energy, and Environmental Policy",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations — State Department and USAID Management, International Operations, and Bilateral International Development",
-          "role": "Member",
-          "rank": 3
-        }
-      ],
-      "caucuses": []
-    },
-    {
       "bioguide_id": "B001267",
       "name": "Michael F. Bennet",
       "first": "Michael",
@@ -4846,96 +5058,6 @@
         }
       ],
       "caucuses": []
-    },
-    {
-      "bioguide_id": "B001288",
-      "name": "Cory A. Booker",
-      "first": "Cory",
-      "last": "Booker",
-      "chamber": "senate",
-      "state": "NJ",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/B/B001288.jpg",
-      "initials": "CB",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
-          "role": "Ranking Member",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Food and Nutrition, Specialty Crops, Organics, and Research",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations — Africa and Global Health Policy",
-          "role": "Ranking Member",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations — Europe and Regional Security Cooperation",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Foreign Relations — Near East, South Asia, Central Asia, and Counterterrorism",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Small Business and Entrepreneurship",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on the Judiciary",
-          "role": "Member",
-          "rank": 7
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — Antitrust, Competition Policy, and Consumer Rights",
-          "role": "Ranking Member",
-          "rank": 1
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — Crime and Counterterrorism",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — Border Security and Immigration",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on the Judiciary — the Constitution",
-          "role": "Member",
-          "rank": 4
-        }
-      ],
-      "caucuses": [
-        "cbc"
-      ]
     },
     {
       "bioguide_id": "B001319",
@@ -8033,34 +8155,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "S000148",
-      "name": "Charles E. Schumer",
-      "first": "Charles",
-      "last": "Schumer",
-      "chamber": "senate",
-      "state": "NY",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S000148.jpg",
-      "initials": "CS",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "Senate Committee on Rules and Administration",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Select Committee on Intelligence",
-          "role": "Ex Officio",
-          "rank": 10
-        }
-      ],
-      "caucuses": []
-    },
-    {
       "bioguide_id": "S001232",
       "name": "Tim Sheehy",
       "first": "Tim",
@@ -8358,94 +8452,6 @@
           "committee": "Senate Committee on Veterans' Affairs",
           "role": "Member",
           "rank": 5
-        }
-      ],
-      "caucuses": []
-    },
-    {
-      "bioguide_id": "T000250",
-      "name": "John Thune",
-      "first": "John",
-      "last": "Thune",
-      "chamber": "senate",
-      "state": "SD",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": "",
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/T/T000250.jpg",
-      "initials": "JT",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry",
-          "role": "Member",
-          "rank": 10
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Commodities, Derivatives, Risk Management, and Trade",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Conservation, Forestry, Natural Resources, and Biotechnology",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Agriculture, Nutrition, and Forestry — Livestock, Dairy, Poultry, and Food Safety",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Aviation, Space, and Innovation",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Telecommunications and Media",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Consumer Protection, Technology, and Data Privacy",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Commerce, Science, and Transportation — Surface Transportation, Freight, Pipelines, and Safety",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Finance",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Finance — Health Care",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "Senate Committee on Finance — International Trade, Customs, and Global Competitiveness",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "Senate Committee on Finance — Taxation and IRS Oversight",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "Senate Select Committee on Intelligence",
-          "role": "Ex Officio",
-          "rank": 10
         }
       ],
       "caucuses": []
@@ -8962,6 +8968,249 @@
     }
   ],
   "reps": [
+    {
+      "bioguide_id": "J000294",
+      "name": "Hakeem S. Jeffries",
+      "first": "Hakeem",
+      "last": "Jeffries",
+      "chamber": "house",
+      "state": "NY",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": 8,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000294.jpg",
+      "initials": "HJ",
+      "leadership": {
+        "label": "House Minority Leader",
+        "tier": 1
+      },
+      "committees": [],
+      "caucuses": [
+        "cbc"
+      ]
+    },
+    {
+      "bioguide_id": "S001176",
+      "name": "Steve Scalise",
+      "first": "Steve",
+      "last": "Scalise",
+      "chamber": "house",
+      "state": "LA",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": 1,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001176.jpg",
+      "initials": "SS",
+      "leadership": {
+        "label": "House Majority Leader",
+        "tier": 1
+      },
+      "committees": [],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "C001101",
+      "name": "Katherine M. Clark",
+      "first": "Katherine",
+      "last": "Clark",
+      "chamber": "house",
+      "state": "MA",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": 5,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001101.jpg",
+      "initials": "KC",
+      "leadership": {
+        "label": "House Minority Whip",
+        "tier": 2
+      },
+      "committees": [],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "E000294",
+      "name": "Tom Emmer",
+      "first": "Tom",
+      "last": "Emmer",
+      "chamber": "house",
+      "state": "MN",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": 6,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000294.jpg",
+      "initials": "TE",
+      "leadership": {
+        "label": "House Majority Whip",
+        "tier": 2
+      },
+      "committees": [
+        {
+          "committee": "House Committee on Financial Services",
+          "role": "Member",
+          "rank": 8
+        },
+        {
+          "committee": "House Committee on Financial Services — Digital Assets, Financial Technology, and Artificial Intelligence",
+          "role": "Vice Chairman",
+          "rank": 2
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "A000371",
+      "name": "Pete Aguilar",
+      "first": "Pete",
+      "last": "Aguilar",
+      "chamber": "house",
+      "state": "CA",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": 33,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000371.jpg",
+      "initials": "PA",
+      "leadership": {
+        "label": "House Democratic Caucus Chair",
+        "tier": 3
+      },
+      "committees": [
+        {
+          "committee": "House Committee on Appropriations",
+          "role": "Member",
+          "rank": 13
+        },
+        {
+          "committee": "House Committee on Appropriations — Defense",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "House Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
+          "role": "Member",
+          "rank": 5
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "M001215",
+      "name": "Mariannette Miller-Meeks",
+      "first": "Mariannette",
+      "last": "Miller-Meeks",
+      "chamber": "house",
+      "state": "IA",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": 1,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001215.jpg",
+      "initials": "MM",
+      "leadership": {
+        "label": "House Conference Chair",
+        "tier": 3
+      },
+      "committees": [
+        {
+          "committee": "House Committee on Energy and Commerce",
+          "role": "Member",
+          "rank": 17
+        },
+        {
+          "committee": "House Committee on Veterans' Affairs",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "House Committee on Energy and Commerce — Energy",
+          "role": "Member",
+          "rank": 8
+        },
+        {
+          "committee": "House Committee on Energy and Commerce — Environment",
+          "role": "Member",
+          "rank": 9
+        },
+        {
+          "committee": "House Committee on Veterans' Affairs — Health",
+          "role": "Chairwoman",
+          "rank": 1
+        },
+        {
+          "committee": "House Committee on Energy and Commerce — Health",
+          "role": "Member",
+          "rank": 9
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "N000191",
+      "name": "Joe Neguse",
+      "first": "Joe",
+      "last": "Neguse",
+      "chamber": "house",
+      "state": "CO",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": 2,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000191.jpg",
+      "initials": "JN",
+      "leadership": {
+        "label": "Asst. Democratic Leader",
+        "tier": 3
+      },
+      "committees": [
+        {
+          "committee": "House Committee on Natural Resources",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "House Committee on the Judiciary",
+          "role": "Member",
+          "rank": 10
+        },
+        {
+          "committee": "House Committee on Rules",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "House Committee on Natural Resources — Water, Wildlife and Fisheries",
+          "role": "Member",
+          "rank": 12
+        },
+        {
+          "committee": "House Committee on Natural Resources — Federal Lands",
+          "role": "Ranking Member",
+          "rank": 1
+        },
+        {
+          "committee": "House Committee on the Judiciary — Courts, Intellectual Property, Artificial Intelligence, and the Internet",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "House Committee on the Judiciary — The Constitution and Limited Government",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "House Committee on Rules — Legislative and Budget Process",
+          "role": "Member",
+          "rank": 2
+        }
+      ],
+      "caucuses": [
+        "cbc"
+      ]
+    },
     {
       "bioguide_id": "A000375",
       "name": "Jodey C. Arrington",
@@ -11271,39 +11520,6 @@
           "committee": "House Committee on Appropriations — Labor, Health and Human Services, Education, and Related Agencies",
           "role": "Chair",
           "rank": 1
-        }
-      ],
-      "caucuses": []
-    },
-    {
-      "bioguide_id": "A000371",
-      "name": "Pete Aguilar",
-      "first": "Pete",
-      "last": "Aguilar",
-      "chamber": "house",
-      "state": "CA",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": 33,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/A/A000371.jpg",
-      "initials": "PA",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "House Committee on Appropriations",
-          "role": "Member",
-          "rank": 13
-        },
-        {
-          "committee": "House Committee on Appropriations — Defense",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "House Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
-          "role": "Member",
-          "rank": 5
         }
       ],
       "caucuses": []
@@ -13933,23 +14149,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "C001101",
-      "name": "Katherine M. Clark",
-      "first": "Katherine",
-      "last": "Clark",
-      "chamber": "house",
-      "state": "MA",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": 5,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/C/C001101.jpg",
-      "initials": "KC",
-      "leadership": null,
-      "committees": [],
-      "caucuses": []
-    },
-    {
       "bioguide_id": "C001067",
       "name": "Yvette D. Clarke",
       "first": "Yvette",
@@ -15646,34 +15845,6 @@
           "committee": "House Committee on Appropriations — Interior, Environment, and Related Agencies",
           "role": "Member",
           "rank": 6
-        }
-      ],
-      "caucuses": []
-    },
-    {
-      "bioguide_id": "E000294",
-      "name": "Tom Emmer",
-      "first": "Tom",
-      "last": "Emmer",
-      "chamber": "house",
-      "state": "MN",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": 6,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/E/E000294.jpg",
-      "initials": "TE",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "House Committee on Financial Services",
-          "role": "Member",
-          "rank": 8
-        },
-        {
-          "committee": "House Committee on Financial Services — Digital Assets, Financial Technology, and Artificial Intelligence",
-          "role": "Vice Chairman",
-          "rank": 2
         }
       ],
       "caucuses": []
@@ -19539,25 +19710,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "J000294",
-      "name": "Hakeem S. Jeffries",
-      "first": "Hakeem",
-      "last": "Jeffries",
-      "chamber": "house",
-      "state": "NY",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": 8,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000294.jpg",
-      "initials": "HJ",
-      "leadership": null,
-      "committees": [],
-      "caucuses": [
-        "cbc"
-      ]
-    },
-    {
       "bioguide_id": "J000288",
       "name": "Henry C. \"Hank\" Johnson, Jr.",
       "first": "Henry",
@@ -23033,54 +23185,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "M001215",
-      "name": "Mariannette Miller-Meeks",
-      "first": "Mariannette",
-      "last": "Miller-Meeks",
-      "chamber": "house",
-      "state": "IA",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": 1,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001215.jpg",
-      "initials": "MM",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "House Committee on Energy and Commerce",
-          "role": "Member",
-          "rank": 17
-        },
-        {
-          "committee": "House Committee on Veterans' Affairs",
-          "role": "Member",
-          "rank": 5
-        },
-        {
-          "committee": "House Committee on Energy and Commerce — Energy",
-          "role": "Member",
-          "rank": 8
-        },
-        {
-          "committee": "House Committee on Energy and Commerce — Environment",
-          "role": "Member",
-          "rank": 9
-        },
-        {
-          "committee": "House Committee on Veterans' Affairs — Health",
-          "role": "Chairwoman",
-          "rank": 1
-        },
-        {
-          "committee": "House Committee on Energy and Commerce — Health",
-          "role": "Member",
-          "rank": 9
-        }
-      ],
-      "caucuses": []
-    },
-    {
       "bioguide_id": "M001216",
       "name": "Cory Mills",
       "first": "Cory",
@@ -23849,66 +23953,6 @@
         }
       ],
       "caucuses": []
-    },
-    {
-      "bioguide_id": "N000191",
-      "name": "Joe Neguse",
-      "first": "Joe",
-      "last": "Neguse",
-      "chamber": "house",
-      "state": "CO",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": 2,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/N/N000191.jpg",
-      "initials": "JN",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "House Committee on Natural Resources",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "House Committee on the Judiciary",
-          "role": "Member",
-          "rank": 10
-        },
-        {
-          "committee": "House Committee on Rules",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "House Committee on Natural Resources — Water, Wildlife and Fisheries",
-          "role": "Member",
-          "rank": 12
-        },
-        {
-          "committee": "House Committee on Natural Resources — Federal Lands",
-          "role": "Ranking Member",
-          "rank": 1
-        },
-        {
-          "committee": "House Committee on the Judiciary — Courts, Intellectual Property, Artificial Intelligence, and the Internet",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "House Committee on the Judiciary — The Constitution and Limited Government",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "House Committee on Rules — Legislative and Budget Process",
-          "role": "Member",
-          "rank": 2
-        }
-      ],
-      "caucuses": [
-        "cbc"
-      ]
     },
     {
       "bioguide_id": "N000026",
@@ -26137,23 +26181,6 @@
           "rank": 5
         }
       ],
-      "caucuses": []
-    },
-    {
-      "bioguide_id": "S001176",
-      "name": "Steve Scalise",
-      "first": "Steve",
-      "last": "Scalise",
-      "chamber": "house",
-      "state": "LA",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": 1,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/S/S001176.jpg",
-      "initials": "SS",
-      "leadership": null,
-      "committees": [],
       "caucuses": []
     },
     {
