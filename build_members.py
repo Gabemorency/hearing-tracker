@@ -45,6 +45,33 @@ generated  = now_et.strftime("%-I:%M %p ET")
 BASE = "https://raw.githubusercontent.com/unitedstates/congress-legislators/main"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; hearing-tracker-bot/1.0)"}
 
+# ── 119th Congress institutional leadership (hardcoded by bioguide ID) ─────────
+# Changes only after elections or resignations — update once per Congress.
+INSTITUTIONAL_LEADERSHIP = {
+    # Senate Republican
+    "T000250": {"label": "Senate Majority Leader",          "tier": 1},  # John Thune
+    "G000386": {"label": "President Pro Tempore",           "tier": 1},  # Chuck Grassley
+    "B001261": {"label": "Senate Majority Whip",            "tier": 2},  # John Barrasso
+    "C001095": {"label": "Senate Conference Chair",         "tier": 3},  # Tom Cotton
+    "L000575": {"label": "Senate Conference Vice Chair",    "tier": 3},  # James Lankford
+    "C001047": {"label": "Senate Policy Committee Chair",   "tier": 3},  # Shelley Moore Capito
+    # Senate Democratic
+    "S000148": {"label": "Senate Minority Leader",          "tier": 1},  # Chuck Schumer
+    "D000563": {"label": "Senate Minority Whip",            "tier": 2},  # Dick Durbin
+    "K000367": {"label": "Steering & Policy Chair",         "tier": 3},  # Amy Klobuchar
+    "B001288": {"label": "Strategic Communications Chair",  "tier": 3},  # Cory Booker
+    # House Republican
+    "J000255": {"label": "Speaker of the House",            "tier": 1},  # Mike Johnson
+    "S001176": {"label": "House Majority Leader",           "tier": 1},  # Steve Scalise
+    "E000294": {"label": "House Majority Whip",             "tier": 2},  # Tom Emmer
+    "M001215": {"label": "House Conference Chair",          "tier": 3},  # Lisa McClain
+    # House Democratic
+    "J000294": {"label": "House Minority Leader",           "tier": 1},  # Hakeem Jeffries
+    "C001101": {"label": "House Minority Whip",             "tier": 2},  # Katherine Clark
+    "A000371": {"label": "House Democratic Caucus Chair",   "tier": 3},  # Pete Aguilar
+    "N000191": {"label": "Asst. Democratic Leader",         "tier": 3},  # Joe Neguse
+}
+
 def fetch_yaml(url):
     r = requests.get(url, headers=HEADERS, timeout=30)
     r.raise_for_status()
@@ -199,31 +226,7 @@ def build():
     # These positions change only after elections or resignations.
     # Bioguide IDs are stable and authoritative.
     # Tiers: 1 = top leaders, 2 = whips, 3 = conference/caucus/policy chairs
-    INSTITUTIONAL_LEADERSHIP = {{
-        # Senate Republican Leadership
-        "T000250": {{"label": "Senate Majority Leader",         "tier": 1}},  # John Thune
-        "G000386": {{"label": "President Pro Tempore",          "tier": 1}},  # Chuck Grassley
-        "B001261": {{"label": "Senate Majority Whip",           "tier": 2}},  # John Barrasso
-        "C001095": {{"label": "Senate Conference Chair",        "tier": 3}},  # Tom Cotton
-        "L000575": {{"label": "Senate Conference Vice Chair",   "tier": 3}},  # James Lankford
-        "C001047": {{"label": "Senate Policy Committee Chair",  "tier": 3}},  # Shelley Moore Capito
-        # Senate Democratic Leadership
-        "S000148": {{"label": "Senate Minority Leader",         "tier": 1}},  # Chuck Schumer
-        "D000563": {{"label": "Senate Minority Whip",           "tier": 2}},  # Dick Durbin
-        "K000367": {{"label": "Steering & Policy Committee Chair","tier": 3}}, # Amy Klobuchar
-        "B001288": {{"label": "Strategic Communications Chair", "tier": 3}},  # Cory Booker
-        "W000802": {{"label": "Senate Caucus Secretary",        "tier": 3}},  # Sheldon Whitehouse (acting)
-        # House Republican Leadership
-        "J000255": {{"label": "Speaker of the House",           "tier": 1}},  # Mike Johnson
-        "S001176": {{"label": "House Majority Leader",          "tier": 1}},  # Steve Scalise
-        "E000294": {{"label": "House Majority Whip",            "tier": 2}},  # Tom Emmer
-        "M001215": {{"label": "House Conference Chair",         "tier": 3}},  # Lisa McClain
-        # House Democratic Leadership
-        "J000294": {{"label": "House Minority Leader",          "tier": 1}},  # Hakeem Jeffries
-        "C001101": {{"label": "House Minority Whip",            "tier": 2}},  # Katherine Clark
-        "A000371": {{"label": "House Democratic Caucus Chair",  "tier": 3}},  # Pete Aguilar
-        "N000191": {{"label": "Asst. Democratic Leader",        "tier": 3}},  # Joe Neguse
-    }}
+    pass  # INSTITUTIONAL_LEADERSHIP defined at module level
 
     # Build member objects
     print("🔨 Building member objects...")
