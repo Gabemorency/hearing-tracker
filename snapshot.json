@@ -87,8 +87,10 @@
     "topic": "Implementing an America First Approach in the East Asia and Pacific Region",
     "witnesses": [],
     "details": "",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 12:30 PM"
+    ]
   },
   "House|Subcommittee on Homeland Security (Commi|10:00 AM ET": {
     "chamber": "House",
@@ -246,8 +248,10 @@
     "topic": "Hearings to examine the nominations of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, John Hurley, of Calif",
     "witnesses": [],
     "details": "Hearings to examine the nominations of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, John Hurley, of Calif",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 12:30 PM"
+    ]
   },
   "Senate|Banking, Housing, and Urban Affairs|10:00 AM ET": {
     "chamber": "Senate",
