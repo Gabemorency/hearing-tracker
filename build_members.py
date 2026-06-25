@@ -912,10 +912,7 @@ function buildCbcPanel(){{
       h += `<div class="section-hdr" style="font-size:9px;margin-bottom:6px">── Committee Chairs & Ranking Members</div>`;
       h += `<div class="party-cols">${{[...chairs,...rankings].map(miniCard).join('')}}</div>`;
     }}
-    if(rest.length) {{
-      h += `<div class="section-hdr" style="font-size:9px;margin-bottom:6px">── Remaining Members · ${{rest.length}}</div>`;
-      h += `<div class="party-cols">${{rest.map(miniCard).join('')}}</div>`;
-    }}
+    h += `<div class="party-cols">${{rest.map(miniCard).join('')}}</div>`;
     return h;
   }};
 
