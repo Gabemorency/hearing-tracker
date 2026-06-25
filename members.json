@@ -1,6 +1,6 @@
 {
   "date": "2026-06-24",
-  "generated": "9:58 PM ET",
+  "generated": "10:35 PM ET",
   "senators": [
     {
       "bioguide_id": "G000386",
@@ -4589,7 +4589,9 @@
           "rank": 6
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "A000383",
@@ -5057,7 +5059,9 @@
           "rank": 8
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "B001319",
@@ -6870,9 +6874,7 @@
           "rank": 3
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "K000393",
@@ -11383,7 +11385,9 @@
           "rank": 1
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "V000081",
@@ -11696,7 +11700,9 @@
           "rank": 4
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "A000369",
@@ -12428,7 +12434,9 @@
           "rank": 3
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "B000668",
@@ -13422,7 +13430,9 @@
           "rank": 9
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "C000059",
@@ -13848,9 +13858,7 @@
           "rank": 4
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "C001055",
@@ -14599,7 +14607,9 @@
           "rank": 9
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "C001110",
@@ -14940,7 +14950,9 @@
           "rank": 2
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "C001121",
@@ -15160,7 +15172,9 @@
           "rank": 1
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "D000230",
@@ -16304,7 +16318,9 @@
           "rank": 11
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "F000481",
@@ -16357,7 +16373,9 @@
           "rank": 4
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "F000484",
@@ -16895,7 +16913,9 @@
           "rank": 1
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "F000462",
@@ -17666,9 +17686,7 @@
           "rank": 3
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "G000601",
@@ -19392,7 +19410,9 @@
           "rank": 4
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "J000311",
@@ -19785,7 +19805,9 @@
           "rank": 6
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "J000301",
@@ -19906,9 +19928,7 @@
           "rank": 5
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "J000295",
@@ -20032,7 +20052,9 @@
           "rank": 1
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "K000009",
@@ -20247,7 +20269,9 @@
           "rank": 4
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "K000388",
@@ -21286,9 +21310,7 @@
           "rank": 1
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "L000595",
@@ -22298,7 +22320,9 @@
           "rank": 12
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "M001177",
@@ -24381,9 +24405,7 @@
           "rank": 10
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "O000175",
@@ -26227,9 +26249,7 @@
           "rank": 1
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "S001145",
@@ -26789,7 +26809,9 @@
           "rank": 4
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "S001148",
@@ -27108,9 +27130,7 @@
           "rank": 1
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "S001211",
@@ -27670,7 +27690,9 @@
           "rank": 12
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "S001156",
@@ -27852,9 +27874,7 @@
           "rank": 1
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "T000460",
@@ -27887,9 +27907,7 @@
           "rank": 2
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "T000165",
@@ -28086,9 +28104,7 @@
           "rank": 3
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "T000487",
@@ -28782,9 +28798,7 @@
           "rank": 3
         }
       ],
-      "caucuses": [
-        "cbc"
-      ]
+      "caucuses": []
     },
     {
       "bioguide_id": "V000131",
@@ -29044,7 +29058,9 @@
           "rank": 3
         }
       ],
-      "caucuses": []
+      "caucuses": [
+        "cbc"
+      ]
     },
     {
       "bioguide_id": "W000814",
