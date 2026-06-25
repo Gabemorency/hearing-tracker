@@ -864,9 +864,12 @@ function setCaucus(c, btn){{
   caucus = c;
   document.querySelectorAll('.caucus-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  // Show/hide CBC panel
+  // When CBC is active, hide chamber tabs and main content — CBC panel is self-contained
+  const isCbc = c === 'cbc';
+  document.querySelector('.chamber-tabs').style.display = isCbc ? 'none' : '';
+  document.getElementById('content').style.display = isCbc ? 'none' : '';
   const panel = document.getElementById('cbc-panel');
-  if(panel) panel.style.display = c==='cbc' ? 'block' : 'none';
+  if(panel) panel.style.display = isCbc ? 'block' : 'none';
   render();
 }}
 
@@ -874,10 +877,11 @@ function setCaucus(c, btn){{
 function buildCbcPanel(){{
   const cbcMembers = [...SENATORS,...REPS].filter(m=>(m.caucuses||[]).includes('cbc'));
   if(!cbcMembers.length) return '';
-  const senate = cbcMembers.filter(m=>m.chamber==='senate');
+
+  const senate  = cbcMembers.filter(m=>m.chamber==='senate');
   const house   = cbcMembers.filter(m=>m.chamber==='house');
 
-  const memberList = (arr) => arr.map(m=>{{
+  const miniCard = (m) => {{
     const idx = CURRENT_MEMBERS.push(m)-1;
     const pc  = m.party_class;
     const dist = m.chamber==='house'&&m.district?` · District ${{m.district}}`:'';
@@ -891,15 +895,35 @@ function buildCbcPanel(){{
         </div>
       </div>
     </div>`;
-  }}).join('');
+  }};
+
+  const chamberSection = (arr, label) => {{
+    if(!arr.length) return '';
+    const leaders  = arr.filter(m=>m.leadership&&m.leadership.tier<=3);
+    const chairs   = arr.filter(m=>m.leadership&&m.leadership.tier===4);
+    const rankings = arr.filter(m=>m.leadership&&m.leadership.tier===5);
+    const rest     = arr.filter(m=>!m.leadership||m.leadership.tier>5);
+    let h = `<div class="party-col-hdr col-dem" style="margin-bottom:8px">${{label}} · ${{arr.length}}</div>`;
+    if(leaders.length) {{
+      h += `<div class="section-hdr" style="font-size:9px;margin-bottom:6px">── Leadership</div>`;
+      h += `<div class="party-cols">${{leaders.map(miniCard).join('')}}</div>`;
+    }}
+    if(chairs.length||rankings.length) {{
+      h += `<div class="section-hdr" style="font-size:9px;margin-bottom:6px">── Committee Chairs & Ranking Members</div>`;
+      h += `<div class="party-cols">${{[...chairs,...rankings].map(miniCard).join('')}}</div>`;
+    }}
+    if(rest.length) {{
+      h += `<div class="section-hdr" style="font-size:9px;margin-bottom:6px">── Remaining Members · ${{rest.length}}</div>`;
+      h += `<div class="party-cols">${{rest.map(miniCard).join('')}}</div>`;
+    }}
+    return h;
+  }};
 
   return `
     <div style="margin-bottom:6px">
       <div class="section-hdr">── Congressional Black Caucus · ${{cbcMembers.length}} Members</div>
-      ${{senate.length ? `<div class="party-col-hdr col-dem" style="margin-bottom:8px">Senate · ${{senate.length}}</div>
-        <div class="party-cols">${{memberList(senate)}}</div>` : ''}}
-      ${{house.length ? `<div class="party-col-hdr col-dem" style="margin-top:10px;margin-bottom:8px">House · ${{house.length}}</div>
-        <div class="party-cols">${{memberList(house)}}</div>` : ''}}
+      ${{chamberSection(senate, 'Senate')}}
+      ${{house.length ? `<div style="margin-top:10px">${{chamberSection(house, 'House')}}</div>` : ''}}
     </div>`;
 }}
 
