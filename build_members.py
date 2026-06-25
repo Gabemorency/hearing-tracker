@@ -939,7 +939,7 @@ function renderParty(members){{
   }}
 
   if(rest.length){{
-    h += `<div class="section-hdr">── Members (${{rest.length}})</div>
+    h += `<div class="section-hdr">── Remaining Members · ${{rest.length}}</div>
     <div class="party-cols">
       <div>
         <div class="party-col-hdr col-rep">Republican · ${{maj.length}}</div>
