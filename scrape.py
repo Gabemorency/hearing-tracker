@@ -723,6 +723,7 @@ def build_html(hearings):
     hc = sum(1 for h in hearings if h["chamber"] == "House")
     jc = sum(1 for h in hearings if h["chamber"] == "Joint")
     tc = len(hearings)
+    ac = sum(1 for h in hearings if not h.get("cancelled"))
     hearings_json = json.dumps(hearings, ensure_ascii=False)
 
     return f"""<!DOCTYPE html>
@@ -1011,6 +1012,7 @@ def build_html(hearings):
 </nav>
 
 <div class="stats">
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">{ac}</div><div class="stat-label">Active</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">{tc}</div><div class="stat-label">Total</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--gold)">{sc}</div><div class="stat-label">Senate</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--blue)">{hc}</div><div class="stat-label">House</div></div>
