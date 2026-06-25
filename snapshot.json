@@ -1,79 +1,4 @@
 {
-  "Senate|Finance|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Finance",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-215",
-    "topic": "Hearings to examine the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Than",
-    "details": "Hearings to examine the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Than",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": true,
-    "changes": []
-  },
-  "Senate|Foreign Relations|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Foreign Relations",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-419",
-    "topic": "Hearings to examine the nominations of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, John Hurley, of Calif",
-    "details": "Hearings to examine the nominations of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, John Hurley, of Calif",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Banking, Housing, and Urban Affairs|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Banking, Housing, and Urban Affairs",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-538",
-    "topic": "Hearings to examine the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Admini",
-    "details": "Hearings to examine the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Admini",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Commission on Security and Cooperation i|2:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Commission on Security and Cooperation in Europe",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-G50",
-    "topic": "To receive a briefing on Russia's tech authoritarianism on the occupied territories of Ukraine.",
-    "details": "To receive a briefing on Russia's tech authoritarianism on the occupied territories of Ukraine.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Health, Education, Labor, and Pensions|9:45 AM ET": {
-    "chamber": "Senate",
-    "committee": "Health, Education, Labor, and Pensions",
-    "chair": "",
-    "time": "9:45 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-430",
-    "topic": "Business meeting to consider the nominations of Brett Matsumoto, of Maryland, to be Commissioner of Labor Statistics, Department of Labor, James Macy, of Wisconsin, and David M. Prouty, of Maryland, e",
-    "details": "Business meeting to consider the nominations of Brett Matsumoto, of Maryland, to be Commissioner of Labor Statistics, Department of Labor, James Macy, of Wisconsin, and David M. Prouty, of Maryland, e",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
   "House|Committee on Small Business|10:00 AM ET": {
     "chamber": "House",
     "committee": "Committee on Small Business",
@@ -82,10 +7,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2360 RHOB",
     "topic": "From Startup to Scale: The Role of the SBA Office of Investment and Innovation in Powering America\u2019s Small Businesses.",
-    "details": "From Startup to Scale: The Role of the SBA Office of Investment and Innovation in Powering America\u2019s Small Businesses.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -97,10 +20,8 @@
     "building": "Longworth (LHOB)",
     "room": "1324 LHOB",
     "topic": "Oversight hearing titled \"Beneath the Surface: Earth MRI and America's Resource Potential",
-    "details": "Oversight hearing titled \"Beneath the Surface: Earth MRI and America's Resource Potential",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -112,10 +33,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2318 RHOB",
     "topic": "Full Committee",
-    "details": "Full Committee",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -127,10 +46,8 @@
     "building": "Longworth (LHOB)",
     "room": "1300 LHOB",
     "topic": "Reviewing Partnerships to Enhance Management of the National Forest System",
-    "details": "Reviewing Partnerships to Enhance Management of the National Forest System",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -142,10 +59,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2128 RHOB",
     "topic": "From Wall Street to Main Street: The Future of How America Invests",
-    "details": "From Wall Street to Main Street: The Future of How America Invests",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -156,11 +71,9 @@
     "time": "10:00 AM ET",
     "building": "Cannon (CHOB)",
     "room": "360 CHOB",
-    "topic": "H.R. 5992, the \u201cStuck on Hold Act\u201d; H.R. 8532, the \u201cVA Home Loan Affordability Act\u201d; Discussion Draft, the \u201cVA Education Oversight Improvement Act\u201d; Discussion Draft, the \u201cAffordable Homes for Veteran",
-    "details": "H.R. 5992, the \u201cStuck on Hold Act\u201d; H.R. 8532, the \u201cVA Home Loan Affordability Act\u201d; Discussion Draft, the \u201cVA Education Oversight Improvement Act\u201d; Discussion Draft, the \u201cAffordable Homes for Veteran",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "topic": "H.R. 5992, the \u201cStuck on Hold Act\u201d; H.R. 8532, the \u201cVA Home Loan Affordability Act\u201d; Discussion Draft, the \u201cVA Education Oversight Improvement Act\u201d; Discussion Draft, the \u201cAffordable Homes for Veterans Act of 2026\u201d (Postponed)",
+    "witnesses": [],
+    "details": "",
     "cancelled": true,
     "changes": []
   },
@@ -172,10 +85,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2172 RHOB",
     "topic": "Implementing an America First Approach in the East Asia and Pacific Region",
-    "details": "Implementing an America First Approach in the East Asia and Pacific Region",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -187,10 +98,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2358-C RHOB",
     "topic": "Oversight Hearing \u2013 Department of Homeland Security",
-    "details": "Capitol Complex, 2358-C RHOB, Washington, DC, 20515, USA",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": true,
     "changes": [
       "Room changed to 2358-C RHOB \u00b7 12:12 AM",
@@ -205,10 +114,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2154 RHOB",
     "topic": "Combating Waste, Fraud, and Abuse in SNAP",
-    "details": "Amnesty and Chaos: Abuse of U.S. Immigration Policy",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -220,10 +127,8 @@
     "building": "Longworth (LHOB)",
     "room": "1310 LHOB",
     "topic": "Committee on House Administration Full Committee Hearing, \u201cThe Congressional Research Service and the Future of AI-Enabled Policy Analysis",
-    "details": "Committee on House Administration Full Committee Hearing, \u201cThe Congressional Research Service and the Future of AI-Enabled Policy Analysis",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -234,11 +139,9 @@
     "time": "10:15 AM ET",
     "building": "Rayburn (RHOB)",
     "room": "2175 RHOB",
-    "topic": "H.R. 8476, \"No Antisemitism in Education Act of 2026\"; H.R. 4795, \"Protect Economic and Academic Freedom Act of 2025\"; H.R. 9203, \"Student Protection and University Accountability Act\"; H.R. 2555, \"Fr",
-    "details": "H.R. 8476, \"No Antisemitism in Education Act of 2026\"; H.R. 4795, \"Protect Economic and Academic Freedom Act of 2025\"; H.R. 9203, \"Student Protection and University Accountability Act\"; H.R. 2555, \"Fr",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "topic": "H.R. 8476, \"No Antisemitism in Education Act of 2026\"; H.R. 4795, \"Protect Economic and Academic Freedom Act of 2025\"; H.R. 9203, \"Student Protection and University Accountability Act\"; H.R. 2555, \"Freedom of Association in Higher Education Act of 2025\"; H.R. 5505, \"Equal Campus Access Act of 2025\"; H.R. 2332, \"States Handling Access to Reciprocity for Employment (SHARE) Act of 2025\"; H.R. 4122, \"Health Care for Energy Workers Act of 2025\"; H.R. 8822, \"Federal Workers\u2019 Compensation Integrity and Care Act\"; H.R. 8823, \"Putting Patients First by Strengthening Provider Accountability in FECA Act\"; H.R. 9381, \"AI Workforce Assessment and Research Enhancement (AWARE) Act\"; H.R. 9228, \"Health Data Access, Transparency, and Affordability Act of 2026",
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -250,10 +153,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2123 RHOB",
     "topic": "State Medicaid Program Integrity: Examining Fraud Risks and Oversight Deficiencies.",
-    "details": "State Medicaid Program Integrity: Examining Fraud Risks and Oversight Deficiencies.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -265,10 +166,8 @@
     "building": "Cannon (CHOB)",
     "room": "390 CHOB",
     "topic": "China\u2019s Economic Espionage and Subnational Influence in the United States",
-    "details": "China\u2019s Economic Espionage and Subnational Influence in the United States",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -280,10 +179,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2123 RHOB",
     "topic": "Markup of Fifteen Bills (Rescheduled)",
-    "details": "Markup of Fifteen Bills (Rescheduled)",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": true,
     "changes": []
   },
@@ -295,10 +192,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2020 RHOB",
     "topic": "Work & Welfare Subcommittee Hearing on the Maternal, Infant, and Early Childhood Home Visiting (MIECHV) Program: Early Support, Lifelong Impact",
-    "details": "Work & Welfare Subcommittee Hearing on the Maternal, Infant, and Early Childhood Home Visiting (MIECHV) Program: Early Support, Lifelong Impact",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -310,10 +205,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2141 RHOB",
     "topic": "False Narratives Surrounding Conditions at the Delaney Hall ICE Detention Center\u201d (Postponed)",
-    "details": "TIME CHANGE: Protecting American Citizenship IV: America 250 and Reclaiming American Citizenship",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": true,
     "changes": []
   },
@@ -324,12 +217,62 @@
     "time": "3:15 PM ET",
     "building": "Cannon (CHOB)",
     "room": "360 CHOB",
-    "topic": "H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R. 8767, the \u201cCompensation Fund Recrediting Act\u201d; H.R. 9006, the \u201cLocating Our Unclaimed Veterans Act\u201d; H.R. 6588, the ",
-    "details": "H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R. 8767, the \u201cCompensation Fund Recrediting Act\u201d; H.R. 9006, the \u201cLocating Our Unclaimed Veterans Act\u201d; H.R. 6588, the ",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "topic": "H.R. 8552, the \u201cVeterans\u2019 Compensation Cost-of-Living Adjustment Act of 2026\u201d; H.R. 8767, the \u201cCompensation Fund Recrediting Act\u201d; H.R. 9006, the \u201cLocating Our Unclaimed Veterans Act\u201d; H.R. 6588, the \u201cPROVIDE Act\u201d H.R. 6921, the \u201cHawai\u2019i National Cemetery Act\u201d Discussion Draft, the \u201cUnclaimed Veterans\u2019 Legacy Grant Program Act\u201d (Rescheduled)",
+    "witnesses": [],
+    "details": "",
     "cancelled": true,
+    "changes": []
+  },
+  "Senate|Finance|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Finance",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-215",
+    "topic": "Hearings to examine the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Than",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Bartholomew Than",
+    "cancelled": true,
+    "changes": []
+  },
+  "Senate|Foreign Relations|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Foreign Relations",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-419",
+    "topic": "Hearings to examine the nominations of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, John Hurley, of Calif",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Barbera Thornhill, of North Carolina, to be Director of the Office to Monitor and Combat Trafficking, with the rank of Ambassador at Large, John Hurley, of Calif",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Banking, Housing, and Urban Affairs|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Banking, Housing, and Urban Affairs",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-538",
+    "topic": "Hearings to examine the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Admini",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Union Admini",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Commission on Security and Cooperation i|2:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Commission on Security and Cooperation in Europe",
+    "chair": "",
+    "time": "2:00 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-G50",
+    "topic": "To receive a briefing on Russia's tech authoritarianism on the occupied territories of Ukraine.",
+    "witnesses": [],
+    "details": "To receive a briefing on Russia's tech authoritarianism on the occupied territories of Ukraine.",
+    "cancelled": false,
     "changes": []
   }
 }
