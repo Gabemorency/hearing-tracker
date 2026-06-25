@@ -357,39 +357,42 @@ def build_html(members_json):
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
   :root {{
-    --bg:#0D0C0A;--bg-sec:#0A0908;--bg-card:rgba(255,255,255,0.018);--bg-card-h:rgba(255,255,255,0.038);
-    --bg-hdr:rgba(200,169,110,0.025);--text:#E8E0D0;--text-h:#F0E8D8;--text-s:#A09080;
-    --text-m:#908070;--text-d:#706860;--text-f:#4A4540;
-    --bdr:rgba(255,255,255,0.07);--bdr-h:rgba(200,169,110,0.18);--bdr-s:rgba(255,255,255,0.04);
-    --bdr-sec:rgba(255,255,255,0.05);--scroll:#2A2820;
-    --gold:#C8A96E;--blue:#7FB3D3;--purple:#B39DDB;
-    --rep:#E07070;--dem:#7FB3D3;--ind:#B39DDB;
-    --rep-bg:rgba(200,80,80,0.1);--dem-bg:rgba(100,160,200,0.1);--ind-bg:rgba(160,120,200,0.1);
-    --rep-br:rgba(200,80,80,0.3);--dem-br:rgba(100,160,200,0.3);--ind-br:rgba(160,120,200,0.3);
-    --tog-bg:rgba(255,255,255,0.06);--tog-br:rgba(255,255,255,0.12);
+    --bg:#0D0C0A;--bg-sec:#111009;--bg-card:rgba(255,255,255,0.03);--bg-card-h:rgba(255,255,255,0.06);
+    --bg-hdr:rgba(200,169,110,0.04);--text:#F0E8D8;--text-h:#FAF4EA;--text-s:#C8B89A;
+    --text-m:#A09070;--text-d:#807050;--text-f:#504030;
+    --bdr:rgba(255,255,255,0.1);--bdr-h:rgba(200,169,110,0.3);--bdr-s:rgba(255,255,255,0.07);
+    --bdr-sec:rgba(255,255,255,0.08);--scroll:#2A2820;
+    --gold:#E0B870;--blue:#6BB8E8;--purple:#C4A0F0;
+    --rep:#FF6B6B;--dem:#5BA8E8;--ind:#C4A0F0;
+    --rep-bg:rgba(255,80,80,0.15);--dem-bg:rgba(60,140,220,0.15);--ind-bg:rgba(160,100,220,0.15);
+    --rep-br:rgba(255,80,80,0.45);--dem-br:rgba(60,140,220,0.45);--ind-br:rgba(160,100,220,0.45);
+    --tog-bg:rgba(255,255,255,0.08);--tog-br:rgba(255,255,255,0.16);
   }}
   :root.light {{
-    --bg:#F5F3EE;--bg-sec:#EDEAE3;--bg-card:rgba(255,255,255,0.7);--bg-card-h:rgba(255,255,255,0.95);
-    --bg-hdr:rgba(200,169,110,0.06);--text:#1A1714;--text-h:#0E0C0A;--text-s:#5A5040;
-    --text-m:#7A6A58;--text-d:#9A8A78;--text-f:#C0B0A0;
-    --bdr:rgba(0,0,0,0.08);--bdr-h:rgba(200,169,110,0.3);--bdr-s:rgba(0,0,0,0.06);
-    --bdr-sec:rgba(0,0,0,0.06);--scroll:#D0C8BC;
-    --rep:#C04040;--dem:#3A7AB0;--ind:#7A58B0;
-    --rep-bg:rgba(180,60,60,0.08);--dem-bg:rgba(60,120,180,0.08);--ind-bg:rgba(100,60,180,0.08);
-    --rep-br:rgba(180,60,60,0.25);--dem-br:rgba(60,120,180,0.25);--ind-br:rgba(100,60,180,0.25);
-    --tog-bg:rgba(0,0,0,0.05);--tog-br:rgba(0,0,0,0.12);
+    --bg:#F5F3EE;--bg-sec:#EAE7DF;--bg-card:rgba(255,255,255,0.85);--bg-card-h:rgba(255,255,255,1);
+    --bg-hdr:rgba(200,169,110,0.08);--text:#0E0C0A;--text-h:#050403;--text-s:#3A3020;
+    --text-m:#5A4A35;--text-d:#7A6A55;--text-f:#A09080;
+    --bdr:rgba(0,0,0,0.12);--bdr-h:rgba(180,130,50,0.4);--bdr-s:rgba(0,0,0,0.08);
+    --bdr-sec:rgba(0,0,0,0.08);--scroll:#C8BFB0;
+    --gold:#B8860B;--blue:#1A6AAA;--purple:#6040A0;
+    --rep:#CC2020;--dem:#1A60A0;--ind:#6040A0;
+    --rep-bg:rgba(180,30,30,0.1);--dem-bg:rgba(20,90,160,0.1);--ind-bg:rgba(80,40,140,0.1);
+    --rep-br:rgba(180,30,30,0.35);--dem-br:rgba(20,90,160,0.35);--ind-br:rgba(80,40,140,0.35);
+    --tog-bg:rgba(0,0,0,0.06);--tog-br:rgba(0,0,0,0.15);
   }}
   @media(prefers-color-scheme:light){{:root:not(.dark){{
-    --bg:#F5F3EE;--bg-sec:#EDEAE3;--bg-card:rgba(255,255,255,0.7);--bg-card-h:rgba(255,255,255,0.95);
-    --bg-hdr:rgba(200,169,110,0.06);--text:#1A1714;--text-h:#0E0C0A;--text-s:#5A5040;
-    --text-m:#7A6A58;--text-d:#9A8A78;--text-f:#C0B0A0;
-    --bdr:rgba(0,0,0,0.08);--bdr-h:rgba(200,169,110,0.3);--bdr-s:rgba(0,0,0,0.06);
-    --bdr-sec:rgba(0,0,0,0.06);--scroll:#D0C8BC;
-    --rep:#C04040;--dem:#3A7AB0;--ind:#7A58B0;
-    --rep-bg:rgba(180,60,60,0.08);--dem-bg:rgba(60,120,180,0.08);--ind-bg:rgba(100,60,180,0.08);
-    --rep-br:rgba(180,60,60,0.25);--dem-br:rgba(60,120,180,0.25);--ind-br:rgba(100,60,180,0.25);
-    --tog-bg:rgba(0,0,0,0.05);--tog-br:rgba(0,0,0,0.12);
+    --bg:#F5F3EE;--bg-sec:#EAE7DF;--bg-card:rgba(255,255,255,0.85);--bg-card-h:rgba(255,255,255,1);
+    --bg-hdr:rgba(200,169,110,0.08);--text:#0E0C0A;--text-h:#050403;--text-s:#3A3020;
+    --text-m:#5A4A35;--text-d:#7A6A55;--text-f:#A09080;
+    --bdr:rgba(0,0,0,0.12);--bdr-h:rgba(180,130,50,0.4);--bdr-s:rgba(0,0,0,0.08);
+    --bdr-sec:rgba(0,0,0,0.08);--scroll:#C8BFB0;
+    --gold:#B8860B;--blue:#1A6AAA;--purple:#6040A0;
+    --rep:#CC2020;--dem:#1A60A0;--ind:#6040A0;
+    --rep-bg:rgba(180,30,30,0.1);--dem-bg:rgba(20,90,160,0.1);--ind-bg:rgba(80,40,140,0.1);
+    --rep-br:rgba(180,30,30,0.35);--dem-br:rgba(20,90,160,0.35);--ind-br:rgba(80,40,140,0.35);
+    --tog-bg:rgba(0,0,0,0.06);--tog-br:rgba(0,0,0,0.15);
   }}}}
+
   *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
   body{{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}}
   ::-webkit-scrollbar{{width:4px}}::-webkit-scrollbar-thumb{{background:var(--scroll);border-radius:2px}}
@@ -936,7 +939,7 @@ function renderParty(members){{
   }}
 
   if(rest.length){{
-    h += `<div class="section-hdr">── All Members</div>
+    h += `<div class="section-hdr">── Members (${{rest.length}})</div>
     <div class="party-cols">
       <div>
         <div class="party-col-hdr col-rep">Republican · ${{maj.length}}</div>
