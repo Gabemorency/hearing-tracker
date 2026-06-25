@@ -1,6 +1,6 @@
 {
   "date": "2026-06-24",
-  "generated": "8:29 PM ET",
+  "generated": "9:58 PM ET",
   "senators": [
     {
       "bioguide_id": "G000386",
@@ -8991,6 +8991,26 @@
       ]
     },
     {
+      "bioguide_id": "J000299",
+      "name": "Mike Johnson",
+      "first": "Mike",
+      "last": "Johnson",
+      "chamber": "house",
+      "state": "LA",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": 4,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000299.jpg",
+      "initials": "MJ",
+      "leadership": {
+        "label": "Speaker of the House",
+        "tier": 1
+      },
+      "committees": [],
+      "caucuses": []
+    },
+    {
       "bioguide_id": "S001176",
       "name": "Steve Scalise",
       "first": "Steve",
@@ -9098,52 +9118,52 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "M001215",
-      "name": "Mariannette Miller-Meeks",
-      "first": "Mariannette",
-      "last": "Miller-Meeks",
+      "bioguide_id": "M001136",
+      "name": "Lisa C. McClain",
+      "first": "Lisa",
+      "last": "McClain",
       "chamber": "house",
-      "state": "IA",
+      "state": "MI",
       "party": "Republican",
       "party_short": "R",
       "party_class": "rep",
-      "district": 1,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001215.jpg",
-      "initials": "MM",
+      "district": 9,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001136.jpg",
+      "initials": "LM",
       "leadership": {
         "label": "House Conference Chair",
         "tier": 3
       },
       "committees": [
         {
-          "committee": "House Committee on Energy and Commerce",
+          "committee": "House Committee on Financial Services",
           "role": "Member",
-          "rank": 17
+          "rank": 26
         },
         {
-          "committee": "House Committee on Veterans' Affairs",
+          "committee": "House Committee on Education and Workforce",
           "role": "Member",
-          "rank": 5
+          "rank": 10
         },
         {
-          "committee": "House Committee on Energy and Commerce — Energy",
+          "committee": "House Committee on Education and Workforce — Higher Education and Workforce Development",
           "role": "Member",
-          "rank": 8
+          "rank": 7
         },
         {
-          "committee": "House Committee on Energy and Commerce — Environment",
+          "committee": "House Committee on Education and Workforce — Health, Employment, Labor, and Pensions",
           "role": "Member",
-          "rank": 9
+          "rank": 7
         },
         {
-          "committee": "House Committee on Veterans' Affairs — Health",
-          "role": "Chairwoman",
-          "rank": 1
-        },
-        {
-          "committee": "House Committee on Energy and Commerce — Health",
+          "committee": "House Committee on Financial Services — National Security, Illicit Finance, and International Financial Institutions",
           "role": "Member",
           "rank": 9
+        },
+        {
+          "committee": "House Committee on Financial Services — Capital Markets",
+          "role": "Member",
+          "rank": 11
         }
       ],
       "caucuses": []
@@ -19768,23 +19788,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "J000299",
-      "name": "Mike Johnson",
-      "first": "Mike",
-      "last": "Johnson",
-      "chamber": "house",
-      "state": "LA",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": 4,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/J/J000299.jpg",
-      "initials": "MJ",
-      "leadership": null,
-      "committees": [],
-      "caucuses": []
-    },
-    {
       "bioguide_id": "J000301",
       "name": "Dusty Johnson",
       "first": "Dusty",
@@ -22222,54 +22225,6 @@
       "caucuses": []
     },
     {
-      "bioguide_id": "M001136",
-      "name": "Lisa C. McClain",
-      "first": "Lisa",
-      "last": "McClain",
-      "chamber": "house",
-      "state": "MI",
-      "party": "Republican",
-      "party_short": "R",
-      "party_class": "rep",
-      "district": 9,
-      "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001136.jpg",
-      "initials": "LM",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "House Committee on Financial Services",
-          "role": "Member",
-          "rank": 26
-        },
-        {
-          "committee": "House Committee on Education and Workforce",
-          "role": "Member",
-          "rank": 10
-        },
-        {
-          "committee": "House Committee on Education and Workforce — Higher Education and Workforce Development",
-          "role": "Member",
-          "rank": 7
-        },
-        {
-          "committee": "House Committee on Education and Workforce — Health, Employment, Labor, and Pensions",
-          "role": "Member",
-          "rank": 7
-        },
-        {
-          "committee": "House Committee on Financial Services — National Security, Illicit Finance, and International Financial Institutions",
-          "role": "Member",
-          "rank": 9
-        },
-        {
-          "committee": "House Committee on Financial Services — Capital Markets",
-          "role": "Member",
-          "rank": 11
-        }
-      ],
-      "caucuses": []
-    },
-    {
       "bioguide_id": "M001232",
       "name": "April McClain Delaney",
       "first": "April",
@@ -23180,6 +23135,54 @@
           "committee": "House Committee on Foreign Affairs — Oversight and Intelligence",
           "role": "Member",
           "rank": 8
+        }
+      ],
+      "caucuses": []
+    },
+    {
+      "bioguide_id": "M001215",
+      "name": "Mariannette Miller-Meeks",
+      "first": "Mariannette",
+      "last": "Miller-Meeks",
+      "chamber": "house",
+      "state": "IA",
+      "party": "Republican",
+      "party_short": "R",
+      "party_class": "rep",
+      "district": 1,
+      "photo_url": "https://bioguide.congress.gov/bioguide/photo/M/M001215.jpg",
+      "initials": "MM",
+      "leadership": null,
+      "committees": [
+        {
+          "committee": "House Committee on Energy and Commerce",
+          "role": "Member",
+          "rank": 17
+        },
+        {
+          "committee": "House Committee on Veterans' Affairs",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "House Committee on Energy and Commerce — Energy",
+          "role": "Member",
+          "rank": 8
+        },
+        {
+          "committee": "House Committee on Energy and Commerce — Environment",
+          "role": "Member",
+          "rank": 9
+        },
+        {
+          "committee": "House Committee on Veterans' Affairs — Health",
+          "role": "Chairwoman",
+          "rank": 1
+        },
+        {
+          "committee": "House Committee on Energy and Commerce — Health",
+          "role": "Member",
+          "rank": 9
         }
       ],
       "caucuses": []
