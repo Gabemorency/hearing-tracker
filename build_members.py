@@ -61,10 +61,10 @@ INSTITUTIONAL_LEADERSHIP = {
     "K000367": {"label": "Steering & Policy Chair",         "tier": 3},  # Amy Klobuchar
     "B001288": {"label": "Strategic Communications Chair",  "tier": 3},  # Cory Booker
     # House Republican
-    "J000255": {"label": "Speaker of the House",            "tier": 1},  # Mike Johnson
+    "J000299": {"label": "Speaker of the House",            "tier": 1},  # Mike Johnson
     "S001176": {"label": "House Majority Leader",           "tier": 1},  # Steve Scalise
     "E000294": {"label": "House Majority Whip",             "tier": 2},  # Tom Emmer
-    "M001215": {"label": "House Conference Chair",          "tier": 3},  # Lisa McClain
+    "M001136": {"label": "House Conference Chair",          "tier": 3},  # Lisa McClain
     # House Democratic
     "J000294": {"label": "House Minority Leader",           "tier": 1},  # Hakeem Jeffries
     "C001101": {"label": "House Minority Whip",             "tier": 2},  # Katherine Clark
@@ -443,13 +443,14 @@ def build_html(members_json):
   .i-dem{{ background:rgba(50,100,160,0.75); }}
   .i-ind{{ background:rgba(100,50,160,0.75); }}
 
-  .card-face .info {{ flex:1;min-width:0;overflow:hidden; }}
+  .card-face .info {{ flex:1;min-width:0;overflow:hidden;word-break:break-word; }}
   .mname {{ font-size:13px;font-weight:700;color:var(--text);line-height:1.3;margin-bottom:3px; }}
   .mmeta {{ font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-m);margin-bottom:4px; }}
   .mrole {{
     display:inline-block;font-family:'IBM Plex Mono',monospace;
-    font-size:9px;letter-spacing:0.05em;padding:2px 6px;
+    font-size:8px;letter-spacing:0.05em;padding:2px 5px;
     border-radius:3px;text-transform:uppercase;font-weight:700;line-height:1.4;
+    white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis;
   }}
   .role-leader {{ background:rgba(200,169,110,0.15);color:var(--gold);border:1px solid rgba(200,169,110,0.35); }}
   .role-whip   {{ background:rgba(160,120,200,0.1);color:var(--purple);border:1px solid rgba(160,120,200,0.3); }}
@@ -728,6 +729,7 @@ function openModal(m){{
     ? 'United States Senate'
     : 'United States House of Representatives';
   const dist = m.chamber==='house' && m.district ? `District ${{m.district}} · ` : '';
+  const stateFull = STATE_NAMES[m.state] || m.state;
 
   // Institutional role (tier 1-3 only)
   let instRole = '';
@@ -751,7 +753,7 @@ function openModal(m){{
     <div class="modal-name">${{m.name}}</div>
     <div class="modal-sub">
       ${{chamberFull}}<br>
-      ${{dist}}${{m.state}} · ${{partyFull}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span>
+      ${{dist}}${{stateFull}} · ${{partyFull}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span>
     </div>
     ${{instRole ? `
     <hr class="modal-divider">
@@ -792,6 +794,22 @@ function card(m){{
 }}
 
 let CURRENT_MEMBERS = [];
+
+const STATE_NAMES = {{
+  'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California',
+  'CO':'Colorado','CT':'Connecticut','DE':'Delaware','FL':'Florida','GA':'Georgia',
+  'HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa',
+  'KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland',
+  'MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi',
+  'MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire',
+  'NJ':'New Jersey','NM':'New Mexico','NY':'New York','NC':'North Carolina',
+  'ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania',
+  'RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota','TN':'Tennessee',
+  'TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington',
+  'WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming','DC':'District of Columbia',
+  'PR':'Puerto Rico','VI':'U.S. Virgin Islands','GU':'Guam','AS':'American Samoa',
+  'MP':'Northern Mariana Islands'
+}};
 
 // ── Filter ────────────────────────────────────────────────────────────────────
 function filtered(){{
