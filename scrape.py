@@ -738,66 +738,66 @@ def build_html(hearings):
   /* ── CSS custom properties — dark mode (default) ── */
   :root {{
     --bg:           #0D0C0A;
-    --bg-secondary: #0A0908;
-    --bg-card:      rgba(255,255,255,0.018);
-    --bg-card-open: rgba(255,255,255,0.038);
-    --bg-header:    rgba(200,169,110,0.025);
-    --bg-source:    rgba(255,255,255,0.012);
+    --bg-secondary: #111009;
+    --bg-card:      rgba(255,255,255,0.03);
+    --bg-card-open: rgba(255,255,255,0.06);
+    --bg-header:    rgba(200,169,110,0.04);
+    --bg-source:    rgba(255,255,255,0.02);
 
-    --text-primary:   #E8E0D0;
-    --text-heading:   #F0E8D8;
-    --text-secondary: #A09080;
-    --text-muted:     #908070;
-    --text-dim:       #706860;
-    --text-faint:     #4A4540;
+    --text-primary:   #F0E8D8;
+    --text-heading:   #FAF4EA;
+    --text-secondary: #C8B89A;
+    --text-muted:     #A09070;
+    --text-dim:       #807050;
+    --text-faint:     #504030;
 
-    --border:         rgba(255,255,255,0.07);
-    --border-header:  rgba(200,169,110,0.18);
-    --border-stat:    rgba(255,255,255,0.04);
-    --border-filter:  rgba(255,255,255,0.05);
-    --border-source:  rgba(255,255,255,0.04);
-    --border-body:    rgba(255,255,255,0.06);
+    --border:         rgba(255,255,255,0.1);
+    --border-header:  rgba(200,169,110,0.3);
+    --border-stat:    rgba(255,255,255,0.07);
+    --border-filter:  rgba(255,255,255,0.08);
+    --border-source:  rgba(255,255,255,0.07);
+    --border-body:    rgba(255,255,255,0.08);
     --scrollbar:      #2A2820;
 
-    --gold:   #C8A96E;
-    --blue:   #7FB3D3;
-    --purple: #B39DDB;
+    --gold:   #E0B870;
+    --blue:   #6BB8E8;
+    --purple: #C4A0F0;
 
-    --senate-bg:     rgba(200,169,110,0.13);
-    --senate-border: rgba(200,169,110,0.35);
-    --senate-accent: rgba(200,169,110,0.5);
-    --house-bg:      rgba(100,160,200,0.11);
-    --house-border:  rgba(100,160,200,0.30);
-    --house-accent:  rgba(100,160,200,0.45);
-    --joint-bg:      rgba(160,120,200,0.11);
-    --joint-border:  rgba(160,120,200,0.30);
-    --joint-accent:  rgba(160,120,200,0.45);
+    --senate-bg:     rgba(220,180,80,0.15);
+    --senate-border: rgba(220,180,80,0.45);
+    --senate-accent: rgba(220,180,80,0.6);
+    --house-bg:      rgba(80,160,220,0.13);
+    --house-border:  rgba(80,160,220,0.40);
+    --house-accent:  rgba(80,160,220,0.55);
+    --joint-bg:      rgba(180,120,240,0.13);
+    --joint-border:  rgba(180,120,240,0.40);
+    --joint-accent:  rgba(180,120,240,0.55);
 
-    --toggle-bg:     rgba(255,255,255,0.06);
-    --toggle-border: rgba(255,255,255,0.12);
+    --toggle-bg:     rgba(255,255,255,0.08);
+    --toggle-border: rgba(255,255,255,0.16);
     --toggle-icon:   '☀️';
   }}
 
   /* ── Light mode overrides ── */
   :root.light {{
     --bg:           #F5F3EE;
-    --bg-secondary: #EDEAE3;
-    --bg-card:      rgba(255,255,255,0.7);
-    --bg-card-open: rgba(255,255,255,0.95);
-    --bg-header:    rgba(200,169,110,0.06);
+    --bg-secondary: #EAE7DF;
+    --bg-card:      rgba(255,255,255,0.85);
+    --bg-card-open: rgba(255,255,255,1);
+    --bg-header:    rgba(200,169,110,0.08);
     --bg-source:    rgba(0,0,0,0.03);
 
-    --text-primary:   #1A1714;
-    --text-heading:   #0E0C0A;
-    --text-secondary: #5A5040;
-    --text-muted:     #7A6A58;
-    --text-dim:       #9A8A78;
-    --text-faint:     #C0B0A0;
+    --text-primary:   #0E0C0A;
+    --text-heading:   #050403;
+    --text-secondary: #3A3020;
+    --text-muted:     #5A4A35;
+    --text-dim:       #7A6A55;
+    --text-faint:     #A09080;
 
-    --border:         rgba(0,0,0,0.08);
-    --border-header:  rgba(200,169,110,0.3);
-    --border-stat:    rgba(0,0,0,0.06);
-    --border-filter:  rgba(0,0,0,0.06);
+    --border:         rgba(0,0,0,0.12);
+    --border-header:  rgba(180,130,50,0.4);
+    --border-stat:    rgba(0,0,0,0.08);
+    --border-filter:  rgba(0,0,0,0.08);
     --border-source:  rgba(0,0,0,0.06);
     --border-body:    rgba(0,0,0,0.07);
     --scrollbar:      #D0C8BC;
@@ -919,25 +919,30 @@ def build_html(hearings):
   .filters {{ display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--border-filter); flex-wrap: wrap; }}
   .filter-btn {{
     background: transparent; border: 1px solid var(--border);
-    color: var(--text-muted); border-radius: 5px; padding: 5px 12px;
+    color: var(--text-muted); border-radius: 6px; padding: 5px 12px;
     font-size: 11px; font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.06em; cursor: pointer; transition: all 0.15s;
+    letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s ease-out;
   }}
   .filter-btn.active {{
     background: var(--senate-bg);
     border-color: var(--senate-border);
     color: var(--gold);
+    transform: scale(1.03);
   }}
+  .filter-btn:hover:not(.active) {{ background: rgba(255,255,255,0.04); color: var(--text-primary); }}
 
   /* ── Cards ── */
   .cards {{ padding: 14px 16px; }}
   .count-label {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }}
 
   .card {{
-    border: 1px solid var(--border); border-radius: 8px;
+    border: 1px solid var(--border); border-radius: 12px;
     padding: 14px 16px; cursor: pointer; margin-bottom: 9px;
-    background: var(--bg-card); transition: background 0.15s;
+    background: var(--bg-card);
+    transition: background 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   }}
+  .card:hover {{ transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.25); }}
   .card.open {{ background: var(--bg-card-open); }}
   .card.cancelled {{ opacity: 0.5; }}
   .card.cancelled .card-committee {{ text-decoration: line-through; }}
