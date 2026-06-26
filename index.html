@@ -279,7 +279,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 1:19 PM ET · Friday, June 26, 2026 · Updates every 20 min · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 1:33 PM ET · Friday, June 26, 2026 · Updates every 20 min · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -352,6 +352,18 @@ window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e 
 function cls(c) { return c==='Senate'?'senate':c==='House'?'house':'joint'; }
 
 function buildCards(filter) {
+  // No hearings today at all
+  if (!HEARINGS.length) {
+    document.getElementById('count-label').textContent = '0 hearings scheduled';
+    document.getElementById('card-list').innerHTML =
+      '<div class="empty" style="padding:60px 20px">'+
+      '<div style="font-size:32px;margin-bottom:12px">🏛</div>'+
+      '<div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--text-muted);margin-bottom:8px">No hearings today</div>'+
+      '<div style="font-size:12px;color:var(--text-dim)">Congress may be in recess or no committees are scheduled. Check back tomorrow.</div>'+
+      '</div>';
+    return;
+  }
+
   let filtered;
   if (filter==='All')           filtered = HEARINGS;
   else if (filter==='Updated')  filtered = HEARINGS.filter(h=>h.changes&&h.changes.length>0);
