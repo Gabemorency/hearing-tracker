@@ -527,34 +527,22 @@ Return ONLY the 3 paragraphs separated by a blank line. No headers, no labels, n
         m["bio_slug"] = slug
 
         if bio_text:
-            # Rewrite with Claude for clean consistent paragraphs
-            role_label = m["leadership"]["label"] if m.get("leadership") else ""
-            state_name = m["state"]
-            chamber_label = "United States Senate" if m["chamber"] == "senate" else "United States House of Representatives"
+            # Split raw text into clean paragraphs — no AI rewriting to avoid hallucinations
+            import re as _re
+            # Remove citation brackets like [1], [2]
+            clean_text = _re.sub(r'\[\d+\]', '', bio_text).strip()
+            sentences = _re.split(r'(?<=[.!?])\s+', clean_text)
+            sentences = [s.strip() for s in sentences if len(s.strip()) > 30]
+            third = max(1, len(sentences)//3)
+            paragraphs = [
+                " ".join(sentences[:third]),
+                " ".join(sentences[third:2*third]),
+                " ".join(sentences[2*third:]),
+            ]
+            paragraphs = [p for p in paragraphs if p.strip()]
 
-            paragraphs = rewrite_bio_with_claude(bio_text, m["name"], role_label, state_name, chamber_label)
-
-            if not paragraphs:
-                # Fallback: split raw text into paragraphs without Claude
-                import re as _re
-                sentences = _re.split(r'(?<=[.!?])\s+', bio_text.strip())
-                sentences = [s for s in sentences if len(s) > 30]
-                third = max(1, len(sentences)//3)
-                paragraphs = [
-                    " ".join(sentences[:third]),
-                    " ".join(sentences[third:2*third]),
-                    " ".join(sentences[2*third:3*third]),
-                ]
-                paragraphs = [p for p in paragraphs if p]
-
-            # Short bio for modal (first 2 sentences of para 1)
-            if paragraphs:
-                import re as _re
-                first_para_sentences = _re.split(r'(?<=[.!?])\s+', paragraphs[0])
-                m["bio"] = " ".join(first_para_sentences[:2]).strip()
-            else:
-                m["bio"] = ""
-
+            # Short bio for modal (first 2 sentences)
+            m["bio"] = " ".join(sentences[:2]).strip() if sentences else ""
             m["bio_source"] = bio_source
 
             # Generate bio page
@@ -627,11 +615,9 @@ def build_bio_page(m, paragraphs, source):
 
     onerror_js = "this.style.display='none';this.nextElementSibling.style.display='flex';"
     name_safe  = m["name"].replace('"', '&quot;')
-    photo_html = (
-        f'<img class="hero-photo" src="{bio_photo}" onerror="{onerror_js}" alt="{name_safe}">'
-        if bio_photo else ""
-    )
-    initials_style = 'style="display:flex"' if not bio_photo else ""
+    # Always include both photo and initials — onerror swaps them if photo 404s
+    photo_html = f'<img class="hero-photo" src="{bio_photo}" onerror="{onerror_js}" alt="{name_safe}">' if bio_photo else ""
+    initials_display = "none" if bio_photo else "flex"
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -764,7 +750,7 @@ def build_bio_page(m, paragraphs, source):
 <div class="content">
   <div class="hero">
     {photo_html}
-    <div class="hero-initials" id="initials" {initials_style}>{m["initials"]}</div>
+    <div class="hero-initials" id="initials" style="display:{initials_display}">{m["initials"]}</div>
     <div class="hero-info">
       <div class="member-name">{m["name"]}</div>
       <div class="member-sub">
@@ -783,7 +769,7 @@ def build_bio_page(m, paragraphs, source):
   <a href="../members.html" class="back-btn">← Back to Directory</a>
 
   <div class="source-note">
-    Source: {source or "Not available"} · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
+    Member data: unitedstates/congress-legislators · Photos: bioguide.congress.gov · Biography: Ballotpedia
   </div>
 </div>
 <script>
