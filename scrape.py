@@ -560,6 +560,20 @@ async def scrape():
                 seen_senate.add(dk)
 
                 topic   = topic_cell.strip()[:200]
+
+                # Skip placeholder "no hearings" rows from senate.gov
+                PLACEHOLDER_PHRASES = [
+                    "no committee hearings scheduled",
+                    "no hearings scheduled",
+                    "no hearings",
+                    "committee recess",
+                    "congress in recess",
+                ]
+                if any(p in full_cmte.lower() or p in topic.lower()
+                       for p in PLACEHOLDER_PHRASES):
+                    print(f"  ⏭️  Skipping placeholder: {full_cmte}")
+                    continue
+
                 chamber = "Joint" if any(x in full_cmte for x in
                           ["Joint Economic", "Joint Committee", "Caucus"]) else "Senate"
 
