@@ -119,7 +119,8 @@ def fetch_yaml(url):
 def photo_url(bioguide_id):
     if not bioguide_id:
         return ""
-    return f"https://bioguide.congress.gov/bioguide/photo/{bioguide_id[0].upper()}/{bioguide_id}.jpg"
+    # unitedstates/images on GitHub is the most reliable source — returns 200 for all members
+    return f"https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/{bioguide_id}.jpg"
 
 def initials(name):
     parts = name.split()
@@ -320,8 +321,9 @@ def build():
         bioguide_id = ids.get("bioguide", "")
         full_name   = name.get("official_full", "") or \
                       f"{name.get('first','')} {name.get('last','')}".strip()
-        first = name.get("first", "")
-        last  = name.get("last", "")
+        first    = name.get("first", "")
+        last     = name.get("last", "")
+        nickname = name.get("nickname", "")
 
         chamber  = "senate" if term.get("type") == "sen" else "house"
         state    = term.get("state", "")
@@ -347,6 +349,7 @@ def build():
             "name":        full_name,
             "first":       first,
             "last":        last,
+            "nickname":    nickname,
             "chamber":     chamber,
             "state":       state,
             "party":       party,
@@ -532,10 +535,32 @@ Return ONLY the 3 paragraphs separated by a blank line. No headers, no labels, n
     fetched_count = 0
 
     for m in all_members:
-        # Try Ballotpedia first
-        bp_text, bp_source = fetch_ballotpedia_bio_requests(m["name"])
-        # Always try Wikipedia too for comparison
+        # Build name variants to try on Ballotpedia
+        # Many members go by nicknames (Chuck vs Charles, Jim vs James, etc.)
+        name_variants = [m["name"]]
+        # Add nickname variant if available
+        if m.get("nickname"):
+            parts = m["name"].split()
+            if len(parts) >= 2:
+                # Try "Nickname LastName"
+                name_variants.append(f"{m['nickname']} {parts[-1]}")
+        # Try first name + last name (strips middle name)
+        parts = m["name"].split()
+        if len(parts) > 2:
+            name_variants.append(f"{parts[0]} {parts[-1]}")
+
+        # Try Ballotpedia with each name variant
+        bp_text, bp_source = "", ""
+        for variant in name_variants:
+            bp_text, bp_source = fetch_ballotpedia_bio_requests(variant)
+            if bp_text:
+                break
+
+        # Try Wikipedia with primary name
         wiki_text, wiki_source = fetch_wiki_bio_full(m["name"])
+        if not wiki_text and len(name_variants) > 1:
+            wiki_text, wiki_source = fetch_wiki_bio_full(name_variants[1])
+
         # Use whichever has more usable content
         if bp_text and (not wiki_text or len(bp_text) >= len(wiki_text) * 0.7):
             bio_text, bio_source = bp_text, bp_source
