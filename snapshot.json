@@ -1,15 +1,1 @@
-{
-  "Senate|No committee hearings scheduled|TBD ET": {
-    "chamber": "Senate",
-    "committee": "No committee hearings scheduled",
-    "chair": "",
-    "time": "TBD ET",
-    "building": "Dirksen (SD)",
-    "room": "TBD",
-    "topic": "",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  }
-}
+{}

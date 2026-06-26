@@ -279,7 +279,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 3:23 PM ET · Friday, June 26, 2026 · Updates every 20 min · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 3:41 PM ET · Friday, June 26, 2026 · Updates every 20 min · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -289,9 +289,9 @@
 </nav>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--gold)">1</div><div class="stat-label">Senate</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
@@ -312,7 +312,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "Senate", "committee": "No committee hearings scheduled", "chair": "", "time": "TBD ET", "building": "Dirksen (SD)", "room": "TBD", "topic": "", "witnesses": [], "details": "", "cancelled": false, "changes": []}];
+const HEARINGS = [];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
