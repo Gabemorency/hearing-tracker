@@ -625,9 +625,12 @@ def build_bio_page(m, paragraphs, source):
     if not para_html:
         para_html = '<p class="bio-para" style="font-style:italic;opacity:0.5">Biography not yet available.</p>'
 
-    photo_html = ""
-    if bio_photo:
-        photo_html = f'<img class="hero-photo" src="{bio_photo}" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" alt="{m["name"]}">'
+    onerror_js = "this.style.display='none';this.nextElementSibling.style.display='flex';"
+    name_safe  = m["name"].replace('"', '&quot;')
+    photo_html = (
+        f'<img class="hero-photo" src="{bio_photo}" onerror="{onerror_js}" alt="{name_safe}">'
+        if bio_photo else ""
+    )
     initials_style = 'style="display:flex"' if not bio_photo else ""
 
     return f"""<!DOCTYPE html>
@@ -696,6 +699,12 @@ def build_bio_page(m, paragraphs, source):
     background:rgba({init_color},0.7);
   }}
   .hero-info{{flex:1;min-width:200px;padding-top:4px}}
+  /* ── Mobile: stack photo above text ── */
+  @media(max-width:480px){{
+    .hero{{flex-direction:column;align-items:center;text-align:center}}
+    .hero-info{{min-width:unset;width:100%;text-align:left}}
+    .hero-photo,.hero-initials{{width:140px;height:175px}}
+  }}
   .member-name{{
     font-family:'Playfair Display',serif;
     font-size:clamp(22px,4vw,30px);font-weight:700;
