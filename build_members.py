@@ -304,28 +304,6 @@ def build():
     # Tiers: 1 = top leaders, 2 = whips, 3 = conference/caucus/policy chairs
     pass  # INSTITUTIONAL_LEADERSHIP defined at module level
 
-    # ── Wikipedia bios ─────────────────────────────────────────────────────────
-    print("📥 Fetching Wikipedia bios...")
-    wiki_bios = {}
-
-    def fetch_wiki_bio(name):
-        """Fetch a short bio extract from Wikipedia API."""
-        try:
-            r = requests.get(
-                "https://en.wikipedia.org/api/rest_v1/page/summary/" +
-                name.replace(" ", "_"),
-                headers=HEADERS, timeout=10
-            )
-            if r.status_code == 200:
-                data = r.json()
-                extract = data.get("extract", "")
-                # Take first 2 sentences max
-                sentences = re.split(r'(?<=[.!?])\s+', extract)
-                return " ".join(sentences[:2]).strip()
-        except:
-            pass
-        return ""
-
     # Build member objects
     print("🔨 Building member objects...")
     senators = []
@@ -396,25 +374,20 @@ def build():
     senators.sort(key=sort_key)
     reps.sort(key=sort_key)
 
-    # Fetch Wikipedia bios (rate limited — fetch top leaders + chairs first, sample rest)
-    print("📖 Fetching Wikipedia bios...")
-    all_members = senators + reps
-    # Prioritize leadership and chairs, then sample remaining
-    priority = [m for m in all_members if m["leadership"]]
-    remaining = [m for m in all_members if not m["leadership"]]
-    to_fetch = priority + remaining  # fetch all, Wikipedia API is fast
-
     # ── Bio fetching: Ballotpedia (primary) → Wikipedia (fallback) ───────────
     print("📖 Fetching member bios (Ballotpedia → Wikipedia)...")
 
     import time, os
-    from playwright.async_api import async_playwright as _apw
     os.makedirs("bios", exist_ok=True)
+    all_members = senators + reps
 
     def fetch_ballotpedia_bio_requests(name):
-        """Fetch Ballotpedia bio using requests — fast, works for most members."""
+        """Fetch Ballotpedia bio — targets the intro paragraph specifically."""
+        import re as _re
         try:
-            slug = name.replace(" ", "_")
+            import unicodedata as _ud
+            name_ascii = _ud.normalize('NFKD', name).encode('ascii', 'ignore').decode('ascii')
+            slug = name_ascii.replace(" ", "_")
             r = requests.get(
                 f"https://ballotpedia.org/{slug}",
                 headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
@@ -423,32 +396,55 @@ def build():
             )
             if r.status_code != 200:
                 return "", ""
-            import re as _re
-            # Remove scripts, styles, nav elements
-            text = _re.sub(r'<(script|style|nav|header|footer)[^>]*>.*?</\1>', ' ', r.text, flags=_re.DOTALL|_re.IGNORECASE)
+            # Extract only the mw-parser-output div (main article body)
+            body_match = _re.search(r'<div class="mw-parser-output">(.*?)<div[^>]*id="toc"', r.text, _re.DOTALL)
+            if not body_match:
+                # Fallback: use first 6000 chars of body
+                body = r.text[:8000]
+            else:
+                body = body_match.group(1)
+            # Strip HTML
+            text = _re.sub(r'<(script|style)[^>]*>.*?</\1>', ' ', body, flags=_re.DOTALL|_re.IGNORECASE)
             text = _re.sub(r'<[^>]+>', ' ', text)
+            text = _re.sub(r'\[\d+\]', '', text)  # remove citation brackets
             text = _re.sub(r'\s+', ' ', text).strip()
-            # Find the intro paragraph — Ballotpedia always starts with the member's name
-            parts = name.split()
-            last = parts[-1] if parts else ""
-            idx = text.find(last)
-            if idx < 0:
+            # Remove Ballotpedia navigation artifacts
+            stop_phrases = ['Contents', 'Navigation menu', 'Retrieved from',
+                           'Jump to navigation', 'Ballotpedia features',
+                           'Click here to contact', 'Personal tools',
+                           'did not complete Ballotpedia', 'Candidate Connection survey']
+            for phrase in stop_phrases:
+                idx = text.find(phrase)
+                if idx > 200:
+                    text = text[:idx].strip()
+            # Find where the member is first mentioned
+            last_name = name.split()[-1]
+            first_name = name.split()[0]
+            start_idx = text.find(last_name)
+            if start_idx < 0:
+                start_idx = text.find(first_name)
+            if start_idx < 0:
                 return "", ""
-            # Extract a generous chunk and clean it
-            chunk = text[max(0, idx-20):idx+2000]
-            # Remove nav/edit artifacts
-            chunk = _re.sub(r'(Contents|Navigation menu|Categories|Retrieved from|Jump to).*', '', chunk)
-            sentences = _re.split(r'(?<=[.!?])\s+', chunk)
-            sentences = [s.strip() for s in sentences if len(s.strip()) > 30 and not s.strip().startswith('[')]
+            bio_text = text[max(0, start_idx-10):start_idx+3000]
+            sentences = _re.split(r'(?<=[.!?])\s+', bio_text)
+            sentences = [s.strip() for s in sentences
+                        if len(s.strip()) > 40
+                        and not s.strip().startswith('[')
+                        and 'Ballotpedia' not in s
+                        and 'survey' not in s.lower()
+                        and 'click here' not in s.lower()
+                        and 'campaign finance' not in s.lower()]
             if len(sentences) >= 3:
-                return " ".join(sentences[:12]), "Ballotpedia"
+                return " ".join(sentences[:15]), "Ballotpedia"
         except:
             pass
         return "", ""
 
     def fetch_wiki_bio_full(name):
-        """Fetch Wikipedia extract as fallback."""
+        """Fetch full Wikipedia article text for a richer bio."""
+        import re as _re
         try:
+            # First try the summary API for a quick check
             r = requests.get(
                 "https://en.wikipedia.org/api/rest_v1/page/summary/" +
                 name.replace(" ", "_"),
@@ -458,6 +454,26 @@ def build():
                 data = r.json()
                 extract = data.get("extract", "")
                 if len(extract) > 300:
+                    # Also try to get more content from the full page
+                    r2 = requests.get(
+                        "https://en.wikipedia.org/w/api.php",
+                        params={
+                            "action": "query", "titles": name.replace(" ", "_"),
+                            "prop": "extracts", "exintro": False,
+                            "explaintext": True, "exsectionformat": "plain",
+                            "exchars": 3000, "format": "json"
+                        },
+                        headers=HEADERS, timeout=10
+                    )
+                    if r2.status_code == 200:
+                        pages = r2.json().get("query", {}).get("pages", {})
+                        for page in pages.values():
+                            full_text = page.get("extract", "")
+                            if len(full_text) > len(extract):
+                                # Clean up section headers
+                                full_text = _re.sub(r'==+[^=]+=+', ' ', full_text)
+                                full_text = _re.sub(r'\s+', ' ', full_text).strip()
+                                return full_text[:3000], "Wikipedia"
                     return extract, "Wikipedia"
         except:
             pass
@@ -517,13 +533,21 @@ Return ONLY the 3 paragraphs separated by a blank line. No headers, no labels, n
 
     for m in all_members:
         # Try Ballotpedia first
-        bio_text, bio_source = fetch_ballotpedia_bio_requests(m["name"])
+        bp_text, bp_source = fetch_ballotpedia_bio_requests(m["name"])
+        # Always try Wikipedia too for comparison
+        wiki_text, wiki_source = fetch_wiki_bio_full(m["name"])
+        # Use whichever has more usable content
+        if bp_text and (not wiki_text or len(bp_text) >= len(wiki_text) * 0.7):
+            bio_text, bio_source = bp_text, bp_source
+        elif wiki_text:
+            bio_text, bio_source = wiki_text, wiki_source
+        else:
+            bio_text, bio_source = "", ""
 
-        # Fall back to Wikipedia
-        if not bio_text:
-            bio_text, bio_source = fetch_wiki_bio_full(m["name"])
-
-        slug = re.sub(r"[^a-z0-9]+", "-", m["name"].lower()).strip("-")
+        # Transliterate accented chars before slugifying to avoid 404s
+        import unicodedata as _ud
+        name_ascii = _ud.normalize('NFKD', m["name"]).encode('ascii', 'ignore').decode('ascii')
+        slug = re.sub(r"[^a-z0-9]+", "-", name_ascii.lower()).strip("-")
         m["bio_slug"] = slug
 
         if bio_text:
@@ -1193,7 +1217,13 @@ function fullRoleDescription(m){{
 
 function buildCommitteeSections(m){{
   const cmtes = (m.committees||[]);
-  if(!cmtes.length) return '<p style="color:var(--text-f);font-style:italic;font-size:14px;margin-top:6px">No committee data available</p>';
+  const isLeader = m.leadership && m.leadership.tier <= 3;
+  if(!cmtes.length) {{
+    if(isLeader) {{
+      return '<p style="color:var(--text-m);font-size:14px;margin-top:6px;font-style:italic">Institutional leadership role — not assigned to standing committees.</p>';
+    }}
+    return '<p style="color:var(--text-f);font-style:italic;font-size:14px;margin-top:6px">No committee data available</p>';
+  }}
 
   // Deduplicate — keep highest role per committee
   const roleRank = {{'Chair':0,'Chairman':0,'Chairwoman':0,'Chairperson':0,'Ranking Member':1,'Member':2}};
