@@ -45,8 +45,47 @@ generated  = now_et.strftime("%-I:%M %p ET")
 BASE = "https://raw.githubusercontent.com/unitedstates/congress-legislators/main"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; hearing-tracker-bot/1.0)"}
 
+# ── Current House vacancies (119th Congress) ───────────────────────────────────
+# Updated by validate_hardcoded.py every 3 days — check GitHub Issues for alerts
+VACANT_SEATS = [
+    {
+        "state": "CA", "district": 1,
+        "label": "California's 1st Congressional District",
+        "reason": "Rep. Doug LaMalfa (R) died January 6, 2026.",
+        "election": "Special election: August 4, 2026 (primary June 2, 2026)",
+        "party": "rep",
+    },
+    {
+        "state": "CA", "district": 14,
+        "label": "California's 14th Congressional District",
+        "reason": "Rep. Eric Swalwell (D) resigned April 14, 2026.",
+        "election": "Special election: August 18, 2026 (primary June 16, 2026)",
+        "party": "dem",
+    },
+    {
+        "state": "FL", "district": 20,
+        "label": "Florida's 20th Congressional District",
+        "reason": "Rep. Sheila Cherfilus-McCormick (D) resigned April 21, 2026.",
+        "election": "Special election date to be determined.",
+        "party": "dem",
+    },
+    {
+        "state": "GA", "district": 13,
+        "label": "Georgia's 13th Congressional District",
+        "reason": "Rep. David Scott (D) died April 22, 2026.",
+        "election": "Special election date to be determined.",
+        "party": "dem",
+    },
+    {
+        "state": "TX", "district": 23,
+        "label": "Texas's 23rd Congressional District",
+        "reason": "Rep. Tony Gonzales (R) resigned April 14, 2026.",
+        "election": "Special election date to be determined.",
+        "party": "rep",
+    },
+]
+
 # ── 119th Congress institutional leadership (hardcoded by bioguide ID) ─────────
-# Changes only after elections or resignations — update once per Congress.
 INSTITUTIONAL_LEADERSHIP = {
     # Senate Republican
     "T000250": {"label": "Senate Majority Leader",          "tier": 1},  # John Thune
@@ -257,6 +296,28 @@ def build():
     # Tiers: 1 = top leaders, 2 = whips, 3 = conference/caucus/policy chairs
     pass  # INSTITUTIONAL_LEADERSHIP defined at module level
 
+    # ── Wikipedia bios ─────────────────────────────────────────────────────────
+    print("📥 Fetching Wikipedia bios...")
+    wiki_bios = {}
+
+    def fetch_wiki_bio(name):
+        """Fetch a short bio extract from Wikipedia API."""
+        try:
+            r = requests.get(
+                "https://en.wikipedia.org/api/rest_v1/page/summary/" +
+                name.replace(" ", "_"),
+                headers=HEADERS, timeout=10
+            )
+            if r.status_code == 200:
+                data = r.json()
+                extract = data.get("extract", "")
+                # Take first 2 sentences max
+                sentences = re.split(r'(?<=[.!?])\s+', extract)
+                return " ".join(sentences[:2]).strip()
+        except:
+            pass
+        return ""
+
     # Build member objects
     print("🔨 Building member objects...")
     senators = []
@@ -312,6 +373,7 @@ def build():
             "committees":  cmte_roles_map.get(bioguide_id, []),
             "caucuses":    caucus_map.get(bioguide_id, []),
             "delegate":    is_delegate,
+            "bio":         "",  # filled in below
         }
 
         if chamber == "senate":
@@ -319,13 +381,32 @@ def build():
         else:
             reps.append(member)
 
-    # Sort: leaders first (by tier), then alpha by last name
+    # Sort
     def sort_key(m):
         tier = m["leadership"]["tier"] if m["leadership"] else 99
         return (tier, m["last"])
-
     senators.sort(key=sort_key)
     reps.sort(key=sort_key)
+
+    # Fetch Wikipedia bios (rate limited — fetch top leaders + chairs first, sample rest)
+    print("📖 Fetching Wikipedia bios...")
+    all_members = senators + reps
+    # Prioritize leadership and chairs, then sample remaining
+    priority = [m for m in all_members if m["leadership"]]
+    remaining = [m for m in all_members if not m["leadership"]]
+    to_fetch = priority + remaining  # fetch all, Wikipedia API is fast
+
+    fetched = 0
+    for m in to_fetch:
+        bio = fetch_wiki_bio(m["name"])
+        if bio:
+            m["bio"] = bio
+            fetched += 1
+        # Small delay to be respectful
+        import time
+        time.sleep(0.05)
+
+    print(f"  Bios fetched: {fetched}/{len(to_fetch)}")
 
     print(f"✅ {len(senators)} senators, {len(reps)} representatives")
 
@@ -340,6 +421,7 @@ def build():
         "generated": generated,
         "senators":  senators,
         "reps":      reps,
+        "vacancies": VACANT_SEATS,
     }
 
     with open("members.json", "w", encoding="utf-8") as f:
@@ -426,8 +508,17 @@ def build_html(members_json):
   .search-box::placeholder{{color:var(--text-f)}}
   .group-row{{display:flex;align-items:center;gap:8px;flex-wrap:wrap}}
   .group-label{{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--text-d);letter-spacing:0.08em;text-transform:uppercase}}
-  .group-btn{{background:transparent;border:1px solid var(--bdr);color:var(--text-m);border-radius:5px;padding:4px 10px;font-size:11px;font-family:'IBM Plex Mono',monospace;letter-spacing:0.05em;cursor:pointer;transition:all 0.15s}}
-  .group-btn.active{{background:rgba(200,169,110,0.13);border-color:rgba(200,169,110,0.4);color:var(--gold)}}
+  .group-btn{{
+    background:transparent;border:1px solid var(--bdr);color:var(--text-m);
+    border-radius:6px;padding:5px 11px;font-size:11px;
+    font-family:'IBM Plex Mono',monospace;letter-spacing:0.05em;
+    cursor:pointer;transition:all 0.2s ease-out;
+  }}
+  .group-btn.active{{
+    background:rgba(200,169,110,0.15);border-color:var(--gold);
+    color:var(--gold);transform:scale(1.03);
+  }}
+  .group-btn:hover:not(.active){{background:rgba(255,255,255,0.05);color:var(--text);}}
 
   /* Chamber tabs */
   .chamber-tabs{{display:flex;border-bottom:1px solid var(--bdr-sec);background:var(--bg-sec)}}
@@ -437,7 +528,14 @@ def build_html(members_json):
 
   /* Content */
   .content{{padding:14px 16px}}
-  .section-hdr{{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-d);padding:10px 0 8px;margin-bottom:10px;border-bottom:1px solid var(--bdr-sec)}}
+  .section-hdr{{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--text-d);
+    padding:14px 0 10px;margin-bottom:12px;
+    border-bottom:1px solid var(--bdr-sec);
+    display:flex;align-items:center;gap:8px;
+  }}
+  .section-hdr::after{{content:'';flex:1;height:1px;background:var(--bdr-sec);}}
 
   /* Two-column party layout */
   .party-cols{{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}}
@@ -451,24 +549,31 @@ def build_html(members_json):
 
   /* Member card — collapsed only, clean grid */
   .member-card {{
-    border:1px solid var(--bdr);border-radius:10px;
+    border:1px solid var(--bdr);border-radius:12px;
     background:var(--bg-card);margin-bottom:8px;
-    cursor:pointer;transition:background 0.15s, transform 0.15s;
+    cursor:pointer;
+    transition:background 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
     overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,0.2);
   }}
-  .member-card:hover {{ background:var(--bg-card-h); transform:translateY(-1px); }}
-  .card-leader {{ border-left:3px solid var(--gold); }}
-  .card-chair  {{ border-left:3px solid rgba(200,169,110,0.5); }}
-  .card-ranking{{ border-left:3px solid var(--bdr); }}
+  .member-card:hover {{
+    background:var(--bg-card-h);
+    transform:translateY(-2px);
+    box-shadow:0 4px 12px rgba(0,0,0,0.3);
+  }}
+  .card-leader{{border-left:3px solid var(--gold);}}
+  .card-chair{{border-left:3px solid rgba(200,169,110,0.5);}}
+  .card-ranking{{border-left:3px solid var(--bdr);}}
 
   .card-face {{ display:flex;align-items:center;gap:12px;padding:12px 14px; }}
 
   /* Photo — 80×100px */
   .photo {{
-    width:80px;height:100px;border-radius:6px;
+    width:80px;height:100px;border-radius:8px;
     object-fit:cover;object-position:top;
     flex-shrink:0;background:var(--bg-sec);
-    border:1px solid var(--bdr);
+    border:1.5px solid var(--bdr-h);
+    box-shadow:inset 0 0 8px rgba(0,0,0,0.15);
   }}
   .initials-box {{
     width:80px;height:100px;border-radius:6px;
@@ -654,9 +759,10 @@ def build_html(members_json):
 </div>
 
 <script>
-const DATA     = {members_json};
-const SENATORS = DATA.senators || [];
-const REPS     = DATA.reps     || [];
+const DATA      = {members_json};
+const SENATORS  = DATA.senators  || [];
+const REPS      = DATA.reps      || [];
+const VACANCIES = DATA.vacancies || [];
 let chamber = 'senate';
 let group   = 'party';
 let caucus  = 'all';
@@ -792,6 +898,10 @@ function openModal(m){{
       ${{chamberFull}}<br>
       ${{dist}}${{stateFull}} · ${{partyFull}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span>
     </div>
+    ${{m.bio ? `
+    <hr class="modal-divider">
+    <div class="modal-section-label">About</div>
+    <div class="modal-section-value" style="font-size:14px">${{m.bio}}</div>` : ''}}
     ${{instRole ? `
     <hr class="modal-divider">
     <div class="modal-section-label">Leadership Role</div>
@@ -972,7 +1082,7 @@ function renderParty(members){{
     const vind = voting.filter(m=>m.party_class==='ind');
 
     if(voting.length){{
-      h += `<div class="section-hdr">── Remaining Members · ${{voting.length}}</div>
+      h += `<div class="section-hdr">── Sitting Members · ${{voting.length}}</div>
       <div class="party-cols">
         <div>
           <div class="party-col-hdr col-rep">Republican · ${{vmaj.length}}</div>
@@ -1021,11 +1131,41 @@ function renderLeadership(members){{
   return `<div class="section-hdr">── Leadership & Committee Chairs</div>`+leaders.map(card).join('');
 }}
 
+// ── Vacant seats ──────────────────────────────────────────────────────────────
+function renderVacancies(){{
+  if(!VACANCIES.length) return '';
+  const STATE_NAMES_V = STATE_NAMES; // reuse existing lookup
+  return `
+    <div style="margin-top:20px">
+      <div class="section-hdr">── Vacant Seats · ${{VACANCIES.length}}</div>
+      <div class="party-cols">
+        ${{VACANCIES.map(v=>{{
+          const stateFull = STATE_NAMES_V[v.state] || v.state;
+          const pc = v.party;
+          return `<div class="member-card" style="cursor:default;opacity:0.8">
+            <div class="card-face">
+              <div class="initials-box" style="background:rgba(120,120,120,0.3);border:1px solid var(--bdr);color:var(--text-d);font-size:18px">
+                ${{v.state}}-${{v.district}}
+              </div>
+              <div class="info">
+                <div class="mname" style="color:var(--text-d)">Vacant</div>
+                <div class="mmeta">${{v.label}}</div>
+                <div style="font-size:11px;color:var(--text-d);margin-top:4px;line-height:1.5">
+                  ${{v.reason}}<br>
+                  <span style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:10px">${{v.election}}</span>
+                </div>
+              </div>
+            </div>
+          </div>`;
+        }}).join('')}}
+      </div>
+    </div>`;
+}}
+
 // ── Main render ───────────────────────────────────────────────────────────────
 function render(){{
   CURRENT_MEMBERS = [];
 
-  // CBC panel — always rebuild so indices are fresh
   const panel = document.getElementById('cbc-panel');
   if(panel){{
     panel.innerHTML = buildCbcPanel();
@@ -1039,8 +1179,13 @@ function render(){{
   else if(group==='committee')  html = renderCommittee(members);
   else                          html = renderLeadership(members);
 
+  // Add vacant seats section at bottom of House tab only
+  if(chamber === 'house' && caucus === 'all' && VACANCIES.length){{
+    html += renderVacancies();
+  }}
+
   document.getElementById('content').innerHTML = html +
-    `<div class="source-note">ℹ Data: github.com/unitedstates/congress-legislators · Photos: bioguide.congress.gov · Refreshes daily</div>`;
+    `<div class="source-note">ℹ Data: github.com/unitedstates/congress-legislators · Photos: bioguide.congress.gov · Bios: Wikipedia · Refreshes daily · Vacancies checked every 3 days</div>`;
 }}
 
 function setChamber(c){{
@@ -1059,9 +1204,10 @@ function setGroup(g,btn){{
 
 // Init
 document.getElementById('cnt-senate').textContent = SENATORS.length;
-const votingReps = REPS.filter(m=>!m.delegate).length;
+const votingReps   = REPS.filter(m=>!m.delegate).length;
 const delegateReps = REPS.filter(m=>m.delegate).length;
-document.getElementById('cnt-house').textContent = votingReps + ' + ' + delegateReps;
+const vacantCount  = VACANCIES.length;
+document.getElementById('cnt-house').textContent = 435;
 render();
 </script>
 </body>
