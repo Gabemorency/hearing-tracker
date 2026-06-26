@@ -404,11 +404,50 @@ def build():
     remaining = [m for m in all_members if not m["leadership"]]
     to_fetch = priority + remaining  # fetch all, Wikipedia API is fast
 
-    # ── Bio fetching with fallback chain ──────────────────────────────────────
-    print("📖 Fetching member bios (Wikipedia → Ballotpedia → official site)...")
+    # ── Bio fetching: Ballotpedia (primary) → Wikipedia (fallback) ───────────
+    print("📖 Fetching member bios (Ballotpedia → Wikipedia)...")
+
+    import time, os
+    from playwright.async_api import async_playwright as _apw
+    os.makedirs("bios", exist_ok=True)
+
+    def fetch_ballotpedia_bio_requests(name):
+        """Fetch Ballotpedia bio using requests — fast, works for most members."""
+        try:
+            slug = name.replace(" ", "_")
+            r = requests.get(
+                f"https://ballotpedia.org/{slug}",
+                headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"},
+                timeout=15
+            )
+            if r.status_code != 200:
+                return "", ""
+            import re as _re
+            # Remove scripts, styles, nav elements
+            text = _re.sub(r'<(script|style|nav|header|footer)[^>]*>.*?</\1>', ' ', r.text, flags=_re.DOTALL|_re.IGNORECASE)
+            text = _re.sub(r'<[^>]+>', ' ', text)
+            text = _re.sub(r'\s+', ' ', text).strip()
+            # Find the intro paragraph — Ballotpedia always starts with the member's name
+            parts = name.split()
+            last = parts[-1] if parts else ""
+            idx = text.find(last)
+            if idx < 0:
+                return "", ""
+            # Extract a generous chunk and clean it
+            chunk = text[max(0, idx-20):idx+2000]
+            # Remove nav/edit artifacts
+            chunk = _re.sub(r'(Contents|Navigation menu|Categories|Retrieved from|Jump to).*', '', chunk)
+            sentences = _re.split(r'(?<=[.!?])\s+', chunk)
+            sentences = [s.strip() for s in sentences if len(s.strip()) > 30 and not s.strip().startswith('[')]
+            if len(sentences) >= 3:
+                return " ".join(sentences[:12]), "Ballotpedia"
+        except:
+            pass
+        return "", ""
 
     def fetch_wiki_bio_full(name):
-        """Fetch full Wikipedia extract — up to 5 sentences."""
+        """Fetch Wikipedia extract as fallback."""
         try:
             r = requests.get(
                 "https://en.wikipedia.org/api/rest_v1/page/summary/" +
@@ -418,138 +457,105 @@ def build():
             if r.status_code == 200:
                 data = r.json()
                 extract = data.get("extract", "")
-                if len(extract) > 200:
+                if len(extract) > 300:
                     return extract, "Wikipedia"
         except:
             pass
         return "", ""
 
-    def fetch_ballotpedia_bio(name):
-        """Fetch bio from Ballotpedia."""
+    def rewrite_bio_with_claude(raw_text, member_name, role, state, chamber):
+        """
+        Use Claude API to rewrite raw scraped text into 3 clean,
+        consistent, typo-free paragraphs about the member.
+        """
         try:
-            slug = name.replace(" ", "_")
-            r = requests.get(
-                f"https://ballotpedia.org/{slug}",
-                headers={"User-Agent": "Mozilla/5.0"}, timeout=15
+            prompt = f"""You are writing a professional congressional biography for {member_name}, 
+a {role if role else "member"} of the {chamber} from {state}.
+
+Here is the raw source text about them:
+
+{raw_text[:3000]}
+
+Rewrite this into exactly 3 clean paragraphs with NO typos, NO repetition, and consistent professional tone:
+- Paragraph 1: Background — where they are from, education, career before Congress
+- Paragraph 2: Congressional career — when first elected, key legislation or moments, committees, what they are known for  
+- Paragraph 3: Current role — what they focus on now, their position and influence, key issues they champion
+
+Rules:
+- Write in third person
+- Do not use their first name alone — always use full name or last name
+- Do not include Wikipedia-style citation brackets like [1] [2]
+- Do not mention the source (Ballotpedia/Wikipedia)
+- Each paragraph should be 3-5 sentences
+- Be specific and informative, not generic
+- If information is missing, do not fabricate — just omit it
+
+Return ONLY the 3 paragraphs separated by a blank line. No headers, no labels, no preamble."""
+
+            response = requests.post(
+                "https://api.anthropic.com/v1/messages",
+                headers={"Content-Type": "application/json"},
+                json={{
+                    "model": "claude-sonnet-4-6",
+                    "max_tokens": 600,
+                    "messages": [{{"role": "user", "content": prompt}}]
+                }},
+                timeout=30
             )
-            if r.status_code == 200:
-                import re as _re
-                # Extract first paragraph from article body
-                text = _re.sub(r'<[^>]+>', ' ', r.text)
-                text = _re.sub(r'\s+', ' ', text).strip()
-                # Find the first substantial paragraph
-                idx = text.find(name.split()[-1])
-                if idx > 0:
-                    snippet = text[idx:idx+800]
-                    sentences = _re.split(r'(?<=[.!?])\s+', snippet)
-                    clean = " ".join(sentences[:4]).strip()
-                    if len(clean) > 150:
-                        return clean, "Ballotpedia"
-        except:
-            pass
-        return "", ""
-
-    def fetch_official_bio(m):
-        """Fetch bio from member's official website."""
-        try:
-            term = None
-            # Get website from legislators data
-            for leg in legislators:
-                if leg.get("id", {}).get("bioguide") == m["bioguide_id"]:
-                    term = leg.get("terms", [{}])[-1]
-                    break
-            if not term:
-                return "", ""
-            url = term.get("url", "")
-            if not url:
-                return "", ""
-            about_url = url.rstrip("/") + "/about"
-            r = requests.get(about_url,
-                headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
-            if r.status_code == 200:
-                import re as _re
-                text = _re.sub(r'<[^>]+>', ' ', r.text)
-                text = _re.sub(r'\s+', ' ', text).strip()
-                # Find first substantial block
-                for phrase in ["was born", "grew up", "represents", "elected", "serves"]:
-                    idx = text.lower().find(phrase)
-                    if idx > 0:
-                        snippet = text[max(0,idx-50):idx+600]
-                        sentences = _re.split(r'(?<=[.!?])\s+', snippet)
-                        clean = " ".join(sentences[:4]).strip()
-                        if len(clean) > 150:
-                            return clean, "Official website"
-        except:
-            pass
-        return "", ""
-
-    def format_bio_paragraphs(raw_text, name):
-        """
-        Format raw bio text into 3 clean paragraphs:
-        1. Background (who they are, where from, education)
-        2. Congressional career (when elected, key work)
-        3. Current role (now, committees, focus areas)
-        """
-        import re as _re
-        # Split into sentences
-        sentences = _re.split(r'(?<=[.!?])\s+', raw_text.strip())
-        sentences = [s.strip() for s in sentences if len(s.strip()) > 20]
-
-        if not sentences:
-            return ""
-
-        # Assign sentences to paragraphs heuristically
-        para1, para2, para3 = [], [], []
-        career_keywords = ["elected", "served", "congress", "senate", "house", "representative", "senator", "seat", "term", "re-elected", "district"]
-        current_keywords = ["currently", "now", "chair", "ranking", "committee", "focuses", "leading", "serves as", "is the"]
-
-        for s in sentences:
-            sl = s.lower()
-            if any(k in sl for k in current_keywords) and len(para2) >= 1:
-                para3.append(s)
-            elif any(k in sl for k in career_keywords):
-                para2.append(s)
-            elif not para1 or (not para2 and not para3):
-                para1.append(s)
-            else:
-                para2.append(s)
-
-        # Balance paragraphs
-        all_s = sentences
-        third = max(1, len(all_s)//3)
-        if not para1: para1 = all_s[:third]
-        if not para2: para2 = all_s[third:2*third]
-        if not para3: para3 = all_s[2*third:]
-
-        parts = []
-        if para1: parts.append(" ".join(para1[:3]))
-        if para2: parts.append(" ".join(para2[:3]))
-        if para3: parts.append(" ".join(para3[:3]))
-        return parts
-
-    import time, os
-    os.makedirs("bios", exist_ok=True)
+            if response.status_code == 200:
+                data = response.json()
+                text = data.get("content", [{{}}])[0].get("text", "").strip()
+                if text and len(text) > 200:
+                    paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
+                    return paragraphs[:3]
+        except Exception as e:
+            print(f"    Claude API error for {member_name}: {{e}}")
+        return []
 
     all_members = senators + reps
     fetched_count = 0
 
     for m in all_members:
-        bio_text, bio_source = fetch_wiki_bio_full(m["name"])
+        # Try Ballotpedia first
+        bio_text, bio_source = fetch_ballotpedia_bio_requests(m["name"])
+
+        # Fall back to Wikipedia
         if not bio_text:
-            bio_text, bio_source = fetch_ballotpedia_bio(m["name"])
-        if not bio_text:
-            bio_text, bio_source = fetch_official_bio(m)
+            bio_text, bio_source = fetch_wiki_bio_full(m["name"])
+
+        slug = re.sub(r"[^a-z0-9]+", "-", m["name"].lower()).strip("-")
+        m["bio_slug"] = slug
 
         if bio_text:
-            # Short 2-sentence bio for modal
-            sentences = re.split(r'(?<=[.!?])\s+', bio_text.strip())
-            m["bio"] = " ".join(sentences[:2]).strip()
-            m["bio_source"] = bio_source
+            # Rewrite with Claude for clean consistent paragraphs
+            role_label = m["leadership"]["label"] if m.get("leadership") else ""
+            state_name = m["state"]
+            chamber_label = "United States Senate" if m["chamber"] == "senate" else "United States House of Representatives"
 
-            # Full 3-paragraph bio for bio page
-            paragraphs = format_bio_paragraphs(bio_text, m["name"])
-            slug = re.sub(r"[^a-z0-9]+", "-", m["name"].lower()).strip("-")
-            m["bio_slug"] = slug
+            paragraphs = rewrite_bio_with_claude(bio_text, m["name"], role_label, state_name, chamber_label)
+
+            if not paragraphs:
+                # Fallback: split raw text into paragraphs without Claude
+                import re as _re
+                sentences = _re.split(r'(?<=[.!?])\s+', bio_text.strip())
+                sentences = [s for s in sentences if len(s) > 30]
+                third = max(1, len(sentences)//3)
+                paragraphs = [
+                    " ".join(sentences[:third]),
+                    " ".join(sentences[third:2*third]),
+                    " ".join(sentences[2*third:3*third]),
+                ]
+                paragraphs = [p for p in paragraphs if p]
+
+            # Short bio for modal (first 2 sentences of para 1)
+            if paragraphs:
+                import re as _re
+                first_para_sentences = _re.split(r'(?<=[.!?])\s+', paragraphs[0])
+                m["bio"] = " ".join(first_para_sentences[:2]).strip()
+            else:
+                m["bio"] = ""
+
+            m["bio_source"] = bio_source
 
             # Generate bio page
             bio_html = build_bio_page(m, paragraphs, bio_source)
@@ -559,9 +565,8 @@ def build():
         else:
             m["bio"] = ""
             m["bio_source"] = ""
-            m["bio_slug"] = re.sub(r"[^a-z0-9]+", "-", m["name"].lower()).strip("-")
 
-        time.sleep(0.08)  # Respectful rate limiting
+        time.sleep(0.1)  # Respectful rate limiting
 
     print(f"  Bios generated: {fetched_count}/{len(all_members)}")
 
@@ -609,33 +614,16 @@ def build_bio_page(m, paragraphs, source):
     state_full = state_names.get(m["state"], m["state"])
     dist_str   = f"District {m['district']} · " if m.get("district") and m["chamber"]=="house" else ""
     role_str   = m["leadership"]["label"] if m.get("leadership") else ""
-
-    # Build committee list
-    cmtes = m.get("committees", [])
-    seen = {}
-    for c in cmtes:
-        key  = c["committee"]
-        rank = {"Chair":0,"Chairman":0,"Chairwoman":0,"Ranking Member":1,"Member":2}.get(c["role"],2)
-        if key not in seen or rank < seen[key]["rank"]:
-            seen[key] = {**c, "rank": rank}
-    sorted_cmtes = sorted(seen.values(), key=lambda x: (x["rank"], x["committee"]))
-
-    cmte_html = ""
-    for c in sorted_cmtes:
-        role_label = ""
-        if c["rank"] == 0:   role_label = '<span style="color:#E0B870;font-size:10px;font-family:monospace;font-weight:700;margin-right:6px">CHAIR</span>'
-        elif c["rank"] == 1: role_label = '<span style="color:#A09070;font-size:10px;font-family:monospace;font-weight:700;margin-right:6px">RANKING MEMBER</span>'
-        cmte_html += f'<div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">{role_label}{c["committee"]}</div>'
+    bio_photo  = m.get("photo_url", "")
+    init_color = "180,60,60" if pc=="rep" else "50,100,160" if pc=="dem" else "100,50,160"
 
     para_html = ""
-    for i, p in enumerate(paragraphs or []):
-        para_html += f'<p style="font-size:16px;line-height:1.8;color:#C8B89A;margin-bottom:20px">{p}</p>'
+    for p in (paragraphs or []):
+        if p and p.strip():
+            para_html += f'<p class="bio-para">{p.strip()}</p>'
 
     if not para_html:
-        para_html = '<p style="font-size:15px;color:#807050;font-style:italic">Biography not yet available.</p>'
-
-    photo_section = f'<img src="../bioguide/photo/{m["bioguide_id"][0].upper()}/{m["bioguide_id"]}.jpg" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" style="width:150px;height:187px;border-radius:12px;object-fit:cover;object-position:top;border:2px solid rgba(200,169,110,0.3)" alt="{m["name"]}">' if m.get("photo_url") else ""
-    initials_section = f'<div style="width:150px;height:187px;border-radius:12px;background:rgba({"180,60,60" if pc=="rep" else "50,100,160" if pc=="dem" else "100,50,160"},0.6);display:none;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:48px;font-weight:700;color:white">{m["initials"]}</div>'
+        para_html = '<p class="bio-para" style="font-style:italic;opacity:0.5">Biography not yet available.</p>'
 
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -646,28 +634,108 @@ def build_bio_page(m, paragraphs, source):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
-  body{{background:#0D0C0A;color:#F0E8D8;font-family:'IBM Plex Sans',sans-serif;min-height:100vh}}
-  @media(prefers-color-scheme:light){{body{{background:#F5F3EE;color:#0E0C0A}}
-    .card-bg{{background:rgba(255,255,255,0.7)!important;border-color:rgba(0,0,0,0.1)!important}}
-    p{{color:#3A3020!important}} .dim{{color:#7A6A55!important}}
+  /* ── CSS variables — dark default ── */
+  :root {{
+    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
+    --muted:#A09070; --dim:#807050; --faint:#504030;
+    --gold:#E0B870; --border:rgba(255,255,255,0.08);
+    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
+    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
   }}
-  .header{{padding:20px;border-bottom:1px solid rgba(200,169,110,0.2);background:rgba(200,169,110,0.03)}}
-  .nav{{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em}}
-  .nav a{{color:#E0B870;text-decoration:none}}
+  :root.light {{
+    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
+    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+    --gold:#B8860B; --border:rgba(0,0,0,0.08);
+    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
+    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+  }}
+  @media(prefers-color-scheme:light){{:root:not(.dark){{
+    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
+    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+    --gold:#B8860B; --border:rgba(0,0,0,0.08);
+    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
+    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+  }}}}
+  *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+  body{{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}}
+  /* ── Header ── */
+  .header{{
+    padding:16px 20px;
+    border-bottom:1px solid var(--header-border);
+    background:var(--header-bg);
+    display:flex;justify-content:space-between;align-items:center;
+  }}
+  .nav{{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--muted)}}
+  .nav a{{color:var(--gold);text-decoration:none}}
   .nav a:hover{{text-decoration:underline}}
-  .content{{max-width:680px;margin:0 auto;padding:32px 20px}}
-  .hero{{display:flex;gap:24px;align-items:flex-start;margin-bottom:36px;flex-wrap:wrap}}
-  .hero-info{{flex:1;min-width:200px}}
-  .member-name{{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;line-height:1.2;margin-bottom:8px}}
-  .member-sub{{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A09070;letter-spacing:0.05em;line-height:1.8}}
-  .role-badge{{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 8px;border-radius:4px;text-transform:uppercase;margin-top:8px;background:rgba(224,184,112,0.15);color:#E0B870;border:1px solid rgba(224,184,112,0.35)}}
-  .section-label{{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#807050;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.08)}}
-  .bio-section{{margin-bottom:36px}}
-  .cmte-section{{margin-bottom:36px}}
-  .source-note{{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#504030;margin-top:40px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06)}}
-  .back-btn{{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:8px 16px;border:1px solid rgba(200,169,110,0.3);border-radius:6px;color:#E0B870;text-decoration:none;margin-top:24px;transition:all 0.2s}}
-  .back-btn:hover{{background:rgba(200,169,110,0.1)}}
+  .toggle{{
+    background:var(--tog-bg);border:1px solid var(--tog-border);
+    border-radius:8px;padding:6px 10px;cursor:pointer;
+    font-size:15px;line-height:1;transition:background 0.15s;
+  }}
+  /* ── Content ── */
+  .content{{max-width:680px;margin:0 auto;padding:32px 20px 60px}}
+  /* ── Hero ── */
+  .hero{{display:flex;gap:24px;align-items:flex-start;margin-bottom:40px;flex-wrap:wrap}}
+  .hero-photo{{
+    width:160px;height:200px;border-radius:12px;
+    object-fit:cover;object-position:top;
+    border:2px solid var(--gold);
+    flex-shrink:0;background:var(--bg2);
+  }}
+  .hero-initials{{
+    width:160px;height:200px;border-radius:12px;
+    display:none;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:52px;font-weight:700;
+    color:white;flex-shrink:0;
+    background:rgba({init_color},0.7);
+  }}
+  .hero-info{{flex:1;min-width:200px;padding-top:4px}}
+  .member-name{{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(22px,4vw,30px);font-weight:700;
+    line-height:1.2;margin-bottom:10px;color:var(--text);
+  }}
+  .member-sub{{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    color:var(--muted);letter-spacing:0.05em;line-height:1.9;
+  }}
+  .role-badge{{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;
+    font-size:10px;font-weight:700;letter-spacing:0.08em;
+    padding:3px 9px;border-radius:4px;text-transform:uppercase;
+    margin-top:10px;background:rgba(224,184,112,0.15);
+    color:var(--gold);border:1px solid rgba(224,184,112,0.35);
+  }}
+  /* ── Bio section ── */
+  .section-label{{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--dim);margin-bottom:16px;
+    padding-bottom:8px;border-bottom:1px solid var(--border);
+    display:flex;align-items:center;gap:8px;
+  }}
+  .section-label::after{{content:'';flex:1;height:1px;background:var(--border);}}
+  .bio-section{{margin-bottom:40px}}
+  .bio-para{{
+    font-size:16px;line-height:1.85;
+    color:var(--text2);margin-bottom:22px;
+  }}
+  /* ── Back button ── */
+  .back-btn{{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:0.08em;padding:9px 18px;
+    border:1px solid rgba(200,169,110,0.3);border-radius:6px;
+    color:var(--gold);text-decoration:none;margin-top:8px;
+    transition:all 0.2s;background:transparent;
+  }}
+  .back-btn:hover{{background:rgba(200,169,110,0.1);}}
+  /* ── Source note ── */
+  .source-note{{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    color:var(--faint);margin-top:48px;padding-top:16px;
+    border-top:1px solid var(--border);
+  }}
 </style>
 </head>
 <body>
@@ -675,19 +743,19 @@ def build_bio_page(m, paragraphs, source):
   <div class="nav">
     <a href="../index.html">🏛 Hearings</a> &nbsp;·&nbsp;
     <a href="../members.html">Members</a> &nbsp;·&nbsp;
-    <span style="color:#A09070">{m["name"]}</span>
+    <span>{m["name"]}</span>
   </div>
+  <button class="toggle" id="tog" onclick="toggleTheme()">☀️</button>
 </div>
 <div class="content">
   <div class="hero">
-    {photo_section}
-    {initials_section}
+    {"" if not bio_photo else f'<img class="hero-photo" src="{bio_photo}" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" alt="{m["name"]}">'}
+    <div class="hero-initials" id="initials" {"style=\'display:flex\'" if not bio_photo else ""}>{m["initials"]}</div>
     <div class="hero-info">
       <div class="member-name">{m["name"]}</div>
       <div class="member-sub">
         {chamber_full}<br>
-        {dist_str}{state_full} · {party_full}<br>
-        {f'Bioguide: {m["bioguide_id"]}'}
+        {dist_str}{state_full} · {party_full}
       </div>
       {f'<div class="role-badge">{role_str}</div>' if role_str else ''}
     </div>
@@ -698,14 +766,28 @@ def build_bio_page(m, paragraphs, source):
     {para_html}
   </div>
 
-  {"" if not cmte_html else f'<div class="cmte-section"><div class="section-label">Committee Assignments</div>{cmte_html}</div>'}
-
   <a href="../members.html" class="back-btn">← Back to Directory</a>
 
   <div class="source-note">
-    Bio source: {source or "Not available"} · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
+    Source: {source or "Not available"} · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
   </div>
 </div>
+<script>
+function sysTheme(){{ return matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'; }}
+function applyTheme(t){{
+  document.documentElement.classList.remove('light','dark');
+  document.documentElement.classList.add(t);
+  document.getElementById('tog').textContent = t==='dark'?'☀️':'🌙';
+}}
+function toggleTheme(){{
+  const n = document.documentElement.classList.contains('light')?'dark':'light';
+  localStorage.setItem('theme',n); applyTheme(n);
+}}
+(function(){{ applyTheme(localStorage.getItem('theme')||sysTheme()); }})();
+matchMedia('(prefers-color-scheme:light)').addEventListener('change',e=>{{
+  if(!localStorage.getItem('theme')) applyTheme(e.matches?'light':'dark');
+}});
+</script>
 </body>
 </html>"""
 
@@ -1182,28 +1264,26 @@ function openModal(m){{
       ${{chamberFull}}<br>
       ${{dist}}${{stateFull}} · ${{partyFull}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span>
     </div>
-    ${{m.bio ? `
-    <hr class="modal-divider">
-    <div class="modal-section-label">About</div>
-    <div class="modal-section-value" style="font-size:14px">${{m.bio}}</div>` : ''}}
     ${{instRole ? `
     <hr class="modal-divider">
     <div class="modal-section-label">Leadership Role</div>
     <div class="modal-section-value">${{instRole}}</div>` : ''}}
     <hr class="modal-divider">
+    <div class="modal-section-label">About</div>
+    ${{m.bio_slug ? `
+    <a href="bios/${{m.bio_slug}}.html"
+       style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;
+              letter-spacing:0.06em;padding:10px 16px;border:1px solid rgba(200,169,110,0.35);
+              border-radius:8px;color:var(--gold);text-decoration:none;
+              transition:all 0.2s;background:rgba(200,169,110,0.05);margin-bottom:4px;
+              text-align:center;"
+       onmouseover="this.style.background='rgba(200,169,110,0.12)'"
+       onmouseout="this.style.background='rgba(200,169,110,0.05)'"
+       target="_blank">
+      → Full Biography
+    </a>` : '<div style="color:var(--text-faint);font-style:italic;font-size:12px">Biography not yet available</div>'}}
+    <hr class="modal-divider">
     ${{buildCommitteeSections(m)}}
-    ${{m.bio_slug ? `<div style="margin-top:20px;text-align:center">
-      <a href="bios/${{m.bio_slug}}.html"
-         style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;
-                letter-spacing:0.08em;padding:9px 20px;border:1px solid rgba(200,169,110,0.35);
-                border-radius:6px;color:var(--gold);text-decoration:none;
-                transition:all 0.2s;background:rgba(200,169,110,0.05)"
-         onmouseover="this.style.background='rgba(200,169,110,0.12)'"
-         onmouseout="this.style.background='rgba(200,169,110,0.05)'"
-         target="_blank">
-        → Full Biography
-      </a>
-    </div>` : ''}}
   `;
 
   document.getElementById('modal-overlay').classList.add('visible');
