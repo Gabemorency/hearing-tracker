@@ -60,6 +60,8 @@ INSTITUTIONAL_LEADERSHIP = {
     "C001101": "House Minority Whip",
     "A000371": "House Democratic Caucus Chair",
     "N000191": "Asst. Democratic Leader",
+    # Recently appointed/elected — validate these especially
+    "A000383": "Junior Senator, Oklahoma (Alan Armstrong, appointed Mar 2026)",
 }
 
 for bid, role in INSTITUTIONAL_LEADERSHIP.items():
