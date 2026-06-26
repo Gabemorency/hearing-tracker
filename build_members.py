@@ -625,6 +625,11 @@ def build_bio_page(m, paragraphs, source):
     if not para_html:
         para_html = '<p class="bio-para" style="font-style:italic;opacity:0.5">Biography not yet available.</p>'
 
+    photo_html = ""
+    if bio_photo:
+        photo_html = f'<img class="hero-photo" src="{bio_photo}" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" alt="{m["name"]}">'
+    initials_style = 'style="display:flex"' if not bio_photo else ""
+
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -749,8 +754,8 @@ def build_bio_page(m, paragraphs, source):
 </div>
 <div class="content">
   <div class="hero">
-    {"" if not bio_photo else f'<img class="hero-photo" src="{bio_photo}" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" alt="{m["name"]}">'}
-    <div class="hero-initials" id="initials" {"style=\'display:flex\'" if not bio_photo else ""}>{m["initials"]}</div>
+    {photo_html}
+    <div class="hero-initials" id="initials" {initials_style}>{m["initials"]}</div>
     <div class="hero-info">
       <div class="member-name">{m["name"]}</div>
       <div class="member-sub">
