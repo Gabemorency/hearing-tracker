@@ -205,15 +205,23 @@ def build():
                 "rank":      rank,
             })
             # Only set chair/RM leadership badge for FULL committee chairs/RMs
-            if not is_full_cmte:
-                continue
             tl = title.lower() if title else ""
-            if "chair" in tl and "ranking" not in tl:
-                if bid not in chair_map:
-                    chair_map[bid] = {"label": "Chair", "tier": 4, "committee": cmte_name}
-            elif "ranking" in tl:
-                if bid not in chair_map:
-                    chair_map[bid] = {"label": "Ranking Member", "tier": 5, "committee": cmte_name}
+            if is_full_cmte:
+                if "chair" in tl and "ranking" not in tl:
+                    if bid not in chair_map:
+                        chair_map[bid] = {"label": "Chair", "tier": 4, "committee": cmte_name}
+                elif "ranking" in tl:
+                    if bid not in chair_map:
+                        chair_map[bid] = {"label": "Ranking Member", "tier": 5, "committee": cmte_name}
+            else:
+                # Subcommittee chairs/RMs — tiers 6 and 7
+                # Only assign if member doesn't already have a full committee role
+                if "chair" in tl and "ranking" not in tl:
+                    if bid not in chair_map:
+                        chair_map[bid] = {"label": "Subcmte. Chair", "tier": 6, "committee": cmte_name}
+                elif "ranking" in tl:
+                    if bid not in chair_map:
+                        chair_map[bid] = {"label": "Subcmte. Ranking Member", "tier": 7, "committee": cmte_name}
 
     # ── Congressional Black Caucus membership ─────────────────────────────────
     # CBC page requires JavaScript to render — using bioguide IDs matched from
@@ -396,25 +404,170 @@ def build():
     remaining = [m for m in all_members if not m["leadership"]]
     to_fetch = priority + remaining  # fetch all, Wikipedia API is fast
 
-    fetched = 0
-    for m in to_fetch:
-        bio = fetch_wiki_bio(m["name"])
-        if bio:
-            m["bio"] = bio
-            fetched += 1
-        # Small delay to be respectful
-        import time
-        time.sleep(0.05)
+    # ── Bio fetching with fallback chain ──────────────────────────────────────
+    print("📖 Fetching member bios (Wikipedia → Ballotpedia → official site)...")
 
-    print(f"  Bios fetched: {fetched}/{len(to_fetch)}")
+    def fetch_wiki_bio_full(name):
+        """Fetch full Wikipedia extract — up to 5 sentences."""
+        try:
+            r = requests.get(
+                "https://en.wikipedia.org/api/rest_v1/page/summary/" +
+                name.replace(" ", "_"),
+                headers=HEADERS, timeout=10
+            )
+            if r.status_code == 200:
+                data = r.json()
+                extract = data.get("extract", "")
+                if len(extract) > 200:
+                    return extract, "Wikipedia"
+        except:
+            pass
+        return "", ""
+
+    def fetch_ballotpedia_bio(name):
+        """Fetch bio from Ballotpedia."""
+        try:
+            slug = name.replace(" ", "_")
+            r = requests.get(
+                f"https://ballotpedia.org/{slug}",
+                headers={"User-Agent": "Mozilla/5.0"}, timeout=15
+            )
+            if r.status_code == 200:
+                import re as _re
+                # Extract first paragraph from article body
+                text = _re.sub(r'<[^>]+>', ' ', r.text)
+                text = _re.sub(r'\s+', ' ', text).strip()
+                # Find the first substantial paragraph
+                idx = text.find(name.split()[-1])
+                if idx > 0:
+                    snippet = text[idx:idx+800]
+                    sentences = _re.split(r'(?<=[.!?])\s+', snippet)
+                    clean = " ".join(sentences[:4]).strip()
+                    if len(clean) > 150:
+                        return clean, "Ballotpedia"
+        except:
+            pass
+        return "", ""
+
+    def fetch_official_bio(m):
+        """Fetch bio from member's official website."""
+        try:
+            term = None
+            # Get website from legislators data
+            for leg in legislators:
+                if leg.get("id", {}).get("bioguide") == m["bioguide_id"]:
+                    term = leg.get("terms", [{}])[-1]
+                    break
+            if not term:
+                return "", ""
+            url = term.get("url", "")
+            if not url:
+                return "", ""
+            about_url = url.rstrip("/") + "/about"
+            r = requests.get(about_url,
+                headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+            if r.status_code == 200:
+                import re as _re
+                text = _re.sub(r'<[^>]+>', ' ', r.text)
+                text = _re.sub(r'\s+', ' ', text).strip()
+                # Find first substantial block
+                for phrase in ["was born", "grew up", "represents", "elected", "serves"]:
+                    idx = text.lower().find(phrase)
+                    if idx > 0:
+                        snippet = text[max(0,idx-50):idx+600]
+                        sentences = _re.split(r'(?<=[.!?])\s+', snippet)
+                        clean = " ".join(sentences[:4]).strip()
+                        if len(clean) > 150:
+                            return clean, "Official website"
+        except:
+            pass
+        return "", ""
+
+    def format_bio_paragraphs(raw_text, name):
+        """
+        Format raw bio text into 3 clean paragraphs:
+        1. Background (who they are, where from, education)
+        2. Congressional career (when elected, key work)
+        3. Current role (now, committees, focus areas)
+        """
+        import re as _re
+        # Split into sentences
+        sentences = _re.split(r'(?<=[.!?])\s+', raw_text.strip())
+        sentences = [s.strip() for s in sentences if len(s.strip()) > 20]
+
+        if not sentences:
+            return ""
+
+        # Assign sentences to paragraphs heuristically
+        para1, para2, para3 = [], [], []
+        career_keywords = ["elected", "served", "congress", "senate", "house", "representative", "senator", "seat", "term", "re-elected", "district"]
+        current_keywords = ["currently", "now", "chair", "ranking", "committee", "focuses", "leading", "serves as", "is the"]
+
+        for s in sentences:
+            sl = s.lower()
+            if any(k in sl for k in current_keywords) and len(para2) >= 1:
+                para3.append(s)
+            elif any(k in sl for k in career_keywords):
+                para2.append(s)
+            elif not para1 or (not para2 and not para3):
+                para1.append(s)
+            else:
+                para2.append(s)
+
+        # Balance paragraphs
+        all_s = sentences
+        third = max(1, len(all_s)//3)
+        if not para1: para1 = all_s[:third]
+        if not para2: para2 = all_s[third:2*third]
+        if not para3: para3 = all_s[2*third:]
+
+        parts = []
+        if para1: parts.append(" ".join(para1[:3]))
+        if para2: parts.append(" ".join(para2[:3]))
+        if para3: parts.append(" ".join(para3[:3]))
+        return parts
+
+    import time, os
+    os.makedirs("bios", exist_ok=True)
+
+    all_members = senators + reps
+    fetched_count = 0
+
+    for m in all_members:
+        bio_text, bio_source = fetch_wiki_bio_full(m["name"])
+        if not bio_text:
+            bio_text, bio_source = fetch_ballotpedia_bio(m["name"])
+        if not bio_text:
+            bio_text, bio_source = fetch_official_bio(m)
+
+        if bio_text:
+            # Short 2-sentence bio for modal
+            sentences = re.split(r'(?<=[.!?])\s+', bio_text.strip())
+            m["bio"] = " ".join(sentences[:2]).strip()
+            m["bio_source"] = bio_source
+
+            # Full 3-paragraph bio for bio page
+            paragraphs = format_bio_paragraphs(bio_text, m["name"])
+            slug = re.sub(r"[^a-z0-9]+", "-", m["name"].lower()).strip("-")
+            m["bio_slug"] = slug
+
+            # Generate bio page
+            bio_html = build_bio_page(m, paragraphs, bio_source)
+            with open(f"bios/{slug}.html", "w", encoding="utf-8") as f:
+                f.write(bio_html)
+            fetched_count += 1
+        else:
+            m["bio"] = ""
+            m["bio_source"] = ""
+            m["bio_slug"] = re.sub(r"[^a-z0-9]+", "-", m["name"].lower()).strip("-")
+
+        time.sleep(0.08)  # Respectful rate limiting
+
+    print(f"  Bios generated: {fetched_count}/{len(all_members)}")
 
     print(f"✅ {len(senators)} senators, {len(reps)} representatives")
-
-    # Count leaders
-    sen_leaders = sum(1 for m in senators if m["leadership"])
-    rep_leaders = sum(1 for m in reps if m["leadership"])
-    print(f"  Senate leaders/chairs: {sen_leaders}")
-    print(f"  House leaders/chairs:  {rep_leaders}")
+    print(f"  Senate leaders/chairs: {sum(1 for m in senators if m['leadership'])}")
+    print(f"  House leaders/chairs:  {sum(1 for m in reps if m['leadership'])}")
 
     members_data = {
         "date":      today_iso,
@@ -432,6 +585,129 @@ def build():
     with open("members.html", "w", encoding="utf-8") as f:
         f.write(build_html(members_json))
     print("✅ members.html written")
+
+def build_bio_page(m, paragraphs, source):
+    """Generate a full biography page for a single member."""
+    pc         = m["party_class"]
+    party_full = {"rep":"Republican","dem":"Democrat","ind":"Independent"}.get(pc, "Independent")
+    chamber_full = "United States Senate" if m["chamber"]=="senate" else "United States House of Representatives"
+    state_names = {
+        'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California',
+        'CO':'Colorado','CT':'Connecticut','DE':'Delaware','FL':'Florida','GA':'Georgia',
+        'HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa',
+        'KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland',
+        'MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi',
+        'MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire',
+        'NJ':'New Jersey','NM':'New Mexico','NY':'New York','NC':'North Carolina',
+        'ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania',
+        'RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota','TN':'Tennessee',
+        'TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington',
+        'WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming','DC':'District of Columbia',
+        'PR':'Puerto Rico','VI':'U.S. Virgin Islands','GU':'Guam','AS':'American Samoa',
+        'MP':'Northern Mariana Islands'
+    }
+    state_full = state_names.get(m["state"], m["state"])
+    dist_str   = f"District {m['district']} · " if m.get("district") and m["chamber"]=="house" else ""
+    role_str   = m["leadership"]["label"] if m.get("leadership") else ""
+
+    # Build committee list
+    cmtes = m.get("committees", [])
+    seen = {}
+    for c in cmtes:
+        key  = c["committee"]
+        rank = {"Chair":0,"Chairman":0,"Chairwoman":0,"Ranking Member":1,"Member":2}.get(c["role"],2)
+        if key not in seen or rank < seen[key]["rank"]:
+            seen[key] = {**c, "rank": rank}
+    sorted_cmtes = sorted(seen.values(), key=lambda x: (x["rank"], x["committee"]))
+
+    cmte_html = ""
+    for c in sorted_cmtes:
+        role_label = ""
+        if c["rank"] == 0:   role_label = '<span style="color:#E0B870;font-size:10px;font-family:monospace;font-weight:700;margin-right:6px">CHAIR</span>'
+        elif c["rank"] == 1: role_label = '<span style="color:#A09070;font-size:10px;font-family:monospace;font-weight:700;margin-right:6px">RANKING MEMBER</span>'
+        cmte_html += f'<div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">{role_label}{c["committee"]}</div>'
+
+    para_html = ""
+    for i, p in enumerate(paragraphs or []):
+        para_html += f'<p style="font-size:16px;line-height:1.8;color:#C8B89A;margin-bottom:20px">{p}</p>'
+
+    if not para_html:
+        para_html = '<p style="font-size:15px;color:#807050;font-style:italic">Biography not yet available.</p>'
+
+    photo_section = f'<img src="../bioguide/photo/{m["bioguide_id"][0].upper()}/{m["bioguide_id"]}.jpg" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';" style="width:150px;height:187px;border-radius:12px;object-fit:cover;object-position:top;border:2px solid rgba(200,169,110,0.3)" alt="{m["name"]}">' if m.get("photo_url") else ""
+    initials_section = f'<div style="width:150px;height:187px;border-radius:12px;background:rgba({"180,60,60" if pc=="rep" else "50,100,160" if pc=="dem" else "100,50,160"},0.6);display:none;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:48px;font-weight:700;color:white">{m["initials"]}</div>'
+
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>{m["name"]} — Congressional Hearing Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
+  body{{background:#0D0C0A;color:#F0E8D8;font-family:'IBM Plex Sans',sans-serif;min-height:100vh}}
+  @media(prefers-color-scheme:light){{body{{background:#F5F3EE;color:#0E0C0A}}
+    .card-bg{{background:rgba(255,255,255,0.7)!important;border-color:rgba(0,0,0,0.1)!important}}
+    p{{color:#3A3020!important}} .dim{{color:#7A6A55!important}}
+  }}
+  .header{{padding:20px;border-bottom:1px solid rgba(200,169,110,0.2);background:rgba(200,169,110,0.03)}}
+  .nav{{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em}}
+  .nav a{{color:#E0B870;text-decoration:none}}
+  .nav a:hover{{text-decoration:underline}}
+  .content{{max-width:680px;margin:0 auto;padding:32px 20px}}
+  .hero{{display:flex;gap:24px;align-items:flex-start;margin-bottom:36px;flex-wrap:wrap}}
+  .hero-info{{flex:1;min-width:200px}}
+  .member-name{{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;line-height:1.2;margin-bottom:8px}}
+  .member-sub{{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A09070;letter-spacing:0.05em;line-height:1.8}}
+  .role-badge{{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 8px;border-radius:4px;text-transform:uppercase;margin-top:8px;background:rgba(224,184,112,0.15);color:#E0B870;border:1px solid rgba(224,184,112,0.35)}}
+  .section-label{{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#807050;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.08)}}
+  .bio-section{{margin-bottom:36px}}
+  .cmte-section{{margin-bottom:36px}}
+  .source-note{{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#504030;margin-top:40px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06)}}
+  .back-btn{{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:8px 16px;border:1px solid rgba(200,169,110,0.3);border-radius:6px;color:#E0B870;text-decoration:none;margin-top:24px;transition:all 0.2s}}
+  .back-btn:hover{{background:rgba(200,169,110,0.1)}}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="nav">
+    <a href="../index.html">🏛 Hearings</a> &nbsp;·&nbsp;
+    <a href="../members.html">Members</a> &nbsp;·&nbsp;
+    <span style="color:#A09070">{m["name"]}</span>
+  </div>
+</div>
+<div class="content">
+  <div class="hero">
+    {photo_section}
+    {initials_section}
+    <div class="hero-info">
+      <div class="member-name">{m["name"]}</div>
+      <div class="member-sub">
+        {chamber_full}<br>
+        {dist_str}{state_full} · {party_full}<br>
+        {f'Bioguide: {m["bioguide_id"]}'}
+      </div>
+      {f'<div class="role-badge">{role_str}</div>' if role_str else ''}
+    </div>
+  </div>
+
+  <div class="bio-section">
+    <div class="section-label">Biography</div>
+    {para_html}
+  </div>
+
+  {"" if not cmte_html else f'<div class="cmte-section"><div class="section-label">Committee Assignments</div>{cmte_html}</div>'}
+
+  <a href="../members.html" class="back-btn">← Back to Directory</a>
+
+  <div class="source-note">
+    Bio source: {source or "Not available"} · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
+  </div>
+</div>
+</body>
+</html>"""
 
 def build_html(members_json):
     return f"""<!DOCTYPE html>
@@ -787,16 +1063,24 @@ matchMedia('(prefers-color-scheme:light)').addEventListener('change',e=>{{
 function roleHtml(m){{
   if(!m.leadership) return '';
   const tier  = m.leadership.tier;
-  // Only show badge for institutional party leaders (tier 1-3)
-  // Chairs and Ranking Members (tier 4-5) are shown in the modal only
-  if(tier > 3) return '';
   const label = m.leadership.label;
   const l     = label.toLowerCase();
+  // Tiers 1-3: institutional leaders — always show badge
+  // Tiers 4-5: full committee chairs/RMs — show badge
+  // Tiers 6-7: subcommittee chairs/RMs — show smaller badge
+  // Tier 99+: no badge
+  if(tier > 7) return '';
   let cls = 'role-chair';
   if(l.includes('leader')||l.includes('speaker')||l.includes('pro tempore')) cls='role-leader';
   else if(l.includes('whip')) cls='role-whip';
-  else if(l.includes('conference')||l.includes('caucus')||l.includes('policy')) cls='role-chair';
-  return `<span class="mrole ${{cls}}">${{label}}</span>`;
+  else if(l.includes('ranking')) cls='role-rm';
+  const display = tier<=3 ? label
+                : tier===4 ? 'Chair'
+                : tier===5 ? 'Ranking Member'
+                : tier===6 ? 'Subcmte. Chair'
+                : 'Subcmte. Ranking Member';
+  const sizeStyle = tier >= 6 ? 'font-size:7px;opacity:0.85;' : '';
+  return `<span class="mrole ${{cls}}" style="${{sizeStyle}}">${{display}}</span>`;
 }}
 
 function roleClass(m){{
@@ -908,6 +1192,18 @@ function openModal(m){{
     <div class="modal-section-value">${{instRole}}</div>` : ''}}
     <hr class="modal-divider">
     ${{buildCommitteeSections(m)}}
+    ${{m.bio_slug ? `<div style="margin-top:20px;text-align:center">
+      <a href="bios/${{m.bio_slug}}.html"
+         style="display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;
+                letter-spacing:0.08em;padding:9px 20px;border:1px solid rgba(200,169,110,0.35);
+                border-radius:6px;color:var(--gold);text-decoration:none;
+                transition:all 0.2s;background:rgba(200,169,110,0.05)"
+         onmouseover="this.style.background='rgba(200,169,110,0.12)'"
+         onmouseout="this.style.background='rgba(200,169,110,0.05)'"
+         target="_blank">
+        → Full Biography
+      </a>
+    </div>` : ''}}
   `;
 
   document.getElementById('modal-overlay').classList.add('visible');
@@ -1041,10 +1337,12 @@ function buildCbcPanel(){{
 
 // ── Render modes ──────────────────────────────────────────────────────────────
 function renderParty(members){{
-  const leaders  = members.filter(m=>m.leadership&&m.leadership.tier<=3);
-  const chairs   = members.filter(m=>m.leadership&&m.leadership.tier===4);
-  const rankings = members.filter(m=>m.leadership&&m.leadership.tier===5);
-  const rest     = members.filter(m=>!m.leadership||m.leadership.tier>5);
+  const leaders   = members.filter(m=>m.leadership&&m.leadership.tier<=3);
+  const chairs    = members.filter(m=>m.leadership&&m.leadership.tier===4);
+  const rankings  = members.filter(m=>m.leadership&&m.leadership.tier===5);
+  const subcChairs= members.filter(m=>m.leadership&&m.leadership.tier===6);
+  const subcRMs   = members.filter(m=>m.leadership&&m.leadership.tier===7);
+  const rest      = members.filter(m=>!m.leadership||m.leadership.tier>7);
   const maj = rest.filter(m=>m.party_class==='rep');
   const min = rest.filter(m=>m.party_class==='dem');
   const ind = rest.filter(m=>m.party_class==='ind');
@@ -1070,6 +1368,18 @@ function renderParty(members){{
     for(let i=0;i<mx;i++){{
       h += allChairs[i]?card(allChairs[i]):'<div></div>';
       h += allRankings[i]?card(allRankings[i]):'<div></div>';
+    }}
+    h += '</div>';
+  }}
+
+  if(subcChairs.length||subcRMs.length){{
+    h += `<div class="section-hdr">── Subcommittee Chairs & Ranking Members</div><div class="leader-grid">`;
+    const scSorted = subcChairs.sort((a,b)=>(a.leadership.committee||'').localeCompare(b.leadership.committee||''));
+    const srSorted = subcRMs.sort((a,b)=>(a.leadership.committee||'').localeCompare(b.leadership.committee||''));
+    const mx = Math.max(scSorted.length, srSorted.length);
+    for(let i=0;i<mx;i++){{
+      h += scSorted[i] ? card(scSorted[i]) : '<div></div>';
+      h += srSorted[i] ? card(srSorted[i]) : '<div></div>';
     }}
     h += '</div>';
   }}
