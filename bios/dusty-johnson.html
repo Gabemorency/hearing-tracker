@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dusty Johnson — Congressional Hearing Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0D0C0A;color:#F0E8D8;font-family:'IBM Plex Sans',sans-serif;min-height:100vh}
+  @media(prefers-color-scheme:light){body{background:#F5F3EE;color:#0E0C0A}
+    .card-bg{background:rgba(255,255,255,0.7)!important;border-color:rgba(0,0,0,0.1)!important}
+    p{color:#3A3020!important} .dim{color:#7A6A55!important}
+  }
+  .header{padding:20px;border-bottom:1px solid rgba(200,169,110,0.2);background:rgba(200,169,110,0.03)}
+  .nav{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em}
+  .nav a{color:#E0B870;text-decoration:none}
+  .nav a:hover{text-decoration:underline}
+  .content{max-width:680px;margin:0 auto;padding:32px 20px}
+  .hero{display:flex;gap:24px;align-items:flex-start;margin-bottom:36px;flex-wrap:wrap}
+  .hero-info{flex:1;min-width:200px}
+  .member-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;line-height:1.2;margin-bottom:8px}
+  .member-sub{font-family:'IBM Plex Mono',monospace;font-size:11px;color:#A09070;letter-spacing:0.05em;line-height:1.8}
+  .role-badge{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.08em;padding:3px 8px;border-radius:4px;text-transform:uppercase;margin-top:8px;background:rgba(224,184,112,0.15);color:#E0B870;border:1px solid rgba(224,184,112,0.35)}
+  .section-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#807050;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .bio-section{margin-bottom:36px}
+  .cmte-section{margin-bottom:36px}
+  .source-note{font-family:'IBM Plex Mono',monospace;font-size:10px;color:#504030;margin-top:40px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.06)}
+  .back-btn{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;padding:8px 16px;border:1px solid rgba(200,169,110,0.3);border-radius:6px;color:#E0B870;text-decoration:none;margin-top:24px;transition:all 0.2s}
+  .back-btn:hover{background:rgba(200,169,110,0.1)}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="nav">
+    <a href="../index.html">🏛 Hearings</a> &nbsp;·&nbsp;
+    <a href="../members.html">Members</a> &nbsp;·&nbsp;
+    <span style="color:#A09070">Dusty Johnson</span>
+  </div>
+</div>
+<div class="content">
+  <div class="hero">
+    <img src="../bioguide/photo/J/J000301.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" style="width:150px;height:187px;border-radius:12px;object-fit:cover;object-position:top;border:2px solid rgba(200,169,110,0.3)" alt="Dusty Johnson">
+    <div style="width:150px;height:187px;border-radius:12px;background:rgba(180,60,60,0.6);display:none;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:48px;font-weight:700;color:white">DJ</div>
+    <div class="hero-info">
+      <div class="member-name">Dusty Johnson</div>
+      <div class="member-sub">
+        United States House of Representatives<br>
+        South Dakota · Republican<br>
+        Bioguide: J000301
+      </div>
+      <div class="role-badge">Subcmte. Chair</div>
+    </div>
+  </div>
+
+  <div class="bio-section">
+    <div class="section-label">Biography</div>
+    <p style="font-size:16px;line-height:1.8;color:#C8B89A;margin-bottom:20px">infrastructure and public safety.</p><p style="font-size:16px;line-height:1.8;color:#C8B89A;margin-bottom:20px">Personal Dusty grew up in a large working-class family in central South Dakota.&nbsp;He has degrees from the University of South Dakota and the University of Kansas.&nbsp;Dusty has been an active community volunteer, having served as a Sunday School teacher, adjunct faculty member at Dakota Wesleyan University, and president and board member of Abbott House, an agency serving abused and neglected children. He lives in Mitchell with his wife and three sons.&nbsp;As a family, they enjoy hiking, camping, hunting, and reading. &nbsp; Download a Bio for Introductions Download a Short Bio Download a Long Bio Downl</p><p style="font-size:16px;line-height:1.8;color:#C8B89A;margin-bottom:20px">He lives in Mitchell with his wife and three sons.&nbsp;As a family, they enjoy hiking, camping, hunting, and reading. &nbsp; Download a Bio for Introductions Download a Short Bio Download a Long Bio Downl</p>
+  </div>
+
+  <div class="cmte-section"><div class="section-label">Committee Assignments</div><div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A"><span style="color:#E0B870;font-size:10px;font-family:monospace;font-weight:700;margin-right:6px">CHAIR</span>House Committee on Agriculture — Commodity Markets, Digital Assets, and Rural Development</div><div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">House Committee on Agriculture</div><div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">House Committee on Agriculture — General Farm Commodities, Risk Management, and Credit</div><div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">House Committee on Transportation and Infrastructure</div><div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">House Committee on Transportation and Infrastructure — Aviation</div><div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">House Committee on Transportation and Infrastructure — Highways and Transit</div><div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">House Committee on Transportation and Infrastructure — Railroads, Pipelines, and Hazardous Materials</div><div style="padding:8px 12px;border-left:2px solid rgba(255,255,255,0.1);margin-bottom:6px;font-size:14px;line-height:1.5;color:#C8B89A">House Select Committee on the Strategic Competition Between the United States and the Chinese Communist Party</div></div>
+
+  <a href="../members.html" class="back-btn">← Back to Directory</a>
+
+  <div class="source-note">
+    Bio source: Official website · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
+  </div>
+</div>
+</body>
+</html>
