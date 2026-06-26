@@ -72,6 +72,68 @@ BASELINE_FILE = "baseline.json"
 HEADERS = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
                          "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
 
+# ── Hardcoded 119th Congress full committee chairs ─────────────────────────────
+# Validated every 3 days by validate_hardcoded.py
+COMMITTEE_CHAIRS = {
+    # Senate (Republican chairs · Democrat ranking members)
+    "agriculture":                  "Sen. John Boozman (R-AR), Chair · Sen. Amy Klobuchar (D-MN), Ranking Member",
+    "appropriations":               "Sen. Susan Collins (R-ME), Chair · Sen. Patty Murray (D-WA), Ranking Member",
+    "armed services":               "Sen. Roger Wicker (R-MS), Chair · Sen. Jack Reed (D-RI), Ranking Member",
+    "banking":                      "Sen. Tim Scott (R-SC), Chair · Sen. Elizabeth Warren (D-MA), Ranking Member",
+    "budget":                       "Sen. Lindsey Graham (R-SC), Chair · Sen. Jeff Merkley (D-OR), Ranking Member",
+    "commerce":                     "Sen. Ted Cruz (R-TX), Chair · Sen. Maria Cantwell (D-WA), Ranking Member",
+    "energy natural resources":     "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member",
+    "environment public works":     "Sen. Shelley Moore Capito (R-WV), Chair · Sen. Sheldon Whitehouse (D-RI), Ranking Member",
+    "finance":                      "Sen. Mike Crapo (R-ID), Chair · Sen. Ron Wyden (D-OR), Ranking Member",
+    "foreign relations":            "Sen. Jim Risch (R-ID), Chair · Sen. Jeanne Shaheen (D-NH), Ranking Member",
+    "health help":                  "Sen. Bill Cassidy (R-LA), Chair · Sen. Bernie Sanders (I-VT), Ranking Member",
+    "homeland security":            "Sen. Rand Paul (R-KY), Chair · Sen. Gary Peters (D-MI), Ranking Member",
+    "indian affairs":               "Sen. Lisa Murkowski (R-AK), Chair · Sen. Brian Schatz (D-HI), Ranking Member",
+    "intelligence":                 "Sen. Tom Cotton (R-AR), Chair · Sen. Mark Warner (D-VA), Ranking Member",
+    "judiciary":                    "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
+    "rules":                        "Sen. Amy Klobuchar (D-MN) · Sen. Deb Fischer (R-NE), Chair",
+    "small business senate":        "Sen. Joni Ernst (R-IA), Chair · Sen. Ed Markey (D-MA), Ranking Member",
+    "veterans affairs senate":      "Sen. Jerry Moran (R-KS), Chair · Sen. Richard Blumenthal (D-CT), Ranking Member",
+    "joint economic":               "Sen. Mike Lee (R-UT), Chair · Rep. Don Beyer (D-VA), Ranking Member",
+    # House (Republican chairs · Democrat ranking members)
+    "house agriculture":            "Rep. Glenn Thompson (R-PA), Chair · Rep. David Scott (D-GA), Ranking Member",
+    "house appropriations":         "Rep. Tom Cole (R-OK), Chair · Rep. Rosa DeLauro (D-CT), Ranking Member",
+    "house armed services":         "Rep. Mike Rogers (R-AL), Chair · Rep. Adam Smith (D-WA), Ranking Member",
+    "house education workforce":    "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+    "house energy commerce":        "Rep. Brett Guthrie (R-KY), Chair · Rep. Frank Pallone (D-NJ), Ranking Member",
+    "house financial services":     "Rep. French Hill (R-AR), Chair · Rep. Maxine Waters (D-CA), Ranking Member",
+    "house foreign affairs":        "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
+    "house homeland security":      "Rep. Mark Green (R-TN), Chair · Rep. Bennie Thompson (D-MS), Ranking Member",
+    "house judiciary":              "Rep. Jim Jordan (R-OH), Chair · Rep. Jerry Nadler (D-NY), Ranking Member",
+    "house natural resources":      "Rep. Bruce Westerman (R-AR), Chair · Rep. Raúl Grijalva (D-AZ), Ranking Member",
+    "house oversight":              "Rep. James Comer (R-KY), Chair · Rep. Jamie Raskin (D-MD), Ranking Member",
+    "house science":                "Rep. Brian Babin (R-TX), Chair · Rep. Zoe Lofgren (D-CA), Ranking Member",
+    "house transportation":         "Rep. Sam Graves (R-MO), Chair · Rep. Rick Larsen (D-WA), Ranking Member",
+    "house veterans affairs":       "Rep. Mike Bost (R-IL), Chair · Rep. Mark Takano (D-CA), Ranking Member",
+    "house ways means":             "Rep. Jason Smith (R-MO), Chair · Rep. Richard Neal (D-MA), Ranking Member",
+    "house rules":                  "Rep. Virginia Foxx (R-NC), Chair",
+    "house intelligence":           "Rep. Mike Turner (R-OH), Chair · Rep. Jim Himes (D-CT), Ranking Member",
+    "house administration":         "Rep. Bryan Steil (R-WI), Chair · Rep. Joseph Morelle (D-NY), Ranking Member",
+    "house small business":         "Rep. Roger Williams (R-TX), Chair · Rep. Nydia Velázquez (D-NY), Ranking Member",
+    "house budget":                 "Rep. Jodey Arrington (R-TX), Chair · Rep. Brendan Boyle (D-PA), Ranking Member",
+}
+
+def lookup_chair(committee_name):
+    """Match a committee name to its chair string."""
+    norm = re.sub(r"[^a-z0-9 ]", "", committee_name.lower())
+    norm = re.sub(r"\b(committee|on|the|and|of|select|permanent|special|joint|subcommittee|senate|house)\b", "", norm)
+    norm = re.sub(r"\s+", " ", norm).strip()
+    best_match = None
+    best_score = 0
+    for key, chair in COMMITTEE_CHAIRS.items():
+        key_words = set(key.split())
+        norm_words = set(norm.split())
+        overlap = len(key_words & norm_words)
+        if overlap > best_score and overlap >= len(key_words) * 0.6:
+            best_score = overlap
+            best_match = chair
+    return best_match or ""
+
 # ── Committee pages ────────────────────────────────────────────────────────────
 SENATE_COMMITTEE_PAGES = [
     ("Armed Services",             "https://www.armed-services.senate.gov/hearings"),
@@ -669,6 +731,11 @@ async def scrape():
                 enriched["witnesses"] = merged_w if merged_w else h.get("witnesses", [])
                 if scraped_match.get("chair") and not h.get("chair"):
                     enriched["chair"] = scraped_match["chair"]
+                # Apply hardcoded chair if still missing
+                if not enriched.get("chair"):
+                    hardcoded = lookup_chair(enriched["committee"])
+                    if hardcoded:
+                        enriched["chair"] = hardcoded
                 if scraped_match.get("cancelled"):
                     enriched["cancelled"] = True
                 enriched["changes"] = h.get("changes", [])
@@ -676,12 +743,21 @@ async def scrape():
             else:
                 kept = dict(h)
                 kept["changes"] = h.get("changes", [])
+                # Apply hardcoded chair if missing
+                if not kept.get("chair"):
+                    hardcoded = lookup_chair(kept["committee"])
+                    if hardcoded:
+                        kept["chair"] = hardcoded
                 merged.append(kept)
                 print(f"  📌 Kept from baseline: {h['committee']}")
 
         # Add new hearings found by scraper not in baseline
         for s in scraped:
             if not any(fuzzy_match(s, m) for m in merged):
+                if not s.get("chair"):
+                    hardcoded = lookup_chair(s["committee"])
+                    if hardcoded:
+                        s["chair"] = hardcoded
                 merged.append(s)
                 print(f"  ➕ New from scraper: {s['committee']}")
     else:
@@ -719,11 +795,27 @@ async def scrape():
 
 # ── Build HTML ─────────────────────────────────────────────────────────────────
 def build_html(hearings):
-    sc = sum(1 for h in hearings if h["chamber"] == "Senate")
-    hc = sum(1 for h in hearings if h["chamber"] == "House")
-    jc = sum(1 for h in hearings if h["chamber"] == "Joint")
-    tc = len(hearings)
-    ac = sum(1 for h in hearings if not h.get("cancelled"))
+    # Filter out placeholder "no hearing scheduled" entries
+    PLACEHOLDER_PHRASES = [
+        "no committee hearing scheduled",
+        "no hearings scheduled",
+        "no hearings",
+        "committee recess",
+        "congress in recess",
+    ]
+    def is_placeholder(h):
+        topic = h.get("topic", "").lower()
+        committee = h.get("committee", "").lower()
+        return any(p in topic or p in committee for p in PLACEHOLDER_PHRASES)
+
+    real_hearings = [h for h in hearings if not is_placeholder(h)]
+
+    sc = sum(1 for h in real_hearings if h["chamber"] == "Senate")
+    hc = sum(1 for h in real_hearings if h["chamber"] == "House")
+    jc = sum(1 for h in real_hearings if h["chamber"] == "Joint")
+    tc = len(real_hearings)
+    ac = sum(1 for h in real_hearings if not h.get("cancelled"))
+    hearings = real_hearings
     hearings_json = json.dumps(hearings, ensure_ascii=False)
 
     return f"""<!DOCTYPE html>
@@ -1080,6 +1172,18 @@ window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e 
 function cls(c) {{ return c==='Senate'?'senate':c==='House'?'house':'joint'; }}
 
 function buildCards(filter) {{
+  // No hearings today at all
+  if (!HEARINGS.length) {{
+    document.getElementById('count-label').textContent = '0 hearings scheduled';
+    document.getElementById('card-list').innerHTML =
+      '<div class="empty" style="padding:60px 20px">'+
+      '<div style="font-size:32px;margin-bottom:12px">🏛</div>'+
+      '<div style="font-family:\'Playfair Display\',serif;font-size:18px;color:var(--text-muted);margin-bottom:8px">No hearings today</div>'+
+      '<div style="font-size:12px;color:var(--text-dim)">Congress may be in recess or no committees are scheduled. Check back tomorrow.</div>'+
+      '</div>';
+    return;
+  }}
+
   let filtered;
   if (filter==='All')           filtered = HEARINGS;
   else if (filter==='Updated')  filtered = HEARINGS.filter(h=>h.changes&&h.changes.length>0);
