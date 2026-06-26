@@ -606,10 +606,26 @@ async def build():
 
     hearings.sort(key=sort_key)
 
+    # Filter out placeholder entries that docs.house.gov adds on no-hearing days
+    PLACEHOLDER_PHRASES = [
+        "no committee hearing scheduled",
+        "no hearings scheduled",
+        "no hearings",
+        "committee recess",
+        "congress in recess",
+    ]
+    hearings = [
+        h for h in hearings
+        if not any(p in h.get("topic","").lower() or p in h.get("committee","").lower()
+                   for p in PLACEHOLDER_PHRASES)
+    ]
+
     sc = sum(1 for h in hearings if h["chamber"] == "Senate")
     hc = sum(1 for h in hearings if h["chamber"] == "House")
     jc = sum(1 for h in hearings if h["chamber"] == "Joint")
     print(f"\n📊 Final baseline: {len(hearings)} hearings ({sc} Senate · {hc} House · {jc} Joint)")
+    if not hearings:
+        print("⚠️  No hearings found — Congress may be in recess or no committees scheduled")
 
     # ── Write baseline.json ───────────────────────────────────────────────────
     baseline = {
