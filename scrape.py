@@ -1192,7 +1192,7 @@ function buildCards(filter) {{
     document.getElementById('card-list').innerHTML =
       '<div class="empty" style="padding:60px 20px">'+
       '<div style="font-size:32px;margin-bottom:12px">🏛</div>'+
-      '<div style="font-family:\'Playfair Display\',serif;font-size:18px;color:var(--text-muted);margin-bottom:8px">No hearings today</div>'+
+      '<div style="font-family:serif;font-size:18px;color:var(--text-muted);margin-bottom:8px">No hearings today</div>'+
       '<div style="font-size:12px;color:var(--text-dim)">Congress may be in recess or no committees are scheduled. Check back tomorrow.</div>'+
       '</div>';
     return;
