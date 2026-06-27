@@ -377,235 +377,63 @@ def build():
     senators.sort(key=sort_key)
     reps.sort(key=sort_key)
 
-    # ── Bio fetching: Ballotpedia (primary) → Wikipedia (fallback) ───────────
-    print("📖 Fetching member bios (Ballotpedia → Wikipedia)...")
-
-    import time, os
-    os.makedirs("bios", exist_ok=True)
-    all_members = senators + reps
-
-    def fetch_ballotpedia_bio_requests(name):
-        """Fetch Ballotpedia bio — targets the intro paragraph specifically."""
-        import re as _re
+    # ── Load hardcoded bios ────────────────────────────────────────────────────
+    print("📖 Loading member bios from bios_hardcoded.py...")
+    MEMBER_BIOS = {}
+    import os as _os
+    if _os.path.exists("bios_hardcoded.py"):
+        import importlib.util as _ilu
+        _spec = _ilu.spec_from_file_location("bios_hardcoded", "bios_hardcoded.py")
+        _mod  = _ilu.module_from_spec(_spec)
         try:
-            import unicodedata as _ud
-            name_ascii = _ud.normalize('NFKD', name).encode('ascii', 'ignore').decode('ascii')
-            slug = name_ascii.replace(" ", "_")
-            r = requests.get(
-                f"https://ballotpedia.org/{slug}",
-                headers={"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                         "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"},
-                timeout=15
-            )
-            if r.status_code != 200:
-                return "", ""
-            # Extract only the mw-parser-output div (main article body)
-            body_match = _re.search(r'<div class="mw-parser-output">(.*?)<div[^>]*id="toc"', r.text, _re.DOTALL)
-            if not body_match:
-                # Fallback: use first 6000 chars of body
-                body = r.text[:8000]
-            else:
-                body = body_match.group(1)
-            # Strip HTML
-            text = _re.sub(r'<(script|style)[^>]*>.*?</\1>', ' ', body, flags=_re.DOTALL|_re.IGNORECASE)
-            text = _re.sub(r'<[^>]+>', ' ', text)
-            text = _re.sub(r'\[\d+\]', '', text)  # remove citation brackets
-            text = _re.sub(r'\s+', ' ', text).strip()
-            # Remove Ballotpedia navigation artifacts
-            stop_phrases = ['Contents', 'Navigation menu', 'Retrieved from',
-                           'Jump to navigation', 'Ballotpedia features',
-                           'Click here to contact', 'Personal tools',
-                           'did not complete Ballotpedia', 'Candidate Connection survey']
-            for phrase in stop_phrases:
-                idx = text.find(phrase)
-                if idx > 200:
-                    text = text[:idx].strip()
-            # Find where the member is first mentioned
-            last_name = name.split()[-1]
-            first_name = name.split()[0]
-            start_idx = text.find(last_name)
-            if start_idx < 0:
-                start_idx = text.find(first_name)
-            if start_idx < 0:
-                return "", ""
-            bio_text = text[max(0, start_idx-10):start_idx+3000]
-            sentences = _re.split(r'(?<=[.!?])\s+', bio_text)
-            sentences = [s.strip() for s in sentences
-                        if len(s.strip()) > 40
-                        and not s.strip().startswith('[')
-                        and 'Ballotpedia' not in s
-                        and 'survey' not in s.lower()
-                        and 'click here' not in s.lower()
-                        and 'campaign finance' not in s.lower()]
-            if len(sentences) >= 3:
-                return " ".join(sentences[:15]), "Ballotpedia"
-        except:
-            pass
-        return "", ""
-
-    def fetch_wiki_bio_full(name):
-        """Fetch full Wikipedia article text for a richer bio."""
-        import re as _re
-        try:
-            # First try the summary API for a quick check
-            r = requests.get(
-                "https://en.wikipedia.org/api/rest_v1/page/summary/" +
-                name.replace(" ", "_"),
-                headers=HEADERS, timeout=10
-            )
-            if r.status_code == 200:
-                data = r.json()
-                extract = data.get("extract", "")
-                if len(extract) > 300:
-                    # Also try to get more content from the full page
-                    r2 = requests.get(
-                        "https://en.wikipedia.org/w/api.php",
-                        params={
-                            "action": "query", "titles": name.replace(" ", "_"),
-                            "prop": "extracts", "exintro": False,
-                            "explaintext": True, "exsectionformat": "plain",
-                            "exchars": 3000, "format": "json"
-                        },
-                        headers=HEADERS, timeout=10
-                    )
-                    if r2.status_code == 200:
-                        pages = r2.json().get("query", {}).get("pages", {})
-                        for page in pages.values():
-                            full_text = page.get("extract", "")
-                            if len(full_text) > len(extract):
-                                # Clean up section headers
-                                full_text = _re.sub(r'==+[^=]+=+', ' ', full_text)
-                                full_text = _re.sub(r'\s+', ' ', full_text).strip()
-                                return full_text[:3000], "Wikipedia"
-                    return extract, "Wikipedia"
-        except:
-            pass
-        return "", ""
-
-    def rewrite_bio_with_claude(raw_text, member_name, role, state, chamber):
-        """
-        Use Claude API to rewrite raw scraped text into 3 clean,
-        consistent, typo-free paragraphs about the member.
-        """
-        try:
-            prompt = f"""You are writing a professional congressional biography for {member_name}, 
-a {role if role else "member"} of the {chamber} from {state}.
-
-Here is the raw source text about them:
-
-{raw_text[:3000]}
-
-Rewrite this into exactly 3 clean paragraphs with NO typos, NO repetition, and consistent professional tone:
-- Paragraph 1: Background — where they are from, education, career before Congress
-- Paragraph 2: Congressional career — when first elected, key legislation or moments, committees, what they are known for  
-- Paragraph 3: Current role — what they focus on now, their position and influence, key issues they champion
-
-Rules:
-- Write in third person
-- Do not use their first name alone — always use full name or last name
-- Do not include Wikipedia-style citation brackets like [1] [2]
-- Do not mention the source (Ballotpedia/Wikipedia)
-- Each paragraph should be 3-5 sentences
-- Be specific and informative, not generic
-- If information is missing, do not fabricate — just omit it
-
-Return ONLY the 3 paragraphs separated by a blank line. No headers, no labels, no preamble."""
-
-            response = requests.post(
-                "https://api.anthropic.com/v1/messages",
-                headers={"Content-Type": "application/json"},
-                json={{
-                    "model": "claude-sonnet-4-6",
-                    "max_tokens": 600,
-                    "messages": [{{"role": "user", "content": prompt}}]
-                }},
-                timeout=30
-            )
-            if response.status_code == 200:
-                data = response.json()
-                text = data.get("content", [{{}}])[0].get("text", "").strip()
-                if text and len(text) > 200:
-                    paragraphs = [p.strip() for p in text.split("\n\n") if p.strip()]
-                    return paragraphs[:3]
+            _spec.loader.exec_module(_mod)
+            MEMBER_BIOS = dict(getattr(_mod, "MEMBER_BIOS", {}))
+            print(f"  {len(MEMBER_BIOS)} bios loaded")
         except Exception as e:
-            print(f"    Claude API error for {member_name}: {{e}}")
-        return []
+            print(f"  ⚠️  Could not load bios_hardcoded.py: {e}")
+    else:
+        print("  ⚠️  bios_hardcoded.py not found — run generate_bios.py first")
 
-    all_members = senators + reps
+    import os as _os2
+    _os2.makedirs("bios", exist_ok=True)
+    all_members   = senators + reps
     fetched_count = 0
 
     for m in all_members:
-        # Build name variants to try on Ballotpedia
-        # Many members go by nicknames (Chuck vs Charles, Jim vs James, etc.)
-        name_variants = [m["name"]]
-        # Add nickname variant if available
-        if m.get("nickname"):
-            parts = m["name"].split()
-            if len(parts) >= 2:
-                # Try "Nickname LastName"
-                name_variants.append(f"{m['nickname']} {parts[-1]}")
-        # Try first name + last name (strips middle name)
-        parts = m["name"].split()
-        if len(parts) > 2:
-            name_variants.append(f"{parts[0]} {parts[-1]}")
-
-        # Try Ballotpedia with each name variant
-        bp_text, bp_source = "", ""
-        for variant in name_variants:
-            bp_text, bp_source = fetch_ballotpedia_bio_requests(variant)
-            if bp_text:
-                break
-
-        # Try Wikipedia with primary name
-        wiki_text, wiki_source = fetch_wiki_bio_full(m["name"])
-        if not wiki_text and len(name_variants) > 1:
-            wiki_text, wiki_source = fetch_wiki_bio_full(name_variants[1])
-
-        # Use whichever has more usable content
-        if bp_text and (not wiki_text or len(bp_text) >= len(wiki_text) * 0.7):
-            bio_text, bio_source = bp_text, bp_source
-        elif wiki_text:
-            bio_text, bio_source = wiki_text, wiki_source
-        else:
-            bio_text, bio_source = "", ""
-
-        # Transliterate accented chars before slugifying to avoid 404s
-        import unicodedata as _ud
-        name_ascii = _ud.normalize('NFKD', m["name"]).encode('ascii', 'ignore').decode('ascii')
-        slug = re.sub(r"[^a-z0-9]+", "-", name_ascii.lower()).strip("-")
+        bid  = m.get("bioguide_id", "")
+        bio  = MEMBER_BIOS.get(bid, "")
+        slug = re.sub(r"[^a-z0-9]+", "-", m["name"].lower()).strip("-")
         m["bio_slug"] = slug
 
-        if bio_text:
-            # Split raw text into clean paragraphs — no AI rewriting to avoid hallucinations
-            import re as _re
-            # Remove citation brackets like [1], [2]
-            clean_text = _re.sub(r'\[\d+\]', '', bio_text).strip()
-            sentences = _re.split(r'(?<=[.!?])\s+', clean_text)
-            sentences = [s.strip() for s in sentences if len(s.strip()) > 30]
-            third = max(1, len(sentences)//3)
-            paragraphs = [
-                " ".join(sentences[:third]),
-                " ".join(sentences[third:2*third]),
-                " ".join(sentences[2*third:]),
-            ]
-            paragraphs = [p for p in paragraphs if p.strip()]
-
-            # Short bio for modal (first 2 sentences)
-            m["bio"] = " ".join(sentences[:2]).strip() if sentences else ""
-            m["bio_source"] = bio_source
-
+        if bio:
+            m["bio"] = bio
             # Generate bio page
-            bio_html = build_bio_page(m, paragraphs, bio_source)
+            import re as _re2
+            sentences = _re2.split(r'(?<=[.!?])\s+', bio)
+            sentences = [s.strip() for s in sentences if len(s.strip()) > 20]
+            # Split into 3 paragraphs by blank lines first, then by thirds
+            if '\n\n' in bio:
+                paragraphs = [p.strip() for p in bio.split('\n\n') if p.strip()]
+            else:
+                third = max(1, len(sentences) // 3)
+                paragraphs = [
+                    " ".join(sentences[:third]),
+                    " ".join(sentences[third:2*third]),
+                    " ".join(sentences[2*third:]),
+                ]
+            paragraphs = [p for p in paragraphs if p.strip()]
+            bio_html = build_bio_page(m, paragraphs)
             with open(f"bios/{slug}.html", "w", encoding="utf-8") as f:
                 f.write(bio_html)
             fetched_count += 1
         else:
             m["bio"] = ""
-            m["bio_source"] = ""
+            # Still generate a stub page
+            bio_html = build_bio_page(m, [])
+            with open(f"bios/{slug}.html", "w", encoding="utf-8") as f:
+                f.write(bio_html)
 
-        time.sleep(0.1)  # Respectful rate limiting
-
-    print(f"  Bios generated: {fetched_count}/{len(all_members)}")
+    print(f"  Bio pages written: {fetched_count}/{len(all_members)} with content")
 
     print(f"✅ {len(senators)} senators, {len(reps)} representatives")
     print(f"  Senate leaders/chairs: {sum(1 for m in senators if m['leadership'])}")
@@ -628,7 +456,7 @@ Return ONLY the 3 paragraphs separated by a blank line. No headers, no labels, n
         f.write(build_html(members_json))
     print("✅ members.html written")
 
-def build_bio_page(m, paragraphs, source):
+def build_bio_page(m, paragraphs):
     """Generate a full biography page for a single member."""
     pc         = m["party_class"]
     party_full = {"rep":"Republican","dem":"Democrat","ind":"Independent"}.get(pc, "Independent")
