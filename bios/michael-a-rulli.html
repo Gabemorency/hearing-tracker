@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Michael A. Rulli — Congressional Hearing Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  /* ── CSS variables — dark default ── */
+  :root {
+    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
+    --muted:#A09070; --dim:#807050; --faint:#504030;
+    --gold:#E0B870; --border:rgba(255,255,255,0.08);
+    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
+    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+  }
+  :root.light {
+    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
+    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+    --gold:#B8860B; --border:rgba(0,0,0,0.08);
+    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
+    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+  }
+  @media(prefers-color-scheme:light){:root:not(.dark){
+    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
+    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+    --gold:#B8860B; --border:rgba(0,0,0,0.08);
+    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
+    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+  }}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
+  /* ── Header ── */
+  .header{
+    padding:16px 20px;
+    border-bottom:1px solid var(--header-border);
+    background:var(--header-bg);
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .nav{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--muted)}
+  .nav a{color:var(--gold);text-decoration:none}
+  .nav a:hover{text-decoration:underline}
+  .toggle{
+    background:var(--tog-bg);border:1px solid var(--tog-border);
+    border-radius:8px;padding:6px 10px;cursor:pointer;
+    font-size:15px;line-height:1;transition:background 0.15s;
+  }
+  /* ── Content ── */
+  .content{max-width:680px;margin:0 auto;padding:32px 20px 60px}
+  /* ── Hero ── */
+  .hero{display:flex;gap:24px;align-items:flex-start;margin-bottom:40px;flex-wrap:wrap}
+  .hero-photo{
+    width:160px;height:200px;border-radius:12px;
+    object-fit:cover;object-position:top;
+    border:2px solid var(--gold);
+    flex-shrink:0;background:var(--bg2);
+  }
+  .hero-initials{
+    width:160px;height:200px;border-radius:12px;
+    display:none;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:52px;font-weight:700;
+    color:white;flex-shrink:0;
+    background:rgba(180,60,60,0.7);
+  }
+  .hero-info{flex:1;min-width:200px;padding-top:4px}
+  /* ── Mobile: stack photo above text ── */
+  @media(max-width:480px){
+    .hero{flex-direction:column;align-items:center;text-align:center}
+    .hero-info{min-width:unset;width:100%;text-align:left}
+    .hero-photo,.hero-initials{width:140px;height:175px}
+  }
+  .member-name{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(22px,4vw,30px);font-weight:700;
+    line-height:1.2;margin-bottom:10px;color:var(--text);
+  }
+  .member-sub{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;
+    color:var(--muted);letter-spacing:0.05em;line-height:1.9;
+  }
+  .role-badge{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;
+    font-size:10px;font-weight:700;letter-spacing:0.08em;
+    padding:3px 9px;border-radius:4px;text-transform:uppercase;
+    margin-top:10px;background:rgba(224,184,112,0.15);
+    color:var(--gold);border:1px solid rgba(224,184,112,0.35);
+  }
+  /* ── Bio section ── */
+  .section-label{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:0.14em;text-transform:uppercase;
+    color:var(--dim);margin-bottom:16px;
+    padding-bottom:8px;border-bottom:1px solid var(--border);
+    display:flex;align-items:center;gap:8px;
+  }
+  .section-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .bio-section{margin-bottom:40px}
+  .bio-para{
+    font-size:16px;line-height:1.85;
+    color:var(--text2);margin-bottom:22px;
+  }
+  /* ── Back button ── */
+  .back-btn{
+    display:inline-block;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:0.08em;padding:9px 18px;
+    border:1px solid rgba(200,169,110,0.3);border-radius:6px;
+    color:var(--gold);text-decoration:none;margin-top:8px;
+    transition:all 0.2s;background:transparent;
+  }
+  .back-btn:hover{background:rgba(200,169,110,0.1);}
+  /* ── Source note ── */
+  .source-note{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;
+    color:var(--faint);margin-top:48px;padding-top:16px;
+    border-top:1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="nav">
+    <a href="../index.html">🏛 Hearings</a> &nbsp;·&nbsp;
+    <a href="../members.html">Members</a> &nbsp;·&nbsp;
+    <span>Michael A. Rulli</span>
+  </div>
+  <button class="toggle" id="tog" onclick="toggleTheme()">☀️</button>
+</div>
+<div class="content">
+  <div class="hero">
+    <img class="hero-photo" src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/R000619.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Michael A. Rulli">
+    <div class="hero-initials" id="initials" style="display:none">MR</div>
+    <div class="hero-info">
+      <div class="member-name">Michael A. Rulli</div>
+      <div class="member-sub">
+        United States House of Representatives<br>
+        District 6 · Ohio · Republican
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="bio-section">
+    <div class="section-label">Biography</div>
+    <p class="bio-para">Rulli is a member of the United States House of Representatives from OH.</p>
+  </div>
+
+  <a href="../members.html" class="back-btn">← Back to Directory</a>
+
+  <div class="source-note">
+    Member data: unitedstates/congress-legislators · Photos: bioguide.congress.gov · Biography: Ballotpedia
+  </div>
+</div>
+<script>
+function sysTheme(){ return matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'; }
+function applyTheme(t){
+  document.documentElement.classList.remove('light','dark');
+  document.documentElement.classList.add(t);
+  document.getElementById('tog').textContent = t==='dark'?'☀️':'🌙';
+}
+function toggleTheme(){
+  const n = document.documentElement.classList.contains('light')?'dark':'light';
+  localStorage.setItem('theme',n); applyTheme(n);
+}
+(function(){ applyTheme(localStorage.getItem('theme')||sysTheme()); })();
+matchMedia('(prefers-color-scheme:light)').addEventListener('change',e=>{
+  if(!localStorage.getItem('theme')) applyTheme(e.matches?'light':'dark');
+});
+</script>
+</body>
+</html>

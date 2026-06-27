@@ -64,6 +64,12 @@
     background:rgba(180,60,60,0.7);
   }
   .hero-info{flex:1;min-width:200px;padding-top:4px}
+  /* ── Mobile: stack photo above text ── */
+  @media(max-width:480px){
+    .hero{flex-direction:column;align-items:center;text-align:center}
+    .hero-info{min-width:unset;width:100%;text-align:left}
+    .hero-photo,.hero-initials{width:140px;height:175px}
+  }
   .member-name{
     font-family:'Playfair Display',serif;
     font-size:clamp(22px,4vw,30px);font-weight:700;
@@ -122,8 +128,8 @@
 </div>
 <div class="content">
   <div class="hero">
-    <img class="hero-photo" src="https://bioguide.congress.gov/bioguide/photo/M/M001218.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Richard McCormick">
-    <div class="hero-initials" id="initials" >RM</div>
+    <img class="hero-photo" src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/M001218.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Richard McCormick">
+    <div class="hero-initials" id="initials" style="display:none">RM</div>
     <div class="hero-info">
       <div class="member-name">Richard McCormick</div>
       <div class="member-sub">
@@ -136,19 +142,13 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Richard McCormick may refer to:Richard A. McCormick (1922–2000), Catholic Jesuit priest and moral theologian
-Richard Cunningham McCormick (1832–1901), Governor of Arizona Territory, 1866–1869, and U.S.</p><p class="bio-para">Congressman from New York, 1895–1897
-Richard D. McCormick, American businessman
-Richard J.</p><p class="bio-para">McCormick, Catholic Salesian priest convicted of rape of boys
-Richard Levis McCormick, American and president of Rutgers University, 2002–2012
-Richard P. McCormick (1916–2006), American presidential historian
-Rich McCormick, American politician from the state of Georgia</p>
+    <p class="bio-para">Richard McCormick is a member of the United States House of Representatives from GA.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>
 
   <div class="source-note">
-    Source: Wikipedia · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
+    Member data: unitedstates/congress-legislators · Photos: bioguide.congress.gov · Biography: Ballotpedia
   </div>
 </div>
 <script>

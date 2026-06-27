@@ -64,6 +64,12 @@
     background:rgba(50,100,160,0.7);
   }
   .hero-info{flex:1;min-width:200px;padding-top:4px}
+  /* ── Mobile: stack photo above text ── */
+  @media(max-width:480px){
+    .hero{flex-direction:column;align-items:center;text-align:center}
+    .hero-info{min-width:unset;width:100%;text-align:left}
+    .hero-photo,.hero-initials{width:140px;height:175px}
+  }
   .member-name{
     font-family:'Playfair Display',serif;
     font-size:clamp(22px,4vw,30px);font-weight:700;
@@ -122,8 +128,8 @@
 </div>
 <div class="content">
   <div class="hero">
-    <img class="hero-photo" src="https://bioguide.congress.gov/bioguide/photo/V/V000081.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Nydia M. Velázquez">
-    <div class="hero-initials" id="initials" >NV</div>
+    <img class="hero-photo" src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/V000081.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Nydia M. Velázquez">
+    <div class="hero-initials" id="initials" style="display:none">NV</div>
     <div class="hero-info">
       <div class="member-name">Nydia M. Velázquez</div>
       <div class="member-sub">
@@ -136,13 +142,13 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Nydia Margarita Velázquez Serrano is an American politician serving as the U.S.</p><p class="bio-para">representative for New York's 7th congressional district since 2013.</p><p class="bio-para">A member of the Democratic Party, she previously represented New York's 12th congressional district from 1993 to 2013, prior to redistricting.</p>
+    <p class="bio-para">Velázquez is a member of the United States House of Representatives from NY.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>
 
   <div class="source-note">
-    Source: Wikipedia · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
+    Member data: unitedstates/congress-legislators · Photos: bioguide.congress.gov · Biography: Ballotpedia
   </div>
 </div>
 <script>

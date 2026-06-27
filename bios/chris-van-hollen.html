@@ -64,6 +64,12 @@
     background:rgba(50,100,160,0.7);
   }
   .hero-info{flex:1;min-width:200px;padding-top:4px}
+  /* ── Mobile: stack photo above text ── */
+  @media(max-width:480px){
+    .hero{flex-direction:column;align-items:center;text-align:center}
+    .hero-info{min-width:unset;width:100%;text-align:left}
+    .hero-photo,.hero-initials{width:140px;height:175px}
+  }
   .member-name{
     font-family:'Playfair Display',serif;
     font-size:clamp(22px,4vw,30px);font-weight:700;
@@ -122,8 +128,8 @@
 </div>
 <div class="content">
   <div class="hero">
-    <img class="hero-photo" src="https://bioguide.congress.gov/bioguide/photo/V/V000128.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Chris Van Hollen">
-    <div class="hero-initials" id="initials" >CH</div>
+    <img class="hero-photo" src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/V000128.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="Chris Van Hollen">
+    <div class="hero-initials" id="initials" style="display:none">CH</div>
     <div class="hero-info">
       <div class="member-name">Chris Van Hollen</div>
       <div class="member-sub">
@@ -136,13 +142,13 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">is an American attorney and politician serving as the senior United States senator from Maryland, a seat he has held since 2017.</p><p class="bio-para">A member of the Democratic Party, he served as the U.S.</p><p class="bio-para">representative for Maryland's 8th congressional district from 2003 to 2017 and as a Maryland state senator from 1995 to 2003.</p>
+    <p class="bio-para">Chris Van Hollen is a member of the United States Senate from MD.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>
 
   <div class="source-note">
-    Source: Wikipedia · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
+    Member data: unitedstates/congress-legislators · Photos: bioguide.congress.gov · Biography: Ballotpedia
   </div>
 </div>
 <script>

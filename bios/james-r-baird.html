@@ -64,6 +64,12 @@
     background:rgba(180,60,60,0.7);
   }
   .hero-info{flex:1;min-width:200px;padding-top:4px}
+  /* ── Mobile: stack photo above text ── */
+  @media(max-width:480px){
+    .hero{flex-direction:column;align-items:center;text-align:center}
+    .hero-info{min-width:unset;width:100%;text-align:left}
+    .hero-photo,.hero-initials{width:140px;height:175px}
+  }
   .member-name{
     font-family:'Playfair Display',serif;
     font-size:clamp(22px,4vw,30px);font-weight:700;
@@ -122,8 +128,8 @@
 </div>
 <div class="content">
   <div class="hero">
-    <img class="hero-photo" src="https://bioguide.congress.gov/bioguide/photo/B/B001307.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="James R. Baird">
-    <div class="hero-initials" id="initials" >JB</div>
+    <img class="hero-photo" src="https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/B001307.jpg" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" alt="James R. Baird">
+    <div class="hero-initials" id="initials" style="display:none">JB</div>
     <div class="hero-info">
       <div class="member-name">James R. Baird</div>
       <div class="member-sub">
@@ -136,13 +142,13 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">James Richard Baird is an American businessman and politician serving as the U.S.</p><p class="bio-para">representative for Indiana's 4th congressional district since 2019.</p><p class="bio-para">Previously, he served on the Indiana House of Representatives from 2010 to 2018 and on the Putnam County commissioner from 2006 to 2010.</p>
+    <p class="bio-para">James Baird may refer to: Sir James Baird, 2nd Baronet (c.</p><p class="bio-para">1658–1715), British baronet James Baird (British Army officer) (1915–2007) James Baird (civil engineer) (1872–1953), builder of the Lincoln Memorial and quarterback of the Michigan Wolverines football team James Baird (footballer) (born 1983), Scottish goalkeeper/soccer player James Baird (industrialist) (1802–1876), Scottish industrialist and MP for Falkirk Burghs James Baird (merchant) (1828–1915), Newfoundland merchant and activist James Baird (trade unionist) (1878–1948), Northern Irish politician and activist James Bryson Baird (1859–1939), Canadian politician Jim Baird (American football) (1874–1938), American college football player of the 1890s Jim Baird (Australian footballer) (1920–2003), Australian rules footballer Jim Baird (politician) (born 1945), U.S.</p><p class="bio-para">representative from Indiana Jim Baird (rugby union), New Zealand international rugby union player See also James Baird State Park in New York</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>
 
   <div class="source-note">
-    Source: Wikipedia · Data: unitedstates/congress-legislators · Photos: bioguide.congress.gov
+    Member data: unitedstates/congress-legislators · Photos: bioguide.congress.gov · Biography: Ballotpedia
   </div>
 </div>
 <script>
