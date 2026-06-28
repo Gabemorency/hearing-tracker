@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <title>Congressional Hearing Tracker — June 28, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -279,7 +283,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 1:21 PM ET · Sunday, June 28, 2026 · Updates every 20 min · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 11:23 AM ET · Sunday, June 28, 2026 · Updates every 20 min · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -450,6 +454,14 @@ function setFilter(f) {
 }
 
 buildCards('All');
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/hearing-tracker/sw.js")
+      .catch(err => console.warn("SW:", err));
+  });
+}
 </script>
 </body>
 </html>
