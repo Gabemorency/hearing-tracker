@@ -501,6 +501,10 @@ def build_bio_page(m, paragraphs):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <title>{m["name"]} — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -665,6 +669,14 @@ matchMedia('(prefers-color-scheme:light)').addEventListener('change',e=>{{
   if(!localStorage.getItem('theme')) applyTheme(e.matches?'light':'dark');
 }});
 </script>
+<script>
+if ("serviceWorker" in navigator) {{
+  window.addEventListener("load", () => {{
+    navigator.serviceWorker.register("/hearing-tracker/sw.js")
+      .catch(err => console.warn("SW:", err));
+  }});
+}}
+</script>
 </body>
 </html>"""
 
@@ -674,6 +686,10 @@ def build_html(members_json):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <title>Congressional Directory — {today_str}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -1482,6 +1498,14 @@ const delegateReps = REPS.filter(m=>m.delegate).length;
 const vacantCount  = VACANCIES.length;
 document.getElementById('cnt-house').textContent = 435;
 render();
+</script>
+<script>
+if ("serviceWorker" in navigator) {{
+  window.addEventListener("load", () => {{
+    navigator.serviceWorker.register("/hearing-tracker/sw.js")
+      .catch(err => console.warn("SW:", err));
+  }});
+}}
 </script>
 </body>
 </html>"""
