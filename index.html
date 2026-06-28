@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Congressional Hearing Tracker — June 27, 2026</title>
+<title>Congressional Hearing Tracker — June 28, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -279,7 +279,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 7:10 PM ET · Saturday, June 27, 2026 · Updates every 20 min · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 12:39 AM ET · Sunday, June 28, 2026 · Updates every 20 min · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -289,10 +289,10 @@
 </nav>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">1</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
 
@@ -312,7 +312,7 @@
 </div>
 
 <script>
-const HEARINGS = [];
+const HEARINGS = [{"chamber": "House", "committee": "Committee on Rules", "chair": "Sen. Amy Klobuchar (D-MN) · Sen. Deb Fischer (R-NE), Chair", "time": "4:00 PM ET", "building": "Capitol", "room": "H-313 CAPITOL", "topic": "H.R. 8800 – National Defense Authorization Act for Fiscal Year 2027; H.R. 8884 – Removing Barriers to Work for Disabled Americans Act; H. Res. 1383 – Commemorating the one-year anniversary of the enac", "details": "H.R. 8800 – National Defense Authorization Act for Fiscal Year 2027; H.R. 8884 – Removing Barriers to Work for Disabled Americans Act; H. Res. 1383 – Commemorating the one-year anniversary of the enac", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": []}];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
