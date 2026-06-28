@@ -1,8 +1,8 @@
 """
 generate_bios.py — One-time bio generator
 Run manually via GitHub Actions: Actions → Generate Member Bios → Run workflow
-Scrapes Wikipedia for each member, rewrites with Claude API,
-writes bios_hardcoded.py to the repo root.
+Uses Claude API directly to write clean 3-paragraph bios for all members.
+No web scraping — Claude knows these public figures from training data.
 """
 
 import requests
@@ -11,8 +11,6 @@ import json
 import time
 import os
 import re
-
-BASE_HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; hearing-tracker/1.0)"}
 
 # ── Load members ──────────────────────────────────────────────────────────────
 print("📥 Loading legislators...")
@@ -37,181 +35,76 @@ if os.path.exists(OUTPUT_FILE):
     except:
         pass
 
-# ── Fetch Wikipedia ───────────────────────────────────────────────────────────
-def fetch_wiki(name, nickname=None):
-    """Fetch Wikipedia article text. Tries multiple name variants."""
-    variants = [name]
-    if nickname:
-        parts = name.split()
-        variants.append(f"{nickname} {parts[-1]}")
-    if len(name.split()) > 2:
-        parts = name.split()
-        variants.append(f"{parts[0]} {parts[-1]}")
+# ── State name lookup ─────────────────────────────────────────────────────────
+STATE_NAMES = {
+    'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California',
+    'CO':'Colorado','CT':'Connecticut','DE':'Delaware','FL':'Florida','GA':'Georgia',
+    'HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa',
+    'KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland',
+    'MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi',
+    'MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire',
+    'NJ':'New Jersey','NM':'New Mexico','NY':'New York','NC':'North Carolina',
+    'ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania',
+    'RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota','TN':'Tennessee',
+    'TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington',
+    'WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming','DC':'District of Columbia',
+    'PR':'Puerto Rico','VI':'U.S. Virgin Islands','GU':'Guam','AS':'American Samoa',
+    'MP':'Northern Mariana Islands'
+}
 
-    for variant in variants:
-        try:
-            # Full article extract
-            r = requests.get(
-                "https://en.wikipedia.org/w/api.php",
-                params={
-                    "action":          "query",
-                    "titles":          variant.replace(" ", "_"),
-                    "prop":            "extracts",
-                    "explaintext":     True,
-                    "exsectionformat": "plain",
-                    "exchars":         5000,
-                    "format":          "json",
-                },
-                headers=BASE_HEADERS,
-                timeout=15
-            )
-            if r.status_code == 200:
-                pages = r.json().get("query", {}).get("pages", {})
-                for page in pages.values():
-                    if page.get("pageid", -1) == -1:
-                        continue  # page not found
-                    text = page.get("extract", "")
-                    if len(text) > 300:
-                        # Clean up section headers
-                        text = re.sub(r'==+[^=]+=+', ' ', text)
-                        text = re.sub(r'\s+', ' ', text).strip()
-                        return text[:5000]
-        except Exception as e:
-            print(f"    Wiki error ({variant}): {e}")
+# ── Institutional leadership roles ────────────────────────────────────────────
+INST_ROLES = {
+    "T000250": "Senate Majority Leader",
+    "G000386": "President Pro Tempore of the United States Senate",
+    "B001261": "Senate Majority Whip",
+    "C001095": "Senate Republican Conference Chair",
+    "L000575": "Senate Republican Conference Vice Chair",
+    "C001047": "Senate Republican Policy Committee Chair",
+    "S000148": "Senate Minority Leader",
+    "D000563": "Senate Minority Whip",
+    "K000367": "Senate Democratic Steering and Policy Committee Chair",
+    "B001288": "Senate Democratic Strategic Communications Chair",
+    "J000299": "Speaker of the United States House of Representatives",
+    "S001176": "House Majority Leader",
+    "E000294": "House Majority Whip",
+    "M001136": "House Republican Conference Chair",
+    "J000294": "House Minority Leader",
+    "C001101": "House Minority Whip",
+    "A000371": "House Democratic Caucus Chair",
+    "N000191": "Assistant House Democratic Leader",
+}
 
-    # Fallback: summary API
-    for variant in variants:
-        try:
-            r = requests.get(
-                f"https://en.wikipedia.org/api/rest_v1/page/summary/{variant.replace(' ', '_')}",
-                headers=BASE_HEADERS,
-                timeout=10
-            )
-            if r.status_code == 200:
-                extract = r.json().get("extract", "")
-                if len(extract) > 200:
-                    return extract
-        except:
-            pass
+# ── Write bio with Claude (no scraping) ──────────────────────────────────────
+def write_bio(name, chamber, state_code, party, role, district=None):
+    state_full   = STATE_NAMES.get(state_code, state_code)
+    chamber_word = "Senator" if "Senate" in chamber else "Representative"
+    dist_str     = f", {state_full}'s {district}th Congressional District" if district else f" from {state_full}"
+    role_str     = f", currently serving as {role}" if role else ""
+    party_full   = {"Republican": "Republican", "Democrat": "Democrat",
+                    "Independent": "Independent"}.get(party, party)
 
-    return ""
+    prompt = f"""Write a professional 3-paragraph biography for {name}, a {party_full} {chamber_word}{dist_str}{role_str}.
 
-# ── Fetch Ballotpedia ─────────────────────────────────────────────────────────
-def fetch_ballotpedia(name, nickname=None):
-    """Fetch Ballotpedia bio text."""
-    import unicodedata
-    variants = [name]
-    if nickname:
-        parts = name.split()
-        variants.append(f"{nickname} {parts[-1]}")
-    if len(name.split()) > 2:
-        parts = name.split()
-        variants.append(f"{parts[0]} {parts[-1]}")
+Paragraph 1 — Background (2-3 sentences):
+Where they are from, their upbringing, education, and professional career before entering Congress.
 
-    for variant in variants:
-        try:
-            name_ascii = unicodedata.normalize('NFKD', variant).encode('ascii', 'ignore').decode('ascii')
-            slug = name_ascii.replace(" ", "_")
-            r = requests.get(
-                f"https://ballotpedia.org/{slug}",
-                headers={
-                    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                                  "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-                },
-                timeout=15
-            )
-            if r.status_code != 200:
-                continue
+Paragraph 2 — Congressional Career (2-3 sentences):
+When they were first elected to Congress, their key legislative achievements, committees they have served on, and what they are best known for.
 
-            # Extract main article body
-            body_match = re.search(
-                r'<div class="mw-parser-output">(.*?)<div[^>]*id="toc"',
-                r.text, re.DOTALL
-            )
-            body = body_match.group(1) if body_match else r.text[:10000]
+Paragraph 3 — Current Role (2-3 sentences):
+Their current responsibilities and position, the policy areas and issues they focus on, and their recent legislative priorities or notable work.
 
-            # Strip HTML
-            text = re.sub(r'<(script|style)[^>]*>.*?</\1>', ' ', body, flags=re.DOTALL | re.IGNORECASE)
-            text = re.sub(r'<[^>]+>', ' ', text)
-            text = re.sub(r'\[\d+\]', '', text)
-            text = re.sub(r'\s+', ' ', text).strip()
-
-            # Remove junk
-            for phrase in ['Contents', 'Navigation menu', 'Retrieved from',
-                           'Jump to navigation', 'Ballotpedia features',
-                           'Click here to contact', 'did not complete Ballotpedia',
-                           'Candidate Connection survey', 'Personal tools']:
-                idx = text.find(phrase)
-                if 0 < idx < len(text) - 100:
-                    text = text[:idx].strip()
-
-            # Find member mention
-            last_name = variant.split()[-1]
-            idx = text.find(last_name)
-            if idx < 0:
-                continue
-
-            bio_text = text[max(0, idx - 10):idx + 4000]
-            sentences = re.split(r'(?<=[.!?])\s+', bio_text)
-            sentences = [s.strip() for s in sentences
-                         if len(s.strip()) > 40
-                         and not s.startswith('[')
-                         and 'Ballotpedia' not in s
-                         and 'survey' not in s.lower()
-                         and 'click here' not in s.lower()
-                         and 'campaign finance' not in s.lower()]
-            if len(sentences) >= 3:
-                return " ".join(sentences[:15])
-        except Exception as e:
-            print(f"    BP error ({variant}): {e}")
-
-    return ""
-
-# ── Write bio with Claude ─────────────────────────────────────────────────────
-def write_bio_with_claude(name, chamber, state, role, raw_text):
-    """Use Claude to write a clean consistent 3-paragraph bio."""
-    chamber_short = "Senate" if "Senate" in chamber else "House"
-    state_names = {
-        'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California',
-        'CO':'Colorado','CT':'Connecticut','DE':'Delaware','FL':'Florida','GA':'Georgia',
-        'HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa',
-        'KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland',
-        'MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi',
-        'MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire',
-        'NJ':'New Jersey','NM':'New Mexico','NY':'New York','NC':'North Carolina',
-        'ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania',
-        'RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota','TN':'Tennessee',
-        'TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington',
-        'WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming','DC':'District of Columbia',
-        'PR':'Puerto Rico','VI':'U.S. Virgin Islands','GU':'Guam','AS':'American Samoa',
-        'MP':'Northern Mariana Islands'
-    }
-    state_full = state_names.get(state, state)
-
-    source_section = f"""Use this source material as your primary reference:
-{raw_text[:4000]}
-
-""" if raw_text else ""
-
-    prompt = f"""Write a professional 3-paragraph biography for {name}, a U.S. {chamber_short} member from {state_full}{f' serving as {role}' if role else ''}.
-
-{source_section}Write exactly 3 paragraphs separated by a blank line:
-
-Paragraph 1 — Background: Where they are from, their upbringing, education, and career before entering Congress. 2-3 sentences.
-
-Paragraph 2 — Congressional Career: When they were first elected, their key legislative work, committees they've served on, and what they are known for in Congress. 2-3 sentences.
-
-Paragraph 3 — Current Role: Their current position and responsibilities, the policy issues they focus on, and their recent work or priorities. 2-3 sentences.
-
-Rules:
+Requirements:
 - Write in third person throughout
 - Use their last name after the first full mention
-- No citation brackets like [1] or [2]
 - Professional, factual, neutral tone
-- Each paragraph must be 2-3 complete sentences — never just one sentence
-- If source material is limited, use your knowledge of this public figure's career
+- Each paragraph must be exactly 2-3 complete sentences — never just one sentence
+- Separate paragraphs with a single blank line
+- No headers, labels, bullet points, or preamble
+- No citation brackets like [1] or [2]
+- Draw on your knowledge of this person's public career
 
-Return ONLY the 3 paragraphs with a blank line between each. No headers, labels, or preamble."""
+Return ONLY the three paragraphs."""
 
     try:
         r = requests.post(
@@ -227,10 +120,12 @@ Return ONLY the 3 paragraphs with a blank line between each. No headers, labels,
         if r.status_code == 200:
             text = r.json().get("content", [{}])[0].get("text", "").strip()
             text = re.sub(r'\[\d+\]', '', text).strip()
-            if len(text) > 200:
+            if len(text) > 200 and '\n\n' in text:
+                return text
+            elif len(text) > 200:
                 return text
         else:
-            print(f"    Claude {r.status_code}: {r.text[:100]}")
+            print(f"    Claude {r.status_code}: {r.text[:200]}")
     except Exception as e:
         print(f"    Claude error: {e}")
     return ""
@@ -245,29 +140,11 @@ def save_bios():
             f.write(f'    "{bid}": "{escaped}",\n')
         f.write("}\n")
 
-# ── Institutional leadership roles ────────────────────────────────────────────
-INST_ROLES = {
-    "T000250": "Senate Majority Leader",
-    "G000386": "President Pro Tempore of the Senate",
-    "B001261": "Senate Majority Whip",
-    "S000148": "Senate Minority Leader",
-    "D000563": "Senate Minority Whip",
-    "J000299": "Speaker of the House",
-    "S001176": "House Majority Leader",
-    "E000294": "House Majority Whip",
-    "J000294": "House Minority Leader",
-    "C001101": "House Minority Whip",
-    "A000371": "House Democratic Caucus Chair",
-    "N000191": "Assistant Democratic Leader",
-    "C001095": "Senate Republican Conference Chair",
-    "M001136": "House Republican Conference Chair",
-}
-
 # ── Main loop ─────────────────────────────────────────────────────────────────
-total      = len(legislators)
-processed  = 0
-skipped    = 0
-no_source  = 0
+total     = len(legislators)
+processed = 0
+skipped   = 0
+errors    = 0
 
 for i, m in enumerate(legislators):
     bid  = m.get("id", {}).get("bioguide", "")
@@ -276,50 +153,44 @@ for i, m in enumerate(legislators):
     if not bid or not name:
         continue
 
-    if bid in bios and len(bios[bid]) > 400 and bios[bid].count('\n\n') >= 1:
-        # Already has a proper multi-paragraph bio — skip
-        skipped += 1
-        continue
+    # Always regenerate every member for consistency
 
-    term    = m.get("terms", [{}])[-1]
-    chamber = "United States Senate" if term.get("type") == "sen" else "United States House of Representatives"
-    state   = term.get("state", "")
-    role    = INST_ROLES.get(bid, "")
+    term     = m.get("terms", [{}])[-1]
+    chamber  = "United States Senate" if term.get("type") == "sen" else "United States House of Representatives"
+    state    = term.get("state", "")
+    party    = term.get("party", "")
+    district = term.get("district") if term.get("type") == "rep" else None
+    role     = INST_ROLES.get(bid, "")
 
-    print(f"[{i+1}/{total}] {name} ({bid})...", end=" ", flush=True)
+    # Use nickname if available for better recognition
+    display_name = name
+    if nick:
+        parts = name.split()
+        if len(parts) >= 2:
+            display_name = f"{nick} {parts[-1]}"
 
-    # Try Wikipedia first, then Ballotpedia
-    raw = fetch_wiki(name, nick)
-    source = "Wikipedia"
-    if not raw:
-        raw = fetch_ballotpedia(name, nick)
-        source = "Ballotpedia"
+    print(f"[{i+1}/{total}] {display_name} ({bid})...", end=" ", flush=True)
 
-    if not raw:
-        print("❌ no source")
-        bios[bid] = f"{name} is a member of the {chamber} from {state}."
-        no_source += 1
+    bio = write_bio(display_name, chamber, state, party, role, district)
+
+    if bio:
+        bios[bid] = bio
+        processed += 1
+        paragraphs = [p for p in bio.split('\n\n') if p.strip()]
+        print(f"✓ ({len(paragraphs)} paragraphs, {len(bio)} chars)")
     else:
-        bio = write_bio_with_claude(name, chamber, state, role, raw)
-        if bio:
-            bios[bid] = bio
-            processed += 1
-            print(f"✓ {source} ({len(bio)} chars)")
-        else:
-            # Use first 3 sentences of raw as fallback
-            sentences = re.split(r'(?<=[.!?])\s+', re.sub(r'\[\d+\]', '', raw))
-            sentences = [s.strip() for s in sentences if len(s.strip()) > 30]
-            bios[bid] = " ".join(sentences[:4])
-            processed += 1
-            print(f"✓ {source} raw fallback")
+        bios[bid] = f"{display_name} is a member of the {chamber} from {STATE_NAMES.get(state, state)}."
+        errors += 1
+        print("❌ Claude failed")
 
-    # Save every 10 members
+    # Save checkpoint every 10 members
     if (i + 1) % 10 == 0:
         save_bios()
-        print(f"  💾 Saved {len(bios)}/{total} bios")
+        print(f"  💾 Checkpoint: {len(bios)}/{total}")
 
-    time.sleep(0.4)
+    time.sleep(0.5)  # Rate limiting
 
+# Final save
 save_bios()
-print(f"\n✅ Done: {processed} written, {skipped} skipped, {no_source} no source")
-print(f"📄 Output: {OUTPUT_FILE}")
+print(f"\n✅ Done: {processed} written, {skipped} skipped, {errors} errors")
+print(f"📄 Output: {OUTPUT_FILE} ({len(bios)} bios)")
