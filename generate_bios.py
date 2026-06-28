@@ -170,27 +170,48 @@ def fetch_ballotpedia(name, nickname=None):
 # ── Write bio with Claude ─────────────────────────────────────────────────────
 def write_bio_with_claude(name, chamber, state, role, raw_text):
     """Use Claude to write a clean consistent 3-paragraph bio."""
-    if not raw_text:
-        return ""
+    chamber_short = "Senate" if "Senate" in chamber else "House"
+    state_names = {
+        'AL':'Alabama','AK':'Alaska','AZ':'Arizona','AR':'Arkansas','CA':'California',
+        'CO':'Colorado','CT':'Connecticut','DE':'Delaware','FL':'Florida','GA':'Georgia',
+        'HI':'Hawaii','ID':'Idaho','IL':'Illinois','IN':'Indiana','IA':'Iowa',
+        'KS':'Kansas','KY':'Kentucky','LA':'Louisiana','ME':'Maine','MD':'Maryland',
+        'MA':'Massachusetts','MI':'Michigan','MN':'Minnesota','MS':'Mississippi',
+        'MO':'Missouri','MT':'Montana','NE':'Nebraska','NV':'Nevada','NH':'New Hampshire',
+        'NJ':'New Jersey','NM':'New Mexico','NY':'New York','NC':'North Carolina',
+        'ND':'North Dakota','OH':'Ohio','OK':'Oklahoma','OR':'Oregon','PA':'Pennsylvania',
+        'RI':'Rhode Island','SC':'South Carolina','SD':'South Dakota','TN':'Tennessee',
+        'TX':'Texas','UT':'Utah','VT':'Vermont','VA':'Virginia','WA':'Washington',
+        'WV':'West Virginia','WI':'Wisconsin','WY':'Wyoming','DC':'District of Columbia',
+        'PR':'Puerto Rico','VI':'U.S. Virgin Islands','GU':'Guam','AS':'American Samoa',
+        'MP':'Northern Mariana Islands'
+    }
+    state_full = state_names.get(state, state)
 
-    prompt = f"""Write a professional congressional biography for {name}, a member of the {chamber} from {state}{f", currently serving as {role}" if role else ""}.
-
-Use ONLY this source material (do not invent facts):
+    source_section = f"""Use this source material as your primary reference:
 {raw_text[:4000]}
 
-Write exactly 3 paragraphs separated by blank lines. NO headers, NO labels, NO preamble:
-- Paragraph 1 (2-3 sentences): Background — birthplace, upbringing, education, career before Congress
-- Paragraph 2 (2-3 sentences): Congressional career — when first elected, key legislation or moments, what they are known for  
-- Paragraph 3 (2-3 sentences): Current role — current position, issues they focus on, recent work
+""" if raw_text else ""
+
+    prompt = f"""Write a professional 3-paragraph biography for {name}, a U.S. {chamber_short} member from {state_full}{f' serving as {role}' if role else ''}.
+
+{source_section}Write exactly 3 paragraphs separated by a blank line:
+
+Paragraph 1 — Background: Where they are from, their upbringing, education, and career before entering Congress. 2-3 sentences.
+
+Paragraph 2 — Congressional Career: When they were first elected, their key legislative work, committees they've served on, and what they are known for in Congress. 2-3 sentences.
+
+Paragraph 3 — Current Role: Their current position and responsibilities, the policy issues they focus on, and their recent work or priorities. 2-3 sentences.
 
 Rules:
-- Third person only, use last name after first mention
+- Write in third person throughout
+- Use their last name after the first full mention
 - No citation brackets like [1] or [2]
-- Do not mention Ballotpedia or Wikipedia
-- Do not invent or assume facts not in the source — skip rather than guess
-- Professional, neutral tone
+- Professional, factual, neutral tone
+- Each paragraph must be 2-3 complete sentences — never just one sentence
+- If source material is limited, use your knowledge of this public figure's career
 
-Return ONLY the 3 paragraphs."""
+Return ONLY the 3 paragraphs with a blank line between each. No headers, labels, or preamble."""
 
     try:
         r = requests.post(
@@ -198,16 +219,15 @@ Return ONLY the 3 paragraphs."""
             headers={"Content-Type": "application/json"},
             json={
                 "model":      "claude-sonnet-4-6",
-                "max_tokens": 600,
+                "max_tokens": 1000,
                 "messages":   [{"role": "user", "content": prompt}]
             },
             timeout=30
         )
         if r.status_code == 200:
             text = r.json().get("content", [{}])[0].get("text", "").strip()
-            # Clean up citation brackets Claude might copy
             text = re.sub(r'\[\d+\]', '', text).strip()
-            if len(text) > 150:
+            if len(text) > 200:
                 return text
         else:
             print(f"    Claude {r.status_code}: {r.text[:100]}")
@@ -256,7 +276,8 @@ for i, m in enumerate(legislators):
     if not bid or not name:
         continue
 
-    if bid in bios:
+    if bid in bios and len(bios[bid]) > 400 and bios[bid].count('\n\n') >= 1:
+        # Already has a proper multi-paragraph bio — skip
         skipped += 1
         continue
 
