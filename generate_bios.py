@@ -109,7 +109,11 @@ Return ONLY the three paragraphs."""
     try:
         r = requests.post(
             "https://api.anthropic.com/v1/messages",
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type": "application/json",
+                "x-api-key": os.environ.get("ANTHROPIC_API_KEY", ""),
+                "anthropic-version": "2023-06-01",
+            },
             json={
                 "model":      "claude-sonnet-4-6",
                 "max_tokens": 1000,
@@ -153,7 +157,10 @@ for i, m in enumerate(legislators):
     if not bid or not name:
         continue
 
-    # Always regenerate every member for consistency
+    # Skip if already has a proper multi-paragraph bio (not a placeholder)
+    if bid in bios and len(bios[bid]) > 400 and '\n\n' in bios[bid] and 'built a career in public service, business' not in bios[bid]:
+        skipped += 1
+        continue
 
     term     = m.get("terms", [{}])[-1]
     chamber  = "United States Senate" if term.get("type") == "sen" else "United States House of Representatives"
