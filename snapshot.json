@@ -181,12 +181,14 @@
     "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
     "time": "10:00 AM ET",
     "building": "Rayburn (RHOB)",
-    "room": "2123",
+    "room": "2123 RHOB",
     "topic": "Oversight of the National Telecommunications and Information Administration",
     "witnesses": [],
     "details": "",
     "cancelled": false,
-    "changes": []
+    "changes": [
+      "Room changed to 2123 RHOB \u00b7 12:26 PM"
+    ]
   },
   "House|Subcommittee on Health (Committee on Vet|10:15 AM ET": {
     "chamber": "House",
