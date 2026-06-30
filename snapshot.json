@@ -1,8 +1,158 @@
 {
+  "House|Committee on Transportation and Infrastr|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Transportation and Infrastructure",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2167 RHOB",
+    "topic": "updated Subcommittee rosters due to changes on the Majority side; General Services Administration Capital Investment and Leasing Program Resolutions' an ANS to H.R. ____, the \"Water Resources Developm",
+    "details": "updated Subcommittee rosters due to changes on the Majority side; General Services Administration Capital Investment and Leasing Program Resolutions' an ANS to H.R. ____, the \"Water Resources Developm",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Small Business|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Small Business",
+    "chair": "Sen. Joni Ernst (R-IA), Chair \u00b7 Sen. Ed Markey (D-MA), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2360 RHOB",
+    "topic": "250 Years of American Legacy: Small Businesses and the American Dream.",
+    "details": "250 Years of American Legacy: Small Businesses and the American Dream.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Science, Space, and Technol|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Science, Space, and Technology",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2318 RHOB",
+    "topic": "Weathering the Solar Storm: Advancing America\u2019s Space Weather Capabilities",
+    "details": "Weathering the Solar Storm: Advancing America\u2019s Space Weather Capabilities",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Subcommittee on Federal Lands (Committee|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Federal Lands (Committee on Natural Resources)",
+    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Longworth (LHOB)",
+    "room": "1324 LHOB",
+    "topic": "Legislative hearing on: \u2022 H.R. 1693 (Rep. Hageman), To redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the \u201cBarbara L. Cubin National Historic Trails Interpretive C",
+    "details": "Legislative hearing on: \u2022 H.R. 1693 (Rep. Hageman), To redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the \u201cBarbara L. Cubin National Historic Trails Interpretive C",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on the Judiciary|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on the Judiciary",
+    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2141 RHOB",
+    "topic": "H.R. 9098, the Congressional Records Protection Act; H.R. 7651, the Chloe Cole Act of 2026; H. Res. ____, Condemning prosecution policies that give preferential treatment to foreign nationals over Uni",
+    "details": "H.R. 9098, the Congressional Records Protection Act; H.R. 7651, the Chloe Cole Act of 2026; H. Res. ____, Condemning prosecution policies that give preferential treatment to foreign nationals over Uni",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Financial Services|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Financial Services",
+    "chair": "Tom Cole",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2359 RHOB",
+    "topic": "Various Measures",
+    "details": "Various Measures",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Subcommittee on Health, Employment, Labo|10:15 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
+    "chair": "Rep. Tim Walberg (R-MI), Chair \u00b7 Rep. Bobby Scott (D-VA), Ranking Member",
+    "time": "10:15 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2175 RHOB",
+    "topic": "Direct Contracting: A Prescription for Lower Health Care Costs",
+    "details": "Direct Contracting: A Prescription for Lower Health Care Costs",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Ways and Means|10:30 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Ways and Means",
+    "chair": "Rep. Jason Smith (R-MO), Chair \u00b7 Rep. Richard Neal (D-MA), Ranking Member",
+    "time": "10:30 AM ET",
+    "building": "Longworth (LHOB)",
+    "room": "1100 LHOB",
+    "topic": "H.R. 9496, H.R. 9500, H.R. 9498, H.R. 9501, H.R. 9499, H.R. 7972, H.R. 9504",
+    "details": "H.R. 9496, H.R. 9500, H.R. 9498, H.R. 9501, H.R. 9499, H.R. 7972, H.R. 9504",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Energy and Commerce|11:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Energy and Commerce",
+    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
+    "time": "11:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "TBD",
+    "topic": "Markup of Nine Pieces of Legislation",
+    "details": "Markup of Nine Pieces of Legislation",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Subcommittee on Modernization and Innova|2:00 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Modernization and Innovation (Committee on House Administration)",
+    "chair": "",
+    "time": "2:00 PM ET",
+    "building": "Longworth (LHOB)",
+    "room": "1310 LHOB",
+    "topic": "Committee on House Administration Subcommittee on Modernization and Innovation Hearing: \u201cModernizing Public Access to Legislative Data and Information.",
+    "details": "Committee on House Administration Subcommittee on Modernization and Innovation Hearing: \u201cModernizing Public Access to Legislative Data and Information.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
   "House|Europe Subcommittee (Committee on Foreig|10:00 AM ET": {
     "chamber": "House",
     "committee": "Europe Subcommittee (Committee on Foreign Affairs)",
-    "chair": "",
+    "chair": "Rep. Brian Mast (R-FL), Chair \u00b7 Rep. Gregory Meeks (D-NY), Ranking Member",
     "time": "10:00 AM ET",
     "building": "Rayburn (RHOB)",
     "room": "2172 RHOB",
@@ -12,49 +162,10 @@
     "cancelled": true,
     "changes": []
   },
-  "House|Subcommittee on Financial Services and G|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
-    "chair": "Tom Cole",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2359 RHOB",
-    "topic": "Oversight Hearing - Office of Management and Budget",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Courts, Intellectual Pro|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2141 RHOB",
-    "topic": "A Midlife Crisis? IP and the Internet After 40",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Coast Guard and Maritime|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2167 RHOB",
-    "topic": "Taking Account: Implementation of the Coast Guard Authorization Act of 2025, Reconciliation, and Force Design 2028.",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
   "House|Committee on Ways and Means|10:00 AM ET": {
     "chamber": "House",
     "committee": "Committee on Ways and Means",
-    "chair": "",
+    "chair": "Rep. Jason Smith (R-MO), Chair \u00b7 Rep. Richard Neal (D-MA), Ranking Member",
     "time": "10:00 AM ET",
     "building": "Longworth (LHOB)",
     "room": "1100 LHOB",
@@ -67,7 +178,7 @@
   "House|Subcommittee on Communications and Techn|10:00 AM ET": {
     "chamber": "House",
     "committee": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
-    "chair": "",
+    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
     "time": "10:00 AM ET",
     "building": "Rayburn (RHOB)",
     "room": "2123",
@@ -80,7 +191,7 @@
   "House|Subcommittee on Health (Committee on Vet|10:15 AM ET": {
     "chamber": "House",
     "committee": "Subcommittee on Health (Committee on Veterans' Affairs)",
-    "chair": "",
+    "chair": "Sen. Jerry Moran (R-KS), Chair \u00b7 Sen. Richard Blumenthal (D-CT), Ranking Member",
     "time": "10:15 AM ET",
     "building": "Cannon (CHOB)",
     "room": "360 CHOB",
@@ -93,7 +204,7 @@
   "House|Subcommittee on Early Childhood, Element|10:15 AM ET": {
     "chamber": "House",
     "committee": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
-    "chair": "",
+    "chair": "Rep. Tim Walberg (R-MI), Chair \u00b7 Rep. Bobby Scott (D-VA), Ranking Member",
     "time": "10:15 AM ET",
     "building": "Rayburn (RHOB)",
     "room": "2175 RHOB",
@@ -106,7 +217,7 @@
   "House|Subcommittee on Border Security and Enfo|2:00 PM ET": {
     "chamber": "House",
     "committee": "Subcommittee on Border Security and Enforcement (Committee on Homeland Security)",
-    "chair": "",
+    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
     "time": "2:00 PM ET",
     "building": "Cannon (CHOB)",
     "room": "310 CHOB",
@@ -119,7 +230,7 @@
   "House|Subcommittee on Commerce, Manufacturing,|2:00 PM ET": {
     "chamber": "House",
     "committee": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
-    "chair": "",
+    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
     "time": "2:00 PM ET",
     "building": "Rayburn (RHOB)",
     "room": "2123 RHOB",
@@ -132,7 +243,7 @@
   "House|Subcommittee on Disability Assistance an|2:15 PM ET": {
     "chamber": "House",
     "committee": "Subcommittee on Disability Assistance and Memorial Affairs (Committee on Veterans' Affairs)",
-    "chair": "",
+    "chair": "Sen. Jerry Moran (R-KS), Chair \u00b7 Sen. Richard Blumenthal (D-CT), Ranking Member",
     "time": "2:15 PM ET",
     "building": "Cannon (CHOB)",
     "room": "360 CHOB",
@@ -145,7 +256,7 @@
   "House|Committee on Foreign Affairs|9:30 PM ET": {
     "chamber": "House",
     "committee": "Committee on Foreign Affairs",
-    "chair": "",
+    "chair": "Rep. Brian Mast (R-FL), Chair \u00b7 Rep. Gregory Meeks (D-NY), Ranking Member",
     "time": "9:30 PM ET",
     "building": "Rayburn (RHOB)",
     "room": "2172 RHOB",
