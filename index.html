@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Congressional Hearing Tracker — July 1, 2026</title>
+<title>Congressional Hearing Tracker — July 2, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -279,7 +279,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 7:21 PM ET · Wednesday, July 1, 2026 · Updates every 20 min · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 12:09 AM ET · Thursday, July 2, 2026 · Updates every 20 min · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -289,10 +289,10 @@
 </nav>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">6</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">9</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">9</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
 
@@ -312,7 +312,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "House", "committee": "Committee on Transportation and Infrastructure", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2167 RHOB", "topic": "updated Subcommittee rosters due to changes on the Majority side; General Services Administration Capital Investment and Leasing Program Resolutions' an ANS to H.R. ____, the \"Water Resources Development Act of 2026\"; and other matters cleared for consideration", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Small Business", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2360 RHOB", "topic": "250 Years of American Legacy: Small Businesses and the American Dream.", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Science, Space, and Technology", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2318 RHOB", "topic": "Weathering the Solar Storm: Advancing America’s Space Weather Capabilities", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Subcommittee on Federal Lands (Committee on Natural Resources)", "chair": "", "time": "10:00 AM ET", "building": "Longworth (LHOB)", "room": "1324 LHOB", "topic": "Legislative hearing on: • H.R. 1693 (Rep. Hageman), To redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the “Barbara L. Cubin National Historic Trails Interpretive Center”. • H.R. 7254 (Rep. Huffman), To amend the National Trails System Act to direct the Secretary of the Interior to conduct a study on the feasibility of designating the Bay Area Ridge National Scenic Trail, and for other purposes. • H.R. 8121 (Rep. Plaskett), To designate the Christiansted Bandstand at the Christiansted National Historic Site, St. Croix, Virgin Islands, as the “Peter G. Thurland, Sr., Bandstand”. • H.R. 8454 (Rep. McClintock), To provide for the transfer of administrative jurisdiction over certain Federal land in the State of California, and for other purposes. • H.R. 8913 (Rep. Valadao), “Tulare Youth Recreation and Women’s History Enhancement Act” • H.R. 9248 (Rep. Hurd), “Recreation Permitting Improvement Act” • H.R. 9416 (Rep. Scott of GA), “Ocmulgee Mounds National Park Redesignation Act", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on the Judiciary", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2141 RHOB", "topic": "H.R. 9098, the Congressional Records Protection Act; H.R. 7651, the Chloe Cole Act of 2026; H. Res. 1394, Condemning prosecution policies that give preferential treatment to foreign nationals over United States citizens; H.R. 9191, the National Fossil Act; and H.R. 3100, To amend the National Child Protection Act of 1993 to ensure that businesses and organizations that work with vulnerable populations are able to request background checks for their contractors who work with those populations, as well as for individuals that the businesses or organizations license or certify to provide care for those populations (Postponed)", "witnesses": [], "details": "", "cancelled": true, "changes": ["CANCELLED · 12:42 AM"]}, {"chamber": "House", "committee": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)", "chair": "", "time": "10:15 AM ET", "building": "Rayburn (RHOB)", "room": "2175 RHOB", "topic": "Direct Contracting: A Prescription for Lower Health Care Costs", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Ways and Means", "chair": "", "time": "10:30 AM ET", "building": "Longworth (LHOB)", "room": "1100 LHOB", "topic": "H.R. 9496, H.R. 9500, H.R. 9498, H.R. 9501, H.R. 9499, H.R. 7972, H.R. 9504", "witnesses": [], "details": "", "cancelled": false, "changes": []}, {"chamber": "House", "committee": "Committee on Energy and Commerce", "chair": "", "time": "11:00 AM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Nine Pieces of Legislation (Postponed)", "witnesses": [], "details": "", "cancelled": true, "changes": ["Room changed to 2123 RHOB · 12:42 AM", "CANCELLED · 12:42 AM"]}, {"chamber": "House", "committee": "Subcommittee on Modernization and Innovation (Committee on House Administration)", "chair": "", "time": "2:00 PM ET", "building": "Longworth (LHOB)", "room": "1310 LHOB", "topic": "Committee on House Administration Subcommittee on Modernization and Innovation Hearing: “Modernizing Public Access to Legislative Data and Information.” (Postponed)", "witnesses": [], "details": "", "cancelled": true, "changes": ["CANCELLED · 12:42 AM"]}];
+const HEARINGS = [];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
