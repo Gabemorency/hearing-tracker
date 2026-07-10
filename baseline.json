@@ -1,5 +1,36 @@
 {
-  "date": "2026-07-10",
-  "generated": "12:51 AM ET · Thursday, July 9, 2026",
-  "hearings": []
+  "date": "2026-07-13",
+  "generated": "12:51 AM ET · Friday, July 10, 2026",
+  "hearings": [
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
+      "chair": "",
+      "time": "3:00 PM ET",
+      "building": "Cannon (CHOB)",
+      "room": "360 CHOB",
+      "topic": "PACT Act Implementation: Modernizing VA Disability Claims Through Effective Technology",
+      "details": "PACT Act Implementation: Modernizing VA Disability Claims Through Effective Technology",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Rules",
+      "chair": "",
+      "time": "4:00 PM ET",
+      "building": "Capitol",
+      "room": "H-313 CAPITOL",
+      "topic": "H.R. 139 – Sunshine Protection Act of 2025; H.R. 8595 – National Security, Department of State, and Related Programs Appropriations Act, 2027; H.R. 9237 – Take Care of America’s Veterans Act; H.R. 118",
+      "details": "H.R. 139 – Sunshine Protection Act of 2025; H.R. 8595 – National Security, Department of State, and Related Programs Appropriations Act, 2027; H.R. 9237 – Take Care of America’s Veterans Act; H.R. 118",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    }
+  ]
 }
