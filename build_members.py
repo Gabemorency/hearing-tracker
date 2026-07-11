@@ -24,6 +24,51 @@ except ImportError:
     import yaml
 
 # ── Auto DST timezone ──────────────────────────────────────────────────────────
+
+# ── PWA + Congress.gov activity snippets (injected into bio page templates) ──
+PWA_SW = (
+    '<script>\n'
+    'if ("serviceWorker" in navigator) {\n'
+    '  window.addEventListener("load", function() {\n'
+    '    navigator.serviceWorker.register("/hearing-tracker/sw.js")\n'
+    '      .catch(function(err) { console.warn("SW:", err); });\n'
+    '  });\n'
+    '}\n'
+    '</script>\n'
+)
+
+CONGRESS_ACTIVITY = (
+    '<div id="congress-activity" style="display:none" class="congress-activity-section"></div>\n'
+    '<script>\n'
+    '(function() {\n'
+    '  var bid = document.body.getAttribute("data-bioguide");\n'
+    '  var key = "__CONGRESS_KEY__";\n'
+    '  if (!bid || !key || key === "__CONGRESS_KEY__") return;\n'
+    '  var el = document.getElementById("congress-activity");\n'
+    '  if (!el) return;\n'
+    '  fetch("https://api.congress.gov/v3/member/" + bid + "/sponsored-legislation?limit=5&api_key=" + key)\n'
+    '    .then(function(r) { return r.ok ? r.json() : null; })\n'
+    '    .then(function(data) {\n'
+    '      if (!data || !data.sponsoredLegislation || !data.sponsoredLegislation.length) return;\n'
+    '      var bills = data.sponsoredLegislation.slice(0, 5);\n'
+    '      var html = "<h3 class=\\\"activity-heading\\\">Recent Sponsored Legislation</h3><ul class=\\\"bill-list\\\">";\n'
+    '      for (var i = 0; i < bills.length; i++) {\n'
+    '        var b = bills[i];\n'
+    '        var url = b.url || ("https://congress.gov/bill/" + b.congress + "th-congress/" + (b.type || "house-bill").toLowerCase() + "/" + b.number);\n'
+    '        html += "<li class=\\\"bill-item\\\"><a href=\\\"" + url + "\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">";\n'
+    '        html += "<span class=\\\"bill-num\\\">" + (b.type || "") + " " + (b.number || "") + "</span>";\n'
+    '        html += "<span class=\\\"bill-title\\\">" + (b.title || "Untitled") + "</span>";\n'
+    '        html += "</a></li>";\n'
+    '      }\n'
+    '      html += "</ul>";\n'
+    '      el.innerHTML = html;\n'
+    '      el.style.display = "block";\n'
+    '    })\n'
+    '    .catch(function() {});\n'
+    '}());\n'
+    '</script>\n'
+)
+
 def get_et_offset():
     now_utc = datetime.now(timezone.utc)
     year = now_utc.year
@@ -370,10 +415,23 @@ def build():
         else:
             reps.append(member)
 
-    # Sort
+    # ── Seniority sort ────────────────────────────────────────────────────────
+    seniority_map = {}
+    for m_leg in legislators:
+        bid_s  = m_leg.get("id", {}).get("bioguide", "")
+        terms_s = m_leg.get("terms", [])
+        if bid_s and terms_s:
+            starts = [t.get("start", "9999-99-99") for t in terms_s if t.get("start")]
+            seniority_map[bid_s] = min(starts) if starts else "9999-99-99"
+
     def sort_key(m):
-        tier = m["leadership"]["tier"] if m["leadership"] else 99
-        return (tier, m["last"])
+        tier      = m["leadership"]["tier"] if m["leadership"] else 99
+        seniority = seniority_map.get(m["bioguide_id"], "9999-99-99")
+        if m["leadership"]:
+            return (tier, "0000-00-00", m["last"])
+        else:
+            return (99, seniority, m["last"])
+
     senators.sort(key=sort_key)
     reps.sort(key=sort_key)
 
@@ -501,6 +559,11 @@ def build_bio_page(m, paragraphs):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+
 <link rel="manifest" href="/hearing-tracker/manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -677,7 +740,7 @@ if ("serviceWorker" in navigator) {{
   }});
 }}
 </script>
-</body>
+{CONGRESS_ACTIVITY}{PWA_SW}{PWA_SW}</body>
 </html>"""
 
 def build_html(members_json):
@@ -686,6 +749,11 @@ def build_html(members_json):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+
 <link rel="manifest" href="/hearing-tracker/manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
