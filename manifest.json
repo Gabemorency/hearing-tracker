@@ -10,34 +10,12 @@
   "theme_color": "#0D0C0A",
   "categories": ["news", "politics", "government"],
   "icons": [
-    {
-      "src": "icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
   ],
-  "screenshots": [],
   "shortcuts": [
-    {
-      "name": "Today's Hearings",
-      "short_name": "Hearings",
-      "description": "View today's congressional hearings",
-      "url": "/hearing-tracker/",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Member Directory",
-      "short_name": "Members",
-      "description": "Browse congressional member profiles",
-      "url": "/hearing-tracker/members.html",
-      "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }]
-    }
+    {"name": "Today's Hearings", "short_name": "Hearings", "url": "/hearing-tracker/", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "Member Directory",  "short_name": "Members",  "url": "/hearing-tracker/members.html", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]},
+    {"name": "Calendar",          "short_name": "Calendar", "url": "/hearing-tracker/calendar.html", "icons": [{"src": "icons/icon-192.png", "sizes": "192x192"}]}
   ]
 }
