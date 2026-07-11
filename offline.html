@@ -4,76 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Congressional Hearing Tracker — Offline</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0D0C0A;
-    --text: #F0E8D8;
-    --text-s: #C8B89A;
-    --text-m: #A09070;
-    --gold: #E0B870;
-    --border: rgba(255,255,255,0.1);
-  }
-  @media (prefers-color-scheme: light) {
-    :root { --bg: #F5F3EE; --text: #0E0C0A; --text-s: #3A3020; --text-m: #5A4A35; --gold: #B8860B; --border: rgba(0,0,0,0.12); }
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    text-align: center;
-  }
-  .icon {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    opacity: 0.6;
-  }
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.75rem;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-  }
-  p {
-    color: var(--text-s);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    max-width: 320px;
-    margin-bottom: 2rem;
-  }
-  .note {
-    color: var(--text-m);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 0.75rem;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 0.75rem 1rem;
-    max-width: 320px;
-  }
-  a {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: var(--gold);
-    text-decoration: none;
-    font-size: 0.85rem;
-    border-bottom: 1px solid rgba(224,184,112,0.3);
-    padding-bottom: 2px;
-  }
+:root{--bg:#0D0C0A;--text:#F0E8D8;--text-s:#C8B89A;--text-m:#A09070;--gold:#E0B870;--border:rgba(255,255,255,0.1);}
+@media(prefers-color-scheme:light){:root{--bg:#F5F3EE;--text:#0E0C0A;--text-s:#3A3020;--text-m:#5A4A35;--gold:#B8860B;--border:rgba(0,0,0,0.12);}}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;}
+.icon{font-size:3rem;margin-bottom:1.5rem;opacity:.6;}
+h1{font-family:'Playfair Display',serif;font-size:1.75rem;color:var(--gold);margin-bottom:.75rem;}
+p{color:var(--text-s);font-size:.95rem;line-height:1.6;max-width:320px;margin-bottom:2rem;}
+.note{color:var(--text-m);font-family:'IBM Plex Mono',monospace;font-size:.75rem;border:1px solid var(--border);border-radius:6px;padding:.75rem 1rem;max-width:320px;}
+a{display:inline-block;margin-top:1.5rem;color:var(--gold);text-decoration:none;font-size:.85rem;border-bottom:1px solid rgba(224,184,112,.3);padding-bottom:2px;}
 </style>
 </head>
 <body>
-  <div class="icon">📡</div>
-  <h1>No Connection</h1>
-  <p>Hearing data requires an internet connection and updates every two hours. Connect and reload to see the latest schedule.</p>
-  <div class="note">Member profiles and bio pages may still be available if you've visited them before.</div>
-  <a href="/hearing-tracker/">Try again</a>
+<div class="icon">📡</div>
+<h1>No Connection</h1>
+<p>Hearing data requires an internet connection and updates every two hours. Connect and reload to see the latest schedule.</p>
+<div class="note">Member profiles and bio pages may still be available if you've visited them before.</div>
+<a href="/hearing-tracker/">Try again</a>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/hearing-tracker/sw.js").catch(function() {});
+  });
+}
+</script>
 </body>
 </html>
