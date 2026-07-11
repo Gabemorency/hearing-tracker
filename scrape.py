@@ -30,6 +30,119 @@ except ImportError:
     HAS_REQUESTS = False
 
 # ── Auto DST timezone ──────────────────────────────────────────────────────────
+
+DW_JS = (
+    '<script>\n'
+    '(function() {{\n'
+    '  var KEY  = "__DOMEWATCH_KEY__";\n'
+    '  var BASE = "https://data.domewatch.us/v1";\n'
+    '  var etag = "";\n'
+    '  function fmt(iso) {{ return iso ? new Date(iso).toLocaleTimeString("en-US",{{hour:"numeric",minute:"2-digit",hour12:true}}) : ""; }}\n'
+    '  function updateBar(d) {{\n'
+    '    var bar=document.getElementById("floor-bar");\n'
+    '    var txt=document.getElementById("floor-bar__text");\n'
+    '    var vot=document.getElementById("floor-bar__vote");\n'
+    '    var tim=document.getElementById("floor-bar__time");\n'
+    '    if(!bar)return;\n'
+    '    bar.className="floor-bar";\n'
+    '    if(!d){{bar.classList.add("floor-bar--loading");return;}}\n'
+    '    vot.style.display="none";\n'
+    '    if(d.inSession){{\n'
+    '      if(d.vote&&d.vote.rollCall){{\n'
+    '        bar.classList.add("floor-bar--vote-active");\n'
+    '        txt.textContent="House In Session - Vote: "+(d.vote.question||"Roll Call");\n'
+    '        var c=d.vote.counts||{{}};\n'
+    '        vot.textContent="D "+((c.D||{{}}).yea||0)+"  R "+((c.R||{{}}).yea||0);\n'
+    '        vot.style.display="inline";\n'
+    '      }}else{{\n'
+    '        bar.classList.add("floor-bar--in-session");\n'
+    '        txt.textContent="House In Session"+(d.currentActivity?" - "+d.currentActivity:"");\n'
+    '      }}\n'
+    '    }}else{{\n'
+    '      bar.classList.add("floor-bar--recess");\n'
+    '      txt.textContent=d.currentActivity||"House Not In Session";\n'
+    '    }}\n'
+    '    if(tim)tim.textContent="Updated "+fmt(d.asOf||new Date().toISOString());\n'
+    '  }}\n'
+    '  function pollFloor(){{\n'
+    '    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;\n'
+    '    var h={{"X-API-Key":KEY}};\n'
+    '    if(etag)h["If-None-Match"]=etag;\n'
+    '    fetch(BASE+"/floor",{{headers:h}})\n'
+    '      .then(function(r){{if(r.status===304)return null;if(!r.ok)return null;var e=r.headers.get("ETag");if(e)etag=e;return r.json();}})\n'
+    '      .then(function(d){{if(d)updateBar(d);}})\n'
+    '      .catch(function(){{}});\n'
+    '  }}\n'
+    '  function loadWhip(){{\n'
+    '    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;\n'
+    '    fetch(BASE+"/whip-notices?limit=1",{{headers:{{"X-API-Key":KEY}}}})\n'
+    '      .then(function(r){{return r.ok?r.json():null;}})\n'
+    '      .then(function(data){{\n'
+    '        if(!data||!data.data||!data.data.length)return;\n'
+    '        var n=data.data[0];\n'
+    '        var sec=document.getElementById("whip-section");\n'
+    '        var met=document.getElementById("whip-meta");\n'
+    '        var itm=document.getElementById("whip-items");\n'
+    '        if(!sec)return;\n'
+    '        var mh="";\n'
+    '        if(n.houseMeetsAt)mh+="<span>House meets: "+n.houseMeetsAt+"</span>";\n'
+    '        if(n.firstVotes)mh+="<span>First votes: "+n.firstVotes+"</span>";\n'
+    '        if(n.lastVotes)mh+="<span>Last votes: "+n.lastVotes+"</span>";\n'
+    '        met.innerHTML=mh;\n'
+    '        var bh="";\n'
+    '        (n.items||[]).filter(function(b){{return b.confidence!=="low";}}).forEach(function(b){{\n'
+    '          var rc=b.recommendation?"wrec wrec-"+b.recommendation:"";\n'
+    '          var bl=b.billUrl?''\'<a href="''+b.billUrl+''" target="_blank" rel="noopener" class="whip-item__bill">''+( b.billNumber||"")+''"</a>'':''+''<span class="whip-item__bill">''+(b.billNumber||"")+''"</span>'';\n'
+    '          bh+="<div class=\\"whip-item\\">"+bl;\n'
+    '          if(b.title)bh+="<div class=\\"whip-item__title\\">"+b.title+"</div>";\n'
+    '          bh+="<div class=\\"whip-item__meta\\">";\n'
+    '          if(rc)bh+="<span class=\\""+rc+"\\">"+(b.recommendation||"").replace("_"," ")+"</span>";\n'
+    '          if(b.position)bh+="<span>"+b.position+"</span>";\n'
+    '          bh+="</div></div>";\n'
+    '        }});\n'
+    '        itm.innerHTML=bh||"<p>No upcoming vote items.</p>";\n'
+    '        sec.style.display="block";\n'
+    '      }})\n'
+    '      .catch(function(){{}});\n'
+    '  }}\n'
+    '  function loadUpdates(){{\n'
+    '    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;\n'
+    '    fetch(BASE+"/floor-updates?limit=5",{{headers:{{"X-API-Key":KEY}}}})\n'
+    '      .then(function(r){{return r.ok?r.json():null;}})\n'
+    '      .then(function(data){{\n'
+    '        if(!data||!data.data||!data.data.length)return;\n'
+    '        var sec=document.getElementById("floor-updates-section");\n'
+    '        var lst=document.getElementById("floor-updates-list");\n'
+    '        if(!sec)return;\n'
+    '        var h="";\n'
+    '        data.data.forEach(function(u){{\n'
+    '          h+="<div class=\\"floor-update\\">";\n'
+    '          h+="<div class=\\"floor-update__subject\\">"+(u.subject||"Floor Update")+"</div>";\n'
+    '          if(u.bodyText)h+="<div class=\\"floor-update__body\\">"+u.bodyText+"</div>";\n'
+    '          h+="<div class=\\"floor-update__time\\">"+fmt(u.publishedAt)+"</div>";\n'
+    '          h+="</div>";\n'
+    '        }});\n'
+    '        lst.innerHTML=h;\n'
+    '        sec.style.display="block";\n'
+    '      }})\n'
+    '      .catch(function(){{}});\n'
+    '  }}\n'
+    '  document.addEventListener("DOMContentLoaded",function(){{\n'
+    '    pollFloor();loadWhip();loadUpdates();\n'
+    '    setInterval(pollFloor,30000);\n'
+    '  }});\n'
+    '}());\n'
+    '</script>\n'
+    '<script>\n'
+    'if("serviceWorker"in navigator){{\n'
+    '  window.addEventListener("load",function(){{\n'
+    '    navigator.serviceWorker.register("/hearing-tracker/sw.js")\n'
+    '      .catch(function(e){{console.warn("SW:",e);}});\n'
+    '  }});\n'
+    '}}\n'
+    '</script>\n'
+)
+
 def get_et_offset():
     now_utc = datetime.now(timezone.utc)
     year = now_utc.year
@@ -837,6 +950,10 @@ def build_html(hearings):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <title>Congressional Hearing Tracker — {today_str}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -1105,9 +1222,70 @@ def build_html(hearings):
     font-size: 10px; color: var(--text-dim); line-height: 1.6;
   }}
   .empty {{ text-align: center; padding: 40px; color: var(--text-faint); font-size: 13px; }}
+
+/* ---- Floor Bar ---- */
+.floor-bar {{
+  display:flex;align-items:center;gap:0.6rem;padding:0.5rem 1.2rem;
+  font-size:0.76rem;font-family:'IBM Plex Mono',monospace;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  background:rgba(255,255,255,0.02);min-height:34px;
+  position:sticky;top:0;z-index:100;
+}}
+.floor-bar__dot {{
+  width:7px;height:7px;border-radius:50%;background:#555;flex-shrink:0;
+}}
+.floor-bar--in-session .floor-bar__dot  {{ background:#4caf50;box-shadow:0 0 5px #4caf5088;animation:fbp 2s infinite; }}
+.floor-bar--vote-active .floor-bar__dot {{ background:#ff9800;animation:fbp 0.8s infinite; }}
+.floor-bar--recess .floor-bar__dot      {{ background:#888; }}
+@keyframes fbp {{0%,100%{{opacity:1}}50%{{opacity:.4}}}}
+#floor-bar__text {{ flex:1;color:var(--text-secondary,#C8B89A);font-size:0.75rem; }}
+.floor-bar__vote {{
+  background:#ff9800;color:#000;padding:0.1rem 0.45rem;
+  border-radius:3px;font-weight:700;font-size:0.7rem;text-decoration:none;
+}}
+.floor-bar__time {{ color:var(--text-dim,#A09070);font-size:0.7rem;flex-shrink:0; }}
+/* ---- DomeWatch sections ---- */
+.dw-section {{
+  margin:1.5rem 1rem;padding:1.25rem 1.5rem;
+  border:1px solid rgba(255,255,255,0.08);border-radius:8px;
+  background:rgba(255,255,255,0.02);
+}}
+.dw-heading {{
+  font-size:0.9rem;font-weight:600;margin:0 0 0.85rem;
+  display:flex;align-items:center;gap:0.4rem;color:var(--text-primary,#F0E8D8);
+}}
+.dw-heading-sub {{ font-size:0.72rem;font-weight:400;color:var(--text-dim,#A09070);margin-left:auto; }}
+.whip-meta {{ font-size:0.78rem;color:var(--text-secondary,#C8B89A);margin-bottom:0.85rem;display:flex;gap:1.2rem;flex-wrap:wrap; }}
+.whip-items {{ display:flex;flex-direction:column;gap:0.6rem; }}
+.whip-item {{
+  padding:0.65rem 0.9rem;border-radius:5px;
+  border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);
+}}
+.whip-item__bill {{ font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--gold,#E0B870); }}
+.whip-item__title {{ font-size:0.85rem;margin:0.15rem 0; }}
+.whip-item__meta {{ font-size:0.73rem;color:var(--text-dim,#A09070);display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:0.25rem; }}
+.wrec {{ font-weight:700;padding:0.1rem 0.35rem;border-radius:3px;font-size:0.68rem; }}
+.wrec-YES {{ background:#1b5e20;color:#a5d6a7; }}
+.wrec-NO  {{ background:#b71c1c;color:#ef9a9a; }}
+.floor-updates-list {{ display:flex;flex-direction:column;gap:0.5rem; }}
+.floor-update {{
+  padding:0.6rem 0.85rem;border-radius:4px;
+  border-left:3px solid var(--gold,#E0B870);
+  background:rgba(255,255,255,0.02);font-size:0.83rem;
+}}
+.floor-update__subject {{ font-weight:600;margin-bottom:0.15rem; }}
+.floor-update__body    {{ color:var(--text-secondary,#C8B89A);font-size:0.8rem;line-height:1.5; }}
+.floor-update__time    {{ color:var(--text-dim,#A09070);font-size:0.7rem;margin-top:0.25rem;font-family:'IBM Plex Mono',monospace; }}
 </style>
 </head>
 <body>
+
+<div id="floor-bar" class="floor-bar floor-bar--loading" aria-live="polite">
+  <span class="floor-bar__dot"></span>
+  <span id="floor-bar__text">Loading floor status&#8230;</span>
+  <a id="floor-bar__vote" class="floor-bar__vote" style="display:none" href="#"></a>
+  <span class="floor-bar__time" id="floor-bar__time"></span>
+</div>
 
 <div class="header">
   <div class="header-left">
@@ -1285,7 +1463,23 @@ function setFilter(f) {{
 
 buildCards('All');
 </script>
-</body>
+
+<section id="whip-section" class="dw-section" style="display:none">
+  <h2 class="dw-heading">
+    Coming to the Floor
+    <span class="dw-heading-sub">via DomeWatch Whip Notice</span>
+  </h2>
+  <div id="whip-meta" class="whip-meta"></div>
+  <div id="whip-items" class="whip-items"></div>
+</section>
+<section id="floor-updates-section" class="dw-section" style="display:none">
+  <h2 class="dw-heading">
+    Floor Updates
+    <span class="dw-heading-sub">via DomeWatch</span>
+  </h2>
+  <div id="floor-updates-list" class="floor-updates-list"></div>
+</section>
+{DW_JS}</body>
 </html>"""
 
 async def main():
