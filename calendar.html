@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+<title>Congressional Calendar — Hearing Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0D0C0A; --bg2:#141210; --text:#F0E8D8; --text-s:#C8B89A;
+  --text-m:#A09070; --gold:#E0B870; --gold-dim:#8A6830;
+  --blue:#5B8DB8; --purple:#8B7BB8; --red:#C85858;
+  --border:rgba(255,255,255,0.09); --hover:rgba(255,255,255,0.05);
+  --rep:#C85858; --dem:#5B8DB8; --ind:#8B7BB8;
+}
+.light {
+  --bg:#F5F3EE; --bg2:#EDEAE4; --text:#0E0C0A; --text-s:#3A3020;
+  --text-m:#5A4A35; --gold:#B8860B; --gold-dim:#8A6620;
+  --border:rgba(0,0,0,0.1); --hover:rgba(0,0,0,0.04);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
+
+/* ── Nav ── */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:var(--bg);}
+.nav__brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);text-decoration:none;}
+.nav__links{display:flex;gap:1.5rem;align-items:center;}
+.nav__links a{color:var(--text-s);text-decoration:none;font-size:0.85rem;}
+.nav__links a:hover,.nav__links a.active{color:var(--text);}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--text-m);padding:0.25rem 0.6rem;border-radius:4px;cursor:pointer;font-size:0.78rem;}
+
+/* ── Header ── */
+.page-header{padding:1.5rem 1.5rem 0;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold);margin-bottom:0.25rem;}
+.page-header p{color:var(--text-s);font-size:0.85rem;}
+
+/* ── Floor bar ── */
+.floor-bar{display:flex;align-items:center;gap:0.6rem;padding:0.5rem 1.5rem;font-size:0.76rem;font-family:'IBM Plex Mono',monospace;border-bottom:1px solid var(--border);background:rgba(255,255,255,0.02);}
+.floor-bar__dot{width:7px;height:7px;border-radius:50%;background:#555;flex-shrink:0;}
+.floor-bar--in-session .floor-bar__dot{background:#4caf50;box-shadow:0 0 5px #4caf5088;animation:pulse 2s infinite;}
+.floor-bar--vote-active .floor-bar__dot{background:#ff9800;animation:pulse 0.8s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+#floor-bar__text{flex:1;color:var(--text-s);}
+.floor-bar__time{color:var(--text-m);font-size:0.7rem;}
+
+/* ── Legend ── */
+.legend{display:flex;gap:1rem;padding:0.75rem 1.5rem;flex-wrap:wrap;border-bottom:1px solid var(--border);font-size:0.75rem;}
+.legend__item{display:flex;align-items:center;gap:0.35rem;color:var(--text-m);}
+.legend__dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+
+/* ── Calendar grid ── */
+.cal-wrapper{padding:1rem 1.5rem 3rem;}
+.cal-nav{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
+.cal-nav__title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);}
+.cal-nav__btn{background:none;border:1px solid var(--border);color:var(--text-m);padding:0.25rem 0.65rem;border-radius:4px;cursor:pointer;font-size:0.8rem;}
+.cal-nav__btn:hover{border-color:var(--gold);color:var(--gold);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-day-header{text-align:center;font-size:0.7rem;color:var(--text-m);padding:0.4rem 0;font-family:'IBM Plex Mono',monospace;}
+.cal-day{min-height:80px;padding:0.4rem;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .15s,background .15s;position:relative;}
+.cal-day:hover{border-color:var(--gold-dim);background:var(--hover);}
+.cal-day--empty{border-color:transparent;cursor:default;}
+.cal-day--today{border-color:var(--gold)!important;background:rgba(224,184,112,0.05);}
+.cal-day--other-month{opacity:0.35;}
+.cal-day__num{font-size:0.72rem;font-family:'IBM Plex Mono',monospace;color:var(--text-m);margin-bottom:0.3rem;}
+.cal-day--today .cal-day__num{color:var(--gold);font-weight:700;}
+.cal-day__chips{display:flex;flex-direction:column;gap:2px;}
+.cal-chip{font-size:0.62rem;padding:1px 4px;border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.cal-chip--hearing{background:rgba(91,141,184,0.25);color:var(--blue);}
+.cal-chip--committee{background:rgba(139,123,184,0.25);color:var(--purple);}
+.cal-chip--vote{background:rgba(224,184,112,0.2);color:var(--gold);}
+.cal-chip--more{background:rgba(255,255,255,0.08);color:var(--text-m);}
+
+/* ── Detail panel ── */
+.detail-panel{margin-top:1rem;border:1px solid var(--border);border-radius:8px;padding:1.25rem;display:none;}
+.detail-panel.visible{display:block;}
+.detail-panel__date{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);margin-bottom:0.75rem;}
+.detail-events{display:flex;flex-direction:column;gap:0.6rem;}
+.detail-event{padding:0.65rem 0.85rem;border-radius:5px;border-left:3px solid var(--border);}
+.detail-event--hearing{border-left-color:var(--blue);}
+.detail-event--committee{border-left-color:var(--purple);}
+.detail-event--vote{border-left-color:var(--gold);}
+.detail-event__type{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-m);font-family:'IBM Plex Mono',monospace;margin-bottom:0.2rem;}
+.detail-event__title{font-size:0.88rem;color:var(--text);margin-bottom:0.2rem;}
+.detail-event__meta{font-size:0.76rem;color:var(--text-s);}
+.detail-event a{color:var(--blue);text-decoration:none;}
+.detail-event a:hover{text-decoration:underline;}
+
+/* ── Loading ── */
+.loading{text-align:center;padding:3rem;color:var(--text-m);font-family:'IBM Plex Mono',monospace;font-size:0.85rem;}
+
+@media(max-width:600px){
+  .cal-grid{grid-template-columns:repeat(7,1fr);}
+  .cal-day{min-height:52px;padding:0.25rem;}
+  .cal-chip{display:none;}
+  .cal-day__chips .cal-chip:first-child{display:block;}
+  .nav__links{gap:0.75rem;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/hearing-tracker/" class="nav__brand">Congressional Hearing Tracker</a>
+  <div class="nav__links">
+    <a href="/hearing-tracker/">Hearings</a>
+    <a href="/hearing-tracker/members.html">Members</a>
+    <a href="/hearing-tracker/calendar.html" class="active">Calendar</a>
+    <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()">☀️</button>
+  </div>
+</nav>
+
+<div class="floor-bar floor-bar--loading" id="floor-bar">
+  <span class="floor-bar__dot"></span>
+  <span id="floor-bar__text">Loading floor status…</span>
+  <span class="floor-bar__time" id="floor-bar__time"></span>
+</div>
+
+<div class="page-header">
+  <h1>Congressional Calendar</h1>
+  <p>30-day rolling view of hearings, committee meetings, and floor activity</p>
+</div>
+
+<div class="legend">
+  <span class="legend__item"><span class="legend__dot" style="background:var(--blue)"></span>Hearing</span>
+  <span class="legend__item"><span class="legend__dot" style="background:var(--purple)"></span>Committee Meeting</span>
+  <span class="legend__item"><span class="legend__dot" style="background:var(--gold)"></span>Whip Notice / Floor</span>
+</div>
+
+<div class="cal-wrapper">
+  <div class="cal-nav">
+    <button class="cal-nav__btn" id="prev-btn" onclick="changeMonth(-1)">← Prev</button>
+    <span class="cal-nav__title" id="cal-title"></span>
+    <button class="cal-nav__btn" id="next-btn" onclick="changeMonth(1)">Next →</button>
+  </div>
+  <div id="cal-loading" class="loading">Loading calendar data…</div>
+  <div id="cal-grid" class="cal-grid" style="display:none"></div>
+  <div id="detail-panel" class="detail-panel"></div>
+</div>
+
+<script>
+(function() {
+  var DW_KEY      = "__DOMEWATCH_KEY__";
+  var DW_BASE     = "https://data.domewatch.us/v1";
+  var HEARINGS_URL = "/hearing-tracker/hearings.json";
+
+  var allEvents   = {};   // keyed by YYYY-MM-DD
+  var currentYear, currentMonth;
+  var today       = new Date();
+  currentYear     = today.getFullYear();
+  currentMonth    = today.getMonth(); // 0-indexed
+
+  var MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+  var DAYS   = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+  // ── Theme ──────────────────────────────────────────────────────────────────
+  window.toggleTheme = function() {
+    var isLight = document.body.classList.toggle("light");
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+    document.getElementById("theme-toggle").textContent = isLight ? "🌙" : "☀️";
+  };
+  (function() {
+    var t = localStorage.getItem("theme");
+    if (!t) t = window.matchMedia("(prefers-color-scheme:light)").matches ? "light" : "dark";
+    if (t === "light") { document.body.classList.add("light"); document.getElementById("theme-toggle").textContent = "🌙"; }
+  })();
+
+  // ── Floor bar ──────────────────────────────────────────────────────────────
+  function fmtTime(iso) {
+    if (!iso) return "";
+    return new Date(iso).toLocaleTimeString("en-US", {hour:"numeric",minute:"2-digit",hour12:true});
+  }
+
+  function pollFloor() {
+    if (!DW_KEY || DW_KEY === "__DOMEWATCH_KEY__") return;
+    fetch(DW_BASE + "/floor", {headers: {"X-API-Key": DW_KEY}})
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        var bar  = document.getElementById("floor-bar");
+        var txt  = document.getElementById("floor-bar__text");
+        var time = document.getElementById("floor-bar__time");
+        if (!bar || !data) return;
+        bar.className = "floor-bar";
+        if (data.inSession) {
+          bar.classList.add(data.vote ? "floor-bar--vote-active" : "floor-bar--in-session");
+          txt.textContent = "House In Session" + (data.currentActivity ? " — " + data.currentActivity : "");
+        } else {
+          txt.textContent = data.currentActivity || "House Not In Session";
+        }
+        time.textContent = "Updated " + fmtTime(data.asOf || new Date().toISOString());
+      })
+      .catch(function() {});
+  }
+
+  // ── Data loading ──────────────────────────────────────────────────────────
+  function dateKey(d) {
+    var m = d.getMonth() + 1;
+    var dd = d.getDate();
+    return d.getFullYear() + "-" + (m < 10 ? "0" : "") + m + "-" + (dd < 10 ? "0" : "") + dd;
+  }
+
+  function addEvent(dateStr, event) {
+    if (!allEvents[dateStr]) allEvents[dateStr] = [];
+    allEvents[dateStr].push(event);
+  }
+
+  function loadAll() {
+    var now = new Date();
+    var from = dateKey(now);
+    var to30 = new Date(now.getTime() + 30 * 86400000);
+    var to = dateKey(to30);
+
+    var promises = [];
+
+    // 1. Hearings from hearings.json
+    promises.push(
+      fetch(HEARINGS_URL)
+        .then(function(r) { return r.ok ? r.json() : null; })
+        .then(function(data) {
+          if (!data) return;
+          var items = Array.isArray(data) ? data : (data.hearings || data.data || []);
+          items.forEach(function(h) {
+            var dateStr = (h.date || h.start_date || "").substring(0, 10);
+            if (dateStr >= from && dateStr <= to) {
+              addEvent(dateStr, {
+                type: "hearing",
+                title: h.title || h.name || "Hearing",
+                meta: (h.committee || h.body || "") + (h.time ? " · " + h.time : ""),
+                url: h.url || null,
+              });
+            }
+          });
+        })
+        .catch(function() {})
+    );
+
+    // 2. DomeWatch committee meetings
+    if (DW_KEY && DW_KEY !== "__DOMEWATCH_KEY__") {
+      promises.push(
+        fetch(DW_BASE + "/committee-meetings?from=" + from + "&to=" + to, {
+          headers: {"X-API-Key": DW_KEY}
+        })
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .then(function(data) {
+            if (!data || !data.data) return;
+            data.data.forEach(function(m) {
+              var dateStr = (m.startDate || "").substring(0, 10);
+              if (dateStr) {
+                addEvent(dateStr, {
+                  type: "committee",
+                  title: m.title || m.committee || "Committee Meeting",
+                  meta: (m.committee || "") + (m.location ? " · " + m.location : "") +
+                        (m.meetingType ? " · " + m.meetingType.replace(/_/g, " ") : ""),
+                  url: m.url || null,
+                  time: m.startDate,
+                });
+              }
+            });
+          })
+          .catch(function() {})
+      );
+
+      // 3. Whip notices
+      promises.push(
+        fetch(DW_BASE + "/whip-notices?limit=5", {headers: {"X-API-Key": DW_KEY}})
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .then(function(data) {
+            if (!data || !data.data) return;
+            data.data.forEach(function(notice) {
+              var dateStr = notice.publishDate || (notice.postedAt || "").substring(0, 10);
+              if (dateStr >= from && dateStr <= to) {
+                (notice.items || []).filter(function(b) { return b.confidence !== "low" && b.billNumber; })
+                  .forEach(function(b) {
+                    addEvent(dateStr, {
+                      type: "vote",
+                      title: (b.billNumber || "") + (b.title ? " — " + b.title : ""),
+                      meta: (b.recommendation ? b.recommendation + " · " : "") + (b.position || ""),
+                      url: b.billUrl || null,
+                    });
+                  });
+              }
+            });
+          })
+          .catch(function() {})
+      );
+    }
+
+    Promise.all(promises).then(function() {
+      document.getElementById("cal-loading").style.display = "none";
+      document.getElementById("cal-grid").style.display = "grid";
+      renderCalendar();
+    });
+  }
+
+  // ── Calendar render ────────────────────────────────────────────────────────
+  window.changeMonth = function(dir) {
+    currentMonth += dir;
+    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    if (currentMonth < 0)  { currentMonth = 11; currentYear--; }
+    document.getElementById("detail-panel").className = "detail-panel";
+    renderCalendar();
+  };
+
+  function renderCalendar() {
+    var title = document.getElementById("cal-title");
+    title.textContent = MONTHS[currentMonth] + " " + currentYear;
+
+    var grid = document.getElementById("cal-grid");
+    grid.innerHTML = "";
+
+    // Day headers
+    DAYS.forEach(function(d) {
+      var h = document.createElement("div");
+      h.className = "cal-day-header";
+      h.textContent = d;
+      grid.appendChild(h);
+    });
+
+    var firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    var todayKey = dateKey(today);
+
+    // Empty cells before first day
+    for (var i = 0; i < firstDay; i++) {
+      var empty = document.createElement("div");
+      empty.className = "cal-day cal-day--empty";
+      grid.appendChild(empty);
+    }
+
+    for (var d = 1; d <= daysInMonth; d++) {
+      var cell = document.createElement("div");
+      var mo   = currentMonth + 1;
+      var dk   = currentYear + "-" + (mo < 10 ? "0" : "") + mo + "-" + (d < 10 ? "0" : "") + d;
+      cell.className = "cal-day" + (dk === todayKey ? " cal-day--today" : "");
+      cell.dataset.date = dk;
+
+      var numDiv = document.createElement("div");
+      numDiv.className = "cal-day__num";
+      numDiv.textContent = d;
+      cell.appendChild(numDiv);
+
+      var events = allEvents[dk] || [];
+      if (events.length) {
+        var chips = document.createElement("div");
+        chips.className = "cal-day__chips";
+        var max = 3;
+        events.slice(0, max).forEach(function(ev) {
+          var chip = document.createElement("div");
+          chip.className = "cal-chip cal-chip--" + ev.type;
+          chip.textContent = ev.title;
+          chips.appendChild(chip);
+        });
+        if (events.length > max) {
+          var more = document.createElement("div");
+          more.className = "cal-chip cal-chip--more";
+          more.textContent = "+" + (events.length - max) + " more";
+          chips.appendChild(more);
+        }
+        cell.appendChild(chips);
+        cell.addEventListener("click", function(e) { showDetail(e.currentTarget.dataset.date); });
+      }
+
+      grid.appendChild(cell);
+    }
+  }
+
+  function showDetail(dk) {
+    var panel  = document.getElementById("detail-panel");
+    var events = allEvents[dk] || [];
+    if (!events.length) { panel.className = "detail-panel"; return; }
+
+    var parts  = dk.split("-");
+    var dispDate = MONTHS[parseInt(parts[1], 10) - 1] + " " + parseInt(parts[2], 10) + ", " + parts[0];
+
+    var html = '<div class="detail-panel__date">' + dispDate + '</div>';
+    html += '<div class="detail-events">';
+    events.forEach(function(ev) {
+      html += '<div class="detail-event detail-event--' + ev.type + '">';
+      html += '<div class="detail-event__type">' + ev.type.replace("committee", "Committee Meeting").replace("hearing", "Hearing").replace("vote", "Floor / Vote") + '</div>';
+      if (ev.url) {
+        html += '<div class="detail-event__title"><a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.title + '</a></div>';
+      } else {
+        html += '<div class="detail-event__title">' + ev.title + '</div>';
+      }
+      if (ev.meta) html += '<div class="detail-event__meta">' + ev.meta + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+
+    panel.innerHTML = html;
+    panel.className = "detail-panel visible";
+    panel.scrollIntoView({behavior: "smooth", block: "nearest"});
+  }
+
+  // ── Init ──────────────────────────────────────────────────────────────────
+  document.addEventListener("DOMContentLoaded", function() {
+    pollFloor();
+    setInterval(pollFloor, 30000);
+    loadAll();
+  });
+}());
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/hearing-tracker/sw.js")
+      .catch(function(err) { console.warn("SW:", err); });
+  });
+}
+</script>
+</body>
+</html>
