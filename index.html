@@ -569,7 +569,7 @@ buildCards('All');
 
 <script>
 (function() {
-  var DW_KEY = "__DOMEWATCH_KEY__";
+  var DW_KEY = "";
   var DW_BASE = "https://data.domewatch.us/v1";
   var POLL_INTERVAL = 30000;
   var floorEtag = "";
@@ -616,7 +616,7 @@ buildCards('All');
   }
 
   function pollFloor() {
-    if (!DW_KEY || DW_KEY === "__DOMEWATCH_KEY__") return;
+    if (!DW_KEY || DW_KEY === "") return;
     var headers = {"X-API-Key": DW_KEY};
     if (floorEtag) headers["If-None-Match"] = floorEtag;
     fetch(DW_BASE + "/floor", {headers: headers})
@@ -633,7 +633,7 @@ buildCards('All');
 
   // ── Whip Notices ─────────────────────────────────────────────────────────
   function loadWhipNotices() {
-    if (!DW_KEY || DW_KEY === "__DOMEWATCH_KEY__") return;
+    if (!DW_KEY || DW_KEY === "") return;
     fetch(DW_BASE + "/whip-notices?limit=1", {headers: {"X-API-Key": DW_KEY}})
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
@@ -674,7 +674,7 @@ buildCards('All');
 
   // ── Floor Updates ─────────────────────────────────────────────────────────
   function loadFloorUpdates() {
-    if (!DW_KEY || DW_KEY === "__DOMEWATCH_KEY__") return;
+    if (!DW_KEY || DW_KEY === "") return;
     fetch(DW_BASE + "/floor-updates?limit=5", {headers: {"X-API-Key": DW_KEY}})
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
