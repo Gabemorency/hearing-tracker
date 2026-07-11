@@ -1,6 +1,6 @@
 """
 inject_keys.py — called by update.yml and nightly.yml
-Injects API keys into HTML files.
+Injects API keys into HTML and JS files.
 """
 import os
 
@@ -12,7 +12,7 @@ if not dw:
 if not cg:
     print("WARNING: CONGRESS_API_KEY is empty")
 
-files = ["index.html", "calendar.html", "members.html"]
+files = ["index.html", "calendar.html", "members.html", "domewatch.js"]
 for fname in files:
     if not os.path.exists(fname):
         print(f"Skipping {fname} — not found")
