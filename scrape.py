@@ -31,117 +31,117 @@ except ImportError:
 
 # ── Auto DST timezone ──────────────────────────────────────────────────────────
 
-DW_JS = (
-    '<script>\n'
-    '(function() {{\n'
-    '  var KEY  = "__DOMEWATCH_KEY__";\n'
-    '  var BASE = "https://data.domewatch.us/v1";\n'
-    '  var etag = "";\n'
-    '  function fmt(iso) {{ return iso ? new Date(iso).toLocaleTimeString("en-US",{{hour:"numeric",minute:"2-digit",hour12:true}}) : ""; }}\n'
-    '  function updateBar(d) {{\n'
-    '    var bar=document.getElementById("floor-bar");\n'
-    '    var txt=document.getElementById("floor-bar__text");\n'
-    '    var vot=document.getElementById("floor-bar__vote");\n'
-    '    var tim=document.getElementById("floor-bar__time");\n'
-    '    if(!bar)return;\n'
-    '    bar.className="floor-bar";\n'
-    '    if(!d){{bar.classList.add("floor-bar--loading");return;}}\n'
-    '    vot.style.display="none";\n'
-    '    if(d.inSession){{\n'
-    '      if(d.vote&&d.vote.rollCall){{\n'
-    '        bar.classList.add("floor-bar--vote-active");\n'
-    '        txt.textContent="House In Session - Vote: "+(d.vote.question||"Roll Call");\n'
-    '        var c=d.vote.counts||{{}};\n'
-    '        vot.textContent="D "+((c.D||{{}}).yea||0)+"  R "+((c.R||{{}}).yea||0);\n'
-    '        vot.style.display="inline";\n'
-    '      }}else{{\n'
-    '        bar.classList.add("floor-bar--in-session");\n'
-    '        txt.textContent="House In Session"+(d.currentActivity?" - "+d.currentActivity:"");\n'
-    '      }}\n'
-    '    }}else{{\n'
-    '      bar.classList.add("floor-bar--recess");\n'
-    '      txt.textContent=d.currentActivity||"House Not In Session";\n'
-    '    }}\n'
-    '    if(tim)tim.textContent="Updated "+fmt(d.asOf||new Date().toISOString());\n'
-    '  }}\n'
-    '  function pollFloor(){{\n'
-    '    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;\n'
-    '    var h={{"X-API-Key":KEY}};\n'
-    '    if(etag)h["If-None-Match"]=etag;\n'
-    '    fetch(BASE+"/floor",{{headers:h}})\n'
-    '      .then(function(r){{if(r.status===304)return null;if(!r.ok)return null;var e=r.headers.get("ETag");if(e)etag=e;return r.json();}})\n'
-    '      .then(function(d){{if(d)updateBar(d);}})\n'
-    '      .catch(function(){{}});\n'
-    '  }}\n'
-    '  function loadWhip(){{\n'
-    '    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;\n'
-    '    fetch(BASE+"/whip-notices?limit=1",{{headers:{{"X-API-Key":KEY}}}})\n'
-    '      .then(function(r){{return r.ok?r.json():null;}})\n'
-    '      .then(function(data){{\n'
-    '        if(!data||!data.data||!data.data.length)return;\n'
-    '        var n=data.data[0];\n'
-    '        var sec=document.getElementById("whip-section");\n'
-    '        var met=document.getElementById("whip-meta");\n'
-    '        var itm=document.getElementById("whip-items");\n'
-    '        if(!sec)return;\n'
-    '        var mh="";\n'
-    '        if(n.houseMeetsAt)mh+="<span>House meets: "+n.houseMeetsAt+"</span>";\n'
-    '        if(n.firstVotes)mh+="<span>First votes: "+n.firstVotes+"</span>";\n'
-    '        if(n.lastVotes)mh+="<span>Last votes: "+n.lastVotes+"</span>";\n'
-    '        met.innerHTML=mh;\n'
-    '        var bh="";\n'
-    '        (n.items||[]).filter(function(b){{return b.confidence!=="low";}}).forEach(function(b){{\n'
-    '          var rc=b.recommendation?"wrec wrec-"+b.recommendation:"";\n'
-    '          var bl=b.billUrl?''\'<a href="''+b.billUrl+''" target="_blank" rel="noopener" class="whip-item__bill">''+( b.billNumber||"")+''"</a>'':''+''<span class="whip-item__bill">''+(b.billNumber||"")+''"</span>'';\n'
-    '          bh+="<div class=\\"whip-item\\">"+bl;\n'
-    '          if(b.title)bh+="<div class=\\"whip-item__title\\">"+b.title+"</div>";\n'
-    '          bh+="<div class=\\"whip-item__meta\\">";\n'
-    '          if(rc)bh+="<span class=\\""+rc+"\\">"+(b.recommendation||"").replace("_"," ")+"</span>";\n'
-    '          if(b.position)bh+="<span>"+b.position+"</span>";\n'
-    '          bh+="</div></div>";\n'
-    '        }});\n'
-    '        itm.innerHTML=bh||"<p>No upcoming vote items.</p>";\n'
-    '        sec.style.display="block";\n'
-    '      }})\n'
-    '      .catch(function(){{}});\n'
-    '  }}\n'
-    '  function loadUpdates(){{\n'
-    '    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;\n'
-    '    fetch(BASE+"/floor-updates?limit=5",{{headers:{{"X-API-Key":KEY}}}})\n'
-    '      .then(function(r){{return r.ok?r.json():null;}})\n'
-    '      .then(function(data){{\n'
-    '        if(!data||!data.data||!data.data.length)return;\n'
-    '        var sec=document.getElementById("floor-updates-section");\n'
-    '        var lst=document.getElementById("floor-updates-list");\n'
-    '        if(!sec)return;\n'
-    '        var h="";\n'
-    '        data.data.forEach(function(u){{\n'
-    '          h+="<div class=\\"floor-update\\">";\n'
-    '          h+="<div class=\\"floor-update__subject\\">"+(u.subject||"Floor Update")+"</div>";\n'
-    '          if(u.bodyText)h+="<div class=\\"floor-update__body\\">"+u.bodyText+"</div>";\n'
-    '          h+="<div class=\\"floor-update__time\\">"+fmt(u.publishedAt)+"</div>";\n'
-    '          h+="</div>";\n'
-    '        }});\n'
-    '        lst.innerHTML=h;\n'
-    '        sec.style.display="block";\n'
-    '      }})\n'
-    '      .catch(function(){{}});\n'
-    '  }}\n'
-    '  document.addEventListener("DOMContentLoaded",function(){{\n'
-    '    pollFloor();loadWhip();loadUpdates();\n'
-    '    setInterval(pollFloor,30000);\n'
-    '  }});\n'
-    '}());\n'
-    '</script>\n'
-    '<script>\n'
-    'if("serviceWorker"in navigator){{\n'
-    '  window.addEventListener("load",function(){{\n'
-    '    navigator.serviceWorker.register("/hearing-tracker/sw.js")\n'
-    '      .catch(function(e){{console.warn("SW:",e);}});\n'
-    '  }});\n'
-    '}}\n'
-    '</script>\n'
-)
+DW_JS = """\
+<script>
+(function() {
+  var KEY  = "__DOMEWATCH_KEY__";
+  var BASE = "https://data.domewatch.us/v1";
+  var etag = "";
+  function fmt(iso) { return iso ? new Date(iso).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit",hour12:true}) : ""; }
+  function updateBar(d) {
+    var bar=document.getElementById("floor-bar");
+    var txt=document.getElementById("floor-bar__text");
+    var vot=document.getElementById("floor-bar__vote");
+    var tim=document.getElementById("floor-bar__time");
+    if(!bar)return;
+    bar.className="floor-bar";
+    if(!d){bar.classList.add("floor-bar--loading");return;}
+    vot.style.display="none";
+    if(d.inSession){
+      if(d.vote&&d.vote.rollCall){
+        bar.classList.add("floor-bar--vote-active");
+        txt.textContent="House In Session - Vote: "+(d.vote.question||"Roll Call");
+        var c=d.vote.counts||{};
+        vot.textContent="D "+((c.D||{}).yea||0)+"  R "+((c.R||{}).yea||0);
+        vot.style.display="inline";
+      }else{
+        bar.classList.add("floor-bar--in-session");
+        txt.textContent="House In Session"+(d.currentActivity?" - "+d.currentActivity:"");
+      }
+    }else{
+      bar.classList.add("floor-bar--recess");
+      txt.textContent=d.currentActivity||"House Not In Session";
+    }
+    if(tim)tim.textContent="Updated "+fmt(d.asOf||new Date().toISOString());
+  }
+  function pollFloor(){
+    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;
+    var h={"X-API-Key":KEY};
+    if(etag)h["If-None-Match"]=etag;
+    fetch(BASE+"/floor",{headers:h})
+      .then(function(r){if(r.status===304)return null;if(!r.ok)return null;var e=r.headers.get("ETag");if(e)etag=e;return r.json();})
+      .then(function(d){if(d)updateBar(d);})
+      .catch(function(){});
+  }
+  function loadWhip(){
+    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;
+    fetch(BASE+"/whip-notices?limit=1",{headers:{"X-API-Key":KEY})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(data){
+        if(!data||!data.data||!data.data.length)return;
+        var n=data.data[0];
+        var sec=document.getElementById("whip-section");
+        var met=document.getElementById("whip-meta");
+        var itm=document.getElementById("whip-items");
+        if(!sec)return;
+        var mh="";
+        if(n.houseMeetsAt)mh+="<span>House meets: "+n.houseMeetsAt+"</span>";
+        if(n.firstVotes)mh+="<span>First votes: "+n.firstVotes+"</span>";
+        if(n.lastVotes)mh+="<span>Last votes: "+n.lastVotes+"</span>";
+        met.innerHTML=mh;
+        var bh="";
+        (n.items||[]).filter(function(b){return b.confidence!=="low";}).forEach(function(b){
+          var rc=b.recommendation?"wrec wrec-"+b.recommendation:"";
+          var bl=b.billUrl?'<a href="+b.billUrl+" target="_blank" rel="noopener" class="whip-item__bill">+( b.billNumber||"")+"</a>:+<span class="whip-item__bill">+(b.billNumber||"")+"</span>;
+          bh+="<div class=\"whip-item\">"+bl;
+          if(b.title)bh+="<div class=\"whip-item__title\">"+b.title+"</div>";
+          bh+="<div class=\"whip-item__meta\">";
+          if(rc)bh+="<span class=\""+rc+"\">"+(b.recommendation||"").replace("_"," ")+"</span>";
+          if(b.position)bh+="<span>"+b.position+"</span>";
+          bh+="</div></div>";
+        });
+        itm.innerHTML=bh||"<p>No upcoming vote items.</p>";
+        sec.style.display="block";
+      })
+      .catch(function(){});
+  }
+  function loadUpdates(){
+    if(!KEY||KEY==="__DOMEWATCH_KEY__")return;
+    fetch(BASE+"/floor-updates?limit=5",{headers:{"X-API-Key":KEY}})
+      .then(function(r){return r.ok?r.json():null;})
+      .then(function(data){
+        if(!data||!data.data||!data.data.length)return;
+        var sec=document.getElementById("floor-updates-section");
+        var lst=document.getElementById("floor-updates-list");
+        if(!sec)return;
+        var h="";
+        data.data.forEach(function(u){
+          h+="<div class=\"floor-update\">";
+          h+="<div class=\"floor-update__subject\">"+(u.subject||"Floor Update")+"</div>";
+          if(u.bodyText)h+="<div class=\"floor-update__body\">"+u.bodyText+"</div>";
+          h+="<div class=\"floor-update__time\">"+fmt(u.publishedAt)+"</div>";
+          h+="</div>";
+        });
+        lst.innerHTML=h;
+        sec.style.display="block";
+      })
+      .catch(function(){});
+  }
+  document.addEventListener("DOMContentLoaded",function(){
+    pollFloor();loadWhip();loadUpdates();
+    setInterval(pollFloor,30000);
+  });
+}());
+</script>
+<script>
+if("serviceWorker"in navigator){
+  window.addEventListener("load",function(){
+    navigator.serviceWorker.register("/hearing-tracker/sw.js")
+      .catch(function(e){console.warn("SW:",e);});
+  });
+}
+</script>
+"""
 
 def get_et_offset():
     now_utc = datetime.now(timezone.utc)
