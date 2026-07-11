@@ -116,7 +116,49 @@ try:
 except Exception as e:
     print(f"  Could not check vacancies: {e}")
 
-# ── 5. Report ──────────────────────────────────────────────────────────────────
+# ── 6. Report ──────────────────────────────────────────────────────────────────
+
+# ── 5. Remove departed members from bios_hardcoded.py ─────────────────────────
+print("🧹 Checking bios_hardcoded.py for departed members...")
+import importlib.util as _ilu
+if os.path.exists("bios_hardcoded.py"):
+    _spec = _ilu.spec_from_file_location("bios_hardcoded", "bios_hardcoded.py")
+    _mod  = _ilu.module_from_spec(_spec)
+    try:
+        _spec.loader.exec_module(_mod)
+        existing_bios = dict(getattr(_mod, "MEMBER_BIOS", {}))
+        departed_bids = [bid for bid in existing_bios if bid not in current_bids and bid]
+        if departed_bids:
+            print(f"  Found {len(departed_bids)} departed member(s) in bios_hardcoded.py — removing...")
+            for bid in departed_bids:
+                name = bid_to_name.get(bid, bid)
+                print(f"    Removing: {bid} ({name})")
+                del existing_bios[bid]
+            # Rewrite bios_hardcoded.py
+            lines = [
+                '"""',
+                "Member bios for the current Congress.",
+                "Auto-maintained — do not edit placeholders manually.",
+                '"""',
+                "",
+                "MEMBER_BIOS = {",
+            ]
+            for bid, bio in sorted(existing_bios.items()):
+                escaped = bio.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
+                lines.append(f'    "{bid}": "{escaped}",')
+            lines.append("}")
+            lines.append("")
+            with open("bios_hardcoded.py", "w", encoding="utf-8") as _f:
+                _f.write("\n".join(lines))
+            print(f"  ✅ bios_hardcoded.py updated — {len(departed_bids)} departed member(s) removed")
+            issues.append(f"ℹ️ **Bios cleaned:** Removed {len(departed_bids)} departed member(s) from bios_hardcoded.py: {', '.join(departed_bids)}")
+        else:
+            print("  ✅ bios_hardcoded.py is current — no departed members found")
+    except Exception as e:
+        print(f"  ⚠️  Could not process bios_hardcoded.py: {e}")
+else:
+    print("  ℹ️  bios_hardcoded.py not found — skipping cleanup")
+
 if issues:
     print(f"\n⚠️  {len(issues)} issue(s) found:")
     for issue in issues:
