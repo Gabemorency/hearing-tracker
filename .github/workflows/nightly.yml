@@ -32,9 +32,18 @@ jobs:
       - name: Build member directory
         run: python build_members.py
 
+      - name: Inject API keys into HTML
+        run: |
+          sed -i "s|__DOMEWATCH_KEY__|${{ secrets.DOMEWATCH_API_KEY }}|g" index.html
+          sed -i "s|__DOMEWATCH_KEY__|${{ secrets.DOMEWATCH_API_KEY }}|g" calendar.html
+          sed -i "s|__CONGRESS_KEY__|${{ secrets.CONGRESS_API_KEY }}|g" index.html
+          sed -i "s|__CONGRESS_KEY__|${{ secrets.CONGRESS_API_KEY }}|g" calendar.html
+          sed -i "s|__CONGRESS_KEY__|${{ secrets.CONGRESS_API_KEY }}|g" members.html
+
       - name: Commit everything
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add baseline.json members.json members.html bios/
-          git diff --cached --quiet || (git commit -m "Nightly build $(date -u '+%Y-%m-%d')" && git pull --rebase && git push)
+          git add baseline.json members.json members.html index.html calendar.html bios/
+          git diff --cached --quiet || git commit -m "Nightly build $(date -u '+%Y-%m-%d')"
+          git push
