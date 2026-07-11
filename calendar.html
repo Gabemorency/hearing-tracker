@@ -144,7 +144,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 
 <script>
 (function() {
-  var DW_KEY      = "__DOMEWATCH_KEY__";
+  var DW_KEY      = "";
   var DW_BASE     = "https://data.domewatch.us/v1";
   var HEARINGS_URL = "/hearing-tracker/hearings.json";
 
@@ -177,7 +177,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   }
 
   function pollFloor() {
-    if (!DW_KEY || DW_KEY === "__DOMEWATCH_KEY__") return;
+    if (!DW_KEY || DW_KEY === "") return;
     fetch(DW_BASE + "/floor", {headers: {"X-API-Key": DW_KEY}})
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
@@ -240,7 +240,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     );
 
     // 2. DomeWatch committee meetings
-    if (DW_KEY && DW_KEY !== "__DOMEWATCH_KEY__") {
+    if (DW_KEY && DW_KEY !== "") {
       promises.push(
         fetch(DW_BASE + "/committee-meetings?from=" + from + "&to=" + to, {
           headers: {"X-API-Key": DW_KEY}

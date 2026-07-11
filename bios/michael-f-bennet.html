@@ -7,6 +7,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <title>Michael F. Bennet — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -176,6 +181,51 @@ if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/hearing-tracker/sw.js")
       .catch(err => console.warn("SW:", err));
+  });
+}
+</script>
+<div id="congress-activity" style="display:none" class="congress-activity-section"></div>
+<script>
+(function() {
+  var bid = document.body.getAttribute("data-bioguide");
+  var key = "__CONGRESS_KEY__";
+  if (!bid || !key || key === "__CONGRESS_KEY__") return;
+  var el = document.getElementById("congress-activity");
+  if (!el) return;
+  fetch("https://api.congress.gov/v3/member/" + bid + "/sponsored-legislation?limit=5&api_key=" + key)
+    .then(function(r) { return r.ok ? r.json() : null; })
+    .then(function(data) {
+      if (!data || !data.sponsoredLegislation || !data.sponsoredLegislation.length) return;
+      var bills = data.sponsoredLegislation.slice(0, 5);
+      var html = "<h3 class=\"activity-heading\">Recent Sponsored Legislation</h3><ul class=\"bill-list\">";
+      for (var i = 0; i < bills.length; i++) {
+        var b = bills[i];
+        var url = b.url || ("https://congress.gov/bill/" + b.congress + "th-congress/" + (b.type || "house-bill").toLowerCase() + "/" + b.number);
+        html += "<li class=\"bill-item\"><a href=\"" + url + "\" target=\"_blank\" rel=\"noopener\">";
+        html += "<span class=\"bill-num\">" + (b.type || "") + " " + (b.number || "") + "</span>";
+        html += "<span class=\"bill-title\">" + (b.title || "Untitled") + "</span>";
+        html += "</a></li>";
+      }
+      html += "</ul>";
+      el.innerHTML = html;
+      el.style.display = "block";
+    })
+    .catch(function() {});
+}());
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/hearing-tracker/sw.js")
+      .catch(function(err) { console.warn("SW:", err); });
+  });
+}
+</script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/hearing-tracker/sw.js")
+      .catch(function(err) { console.warn("SW:", err); });
   });
 }
 </script>
