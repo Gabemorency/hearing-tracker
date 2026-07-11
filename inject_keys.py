@@ -1,6 +1,6 @@
 """
-inject_keys.py — called by nightly.yml to inject API keys into HTML files.
-Reads keys from environment variables set by GitHub Actions.
+inject_keys.py — called by update.yml and nightly.yml
+Injects API keys into HTML files.
 """
 import os
 
