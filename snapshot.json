@@ -1,1 +1,32 @@
-{}
+{
+  "House|Subcommittee on Technology Modernization|3:00 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
+    "chair": "Sen. Jerry Moran (R-KS), Chair \u00b7 Sen. Richard Blumenthal (D-CT), Ranking Member",
+    "time": "3:00 PM ET",
+    "building": "Cannon (CHOB)",
+    "room": "360 CHOB",
+    "topic": "PACT Act Implementation: Modernizing VA Disability Claims Through Effective Technology",
+    "details": "PACT Act Implementation: Modernizing VA Disability Claims Through Effective Technology",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Rules|4:00 PM ET": {
+    "chamber": "House",
+    "committee": "Committee on Rules",
+    "chair": "Sen. Amy Klobuchar (D-MN) \u00b7 Sen. Deb Fischer (R-NE), Chair",
+    "time": "4:00 PM ET",
+    "building": "Capitol",
+    "room": "H-313 CAPITOL",
+    "topic": "H.R. 139 \u2013 Sunshine Protection Act of 2025; H.R. 8595 \u2013 National Security, Department of State, and Related Programs Appropriations Act, 2027; H.R. 9237 \u2013 Take Care of America\u2019s Veterans Act; H.R. 118",
+    "details": "H.R. 139 \u2013 Sunshine Protection Act of 2025; H.R. 8595 \u2013 National Security, Department of State, and Related Programs Appropriations Act, 2027; H.R. 9237 \u2013 Take Care of America\u2019s Veterans Act; H.R. 118",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  }
+}
