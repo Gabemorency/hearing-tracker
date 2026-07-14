@@ -1,16 +1,91 @@
 {
-  "date": "2026-07-13",
-  "generated": "2:18 PM ET · Saturday, July 11, 2026",
+  "date": "2026-07-14",
+  "generated": "11:55 PM ET · Monday, July 13, 2026",
   "hearings": [
     {
-      "chamber": "House",
-      "committee": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
+      "chamber": "Senate",
+      "committee": "Judiciary",
+      "chair": "",
+      "time": "10:15 AM ET",
+      "building": "Hart (SH)",
+      "room": "SH-216",
+      "topic": "Hearings to examine genes to machines, focusing on the patent eligibility debate.",
+      "details": "Hearings to examine genes to machines, focusing on the patent eligibility debate.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Finance",
+      "chair": "",
+      "time": "11:30 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-215",
+      "topic": "Business meeting to consider the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Barthol",
+      "details": "Business meeting to consider the nominations of Brett Doyle, of Connecticut, David Foley, Jr., of Virginia, Samuel Negatu, of the District of Columbia, Peter-Anthony Pappas, of New Jersey, and Barthol",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Appropriations — Subcommittee on Financial Services and General Government",
+      "chair": "Tom Cole",
+      "time": "2:00 PM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-124",
+      "topic": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Supreme Court of the United States.",
+      "details": "Hearings to examine proposed budget estimates and justification for fiscal year 2027 for the Supreme Court of the United States.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": true,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Foreign Relations — Subcommittee on Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues",
+      "chair": "",
+      "time": "2:30 PM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-419",
+      "topic": "Hearings to examine the national security strategy and the western hemisphere.",
+      "details": "Hearings to examine the national security strategy and the western hemisphere.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Intelligence",
       "chair": "",
       "time": "3:00 PM ET",
-      "building": "Cannon (CHOB)",
-      "room": "360 CHOB",
-      "topic": "PACT Act Implementation: Modernizing VA Disability Claims Through Effective Technology",
-      "details": "PACT Act Implementation: Modernizing VA Disability Claims Through Effective Technology",
+      "building": "Hart (SH)",
+      "room": "SH-219",
+      "topic": "To receive a closed briefing on certain intelligence matters.",
+      "details": "To receive a closed briefing on certain intelligence matters.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Armed Services",
+      "chair": "",
+      "time": "9:30 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-G50",
+      "topic": "Hearings to examine the nominations of Jules Hurst III, of Virginia, to be Under Secretary (Comptroller), Richard O'Malley, of Wisconsin, to be a Deputy Under Secretary, Roger Mason, of Virginia, to b",
+      "details": "Hearings to examine the nominations of Jules Hurst III, of Virginia, to be Under Secretary (Comptroller), Richard O'Malley, of Wisconsin, to be a Deputy Under Secretary, Roger Mason, of Virginia, to b",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
@@ -19,13 +94,163 @@
     },
     {
       "chamber": "House",
-      "committee": "Committee on Rules",
+      "committee": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
+      "chair": "Tom Cole",
+      "time": "10:00 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2359 RHOB",
+      "topic": "Budget Hearing - Supreme Court of the United States",
+      "details": "Capitol Complex, 2359 RHOB, Washington, DC, 20515, USA",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": true,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Foreign Affairs",
       "chair": "",
-      "time": "4:00 PM ET",
-      "building": "Capitol",
-      "room": "H-313 CAPITOL",
-      "topic": "H.R. 139 – Sunshine Protection Act of 2025; H.R. 8595 – National Security, Department of State, and Related Programs Appropriations Act, 2027; H.R. 9237 – Take Care of America’s Veterans Act; H.R. 118",
-      "details": "H.R. 139 – Sunshine Protection Act of 2025; H.R. 8595 – National Security, Department of State, and Related Programs Appropriations Act, 2027; H.R. 9237 – Take Care of America’s Veterans Act; H.R. 118",
+      "time": "10:00 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2172 RHOB",
+      "topic": "FY27 BIS Budget: the AI Arms Race and the ICTS Office",
+      "details": "FY27 BIS Budget: the AI Arms Race and the ICTS Office",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Small Business",
+      "chair": "",
+      "time": "10:00 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2360 RHOB",
+      "topic": "AI on Main Street: How AI is Shaping the Future of Small Business.",
+      "details": "AI on Main Street: How AI is Shaping the Future of Small Business.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Financial Services",
+      "chair": "",
+      "time": "10:00 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2128 RHOB",
+      "topic": "The Federal Reserve's Semi-Annual Monetary Policy Report",
+      "details": "The Federal Reserve's Semi-Annual Monetary Policy Report",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on Oversight and Investigations (Committee on Natural Resources)",
+      "chair": "James Comer",
+      "time": "10:15 AM ET",
+      "building": "Longworth (LHOB)",
+      "room": "1324 LHOB",
+      "topic": "Oversight Hearing on “Innovative Technologies and Initiatives to Tackle the MMIP Crisis in Indian Country",
+      "details": "Oversight Hearing on “Innovative Technologies and Initiatives to Tackle the MMIP Crisis in Indian Country",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Education and Workforce",
+      "chair": "",
+      "time": "10:15 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2175 RHOB",
+      "topic": "Training Activists, Not Physicians: The Impact of DEI on Medical Schools",
+      "details": "Training Activists, Not Physicians: The Impact of DEI on Medical Schools",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on Energy (Committee on Energy and Commerce)",
+      "chair": "",
+      "time": "10:15 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2123 RHOB",
+      "topic": "Subcommittee Markup of Six Pieces of Legislation",
+      "details": "Subcommittee Markup of Six Pieces of Legislation",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
+      "chair": "",
+      "time": "2:00 PM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2172 RHOB",
+      "topic": "More Bang for the Buck: Aligning Commercial Diplomacy Between State and Commerce (Rescheduled)",
+      "details": "More Bang for the Buck: Aligning Commercial Diplomacy Between State and Commerce (Rescheduled)",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": true,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
+      "chair": "Tom Cole",
+      "time": "2:00 PM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2359 RHOB",
+      "topic": "Oversight Hearing - U.S. Small Business Administration",
+      "details": "Oversight Hearing - U.S. Small Business Administration",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": true,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on Environment (Committee on Energy and Commerce)",
+      "chair": "",
+      "time": "2:00 PM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2123 RHOB",
+      "topic": "Subcommittee Markup of Seven Pieces of Legislation",
+      "details": "Subcommittee Markup of Seven Pieces of Legislation",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Oversight and Intelligence Subcommittee (Committee on Foreign Affairs)",
+      "chair": "James Comer",
+      "time": "2:00 PM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2200 RHOB",
+      "topic": "U.S. Economic Security and Investment Abroad: Assessing Economic Security Zones",
+      "details": "Mind Control and Accountability: Uncovering the Truth of the CIA’s MKULTRA Project",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
