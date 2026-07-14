@@ -253,5 +253,18 @@
     ],
     "cancelled": true,
     "changes": []
+  },
+  "House|Committee on Transportation and Infrastr|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Transportation and Infrastructure",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2167 RHOB",
+    "topic": "updated Subcommittee Rosters due to changes on the Majority side; General Services Administration Capital Investment and Leasing Program Resolutions; an Amendment in the Nature of a Substitute to H.R. 9497, the Water Resources Development Act of 2026; and other matters cleared for consideration.",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": []
   }
 }
