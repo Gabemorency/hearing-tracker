@@ -131,8 +131,10 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 3:22 PM"
+    ]
   },
   "Senate|Intelligence|9:30 AM ET": {
     "chamber": "Senate",
@@ -255,8 +257,10 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 3:22 PM"
+    ]
   },
   "House|Subcommittee on Space and Aeronautics (C|10:00 AM ET": {
     "chamber": "House",
