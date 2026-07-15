@@ -58,8 +58,10 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 11:14 PM"
+    ]
   },
   "Senate|Intelligence|3:00 PM ET": {
     "chamber": "Senate",
@@ -118,8 +120,10 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 11:14 PM"
+    ]
   },
   "House|Committee on Small Business|10:00 AM ET": {
     "chamber": "House",
