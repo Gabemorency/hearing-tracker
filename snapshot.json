@@ -379,5 +379,18 @@
     ],
     "cancelled": false,
     "changes": []
+  },
+  "House|Committee on Transportation and Infrastr|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Transportation and Infrastructure",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2167 RHOB",
+    "topic": "Reforming FEMA: Ensuring the Nation's Disaster Readiness Works for Americans",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": []
   }
 }
