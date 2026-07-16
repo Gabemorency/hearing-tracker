@@ -1111,27 +1111,6 @@ def build_html(hearings):
   }}
   .empty {{ text-align: center; padding: 40px; color: var(--text-faint); font-size: 13px; }}
 
-/* ---- Floor Bar ---- */
-.floor-bar {{
-  display:flex;align-items:center;gap:0.6rem;padding:0.5rem 1.2rem;
-  font-size:0.76rem;font-family:'IBM Plex Mono',monospace;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  background:rgba(255,255,255,0.02);min-height:34px;
-  position:sticky;top:0;z-index:100;
-}}
-.floor-bar__dot {{
-  width:7px;height:7px;border-radius:50%;background:#555;flex-shrink:0;
-}}
-.floor-bar--in-session .floor-bar__dot  {{ background:#4caf50;box-shadow:0 0 5px #4caf5088;animation:fbp 2s infinite; }}
-.floor-bar--vote-active .floor-bar__dot {{ background:#ff9800;animation:fbp 0.8s infinite; }}
-.floor-bar--recess .floor-bar__dot      {{ background:#888; }}
-@keyframes fbp {{0%,100%{{opacity:1}}50%{{opacity:.4}}}}
-#floor-bar__text {{ flex:1;color:var(--text-secondary,#C8B89A);font-size:0.75rem; }}
-.floor-bar__vote {{
-  background:#ff9800;color:#000;padding:0.1rem 0.45rem;
-  border-radius:3px;font-weight:700;font-size:0.7rem;text-decoration:none;
-}}
-.floor-bar__time {{ color:var(--text-dim,#A09070);font-size:0.7rem;flex-shrink:0; }}
 /* ---- DomeWatch sections ---- */
 .dw-section {{
   margin:1.5rem 1rem;padding:1.25rem 1.5rem;
@@ -1168,12 +1147,6 @@ def build_html(hearings):
 </head>
 <body>
 
-<div id="floor-bar" class="floor-bar floor-bar--loading" aria-live="polite">
-  <span class="floor-bar__dot"></span>
-  <span id="floor-bar__text">Loading floor status&#8230;</span>
-  <a id="floor-bar__vote" class="floor-bar__vote" style="display:none" href="#"></a>
-  <span class="floor-bar__time" id="floor-bar__time"></span>
-</div>
 
 <div class="header">
   <div class="header-left">
@@ -1361,7 +1334,76 @@ buildCards('All');
   <h2 class="dw-heading">Floor Updates <span class="dw-heading-sub">via DomeWatch</span></h2>
   <div id="floor-updates-list" class="floor-updates-list"></div>
 </section>
-<script src="/hearing-tracker/domewatch.js"></script>
+<script>
+// Read DomeWatch data from local JSON files (no CORS issues)
+function fmtTime(iso) {{
+  if (!iso) return "";
+  return new Date(iso).toLocaleTimeString("en-US", {{hour:"numeric",minute:"2-digit",hour12:true}});
+}}
+
+function loadWhip() {{
+  fetch("/hearing-tracker/domewatch_whip.json")
+    .then(function(r) {{ return r.ok ? r.json() : null; }})
+    .then(function(data) {{
+      if (!data || !data.data || !data.data.length) return;
+      var n   = data.data[0];
+      var sec = document.getElementById("whip-section");
+      var met = document.getElementById("whip-meta");
+      var itm = document.getElementById("whip-items");
+      if (!sec) return;
+      var mh = "";
+      if (n.houseMeetsAt) mh += "<span>&#128336; House meets: " + n.houseMeetsAt + "</span>";
+      if (n.firstVotes)   mh += "<span>&#9889; First votes: " + n.firstVotes + "</span>";
+      if (n.lastVotes)    mh += "<span>&#128276; Last votes: " + n.lastVotes + "</span>";
+      met.innerHTML = mh;
+      var bh = "";
+      (n.items || []).filter(function(b) {{ return b.confidence !== "low"; }}).forEach(function(b) {{
+        var rc = b.recommendation ? "wrec wrec-" + b.recommendation : "";
+        bh += '<div class="whip-item">';
+        if (b.billUrl) {{
+          bh += '<a href="' + b.billUrl + '" target="_blank" rel="noopener" class="whip-item__bill">' + (b.billNumber || "") + "</a>";
+        }} else {{
+          bh += '<span class="whip-item__bill">' + (b.billNumber || "") + "</span>";
+        }}
+        if (b.title) bh += '<div class="whip-item__title">' + b.title + "</div>";
+        bh += '<div class="whip-item__meta">';
+        if (rc) bh += '<span class="' + rc + '">' + (b.recommendation || "").replace("_", " ") + "</span>";
+        if (b.position) bh += "<span>" + b.position + "</span>";
+        bh += "</div></div>";
+      }});
+      itm.innerHTML = bh || "<p>No upcoming vote items.</p>";
+      sec.style.display = "block";
+    }})
+    .catch(function() {{}});
+}}
+
+function loadUpdates() {{
+  fetch("/hearing-tracker/domewatch_updates.json")
+    .then(function(r) {{ return r.ok ? r.json() : null; }})
+    .then(function(data) {{
+      if (!data || !data.data || !data.data.length) return;
+      var sec = document.getElementById("floor-updates-section");
+      var lst = document.getElementById("floor-updates-list");
+      if (!sec) return;
+      var h = "";
+      data.data.forEach(function(u) {{
+        h += '<div class="floor-update">';
+        h += '<div class="floor-update__subject">' + (u.subject || "Floor Update") + "</div>";
+        if (u.bodyText) h += '<div class="floor-update__body">' + u.bodyText + "</div>";
+        h += '<div class="floor-update__time">' + fmtTime(u.publishedAt) + "</div>";
+        h += "</div>";
+      }});
+      lst.innerHTML = h;
+      sec.style.display = "block";
+    }})
+    .catch(function() {{}});
+}}
+
+document.addEventListener("DOMContentLoaded", function() {{
+  loadWhip();
+  loadUpdates();
+}});
+</script>
 <script>
 if ("serviceWorker" in navigator) {{
   window.addEventListener("load", function() {{
