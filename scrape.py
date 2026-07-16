@@ -1112,37 +1112,117 @@ def build_html(hearings):
   .empty {{ text-align: center; padding: 40px; color: var(--text-faint); font-size: 13px; }}
 
 /* ---- DomeWatch sections ---- */
-.dw-section {{
-  margin:1.5rem 1rem;padding:1.25rem 1.5rem;
-  border:1px solid rgba(255,255,255,0.08);border-radius:8px;
-  background:rgba(255,255,255,0.02);
+/* ── Coming to the Floor ── */
+.floor-section {{
+  margin:2rem 1rem 0;
 }}
-.dw-heading {{
-  font-size:0.9rem;font-weight:600;margin:0 0 0.85rem;
-  display:flex;align-items:center;gap:0.4rem;color:var(--text-primary,#F0E8D8);
+.floor-section__header {{
+  display:flex;align-items:baseline;gap:0.75rem;margin-bottom:1rem;padding-bottom:0.6rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
 }}
-.dw-heading-sub {{ font-size:0.72rem;font-weight:400;color:var(--text-dim,#A09070);margin-left:auto; }}
-.whip-meta {{ font-size:0.78rem;color:var(--text-secondary,#C8B89A);margin-bottom:0.85rem;display:flex;gap:1.2rem;flex-wrap:wrap; }}
-.whip-items {{ display:flex;flex-direction:column;gap:0.6rem; }}
+.floor-section__title {{
+  font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--text-heading,#FAF4EA);
+  font-weight:700;
+}}
+.floor-section__source {{
+  font-size:0.7rem;font-family:'IBM Plex Mono',monospace;
+  color:var(--text-dim,#A09070);letter-spacing:0.04em;text-transform:uppercase;
+}}
+.floor-schedule {{
+  display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.25rem;
+  padding:0.75rem 1rem;border-radius:6px;
+  background:rgba(224,184,112,0.06);border:1px solid rgba(224,184,112,0.15);
+}}
+.floor-schedule__item {{
+  display:flex;flex-direction:column;gap:0.15rem;
+}}
+.floor-schedule__label {{
+  font-size:0.65rem;text-transform:uppercase;letter-spacing:0.07em;
+  color:var(--text-dim,#A09070);font-family:'IBM Plex Mono',monospace;
+}}
+.floor-schedule__value {{
+  font-size:0.82rem;color:var(--text-primary,#F0E8D8);font-weight:500;
+}}
+.whip-items {{ display:flex;flex-direction:column;gap:0.5rem; }}
 .whip-item {{
-  padding:0.65rem 0.9rem;border-radius:5px;
-  border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);
+  display:grid;grid-template-columns:auto 1fr auto;gap:0.75rem;align-items:start;
+  padding:0.8rem 1rem;border-radius:6px;
+  border:1px solid rgba(255,255,255,0.06);
+  background:rgba(255,255,255,0.02);
+  transition:background 0.15s;
 }}
-.whip-item__bill {{ font-family:'IBM Plex Mono',monospace;font-size:0.76rem;color:var(--gold,#E0B870); }}
-.whip-item__title {{ font-size:0.85rem;margin:0.15rem 0; }}
-.whip-item__meta {{ font-size:0.73rem;color:var(--text-dim,#A09070);display:flex;gap:0.8rem;flex-wrap:wrap;margin-top:0.25rem; }}
-.wrec {{ font-weight:700;padding:0.1rem 0.35rem;border-radius:3px;font-size:0.68rem; }}
-.wrec-YES {{ background:#1b5e20;color:#a5d6a7; }}
-.wrec-NO  {{ background:#b71c1c;color:#ef9a9a; }}
-.floor-updates-list {{ display:flex;flex-direction:column;gap:0.5rem; }}
-.floor-update {{
-  padding:0.6rem 0.85rem;border-radius:4px;
-  border-left:3px solid var(--gold,#E0B870);
-  background:rgba(255,255,255,0.02);font-size:0.83rem;
+.whip-item:hover {{ background:rgba(255,255,255,0.04); }}
+.whip-item__bill {{
+  font-family:'IBM Plex Mono',monospace;font-size:0.75rem;
+  color:var(--gold,#E0B870);font-weight:700;white-space:nowrap;padding-top:0.1rem;
 }}
-.floor-update__subject {{ font-weight:600;margin-bottom:0.15rem; }}
-.floor-update__body    {{ color:var(--text-secondary,#C8B89A);font-size:0.8rem;line-height:1.5; }}
-.floor-update__time    {{ color:var(--text-dim,#A09070);font-size:0.7rem;margin-top:0.25rem;font-family:'IBM Plex Mono',monospace; }}
+.whip-item__body {{ min-width:0; }}
+.whip-item__title {{
+  font-size:0.85rem;color:var(--text-primary,#F0E8D8);
+  line-height:1.4;margin-bottom:0.25rem;
+}}
+.whip-item__meta {{
+  font-size:0.73rem;color:var(--text-dim,#A09070);
+  display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;
+}}
+.whip-item__sponsor {{ color:var(--text-secondary,#C8B89A); }}
+.wrec {{
+  font-weight:700;padding:0.2rem 0.55rem;border-radius:4px;
+  font-size:0.68rem;letter-spacing:0.04em;white-space:nowrap;flex-shrink:0;
+  align-self:start;margin-top:0.1rem;
+}}
+.wrec-YES {{ background:#1b5e20;color:#a5d6a7;border:1px solid #2e7d32; }}
+.wrec-NO  {{ background:#7f1d1d;color:#fca5a5;border:1px solid #b91c1c; }}
+.wrec-PRESENT {{ background:#78350f;color:#fcd34d;border:1px solid #b45309; }}
+
+/* ── Floor Updates — Tabbed accordion ── */
+.updates-section {{
+  margin:1.75rem 1rem 0;
+}}
+.updates-tabs {{
+  display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:0;overflow-x:auto;
+}}
+.updates-tab {{
+  background:none;border:none;border-bottom:2px solid transparent;
+  color:var(--text-dim,#A09070);font-family:'IBM Plex Sans',sans-serif;
+  font-size:0.78rem;padding:0.5rem 1rem;cursor:pointer;white-space:nowrap;
+  transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;
+}}
+.updates-tab:hover {{ color:var(--text-secondary,#C8B89A); }}
+.updates-tab.active {{
+  color:var(--text-primary,#F0E8D8);
+  border-bottom-color:var(--gold,#E0B870);
+}}
+.updates-panels {{ padding-top:0; }}
+.updates-panel {{ display:none; }}
+.updates-panel.active {{ display:block; }}
+.update-card {{
+  border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 0;
+}}
+.update-card:last-child {{ border-bottom:none; }}
+.update-card__header {{
+  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
+  margin-bottom:0.4rem;cursor:pointer;
+}}
+.update-card__subject {{
+  font-size:0.85rem;font-weight:600;color:var(--text-primary,#F0E8D8);
+}}
+.update-card__time {{
+  font-size:0.7rem;font-family:'IBM Plex Mono',monospace;
+  color:var(--text-dim,#A09070);white-space:nowrap;flex-shrink:0;
+}}
+.update-card__body {{
+  font-size:0.8rem;color:var(--text-secondary,#C8B89A);
+  line-height:1.6;display:none;
+}}
+.update-card__body.open {{ display:block; }}
+.update-card__body p {{ margin:0 0 0.5rem; }}
+.update-card__body strong {{ color:var(--text-primary,#F0E8D8); }}
+.update-card__toggle {{
+  font-size:0.68rem;font-family:'IBM Plex Mono',monospace;
+  color:var(--text-dim,#A09070);cursor:pointer;white-space:nowrap;
+  background:none;border:none;padding:0;
+}}
 </style>
 </head>
 <body>
@@ -1325,22 +1405,33 @@ function setFilter(f) {{
 buildCards('All');
 </script>
 
-<section id="whip-section" class="dw-section" style="display:none">
-  <h2 class="dw-heading">Coming to the Floor <span class="dw-heading-sub">via DomeWatch Whip Notice</span></h2>
-  <div id="whip-meta" class="whip-meta"></div>
+<section id="whip-section" class="floor-section" style="display:none">
+  <div class="floor-section__header">
+    <span class="floor-section__title">Coming to the Floor</span>
+    <span class="floor-section__source">DomeWatch Whip Notice</span>
+  </div>
+  <div id="whip-schedule" class="floor-schedule" style="display:none"></div>
   <div id="whip-items" class="whip-items"></div>
 </section>
-<section id="floor-updates-section" class="dw-section" style="display:none">
-  <h2 class="dw-heading">Floor Updates <span class="dw-heading-sub">via DomeWatch</span></h2>
-  <div id="floor-updates-list" class="floor-updates-list"></div>
+
+<section id="floor-updates-section" class="updates-section" style="display:none">
+  <div class="floor-section__header">
+    <span class="floor-section__title">Floor Updates</span>
+    <span class="floor-section__source">DomeWatch</span>
+  </div>
+  <div class="updates-tabs" id="updates-tabs"></div>
+  <div class="updates-panels" id="updates-panels"></div>
 </section>
 <script>
-// Read DomeWatch data from local JSON files (no CORS issues)
-function fmtTime(iso) {{
+// DomeWatch data — loaded from local JSON, updated every 2 hours
+function fmtDate(iso) {{
   if (!iso) return "";
-  return new Date(iso).toLocaleTimeString("en-US", {{hour:"numeric",minute:"2-digit",hour12:true}});
+  var d = new Date(iso);
+  return d.toLocaleDateString("en-US", {{month:"short",day:"numeric"}}) + " " +
+         d.toLocaleTimeString("en-US", {{hour:"numeric",minute:"2-digit",hour12:true}});
 }}
 
+// ── Coming to the Floor ──────────────────────────────────────────────────────
 function loadWhip() {{
   fetch("/hearing-tracker/domewatch_whip.json")
     .then(function(r) {{ return r.ok ? r.json() : null; }})
@@ -1348,55 +1439,124 @@ function loadWhip() {{
       if (!data || !data.data || !data.data.length) return;
       var n   = data.data[0];
       var sec = document.getElementById("whip-section");
-      var met = document.getElementById("whip-meta");
+      var sch = document.getElementById("whip-schedule");
       var itm = document.getElementById("whip-items");
       if (!sec) return;
-      var mh = "";
-      if (n.houseMeetsAt) mh += "<span>&#128336; House meets: " + n.houseMeetsAt + "</span>";
-      if (n.firstVotes)   mh += "<span>&#9889; First votes: " + n.firstVotes + "</span>";
-      if (n.lastVotes)    mh += "<span>&#128276; Last votes: " + n.lastVotes + "</span>";
-      met.innerHTML = mh;
+
+      // Schedule row
+      var sh = "";
+      if (n.houseMeetsAt) sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">House Meets</div><div class="floor-schedule__value">' + n.houseMeetsAt + '</div></div>';
+      if (n.firstVotes)   sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">First Votes</div><div class="floor-schedule__value">' + n.firstVotes + '</div></div>';
+      if (n.lastVotes)    sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">Last Votes</div><div class="floor-schedule__value">' + n.lastVotes + '</div></div>';
+      if (sh) {{ sch.innerHTML = sh; sch.style.display = "flex"; }}
+
+      // Bill items
+      var items = (n.items || []).filter(function(b) {{ return b.confidence !== "low"; }});
       var bh = "";
-      (n.items || []).filter(function(b) {{ return b.confidence !== "low"; }}).forEach(function(b) {{
-        var rc = b.recommendation ? "wrec wrec-" + b.recommendation : "";
+      items.forEach(function(b) {{
+        var rc  = b.recommendation ? "wrec wrec-" + b.recommendation : "";
+        var rec = b.recommendation ? b.recommendation.replace(/_/g," ") : "";
         bh += '<div class="whip-item">';
+        // Bill number
         if (b.billUrl) {{
-          bh += '<a href="' + b.billUrl + '" target="_blank" rel="noopener" class="whip-item__bill">' + (b.billNumber || "") + "</a>";
+          bh += '<a href="' + b.billUrl + '" target="_blank" rel="noopener" class="whip-item__bill">' + (b.billNumber || "") + '</a>';
         }} else {{
-          bh += '<span class="whip-item__bill">' + (b.billNumber || "") + "</span>";
+          bh += '<span class="whip-item__bill">' + (b.billNumber || "") + '</span>';
         }}
-        if (b.title) bh += '<div class="whip-item__title">' + b.title + "</div>";
+        // Body
+        bh += '<div class="whip-item__body">';
+        if (b.title) bh += '<div class="whip-item__title">' + b.title + '</div>';
         bh += '<div class="whip-item__meta">';
-        if (rc) bh += '<span class="' + rc + '">' + (b.recommendation || "").replace("_", " ") + "</span>";
-        if (b.position) bh += "<span>" + b.position + "</span>";
-        bh += "</div></div>";
+        if (b.sponsor)   bh += '<span class="whip-item__sponsor">' + b.sponsor + '</span>';
+        if (b.committee) bh += '<span>' + b.committee + '</span>';
+        if (b.position)  bh += '<span>' + b.position + '</span>';
+        bh += '</div></div>';
+        // Recommendation badge
+        if (rc) bh += '<span class="' + rc + '">' + rec + '</span>';
+        bh += '</div>';
       }});
-      itm.innerHTML = bh || "<p>No upcoming vote items.</p>";
+      itm.innerHTML = bh || '<p style="color:var(--text-dim,#A09070);font-size:0.85rem;padding:0.5rem 0">No upcoming vote items in latest notice.</p>';
       sec.style.display = "block";
     }})
     .catch(function() {{}});
 }}
 
+// ── Floor Updates — Tabbed ───────────────────────────────────────────────────
 function loadUpdates() {{
   fetch("/hearing-tracker/domewatch_updates.json")
     .then(function(r) {{ return r.ok ? r.json() : null; }})
     .then(function(data) {{
       if (!data || !data.data || !data.data.length) return;
-      var sec = document.getElementById("floor-updates-section");
-      var lst = document.getElementById("floor-updates-list");
+      var sec    = document.getElementById("floor-updates-section");
+      var tabs   = document.getElementById("updates-tabs");
+      var panels = document.getElementById("updates-panels");
       if (!sec) return;
-      var h = "";
-      data.data.forEach(function(u) {{
-        h += '<div class="floor-update">';
-        h += '<div class="floor-update__subject">' + (u.subject || "Floor Update") + "</div>";
-        if (u.bodyText) h += '<div class="floor-update__body">' + u.bodyText + "</div>";
-        h += '<div class="floor-update__time">' + fmtTime(u.publishedAt) + "</div>";
-        h += "</div>";
+
+      // Sort updates newest first
+      var updates = data.data.slice().sort(function(a,b) {{
+        return new Date(b.publishedAt) - new Date(a.publishedAt);
       }});
-      lst.innerHTML = h;
+
+      // Group by date
+      var groups = {{}};
+      var groupOrder = [];
+      updates.forEach(function(u) {{
+        var d = (u.publishedAt || "").substring(0,10);
+        if (!groups[d]) {{ groups[d] = []; groupOrder.push(d); }}
+        groups[d].push(u);
+      }});
+
+      var th = "";
+      var ph = "";
+      groupOrder.forEach(function(dateStr, i) {{
+        var label = formatTabDate(dateStr);
+        var activeClass = i === 0 ? " active" : "";
+        th += '<button class="updates-tab' + activeClass + '" onclick="switchTab(this,'panel-' + i + '')">' + label + '</button>';
+        ph += '<div class="updates-panel' + activeClass + '" id="panel-' + i + '">';
+        groups[dateStr].forEach(function(u) {{
+          var bodyId = "ub-" + Math.random().toString(36).slice(2);
+          ph += '<div class="update-card">';
+          ph += '<div class="update-card__header" onclick="toggleUpdate('' + bodyId + '',this)">';
+          ph += '<span class="update-card__subject">' + (u.subject || "Floor Update") + '</span>';
+          ph += '<span class="update-card__time">' + fmtDate(u.publishedAt) + '</span>';
+          ph += '</div>';
+          if (u.bodyText) ph += '<div class="update-card__body" id="' + bodyId + '">' + u.bodyText + '</div>';
+          ph += '</div>';
+        }});
+        ph += '</div>';
+      }});
+
+      tabs.innerHTML   = th;
+      panels.innerHTML = ph;
       sec.style.display = "block";
     }})
     .catch(function() {{}});
+}}
+
+function formatTabDate(dateStr) {{
+  var d = new Date(dateStr + "T12:00:00");
+  var today = new Date();
+  today.setHours(12,0,0,0);
+  var diff = Math.round((today - d) / 86400000);
+  if (diff === 0) return "Today";
+  if (diff === 1) return "Yesterday";
+  return d.toLocaleDateString("en-US", {{month:"short",day:"numeric"}});
+}}
+
+function switchTab(btn, panelId) {{
+  var tabs   = btn.parentNode.querySelectorAll(".updates-tab");
+  var panels = document.getElementById("updates-panels").querySelectorAll(".updates-panel");
+  tabs.forEach(function(t)   {{ t.classList.remove("active"); }});
+  panels.forEach(function(p) {{ p.classList.remove("active"); }});
+  btn.classList.add("active");
+  var panel = document.getElementById(panelId);
+  if (panel) panel.classList.add("active");
+}}
+
+function toggleUpdate(bodyId, header) {{
+  var body = document.getElementById(bodyId);
+  if (!body) return;
+  body.classList.toggle("open");
 }}
 
 document.addEventListener("DOMContentLoaded", function() {{
