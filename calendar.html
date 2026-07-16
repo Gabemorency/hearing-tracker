@@ -190,17 +190,43 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
         if (data && data.data) {
+          var TYPES = {
+            "HHRG":"Hearing","HMKP":"Markup","HBRC":"Briefing",
+            "HCPS":"Conference","HMRK":"Markup"
+          };
+          var BLDGS = {
+            "CHOB":"Cannon","RHOB":"Rayburn","LHOB":"Longworth",
+            "CAPITOL":"Capitol","FHOB":"Ford","OHOB":"O'Neill"
+          };
           data.data.forEach(function(m) {
             var dk = (m.startDate || "").substring(0,10);
-            if (dk >= from && dk <= to) {
-              addEvent(dk, {
-                type: "committee",
-                title: m.title || m.committee || "Committee Meeting",
-                meta: (m.committee || "") + (m.location ? " · " + m.location : "") +
-                      (m.meetingType ? " · " + m.meetingType.replace(/_/g," ") : ""),
-                url: m.url || null
-              });
+            if (dk < from || dk > to) return;
+
+            var typeLabel = TYPES[m.meetingType] || "Meeting";
+
+            var timeStr = "";
+            if (m.startDate) {
+              timeStr = new Date(m.startDate).toLocaleTimeString("en-US",
+                {hour:"numeric",minute:"2-digit",hour12:true});
             }
+
+            var locStr = "";
+            if (m.location && typeof m.location === "object") {
+              var addr  = (m.location.address && m.location.address.streetAddress) || "";
+              var bldg  = BLDGS[m.location.name] || m.location.name || "";
+              var room  = (addr.match(/^(\d+)/) || [])[1] || "";
+              locStr = room ? "Rm " + room + " " + bldg : bldg;
+            }
+
+            addEvent(dk, {
+              type:      "committee",
+              title:     typeLabel + (locStr ? " — " + locStr : ""),
+              meta:      timeStr,
+              url:       m.url || null,
+              typeLabel: typeLabel,
+              timeStr:   timeStr,
+              locStr:    locStr,
+            });
           });
         }
         check();
@@ -306,16 +332,23 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     var dateStr = MONTHS[parseInt(p[1],10)-1] + " " + parseInt(p[2],10) + ", " + p[0];
     var html = '<div class="detail-panel__date">' + dateStr + '</div><div class="detail-events">';
     events.forEach(function(ev) {
-      var label = ev.type === "committee" ? "Committee Meeting" :
-                  ev.type === "hearing"   ? "Hearing" : "Floor / Vote";
+      var label = ev.typeLabel || (
+        ev.type === "committee" ? "Committee Meeting" :
+        ev.type === "hearing"   ? "Hearing" : "Floor / Vote"
+      );
       html += '<div class="detail-event detail-event--' + ev.type + '">';
       html += '<div class="detail-event__type">' + label + '</div>';
-      if (ev.url) {
-        html += '<div class="detail-event__title"><a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.title + '</a></div>';
-      } else {
-        html += '<div class="detail-event__title">' + ev.title + '</div>';
-      }
-      if (ev.meta) html += '<div class="detail-event__meta">' + ev.meta + '</div>';
+      // Title — link if URL available
+      var titleHtml = ev.url
+        ? '<a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.title + '</a>'
+        : ev.title;
+      html += '<div class="detail-event__title">' + titleHtml + '</div>';
+      // Meta line — time + location
+      var metaParts = [];
+      if (ev.timeStr) metaParts.push(ev.timeStr);
+      if (ev.locStr)  metaParts.push(ev.locStr);
+      if (ev.meta && !ev.timeStr) metaParts.push(ev.meta);
+      if (metaParts.length) html += '<div class="detail-event__meta">' + metaParts.join(" · ") + '</div>';
       html += '</div>';
     });
     html += '</div>';
