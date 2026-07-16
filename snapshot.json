@@ -1,121 +1,29 @@
 {
-  "Senate|Homeland Security and Governmental Affai|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Homeland Security and Governmental Affairs",
-    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
+  "House|Subcommittee on Digital Assets, Financia|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
+    "chair": "Rep. French Hill (R-AR), Chair \u00b7 Rep. Maxine Waters (D-CA), Ranking Member",
     "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-342",
-    "topic": "Hearings to examine exposing fraud in America.",
-    "details": "Reforming the U.S. Postal Service\u2019s Broken Business Model",
+    "building": "Rayburn (RHOB)",
+    "room": "Federal Hall National Memorial\n15 Pine Street\nNew York, NY 10005",
+    "topic": "Building the Future of Finance: How the CLARITY Act Unlocks Innovation",
+    "details": "Building the Future of Finance: How the CLARITY Act Unlocks Innovation",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
     "changes": []
   },
-  "Senate|Environment and Public Works|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Environment and Public Works",
-    "chair": "Sen. Shelley Moore Capito (R-WV), Chair \u00b7 Sen. Sheldon Whitehouse (D-RI), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-406",
-    "topic": "Business meeting to consider S.4949, to provide for improvements to the rivers and harbors of the United States, to provide for the conservation and development of water and related resources, and the",
-    "details": "Business meeting to consider S.4949, to provide for improvements to the rivers and harbors of the United States, to provide for the conservation and development of water and related resources, and the",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Health, Education, Labor, and Pensions|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Health, Education, Labor, and Pensions",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-430",
-    "topic": "Hearings to examine the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, and Erica Schwartz, of Florida, to be Director of the Centers for Disease Cont",
-    "details": "Hearings to examine the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, and Erica Schwartz, of Florida, to be Director of the Centers for Disease Cont",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Banking, Housing, and Urban Affairs|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Banking, Housing, and Urban Affairs",
-    "chair": "Sen. Tim Scott (R-SC), Chair \u00b7 Sen. Elizabeth Warren (D-MA), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-538",
-    "topic": "Hearings to examine the Semiannual Monetary Policy Report to the Congress.",
-    "details": "Hearings to examine the Semiannual Monetary Policy Report to the Congress.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Energy and Natural Resources \u2014 Subcommit|2:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Energy and Natural Resources \u2014 Subcommittee on Public Lands, Forests, and Mining",
-    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
-    "time": "2:30 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-366",
-    "topic": "Hearings to examine S.1791, to designate certain special management areas, wildlife conservation areas, protection areas, recreation areas, wilderness areas, and a scientific research and education ar",
-    "details": "Hearings to examine S.1791, to designate certain special management areas, wildlife conservation areas, protection areas, recreation areas, wilderness areas, and a scientific research and education ar",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Armed Services \u2014 Subcommittee on Personn|2:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Armed Services \u2014 Subcommittee on Personnel",
-    "chair": "Sen. Roger Wicker (R-MS), Chair \u00b7 Sen. Jack Reed (D-RI), Ranking Member",
-    "time": "2:30 PM ET",
-    "building": "Russell (SR)",
-    "room": "SR-222",
-    "topic": "Hearings to examine the TRICARE pharmacy program.",
-    "details": "Hearings to examine the TRICARE pharmacy program.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Aging|3:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Aging",
-    "chair": "",
-    "time": "3:30 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-G50",
-    "topic": "Hearings to examine behind the label, focusing on foreign ownership and control in America's drug supply chain.",
-    "details": "Hearings to examine behind the label, focusing on foreign ownership and control in America's drug supply chain.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Energy and Natural Resources|4:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Energy and Natural Resources",
-    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
-    "time": "4:30 PM ET",
-    "building": "Capitol Visitor Center",
-    "room": "SVC-217",
-    "topic": "To receive a closed briefing on the Department of War's fiscal year 2027 budget request.",
-    "details": "To receive a closed briefing on the Department of War's fiscal year 2027 budget request.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+  "House|Committee on the Budget|9:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on the Budget",
+    "chair": "Sen. Lindsey Graham (R-SC), Chair \u00b7 Sen. Jeff Merkley (D-OR), Ranking Member",
+    "time": "9:00 AM ET",
+    "building": "Cannon (CHOB)",
+    "room": "210 CHOB",
+    "topic": "The Concurrent Resolution on the Budget for Fiscal Year 2027",
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": []
   },
@@ -126,274 +34,102 @@
     "time": "9:00 AM ET",
     "building": "Hart (SH)",
     "room": "SH-216",
-    "topic": "Hearings to examine the nomination of Todd Blanche, of Florida, to be Attorney General.",
-    "details": "Hearings to examine the nomination of Todd Blanche, of Florida, to be Attorney General.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": true,
+    "topic": "Business meeting to consider the nominations of Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, Daniel Mack Traynor, of North Dakota, to be United States",
+    "witnesses": [],
+    "details": "Business meeting to consider the nominations of Daniel Desmond Domenico, of Colorado, to be United States Circuit Judge for the Tenth Circuit, Daniel Mack Traynor, of North Dakota, to be United States",
+    "cancelled": false,
     "changes": [
       "CANCELLED \u00b7 3:22 PM"
     ]
   },
-  "Senate|Intelligence|9:30 AM ET": {
+  "Senate|Energy and Natural Resources|9:30 AM ET": {
     "chamber": "Senate",
-    "committee": "Intelligence",
-    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
+    "committee": "Energy and Natural Resources",
+    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
     "time": "9:30 AM ET",
     "building": "Dirksen (SD)",
-    "room": "SD-106",
-    "topic": "Hearings to examine the nomination of Walter Clayton, of New York, to be Director of National Intelligence.",
-    "details": "Hearings to examine the nomination of Walter Clayton, of New York, to be Director of National Intelligence.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "room": "SD-366",
+    "topic": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
+    "witnesses": [],
+    "details": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
     "cancelled": false,
     "changes": []
   },
-  "Senate|Health, Education, Labor, and Pensions|9:45 AM ET": {
+  "Senate|Armed Services|9:30 AM ET": {
+    "chamber": "Senate",
+    "committee": "Armed Services",
+    "chair": "Sen. Roger Wicker (R-MS), Chair \u00b7 Sen. Jack Reed (D-RI), Ranking Member",
+    "time": "9:30 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-G50",
+    "topic": "Hearings to examine the nomination of Lieutenant General Douglas A. Schiess, USSF, to be general and Chief of Space Operations.",
+    "witnesses": [],
+    "details": "Hearings to examine the nomination of Lieutenant General Douglas A. Schiess, USSF, to be general and Chief of Space Operations.",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Finance|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Finance",
+    "chair": "Sen. Mike Crapo (R-ID), Chair \u00b7 Sen. Ron Wyden (D-OR), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-215",
+    "topic": "Hearings to examine the nominations of Francis Brooke, of Virginia, to be Deputy Secretary, Erin Browne, of New York, to be an Under Secretary, and Sriprakash Kothari, of Massachusetts, and George McM",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Francis Brooke, of Virginia, to be Deputy Secretary, Erin Browne, of New York, to be an Under Secretary, and Sriprakash Kothari, of Massachusetts, and George McM",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Health, Education, Labor, and Pensions|10:00 AM ET": {
     "chamber": "Senate",
     "committee": "Health, Education, Labor, and Pensions",
     "chair": "",
-    "time": "9:45 AM ET",
+    "time": "10:00 AM ET",
     "building": "Dirksen (SD)",
     "room": "SD-430",
-    "topic": "Business meeting to consider the nominations of Brett Matsumoto, of Maryland, to be Commissioner of Labor Statistics, Department of Labor, James Macy, of Wisconsin, and David M. Prouty, of Maryland, b",
-    "details": "Business meeting to consider the nominations of Brett Matsumoto, of Maryland, to be Commissioner of Labor Statistics, Department of Labor, James Macy, of Wisconsin, and David M. Prouty, of Maryland, b",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Natural Resources|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Natural Resources",
-    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1324 LHOB",
-    "topic": "\u2022 H.R. 726 (Rep. Downing), \u201cCrow Tribe Water Rights Settlement Amendments Act of 2025\u201d \u2022 H.R. 2317 (Rep. Amodei), \u201cNorthern Nevada Economic Development and Conservation Act of 2025\u201d \u2022 H.R. 2406 (Rep. ",
-    "details": "\u2022 H.R. 726 (Rep. Downing), \u201cCrow Tribe Water Rights Settlement Amendments Act of 2025\u201d \u2022 H.R. 2317 (Rep. Amodei), \u201cNorthern Nevada Economic Development and Conservation Act of 2025\u201d \u2022 H.R. 2406 (Rep. ",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Select Committee on the Strategic Compet|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Cannon (CHOB)",
-    "room": "390 CHOB",
-    "topic": "Protecting American Innovation: The Federal Research Security Enterprise",
-    "details": "Protecting American Innovation: The Federal Research Security Enterprise",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Foreign Affairs|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Foreign Affairs",
-    "chair": "Rep. Brian Mast (R-FL), Chair \u00b7 Rep. Gregory Meeks (D-NY), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2172 RHOB",
-    "topic": "Ending Supply Chain Dependency: Aligning Tools, Capital, and Partnerships",
-    "details": "Ending Supply Chain Dependency: Aligning Tools, Capital, and Partnerships",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [
-      "CANCELLED \u00b7 11:14 PM"
-    ]
-  },
-  "House|Committee on Financial Services|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Financial Services",
-    "chair": "Rep. French Hill (R-AR), Chair \u00b7 Rep. Maxine Waters (D-CA), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2128 RHOB",
-    "topic": "The Semi-Annual Report of the Bureau of Consumer Financial Protection",
-    "details": "The Semi-Annual Report of the Bureau of Consumer Financial Protection",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [
-      "Room changed to 2128 RHOB \u00b7 2:21 AM"
-    ]
-  },
-  "House|Committee on Ways and Means|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Ways and Means",
-    "chair": "Rep. Jason Smith (R-MO), Chair \u00b7 Rep. Richard Neal (D-MA), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1100 LHOB",
-    "topic": "H.R. 9641, H.R. 3108, H.R. 9642, H.R. 9468, H.R. 3514, H.R. 9644, and H.R. 9645",
-    "details": "H.R. 9641, H.R. 3108, H.R. 9642, H.R. 9468, H.R. 3514, H.R. 9644, and H.R. 9645",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on the Judiciary|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on the Judiciary",
-    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2141 RHOB",
-    "topic": "H.R. 9098, the Congressional Records Protection Act; H. Res. 1394, Condemning prosecution policies that give preferential treatment to foreign nationals over United States citizens; H.R. 3100, the CHI",
-    "details": "H.R. 9098, the Congressional Records Protection Act; H. Res. 1394, Condemning prosecution policies that give preferential treatment to foreign nationals over United States citizens; H.R. 3100, the CHI",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": true,
-    "changes": [
-      "CANCELLED \u00b7 3:22 PM"
-    ]
-  },
-  "House|Subcommittee on Space and Aeronautics (C|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Space and Aeronautics (Committee on Science, Space, and Technology)",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2318 RHOB",
-    "topic": "A Review of the Office of Space Commerce\u2019s Mission Authorization Proposal",
-    "details": "A Review of the Office of Space Commerce\u2019s Mission Authorization Proposal",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Health (Committee on Ene|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Health (Committee on Energy and Commerce)",
-    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Three Pieces of Legislation",
-    "details": "430 Dirksen Senate Office Building",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Health (Committee on Ene|10:15 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Health (Committee on Energy and Commerce)",
-    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
-    "time": "10:15 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Maintaining America\u2019s Leadership in Biomedical Innovation: FDA\u2019s Role in Advancing U.S. Drug Development.",
-    "details": "Maintaining America\u2019s Leadership in Biomedical Innovation: FDA\u2019s Role in Advancing U.S. Drug Development.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Education and Workforce|10:15 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Education and Workforce",
-    "chair": "Rep. Tim Walberg (R-MI), Chair \u00b7 Rep. Bobby Scott (D-VA), Ranking Member",
-    "time": "10:15 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "TBD",
-    "topic": "H.R. 9607, \"Less Bureaucracy, Better Workforce Development Act\"; H.R. 9609, \"Less Bureaucracy, Better Student Aid Act\"; H.R. 9602, \"Less Bureaucracy, Better International Foreign Gift Transparency Act",
-    "details": "H.R. 9607, \"Less Bureaucracy, Better Workforce Development Act\"; H.R. 9609, \"Less Bureaucracy, Better Student Aid Act\"; H.R. 9602, \"Less Bureaucracy, Better International Foreign Gift Transparency Act",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [
-      "Room changed to TBD \u00b7 2:21 AM"
-    ]
-  },
-  "House|Western Hemisphere Subcommittee (Committ|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
-    "chair": "Rep. Brian Mast (R-FL), Chair \u00b7 Rep. Gregory Meeks (D-NY), Ranking Member",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2172 RHOB",
-    "topic": "A New Beginning for Colombia",
-    "details": "A New Beginning for Colombia",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Elections (Committee on |2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Elections (Committee on House Administration)",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1310 LHOB",
-    "topic": "Committee on House Administration Elections Subcommittee Hearing:\u201cElection Observation: Best Practices and Congress\u2019s Role",
-    "details": "Committee on House Administration Elections Subcommittee Hearing:\u201cElection Observation: Best Practices and Congress\u2019s Role",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Government Operations (C|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
-    "chair": "James Comer",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2154 RHOB",
-    "topic": "Emerging Fraud Threats and the Evolving Fraud Landscape",
-    "details": "Emerging Fraud Threats and the Evolving Fraud Landscape",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Permanent Select Committee on Intelligen|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Permanent Select Committee on Intelligence",
-    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "HVC-210 CAPITOL",
-    "topic": "States on the Frontlines of Counterintelligence",
-    "details": "States on the Frontlines of Counterintelligence",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Transportation and Infrastr|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Transportation and Infrastructure",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2167 RHOB",
-    "topic": "Reforming FEMA: Ensuring the Nation's Disaster Readiness Works for Americans",
+    "topic": "Hearings to examine the nomination of\u00a0Keith Sonderling, of Florida, to be Secretary of Labor.",
     "witnesses": [],
-    "details": "",
+    "details": "Hearings to examine the nomination of\u00a0Keith Sonderling, of Florida, to be Secretary of Labor.",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Banking, Housing, and Urban Affairs|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Banking, Housing, and Urban Affairs",
+    "chair": "Sen. Tim Scott (R-SC), Chair \u00b7 Sen. Elizabeth Warren (D-MA), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-538",
+    "topic": "Hearings to examine the Consumer Financial Protection Bureau Semi-Annual Report, focusing on a new day at the CFPB through reform.",
+    "witnesses": [],
+    "details": "Hearings to examine the Consumer Financial Protection Bureau Semi-Annual Report, focusing on a new day at the CFPB through reform.",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Commerce, Science, and Transportation|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Commerce, Science, and Transportation",
+    "chair": "Sen. Ted Cruz (R-TX), Chair \u00b7 Sen. Maria Cantwell (D-WA), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Russell (SR)",
+    "room": "SR-253",
+    "topic": "Hearings to examine the nomination of David Cummins, of Virginia, to be Administrator of the Transportation Security Administration.",
+    "witnesses": [],
+    "details": "Hearings to examine the nomination of David Cummins, of Virginia, to be Administrator of the Transportation Security Administration.",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Foreign Relations|11:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Foreign Relations",
+    "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
+    "time": "11:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-419",
+    "topic": "Hearings to examine the nominations of Donald Blome, of Illinois, to be an Assistant Secretary of State (Near Eastern Affairs), Christopher Anderson, of Wisconsin, to be Ambassador to the Kingdom of C",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Donald Blome, of Illinois, to be an Assistant Secretary of State (Near Eastern Affairs), Christopher Anderson, of Wisconsin, to be Ambassador to the Kingdom of C",
     "cancelled": false,
     "changes": []
   }
