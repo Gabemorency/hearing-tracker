@@ -1239,6 +1239,7 @@ def build_html(hearings):
 <nav style="display:flex;gap:0;border-bottom:1px solid var(--border-section);background:var(--bg-secondary);padding:0 4px;">
   <a href="index.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gold);text-decoration:none;padding:10px 14px;border-bottom:2px solid var(--gold);">Hearings</a>
   <a href="members.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--text-muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;">Members</a>
+  <a href="calendar.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--text-muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;">Calendar</a>
 </nav>
 
 <div class="stats">
