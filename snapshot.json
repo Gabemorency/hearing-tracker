@@ -130,7 +130,9 @@
     "topic": "Hearings to examine the nominations of Donald Blome, of Illinois, to be an Assistant Secretary of State (Near Eastern Affairs), Christopher Anderson, of Wisconsin, to be Ambassador to the Kingdom of C",
     "witnesses": [],
     "details": "Hearings to examine the nominations of Donald Blome, of Illinois, to be an Assistant Secretary of State (Near Eastern Affairs), Christopher Anderson, of Wisconsin, to be Ambassador to the Kingdom of C",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 7:03 PM"
+    ]
   }
 }
