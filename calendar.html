@@ -7,702 +7,324 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
-<title>Congressional Hearing Tracker — July 11, 2026</title>
+<title>Congressional Calendar - Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-  /* ── CSS custom properties — dark mode (default) ── */
-  :root {
-    --bg:           #0D0C0A;
-    --bg-secondary: #111009;
-    --bg-card:      rgba(255,255,255,0.03);
-    --bg-card-open: rgba(255,255,255,0.06);
-    --bg-header:    rgba(200,169,110,0.04);
-    --bg-source:    rgba(255,255,255,0.02);
-
-    --text-primary:   #F0E8D8;
-    --text-heading:   #FAF4EA;
-    --text-secondary: #C8B89A;
-    --text-muted:     #A09070;
-    --text-dim:       #807050;
-    --text-faint:     #504030;
-
-    --border:         rgba(255,255,255,0.1);
-    --border-header:  rgba(200,169,110,0.3);
-    --border-stat:    rgba(255,255,255,0.07);
-    --border-filter:  rgba(255,255,255,0.08);
-    --border-source:  rgba(255,255,255,0.07);
-    --border-body:    rgba(255,255,255,0.08);
-    --scrollbar:      #2A2820;
-
-    --gold:   #E0B870;
-    --blue:   #6BB8E8;
-    --purple: #C4A0F0;
-
-    --senate-bg:     rgba(220,180,80,0.15);
-    --senate-border: rgba(220,180,80,0.45);
-    --senate-accent: rgba(220,180,80,0.6);
-    --house-bg:      rgba(80,160,220,0.13);
-    --house-border:  rgba(80,160,220,0.40);
-    --house-accent:  rgba(80,160,220,0.55);
-    --joint-bg:      rgba(180,120,240,0.13);
-    --joint-border:  rgba(180,120,240,0.40);
-    --joint-accent:  rgba(180,120,240,0.55);
-
-    --toggle-bg:     rgba(255,255,255,0.08);
-    --toggle-border: rgba(255,255,255,0.16);
-    --toggle-icon:   '☀️';
-  }
-
-  /* ── Light mode overrides ── */
-  :root.light {
-    --bg:           #F5F3EE;
-    --bg-secondary: #EAE7DF;
-    --bg-card:      rgba(255,255,255,0.85);
-    --bg-card-open: rgba(255,255,255,1);
-    --bg-header:    rgba(200,169,110,0.08);
-    --bg-source:    rgba(0,0,0,0.03);
-
-    --text-primary:   #0E0C0A;
-    --text-heading:   #050403;
-    --text-secondary: #3A3020;
-    --text-muted:     #5A4A35;
-    --text-dim:       #7A6A55;
-    --text-faint:     #A09080;
-
-    --border:         rgba(0,0,0,0.12);
-    --border-header:  rgba(180,130,50,0.4);
-    --border-stat:    rgba(0,0,0,0.08);
-    --border-filter:  rgba(0,0,0,0.08);
-    --border-source:  rgba(0,0,0,0.06);
-    --border-body:    rgba(0,0,0,0.07);
-    --scrollbar:      #D0C8BC;
-
-    --senate-bg:     rgba(200,169,110,0.12);
-    --senate-border: rgba(180,140,80,0.4);
-    --senate-accent: rgba(180,140,80,0.6);
-    --house-bg:      rgba(60,130,180,0.08);
-    --house-border:  rgba(60,130,180,0.3);
-    --house-accent:  rgba(60,130,180,0.5);
-    --joint-bg:      rgba(120,80,180,0.08);
-    --joint-border:  rgba(120,80,180,0.3);
-    --joint-accent:  rgba(120,80,180,0.5);
-
-    --toggle-bg:     rgba(0,0,0,0.05);
-    --toggle-border: rgba(0,0,0,0.12);
-    --toggle-icon:   '🌙';
-  }
-
-  /* ── System preference default (runs before JS) ── */
-  @media (prefers-color-scheme: light) {
-    :root:not(.dark) {
-      --bg:           #F5F3EE;
-      --bg-secondary: #EDEAE3;
-      --bg-card:      rgba(255,255,255,0.7);
-      --bg-card-open: rgba(255,255,255,0.95);
-      --bg-header:    rgba(200,169,110,0.06);
-      --bg-source:    rgba(0,0,0,0.03);
-      --text-primary:   #1A1714;
-      --text-heading:   #0E0C0A;
-      --text-secondary: #5A5040;
-      --text-muted:     #7A6A58;
-      --text-dim:       #9A8A78;
-      --text-faint:     #C0B0A0;
-      --border:         rgba(0,0,0,0.08);
-      --border-header:  rgba(200,169,110,0.3);
-      --border-stat:    rgba(0,0,0,0.06);
-      --border-filter:  rgba(0,0,0,0.06);
-      --border-source:  rgba(0,0,0,0.06);
-      --border-body:    rgba(0,0,0,0.07);
-      --scrollbar:      #D0C8BC;
-      --senate-bg:     rgba(200,169,110,0.12);
-      --senate-border: rgba(180,140,80,0.4);
-      --senate-accent: rgba(180,140,80,0.6);
-      --house-bg:      rgba(60,130,180,0.08);
-      --house-border:  rgba(60,130,180,0.3);
-      --house-accent:  rgba(60,130,180,0.5);
-      --joint-bg:      rgba(120,80,180,0.08);
-      --joint-border:  rgba(120,80,180,0.3);
-      --joint-accent:  rgba(120,80,180,0.5);
-      --toggle-bg:     rgba(0,0,0,0.05);
-      --toggle-border: rgba(0,0,0,0.12);
-    }
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  body {
-    background: var(--bg);
-    color: var(--text-primary);
-    font-family: 'IBM Plex Sans', sans-serif;
-    min-height: 100vh;
-    transition: background 0.2s, color 0.2s;
-  }
-
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 2px; }
-
-  .header {
-    border-bottom: 1px solid var(--border-header);
-    padding: 20px 20px 0;
-    background: var(--bg-header);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  .header-left { flex: 1; margin-bottom: 14px; }
-  .header-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px; letter-spacing: 0.18em;
-    color: var(--gold); text-transform: uppercase; margin-bottom: 6px;
-  }
-  .header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(20px,5vw,26px); font-weight: 700;
-    color: var(--text-heading); letter-spacing: -0.01em; margin-bottom: 6px;
-  }
-  .header-timestamp {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px; color: var(--text-muted); letter-spacing: 0.04em; line-height: 1.5;
-  }
-
-  /* ── Theme toggle button ── */
-  .theme-toggle {
-    background: var(--toggle-bg);
-    border: 1px solid var(--toggle-border);
-    border-radius: 8px;
-    padding: 7px 10px;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 1;
-    flex-shrink: 0;
-    margin-left: 12px;
-    margin-top: 2px;
-    transition: background 0.15s, border-color 0.15s;
-  }
-  .theme-toggle:hover {
-    background: rgba(200,169,110,0.1);
-    border-color: rgba(200,169,110,0.3);
-  }
-
-  /* ── Stats ── */
-  .stats { display: flex; border-bottom: 1px solid var(--border-filter); background: var(--bg-secondary); }
-  .stat { flex: 1; padding: 12px 8px; text-align: center; border-right: 1px solid var(--border-stat); }
-  .stat-number { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; line-height: 1; }
-  .stat-label { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--text-dim); text-transform: uppercase; margin-top: 3px; }
-
-  /* ── Filters ── */
-  .filters { display: flex; gap: 6px; padding: 12px 16px; border-bottom: 1px solid var(--border-filter); flex-wrap: wrap; }
-  .filter-btn {
-    background: transparent; border: 1px solid var(--border);
-    color: var(--text-muted); border-radius: 6px; padding: 5px 12px;
-    font-size: 11px; font-family: 'IBM Plex Mono', monospace;
-    letter-spacing: 0.06em; cursor: pointer; transition: all 0.2s ease-out;
-  }
-  .filter-btn.active {
-    background: var(--senate-bg);
-    border-color: var(--senate-border);
-    color: var(--gold);
-    transform: scale(1.03);
-  }
-  .filter-btn:hover:not(.active) { background: rgba(255,255,255,0.04); color: var(--text-primary); }
-
-  /* ── Cards ── */
-  .cards { padding: 14px 16px; }
-  .count-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 12px; }
-
-  .card {
-    border: 1px solid var(--border); border-radius: 12px;
-    padding: 14px 16px; cursor: pointer; margin-bottom: 9px;
-    background: var(--bg-card);
-    transition: background 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  }
-  .card:hover { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(0,0,0,0.25); }
-  .card.open { background: var(--bg-card-open); }
-  .card.cancelled { opacity: 0.5; }
-  .card.cancelled .card-committee { text-decoration: line-through; }
-  .card.has-changes { border-top: 2px solid rgba(255,200,50,0.5); }
-
-  .chamber-senate { border-left: 3px solid var(--senate-accent); }
-  .chamber-house  { border-left: 3px solid var(--house-accent); }
-  .chamber-joint  { border-left: 3px solid var(--joint-accent); }
-
-  .card-top { display: flex; gap: 10px; justify-content: space-between; align-items: flex-start; }
-  .card-left { flex: 1; min-width: 0; }
-  .card-meta { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; flex-wrap: wrap; }
-
-  .tag { border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; text-transform: uppercase; font-family: 'IBM Plex Mono', monospace; flex-shrink: 0; }
-  .tag-senate { background: var(--senate-bg); color: var(--gold); border: 1px solid var(--senate-border); }
-  .tag-house  { background: var(--house-bg);  color: var(--blue); border: 1px solid var(--house-border); }
-  .tag-joint  { background: var(--joint-bg);  color: var(--purple); border: 1px solid var(--joint-border); }
-  .tag-cancelled { background: rgba(200,60,60,0.15); color: #E07070; border: 1px solid rgba(200,60,60,0.3); }
-
-  .card-time { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-secondary); letter-spacing: 0.04em; }
-  .card-committee { font-size: 13px; font-weight: 600; color: var(--text-primary); line-height: 1.4; margin-bottom: 3px; }
-  .card-topic { font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
-  .card-right { text-align: right; min-width: 96px; flex-shrink: 0; }
-  .card-building { font-family: 'IBM Plex Mono', monospace; font-size: 11px; margin-bottom: 2px; }
-  .card-room { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--text-muted); }
-
-  .bc-senate { color: var(--gold); }
-  .bc-house  { color: var(--blue); }
-  .bc-joint  { color: var(--purple); }
-
-  .change-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; }
-  .change-pill { font-family: 'IBM Plex Mono', monospace; font-size: 9px; letter-spacing: 0.05em; padding: 2px 7px; border-radius: 10px; background: rgba(255,200,50,0.1); color: #E0B830; border: 1px solid rgba(255,200,50,0.25); }
-  .change-pill.cancelled-pill { background: rgba(200,60,60,0.12); color: #E07070; border-color: rgba(200,60,60,0.3); }
-
-  .card-body { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-body); display: none; }
-  .card.open .card-body { display: block; }
-  .card-section { margin-bottom: 10px; }
-  .card-section-label { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }
-  .card-section-value { font-size: 12px; color: var(--text-secondary); line-height: 1.65; }
-
-  .sl-senate { color: var(--gold); }
-  .sl-house  { color: var(--blue); }
-  .sl-joint  { color: var(--purple); }
-
-  .witness { font-size: 12px; color: var(--text-secondary); line-height: 1.5; padding-left: 10px; margin-bottom: 4px; }
-  .wb-senate { border-left: 2px solid var(--senate-accent); }
-  .wb-house  { border-left: 2px solid var(--house-accent); }
-  .wb-joint  { border-left: 2px solid var(--joint-accent); }
-
-  .source-note {
-    margin-top: 20px; padding: 12px 14px;
-    background: var(--bg-source); border: 1px solid var(--border-source);
-    border-radius: 6px; font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px; color: var(--text-dim); line-height: 1.6;
-  }
-  .empty { text-align: center; padding: 40px; color: var(--text-faint); font-size: 13px; }
-</style>
-
-<style>
-/* ── Floor Bar ── */
-.floor-bar {
-  display: flex; align-items: center; gap: 0.6rem;
-  padding: 0.55rem 1.2rem; font-size: 0.78rem;
-  font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.02em;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: rgba(255,255,255,0.03); min-height: 36px;
-  position: sticky; top: 0; z-index: 100;
-  transition: background 0.3s;
+:root {
+  --bg:#0D0C0A;--bg2:#141210;--text:#F0E8D8;--text-s:#C8B89A;
+  --text-m:#A09070;--gold:#E0B870;--gold-dim:#8A6830;
+  --blue:#5B8DB8;--purple:#8B7BB8;
+  --border:rgba(255,255,255,0.09);--hover:rgba(255,255,255,0.05);
 }
-.light .floor-bar { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.1); }
-.floor-bar__dot {
-  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-  background: #666; transition: background 0.3s;
+.light {
+  --bg:#F5F3EE;--bg2:#EDEAE4;--text:#0E0C0A;--text-s:#3A3020;
+  --text-m:#5A4A35;--gold:#B8860B;--gold-dim:#8A6620;
+  --border:rgba(0,0,0,0.1);--hover:rgba(0,0,0,0.04);
 }
-.floor-bar--in-session .floor-bar__dot  { background: #4caf50; box-shadow: 0 0 6px #4caf5088; animation: pulse 2s infinite; }
-.floor-bar--vote-active .floor-bar__dot { background: #ff9800; box-shadow: 0 0 6px #ff980088; animation: pulse 0.8s infinite; }
-.floor-bar--loading .floor-bar__dot     { background: #555; }
-.floor-bar--recess .floor-bar__dot      { background: #888; }
-@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-#floor-bar__text { flex: 1; color: var(--text-s, #C8B89A); }
-.floor-bar__vote {
-  background: #ff9800; color: #000; padding: 0.15rem 0.5rem;
-  border-radius: 3px; font-weight: 700; font-size: 0.72rem;
-  text-decoration: none; flex-shrink: 0;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:var(--bg);}
+.nav__brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);text-decoration:none;}
+.nav__links{display:flex;gap:1.5rem;align-items:center;}
+.nav__links a{color:var(--text-s);text-decoration:none;font-size:0.85rem;}
+.nav__links a:hover,.nav__links a.active{color:var(--text);}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--text-m);padding:0.25rem 0.6rem;border-radius:4px;cursor:pointer;font-size:0.78rem;}
+.page-header{padding:1.5rem 1.5rem 0;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold);margin-bottom:0.25rem;}
+.page-header p{color:var(--text-s);font-size:0.85rem;}
+.legend{display:flex;gap:1rem;padding:0.75rem 1.5rem;flex-wrap:wrap;border-bottom:1px solid var(--border);font-size:0.75rem;}
+.legend__item{display:flex;align-items:center;gap:0.35rem;color:var(--text-m);}
+.legend__dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.cal-wrapper{padding:1rem 1.5rem 3rem;}
+.cal-nav{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
+.cal-nav__title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);}
+.cal-nav__btn{background:none;border:1px solid var(--border);color:var(--text-m);padding:0.25rem 0.65rem;border-radius:4px;cursor:pointer;font-size:0.8rem;}
+.cal-nav__btn:hover{border-color:var(--gold);color:var(--gold);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-day-header{text-align:center;font-size:0.7rem;color:var(--text-m);padding:0.4rem 0;font-family:'IBM Plex Mono',monospace;}
+.cal-day{min-height:80px;padding:0.4rem;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .15s,background .15s;}
+.cal-day:hover{border-color:var(--gold-dim);background:var(--hover);}
+.cal-day--empty{border-color:transparent;cursor:default;pointer-events:none;}
+.cal-day--today{border-color:var(--gold)!important;background:rgba(224,184,112,0.05);}
+.cal-day__num{font-size:0.72rem;font-family:'IBM Plex Mono',monospace;color:var(--text-m);margin-bottom:0.3rem;}
+.cal-day--today .cal-day__num{color:var(--gold);font-weight:700;}
+.cal-day__chips{display:flex;flex-direction:column;gap:2px;}
+.cal-chip{font-size:0.62rem;padding:1px 4px;border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.cal-chip--hearing{background:rgba(91,141,184,0.25);color:var(--blue);}
+.cal-chip--committee{background:rgba(139,123,184,0.25);color:var(--purple);}
+.cal-chip--vote{background:rgba(224,184,112,0.2);color:var(--gold);}
+.cal-chip--more{background:rgba(255,255,255,0.08);color:var(--text-m);}
+.detail-panel{margin-top:1rem;border:1px solid var(--border);border-radius:8px;padding:1.25rem;display:none;}
+.detail-panel.visible{display:block;}
+.detail-panel__date{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);margin-bottom:0.75rem;}
+.detail-events{display:flex;flex-direction:column;gap:0.6rem;}
+.detail-event{padding:0.65rem 0.85rem;border-radius:5px;border-left:3px solid var(--border);}
+.detail-event--hearing{border-left-color:var(--blue);}
+.detail-event--committee{border-left-color:var(--purple);}
+.detail-event--vote{border-left-color:var(--gold);}
+.detail-event__type{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-m);font-family:'IBM Plex Mono',monospace;margin-bottom:0.2rem;}
+.detail-event__title{font-size:0.88rem;color:var(--text);margin-bottom:0.2rem;}
+.detail-event__meta{font-size:0.76rem;color:var(--text-s);}
+.detail-event a{color:var(--blue);text-decoration:none;}
+.detail-event a:hover{text-decoration:underline;}
+.loading{text-align:center;padding:3rem;color:var(--text-m);font-family:'IBM Plex Mono',monospace;font-size:0.85rem;}
+@media(max-width:600px){
+  .cal-day{min-height:52px;padding:0.25rem;}
+  .cal-chip{display:none;}
+  .cal-day__chips .cal-chip:first-child{display:block;}
+  .nav__links{gap:0.75rem;}
 }
-.floor-bar__time { color: var(--text-m, #A09070); font-size: 0.72rem; flex-shrink: 0; }
-
-/* ── DomeWatch sections ── */
-.dw-section {
-  margin: 2rem 0; padding: 1.5rem;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px; background: rgba(255,255,255,0.02);
-}
-.light .dw-section { border-color: rgba(0,0,0,0.1); background: rgba(0,0,0,0.02); }
-.section-heading {
-  font-size: 1rem; font-weight: 600; margin: 0 0 1rem;
-  display: flex; align-items: center; gap: 0.5rem;
-  color: var(--text, #F0E8D8);
-}
-.section-heading__icon { font-size: 1.1rem; }
-.section-heading__sub  { font-size: 0.75rem; font-weight: 400; color: var(--text-m, #A09070); margin-left: auto; }
-.whip-meta { font-size: 0.8rem; color: var(--text-s, #C8B89A); margin-bottom: 1rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
-.whip-meta span { display: flex; gap: 0.3rem; align-items: center; }
-.whip-items { display: flex; flex-direction: column; gap: 0.75rem; }
-.whip-item {
-  padding: 0.75rem 1rem; border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.07);
-  background: rgba(255,255,255,0.03);
-}
-.light .whip-item { border-color: rgba(0,0,0,0.08); background: rgba(0,0,0,0.02); }
-.whip-item__bill { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--gold, #E0B870); }
-.whip-item__title { font-size: 0.88rem; margin: 0.2rem 0; color: var(--text, #F0E8D8); }
-.whip-item__meta { font-size: 0.75rem; color: var(--text-m, #A09070); display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.3rem; }
-.whip-item__rec { font-weight: 700; padding: 0.1rem 0.4rem; border-radius: 3px; font-size: 0.7rem; }
-.whip-item__rec--YES { background: #1b5e20; color: #a5d6a7; }
-.whip-item__rec--NO  { background: #b71c1c; color: #ef9a9a; }
-.whip-item__rec--PRESENT { background: #e65100; color: #ffccbc; }
-.floor-updates-list { display: flex; flex-direction: column; gap: 0.6rem; }
-.floor-update {
-  padding: 0.65rem 0.9rem; border-radius: 5px;
-  border-left: 3px solid var(--gold, #E0B870);
-  background: rgba(255,255,255,0.02); font-size: 0.85rem;
-}
-.light .floor-update { background: rgba(0,0,0,0.02); }
-.floor-update__subject { font-weight: 600; color: var(--text, #F0E8D8); margin-bottom: 0.2rem; }
-.floor-update__body    { color: var(--text-s, #C8B89A); font-size: 0.82rem; line-height: 1.5; }
-.floor-update__time    { color: var(--text-m, #A09070); font-size: 0.73rem; margin-top: 0.3rem; font-family: 'IBM Plex Mono', monospace; }
-
-/* ── Congress.gov bill activity on bio pages ── */
-.congress-activity-section {
-  margin: 2rem 0; padding: 1.25rem 1.5rem;
-  border: 1px solid rgba(255,255,255,0.08); border-radius: 8px;
-}
-.activity-heading { font-size: 0.9rem; font-weight: 600; margin: 0 0 0.75rem; color: var(--gold, #E0B870); }
-.bill-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
-.bill-item a { display: flex; gap: 0.6rem; align-items: baseline; text-decoration: none; padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.bill-num   { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--gold, #E0B870); flex-shrink: 0; }
-.bill-title { font-size: 0.83rem; color: var(--text-s, #C8B89A); }
 </style>
 </head>
 <body>
-<!-- ── DomeWatch Floor Status Bar ─────────────────────────────────────────── -->
-<div id="floor-bar" class="floor-bar floor-bar--loading" aria-live="polite">
-  <span class="floor-bar__dot"></span>
-  <span id="floor-bar__text">Loading floor status…</span>
-  <a id="floor-bar__vote" class="floor-bar__vote" style="display:none" href="#"></a>
-  <span class="floor-bar__time" id="floor-bar__time"></span>
-</div>
 
-
-<div class="header">
-  <div class="header-left">
-    <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
-    <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 11:02 AM ET · Saturday, July 11, 2026 · Updates every 20 min · Schedules subject to change.</div>
+<nav class="nav">
+  <a href="/hearing-tracker/" class="nav__brand">Congressional Hearing Tracker</a>
+  <div class="nav__links">
+    <a href="/hearing-tracker/">Hearings</a>
+    <a href="/hearing-tracker/members.html">Members</a>
+    <a href="/hearing-tracker/calendar.html" class="active">Calendar</a>
+    <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()">&#9728;</button>
   </div>
-  <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
-</div>
-<nav style="display:flex;gap:0;border-bottom:1px solid var(--border-section);background:var(--bg-secondary);padding:0 4px;">
-  <a href="index.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--gold);text-decoration:none;padding:10px 14px;border-bottom:2px solid var(--gold);">Hearings</a>
-  <a href="members.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--text-muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;">Members</a>
 </nav>
 
-<div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
+<div class="page-header">
+  <h1>Congressional Calendar</h1>
+  <p>30-day rolling view of hearings, committee meetings, and upcoming floor votes &middot; Updated every 2 hours</p>
 </div>
 
-<div class="filters">
-  <button class="filter-btn active" onclick="setFilter('All')">All</button>
-  <button class="filter-btn" onclick="setFilter('Senate')">Senate</button>
-  <button class="filter-btn" onclick="setFilter('House')">House</button>
-  <button class="filter-btn" onclick="setFilter('Joint')">Joint</button>
-  <button class="filter-btn" onclick="setFilter('Updated')">⚡ Updated</button>
-  <button class="filter-btn" onclick="setFilter('Cancelled')">✕ Cancelled</button>
+<div class="legend">
+  <span class="legend__item"><span class="legend__dot" style="background:var(--blue)"></span>Hearing</span>
+  <span class="legend__item"><span class="legend__dot" style="background:var(--purple)"></span>Committee Meeting</span>
+  <span class="legend__item"><span class="legend__dot" style="background:var(--gold)"></span>Whip Notice / Floor</span>
 </div>
 
-<div class="cards">
-  <div class="count-label" id="count-label"></div>
-  <div id="card-list"></div>
-  <div class="source-note">ℹ Auto-updated every 2 hrs · docs.house.gov · senate.gov · Individual committee pages</div>
+<div class="cal-wrapper">
+  <div class="cal-nav">
+    <button class="cal-nav__btn" onclick="changeMonth(-1)">&larr; Prev</button>
+    <span class="cal-nav__title" id="cal-title"></span>
+    <button class="cal-nav__btn" onclick="changeMonth(1)">Next &rarr;</button>
+  </div>
+  <div id="cal-loading" class="loading">Loading calendar data&hellip;</div>
+  <div id="cal-grid" class="cal-grid" style="display:none"></div>
+  <div id="detail-panel" class="detail-panel"></div>
 </div>
 
 <script>
-const HEARINGS = [];
-
-// ── Theme system ──────────────────────────────────────────────────────────────
-function getSystemTheme() {
-  return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-}
-
-function applyTheme(theme) {
-  const root = document.documentElement;
-  root.classList.remove('light', 'dark');
-  root.classList.add(theme);
-  const btn = document.getElementById('theme-toggle');
-  btn.textContent = theme === 'dark' ? '☀️' : '🌙';
-  btn.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
-}
-
-function toggleTheme() {
-  const current = document.documentElement.classList.contains('light') ? 'light' : 'dark';
-  const next = current === 'dark' ? 'light' : 'dark';
-  localStorage.setItem('theme', next);
-  applyTheme(next);
-}
-
-// On load: use stored preference, or fall back to system
 (function() {
-  const stored = localStorage.getItem('theme');
-  applyTheme(stored || getSystemTheme());
-})();
+  var allEvents    = {};
+  var currentYear, currentMonth;
+  var today        = new Date();
+  currentYear      = today.getFullYear();
+  currentMonth     = today.getMonth();
 
-// Listen for system theme changes (e.g. auto dark mode at sunset)
-window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
-  if (!localStorage.getItem('theme')) {
-    applyTheme(e.matches ? 'light' : 'dark');
-  }
-});
+  var MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+  var DAYS   = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
-// ── Cards ─────────────────────────────────────────────────────────────────────
-function cls(c) { return c==='Senate'?'senate':c==='House'?'house':'joint'; }
-
-function buildCards(filter) {
-  // No hearings today at all
-  if (!HEARINGS.length) {
-    document.getElementById('count-label').textContent = '0 hearings scheduled';
-    document.getElementById('card-list').innerHTML =
-      '<div class="empty" style="padding:60px 20px">'+
-      '<div style="font-size:32px;margin-bottom:12px">🏛</div>'+
-      '<div style="font-family:serif;font-size:18px;color:var(--text-muted);margin-bottom:8px">No hearings today</div>'+
-      '<div style="font-size:12px;color:var(--text-dim)">Congress may be in recess or no committees are scheduled. Check back tomorrow.</div>'+
-      '</div>';
-    return;
-  }
-
-  let filtered;
-  if (filter==='All')           filtered = HEARINGS;
-  else if (filter==='Updated')  filtered = HEARINGS.filter(h=>h.changes&&h.changes.length>0);
-  else if (filter==='Cancelled')filtered = HEARINGS.filter(h=>h.cancelled);
-  else filtered = HEARINGS.filter(h=>h.chamber===filter);
-
-  document.getElementById('count-label').textContent =
-    filtered.length+' hearing'+(filtered.length!==1?'s':'')+' — tap any card to expand';
-
-  const list = document.getElementById('card-list');
-  list.innerHTML = '';
-
-  if (!filtered.length) {
-    list.innerHTML='<div class="empty">No '+(filter!=='All'?filter.toLowerCase()+' ':'')+'hearings found.</div>';
-    return;
-  }
-
-  filtered.forEach(h => {
-    const c = cls(h.chamber);
-    const hasChanges = h.changes&&h.changes.length>0;
-    const card = document.createElement('div');
-    card.className = ['card','chamber-'+c,h.cancelled?'cancelled':'',hasChanges?'has-changes':''].filter(Boolean).join(' ');
-
-    const pills = hasChanges
-      ? '<div class="change-pills">'+h.changes.map(ch=>
-          '<span class="change-pill'+(ch.toLowerCase().includes('cancel')?' cancelled-pill':'')+
-          '">⚡ '+ch+'</span>').join('')+'</div>'
-      : '';
-
-    const chairVal = h.chair
-      ? h.chair
-      : '<span style="color:var(--text-faint);font-style:italic">Not yet posted</span>';
-
-    const aboutHtml = (h.details && h.details.trim() &&
-                       h.details.trim() !== h.topic.trim() &&
-                       h.details.length > h.topic.length + 20)
-      ? '<div class="card-section"><div class="card-section-label sl-'+c+'">About</div><div class="card-section-value">'+h.details+'</div></div>'
-      : '';
-
-    const witnessHtml = h.witnesses && h.witnesses.length &&
-                        !h.witnesses.every(w=>w==='Witnesses not yet publicly posted')
-      ? h.witnesses.map(w=>'<div class="witness wb-'+c+'">'+w+'</div>').join('')
-      : '<div style="color:var(--text-faint);font-style:italic;font-size:12px;padding-left:10px">Not yet posted</div>';
-
-    card.innerHTML = `
-      <div class="card-top">
-        <div class="card-left">
-          <div class="card-meta">
-            <span class="tag tag-${c}">${h.chamber}</span>
-            ${h.cancelled?'<span class="tag tag-cancelled">Cancelled</span>':''}
-            <span class="card-time">${h.time}</span>
-          </div>
-          <div class="card-committee">${h.committee}</div>
-          <div class="card-topic">${h.topic}</div>
-          ${pills}
-        </div>
-        <div class="card-right">
-          <div class="card-building bc-${c}">${h.building}</div>
-          <div class="card-room">${h.room}</div>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="card-section">
-          <div class="card-section-label sl-${c}">Chair</div>
-          <div class="card-section-value">${chairVal}</div>
-        </div>
-        ${aboutHtml}
-        <div class="card-section">
-          <div class="card-section-label sl-${c}">Witnesses</div>
-          ${witnessHtml}
-        </div>
-      </div>`;
-
-    card.addEventListener('click',()=>card.classList.toggle('open'));
-    list.appendChild(card);
-  });
-}
-
-function setFilter(f) {
-  document.querySelectorAll('.filter-btn').forEach(b=>
-    b.classList.toggle('active',
-      b.textContent.replace('⚡ ','').replace('✕ ','')===f||(f==='All'&&b.textContent==='All')));
-  buildCards(f);
-}
-
-buildCards('All');
-</script>
-
-<!-- ── DomeWatch: Whip Notice ─────────────────────────────────────────────── -->
-<section id="whip-section" class="dw-section" style="display:none">
-  <h2 class="section-heading">
-    <span class="section-heading__icon">🗓️</span>
-    Coming to the Floor
-    <span class="section-heading__sub">via DomeWatch Whip Notice</span>
-  </h2>
-  <div id="whip-meta" class="whip-meta"></div>
-  <div id="whip-items" class="whip-items"></div>
-</section>
-
-<!-- ── DomeWatch: Floor Updates ───────────────────────────────────────────── -->
-<section id="floor-updates-section" class="dw-section" style="display:none">
-  <h2 class="section-heading">
-    <span class="section-heading__icon">📢</span>
-    Floor Updates
-    <span class="section-heading__sub">via DomeWatch</span>
-  </h2>
-  <div id="floor-updates-list" class="floor-updates-list"></div>
-</section>
-
-<script>
-(function() {
-  var DW_KEY = "dw_bmB0cl-PcW4xZ4E9NhHddqK8uol1o7Ua";
-  var DW_BASE = "https://data.domewatch.us/v1";
-  var POLL_INTERVAL = 30000;
-  var floorEtag = "";
-
-  function fmtTime(iso) {
-    if (!iso) return "";
-    var d = new Date(iso);
-    return d.toLocaleTimeString("en-US", {hour:"numeric", minute:"2-digit", hour12:true});
-  }
-
-  // ── Floor status bar ──────────────────────────────────────────────────────
-  function updateFloorBar(data) {
-    var bar  = document.getElementById("floor-bar");
-    var txt  = document.getElementById("floor-bar__text");
-    var vote = document.getElementById("floor-bar__vote");
-    var time = document.getElementById("floor-bar__time");
-    if (!bar || !txt) return;
-
-    bar.className = "floor-bar";
-    vote.style.display = "none";
-
-    if (!data) {
-      bar.classList.add("floor-bar--loading");
-      txt.textContent = "Floor status unavailable";
-      return;
+  // Theme
+  window.toggleTheme = function() {
+    var light = document.body.classList.toggle("light");
+    localStorage.setItem("theme", light ? "light" : "dark");
+    document.getElementById("theme-toggle").textContent = light ? ")" : "&#9728;";
+  };
+  (function() {
+    var t = localStorage.getItem("theme") ||
+            (window.matchMedia("(prefers-color-scheme:light)").matches ? "light" : "dark");
+    if (t === "light") {
+      document.body.classList.add("light");
+      document.getElementById("theme-toggle").textContent = ")";
     }
+  })();
 
-    if (data.inSession) {
-      if (data.vote && data.vote.rollCall) {
-        bar.classList.add("floor-bar--vote-active");
-        txt.textContent = "House In Session — Vote in progress: " + (data.vote.question || "Roll Call");
-        vote.textContent = "D " + (data.vote.counts && data.vote.counts.D ? data.vote.counts.D.yea || 0 : 0) +
-                           "  R " + (data.vote.counts && data.vote.counts.R ? data.vote.counts.R.yea || 0 : 0);
-        vote.style.display = "inline";
-      } else {
-        bar.classList.add("floor-bar--in-session");
-        txt.textContent = "House In Session" + (data.currentActivity ? " — " + data.currentActivity : "");
+  function dateKey(d) {
+    var m = d.getMonth() + 1, dd = d.getDate();
+    return d.getFullYear() + "-" + (m<10?"0":"") + m + "-" + (dd<10?"0":"") + dd;
+  }
+
+  function addEvent(dk, ev) {
+    if (!allEvents[dk]) allEvents[dk] = [];
+    allEvents[dk].push(ev);
+  }
+
+  function loadAll() {
+    var now  = new Date();
+    var from = dateKey(now);
+    var to   = dateKey(new Date(now.getTime() + 30*86400000));
+    var done = 0;
+
+    function check() {
+      done++;
+      if (done === 3) {
+        document.getElementById("cal-loading").style.display = "none";
+        document.getElementById("cal-grid").style.display    = "grid";
+        renderCalendar();
       }
-    } else {
-      bar.classList.add("floor-bar--recess");
-      txt.textContent = data.currentActivity || "House Not In Session";
     }
-    time.textContent = "Updated " + fmtTime(data.asOf || new Date().toISOString());
-  }
 
-  function pollFloor() {
-    if (!DW_KEY || DW_KEY === "") return;
-    var headers = {"X-API-Key": DW_KEY};
-    if (floorEtag) headers["If-None-Match"] = floorEtag;
-    fetch(DW_BASE + "/floor", {headers: headers})
-      .then(function(r) {
-        if (r.status === 304) return null;
-        if (!r.ok) return null;
-        var etag = r.headers.get("ETag");
-        if (etag) floorEtag = etag;
-        return r.json();
-      })
-      .then(function(data) { if (data) updateFloorBar(data); })
-      .catch(function() {});
-  }
-
-  // ── Whip Notices ─────────────────────────────────────────────────────────
-  function loadWhipNotices() {
-    if (!DW_KEY || DW_KEY === "") return;
-    fetch(DW_BASE + "/whip-notices?limit=1", {headers: {"X-API-Key": DW_KEY}})
+    // 1. Hearings
+    fetch("/hearing-tracker/hearings.json")
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
-        if (!data || !data.data || !data.data.length) return;
-        var notice = data.data[0];
-        var section = document.getElementById("whip-section");
-        var meta    = document.getElementById("whip-meta");
-        var items   = document.getElementById("whip-items");
-        if (!section) return;
-
-        var metaHtml = "";
-        if (notice.houseMeetsAt) metaHtml += "<span>🕐 House meets: " + notice.houseMeetsAt + "</span>";
-        if (notice.firstVotes)   metaHtml += "<span>⚡ First votes: " + notice.firstVotes + "</span>";
-        if (notice.lastVotes)    metaHtml += "<span>🔔 Last votes: " + notice.lastVotes + "</span>";
-        meta.innerHTML = metaHtml;
-
-        var billsHtml = "";
-        var billItems = (notice.items || []).filter(function(b) { return b.confidence !== "low"; });
-        billItems.forEach(function(b) {
-          var recClass = b.recommendation ? "whip-item__rec--" + b.recommendation : "";
-          var recLabel = b.recommendation ? b.recommendation.replace("_", " ") : "";
-          var billLink = b.billUrl ? '<a href="' + b.billUrl + '" target="_blank" rel="noopener" class="whip-item__bill">' + (b.billNumber || "") + '</a>' :
-                         '<span class="whip-item__bill">' + (b.billNumber || "") + '</span>';
-          billsHtml += '<div class="whip-item">';
-          billsHtml += billLink;
-          if (b.title) billsHtml += '<div class="whip-item__title">' + b.title + '</div>';
-          billsHtml += '<div class="whip-item__meta">';
-          if (recLabel) billsHtml += '<span class="whip-item__rec ' + recClass + '">' + recLabel + '</span>';
-          if (b.position) billsHtml += '<span>' + b.position + '</span>';
-          if (b.procedure) billsHtml += '<span>' + b.procedure.replace(/_/g, " ") + '</span>';
-          billsHtml += '</div></div>';
-        });
-        items.innerHTML = billsHtml || "<p style='color:var(--text-m)'>No upcoming vote items found.</p>";
-        section.style.display = "block";
+        if (data) {
+          var items = Array.isArray(data) ? data : (data.hearings || data.data || []);
+          items.forEach(function(h) {
+            var dk = (h.date || h.start_date || "").substring(0,10);
+            if (dk >= from && dk <= to) {
+              addEvent(dk, {
+                type: "hearing",
+                title: h.title || h.name || "Hearing",
+                meta: (h.committee || h.body || "") + (h.time ? " · " + h.time : ""),
+                url: h.url || null
+              });
+            }
+          });
+        }
+        check();
       })
-      .catch(function() {});
-  }
+      .catch(function() { check(); });
 
-  // ── Floor Updates ─────────────────────────────────────────────────────────
-  function loadFloorUpdates() {
-    if (!DW_KEY || DW_KEY === "") return;
-    fetch(DW_BASE + "/floor-updates?limit=5", {headers: {"X-API-Key": DW_KEY}})
+    // 2. Committee meetings from DomeWatch local JSON
+    fetch("/hearing-tracker/domewatch_meetings.json")
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
-        if (!data || !data.data || !data.data.length) return;
-        var section = document.getElementById("floor-updates-section");
-        var list    = document.getElementById("floor-updates-list");
-        if (!section) return;
-        var html = "";
-        data.data.forEach(function(u) {
-          html += '<div class="floor-update">';
-          html += '<div class="floor-update__subject">' + (u.subject || "Floor Update") + '</div>';
-          if (u.bodyText) html += '<div class="floor-update__body">' + u.bodyText + '</div>';
-          html += '<div class="floor-update__time">' + fmtTime(u.publishedAt) + '</div>';
-          html += '</div>';
-        });
-        list.innerHTML = html;
-        section.style.display = "block";
+        if (data && data.data) {
+          data.data.forEach(function(m) {
+            var dk = (m.startDate || "").substring(0,10);
+            if (dk >= from && dk <= to) {
+              addEvent(dk, {
+                type: "committee",
+                title: m.title || m.committee || "Committee Meeting",
+                meta: (m.committee || "") + (m.location ? " · " + m.location : "") +
+                      (m.meetingType ? " · " + m.meetingType.replace(/_/g," ") : ""),
+                url: m.url || null
+              });
+            }
+          });
+        }
+        check();
       })
-      .catch(function() {});
+      .catch(function() { check(); });
+
+    // 3. Whip notices from DomeWatch local JSON
+    fetch("/hearing-tracker/domewatch_whip.json")
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (data && data.data) {
+          data.data.forEach(function(notice) {
+            var dk = notice.publishDate || (notice.postedAt || "").substring(0,10);
+            if (dk >= from && dk <= to) {
+              (notice.items || [])
+                .filter(function(b) { return b.confidence !== "low" && b.billNumber; })
+                .forEach(function(b) {
+                  addEvent(dk, {
+                    type: "vote",
+                    title: (b.billNumber||"") + (b.title ? " - " + b.title : ""),
+                    meta: (b.recommendation ? b.recommendation + " · " : "") + (b.position||""),
+                    url: b.billUrl || null
+                  });
+                });
+            }
+          });
+        }
+        check();
+      })
+      .catch(function() { check(); });
   }
 
-  // ── Init ──────────────────────────────────────────────────────────────────
-  document.addEventListener("DOMContentLoaded", function() {
-    pollFloor();
-    loadWhipNotices();
-    loadFloorUpdates();
-    setInterval(pollFloor, POLL_INTERVAL);
-  });
+  window.changeMonth = function(dir) {
+    currentMonth += dir;
+    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    if (currentMonth < 0)  { currentMonth = 11; currentYear--; }
+    document.getElementById("detail-panel").className = "detail-panel";
+    renderCalendar();
+  };
+
+  function renderCalendar() {
+    document.getElementById("cal-title").textContent = MONTHS[currentMonth] + " " + currentYear;
+    var grid = document.getElementById("cal-grid");
+    grid.innerHTML = "";
+
+    DAYS.forEach(function(d) {
+      var h = document.createElement("div");
+      h.className = "cal-day-header";
+      h.textContent = d;
+      grid.appendChild(h);
+    });
+
+    var firstDay    = new Date(currentYear, currentMonth, 1).getDay();
+    var daysInMonth = new Date(currentYear, currentMonth+1, 0).getDate();
+    var todayKey    = dateKey(today);
+
+    for (var i = 0; i < firstDay; i++) {
+      var e = document.createElement("div");
+      e.className = "cal-day cal-day--empty";
+      grid.appendChild(e);
+    }
+
+    for (var d = 1; d <= daysInMonth; d++) {
+      var mo = currentMonth + 1;
+      var dk = currentYear + "-" + (mo<10?"0":"") + mo + "-" + (d<10?"0":"") + d;
+      var cell = document.createElement("div");
+      cell.className = "cal-day" + (dk === todayKey ? " cal-day--today" : "");
+      cell.dataset.date = dk;
+
+      var num = document.createElement("div");
+      num.className = "cal-day__num";
+      num.textContent = d;
+      cell.appendChild(num);
+
+      var events = allEvents[dk] || [];
+      if (events.length) {
+        var chips = document.createElement("div");
+        chips.className = "cal-day__chips";
+        events.slice(0,3).forEach(function(ev) {
+          var chip = document.createElement("div");
+          chip.className = "cal-chip cal-chip--" + ev.type;
+          chip.textContent = ev.title;
+          chips.appendChild(chip);
+        });
+        if (events.length > 3) {
+          var more = document.createElement("div");
+          more.className = "cal-chip cal-chip--more";
+          more.textContent = "+" + (events.length-3) + " more";
+          chips.appendChild(more);
+        }
+        cell.appendChild(chips);
+        cell.addEventListener("click", function(ev) { showDetail(ev.currentTarget.dataset.date); });
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function showDetail(dk) {
+    var panel  = document.getElementById("detail-panel");
+    var events = allEvents[dk] || [];
+    if (!events.length) { panel.className = "detail-panel"; return; }
+    var p = dk.split("-");
+    var dateStr = MONTHS[parseInt(p[1],10)-1] + " " + parseInt(p[2],10) + ", " + p[0];
+    var html = '<div class="detail-panel__date">' + dateStr + '</div><div class="detail-events">';
+    events.forEach(function(ev) {
+      var label = ev.type === "committee" ? "Committee Meeting" :
+                  ev.type === "hearing"   ? "Hearing" : "Floor / Vote";
+      html += '<div class="detail-event detail-event--' + ev.type + '">';
+      html += '<div class="detail-event__type">' + label + '</div>';
+      if (ev.url) {
+        html += '<div class="detail-event__title"><a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.title + '</a></div>';
+      } else {
+        html += '<div class="detail-event__title">' + ev.title + '</div>';
+      }
+      if (ev.meta) html += '<div class="detail-event__meta">' + ev.meta + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+    panel.innerHTML = html;
+    panel.className = "detail-panel visible";
+    panel.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }
+
+  document.addEventListener("DOMContentLoaded", loadAll);
 }());
 </script>
 
@@ -710,7 +332,7 @@ buildCards('All');
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function() {
     navigator.serviceWorker.register("/hearing-tracker/sw.js")
-      .catch(function(err) { console.warn("SW:", err); });
+      .catch(function(e) { console.warn("SW:", e); });
   });
 }
 </script>
