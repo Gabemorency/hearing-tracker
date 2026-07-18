@@ -1,16 +1,61 @@
 {
-  "date": "2026-07-17",
-  "generated": "11:58 PM ET · Thursday, July 16, 2026",
+  "date": "2026-07-20",
+  "generated": "11:53 PM ET · Friday, July 17, 2026",
   "hearings": [
     {
-      "chamber": "House",
-      "committee": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
+      "chamber": "Senate",
+      "committee": "Intelligence",
       "chair": "",
-      "time": "10:00 AM ET",
+      "time": "5:30 PM ET",
+      "building": "Capitol (Senate)",
+      "room": "S-216",
+      "topic": "Closed business meeting to consider certain intelligence matters.",
+      "details": "Closed business meeting to consider certain intelligence matters.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Rules",
+      "chair": "",
+      "time": "2:00 PM ET",
+      "building": "Capitol",
+      "room": "H-313 CAPITOL",
+      "topic": "H.R. 7008 – Stop Insider Trading Act; H.R. 6955 – Main Street Capital Access Act; H. Con. Res. ____ – Establishing the congressional budget for the United States Government for fiscal year 2027 and se",
+      "details": "H.R. 7008 – Stop Insider Trading Act; H.R. 6955 – Main Street Capital Access Act; H. Con. Res. ____ – Establishing the congressional budget for the United States Government for fiscal year 2027 and se",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Energy and Commerce",
+      "chair": "",
+      "time": "5:00 PM ET",
       "building": "Rayburn (RHOB)",
-      "room": "Federal Hall National Memorial\n15 Pine Street\nNew York, NY 10005",
-      "topic": "Building the Future of Finance: How the CLARITY Act Unlocks Innovation",
-      "details": "Building the Future of Finance: How the CLARITY Act Unlocks Innovation",
+      "room": "2123 RHOB",
+      "topic": "Full Committee Markup of Twenty Nine Pieces of Legislation",
+      "details": "Full Committee Markup of Twenty Nine Pieces of Legislation",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Permanent Select Committee on Intelligence",
+      "chair": "",
+      "time": "5:15 PM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "HVC-304 CAPITOL",
+      "topic": "Intelligence Authorization Act for Fiscal Year 2027 (Closed)",
+      "details": "Intelligence Authorization Act for Fiscal Year 2027 (Closed)",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
