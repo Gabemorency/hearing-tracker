@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
-<title>Congressional Hearing Tracker — July 17, 2026</title>
+<title>Congressional Hearing Tracker — July 18, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -397,7 +397,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 11:13 PM ET · Friday, July 17, 2026 · Updates every 20 min · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 2:11 AM ET · Saturday, July 18, 2026 · Updates every 20 min · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -408,10 +408,10 @@
 </nav>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">1</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
 
@@ -431,7 +431,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "House", "committee": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)", "chair": "Rep. French Hill (R-AR), Chair · Rep. Maxine Waters (D-CA), Ranking Member", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "Federal Hall National Memorial\n15 Pine Street\nNew York, NY 10005", "topic": "Building the Future of Finance: How the CLARITY Act Unlocks Innovation", "details": "Building the Future of Finance: How the CLARITY Act Unlocks Innovation", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": []}];
+const HEARINGS = [];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
