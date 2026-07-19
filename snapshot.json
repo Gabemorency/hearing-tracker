@@ -1,1 +1,62 @@
-{}
+{
+  "Senate|Intelligence|5:30 PM ET": {
+    "chamber": "Senate",
+    "committee": "Intelligence",
+    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
+    "time": "5:30 PM ET",
+    "building": "Capitol (Senate)",
+    "room": "S-216",
+    "topic": "Closed business meeting to consider certain intelligence matters.",
+    "details": "Closed business meeting to consider certain intelligence matters.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Rules|2:00 PM ET": {
+    "chamber": "House",
+    "committee": "Committee on Rules",
+    "chair": "Sen. Amy Klobuchar (D-MN) \u00b7 Sen. Deb Fischer (R-NE), Chair",
+    "time": "2:00 PM ET",
+    "building": "Capitol",
+    "room": "H-313 CAPITOL",
+    "topic": "H.R. 7008 \u2013 Stop Insider Trading Act; H.R. 6955 \u2013 Main Street Capital Access Act; H. Con. Res. ____ \u2013 Establishing the congressional budget for the United States Government for fiscal year 2027 and se",
+    "details": "H.R. 7008 \u2013 Stop Insider Trading Act; H.R. 6955 \u2013 Main Street Capital Access Act; H. Con. Res. ____ \u2013 Establishing the congressional budget for the United States Government for fiscal year 2027 and se",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Committee on Energy and Commerce|5:00 PM ET": {
+    "chamber": "House",
+    "committee": "Committee on Energy and Commerce",
+    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
+    "time": "5:00 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2123 RHOB",
+    "topic": "Full Committee Markup of Twenty Nine Pieces of Legislation",
+    "details": "Full Committee Markup of Twenty Nine Pieces of Legislation",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "House|Permanent Select Committee on Intelligen|5:15 PM ET": {
+    "chamber": "House",
+    "committee": "Permanent Select Committee on Intelligence",
+    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
+    "time": "5:15 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "HVC-304 CAPITOL",
+    "topic": "Intelligence Authorization Act for Fiscal Year 2027 (Closed)",
+    "details": "Intelligence Authorization Act for Fiscal Year 2027 (Closed)",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  }
+}
