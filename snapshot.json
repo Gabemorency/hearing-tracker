@@ -504,6 +504,19 @@
     "cancelled": false,
     "changes": []
   },
+  "Senate|Intelligence|2:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Intelligence",
+    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
+    "time": "2:00 PM ET",
+    "building": "Capitol (Senate)",
+    "room": "S-216",
+    "topic": "Closed business meeting to consider pending intelligence matters.",
+    "witnesses": [],
+    "details": "Closed business meeting to consider pending intelligence matters.",
+    "cancelled": false,
+    "changes": []
+  },
   "Senate|Appropriations|2:30 PM ET": {
     "chamber": "Senate",
     "committee": "Appropriations",
