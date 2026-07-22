@@ -340,6 +340,19 @@
     "cancelled": false,
     "changes": []
   },
+  "Senate|Indian Affairs|2:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Indian Affairs",
+    "chair": "Sen. Lisa Murkowski (R-AK), Chair \u00b7 Sen. Brian Schatz (D-HI), Ranking Member",
+    "time": "2:00 PM ET",
+    "building": "Capitol (Senate)",
+    "room": "S-120",
+    "topic": "Business meeting to consider the nominations of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services; to be immediately followed by a hearing to e",
+    "witnesses": [],
+    "details": "Business meeting to consider the nominations of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services; to be immediately followed by a hearing to e",
+    "cancelled": true,
+    "changes": []
+  },
   "Senate|Environment and Public Works|2:00 PM ET": {
     "chamber": "Senate",
     "committee": "Environment and Public Works",
