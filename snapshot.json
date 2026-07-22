@@ -82,8 +82,10 @@
     "topic": "United Nations Accountability and Reform: Advancing an America First Foreign Policy Through Strategic Diplomacy and Burden Sharing",
     "witnesses": [],
     "details": "",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 1:26 PM"
+    ]
   },
   "House|Subcommittee on Forestry and Horticultur|10:00 AM ET": {
     "chamber": "House",
@@ -240,8 +242,10 @@
     "topic": "Building a New Regional Security Architecture: The Next Phase of the Abraham Accords",
     "witnesses": [],
     "details": "",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 1:26 PM"
+    ]
   },
   "Senate|Foreign Relations|9:00 AM ET": {
     "chamber": "Senate",
@@ -266,8 +270,10 @@
     "topic": "Business meeting to consider the nominations of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget, Brian Cavanaugh, of Maryland, to be Under Secretary for Management, ",
     "witnesses": [],
     "details": "Business meeting to consider the nominations of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget, Brian Cavanaugh, of Maryland, to be Under Secretary for Management, ",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 1:26 PM"
+    ]
   },
   "Senate|Energy and Natural Resources|9:30 AM ET": {
     "chamber": "Senate",
@@ -347,19 +353,6 @@
     "cancelled": false,
     "changes": []
   },
-  "Senate|Indian Affairs|2:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Indian Affairs",
-    "chair": "Sen. Lisa Murkowski (R-AK), Chair \u00b7 Sen. Brian Schatz (D-HI), Ranking Member",
-    "time": "2:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-628",
-    "topic": "Business meeting to consider the nominations of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services; to be immediately followed by a hearing to e",
-    "witnesses": [],
-    "details": "Business meeting to consider the nominations of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services; to be immediately followed by a hearing to e",
-    "cancelled": false,
-    "changes": []
-  },
   "Senate|Intelligence|3:00 PM ET": {
     "chamber": "Senate",
     "committee": "Intelligence",
@@ -383,7 +376,9 @@
     "topic": "Hearings to examine advancing the mission, focusing on evaluating the future of VA research.",
     "witnesses": [],
     "details": "Hearings to examine advancing the mission, focusing on evaluating the future of VA research.",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 1:26 PM"
+    ]
   }
 }
