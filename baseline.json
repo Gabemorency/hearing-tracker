@@ -1,61 +1,16 @@
 {
-  "date": "2026-07-23",
-  "generated": "12:15 AM ET · Wednesday, July 22, 2026",
+  "date": "2026-07-24",
+  "generated": "12:14 AM ET · Thursday, July 23, 2026",
   "hearings": [
     {
-      "chamber": "Senate",
-      "committee": "Banking, Housing, and Urban Affairs",
+      "chamber": "House",
+      "committee": "Committee on Education and Workforce",
       "chair": "",
       "time": "10:00 AM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-538",
-      "topic": "Business meeting to consider the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Uni",
-      "details": "Business meeting to consider the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Uni",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Judiciary",
-      "chair": "",
-      "time": "10:15 AM ET",
-      "building": "Hart (SH)",
-      "room": "SH-216",
-      "topic": "Business meeting to consider the nominations of Todd Blanche, of Florida, to be Attorney General, and Christopher Nassar, to be United States Attorney for the Northern District of Oklahoma, both of th",
-      "details": "Business meeting to consider the nominations of Todd Blanche, of Florida, to be Attorney General, and Christopher Nassar, to be United States Attorney for the Northern District of Oklahoma, both of th",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Finance",
-      "chair": "",
-      "time": "10:30 AM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-215",
-      "topic": "Business meeting to consider the nominations of Francis Brooke, of Virginia, to be Deputy Secretary, Erin Browne, of New York, to be an Under Secretary, Sriprakash Kothari, of Massachusetts, to be an ",
-      "details": "Business meeting to consider the nominations of Francis Brooke, of Virginia, to be Deputy Secretary, Erin Browne, of New York, to be an Under Secretary, Sriprakash Kothari, of Massachusetts, to be an ",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": true,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Health, Education, Labor, and Pensions",
-      "chair": "",
-      "time": "9:47 AM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-430",
-      "topic": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease",
-      "details": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease",
+      "building": "Rayburn (RHOB)",
+      "room": "Georgia Cyber Innovation and Training Center, Hull McKnight Building, Augusta University\n1 11th Street\nAugusta, GA 30901",
+      "topic": "Building an AI-Ready America: How AI Is Creating Opportunities Across America's Workforce",
+      "details": "Building an AI-Ready America: How AI Is Creating Opportunities Across America's Workforce",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
