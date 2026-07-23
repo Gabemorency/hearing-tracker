@@ -1,4 +1,32 @@
 {
+  "House|Committee on Education and Workforce|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Education and Workforce",
+    "chair": "Rep. Tim Walberg (R-MI), Chair \u00b7 Rep. Bobby Scott (D-VA), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "Georgia Cyber Innovation and Training Center, Hull McKnight Building, Augusta University\n1 11th Street\nAugusta, GA 30901",
+    "topic": "Building an AI-Ready America: How AI Is Creating Opportunities Across America's Workforce",
+    "details": "Building an AI-Ready America: How AI Is Creating Opportunities Across America's Workforce",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Health, Education, Labor, and Pensions|9:47 AM ET": {
+    "chamber": "Senate",
+    "committee": "Health, Education, Labor, and Pensions",
+    "chair": "",
+    "time": "9:47 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-430",
+    "topic": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease",
+    "witnesses": [],
+    "details": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease",
+    "cancelled": false,
+    "changes": []
+  },
   "Senate|Banking, Housing, and Urban Affairs|10:00 AM ET": {
     "chamber": "Senate",
     "committee": "Banking, Housing, and Urban Affairs",
@@ -7,10 +35,8 @@
     "building": "Dirksen (SD)",
     "room": "SD-538",
     "topic": "Business meeting to consider the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Uni",
+    "witnesses": [],
     "details": "Business meeting to consider the nominations of Christopher Phelan, of Minnesota, to be Chairman of the Council of Economic Advisers, John Crews, of Virginia, to be a Member of the National Credit Uni",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
     "cancelled": false,
     "changes": []
   },
@@ -22,10 +48,8 @@
     "building": "Hart (SH)",
     "room": "SH-216",
     "topic": "Business meeting to consider the nominations of Todd Blanche, of Florida, to be Attorney General, and Christopher Nassar, to be United States Attorney for the Northern District of Oklahoma, both of th",
+    "witnesses": [],
     "details": "Business meeting to consider the nominations of Todd Blanche, of Florida, to be Attorney General, and Christopher Nassar, to be United States Attorney for the Northern District of Oklahoma, both of th",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
     "cancelled": false,
     "changes": []
   },
@@ -37,361 +61,9 @@
     "building": "Dirksen (SD)",
     "room": "SD-215",
     "topic": "Business meeting to consider the nominations of Francis Brooke, of Virginia, to be Deputy Secretary, Erin Browne, of New York, to be an Under Secretary, Sriprakash Kothari, of Massachusetts, to be an ",
+    "witnesses": [],
     "details": "Business meeting to consider the nominations of Francis Brooke, of Virginia, to be Deputy Secretary, Erin Browne, of New York, to be an Under Secretary, Sriprakash Kothari, of Massachusetts, to be an ",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
     "cancelled": true,
     "changes": []
-  },
-  "Senate|Health, Education, Labor, and Pensions|9:47 AM ET": {
-    "chamber": "Senate",
-    "committee": "Health, Education, Labor, and Pensions",
-    "chair": "",
-    "time": "9:47 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-430",
-    "topic": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease",
-    "details": "Business meeting to consider the nominations of Sean Kaufman, of Georgia, to be Assistant Secretary for Preparedness and Response, Erica Schwartz, of Florida, to be Director of the Centers for Disease",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Natural Resources|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Natural Resources",
-    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1324 LHOB",
-    "topic": "Mark-up of: \u2022 H.R. 309 (Rep. Nehls), \u201cNational Law Enforcement Officers Remembrance, Support and Community Outreach Act\u201d \u2022 H.R. 1693 (Rep. Hageman), To redesignate the National Historic Trails Interpretive Center in Casper, Wyoming, as the \u201cBarbara L. Cubin National Historic Trails Interpretive Center\u201d. \u2022 H.R. 4219 (Rep. Case), \u201cNational Wildlife Refuge System Invasive Species Strike Team Act of 2025\u201d \u2022 H.R. 4931 (Rep. Murphy of NC), \u201cNational Park System Long-Term Lease Investment Act\u201d \u2022 H.R. 5063 (Rep. Kiggans), \u201cSafe Beaches, Safe Swimmers Act\u201d \u2022 H.R. 6021 (Rep. Begich), \u201cArchie Cavanaugh Migratory Bird Treaty Amendment Act\u201d \u2022 H.R. 8121 (Rep. Plaskett), To designate the Christiansted Bandstand at the Christiansted National Historic Site, St. Croix, Virgin Islands, as the \u201cPeter G. Thurland, Sr., Bandstand\u201d. \u2022 H.R. 8454 (Rep. McClintock), To provide for the transfer of administrative jurisdiction over certain Federal land in the State of California, and for other purposes.",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Foreign Affairs|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Foreign Affairs",
-    "chair": "Rep. Brian Mast (R-FL), Chair \u00b7 Rep. Gregory Meeks (D-NY), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2172 RHOB",
-    "topic": "United Nations Accountability and Reform: Advancing an America First Foreign Policy Through Strategic Diplomacy and Burden Sharing",
-    "witnesses": [],
-    "details": "",
-    "cancelled": true,
-    "changes": [
-      "CANCELLED \u00b7 1:26 PM"
-    ]
-  },
-  "House|Subcommittee on Forestry and Horticultur|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
-    "chair": "Sen. John Boozman (R-AR), Chair \u00b7 Sen. Amy Klobuchar (D-MN), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1300 LHOB",
-    "topic": "For the Purpose of Receiving Testimony from Chief Tom Schultz, U.S. Forest Service",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Small Business|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Small Business",
-    "chair": "Sen. Joni Ernst (R-IA), Chair \u00b7 Sen. Ed Markey (D-MA), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2360 RHOB",
-    "topic": "Oversight of SBA\u2019s Office of Entrepreneurial Development.",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Appropriations|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Appropriations",
-    "chair": "Tom Cole",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2128 RHOB",
-    "topic": "Funding Lapses: Analyzing Shutdown Reform",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on House Administration|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on House Administration",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1310 LHOB",
-    "topic": "Committee on House Administration Full Committee Hearing, \u201cOversight of the Smithsonian: Radical Revisionism at the National Museum of American History.",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Oversight and Government Re|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Oversight and Government Reform",
-    "chair": "James Comer",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2154 RHOB",
-    "topic": "the Full Committee to consider the following: 1) H.R. 6610, Pharmacists Fight Back [in Federal Employee Health Benefit Plans Act]; 2) H.R. 9720, D.C. Taxing Authority Review Act; 3) H.R. 9725, Restoring Integrity and Efficiency to Inspector General Oversight Act of 2025; 4) H.R. 9643, Comment Integrity and Management Act; 5) H.R. 9741, To name the DC Tuition Assistance Grant program the \u201cEleanor Holmes Norton District of Columbia Tuition Assistance Grant Program\u201d; 6) Several postal naming measures.",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Ways and Means|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Ways and Means",
-    "chair": "Rep. Jason Smith (R-MO), Chair \u00b7 Rep. Richard Neal (D-MA), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1100 LHOB",
-    "topic": "H.R. 9772, H.R. 9771, H.R. 9721, and H.R. 9722",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Workforce Protections (C|10:15 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
-    "chair": "Rep. Tim Walberg (R-MI), Chair \u00b7 Rep. Bobby Scott (D-VA), Ranking Member",
-    "time": "10:15 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2175 RHOB",
-    "topic": "Broken Trust: How the Biden-Harris DOL Leaked Confidential Information",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Committee on Science, Space, and Technol|10:15 AM ET": {
-    "chamber": "House",
-    "committee": "Committee on Science, Space, and Technology",
-    "chair": "",
-    "time": "10:15 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "Closed",
-    "topic": "Unleashing the Golden Age of Science: Examining the Priorities of the FY2027 Research and Technology Enterprise",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": [
-      "Room changed to Closed \u00b7 2:36 AM"
-    ]
-  },
-  "House|Subcommittee on Commerce, Manufacturing,|10:15 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
-    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
-    "time": "10:15 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Legislative Proposals to Strengthen Consumer Protection in a Changing Marketplace.",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Communications and Techn|1:30 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
-    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
-    "time": "1:30 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Legislative Hearing on Protecting Communications Networks and Improving Connectivity",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": []
-  },
-  "House|Subcommittee on Oversight (Committee on |2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Oversight (Committee on the Judiciary)",
-    "chair": "James Comer",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2141 RHOB",
-    "topic": "False Narratives Surrounding Conditions at the Delaney Hall ICE Detention Center\u201d (Rescheduled)",
-    "witnesses": [],
-    "details": "",
-    "cancelled": true,
-    "changes": []
-  },
-  "House|East Asia and Pacific Subcommittee (Comm|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
-    "chair": "Rep. Brian Mast (R-FL), Chair \u00b7 Rep. Gregory Meeks (D-NY), Ranking Member",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2172 RHOB",
-    "topic": "Building a New Regional Security Architecture: The Next Phase of the Abraham Accords",
-    "witnesses": [],
-    "details": "",
-    "cancelled": true,
-    "changes": [
-      "CANCELLED \u00b7 1:26 PM"
-    ]
-  },
-  "Senate|Foreign Relations|9:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Foreign Relations",
-    "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
-    "time": "9:00 AM ET",
-    "building": "Capitol (Senate)",
-    "room": "S-116",
-    "topic": "Business meeting to consider the nominations of Kari Lake, of Arizona, to be Ambassador to Jamaica, Douglas Mastriano, of Pennsylvania, to be Ambassador to the Slovak Republic, Juan Segura, of Virgini",
-    "witnesses": [],
-    "details": "Business meeting to consider the nominations of Kari Lake, of Arizona, to be Ambassador to Jamaica, Douglas Mastriano, of Pennsylvania, to be Ambassador to the Slovak Republic, Juan Segura, of Virgini",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Homeland Security and Governmental Affai|9:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Homeland Security and Governmental Affairs",
-    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
-    "time": "9:30 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-342",
-    "topic": "Business meeting to consider the nominations of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget, Brian Cavanaugh, of Maryland, to be Under Secretary for Management, ",
-    "witnesses": [],
-    "details": "Business meeting to consider the nominations of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget, Brian Cavanaugh, of Maryland, to be Under Secretary for Management, ",
-    "cancelled": true,
-    "changes": [
-      "CANCELLED \u00b7 1:26 PM"
-    ]
-  },
-  "Senate|Energy and Natural Resources|9:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Energy and Natural Resources",
-    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
-    "time": "9:30 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-366",
-    "topic": "An oversight\u00a0hearing to examine the Federal Regulatory Commission.",
-    "witnesses": [],
-    "details": "An oversight\u00a0hearing to examine the Federal Regulatory Commission.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Finance|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Finance",
-    "chair": "Sen. Mike Crapo (R-ID), Chair \u00b7 Sen. Ron Wyden (D-OR), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-215",
-    "topic": "Hearings to examine the President's 2026 trade policy agenda.",
-    "witnesses": [],
-    "details": "Hearings to examine the President's 2026 trade policy agenda.",
-    "cancelled": true,
-    "changes": []
-  },
-  "Senate|Health, Education, Labor, and Pensions|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Health, Education, Labor, and Pensions",
-    "chair": "",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-430",
-    "topic": "Business meeting to consider S.2355, to amend the Public Health Service Act to provide for hospital and insurer price transparency, S.4189, to reduce the price of insulin and provide for patient prote",
-    "witnesses": [],
-    "details": "Business meeting to consider S.2355, to amend the Public Health Service Act to provide for hospital and insurer price transparency, S.4189, to reduce the price of insulin and provide for patient prote",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Budget|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Budget",
-    "chair": "Sen. Lindsey Graham (R-SC), Chair \u00b7 Sen. Jeff Merkley (D-OR), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-608",
-    "topic": "Business meeting to consider the nomination of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget.",
-    "witnesses": [],
-    "details": "Business meeting to consider the nomination of Hal Duncan, of Texas, to be Deputy Director of the Office of Management and Budget.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Commerce, Science, and Transportation|10:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Commerce, Science, and Transportation",
-    "chair": "Sen. Ted Cruz (R-TX), Chair \u00b7 Sen. Maria Cantwell (D-WA), Ranking Member",
-    "time": "10:30 AM ET",
-    "building": "Russell (SR)",
-    "room": "SR-253",
-    "topic": "Business meeting to markup S.1759, to allow for the operation of civil supersonic flight in the national airspace system under certain conditions, S.3258, to require the Administrator of the Federal A",
-    "witnesses": [],
-    "details": "Business meeting to markup S.1759, to allow for the operation of civil supersonic flight in the national airspace system under certain conditions, S.3258, to require the Administrator of the Federal A",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Indian Affairs|2:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Indian Affairs",
-    "chair": "Sen. Lisa Murkowski (R-AK), Chair \u00b7 Sen. Brian Schatz (D-HI), Ranking Member",
-    "time": "2:00 PM ET",
-    "building": "Capitol (Senate)",
-    "room": "S-120",
-    "topic": "Business meeting to consider the nominations of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
-    "witnesses": [],
-    "details": "Business meeting to consider the nominations of Mark Cruz, of Oregon, to be Director of the Indian Health Service, Department of Health and Human Services.",
-    "cancelled": true,
-    "changes": []
-  },
-  "Senate|Environment and Public Works|2:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Environment and Public Works",
-    "chair": "Sen. Shelley Moore Capito (R-WV), Chair \u00b7 Sen. Sheldon Whitehouse (D-RI), Ranking Member",
-    "time": "2:00 PM ET",
-    "building": "Capitol (Senate)",
-    "room": "S-216",
-    "topic": "Business meeting to consider the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife, Department of the Interior.",
-    "witnesses": [],
-    "details": "Business meeting to consider the nomination of Kevin Lilly, of Texas, to be Assistant Secretary for Fish and Wildlife, Department of the Interior.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Intelligence|3:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Intelligence",
-    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
-    "time": "3:00 PM ET",
-    "building": "Hart (SH)",
-    "room": "SH-219",
-    "topic": "To receive a closed briefing on certain intelligence matters.",
-    "witnesses": [],
-    "details": "To receive a closed briefing on certain intelligence matters.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Veterans' Affairs|4:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Veterans' Affairs",
-    "chair": "Sen. Jerry Moran (R-KS), Chair \u00b7 Sen. Richard Blumenthal (D-CT), Ranking Member",
-    "time": "4:00 PM ET",
-    "building": "Russell (SR)",
-    "room": "SR-418",
-    "topic": "Hearings to examine advancing the mission, focusing on evaluating the future of VA research.",
-    "witnesses": [],
-    "details": "Hearings to examine advancing the mission, focusing on evaluating the future of VA research.",
-    "cancelled": true,
-    "changes": [
-      "CANCELLED \u00b7 1:26 PM"
-    ]
   }
 }
