@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/hearing-tracker/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+<title>Congressional Calendar - Hearing Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0D0C0A;--bg2:#141210;--text:#F0E8D8;--text-s:#C8B89A;
+  --text-m:#A09070;--gold:#E0B870;--gold-dim:#8A6830;
+  --blue:#5B8DB8;--purple:#8B7BB8;
+  --border:rgba(255,255,255,0.09);--hover:rgba(255,255,255,0.05);
+}
+.light {
+  --bg:#F5F3EE;--bg2:#EDEAE4;--text:#0E0C0A;--text-s:#3A3020;
+  --text-m:#5A4A35;--gold:#B8860B;--gold-dim:#8A6620;
+  --border:rgba(0,0,0,0.1);--hover:rgba(0,0,0,0.04);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:0.9rem 1.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;background:var(--bg);}
+.nav__brand{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);text-decoration:none;}
+.nav__links{display:flex;gap:1.5rem;align-items:center;}
+.nav__links a{color:var(--text-s);text-decoration:none;font-size:0.85rem;}
+.nav__links a:hover,.nav__links a.active{color:var(--text);}
+.theme-btn{background:none;border:1px solid var(--border);color:var(--text-m);padding:0.25rem 0.6rem;border-radius:4px;cursor:pointer;font-size:0.78rem;}
+.page-header{padding:1.5rem 1.5rem 0;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--gold);margin-bottom:0.25rem;}
+.page-header p{color:var(--text-s);font-size:0.85rem;}
+.legend{display:flex;gap:1rem;padding:0.75rem 1.5rem;flex-wrap:wrap;border-bottom:1px solid var(--border);font-size:0.75rem;}
+.legend__item{display:flex;align-items:center;gap:0.35rem;color:var(--text-m);}
+.legend__dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.cal-wrapper{padding:1rem 1.5rem 3rem;}
+.cal-nav{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
+.cal-nav__title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);}
+.cal-nav__btn{background:none;border:1px solid var(--border);color:var(--text-m);padding:0.25rem 0.65rem;border-radius:4px;cursor:pointer;font-size:0.8rem;}
+.cal-nav__btn:hover{border-color:var(--gold);color:var(--gold);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
+.cal-day-header{text-align:center;font-size:0.7rem;color:var(--text-m);padding:0.4rem 0;font-family:'IBM Plex Mono',monospace;}
+.cal-day{min-height:80px;padding:0.4rem;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .15s,background .15s;}
+.cal-day:hover{border-color:var(--gold-dim);background:var(--hover);}
+.cal-day--empty{border-color:transparent;cursor:default;pointer-events:none;}
+.cal-day--today{border-color:var(--gold)!important;background:rgba(224,184,112,0.05);}
+.cal-day__num{font-size:0.72rem;font-family:'IBM Plex Mono',monospace;color:var(--text-m);margin-bottom:0.3rem;}
+.cal-day--today .cal-day__num{color:var(--gold);font-weight:700;}
+.cal-day__chips{display:flex;flex-direction:column;gap:2px;}
+.cal-chip{font-size:0.62rem;padding:1px 4px;border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;}
+.cal-chip--hearing{background:rgba(91,141,184,0.25);color:var(--blue);}
+.cal-chip--committee{background:rgba(139,123,184,0.25);color:var(--purple);}
+.cal-chip--vote{background:rgba(224,184,112,0.2);color:var(--gold);}
+.cal-chip--more{background:rgba(255,255,255,0.08);color:var(--text-m);}
+.detail-panel{margin-top:1rem;border:1px solid var(--border);border-radius:8px;padding:1.25rem;display:none;}
+.detail-panel.visible{display:block;}
+.detail-panel__date{font-family:'Playfair Display',serif;font-size:1rem;color:var(--gold);margin-bottom:0.75rem;}
+.detail-events{display:flex;flex-direction:column;gap:0.6rem;}
+.detail-event{padding:0.65rem 0.85rem;border-radius:5px;border-left:3px solid var(--border);}
+.detail-event--hearing{border-left-color:var(--blue);}
+.detail-event--committee{border-left-color:var(--purple);}
+.detail-event--vote{border-left-color:var(--gold);}
+.detail-event__type{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-m);font-family:'IBM Plex Mono',monospace;margin-bottom:0.2rem;}
+.detail-event__title{font-size:0.88rem;color:var(--text);margin-bottom:0.2rem;}
+.detail-event__meta{font-size:0.76rem;color:var(--text-s);}
+.detail-event a{color:var(--blue);text-decoration:none;}
+.detail-event a:hover{text-decoration:underline;}
+.loading{text-align:center;padding:3rem;color:var(--text-m);font-family:'IBM Plex Mono',monospace;font-size:0.85rem;}
+@media(max-width:600px){
+  .cal-day{min-height:52px;padding:0.25rem;}
+  .cal-chip{display:none;}
+  .cal-day__chips .cal-chip:first-child{display:block;}
+  .nav__links{gap:0.75rem;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/hearing-tracker/" class="nav__brand">Congressional Hearing Tracker</a>
+  <div class="nav__links">
+    <a href="/hearing-tracker/">Hearings</a>
+    <a href="/hearing-tracker/members.html">Members</a>
+    <a href="/hearing-tracker/calendar.html" class="active">Calendar</a>
+    <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()">&#9728;</button>
+  </div>
+</nav>
+
+<div class="page-header">
+  <h1>Congressional Calendar</h1>
+  <p>30-day rolling view of hearings, committee meetings, and upcoming floor votes &middot; Updated every 2 hours</p>
+</div>
+
+<div class="legend">
+  <span class="legend__item"><span class="legend__dot" style="background:var(--blue)"></span>Hearing</span>
+  <span class="legend__item"><span class="legend__dot" style="background:var(--purple)"></span>Committee Meeting</span>
+  <span class="legend__item"><span class="legend__dot" style="background:var(--gold)"></span>Whip Notice / Floor</span>
+</div>
+
+<div class="cal-wrapper">
+  <div class="cal-nav">
+    <button class="cal-nav__btn" onclick="changeMonth(-1)">&larr; Prev</button>
+    <span class="cal-nav__title" id="cal-title"></span>
+    <button class="cal-nav__btn" onclick="changeMonth(1)">Next &rarr;</button>
+  </div>
+  <div id="cal-loading" class="loading">Loading calendar data&hellip;</div>
+  <div id="cal-grid" class="cal-grid" style="display:none"></div>
+  <div id="detail-panel" class="detail-panel"></div>
+</div>
+
+<script>
+(function() {
+  var allEvents    = {};
+  var currentYear, currentMonth;
+  var today        = new Date();
+  currentYear      = today.getFullYear();
+  currentMonth     = today.getMonth();
+
+  var MONTHS = ["January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+  var DAYS   = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+  // Theme
+  window.toggleTheme = function() {
+    var light = document.body.classList.toggle("light");
+    localStorage.setItem("theme", light ? "light" : "dark");
+    document.getElementById("theme-toggle").textContent = light ? ")" : "&#9728;";
+  };
+  (function() {
+    var t = localStorage.getItem("theme") ||
+            (window.matchMedia("(prefers-color-scheme:light)").matches ? "light" : "dark");
+    if (t === "light") {
+      document.body.classList.add("light");
+      document.getElementById("theme-toggle").textContent = ")";
+    }
+  })();
+
+  function dateKey(d) {
+    var m = d.getMonth() + 1, dd = d.getDate();
+    return d.getFullYear() + "-" + (m<10?"0":"") + m + "-" + (dd<10?"0":"") + dd;
+  }
+
+  function addEvent(dk, ev) {
+    if (!allEvents[dk]) allEvents[dk] = [];
+    allEvents[dk].push(ev);
+  }
+
+  function loadAll() {
+    var now  = new Date();
+    var from = dateKey(now);
+    var to   = dateKey(new Date(now.getTime() + 30*86400000));
+    var done = 0;
+
+    function check() {
+      done++;
+      if (done === 3) {
+        document.getElementById("cal-loading").style.display = "none";
+        document.getElementById("cal-grid").style.display    = "grid";
+        renderCalendar();
+      }
+    }
+
+    // 1. Hearings
+    fetch("/hearing-tracker/hearings.json")
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (data) {
+          var items = Array.isArray(data) ? data : (data.hearings || data.data || []);
+          items.forEach(function(h) {
+            var dk = (h.date || h.start_date || "").substring(0,10);
+            if (dk >= from && dk <= to) {
+              addEvent(dk, {
+                type: "hearing",
+                title: h.title || h.name || "Hearing",
+                meta: (h.committee || h.body || "") + (h.time ? " · " + h.time : ""),
+                url: h.url || null
+              });
+            }
+          });
+        }
+        check();
+      })
+      .catch(function() { check(); });
+
+    // 2. Committee meetings from DomeWatch local JSON
+    fetch("/hearing-tracker/domewatch_meetings.json")
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (data && data.data) {
+          var TYPES = {
+            "HHRG":"Hearing","HMKP":"Markup","HBRC":"Briefing",
+            "HCPS":"Conference","HMRK":"Markup"
+          };
+          var BLDGS = {
+            "CHOB":"Cannon","RHOB":"Rayburn","LHOB":"Longworth",
+            "CAPITOL":"Capitol","FHOB":"Ford","OHOB":"O'Neill"
+          };
+          data.data.forEach(function(m) {
+            var dk = (m.startDate || "").substring(0,10);
+            if (dk < from || dk > to) return;
+
+            var typeLabel = TYPES[m.meetingType] || "Meeting";
+
+            var timeStr = "";
+            if (m.startDate) {
+              timeStr = new Date(m.startDate).toLocaleTimeString("en-US",
+                {hour:"numeric",minute:"2-digit",hour12:true});
+            }
+
+            var locStr = "";
+            if (m.location && typeof m.location === "object") {
+              var addr  = (m.location.address && m.location.address.streetAddress) || "";
+              var bldg  = BLDGS[m.location.name] || m.location.name || "";
+              var room  = (addr.match(/^(\d+)/) || [])[1] || "";
+              locStr = room ? "Rm " + room + " " + bldg : bldg;
+            }
+
+            addEvent(dk, {
+              type:      "committee",
+              title:     typeLabel + (locStr ? " — " + locStr : ""),
+              meta:      timeStr,
+              url:       m.url || null,
+              typeLabel: typeLabel,
+              timeStr:   timeStr,
+              locStr:    locStr,
+            });
+          });
+        }
+        check();
+      })
+      .catch(function() { check(); });
+
+    // 3. Whip notices from DomeWatch local JSON
+    fetch("/hearing-tracker/domewatch_whip.json")
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (data && data.data) {
+          data.data.forEach(function(notice) {
+            var dk = notice.publishDate || (notice.postedAt || "").substring(0,10);
+            if (dk >= from && dk <= to) {
+              (notice.items || [])
+                .filter(function(b) { return b.confidence !== "low" && b.billNumber; })
+                .forEach(function(b) {
+                  addEvent(dk, {
+                    type: "vote",
+                    title: (b.billNumber||"") + (b.title ? " - " + b.title : ""),
+                    meta: (b.recommendation ? b.recommendation + " · " : "") + (b.position||""),
+                    url: b.billUrl || null
+                  });
+                });
+            }
+          });
+        }
+        check();
+      })
+      .catch(function() { check(); });
+  }
+
+  window.changeMonth = function(dir) {
+    currentMonth += dir;
+    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    if (currentMonth < 0)  { currentMonth = 11; currentYear--; }
+    document.getElementById("detail-panel").className = "detail-panel";
+    renderCalendar();
+  };
+
+  function renderCalendar() {
+    document.getElementById("cal-title").textContent = MONTHS[currentMonth] + " " + currentYear;
+    var grid = document.getElementById("cal-grid");
+    grid.innerHTML = "";
+
+    DAYS.forEach(function(d) {
+      var h = document.createElement("div");
+      h.className = "cal-day-header";
+      h.textContent = d;
+      grid.appendChild(h);
+    });
+
+    var firstDay    = new Date(currentYear, currentMonth, 1).getDay();
+    var daysInMonth = new Date(currentYear, currentMonth+1, 0).getDate();
+    var todayKey    = dateKey(today);
+
+    for (var i = 0; i < firstDay; i++) {
+      var e = document.createElement("div");
+      e.className = "cal-day cal-day--empty";
+      grid.appendChild(e);
+    }
+
+    for (var d = 1; d <= daysInMonth; d++) {
+      var mo = currentMonth + 1;
+      var dk = currentYear + "-" + (mo<10?"0":"") + mo + "-" + (d<10?"0":"") + d;
+      var cell = document.createElement("div");
+      cell.className = "cal-day" + (dk === todayKey ? " cal-day--today" : "");
+      cell.dataset.date = dk;
+
+      var num = document.createElement("div");
+      num.className = "cal-day__num";
+      num.textContent = d;
+      cell.appendChild(num);
+
+      var events = allEvents[dk] || [];
+      if (events.length) {
+        var chips = document.createElement("div");
+        chips.className = "cal-day__chips";
+        events.slice(0,3).forEach(function(ev) {
+          var chip = document.createElement("div");
+          chip.className = "cal-chip cal-chip--" + ev.type;
+          chip.textContent = ev.title;
+          chips.appendChild(chip);
+        });
+        if (events.length > 3) {
+          var more = document.createElement("div");
+          more.className = "cal-chip cal-chip--more";
+          more.textContent = "+" + (events.length-3) + " more";
+          chips.appendChild(more);
+        }
+        cell.appendChild(chips);
+        cell.addEventListener("click", function(ev) { showDetail(ev.currentTarget.dataset.date); });
+      }
+      grid.appendChild(cell);
+    }
+  }
+
+  function showDetail(dk) {
+    var panel  = document.getElementById("detail-panel");
+    var events = allEvents[dk] || [];
+    if (!events.length) { panel.className = "detail-panel"; return; }
+    var p = dk.split("-");
+    var dateStr = MONTHS[parseInt(p[1],10)-1] + " " + parseInt(p[2],10) + ", " + p[0];
+    var html = '<div class="detail-panel__date">' + dateStr + '</div><div class="detail-events">';
+    events.forEach(function(ev) {
+      var label = ev.typeLabel || (
+        ev.type === "committee" ? "Committee Meeting" :
+        ev.type === "hearing"   ? "Hearing" : "Floor / Vote"
+      );
+      html += '<div class="detail-event detail-event--' + ev.type + '">';
+      html += '<div class="detail-event__type">' + label + '</div>';
+      // Title — link if URL available
+      var titleHtml = ev.url
+        ? '<a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.title + '</a>'
+        : ev.title;
+      html += '<div class="detail-event__title">' + titleHtml + '</div>';
+      // Meta line — time + location
+      var metaParts = [];
+      if (ev.timeStr) metaParts.push(ev.timeStr);
+      if (ev.locStr)  metaParts.push(ev.locStr);
+      if (ev.meta && !ev.timeStr) metaParts.push(ev.meta);
+      if (metaParts.length) html += '<div class="detail-event__meta">' + metaParts.join(" · ") + '</div>';
+      html += '</div>';
+    });
+    html += '</div>';
+    panel.innerHTML = html;
+    panel.className = "detail-panel visible";
+    panel.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }
+
+  document.addEventListener("DOMContentLoaded", loadAll);
+}());
+</script>
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function() {
+    navigator.serviceWorker.register("/hearing-tracker/sw.js")
+      .catch(function(e) { console.warn("SW:", e); });
+  });
+}
+</script>
+</body>
+</html>
