@@ -1,43 +1,88 @@
 {
-  "Senate|Health, Education, Labor, and Pensions \u2014|2:00 PM ET": {
+  "Senate|Finance|10:00 AM ET": {
     "chamber": "Senate",
-    "committee": "Health, Education, Labor, and Pensions \u2014 Subcommittee on Employment and Workplace Safety",
+    "committee": "Finance",
+    "chair": "Sen. Mike Crapo (R-ID), Chair \u00b7 Sen. Ron Wyden (D-OR), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-215",
+    "topic": "Business meeting to consider an original bill entitled, \"Taxpayer Assistance and Service Act\".",
+    "details": "Open Executive Session to Consider the Nominations of Francis Brooke, of Virginia, to be Deputy Secretary of the Treasury; Erin Browne, of New York, to be an Under Secretary of the Treasury; Sriprakas",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Commerce, Science, and Transportation \u2014 |10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Commerce, Science, and Transportation \u2014 Subcommittee on Telecommunications and Media",
+    "chair": "Sen. Ted Cruz (R-TX), Chair \u00b7 Sen. Maria Cantwell (D-WA), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Russell (SR)",
+    "room": "SR-253",
+    "topic": "Hearings to examine intelligent networks, focusing on powering artificial intelligence and transforming communications.",
+    "details": "Hearings to examine intelligent networks, focusing on powering artificial intelligence and transforming communications.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Foreign Relations|10:30 AM ET": {
+    "chamber": "Senate",
+    "committee": "Foreign Relations",
+    "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
+    "time": "10:30 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-419",
+    "topic": "Hearings to examine pending nominations.",
+    "details": "Hearings to examine pending nominations.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Commission on Security and Cooperation i|2:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Commission on Security and Cooperation in Europe",
     "chair": "",
     "time": "2:00 PM ET",
     "building": "Dirksen (SD)",
-    "room": "SD-430",
-    "topic": "Hearings to examine the impact of AI on the workplace.",
-    "details": "S. 2355, S. 4189, S. 4974, S. 5026, S. 1414, S. 3788, S. 3794, S. 494, S. 4110, S. 1974, and S. 380",
+    "room": "HOB-210",
+    "topic": "To receive a briefing on Russia's exploitation and engagement in Africa.",
+    "details": "To receive a briefing on Russia's exploitation and engagement in Africa.",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
     "changes": []
   },
-  "Senate|Indian Affairs|2:30 PM ET": {
+  "Senate|Judiciary|9:00 AM ET": {
     "chamber": "Senate",
-    "committee": "Indian Affairs",
-    "chair": "Sen. Lisa Murkowski (R-AK), Chair \u00b7 Sen. Brian Schatz (D-HI), Ranking Member",
-    "time": "2:30 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-628",
-    "topic": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
-    "details": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
+    "committee": "Judiciary",
+    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
+    "time": "9:00 AM ET",
+    "building": "Hart (SH)",
+    "room": "SH-216",
+    "topic": "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General.",
+    "details": "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General.",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
     "changes": []
   },
-  "Senate|Aging|3:30 PM ET": {
+  "Senate|Health, Education, Labor, and Pensions|9:45 AM ET": {
     "chamber": "Senate",
-    "committee": "Aging",
+    "committee": "Health, Education, Labor, and Pensions",
     "chair": "",
-    "time": "3:30 PM ET",
+    "time": "9:45 AM ET",
     "building": "Dirksen (SD)",
-    "room": "SD-562",
-    "topic": "Hearings to examine the AI deception machine, focusing on deepfakes, chatbots, and the new frontier of senior fraud.",
-    "details": "Hearings to examine the AI deception machine, focusing on deepfakes, chatbots, and the new frontier of senior fraud.",
+    "room": "SD-430",
+    "topic": "Business meeting to consider\u00a0S.5038, to prohibit the transfer of the functions of the Office of Special Education and Rehabilitative Services, S.5046, to prohibit the transfer of certain offices and f",
+    "details": "Business meeting to consider\u00a0S.5038, to prohibit the transfer of the functions of the Office of Special Education and Rehabilitative Services, S.5046, to prohibit the transfer of certain offices and f",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
@@ -52,10 +97,8 @@
     "building": "Dirksen (SD)",
     "room": "SD-342",
     "topic": "Hearings to examine the testimony of Anthony Fauci.",
-    "details": "Legislative Hearing to receive testimony on S. 3573, S. 3617, S. 4368, S. 4417 & S. 4890",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "Hearings to examine the testimony of Anthony Fauci.",
     "cancelled": false,
     "changes": []
   },
@@ -67,10 +110,47 @@
     "building": "Dirksen (SD)",
     "room": "SD-366",
     "topic": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
+    "witnesses": [],
     "details": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Health, Education, Labor, and Pensions \u2014|2:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Health, Education, Labor, and Pensions \u2014 Subcommittee on Employment and Workplace Safety",
+    "chair": "",
+    "time": "2:00 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-430",
+    "topic": "Hearings to examine the impact of AI on the workplace.",
+    "witnesses": [],
+    "details": "Hearings to examine the impact of AI on the workplace.",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Indian Affairs|2:30 PM ET": {
+    "chamber": "Senate",
+    "committee": "Indian Affairs",
+    "chair": "Sen. Lisa Murkowski (R-AK), Chair \u00b7 Sen. Brian Schatz (D-HI), Ranking Member",
+    "time": "2:30 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-628",
+    "topic": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
+    "witnesses": [],
+    "details": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
+    "cancelled": false,
+    "changes": []
+  },
+  "Senate|Aging|3:45 PM ET": {
+    "chamber": "Senate",
+    "committee": "Aging",
+    "chair": "",
+    "time": "3:45 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-562",
+    "topic": "Hearings to examine the AI deception machine, focusing on deepfakes, chatbots, and the new frontier of senior fraud.",
+    "witnesses": [],
+    "details": "Hearings to examine the AI deception machine, focusing on deepfakes, chatbots, and the new frontier of senior fraud.",
     "cancelled": false,
     "changes": []
   }
