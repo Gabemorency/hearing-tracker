@@ -36,8 +36,8 @@
     "time": "10:30 AM ET",
     "building": "Dirksen (SD)",
     "room": "SD-419",
-    "topic": "Hearings to examine pending nominations.",
-    "details": "Hearings to examine pending nominations.",
+    "topic": "Hearings to examine the nominations of Sarah B. Rogers, of New York, to be Chief Executive Officer of the United States Agency for Global Media, Rebekah Jurata, of California, to be United States Exec",
+    "details": "Hearings to examine the nominations of Sarah B. Rogers, of New York, to be Chief Executive Officer of the United States Agency for Global Media, Rebekah Jurata, of California, to be United States Exec",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
@@ -59,21 +59,6 @@
     "cancelled": false,
     "changes": []
   },
-  "Senate|Judiciary|9:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Judiciary",
-    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
-    "time": "9:00 AM ET",
-    "building": "Hart (SH)",
-    "room": "SH-216",
-    "topic": "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General.",
-    "details": "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": []
-  },
   "Senate|Health, Education, Labor, and Pensions|9:45 AM ET": {
     "chamber": "Senate",
     "committee": "Health, Education, Labor, and Pensions",
@@ -86,75 +71,6 @@
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Homeland Security and Governmental Affai|8:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Homeland Security and Governmental Affairs",
-    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
-    "time": "8:30 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-342",
-    "topic": "Hearings to examine the testimony of Anthony Fauci.",
-    "witnesses": [],
-    "details": "Hearings to examine the testimony of Anthony Fauci.",
-    "cancelled": true,
-    "changes": [
-      "CANCELLED \u00b7 10:53 PM"
-    ]
-  },
-  "Senate|Energy and Natural Resources|9:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Energy and Natural Resources",
-    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
-    "time": "9:30 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-366",
-    "topic": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
-    "witnesses": [],
-    "details": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Health, Education, Labor, and Pensions \u2014|2:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Health, Education, Labor, and Pensions \u2014 Subcommittee on Employment and Workplace Safety",
-    "chair": "",
-    "time": "2:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-430",
-    "topic": "Hearings to examine the impact of AI on the workplace.",
-    "witnesses": [],
-    "details": "Hearings to examine the impact of AI on the workplace.",
-    "cancelled": false,
-    "changes": []
-  },
-  "Senate|Indian Affairs|2:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Indian Affairs",
-    "chair": "Sen. Lisa Murkowski (R-AK), Chair \u00b7 Sen. Brian Schatz (D-HI), Ranking Member",
-    "time": "2:30 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-628",
-    "topic": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
-    "witnesses": [],
-    "details": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
-    "cancelled": true,
-    "changes": [
-      "CANCELLED \u00b7 10:53 PM"
-    ]
-  },
-  "Senate|Aging|3:45 PM ET": {
-    "chamber": "Senate",
-    "committee": "Aging",
-    "chair": "",
-    "time": "3:45 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-562",
-    "topic": "Hearings to examine the AI deception machine, focusing on deepfakes, chatbots, and the new frontier of senior fraud.",
-    "witnesses": [],
-    "details": "Hearings to examine the AI deception machine, focusing on deepfakes, chatbots, and the new frontier of senior fraud.",
     "cancelled": false,
     "changes": []
   }
