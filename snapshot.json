@@ -99,8 +99,10 @@
     "topic": "Hearings to examine the testimony of Anthony Fauci.",
     "witnesses": [],
     "details": "Hearings to examine the testimony of Anthony Fauci.",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 10:53 PM"
+    ]
   },
   "Senate|Energy and Natural Resources|9:30 AM ET": {
     "chamber": "Senate",
@@ -138,8 +140,10 @@
     "topic": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
     "witnesses": [],
     "details": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
-    "cancelled": false,
-    "changes": []
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 10:53 PM"
+    ]
   },
   "Senate|Aging|3:45 PM ET": {
     "chamber": "Senate",
