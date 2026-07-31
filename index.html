@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
-<title>Congressional Hearing Tracker — July 30, 2026</title>
+<title>Congressional Hearing Tracker — July 31, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -397,7 +397,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 11:36 PM ET · Thursday, July 30, 2026 · Updates every 20 min · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 2:50 AM ET · Friday, July 31, 2026 · Updates every 20 min · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -408,9 +408,9 @@
 </nav>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">5</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">5</div><div class="stat-label">Total</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--gold)">5</div><div class="stat-label">Senate</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
@@ -431,7 +431,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "Senate", "committee": "Finance", "chair": "Sen. Mike Crapo (R-ID), Chair · Sen. Ron Wyden (D-OR), Ranking Member", "time": "10:00 AM ET", "building": "Dirksen (SD)", "room": "SD-215", "topic": "Business meeting to consider an original bill entitled, \"Taxpayer Assistance and Service Act\".", "details": "Open Executive Session to Consider the Nominations of Francis Brooke, of Virginia, to be Deputy Secretary of the Treasury; Erin Browne, of New York, to be an Under Secretary of the Treasury; Sriprakas", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": []}, {"chamber": "Senate", "committee": "Commerce, Science, and Transportation — Subcommittee on Telecommunications and Media", "chair": "Sen. Ted Cruz (R-TX), Chair · Sen. Maria Cantwell (D-WA), Ranking Member", "time": "10:00 AM ET", "building": "Russell (SR)", "room": "SR-253", "topic": "Hearings to examine intelligent networks, focusing on powering artificial intelligence and transforming communications.", "details": "Hearings to examine intelligent networks, focusing on powering artificial intelligence and transforming communications.", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": []}, {"chamber": "Senate", "committee": "Foreign Relations", "chair": "Sen. Jim Risch (R-ID), Chair · Sen. Jeanne Shaheen (D-NH), Ranking Member", "time": "10:30 AM ET", "building": "Dirksen (SD)", "room": "SD-419", "topic": "Hearings to examine the nominations of Sarah B. Rogers, of New York, to be Chief Executive Officer of the United States Agency for Global Media, Rebekah Jurata, of California, to be United States Exec", "details": "Hearings to examine the nominations of Sarah B. Rogers, of New York, to be Chief Executive Officer of the United States Agency for Global Media, Rebekah Jurata, of California, to be United States Exec", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": []}, {"chamber": "Senate", "committee": "Commission on Security and Cooperation in Europe", "chair": "", "time": "2:00 PM ET", "building": "Dirksen (SD)", "room": "HOB-210", "topic": "To receive a briefing on Russia's exploitation and engagement in Africa.", "details": "To receive a briefing on Russia's exploitation and engagement in Africa.", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": []}, {"chamber": "Senate", "committee": "Health, Education, Labor, and Pensions", "chair": "", "time": "9:45 AM ET", "building": "Dirksen (SD)", "room": "SD-430", "topic": "Business meeting to consider S.5038, to prohibit the transfer of the functions of the Office of Special Education and Rehabilitative Services, S.5046, to prohibit the transfer of certain offices and f", "details": "Business meeting to consider S.5038, to prohibit the transfer of the functions of the Office of Special Education and Rehabilitative Services, S.5046, to prohibit the transfer of certain offices and f", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": []}];
+const HEARINGS = [];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
