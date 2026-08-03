@@ -191,6 +191,61 @@ def watch_link(chamber, committee):
             return url
     return ""
 
+# Committees confirmed (by hand, against real live pages) to list each
+# hearing as its own linked entry, keyed by (chamber, committee label as it
+# appears in SENATE_COMMITTEE_PAGES/HOUSE_COMMITTEE_PAGES) -> a CSS selector
+# that finds those per-hearing anchors on that committee's hearings page.
+# Committees not listed here simply fall back to watch_link()'s generic
+# committee-page link — never a guessed per-hearing URL.
+HEARING_LINK_RULES = {
+    ("Senate", "Armed Services"):             ".LegislationList__link",
+    ("Senate", "Aging"):                      ".LegislationList__link",
+    ("Senate", "Health HELP"):                ".LegislationList__link",
+    ("Senate", "Judiciary"):                  ".LegislationList__link",
+    ("Senate", "Rules"):                      ".LegislationList__link",
+    ("Senate", "Appropriations"):             "a.url.summary.pull-left",
+    ("Senate", "Banking"):                    "a.url.summary.pull-left",
+    ("Senate", "Budget"):                     "a.url.summary.pull-left",
+    ("Senate", "Commerce"):                   ".capigacr-meetings-table__title",
+    ("Senate", "Environment & Public Works"): ".recordListTitle a.ContentGrid",
+    ("Senate", "Small Business"):             ".recordListTitle a.ContentGrid",
+    ("House",  "Science Space Technology"):   ".recordListTitle a.ContentGrid",
+    ("Senate", "Homeland Security"):          ".jet-listing-dynamic-field__content a",
+    ("Senate", "Indian Affairs"):             ".elementor-heading-title a",
+    ("Senate", "Veterans Affairs"):           ".hearing-list-item a",
+    ("Senate", "Joint Economic"):             ".hearing-item-left a.title",
+    ("Senate", "Foreign Relations"):          "a[href*='/hearings/']",
+    ("Senate", "Energy & Natural Resources"): "a[href*='/hearings/20']",
+    ("House",  "Financial Services"):         "a[href*='EventSingle.aspx']",
+    ("House",  "Ways & Means"):               ".info a.name",
+}
+
+def word_overlap_score(a, b):
+    """Fraction of significant words two free-text strings share — used to
+    match a hearing's own topic text against a candidate link's visible
+    text, since a committee's hearings page usually lists many hearings and
+    we need the one that's actually today's, not just the first result."""
+    stop = {"the", "a", "an", "of", "to", "and", "or", "on", "for", "in",
+            "at", "is", "with", "by", "this", "that", "from", "as",
+            "hearing", "hearings", "meeting", "meetings", "committee",
+            "subcommittee", "examine", "consider", "considering"}
+    def words(s):
+        return {w for w in re.findall(r"[a-z0-9']+", s.lower()) if len(w) > 2 and w not in stop}
+    wa, wb = words(a), words(b)
+    if not wa or not wb:
+        return 0.0
+    return len(wa & wb) / min(len(wa), len(wb))
+
+def best_hearing_link(topic, candidates, threshold=0.5):
+    """Pick the candidate {"text", "href"} whose text best matches topic,
+    or None if nothing clears the threshold — never guess a wrong link."""
+    best, best_score = None, 0.0
+    for c in candidates:
+        score = word_overlap_score(topic, c.get("text", ""))
+        if score > best_score:
+            best, best_score = c, score
+    return best["href"] if best and best_score >= threshold else None
+
 # ── Helpers ────────────────────────────────────────────────────────────────────
 def hearing_key(h):
     return f"{h['chamber']}|{h['committee'][:40]}|{h['time']}"
@@ -475,6 +530,7 @@ async def scrape():
     witness_cache   = {}
     chair_cache     = {}
     cancelled_cache = set()
+    hearing_link_cache = {}
 
     async with async_playwright() as p:
         browser = await p.chromium.launch(headless=True)
@@ -647,6 +703,24 @@ async def scrape():
                         chair_cache[name.lower()] = chair
                         print(f"  🪑 {name}: {chair}")
 
+                    # Specific-hearing links, for committees where we've
+                    # confirmed each hearing is listed as its own linked
+                    # entry — matched against topic text later, never just
+                    # the first result on the page.
+                    selector = HEARING_LINK_RULES.get((chamber_label, name))
+                    if selector:
+                        try:
+                            candidates = await page.eval_on_selector_all(
+                                selector,
+                                "els => els.map(e => ({text: e.innerText.trim(), href: e.href}))"
+                            )
+                            candidates = [c for c in candidates if c["text"] and c["href"]]
+                            if candidates:
+                                hearing_link_cache[name.lower()] = candidates
+                                print(f"  🔗 {name}: {len(candidates)} hearing link candidate(s)")
+                        except Exception as e:
+                            print(f"  ⚠️  {name}: hearing-link selector failed ({e})")
+
                     # PDF witness lists
                     if HAS_PDF and HAS_REQUESTS:
                         pdf_links = await page.query_selector_all(
@@ -697,6 +771,12 @@ async def scrape():
             if key in cmte_lower or any(w in cmte_lower for w in key.split()):
                 h["cancelled"] = True
                 break
+        for key, candidates in hearing_link_cache.items():
+            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                link = best_hearing_link(h.get("topic", ""), candidates)
+                if link:
+                    h["link"] = link
+                break
 
     # ── Global deduplication of scraped list ──────────────────────────────────
     # Different sources (senate.gov, committee pages, congress.gov) can return
@@ -726,6 +806,8 @@ async def scrape():
                 match["building"] = h["building"]
             if h.get("cancelled"):
                 match["cancelled"] = True
+            if h.get("link") and not match.get("link"):
+                match["link"] = h["link"]
             print(f"  🔀 Dedup merged: {h['committee'][:50]}")
         else:
             deduped.append(h)
@@ -760,6 +842,8 @@ async def scrape():
                 enriched["witnesses"] = merged_w if merged_w else h.get("witnesses", [])
                 if scraped_match.get("chair") and not h.get("chair"):
                     enriched["chair"] = scraped_match["chair"]
+                if scraped_match.get("link") and not h.get("link"):
+                    enriched["link"] = scraped_match["link"]
                 # Apply hardcoded chair if still missing
                 if not enriched.get("chair"):
                     hardcoded = lookup_chair(enriched["committee"])
