@@ -383,7 +383,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 1:58 PM ET · Monday, August 3, 2026 · Updates every 2 hours · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 3:25 PM ET · Monday, August 3, 2026 · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -428,22 +428,6 @@
 
 <script>
 const HEARINGS = [];
-
-// ── HTML/URL safety ────────────────────────────────────────────────────────────
-// Every field below comes from a scrape or an external API (DomeWatch,
-// congress.gov) — not user input, so real risk is low, but everything that
-// lands in innerHTML should still be escaped rather than trusted verbatim.
-const ESCAPE_MAP = {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};
-function escapeHtml(s) {
-  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ESCAPE_MAP[c]);
-}
-function safeUrl(u) {
-  if (!u) return "";
-  try {
-    const p = new URL(u, location.href);
-    return (p.protocol === "http:" || p.protocol === "https:") ? p.href : "";
-  } catch (e) { return ""; }
-}
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
@@ -521,41 +505,39 @@ function buildCards(filter) {
     const pills = hasChanges
       ? '<div class="change-pills">'+h.changes.map(ch=>
           '<span class="change-pill'+(ch.toLowerCase().includes('cancel')?' cancelled-pill':'')+
-          '">⚡ '+escapeHtml(ch)+'</span>').join('')+'</div>'
+          '">⚡ '+ch+'</span>').join('')+'</div>'
       : '';
 
     const chairVal = h.chair
-      ? escapeHtml(h.chair)
+      ? h.chair
       : '<span style="color:var(--text-faint);font-style:italic">Not yet posted</span>';
 
     const aboutHtml = (h.details && h.details.trim() &&
                        h.details.trim() !== h.topic.trim() &&
                        h.details.length > h.topic.length + 20)
-      ? '<div class="card-section"><div class="card-section-label sl-'+c+'">About</div><div class="card-section-value">'+escapeHtml(h.details)+'</div></div>'
+      ? '<div class="card-section"><div class="card-section-label sl-'+c+'">About</div><div class="card-section-value">'+h.details+'</div></div>'
       : '';
 
     const witnessHtml = h.witnesses && h.witnesses.length &&
                         !h.witnesses.every(w=>w==='Witnesses not yet publicly posted')
-      ? h.witnesses.map(w=>'<div class="witness wb-'+c+'">'+escapeHtml(w)+'</div>').join('')
+      ? h.witnesses.map(w=>'<div class="witness wb-'+c+'">'+w+'</div>').join('')
       : '<div style="color:var(--text-faint);font-style:italic;font-size:12px;padding-left:10px">Not yet posted</div>';
-
-    const watchUrl = safeUrl(h.link);
 
     card.innerHTML = `
       <div class="card-top">
         <div class="card-left">
           <div class="card-meta">
-            <span class="tag tag-${c}">${escapeHtml(h.chamber)}</span>
+            <span class="tag tag-${c}">${h.chamber}</span>
             ${h.cancelled?'<span class="tag tag-cancelled">Cancelled</span>':''}
-            <span class="card-time">${escapeHtml(h.time)}</span>
+            <span class="card-time">${h.time}</span>
           </div>
-          <div class="card-committee">${escapeHtml(h.committee)}</div>
-          <div class="card-topic">${escapeHtml(h.topic)}</div>
+          <div class="card-committee">${h.committee}</div>
+          <div class="card-topic">${h.topic}</div>
           ${pills}
         </div>
         <div class="card-right">
-          <div class="card-building bc-${c}">${escapeHtml(h.building)}</div>
-          <div class="card-room">${escapeHtml(h.room)}</div>
+          <div class="card-building bc-${c}">${h.building}</div>
+          <div class="card-room">${h.room}</div>
         </div>
       </div>
       <div class="card-body">
@@ -568,7 +550,7 @@ function buildCards(filter) {
           <div class="card-section-label sl-${c}">Witnesses</div>
           ${witnessHtml}
         </div>
-        ${watchUrl ? '<div class="card-section"><a class="watch-link" href="'+escapeHtml(watchUrl)+'" target="_blank" rel="noopener">&#128308; Watch / committee hearings page &#8599;</a></div>' : ''}
+        ${h.link ? '<div class="card-section"><a class="watch-link" href="'+h.link+'" target="_blank" rel="noopener">&#128308; Watch / committee hearings page &#8599;</a></div>' : ''}
       </div>`;
 
     card.addEventListener('click',()=>card.classList.toggle('open'));
@@ -699,40 +681,34 @@ function loadWhip() {
 
       // Schedule row
       var sh = "";
-      if (n.houseMeetsAt) sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">House Meets' + dateSuffix + '</div><div class="floor-schedule__value">' + escapeHtml(n.houseMeetsAt) + '</div></div>';
-      if (n.firstVotes)   sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">First Votes' + dateSuffix + '</div><div class="floor-schedule__value">' + escapeHtml(n.firstVotes) + '</div></div>';
-      if (n.lastVotes)    sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">Last Votes' + dateSuffix + '</div><div class="floor-schedule__value">' + escapeHtml(n.lastVotes) + '</div></div>';
+      if (n.houseMeetsAt) sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">House Meets' + dateSuffix + '</div><div class="floor-schedule__value">' + n.houseMeetsAt + '</div></div>';
+      if (n.firstVotes)   sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">First Votes' + dateSuffix + '</div><div class="floor-schedule__value">' + n.firstVotes + '</div></div>';
+      if (n.lastVotes)    sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">Last Votes' + dateSuffix + '</div><div class="floor-schedule__value">' + n.lastVotes + '</div></div>';
       if (sh) { sch.innerHTML = sh; sch.style.display = "flex"; }
 
       // Bill items
       var items = (n.items || []).filter(function(b) { return b.confidence !== "low"; });
-      // Recommendation drives a CSS class name, not just text — validate
-      // against the known set rather than trusting it verbatim, since an
-      // unvalidated value here would land inside a class="..." attribute.
-      var KNOWN_RECS = {"YES":1, "NO":1, "PRESENT":1};
       var bh = "";
       items.forEach(function(b) {
-        var recKey = b.recommendation && KNOWN_RECS[b.recommendation] ? b.recommendation : "";
-        var rc  = recKey ? "wrec wrec-" + recKey : "";
+        var rc  = b.recommendation ? "wrec wrec-" + b.recommendation : "";
         var rec = b.recommendation ? b.recommendation.replace(/_/g," ") : "";
-        var billUrl = safeUrl(b.billUrl);
         bh += '<div class="whip-item">';
         // Bill number
-        if (billUrl) {
-          bh += '<a href="' + escapeHtml(billUrl) + '" target="_blank" rel="noopener" class="whip-item__bill">' + escapeHtml(b.billNumber || "") + '</a>';
+        if (b.billUrl) {
+          bh += '<a href="' + b.billUrl + '" target="_blank" rel="noopener" class="whip-item__bill">' + (b.billNumber || "") + '</a>';
         } else {
-          bh += '<span class="whip-item__bill">' + escapeHtml(b.billNumber || "") + '</span>';
+          bh += '<span class="whip-item__bill">' + (b.billNumber || "") + '</span>';
         }
         // Body
         bh += '<div class="whip-item__body">';
-        if (b.title) bh += '<div class="whip-item__title">' + escapeHtml(b.title) + '</div>';
+        if (b.title) bh += '<div class="whip-item__title">' + b.title + '</div>';
         bh += '<div class="whip-item__meta">';
-        if (b.sponsor)   bh += '<span class="whip-item__sponsor">' + escapeHtml(b.sponsor) + '</span>';
-        if (b.committee) bh += '<span>' + escapeHtml(b.committee) + '</span>';
-        if (b.position)  bh += '<span>' + escapeHtml(b.position) + '</span>';
+        if (b.sponsor)   bh += '<span class="whip-item__sponsor">' + b.sponsor + '</span>';
+        if (b.committee) bh += '<span>' + b.committee + '</span>';
+        if (b.position)  bh += '<span>' + b.position + '</span>';
         bh += '</div></div>';
         // Recommendation badge
-        if (rc) bh += '<span class="' + rc + '">' + escapeHtml(rec) + '</span>';
+        if (rc) bh += '<span class="' + rc + '">' + rec + '</span>';
         bh += '</div>';
       });
       itm.innerHTML = bh || '<p style="color:var(--text-dim,#A09070);font-size:0.85rem;padding:0.5rem 0">No upcoming vote items in latest notice.</p>';
