@@ -341,6 +341,23 @@ let chamber = 'senate';
 let group   = 'party';
 let caucus  = 'all';
 
+// ── HTML/URL safety ──────────────────────────────────────────────────────────
+// Member data comes from the unitedstates/congress-legislators project — a
+// curated, structured dataset, not arbitrary scraped text — so real risk is
+// low, but everything landing in innerHTML below is still escaped rather
+// than trusted verbatim.
+const ESCAPE_MAP = {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};
+function escapeHtml(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ESCAPE_MAP[c]);
+}
+function safeUrl(u) {
+  if (!u) return "";
+  try {
+    const p = new URL(u, location.href);
+    return (p.protocol === "http:" || p.protocol === "https:") ? p.href : "";
+  } catch (e) { return ""; }
+}
+
 // ── Theme ──────────────────────────────────────────────────────────────────────
 function sysTheme(){ return matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'; }
 function applyTheme(t){
@@ -378,7 +395,7 @@ function roleHtml(m){
                 : tier===6 ? 'Subcmte. Chair'
                 : 'Subcmte. Ranking Member';
   const sizeStyle = tier >= 6 ? 'font-size:7px;opacity:0.85;' : '';
-  return `<span class="mrole ${cls}" style="${sizeStyle}">${display}</span>`;
+  return `<span class="mrole ${cls}" style="${sizeStyle}">${escapeHtml(display)}</span>`;
 }
 
 function roleClass(m){
@@ -389,12 +406,13 @@ function roleClass(m){
 }
 
 function photoEl(m, cls, initCls){
-  return m.photo_url
-    ? `<img class="${cls}" src="${m.photo_url}"
+  const photoUrl = safeUrl(m.photo_url);
+  return photoUrl
+    ? `<img class="${cls}" src="${escapeHtml(photoUrl)}"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-         alt="${m.name}" loading="lazy">
-       <div class="${initCls} i-${m.party_class}" style="display:none">${m.initials}</div>`
-    : `<div class="${initCls} i-${m.party_class}">${m.initials}</div>`;
+         alt="${escapeHtml(m.name)}" loading="lazy">
+       <div class="${initCls} i-${m.party_class}" style="display:none">${escapeHtml(m.initials)}</div>`
+    : `<div class="${initCls} i-${m.party_class}">${escapeHtml(m.initials)}</div>`;
 }
 
 function fullRoleDescription(m){
@@ -436,17 +454,17 @@ function buildCommitteeSections(m){
 
   if(chairs.length){
     html += `<div class="modal-section-label" style="margin-top:14px">Chairs</div>`;
-    html += chairs.map(c=>`<div class="modal-cmte" style="border-left-color:var(--gold)">${c.committee}</div>`).join('');
+    html += chairs.map(c=>`<div class="modal-cmte" style="border-left-color:var(--gold)">${escapeHtml(c.committee)}</div>`).join('');
   }
 
   if(rankings.length){
     html += `<div class="modal-section-label" style="margin-top:14px">Ranking Member</div>`;
-    html += rankings.map(c=>`<div class="modal-cmte">${c.committee}</div>`).join('');
+    html += rankings.map(c=>`<div class="modal-cmte">${escapeHtml(c.committee)}</div>`).join('');
   }
 
   if(members.length){
     html += `<div class="modal-section-label" style="margin-top:14px">Committee Assignments</div>`;
-    html += members.map(c=>`<div class="modal-cmte">${c.committee}</div>`).join('');
+    html += members.map(c=>`<div class="modal-cmte">${escapeHtml(c.committee)}</div>`).join('');
   }
 
   return html;
@@ -459,7 +477,7 @@ function openModal(m){
   const chamberFull = m.chamber==='senate'
     ? 'United States Senate'
     : 'United States House of Representatives';
-  const dist = m.chamber==='house' && m.district ? `District ${m.district} · ` : '';
+  const dist = m.chamber==='house' && m.district ? `District ${escapeHtml(m.district)} · ` : '';
   const stateFull = STATE_NAMES[m.state] || m.state;
 
   // Institutional role (tier 1-3 only)
@@ -472,28 +490,29 @@ function openModal(m){
       : label;
   }
 
-  const photoHtml = m.photo_url
-    ? `<img class="modal-photo" src="${m.photo_url}"
+  const modalPhotoUrl = safeUrl(m.photo_url);
+  const photoHtml = modalPhotoUrl
+    ? `<img class="modal-photo" src="${escapeHtml(modalPhotoUrl)}"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-         alt="${m.name}">
-       <div class="modal-initials i-${pc}" style="display:none">${m.initials}</div>`
-    : `<div class="modal-initials i-${pc}">${m.initials}</div>`;
+         alt="${escapeHtml(m.name)}">
+       <div class="modal-initials i-${pc}" style="display:none">${escapeHtml(m.initials)}</div>`
+    : `<div class="modal-initials i-${pc}">${escapeHtml(m.initials)}</div>`;
 
   document.getElementById('modal-body').innerHTML = `
     <div class="modal-photo-wrap">${photoHtml}</div>
-    <div class="modal-name">${m.name}</div>
+    <div class="modal-name">${escapeHtml(m.name)}</div>
     <div class="modal-sub">
       ${chamberFull}<br>
-      ${dist}${stateFull} · ${partyFull} <span class="pbadge b-${pc}">${m.party_short}</span>
+      ${dist}${escapeHtml(stateFull)} · ${partyFull} <span class="pbadge b-${pc}">${escapeHtml(m.party_short)}</span>
     </div>
     ${instRole ? `
     <hr class="modal-divider">
     <div class="modal-section-label">Leadership Role</div>
-    <div class="modal-section-value">${instRole}</div>` : ''}
+    <div class="modal-section-value">${escapeHtml(instRole)}</div>` : ''}
     <hr class="modal-divider">
     <div class="modal-section-label">About</div>
     ${m.bio_slug ? `
-    <a href="bios/${m.bio_slug}.html"
+    <a href="bios/${encodeURIComponent(m.bio_slug)}.html"
        style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;
               letter-spacing:0.06em;padding:10px 16px;border:1px solid rgba(200,169,110,0.35);
               border-radius:8px;color:var(--gold);text-decoration:none;
@@ -524,14 +543,14 @@ document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(null
 function card(m){
   const pc   = m.party_class;
   const cc   = roleClass(m);
-  const dist = (m.chamber==='house' && m.district) ? ` · District ${m.district}` : '';
+  const dist = (m.chamber==='house' && m.district) ? ` · District ${escapeHtml(m.district)}` : '';
   const idx  = CURRENT_MEMBERS.push(m) - 1;
   return `<div class="member-card ${cc}" onclick="openModal(CURRENT_MEMBERS[${idx}])">
     <div class="card-face">
       ${photoEl(m,'photo','initials-box')}
       <div class="info">
-        <div class="mname">${m.name}</div>
-        <div class="mmeta">${m.state}${dist} <span class="pbadge b-${pc}">${m.party_short}</span></div>
+        <div class="mname">${escapeHtml(m.name)}</div>
+        <div class="mmeta">${escapeHtml(m.state)}${dist} <span class="pbadge b-${pc}">${escapeHtml(m.party_short)}</span></div>
         ${roleHtml(m)}
       </div>
     </div>
@@ -597,13 +616,13 @@ function buildCbcPanel(){
   const miniCard = (m) => {
     const idx = CURRENT_MEMBERS.push(m)-1;
     const pc  = m.party_class;
-    const dist = m.chamber==='house'&&m.district?` · District ${m.district}`:'';
+    const dist = m.chamber==='house'&&m.district?` · District ${escapeHtml(m.district)}`:'';
     return `<div class="member-card" onclick="openModal(CURRENT_MEMBERS[${idx}])">
       <div class="card-face">
         ${photoEl(m,'photo','initials-box')}
         <div class="info">
-          <div class="mname">${m.name}</div>
-          <div class="mmeta">${m.state}${dist} <span class="pbadge b-${pc}">${m.party_short}</span></div>
+          <div class="mname">${escapeHtml(m.name)}</div>
+          <div class="mmeta">${escapeHtml(m.state)}${dist} <span class="pbadge b-${pc}">${escapeHtml(m.party_short)}</span></div>
           ${roleHtml(m)}
         </div>
       </div>
@@ -616,7 +635,7 @@ function buildCbcPanel(){
     const chairs   = arr.filter(m=>m.leadership&&m.leadership.tier===4);
     const rankings = arr.filter(m=>m.leadership&&m.leadership.tier===5);
     const rest     = arr.filter(m=>!m.leadership||m.leadership.tier>5);
-    let h = `<div class="party-col-hdr col-dem" style="margin-bottom:8px">${label} · ${arr.length}</div>`;
+    let h = `<div class="party-col-hdr col-dem" style="margin-bottom:8px">${escapeHtml(label)} · ${arr.length}</div>`;
     if(leaders.length) {
       h += `<div class="section-hdr" style="font-size:9px;margin-bottom:6px">── Leadership</div>`;
       h += `<div class="party-cols">${leaders.map(miniCard).join('')}</div>`;
@@ -720,7 +739,7 @@ function renderState(members){
   const by={};
   members.forEach(m=>{(by[m.state]=by[m.state]||[]).push(m);});
   return Object.keys(by).sort().map(s=>
-    `<div class="group-block"><div class="group-title">${s}</div>${by[s].map(card).join('')}</div>`
+    `<div class="group-block"><div class="group-title">${escapeHtml(s)}</div>${by[s].map(card).join('')}</div>`
   ).join('') || '<div class="empty">No members found.</div>';
 }
 
@@ -733,7 +752,7 @@ function renderCommittee(members){
   });
   if(!Object.keys(by).length) return '<div class="empty">No committee data found.</div>';
   return Object.keys(by).sort().map(c=>
-    `<div class="group-block"><div class="group-title cmte-title">${c}</div>${by[c].map(card).join('')}</div>`
+    `<div class="group-block"><div class="group-title cmte-title">${escapeHtml(c)}</div>${by[c].map(card).join('')}</div>`
   ).join('');
 }
 
@@ -757,14 +776,14 @@ function renderVacancies(){
           return `<div class="member-card" style="cursor:default;opacity:0.8">
             <div class="card-face">
               <div class="initials-box" style="background:rgba(120,120,120,0.3);border:1px solid var(--bdr);color:var(--text-d);font-size:18px">
-                ${v.state}-${v.district}
+                ${escapeHtml(v.state)}-${escapeHtml(v.district)}
               </div>
               <div class="info">
                 <div class="mname" style="color:var(--text-d)">Vacant</div>
-                <div class="mmeta">${v.label}</div>
+                <div class="mmeta">${escapeHtml(v.label)}</div>
                 <div style="font-size:11px;color:var(--text-d);margin-top:4px;line-height:1.5">
-                  ${v.reason}<br>
-                  <span style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:10px">${v.election}</span>
+                  ${escapeHtml(v.reason)}<br>
+                  <span style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:10px">${escapeHtml(v.election)}</span>
                 </div>
               </div>
             </div>
