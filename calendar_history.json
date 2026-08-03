@@ -14,7 +14,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.help.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -29,7 +30,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.indian.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -44,7 +46,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.aging.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -59,7 +62,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.hsgac.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -74,7 +78,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.energy.senate.gov/hearings"
       }
     ],
     "inSession": false
@@ -94,7 +99,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.finance.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -109,7 +115,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.commerce.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -124,7 +131,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.foreign.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -139,7 +147,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.commerce.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -154,7 +163,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.judiciary.senate.gov/committee-activity/hearings"
       },
       {
         "chamber": "Senate",
@@ -169,7 +179,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.help.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -182,7 +193,8 @@
         "witnesses": [],
         "details": "Hearings to examine the testimony of Anthony Fauci.",
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.hsgac.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -195,7 +207,8 @@
         "witnesses": [],
         "details": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.energy.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -208,7 +221,8 @@
         "witnesses": [],
         "details": "Hearings to examine the impact of AI on the workplace.",
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.help.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -221,7 +235,8 @@
         "witnesses": [],
         "details": "Hearings to examine S.3573, to amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, S.3617, to a",
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.indian.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -234,7 +249,8 @@
         "witnesses": [],
         "details": "Hearings to examine the AI deception machine, focusing on deepfakes, chatbots, and the new frontier of senior fraud.",
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.aging.senate.gov/hearings"
       }
     ],
     "inSession": false
@@ -254,7 +270,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.finance.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -269,7 +286,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.commerce.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -284,7 +302,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.foreign.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -299,7 +318,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.commerce.senate.gov/hearings"
       },
       {
         "chamber": "Senate",
@@ -314,7 +334,8 @@
           "Witnesses not yet publicly posted"
         ],
         "cancelled": false,
-        "changes": []
+        "changes": [],
+        "link": "https://www.help.senate.gov/hearings"
       }
     ],
     "inSession": false
