@@ -1,0 +1,20 @@
+{
+  "T000250": {"label": "Senate Majority Leader",         "full_title": "Senate Majority Leader",                                    "tier": 1},
+  "G000386": {"label": "President Pro Tempore",          "full_title": "President Pro Tempore of the United States Senate",         "tier": 1},
+  "B001261": {"label": "Senate Majority Whip",           "full_title": "Senate Majority Whip",                                      "tier": 2},
+  "C001095": {"label": "Senate Conference Chair",        "full_title": "Senate Republican Conference Chair",                        "tier": 3},
+  "L000575": {"label": "Senate Conference Vice Chair",   "full_title": "Senate Republican Conference Vice Chair",                   "tier": 3},
+  "C001047": {"label": "Senate Policy Committee Chair",  "full_title": "Senate Republican Policy Committee Chair",                  "tier": 3},
+  "S000148": {"label": "Senate Minority Leader",         "full_title": "Senate Minority Leader",                                    "tier": 1},
+  "D000563": {"label": "Senate Minority Whip",           "full_title": "Senate Minority Whip",                                      "tier": 2},
+  "K000367": {"label": "Steering & Policy Chair",        "full_title": "Senate Democratic Steering and Policy Committee Chair",     "tier": 3},
+  "B001288": {"label": "Strategic Communications Chair", "full_title": "Senate Democratic Strategic Communications Chair",          "tier": 3},
+  "J000299": {"label": "Speaker of the House",           "full_title": "Speaker of the United States House of Representatives",     "tier": 1},
+  "S001176": {"label": "House Majority Leader",          "full_title": "House Majority Leader",                                     "tier": 1},
+  "E000294": {"label": "House Majority Whip",            "full_title": "House Majority Whip",                                       "tier": 2},
+  "M001136": {"label": "House Conference Chair",         "full_title": "House Republican Conference Chair",                         "tier": 3},
+  "J000294": {"label": "House Minority Leader",          "full_title": "House Minority Leader",                                     "tier": 1},
+  "C001101": {"label": "House Minority Whip",            "full_title": "House Minority Whip",                                       "tier": 2},
+  "A000371": {"label": "House Democratic Caucus Chair",  "full_title": "House Democratic Caucus Chair",                             "tier": 3},
+  "N000191": {"label": "Asst. Democratic Leader",        "full_title": "Assistant House Democratic Leader",                         "tier": 3}
+}

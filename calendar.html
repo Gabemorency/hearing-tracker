@@ -69,6 +69,13 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .detail-event a{color:var(--blue);text-decoration:none;}
 .detail-event a:hover{text-decoration:underline;}
 .loading{text-align:center;padding:3rem;color:var(--text-m);font-family:'IBM Plex Mono',monospace;font-size:0.85rem;}
+.floor-bar{display:flex;align-items:center;gap:0.6rem;padding:0.55rem 1.5rem;font-size:0.8rem;border-bottom:1px solid var(--border);background:var(--bg2);color:var(--text-s);}
+.floor-bar__dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--text-m);}
+.floor-bar--in-session .floor-bar__dot{background:#6DBF8A;}
+.floor-bar--vote-active .floor-bar__dot{background:var(--gold);}
+.floor-bar--in-session .floor-bar__text,.floor-bar--vote-active .floor-bar__text{color:var(--text);font-weight:600;}
+.floor-bar__vote{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;padding:1px 7px;border-radius:10px;background:rgba(224,184,112,0.15);color:var(--gold);}
+.floor-bar__time{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--text-m);}
 @media(max-width:600px){
   .cal-day{min-height:52px;padding:0.25rem;}
   .cal-chip{display:none;}
@@ -89,9 +96,16 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   </div>
 </nav>
 
+<div id="floor-bar" class="floor-bar floor-bar--loading" style="display:none">
+  <span class="floor-bar__dot"></span>
+  <span id="floor-bar__text" class="floor-bar__text">Checking House floor status&hellip;</span>
+  <span id="floor-bar__vote" class="floor-bar__vote" style="display:none"></span>
+  <span id="floor-bar__time" class="floor-bar__time"></span>
+</div>
+
 <div class="page-header">
   <h1>Congressional Calendar</h1>
-  <p>30-day rolling view of hearings, committee meetings, and upcoming floor votes &middot; Updated every 2 hours</p>
+  <p>Hearings and committee meetings &middot; Updated every 2 hours</p>
 </div>
 
 <div class="legend">
@@ -138,6 +152,46 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     }
   })();
 
+  // House floor status
+  function fmtTime(iso) {
+    if (!iso) return "";
+    var d = new Date(iso);
+    return d.toLocaleDateString("en-US", {month:"short", day:"numeric"}) + " " +
+           d.toLocaleTimeString("en-US", {hour:"numeric", minute:"2-digit", hour12:true});
+  }
+  function loadFloor() {
+    fetch("/hearing-tracker/domewatch_floor.json")
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(d) {
+        var bar = document.getElementById("floor-bar");
+        var txt = document.getElementById("floor-bar__text");
+        var vot = document.getElementById("floor-bar__vote");
+        var tim = document.getElementById("floor-bar__time");
+        if (!bar) return;
+        if (!d || Object.keys(d).length === 0) { bar.style.display = "none"; return; }
+        bar.className = "floor-bar";
+        vot.style.display = "none";
+        if (d.inSession) {
+          if (d.vote && d.vote.rollCall) {
+            bar.classList.add("floor-bar--vote-active");
+            txt.textContent = "House In Session — Vote: " + (d.vote.question || "Roll Call");
+            var c = d.vote.counts || {};
+            vot.textContent = "D " + ((c.D || {}).yea || 0) + "  R " + ((c.R || {}).yea || 0);
+            vot.style.display = "inline";
+          } else {
+            bar.classList.add("floor-bar--in-session");
+            txt.textContent = "House In Session" + (d.currentActivity ? " — " + d.currentActivity : "");
+          }
+        } else {
+          bar.classList.add("floor-bar--recess");
+          txt.textContent = d.currentActivity || "House Not In Session";
+        }
+        if (d.asOf) tim.textContent = "Updated " + fmtTime(d.asOf);
+        bar.style.display = "flex";
+      })
+      .catch(function() { var bar = document.getElementById("floor-bar"); if (bar) bar.style.display = "none"; });
+  }
+
   function dateKey(d) {
     var m = d.getMonth() + 1, dd = d.getDate();
     return d.getFullYear() + "-" + (m<10?"0":"") + m + "-" + (dd<10?"0":"") + dd;
@@ -156,30 +210,40 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 
     function check() {
       done++;
-      if (done === 3) {
+      if (done === 4) {
         document.getElementById("cal-loading").style.display = "none";
         document.getElementById("cal-grid").style.display    = "grid";
         renderCalendar();
       }
     }
 
-    // 1. Hearings
-    fetch("/hearing-tracker/hearings.json")
+    function addHearing(dk, h) {
+      addEvent(dk, {
+        type: "hearing",
+        title: h.committee || "Hearing",
+        meta: (h.topic || "") + (h.time ? " · " + h.time : ""),
+        url: h.link || null
+      });
+    }
+
+    // 1a. Today's hearings — scrape.py's snapshot, refreshed every 2 hours
+    fetch("/hearing-tracker/snapshot.json")
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
         if (data) {
-          var items = Array.isArray(data) ? data : (data.hearings || data.data || []);
-          items.forEach(function(h) {
-            var dk = (h.date || h.start_date || "").substring(0,10);
-            if (dk >= from && dk <= to) {
-              addEvent(dk, {
-                type: "hearing",
-                title: h.title || h.name || "Hearing",
-                meta: (h.committee || h.body || "") + (h.time ? " · " + h.time : ""),
-                url: h.url || null
-              });
-            }
-          });
+          var todayKey = dateKey(now);
+          Object.keys(data).forEach(function(k) { addHearing(todayKey, data[k]); });
+        }
+        check();
+      })
+      .catch(function() { check(); });
+
+    // 1b. Next scheduled day's hearings — build_baseline.py, refreshed nightly
+    fetch("/hearing-tracker/baseline.json")
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (data && data.date && Array.isArray(data.hearings)) {
+          data.hearings.forEach(function(h) { addHearing(data.date, h); });
         }
         check();
       })
@@ -357,7 +421,10 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     panel.scrollIntoView({behavior:"smooth",block:"nearest"});
   }
 
-  document.addEventListener("DOMContentLoaded", loadAll);
+  document.addEventListener("DOMContentLoaded", function() {
+    loadFloor();
+    loadAll();
+  });
 }());
 </script>
 

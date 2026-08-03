@@ -1,6 +1,6 @@
 {
-  "date": "2026-08-01",
-  "generated": "12:22 AM ET",
+  "date": "2026-08-02",
+  "generated": "8:59 PM ET",
   "senators": [
     {
       "bioguide_id": "G000386",
@@ -32831,14 +32831,6 @@
     }
   ],
   "vacancies": [
-    {
-      "state": "CA",
-      "district": 1,
-      "label": "California's 1st Congressional District",
-      "reason": "Rep. Doug LaMalfa (R) died January 6, 2026.",
-      "election": "Special election: August 4, 2026 (primary June 2, 2026)",
-      "party": "rep"
-    },
     {
       "state": "CA",
       "district": 14,

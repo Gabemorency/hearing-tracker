@@ -12,7 +12,7 @@ if not dw:
 if not cg:
     print("WARNING: CONGRESS_API_KEY is empty")
 
-files = ["index.html", "calendar.html", "members.html", "domewatch.js"]
+files = ["index.html", "calendar.html", "members.html"]
 for fname in files:
     if not os.path.exists(fname):
         print(f"Skipping {fname} — not found")

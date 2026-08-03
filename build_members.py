@@ -90,70 +90,22 @@ generated  = now_et.strftime("%-I:%M %p ET")
 BASE = "https://raw.githubusercontent.com/unitedstates/congress-legislators/main"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; hearing-tracker-bot/1.0)"}
 
-# ── Current House vacancies (119th Congress) ───────────────────────────────────
-# Updated by validate_hardcoded.py every 3 days — check GitHub Issues for alerts
-VACANT_SEATS = [
-    {
-        "state": "CA", "district": 1,
-        "label": "California's 1st Congressional District",
-        "reason": "Rep. Doug LaMalfa (R) died January 6, 2026.",
-        "election": "Special election: August 4, 2026 (primary June 2, 2026)",
-        "party": "rep",
-    },
-    {
-        "state": "CA", "district": 14,
-        "label": "California's 14th Congressional District",
-        "reason": "Rep. Eric Swalwell (D) resigned April 14, 2026.",
-        "election": "Special election: August 18, 2026 (primary June 16, 2026)",
-        "party": "dem",
-    },
-    {
-        "state": "FL", "district": 20,
-        "label": "Florida's 20th Congressional District",
-        "reason": "Rep. Sheila Cherfilus-McCormick (D) resigned April 21, 2026.",
-        "election": "Special election date to be determined.",
-        "party": "dem",
-    },
-    {
-        "state": "GA", "district": 13,
-        "label": "Georgia's 13th Congressional District",
-        "reason": "Rep. David Scott (D) died April 22, 2026.",
-        "election": "Special election date to be determined.",
-        "party": "dem",
-    },
-    {
-        "state": "TX", "district": 23,
-        "label": "Texas's 23rd Congressional District",
-        "reason": "Rep. Tony Gonzales (R) resigned April 14, 2026.",
-        "election": "Special election date to be determined.",
-        "party": "rep",
-    },
-]
+# ── Current House vacancies ─────────────────────────────────────────────────────
+# Source of truth: vacant_seats.json. Auto-pruned by validate_hardcoded.py when a
+# listed seat gets a sitting member; new vacancies still need a human to add the
+# entry (reason/election date aren't derivable from the legislators dataset).
+with open("vacant_seats.json", "r", encoding="utf-8") as _vf:
+    VACANT_SEATS = json.load(_vf)
 
-# ── 119th Congress institutional leadership (hardcoded by bioguide ID) ─────────
+# ── Institutional leadership (hardcoded by bioguide ID) ─────────────────────────
+# Source of truth: institutional_leadership.json (shared with generate_bios.py
+# and validate_hardcoded.py so all three can never drift out of sync with
+# each other). These positions change only after elections or resignations —
+# there's no public feed that tracks them, so they're maintained by hand.
+with open("institutional_leadership.json", "r", encoding="utf-8") as _lf:
+    _LEADERSHIP_DATA = json.load(_lf)
 INSTITUTIONAL_LEADERSHIP = {
-    # Senate Republican
-    "T000250": {"label": "Senate Majority Leader",          "tier": 1},  # John Thune
-    "G000386": {"label": "President Pro Tempore",           "tier": 1},  # Chuck Grassley
-    "B001261": {"label": "Senate Majority Whip",            "tier": 2},  # John Barrasso
-    "C001095": {"label": "Senate Conference Chair",         "tier": 3},  # Tom Cotton
-    "L000575": {"label": "Senate Conference Vice Chair",    "tier": 3},  # James Lankford
-    "C001047": {"label": "Senate Policy Committee Chair",   "tier": 3},  # Shelley Moore Capito
-    # Senate Democratic
-    "S000148": {"label": "Senate Minority Leader",          "tier": 1},  # Chuck Schumer
-    "D000563": {"label": "Senate Minority Whip",            "tier": 2},  # Dick Durbin
-    "K000367": {"label": "Steering & Policy Chair",         "tier": 3},  # Amy Klobuchar
-    "B001288": {"label": "Strategic Communications Chair",  "tier": 3},  # Cory Booker
-    # House Republican
-    "J000299": {"label": "Speaker of the House",            "tier": 1},  # Mike Johnson
-    "S001176": {"label": "House Majority Leader",           "tier": 1},  # Steve Scalise
-    "E000294": {"label": "House Majority Whip",             "tier": 2},  # Tom Emmer
-    "M001136": {"label": "House Conference Chair",          "tier": 3},  # Lisa McClain
-    # House Democratic
-    "J000294": {"label": "House Minority Leader",           "tier": 1},  # Hakeem Jeffries
-    "C001101": {"label": "House Minority Whip",             "tier": 2},  # Katherine Clark
-    "A000371": {"label": "House Democratic Caucus Chair",   "tier": 3},  # Pete Aguilar
-    "N000191": {"label": "Asst. Democratic Leader",         "tier": 3},  # Joe Neguse
+    bid: {"label": v["label"], "tier": v["tier"]} for bid, v in _LEADERSHIP_DATA.items()
 }
 
 def fetch_yaml(url):
@@ -343,12 +295,6 @@ def build():
     for bid in CBC_BIOGUIDES:
         caucus_map[bid] = ["cbc"]
     print(f"  Black Caucus: {len(CBC_BIOGUIDES)} members loaded")
-
-    # ── Hardcoded 119th Congress institutional leadership ──────────────────────
-    # These positions change only after elections or resignations.
-    # Bioguide IDs are stable and authoritative.
-    # Tiers: 1 = top leaders, 2 = whips, 3 = conference/caucus/policy chairs
-    pass  # INSTITUTIONAL_LEADERSHIP defined at module level
 
     # Build member objects
     print("🔨 Building member objects...")
@@ -684,6 +630,7 @@ def build_bio_page(m, paragraphs):
   <div class="nav">
     <a href="../index.html">🏛 Hearings</a> &nbsp;·&nbsp;
     <a href="../members.html">Members</a> &nbsp;·&nbsp;
+    <a href="../calendar.html">Calendar</a> &nbsp;·&nbsp;
     <span>{m["name"]}</span>
   </div>
   <button class="toggle" id="tog" onclick="toggleTheme()">☀️</button>
@@ -1031,6 +978,7 @@ def build_html(members_json):
   <nav class="page-nav">
     <a href="index.html">Hearings</a>
     <a href="members.html" class="active">Members</a>
+    <a href="calendar.html">Calendar</a>
   </nav>
 </div>
 

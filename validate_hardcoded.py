@@ -1,7 +1,9 @@
 """
 Validates hardcoded data every 3 days.
-Checks: institutional leadership, CBC membership, committee chairs, vacant seats.
-Opens a GitHub Issue if anything is out of date.
+Checks: institutional leadership (institutional_leadership.json), CBC
+membership, vacant House seats (vacant_seats.json — auto-removes entries once
+filled), and departed members in bios_hardcoded.json (auto-removed).
+Opens a GitHub Issue if anything still needs a human to update.
 """
 
 import json
@@ -41,33 +43,13 @@ issues = []
 
 # ── 1. Check institutional leadership ─────────────────────────────────────────
 print("🔍 Checking institutional leadership...")
-INSTITUTIONAL_LEADERSHIP = {
-    "T000250": "Senate Majority Leader",
-    "G000386": "President Pro Tempore",
-    "B001261": "Senate Majority Whip",
-    "C001095": "Senate Conference Chair",
-    "L000575": "Senate Conference Vice Chair",
-    "C001047": "Senate Policy Committee Chair",
-    "S000148": "Senate Minority Leader",
-    "D000563": "Senate Minority Whip",
-    "K000367": "Steering & Policy Chair",
-    "B001288": "Strategic Communications Chair",
-    "J000299": "Speaker of the House",
-    "S001176": "House Majority Leader",
-    "E000294": "House Majority Whip",
-    "M001136": "House Conference Chair",
-    "J000294": "House Minority Leader",
-    "C001101": "House Minority Whip",
-    "A000371": "House Democratic Caucus Chair",
-    "N000191": "Asst. Democratic Leader",
-    # Recently appointed/elected — validate these especially
-    "A000383": "Junior Senator, Oklahoma (Alan Armstrong, appointed Mar 2026)",
-}
+with open("institutional_leadership.json", "r", encoding="utf-8") as _lf:
+    INSTITUTIONAL_LEADERSHIP = json.load(_lf)
 
-for bid, role in INSTITUTIONAL_LEADERSHIP.items():
+for bid, info in INSTITUTIONAL_LEADERSHIP.items():
     if bid not in current_bids:
         name = bid_to_name.get(bid, bid)
-        issues.append(f"⚠️ **Leadership:** `{role}` holder `{name}` ({bid}) is no longer in current legislators dataset — may have left office.")
+        issues.append(f"⚠️ **Leadership:** `{info['label']}` holder `{name}` ({bid}) is no longer in current legislators dataset — may have left office. Update institutional_leadership.json.")
 
 # ── 2. Check CBC membership ────────────────────────────────────────────────────
 print("🔍 Checking CBC membership...")
@@ -103,20 +85,45 @@ if len(dem_house) < len(cbc_set):
 
 # ── 4. Check for vacant House seats ───────────────────────────────────────────
 print("🔍 Checking for vacant House seats...")
+
+# 4a. Auto-remove entries from vacant_seats.json whose seat now has a sitting member
+rep_seats = {
+    (m.get("terms", [{}])[-1].get("state"), m.get("terms", [{}])[-1].get("district"))
+    for m in legislators
+    if m.get("terms", [{}])[-1].get("type") == "rep"
+}
+if os.path.exists("vacant_seats.json"):
+    with open("vacant_seats.json", "r", encoding="utf-8") as _vf:
+        vacant_seats = json.load(_vf)
+    filled = [v for v in vacant_seats if (v["state"], v["district"]) in rep_seats]
+    if filled:
+        for v in filled:
+            print(f"  Seat now filled — removing: {v['label']}")
+        vacant_seats = [v for v in vacant_seats if v not in filled]
+        with open("vacant_seats.json", "w", encoding="utf-8") as _vf:
+            json.dump(vacant_seats, _vf, indent=2, ensure_ascii=False)
+            _vf.write("\n")
+        labels = ", ".join(v["label"] for v in filled)
+        issues.append(f"ℹ️ **Vacant seats cleaned:** Removed {len(filled)} seat(s) now filled from vacant_seats.json: {labels}")
+    else:
+        print(f"  vacant_seats.json is current — {len(vacant_seats)} listed, none yet filled")
+else:
+    vacant_seats = []
+    print("  ℹ️  vacant_seats.json not found — skipping")
+
+# 4b. Check aggregate sitting-member count for vacancies not yet listed
 try:
-    r = requests.get("https://clerk.house.gov/members", headers=HEADERS, timeout=20)
     sitting_count = len([m for m in legislators
                         if m.get("terms", [{}])[-1].get("type") == "rep"
                         and m.get("terms", [{}])[-1].get("state") not in
                         {"DC","PR","VI","GU","AS","MP"}])
-    if sitting_count < 435:
-        vacant = 435 - sitting_count
-        issues.append(f"ℹ️ **Vacant seats:** {vacant} House seat(s) currently vacant ({sitting_count} sitting voting members). Consider updating the vacant seats section in build_members.py.")
-    print(f"  Sitting House members (voting): {sitting_count}")
+    known_vacant = len(vacant_seats)
+    if sitting_count + known_vacant < 435:
+        unlisted = 435 - sitting_count - known_vacant
+        issues.append(f"ℹ️ **Vacant seats:** {unlisted} House seat(s) appear vacant but aren't in vacant_seats.json ({sitting_count} sitting voting members, {known_vacant} already listed). Add the new vacancy to vacant_seats.json.")
+    print(f"  Sitting House members (voting): {sitting_count}, listed vacancies: {known_vacant}")
 except Exception as e:
     print(f"  Could not check vacancies: {e}")
-
-# ── 6. Report ──────────────────────────────────────────────────────────────────
 
 # ── 5. Remove departed members from bios_hardcoded.json ───────────────────────
 print("🧹 Checking bios_hardcoded.json for departed members...")
