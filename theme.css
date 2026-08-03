@@ -81,8 +81,12 @@
 
   /* Darkened for light-mode contrast — members.html already did this;
      index.html/calendar.html previously kept the dark-mode pastel shade,
-     which reads poorly as text on a near-white background. */
-  --gold:   #B8860B;
+     which reads poorly as text on a near-white background. --gold was
+     still only 2.93:1 against --bg (#F5F3EE) — under the WCAG AA minimum
+     of 4.5:1 for normal text — since it was ported from members.html
+     without ever being contrast-checked itself. Darkened to 4.71:1.
+     --blue/--purple/--teal were already >=4.5:1 and are unchanged. */
+  --gold:   #8C6608;
   --blue:   #1A6AAA;
   --purple: #6040A0;
   --teal:   #0F766E;

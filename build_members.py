@@ -530,7 +530,7 @@ def build_bio_page(m, paragraphs):
   @media(prefers-color-scheme:light){{:root:not(.dark):not(.light){{
     --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
     --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
+    --gold:#8C6608; --border:rgba(0,0,0,0.08);
     --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
     --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}}}
@@ -739,7 +739,7 @@ def build_html(members_json):
     --text-muted:#5A4A35;--text-dim:#7A6A55;--text-faint:#A09080;
     --border:rgba(0,0,0,0.12);--border-header:rgba(180,130,50,0.4);--border-stat:rgba(0,0,0,0.08);
     --border-filter:rgba(0,0,0,0.08);--scrollbar:#D0C8BC;
-    --gold:#B8860B;--blue:#1A6AAA;--purple:#6040A0;
+    --gold:#8C6608;--blue:#1A6AAA;--purple:#6040A0;
     --toggle-bg:rgba(0,0,0,0.05);--toggle-border:rgba(0,0,0,0.12);
     --rep:#CC2020;--dem:#1A60A0;--ind:#6040A0;
     --rep-bg:rgba(180,30,30,0.1);--dem-bg:rgba(20,90,160,0.1);--ind-bg:rgba(80,40,140,0.1);
