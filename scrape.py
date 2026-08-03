@@ -1324,7 +1324,7 @@ def build_html(hearings):
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of {generated} · {today_long} · Updates every 20 min · Schedules subject to change.</div>
+    <div class="header-timestamp">As of {generated} · {today_long} · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
