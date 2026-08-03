@@ -139,6 +139,7 @@ def lookup_chair(committee_name):
 SENATE_COMMITTEE_PAGES = [
     ("Armed Services",             "https://www.armed-services.senate.gov/hearings"),
     ("Agriculture",                "https://www.agriculture.senate.gov/hearings"),
+    ("Aging",                      "https://www.aging.senate.gov/hearings"),
     ("Appropriations",             "https://www.appropriations.senate.gov/hearings"),
     ("Banking",                    "https://www.banking.senate.gov/hearings"),
     ("Budget",                     "https://www.budget.senate.gov/hearings"),
