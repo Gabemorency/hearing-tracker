@@ -1,4 +1,4 @@
-// Congressional Hearing Tracker — Service Worker v5
+// Congressional Hearing Tracker — Service Worker v6
 // v2 served pages and data cache-first, so once cached, browsers never saw
 // updates again until the cache was manually cleared — wrong for a site
 // whose whole point is data that changes every 2 hours. Everything that can
@@ -13,7 +13,22 @@
 // v5: added theme.css (the shared design-token stylesheet every page now
 // links) to PRECACHE — without it, an offline visitor's first-ever page
 // load would render entirely unstyled.
-const CACHE_NAME = 'hearing-tracker-v5';
+// v6: plain cache-first for bio pages had the same staleness bug v3 fixed
+// for everything else — a factual correction (e.g. a stale "former
+// President" reference) never reached a browser that had already cached
+// that page, and the only way out was a manual CACHE_NAME bump each time,
+// which doesn't scale and is easy to forget. Bio pages now use stale-
+// while-revalidate instead: still serve the cached copy instantly (same
+// speed as before), but always re-fetch in the background and update the
+// cache for next time. The fix a visitor is currently missing is one page
+// load behind, permanently, without anyone needing to touch this file
+// again — this version bump is the last one bio content fixes will ever
+// need. Also wrapped every background cache.put() in the file (not just
+// the new one) in event.waitUntil() — without it, the browser is free to
+// kill the worker as soon as the response is sent, before an un-awaited
+// cache write finishes, which would silently drop the very update this
+// fix depends on.
+const CACHE_NAME = 'hearing-tracker-v6';
 
 const PRECACHE = [
   '/hearing-tracker/',
@@ -75,7 +90,7 @@ self.addEventListener('fetch', function(event) {
       fetch(event.request)
         .then(function(response) {
           var clone = response.clone();
-          caches.open(CACHE_NAME).then(function(cache) { cache.put(event.request, clone); });
+          event.waitUntil(caches.open(CACHE_NAME).then(function(cache) { return cache.put(event.request, clone); }));
           return response;
         })
         .catch(function() { return caches.match(event.request); })
@@ -83,15 +98,28 @@ self.addEventListener('fetch', function(event) {
     return;
   }
 
-  // Bio pages — cache first, then network
+  // Bio pages — stale-while-revalidate: return the cached copy immediately
+  // if there is one (same instant load as pure cache-first), but always
+  // kick off a network fetch in parallel and overwrite the cache with
+  // whatever comes back. That fetch isn't awaited before responding, so it
+  // can't slow this load down — its only job is making sure the *next*
+  // load of this page is current, indefinitely, with no version bump ever
+  // required just because a bio's text changed.
   if (url.includes('/bios/')) {
     event.respondWith(
-      caches.match(event.request).then(function(cached) {
-        if (cached) return cached;
-        return fetch(event.request).then(function(response) {
-          var clone = response.clone();
-          caches.open(CACHE_NAME).then(function(cache) { cache.put(event.request, clone); });
-          return response;
+      caches.open(CACHE_NAME).then(function(cache) {
+        return cache.match(event.request).then(function(cached) {
+          var refresh = fetch(event.request).then(function(response) {
+            if (response.ok) cache.put(event.request, response.clone());
+            return response;
+          }).catch(function() { return cached; });
+          // The cache write has to survive after this handler returns its
+          // response — without waitUntil() keeping the worker alive for
+          // it, the browser is free to kill the worker the moment
+          // `cached` is sent back, and the background refresh (and the
+          // whole point of it) could be silently dropped.
+          event.waitUntil(refresh);
+          return cached || refresh;
         });
       })
     );
@@ -106,7 +134,7 @@ self.addEventListener('fetch', function(event) {
         .then(function(response) {
           if (response.ok) {
             var clone = response.clone();
-            caches.open(CACHE_NAME).then(function(cache) { cache.put(event.request, clone); });
+            event.waitUntil(caches.open(CACHE_NAME).then(function(cache) { return cache.put(event.request, clone); }));
           }
           return response;
         })
