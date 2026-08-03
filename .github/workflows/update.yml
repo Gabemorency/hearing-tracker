@@ -34,6 +34,9 @@ jobs:
           DOMEWATCH_API_KEY: ${{ secrets.DOMEWATCH_API_KEY }}
         run: python fetch_domewatch.py
 
+      - name: Scrape committee names for DomeWatch meetings
+        run: python scrape_meeting_committees.py
+
       - name: Record today in calendar history
         run: python record_calendar_day.py
 
@@ -47,7 +50,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html snapshot.json domewatch_whip.json domewatch_meetings.json domewatch_floor.json calendar_history.json
+          git add index.html snapshot.json domewatch_whip.json domewatch_meetings.json domewatch_floor.json domewatch_meeting_committees.json calendar_history.json
           git diff --cached --quiet || git commit -m "Auto-update $(date -u '+%Y-%m-%d %H:%M UTC')"
           git pull --rebase
           git push

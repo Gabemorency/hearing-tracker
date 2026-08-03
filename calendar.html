@@ -300,58 +300,72 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
       })
       .catch(function() { check(); });
 
-    // 2. Committee meetings from DomeWatch local JSON
-    fetch("/hearing-tracker/domewatch_meetings.json")
+    // 2. Committee meetings from DomeWatch local JSON. DomeWatch's API
+    // doesn't include a committee name (verified against its full response
+    // schema), so scrape_meeting_committees.py separately scrapes each
+    // meeting's real docs.house.gov page for it, caching by meeting id —
+    // this joins that cache in when available, falling back to the generic
+    // "Hearing — Rm ___" label for meetings not yet (or never) scraped.
+    fetch("/hearing-tracker/domewatch_meeting_committees.json")
       .then(function(r) { return r.ok ? r.json() : null; })
-      .then(function(data) {
-        if (data && data.data) {
-          var TYPES = {
-            "HHRG":"Hearing","HMKP":"Markup","HBRC":"Briefing",
-            "HCPS":"Conference","HMRK":"Markup"
-          };
-          var BLDGS = {
-            "CHOB":"Cannon","RHOB":"Rayburn","LHOB":"Longworth",
-            "CAPITOL":"Capitol","FHOB":"Ford","OHOB":"O'Neill"
-          };
-          data.data.forEach(function(m) {
-            var dk = (m.startDate || "").substring(0,10);
-            if (dk < from || dk > to) return;
+      .then(function(committeeNames) {
+        committeeNames = committeeNames || {};
+        return fetch("/hearing-tracker/domewatch_meetings.json")
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .then(function(data) {
+            if (data && data.data) {
+              var TYPES = {
+                "HHRG":"Hearing","HMKP":"Markup","HBRC":"Briefing",
+                "HCPS":"Conference","HMRK":"Markup"
+              };
+              var BLDGS = {
+                "CHOB":"Cannon","RHOB":"Rayburn","LHOB":"Longworth",
+                "CAPITOL":"Capitol","FHOB":"Ford","OHOB":"O'Neill"
+              };
+              data.data.forEach(function(m) {
+                var dk = (m.startDate || "").substring(0,10);
+                if (dk < from || dk > to) return;
 
-            // A real recorded meeting is solid evidence the House was in
-            // session that day — same fallback pattern as the whip notices
-            // below, and never overrides an explicit calendar_history entry.
-            if (!sessionStatus.hasOwnProperty(dk)) sessionStatus[dk] = true;
+                // A real recorded meeting is solid evidence the House was in
+                // session that day — same fallback pattern as the whip notices
+                // below, and never overrides an explicit calendar_history entry.
+                if (!sessionStatus.hasOwnProperty(dk)) sessionStatus[dk] = true;
 
-            var typeLabel = TYPES[m.meetingType] || "Meeting";
+                var typeLabel = TYPES[m.meetingType] || "Meeting";
+                var committee = committeeNames[m.id] || "";
 
-            var timeStr = "";
-            if (m.startDate) {
-              timeStr = new Date(m.startDate).toLocaleTimeString("en-US",
-                {hour:"numeric",minute:"2-digit",hour12:true});
+                var timeStr = "";
+                if (m.startDate) {
+                  timeStr = new Date(m.startDate).toLocaleTimeString("en-US",
+                    {hour:"numeric",minute:"2-digit",hour12:true});
+                }
+
+                var locStr = "";
+                if (m.location && typeof m.location === "object") {
+                  var addr  = (m.location.address && m.location.address.streetAddress) || "";
+                  var bldg  = BLDGS[m.location.name] || m.location.name || "";
+                  var room  = (addr.match(/^(\d+)/) || [])[1] || "";
+                  locStr = room ? "Rm " + room + " " + bldg : bldg;
+                }
+
+                var title = committee
+                  ? committee + " — " + typeLabel + (locStr ? " (" + locStr + ")" : "")
+                  : typeLabel + (locStr ? " — " + locStr : "");
+
+                addEvent(dk, {
+                  type:      "committee",
+                  title:     title,
+                  meta:      timeStr,
+                  url:       m.url || null,
+                  typeLabel: typeLabel,
+                  timeStr:   timeStr,
+                  locStr:    locStr,
+                });
+              });
             }
-
-            var locStr = "";
-            if (m.location && typeof m.location === "object") {
-              var addr  = (m.location.address && m.location.address.streetAddress) || "";
-              var bldg  = BLDGS[m.location.name] || m.location.name || "";
-              var room  = (addr.match(/^(\d+)/) || [])[1] || "";
-              locStr = room ? "Rm " + room + " " + bldg : bldg;
-            }
-
-            addEvent(dk, {
-              type:      "committee",
-              title:     typeLabel + (locStr ? " — " + locStr : ""),
-              meta:      timeStr,
-              url:       m.url || null,
-              typeLabel: typeLabel,
-              timeStr:   timeStr,
-              locStr:    locStr,
-            });
           });
-        }
-        check();
       })
-      .catch(function() { check(); });
+      .then(check, check);
 
     // 3. Whip notices from DomeWatch local JSON
     fetch("/hearing-tracker/domewatch_whip.json")
