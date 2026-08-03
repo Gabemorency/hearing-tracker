@@ -17,13 +17,23 @@ Covers the current month plus the next NUM_MONTHS-1 months by reading the
 grid, clicking "next", and reading again. Only dates with at least one
 real label are kept in the output — DomeWatch itself doesn't mark every
 day, and we don't invent an "in session"/"recess" status for the rest.
+
+NUM_MONTHS is 5, not 4: FullCalendar's month-grid view pads out the last
+row with a few leading days of the following month (e.g. November's grid
+also shows Dec 1-11 as real, correctly-labeled filler days) — which looks
+like partial next-month coverage but isn't a full read of that month's
+own page. A user caught this directly: DomeWatch showed Dec 14-17 as
+Voting Days, but our data stopped at Dec 11 because we never actually
+advanced to December's own grid. Reading one extra month closes that gap
+for real, rather than relying on whatever a neighboring month's filler
+days happen to include.
 """
 import json
 from datetime import datetime, timezone
 from playwright.sync_api import sync_playwright
 
 OUT_FILE     = "domewatch_calendar.json"
-NUM_MONTHS   = 4
+NUM_MONTHS   = 5
 CALENDAR_URL = "https://domewatch.us/calendar"
 
 
