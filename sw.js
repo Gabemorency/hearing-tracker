@@ -1,4 +1,4 @@
-// Congressional Hearing Tracker — Service Worker v4
+// Congressional Hearing Tracker — Service Worker v5
 // v2 served pages and data cache-first, so once cached, browsers never saw
 // updates again until the cache was manually cleared — wrong for a site
 // whose whole point is data that changes every 2 hours. Everything that can
@@ -10,7 +10,10 @@
 // installation that had already cached them (via the catch-all cache-first
 // branch) would keep serving that first-ever snapshot forever — the same
 // staleness bug v3 fixed for everything else, just missed for these two.
-const CACHE_NAME = 'hearing-tracker-v4';
+// v5: added theme.css (the shared design-token stylesheet every page now
+// links) to PRECACHE — without it, an offline visitor's first-ever page
+// load would render entirely unstyled.
+const CACHE_NAME = 'hearing-tracker-v5';
 
 const PRECACHE = [
   '/hearing-tracker/',
@@ -18,6 +21,7 @@ const PRECACHE = [
   '/hearing-tracker/members.html',
   '/hearing-tracker/calendar.html',
   '/hearing-tracker/offline.html',
+  '/hearing-tracker/theme.css',
 ];
 
 // Exact page paths — matched with endsWith so this can't accidentally

@@ -1,0 +1,112 @@
+/*
+ * Shared design tokens for the Congressional Hearing Tracker.
+ *
+ * index.html, calendar.html, members.html, and bios/*.html each grew their
+ * own inline <style> block independently, and their color tokens drifted:
+ * calendar.html's --blue/--purple were a visibly different, more muted
+ * shade than every other page, and index.html never darkened --blue/--purple
+ * for light mode the way members.html did (leaving low-contrast pastel text
+ * on a near-white background). This file is now the single source of truth
+ * for the site's palette — each page still declares its own local variable
+ * names (for backwards compatibility with all of its existing CSS rules),
+ * but aliases them to these canonical tokens instead of hardcoding its own
+ * copy of the values.
+ */
+:root {
+  --bg:            #0D0C0A;
+  --bg-secondary:  #111009;
+  --bg-card:       rgba(255,255,255,0.03);
+  --bg-card-open:  rgba(255,255,255,0.06);
+  --bg-header:     rgba(200,169,110,0.04);
+  --bg-source:     rgba(255,255,255,0.02);
+
+  --text-primary:   #F0E8D8;
+  --text-heading:   #FAF4EA;
+  --text-secondary: #C8B89A;
+  --text-muted:     #A09070;
+  --text-dim:       #807050;
+  --text-faint:     #504030;
+
+  --border:        rgba(255,255,255,0.1);
+  --border-header: rgba(200,169,110,0.3);
+  --border-stat:   rgba(255,255,255,0.07);
+  --border-filter: rgba(255,255,255,0.08);
+  --border-source: rgba(255,255,255,0.07);
+  --border-body:   rgba(255,255,255,0.08);
+  --scrollbar:     #2A2820;
+
+  --gold:   #E0B870;
+  --blue:   #6BB8E8;
+  --purple: #C4A0F0;
+  --teal:   #4FA8A0;
+
+  --senate-bg:     rgba(220,180,80,0.15);
+  --senate-border: rgba(220,180,80,0.45);
+  --senate-accent: rgba(220,180,80,0.6);
+  --house-bg:      rgba(80,160,220,0.13);
+  --house-border:  rgba(80,160,220,0.40);
+  --house-accent:  rgba(80,160,220,0.55);
+  --joint-bg:      rgba(180,120,240,0.13);
+  --joint-border:  rgba(180,120,240,0.40);
+  --joint-accent:  rgba(180,120,240,0.55);
+
+  --toggle-bg:     rgba(255,255,255,0.08);
+  --toggle-border: rgba(255,255,255,0.16);
+}
+
+/* .light on either <html> or <body> — different pages toggle theme on
+   different elements, and a plain class selector matches both. */
+.light {
+  --bg:            #F5F3EE;
+  --bg-secondary:  #EAE7DF;
+  --bg-card:       rgba(255,255,255,0.85);
+  --bg-card-open:  rgba(255,255,255,1);
+  --bg-header:     rgba(200,169,110,0.08);
+  --bg-source:     rgba(0,0,0,0.03);
+
+  --text-primary:   #0E0C0A;
+  --text-heading:   #050403;
+  --text-secondary: #3A3020;
+  --text-muted:     #5A4A35;
+  --text-dim:       #7A6A55;
+  --text-faint:     #A09080;
+
+  --border:        rgba(0,0,0,0.12);
+  --border-header: rgba(180,130,50,0.4);
+  --border-stat:   rgba(0,0,0,0.08);
+  --border-filter: rgba(0,0,0,0.08);
+  --border-source: rgba(0,0,0,0.06);
+  --border-body:   rgba(0,0,0,0.07);
+  --scrollbar:     #D0C8BC;
+
+  /* Darkened for light-mode contrast — members.html already did this;
+     index.html/calendar.html previously kept the dark-mode pastel shade,
+     which reads poorly as text on a near-white background. */
+  --gold:   #B8860B;
+  --blue:   #1A6AAA;
+  --purple: #6040A0;
+  --teal:   #0F766E;
+
+  --senate-bg:     rgba(200,169,110,0.12);
+  --senate-border: rgba(180,140,80,0.4);
+  --senate-accent: rgba(180,140,80,0.6);
+  --house-bg:      rgba(60,130,180,0.08);
+  --house-border:  rgba(60,130,180,0.3);
+  --house-accent:  rgba(60,130,180,0.5);
+  --joint-bg:      rgba(120,80,180,0.08);
+  --joint-border:  rgba(120,80,180,0.3);
+  --joint-accent:  rgba(120,80,180,0.5);
+
+  --toggle-bg:     rgba(0,0,0,0.05);
+  --toggle-border: rgba(0,0,0,0.12);
+}
+
+/* No shared pre-JS system-preference fallback here on purpose: pages toggle
+   their theme class on different elements (index.html on <html>, the other
+   three on <body>), and a :root-targeted @media fallback that's correct for
+   one convention silently overrides an explicit dark-mode choice on the
+   other — e.g. a user who chose dark while their OS prefers light would see
+   <body> (with no class) inherit light-mode custom properties down from
+   <html>, which the fallback would have unconditionally lit up. Any page
+   that wants this fallback (currently just index.html) defines it locally,
+   scoped to its own toggle element. */

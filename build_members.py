@@ -524,28 +524,30 @@ def build_bio_page(m, paragraphs):
 <title>{name_safe} — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {{
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }}
-  :root.light {{
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){{:root:not(.dark):not(.light){{
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }}
-  @media(prefers-color-scheme:light){{:root:not(.dark){{
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}}}
   *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
   body{{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}}
@@ -715,42 +717,50 @@ def build_html(members_json):
 <title>Congressional Directory — {today_str}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
+  /* --bg, --bg-card, --gold, --blue, --purple come from theme.css directly —
+     everything below is either a short local alias to a canonical token, or
+     a member-directory-specific value (party colors) with no shared analog.
+     applyTheme() toggles the class on <html> (:root), same as index.html,
+     so the local @media fallback below is safe the same way index.html's is. */
   :root {{
-    --bg:#0D0C0A;--bg-sec:#111009;--bg-card:rgba(255,255,255,0.03);--bg-card-h:rgba(255,255,255,0.06);
-    --bg-hdr:rgba(200,169,110,0.04);--text:#F0E8D8;--text-h:#FAF4EA;--text-s:#C8B89A;
-    --text-m:#A09070;--text-d:#807050;--text-f:#504030;
-    --bdr:rgba(255,255,255,0.1);--bdr-h:rgba(200,169,110,0.3);--bdr-s:rgba(255,255,255,0.07);
-    --bdr-sec:rgba(255,255,255,0.08);--scroll:#2A2820;
-    --gold:#E0B870;--blue:#6BB8E8;--purple:#C4A0F0;
+    --bg-sec: var(--bg-secondary);
+    --bg-card-h: var(--bg-card-open);
+    --bg-hdr: var(--bg-header);
+    --text: var(--text-primary);
+    --text-h: var(--text-heading);
+    --text-s: var(--text-secondary);
+    --text-m: var(--text-muted);
+    --text-d: var(--text-dim);
+    --text-f: var(--text-faint);
+    --bdr: var(--border);
+    --bdr-h: var(--border-header);
+    --bdr-s: var(--border-stat);
+    --bdr-sec: var(--border-filter);
+    --scroll: var(--scrollbar);
+    --tog-bg: var(--toggle-bg);
+    --tog-br: var(--toggle-border);
     --rep:#FF6B6B;--dem:#5BA8E8;--ind:#C4A0F0;
     --rep-bg:rgba(255,80,80,0.15);--dem-bg:rgba(60,140,220,0.15);--ind-bg:rgba(160,100,220,0.15);
     --rep-br:rgba(255,80,80,0.45);--dem-br:rgba(60,140,220,0.45);--ind-br:rgba(160,100,220,0.45);
-    --tog-bg:rgba(255,255,255,0.08);--tog-br:rgba(255,255,255,0.16);
   }}
   :root.light {{
-    --bg:#F5F3EE;--bg-sec:#EAE7DF;--bg-card:rgba(255,255,255,0.85);--bg-card-h:rgba(255,255,255,1);
-    --bg-hdr:rgba(200,169,110,0.08);--text:#0E0C0A;--text-h:#050403;--text-s:#3A3020;
-    --text-m:#5A4A35;--text-d:#7A6A55;--text-f:#A09080;
-    --bdr:rgba(0,0,0,0.12);--bdr-h:rgba(180,130,50,0.4);--bdr-s:rgba(0,0,0,0.08);
-    --bdr-sec:rgba(0,0,0,0.08);--scroll:#C8BFB0;
-    --gold:#B8860B;--blue:#1A6AAA;--purple:#6040A0;
     --rep:#CC2020;--dem:#1A60A0;--ind:#6040A0;
     --rep-bg:rgba(180,30,30,0.1);--dem-bg:rgba(20,90,160,0.1);--ind-bg:rgba(80,40,140,0.1);
     --rep-br:rgba(180,30,30,0.35);--dem-br:rgba(20,90,160,0.35);--ind-br:rgba(80,40,140,0.35);
-    --tog-bg:rgba(0,0,0,0.06);--tog-br:rgba(0,0,0,0.15);
   }}
-  @media(prefers-color-scheme:light){{:root:not(.dark){{
-    --bg:#F5F3EE;--bg-sec:#EAE7DF;--bg-card:rgba(255,255,255,0.85);--bg-card-h:rgba(255,255,255,1);
-    --bg-hdr:rgba(200,169,110,0.08);--text:#0E0C0A;--text-h:#050403;--text-s:#3A3020;
-    --text-m:#5A4A35;--text-d:#7A6A55;--text-f:#A09080;
-    --bdr:rgba(0,0,0,0.12);--bdr-h:rgba(180,130,50,0.4);--bdr-s:rgba(0,0,0,0.08);
-    --bdr-sec:rgba(0,0,0,0.08);--scroll:#C8BFB0;
+  @media(prefers-color-scheme:light){{:root:not(.dark):not(.light){{
+    --bg:#F5F3EE;--bg-secondary:#EAE7DF;--bg-card:rgba(255,255,255,0.85);--bg-card-open:rgba(255,255,255,1);
+    --bg-header:rgba(200,169,110,0.08);--text-primary:#0E0C0A;--text-heading:#050403;--text-secondary:#3A3020;
+    --text-muted:#5A4A35;--text-dim:#7A6A55;--text-faint:#A09080;
+    --border:rgba(0,0,0,0.12);--border-header:rgba(180,130,50,0.4);--border-stat:rgba(0,0,0,0.08);
+    --border-filter:rgba(0,0,0,0.08);--scrollbar:#D0C8BC;
     --gold:#B8860B;--blue:#1A6AAA;--purple:#6040A0;
+    --toggle-bg:rgba(0,0,0,0.05);--toggle-border:rgba(0,0,0,0.12);
     --rep:#CC2020;--dem:#1A60A0;--ind:#6040A0;
     --rep-bg:rgba(180,30,30,0.1);--dem-bg:rgba(20,90,160,0.1);--ind-bg:rgba(80,40,140,0.1);
     --rep-br:rgba(180,30,30,0.35);--dem-br:rgba(20,90,160,0.35);--ind-br:rgba(80,40,140,0.35);
-    --tog-bg:rgba(0,0,0,0.06);--tog-br:rgba(0,0,0,0.15);
   }}}}
 
   *,*::before,*::after{{box-sizing:border-box;margin:0;padding:0}}
