@@ -33,18 +33,7 @@ except ImportError:
 
 # ── Auto DST timezone ──────────────────────────────────────────────────────────
 
-# ── PWA + Congress.gov activity snippets (injected into bio page templates) ──
-PWA_SW = (
-    '<script>\n'
-    'if ("serviceWorker" in navigator) {\n'
-    '  window.addEventListener("load", function() {\n'
-    '    navigator.serviceWorker.register("/hearing-tracker/sw.js")\n'
-    '      .catch(function(err) { console.warn("SW:", err); });\n'
-    '  });\n'
-    '}\n'
-    '</script>\n'
-)
-
+# ── Congress.gov activity snippet (injected into bio page templates) ──
 CONGRESS_ACTIVITY = (
     '<div id="congress-activity" style="display:none" class="congress-activity-section"></div>\n'
     '<script>\n'
@@ -516,11 +505,6 @@ def build_bio_page(m, paragraphs):
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
-
-<link rel="manifest" href="/hearing-tracker/manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <title>{name_safe} — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -696,7 +680,7 @@ if ("serviceWorker" in navigator) {{
   }});
 }}
 </script>
-{CONGRESS_ACTIVITY}{PWA_SW}{PWA_SW}</body>
+{CONGRESS_ACTIVITY}</body>
 </html>"""
 
 def build_html(members_json):
@@ -705,11 +689,6 @@ def build_html(members_json):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="manifest" href="/hearing-tracker/manifest.json">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
-
 <link rel="manifest" href="/hearing-tracker/manifest.json">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
