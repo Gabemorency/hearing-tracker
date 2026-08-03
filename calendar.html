@@ -14,12 +14,12 @@
 :root {
   --bg:#0D0C0A;--bg2:#141210;--text:#F0E8D8;--text-s:#C8B89A;
   --text-m:#A09070;--gold:#E0B870;--gold-dim:#8A6830;
-  --blue:#5B8DB8;--purple:#8B7BB8;
+  --blue:#5B8DB8;--purple:#8B7BB8;--teal:#4FA8A0;
   --border:rgba(255,255,255,0.09);--hover:rgba(255,255,255,0.05);
 }
 .light {
   --bg:#F5F3EE;--bg2:#EDEAE4;--text:#0E0C0A;--text-s:#3A3020;
-  --text-m:#5A4A35;--gold:#B8860B;--gold-dim:#8A6620;
+  --text-m:#5A4A35;--gold:#B8860B;--gold-dim:#8A6620;--teal:#0F766E;
   --border:rgba(0,0,0,0.1);--hover:rgba(0,0,0,0.04);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -62,6 +62,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .cal-chip--hearing{background:rgba(91,141,184,0.25);color:var(--blue);}
 .cal-chip--committee{background:rgba(139,123,184,0.25);color:var(--purple);}
 .cal-chip--vote{background:rgba(224,184,112,0.2);color:var(--gold);}
+.cal-chip--projected{background:rgba(79,168,160,0.22);color:var(--teal);}
 .cal-chip--more{background:rgba(255,255,255,0.08);color:var(--text-m);}
 .detail-panel{margin-top:1rem;border:1px solid var(--border);border-radius:8px;padding:1.25rem;display:none;}
 .detail-panel.visible{display:block;}
@@ -71,6 +72,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .detail-event--hearing{border-left-color:var(--blue);}
 .detail-event--committee{border-left-color:var(--purple);}
 .detail-event--vote{border-left-color:var(--gold);}
+.detail-event--projected{border-left-color:var(--teal);}
 .detail-event__type{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.05em;color:var(--text-m);font-family:'IBM Plex Mono',monospace;margin-bottom:0.2rem;}
 .detail-event__title{font-size:0.88rem;color:var(--text);margin-bottom:0.2rem;}
 .detail-event__meta{font-size:0.76rem;color:var(--text-s);}
@@ -132,6 +134,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   <span class="legend__item"><span class="legend__dot" style="background:var(--blue)"></span>Hearing</span>
   <span class="legend__item"><span class="legend__dot" style="background:var(--purple)"></span>Committee Meeting</span>
   <span class="legend__item"><span class="legend__dot" style="background:var(--gold)"></span>Whip Notice / Floor</span>
+  <span class="legend__item"><span class="legend__dot" style="background:var(--teal)"></span>Projected Session Calendar</span>
 </div>
 
 <div class="cal-wrapper">
@@ -240,7 +243,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 
     function check() {
       done++;
-      if (done === 5) {
+      if (done === 6) {
         document.getElementById("cal-loading").style.display = "none";
         document.getElementById("cal-grid").style.display    = "grid";
         renderCalendar();
@@ -392,6 +395,39 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
                 sessionStatus[dk] = true;
               }
             }
+          });
+        }
+        check();
+      })
+      .catch(function() { check(); });
+
+    // 4. Projected session calendar — DomeWatch's own forward-looking
+    // calendar (domewatch.us/calendar), fetched separately since it changes
+    // rarely: see fetch_domewatch_calendar.py, run twice daily rather than
+    // every 2 hours. Only a concrete "Voting Day"/"Added Voting Day" label
+    // counts as evidence the House will be in session — other labels (e.g.
+    // federal holidays) are shown as informational chips but never used to
+    // guess a recess status for a day with no confirmed data.
+    fetch("/hearing-tracker/domewatch_calendar.json")
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (data && data.days) {
+          Object.keys(data.days).forEach(function(dk) {
+            var labels = data.days[dk] || [];
+            if (!labels.length) return;
+            var isVotingDay = labels.some(function(l) {
+              return l === "Voting Day" || l === "Added Voting Day";
+            });
+            if (isVotingDay && !sessionStatus.hasOwnProperty(dk)) {
+              sessionStatus[dk] = true;
+            }
+            addEvent(dk, {
+              type: "projected",
+              typeLabel: "Session Calendar",
+              title: labels.join(", "),
+              meta: "",
+              url: "https://domewatch.us/calendar"
+            });
           });
         }
         check();
