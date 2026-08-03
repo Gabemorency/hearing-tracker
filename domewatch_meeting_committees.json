@@ -1,7 +1,4 @@
 {
-  "119184": "Subcommittee on Cyber, Information Technologies, and Innovation (Committee on Armed Services)",
-  "119275": "Subcommittee on Counterterrorism and Intelligence (Committee on Homeland Security)",
-  "119276": "Committee on Armed Services",
   "119283": "Subcommittee on Energy and Water Development and Related Agencies (Committee on Appropriations)",
   "119281": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
   "119408": "Subcommittee on Oversight (Committee on the Judiciary)",
@@ -235,5 +232,8 @@
   "119271": "Committee on Education and Workforce",
   "119291": "Subcommittee on Environment (Committee on Energy and Commerce)",
   "119080": "Committee on Natural Resources",
-  "119261": "Committee on Veterans' Affairs"
+  "119261": "Committee on Veterans' Affairs",
+  "119184": "Subcommittee on Cyber, Information Technologies, and Innovation (Committee on Armed Services)",
+  "119275": "Subcommittee on Counterterrorism and Intelligence (Committee on Homeland Security)",
+  "119276": "Committee on Armed Services"
 }
