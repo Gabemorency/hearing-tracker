@@ -1,0 +1,18 @@
+name: Diagnose DomeWatch API (temporary)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests playwright
+      - run: playwright install chromium --with-deps
+      - env:
+          DOMEWATCH_API_KEY: ${{ secrets.DOMEWATCH_API_KEY }}
+        run: python diagnose_domewatch.py
