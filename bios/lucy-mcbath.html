@@ -190,7 +190,7 @@ if ("serviceWorker" in navigator) {
 (function() {
   var bid = document.body.getAttribute("data-bioguide");
   var key = "VAGjR3UQyVcExzAmrX9hyZVHY17LX0iM5hTcXXod";
-  if (!bid || !key || key === "VAGjR3UQyVcExzAmrX9hyZVHY17LX0iM5hTcXXod") return;
+  if (!bid || !key || key.indexOf("__") === 0) return;
   var el = document.getElementById("congress-activity");
   if (!el) return;
   fetch("https://api.congress.gov/v3/member/" + bid + "/sponsored-legislation?limit=5&api_key=" + key)
