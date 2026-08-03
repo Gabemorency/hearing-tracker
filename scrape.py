@@ -1135,12 +1135,13 @@ def build_html(hearings):
 /* ---- DomeWatch sections ---- */
 /* ── House floor status bar ── */
 .floor-bar {{
-  display:flex;align-items:center;gap:0.6rem;
+  display:flex;flex-direction:column;gap:0.25rem;
   padding:0.55rem 1rem;font-size:0.8rem;
   border-bottom:1px solid var(--border, rgba(255,255,255,0.1));
   background:var(--bg-header, rgba(200,169,110,0.04));
   color:var(--text-secondary,#C8B89A);
 }}
+.floor-bar__row {{ display:flex;align-items:center;gap:0.6rem; }}
 .floor-bar__dot {{
   width:8px;height:8px;border-radius:50%;flex-shrink:0;
   background:var(--text-faint,#504030);
@@ -1158,6 +1159,9 @@ def build_html(hearings):
 .floor-bar__time {{
   margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;
   color:var(--text-dim,#A09070);
+}}
+.floor-bar__lastvote {{
+  font-size:0.74rem;color:var(--text-dim,#A09070);padding-left:18px;
 }}
 
 /* ── Coming to the Floor ── */
@@ -1223,54 +1227,6 @@ def build_html(hearings):
 .wrec-NO  {{ background:#7f1d1d;color:#fca5a5;border:1px solid #b91c1c; }}
 .wrec-PRESENT {{ background:#78350f;color:#fcd34d;border:1px solid #b45309; }}
 
-/* ── Floor Updates — Tabbed accordion ── */
-.updates-section {{
-  margin:1.75rem 1rem 0;
-}}
-.updates-tabs {{
-  display:flex;gap:0;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:0;overflow-x:auto;
-}}
-.updates-tab {{
-  background:none;border:none;border-bottom:2px solid transparent;
-  color:var(--text-dim,#A09070);font-family:'IBM Plex Sans',sans-serif;
-  font-size:0.78rem;padding:0.5rem 1rem;cursor:pointer;white-space:nowrap;
-  transition:color 0.15s,border-color 0.15s;margin-bottom:-1px;
-}}
-.updates-tab:hover {{ color:var(--text-secondary,#C8B89A); }}
-.updates-tab.active {{
-  color:var(--text-primary,#F0E8D8);
-  border-bottom-color:var(--gold,#E0B870);
-}}
-.updates-panels {{ padding-top:0; }}
-.updates-panel {{ display:none; }}
-.updates-panel.active {{ display:block; }}
-.update-card {{
-  border-bottom:1px solid rgba(255,255,255,0.05);padding:1rem 0;
-}}
-.update-card:last-child {{ border-bottom:none; }}
-.update-card__header {{
-  display:flex;align-items:baseline;justify-content:space-between;gap:1rem;
-  margin-bottom:0.4rem;cursor:pointer;
-}}
-.update-card__subject {{
-  font-size:0.85rem;font-weight:600;color:var(--text-primary,#F0E8D8);
-}}
-.update-card__time {{
-  font-size:0.7rem;font-family:'IBM Plex Mono',monospace;
-  color:var(--text-dim,#A09070);white-space:nowrap;flex-shrink:0;
-}}
-.update-card__body {{
-  font-size:0.8rem;color:var(--text-secondary,#C8B89A);
-  line-height:1.6;display:none;
-}}
-.update-card__body.open {{ display:block; }}
-.update-card__body p {{ margin:0 0 0.5rem; }}
-.update-card__body strong {{ color:var(--text-primary,#F0E8D8); }}
-.update-card__toggle {{
-  font-size:0.68rem;font-family:'IBM Plex Mono',monospace;
-  color:var(--text-dim,#A09070);cursor:pointer;white-space:nowrap;
-  background:none;border:none;padding:0;
-}}
 </style>
 </head>
 <body>
@@ -1291,10 +1247,13 @@ def build_html(hearings):
 </nav>
 
 <div id="floor-bar" class="floor-bar floor-bar--loading" style="display:none">
-  <span class="floor-bar__dot"></span>
-  <span id="floor-bar__text" class="floor-bar__text">Checking House floor status&hellip;</span>
-  <span id="floor-bar__vote" class="floor-bar__vote" style="display:none"></span>
-  <span id="floor-bar__time" class="floor-bar__time"></span>
+  <div class="floor-bar__row">
+    <span class="floor-bar__dot"></span>
+    <span id="floor-bar__text" class="floor-bar__text">Checking House floor status&hellip;</span>
+    <span id="floor-bar__vote" class="floor-bar__vote" style="display:none"></span>
+    <span id="floor-bar__time" class="floor-bar__time"></span>
+  </div>
+  <div id="floor-bar__lastvote" class="floor-bar__lastvote" style="display:none"></div>
 </div>
 
 <div class="stats">
@@ -1471,14 +1430,6 @@ buildCards('All');
   <div id="whip-items" class="whip-items"></div>
 </section>
 
-<section id="floor-updates-section" class="updates-section" style="display:none">
-  <div class="floor-section__header">
-    <span class="floor-section__title">Floor Updates</span>
-    <span class="floor-section__source">DomeWatch</span>
-  </div>
-  <div class="updates-tabs" id="updates-tabs"></div>
-  <div class="updates-panels" id="updates-panels"></div>
-</section>
 <script>
 // DomeWatch data — loaded from local JSON, updated every 2 hours
 function fmtDate(iso) {{
@@ -1493,10 +1444,11 @@ function loadFloor() {{
   fetch("/hearing-tracker/domewatch_floor.json")
     .then(function(r) {{ return r.ok ? r.json() : null; }})
     .then(function(d) {{
-      var bar = document.getElementById("floor-bar");
-      var txt = document.getElementById("floor-bar__text");
-      var vot = document.getElementById("floor-bar__vote");
-      var tim = document.getElementById("floor-bar__time");
+      var bar  = document.getElementById("floor-bar");
+      var txt  = document.getElementById("floor-bar__text");
+      var vot  = document.getElementById("floor-bar__vote");
+      var tim  = document.getElementById("floor-bar__time");
+      var last = document.getElementById("floor-bar__lastvote");
       if (!bar) return;
       if (!d || !d.now) {{ bar.style.display = "none"; return; }}
       var inSession   = d.now.value !== "house_not_in_session";
@@ -1515,6 +1467,16 @@ function loadFloor() {{
       }} else {{
         bar.classList.add("floor-bar--recess");
         txt.textContent = d.now.text || "House Not In Session";
+      }}
+      // Final result of the last completed vote — shown whenever we're not
+      // mid-vote, so "what was the final vote" is answered even in recess.
+      if (!activeVote && d.roll_call && d.votes && d.votes.counts && d.votes.counts.totals) {{
+        var t = d.votes.counts.totals;
+        var q = d.roll_call.question || "Roll Call";
+        last.textContent = "Last vote: " + q + " — Yea " + (t.yeas || 0) + " · Nay " + (t.nays || 0);
+        last.style.display = "block";
+      }} else {{
+        last.style.display = "none";
       }}
       if (d.fetchedAt) tim.textContent = "Updated " + fmtDate(d.fetchedAt);
       bar.style.display = "flex";
@@ -1572,88 +1534,9 @@ function loadWhip() {{
     .catch(function() {{}});
 }}
 
-// ── Floor Updates — Tabbed ───────────────────────────────────────────────────
-function loadUpdates() {{
-  fetch("/hearing-tracker/domewatch_updates.json")
-    .then(function(r) {{ return r.ok ? r.json() : null; }})
-    .then(function(data) {{
-      if (!data || !data.data || !data.data.length) return;
-      var sec    = document.getElementById("floor-updates-section");
-      var tabs   = document.getElementById("updates-tabs");
-      var panels = document.getElementById("updates-panels");
-      if (!sec) return;
-
-      // Sort updates newest first
-      var updates = data.data.slice().sort(function(a,b) {{
-        return new Date(b.publishedAt) - new Date(a.publishedAt);
-      }});
-
-      // Group by date
-      var groups = {{}};
-      var groupOrder = [];
-      updates.forEach(function(u) {{
-        var d = (u.publishedAt || "").substring(0,10);
-        if (!groups[d]) {{ groups[d] = []; groupOrder.push(d); }}
-        groups[d].push(u);
-      }});
-
-      var th = "";
-      var ph = "";
-      groupOrder.forEach(function(dateStr, i) {{
-        var label = formatTabDate(dateStr);
-        var activeClass = i === 0 ? " active" : "";
-        th += '<button class="updates-tab' + activeClass + '" onclick="switchTab(this,\\'panel-' + i + '\\')">' + label + '</button>';
-        ph += '<div class="updates-panel' + activeClass + '" id="panel-' + i + '">';
-        groups[dateStr].forEach(function(u) {{
-          var bodyId = "ub-" + Math.random().toString(36).slice(2);
-          ph += '<div class="update-card">';
-          ph += '<div class="update-card__header" onclick="toggleUpdate(\\'' + bodyId + '\\',this)">';
-          ph += '<span class="update-card__subject">' + (u.subject || "Floor Update") + '</span>';
-          ph += '<span class="update-card__time">' + fmtDate(u.publishedAt) + '</span>';
-          ph += '</div>';
-          if (u.bodyText) ph += '<div class="update-card__body" id="' + bodyId + '">' + u.bodyText + '</div>';
-          ph += '</div>';
-        }});
-        ph += '</div>';
-      }});
-
-      tabs.innerHTML   = th;
-      panels.innerHTML = ph;
-      sec.style.display = "block";
-    }})
-    .catch(function() {{}});
-}}
-
-function formatTabDate(dateStr) {{
-  var d = new Date(dateStr + "T12:00:00");
-  var today = new Date();
-  today.setHours(12,0,0,0);
-  var diff = Math.round((today - d) / 86400000);
-  if (diff === 0) return "Today";
-  if (diff === 1) return "Yesterday";
-  return d.toLocaleDateString("en-US", {{month:"short",day:"numeric"}});
-}}
-
-function switchTab(btn, panelId) {{
-  var tabs   = btn.parentNode.querySelectorAll(".updates-tab");
-  var panels = document.getElementById("updates-panels").querySelectorAll(".updates-panel");
-  tabs.forEach(function(t)   {{ t.classList.remove("active"); }});
-  panels.forEach(function(p) {{ p.classList.remove("active"); }});
-  btn.classList.add("active");
-  var panel = document.getElementById(panelId);
-  if (panel) panel.classList.add("active");
-}}
-
-function toggleUpdate(bodyId, header) {{
-  var body = document.getElementById(bodyId);
-  if (!body) return;
-  body.classList.toggle("open");
-}}
-
 document.addEventListener("DOMContentLoaded", function() {{
   loadFloor();
   loadWhip();
-  loadUpdates();
 }});
 </script>
 <script>

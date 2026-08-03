@@ -85,11 +85,7 @@ def main():
     data = fix_whip_bill_urls(data)
     save("domewatch_whip.json", data, {"data": []})
 
-    # 2. Floor updates
-    data = fetch("/floor-updates", {"limit": 8})
-    save("domewatch_updates.json", data, {"data": []})
-
-    # 3. Committee meetings — next 30 days
+    # 2. Committee meetings — next 30 days
     from datetime import datetime, timedelta
     today = datetime.utcnow().strftime("%Y-%m-%d")
     end   = (datetime.utcnow() + timedelta(days=30)).strftime("%Y-%m-%d")
@@ -100,7 +96,7 @@ def main():
               f"account's plan doesn't include this endpoint; not a code error)")
     save("domewatch_meetings.json", data, {"data": []})
 
-    # 4. House floor status (in session / recess / active vote)
+    # 3. House floor status (in session / recess / active vote)
     data = fetch("/floor")
     save("domewatch_floor.json", data, {})
 
