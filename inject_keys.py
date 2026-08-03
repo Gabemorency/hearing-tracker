@@ -2,6 +2,7 @@
 inject_keys.py — called by update.yml and nightly.yml
 Injects API keys into HTML and JS files.
 """
+import glob
 import os
 
 dw = os.environ.get("DOMEWATCH_API_KEY", "")
@@ -12,11 +13,17 @@ if not dw:
 if not cg:
     print("WARNING: CONGRESS_API_KEY is empty")
 
-files = ["index.html", "calendar.html", "members.html"]
-for fname in files:
+# bios/*.html each embed __CONGRESS_KEY__ for their own client-side
+# "Recent Sponsored Legislation" fetch (see build_members.py) — without this,
+# that placeholder is never replaced and the fetch silently no-ops on every
+# bio page (it explicitly bails out if key === "__CONGRESS_KEY__").
+main_files = ["index.html", "calendar.html", "members.html"]
+bio_files  = sorted(glob.glob("bios/*.html"))
+
+def inject(fname):
     if not os.path.exists(fname):
         print(f"Skipping {fname} — not found")
-        continue
+        return 0
     with open(fname, "r", encoding="utf-8") as f:
         content = f.read()
     before = content.count("__DOMEWATCH_KEY__") + content.count("__CONGRESS_KEY__")
@@ -25,6 +32,12 @@ for fname in files:
     after = content.count("__DOMEWATCH_KEY__") + content.count("__CONGRESS_KEY__")
     with open(fname, "w", encoding="utf-8") as f:
         f.write(content)
-    print(f"{fname}: replaced {before - after} placeholder(s)")
+    return before - after
+
+for fname in main_files:
+    print(f"{fname}: replaced {inject(fname)} placeholder(s)")
+
+bio_total = sum(inject(fname) for fname in bio_files)
+print(f"bios/*.html: replaced {bio_total} placeholder(s) across {len(bio_files)} file(s)")
 
 print("Done.")
