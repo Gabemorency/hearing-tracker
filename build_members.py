@@ -436,21 +436,18 @@ def build():
     reps.sort(key=sort_key)
 
     # ── Load hardcoded bios ────────────────────────────────────────────────────
-    print("📖 Loading member bios from bios_hardcoded.py...")
+    print("📖 Loading member bios from bios_hardcoded.json...")
     MEMBER_BIOS = {}
     import os as _os
-    if _os.path.exists("bios_hardcoded.py"):
-        import importlib.util as _ilu
-        _spec = _ilu.spec_from_file_location("bios_hardcoded", "bios_hardcoded.py")
-        _mod  = _ilu.module_from_spec(_spec)
+    if _os.path.exists("bios_hardcoded.json"):
         try:
-            _spec.loader.exec_module(_mod)
-            MEMBER_BIOS = dict(getattr(_mod, "MEMBER_BIOS", {}))
+            with open("bios_hardcoded.json", "r", encoding="utf-8") as _f:
+                MEMBER_BIOS = json.load(_f)
             print(f"  {len(MEMBER_BIOS)} bios loaded")
         except Exception as e:
-            print(f"  ⚠️  Could not load bios_hardcoded.py: {e}")
+            print(f"  ⚠️  Could not load bios_hardcoded.json: {e}")
     else:
-        print("  ⚠️  bios_hardcoded.py not found — run generate_bios.py first")
+        print("  ⚠️  bios_hardcoded.json not found — run generate_bios.py first")
 
     import os as _os2
     _os2.makedirs("bios", exist_ok=True)
@@ -1578,4 +1575,5 @@ if ("serviceWorker" in navigator) {{
 </body>
 </html>"""
 
-build()
+if __name__ == "__main__":
+    build()

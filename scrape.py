@@ -1583,4 +1583,5 @@ async def main():
         f.write(build_html(hearings))
     print("✅ index.html written.")
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())

@@ -22,17 +22,14 @@ legislators = yaml.safe_load(r.text)
 print(f"  {len(legislators)} members loaded")
 
 # ── Load existing bios if resuming ────────────────────────────────────────────
-OUTPUT_FILE = "bios_hardcoded.py"
+OUTPUT_FILE = "bios_hardcoded.json"
 bios = {}
 if os.path.exists(OUTPUT_FILE):
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("bios_hardcoded", OUTPUT_FILE)
-    mod  = importlib.util.module_from_spec(spec)
     try:
-        spec.loader.exec_module(mod)
-        bios = dict(getattr(mod, "MEMBER_BIOS", {}))
+        with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+            bios = json.load(f)
         print(f"  Resuming — {len(bios)} bios already done")
-    except:
+    except Exception:
         pass
 
 # ── State name lookup ─────────────────────────────────────────────────────────
@@ -137,12 +134,8 @@ Return ONLY the three paragraphs."""
 # ── Save helper ───────────────────────────────────────────────────────────────
 def save_bios():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        f.write('"""\nAuto-generated member bios — regenerate with generate_bios.py\n"""\n\n')
-        f.write("MEMBER_BIOS = {\n")
-        for bid, bio in sorted(bios.items()):
-            escaped = bio.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
-            f.write(f'    "{bid}": "{escaped}",\n')
-        f.write("}\n")
+        json.dump(bios, f, indent=2, sort_keys=True, ensure_ascii=False)
+        f.write("\n")
 
 # ── Main loop ─────────────────────────────────────────────────────────────────
 total     = len(legislators)
