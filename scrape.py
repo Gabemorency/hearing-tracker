@@ -1498,19 +1498,26 @@ function loadWhip() {{
       if (!sec) return;
 
       // Notice date — the schedule times below (House Meets, First/Last Votes)
-      // are all relative to this specific day, not "today."
+      // are all relative to this specific day, not "today." Shown both in the
+      // section header and directly on each time (the header line is easy to
+      // skim past; the times are what people are actually reading).
       var noticeDate = n.publishDate || (n.postedAt || "").substring(0,10);
-      if (src && noticeDate) {{
+      var shortDate  = "";
+      if (noticeDate) {{
         var nd = new Date(noticeDate + "T12:00:00");
-        src.textContent = "Whip Notice for " + nd.toLocaleDateString("en-US",
-          {{weekday:"long", month:"long", day:"numeric"}});
+        shortDate = nd.toLocaleDateString("en-US", {{month:"short", day:"numeric"}});
+        if (src) {{
+          src.textContent = "Whip Notice for " + nd.toLocaleDateString("en-US",
+            {{weekday:"long", month:"long", day:"numeric"}});
+        }}
       }}
+      var dateSuffix = shortDate ? " (" + shortDate + ")" : "";
 
       // Schedule row
       var sh = "";
-      if (n.houseMeetsAt) sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">House Meets</div><div class="floor-schedule__value">' + n.houseMeetsAt + '</div></div>';
-      if (n.firstVotes)   sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">First Votes</div><div class="floor-schedule__value">' + n.firstVotes + '</div></div>';
-      if (n.lastVotes)    sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">Last Votes</div><div class="floor-schedule__value">' + n.lastVotes + '</div></div>';
+      if (n.houseMeetsAt) sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">House Meets' + dateSuffix + '</div><div class="floor-schedule__value">' + n.houseMeetsAt + '</div></div>';
+      if (n.firstVotes)   sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">First Votes' + dateSuffix + '</div><div class="floor-schedule__value">' + n.firstVotes + '</div></div>';
+      if (n.lastVotes)    sh += '<div class="floor-schedule__item"><div class="floor-schedule__label">Last Votes' + dateSuffix + '</div><div class="floor-schedule__value">' + n.lastVotes + '</div></div>';
       if (sh) {{ sch.innerHTML = sh; sch.style.display = "flex"; }}
 
       // Bill items
