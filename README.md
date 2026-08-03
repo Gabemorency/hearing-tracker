@@ -19,6 +19,7 @@ scrape public sources and commit the results straight to `main`.
 |---|---|---|
 | `update.yml` | every 2 hours | Runs `scrape.py` (Playwright) against committee pages, merges into `snapshot.json`, pulls DomeWatch floor data, records today's status in `calendar_history.json` (`record_calendar_day.py`), rebuilds `index.html`. |
 | `nightly.yml` | weeknights, 9pm ET | Runs `build_baseline.py` (tomorrow's schedule) and `build_members.py` (full member directory + bio pages), rebuilds `calendar.html`/`members.html`. |
+| `domewatch_calendar.yml` | twice daily, ~9pm & ~9am ET | Runs `fetch_domewatch_calendar.py` (Playwright, against domewatch.us/calendar) to capture the next ~5 months of DomeWatch's projected Voting Day / holiday calendar into `domewatch_calendar.json`. |
 | `bio_sync.yml` | every 6 hours | Detects new/departed members against `unitedstates/congress-legislators`, calls an LLM API to write bios for new members, updates `bios_hardcoded.json`. |
 | `generate_bios.yml` | manual only | One-time/bulk regeneration of all member bios via an LLM API. |
 | `validate.yml` | every 3 days | Sanity-checks hardcoded data (institutional leadership, CBC roster, vacant seats) against live sources; opens a GitHub issue on drift. |
