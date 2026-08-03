@@ -1424,7 +1424,7 @@ buildCards('All');
 <section id="whip-section" class="floor-section" style="display:none">
   <div class="floor-section__header">
     <span class="floor-section__title">Coming to the Floor</span>
-    <span class="floor-section__source">DomeWatch Whip Notice</span>
+    <span id="whip-source" class="floor-section__source">DomeWatch Whip Notice</span>
   </div>
   <div id="whip-schedule" class="floor-schedule" style="display:none"></div>
   <div id="whip-items" class="whip-items"></div>
@@ -1492,9 +1492,19 @@ function loadWhip() {{
       if (!data || !data.data || !data.data.length) return;
       var n   = data.data[0];
       var sec = document.getElementById("whip-section");
+      var src = document.getElementById("whip-source");
       var sch = document.getElementById("whip-schedule");
       var itm = document.getElementById("whip-items");
       if (!sec) return;
+
+      // Notice date — the schedule times below (House Meets, First/Last Votes)
+      // are all relative to this specific day, not "today."
+      var noticeDate = n.publishDate || (n.postedAt || "").substring(0,10);
+      if (src && noticeDate) {{
+        var nd = new Date(noticeDate + "T12:00:00");
+        src.textContent = "Whip Notice for " + nd.toLocaleDateString("en-US",
+          {{weekday:"long", month:"long", day:"numeric"}});
+      }}
 
       // Schedule row
       var sh = "";
