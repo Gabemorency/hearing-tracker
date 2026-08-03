@@ -969,6 +969,7 @@ def build_html(hearings):
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+<meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
 <title>Congressional Hearing Tracker — {today_str}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -1403,6 +1404,8 @@ function applyTheme(theme) {{
   const btn = document.getElementById('theme-toggle');
   btn.textContent = theme === 'dark' ? '☀️' : '🌙';
   btn.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
+  const themeColorMeta = document.getElementById('theme-color-meta');
+  if (themeColorMeta) themeColorMeta.setAttribute('content', theme === 'light' ? '#F5F3EE' : '#0D0C0A');
 }}
 
 function toggleTheme() {{
