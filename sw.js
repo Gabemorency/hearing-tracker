@@ -1,5 +1,11 @@
-// Congressional Hearing Tracker — Service Worker v2
-const CACHE_NAME = 'hearing-tracker-v2';
+// Congressional Hearing Tracker — Service Worker v3
+// v2 served pages and data cache-first, so once cached, browsers never saw
+// updates again until the cache was manually cleared — wrong for a site
+// whose whole point is data that changes every 2 hours. Everything that can
+// change (pages + data JSON) is now network-first; only bio pages (rarely
+// updated) stay cache-first for speed. Bumping CACHE_NAME also forces every
+// existing installation to drop its stale v2 cache on this update.
+const CACHE_NAME = 'hearing-tracker-v3';
 
 const PRECACHE = [
   '/hearing-tracker/',
@@ -9,7 +15,23 @@ const PRECACHE = [
   '/hearing-tracker/offline.html',
 ];
 
-const NETWORK_FIRST_PATTERNS = ['hearings.json', 'baseline.json'];
+// Exact page paths — matched with endsWith so this can't accidentally
+// substring-match bio pages or anything else nested under /hearing-tracker/.
+const NETWORK_FIRST_PAGES = [
+  '/hearing-tracker/', '/hearing-tracker/index.html',
+  '/hearing-tracker/calendar.html', '/hearing-tracker/members.html',
+];
+
+// Generated data files, refreshed every 2 hours — must never go stale.
+const NETWORK_FIRST_DATA = [
+  'snapshot.json', 'baseline.json', 'members.json', 'calendar_history.json',
+  'domewatch_whip.json', 'domewatch_floor.json', 'domewatch_meetings.json',
+];
+
+function isNetworkFirst(url) {
+  return NETWORK_FIRST_PAGES.some(function(p) { return url.endsWith(p); }) ||
+         NETWORK_FIRST_DATA.some(function(p) { return url.endsWith(p); });
+}
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
@@ -37,8 +59,8 @@ self.addEventListener('fetch', function(event) {
     return;
   }
 
-  // Hearing data — network first, stale fallback
-  if (NETWORK_FIRST_PATTERNS.some(function(p) { return url.includes(p); })) {
+  // Pages + hearing data — network first, stale cache only as a fallback
+  if (isNetworkFirst(url)) {
     event.respondWith(
       fetch(event.request)
         .then(function(response) {
