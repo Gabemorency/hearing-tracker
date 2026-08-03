@@ -971,7 +971,7 @@ def build_html(members_json):
     <div>
       <div class="eyebrow">🏛 Congressional Hearing Tracker</div>
       <h1>Congressional Directory</h1>
-      <div class="timestamp">Updated {generated} · {today_long} · Refreshes daily</div>
+      <div class="timestamp">Updated {generated} · {today_long} · Refreshes weekdays</div>
     </div>
     <button class="toggle" id="tog" onclick="toggleTheme()">☀️</button>
   </div>
@@ -1487,7 +1487,7 @@ function render(){{
   }}
 
   document.getElementById('content').innerHTML = html +
-    `<div class="source-note">ℹ Data: github.com/unitedstates/congress-legislators · Photos: bioguide.congress.gov · Bios: Wikipedia · Refreshes daily · Vacancies checked every 3 days</div>`;
+    `<div class="source-note">ℹ Data: github.com/unitedstates/congress-legislators · Photos: bioguide.congress.gov · Bios: Wikipedia · Refreshes weekdays · Vacancies checked every 3 days</div>`;
 }}
 
 function setChamber(c){{
