@@ -43,7 +43,7 @@ CONGRESS_ACTIVITY = (
     '(function() {\n'
     '  var bid = document.body.getAttribute("data-bioguide");\n'
     '  var key = "__CONGRESS_KEY__";\n'
-    '  if (!bid || !key || key === "__CONGRESS_KEY__") return;\n'
+    '  if (!bid || !key || key.indexOf("__") === 0) return;\n'
     '  var el = document.getElementById("congress-activity");\n'
     '  if (!el) return;\n'
     '  fetch("https://api.congress.gov/v3/member/" + bid + "/sponsored-legislation?limit=5&api_key=" + key)\n'
