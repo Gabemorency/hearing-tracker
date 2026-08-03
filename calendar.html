@@ -36,6 +36,10 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .legend{display:flex;gap:1rem;padding:0.75rem 1.5rem;flex-wrap:wrap;border-bottom:1px solid var(--border);font-size:0.75rem;}
 .legend__item{display:flex;align-items:center;gap:0.35rem;color:var(--text-m);}
 .legend__dot{width:8px;height:8px;border-radius:2px;flex-shrink:0;}
+.legend__swatch{width:12px;height:12px;border-radius:3px;flex-shrink:0;border:1px solid var(--border);}
+.legend__swatch--in-session{background:rgba(109,191,138,0.28);border-color:rgba(109,191,138,0.55);}
+.legend__swatch--recess{background:rgba(160,144,112,0.18);border-color:var(--border);}
+.legend__swatch--unknown{background:transparent;}
 .cal-wrapper{padding:1rem 1.5rem 3rem;}
 .cal-nav{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;}
 .cal-nav__title{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--text);}
@@ -46,7 +50,11 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .cal-day{min-height:80px;padding:0.4rem;border:1px solid var(--border);border-radius:4px;cursor:pointer;transition:border-color .15s,background .15s;}
 .cal-day:hover{border-color:var(--gold-dim);background:var(--hover);}
 .cal-day--empty{border-color:transparent;cursor:default;pointer-events:none;}
-.cal-day--today{border-color:var(--gold)!important;background:rgba(224,184,112,0.05);}
+.cal-day--in-session{background:rgba(109,191,138,0.1);}
+.cal-day--in-session:hover{background:rgba(109,191,138,0.16);}
+.cal-day--recess{background:rgba(160,144,112,0.06);}
+.cal-day--recess:hover{background:rgba(160,144,112,0.1);}
+.cal-day--today{border-color:var(--gold)!important;background:rgba(224,184,112,0.1)!important;}
 .cal-day__num{font-size:0.72rem;font-family:'IBM Plex Mono',monospace;color:var(--text-m);margin-bottom:0.3rem;}
 .cal-day--today .cal-day__num{color:var(--gold);font-weight:700;}
 .cal-day__chips{display:flex;flex-direction:column;gap:2px;}
@@ -109,6 +117,11 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 </div>
 
 <div class="legend">
+  <span class="legend__item"><span class="legend__swatch legend__swatch--in-session"></span>House In Session</span>
+  <span class="legend__item"><span class="legend__swatch legend__swatch--recess"></span>Recess / Not In Session</span>
+  <span class="legend__item"><span class="legend__swatch legend__swatch--unknown"></span>No Data</span>
+</div>
+<div class="legend">
   <span class="legend__item"><span class="legend__dot" style="background:var(--blue)"></span>Hearing</span>
   <span class="legend__item"><span class="legend__dot" style="background:var(--purple)"></span>Committee Meeting</span>
   <span class="legend__item"><span class="legend__dot" style="background:var(--gold)"></span>Whip Notice / Floor</span>
@@ -128,6 +141,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 <script>
 (function() {
   var allEvents    = {};
+  var sessionStatus = {}; // dateKey -> true (in session) | false (recess)
   var currentYear, currentMonth;
   var today        = new Date();
   currentYear      = today.getFullYear();
@@ -204,13 +218,13 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 
   function loadAll() {
     var now  = new Date();
-    var from = dateKey(now);
+    var from = dateKey(new Date(now.getTime() - 90*86400000));
     var to   = dateKey(new Date(now.getTime() + 30*86400000));
     var done = 0;
 
     function check() {
       done++;
-      if (done === 4) {
+      if (done === 5) {
         document.getElementById("cal-loading").style.display = "none";
         document.getElementById("cal-grid").style.display    = "grid";
         renderCalendar();
@@ -225,6 +239,22 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
         url: h.link || null
       });
     }
+
+    // 0. Day-by-day history (past hearings + in-session status), grown automatically
+    //    each day by record_calendar_day.py — no manual backfill needed going forward.
+    fetch("/hearing-tracker/calendar_history.json")
+      .then(function(r) { return r.ok ? r.json() : null; })
+      .then(function(data) {
+        if (data) {
+          Object.keys(data).forEach(function(dk) {
+            var entry = data[dk];
+            sessionStatus[dk] = !!entry.inSession;
+            (entry.hearings || []).forEach(function(h) { addHearing(dk, h); });
+          });
+        }
+        check();
+      })
+      .catch(function() { check(); });
 
     // 1a. Today's hearings — scrape.py's snapshot, refreshed every 2 hours
     fetch("/hearing-tracker/snapshot.json")
@@ -356,8 +386,12 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     for (var d = 1; d <= daysInMonth; d++) {
       var mo = currentMonth + 1;
       var dk = currentYear + "-" + (mo<10?"0":"") + mo + "-" + (d<10?"0":"") + d;
+      var sessionClass = "";
+      if (sessionStatus.hasOwnProperty(dk)) {
+        sessionClass = sessionStatus[dk] ? " cal-day--in-session" : " cal-day--recess";
+      }
       var cell = document.createElement("div");
-      cell.className = "cal-day" + (dk === todayKey ? " cal-day--today" : "");
+      cell.className = "cal-day" + sessionClass + (dk === todayKey ? " cal-day--today" : "");
       cell.dataset.date = dk;
 
       var num = document.createElement("div");
