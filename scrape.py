@@ -671,9 +671,18 @@ async def scrape():
         scraped.extend(senate_from_main)
 
         # ── Committee pages — witnesses, chairs, PDFs, cancellations ─────────
-        for chamber_label, pages_list in [("Senate", SENATE_COMMITTEE_PAGES),
-                                           ("House",  HOUSE_COMMITTEE_PAGES)]:
-            for name, url in pages_list:
+        # Run concurrently rather than one page at a time: each committee
+        # writes to caches keyed by its own name (never shared across
+        # committees), so concurrent writes are safe — nothing here ever
+        # reads a key another task is writing. Bounded by a semaphore so
+        # this doesn't open all ~36 pages simultaneously (real memory
+        # pressure on the Actions runner, and no need to hit every site
+        #'s server at once for a scrape this infrequent and this light).
+        COMMITTEE_CONCURRENCY = 6
+        sem = asyncio.Semaphore(COMMITTEE_CONCURRENCY)
+
+        async def scrape_committee_page(chamber_label, name, url):
+            async with sem:
                 try:
                     page = await context.new_page()
                     await page.goto(url, wait_until="networkidle", timeout=20000)
@@ -682,7 +691,7 @@ async def scrape():
 
                     if not is_today(text):
                         await page.close()
-                        continue
+                        return
 
                     print(f"  📋 {chamber_label} {name}: today found")
 
@@ -721,7 +730,11 @@ async def scrape():
                         except Exception as e:
                             print(f"  ⚠️  {name}: hearing-link selector failed ({e})")
 
-                    # PDF witness lists
+                    # PDF witness lists — requests.get() is blocking, so run
+                    # it in a thread rather than directly awaiting it. A
+                    # direct call would block the whole event loop (and every
+                    # other concurrent committee task) for the duration of
+                    # each PDF fetch, quietly serializing everything again.
                     if HAS_PDF and HAS_REQUESTS:
                         pdf_links = await page.query_selector_all(
                             "a[href$='.pdf'], a[href*='witness'], a[href*='Witness']")
@@ -733,7 +746,7 @@ async def scrape():
                                 if not pdf_url.startswith("http"):
                                     base = "/".join(url.split("/")[:3])
                                     pdf_url = base + ("" if pdf_url.startswith("/") else "/") + pdf_url
-                                r = req_lib.get(pdf_url, headers=HEADERS, timeout=10)
+                                r = await asyncio.to_thread(req_lib.get, pdf_url, headers=HEADERS, timeout=10)
                                 if r.status_code == 200:
                                     pdf_witnesses = extract_pdf_witnesses(r.content)
                                     if pdf_witnesses:
@@ -751,6 +764,14 @@ async def scrape():
                         await page.close()
                     except:
                         pass
+
+        committee_tasks = [
+            scrape_committee_page(chamber_label, name, url)
+            for chamber_label, pages_list in [("Senate", SENATE_COMMITTEE_PAGES),
+                                               ("House",  HOUSE_COMMITTEE_PAGES)]
+            for name, url in pages_list
+        ]
+        await asyncio.gather(*committee_tasks)
 
         await browser.close()
 
