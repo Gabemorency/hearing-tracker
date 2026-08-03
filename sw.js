@@ -1,11 +1,16 @@
-// Congressional Hearing Tracker — Service Worker v3
+// Congressional Hearing Tracker — Service Worker v4
 // v2 served pages and data cache-first, so once cached, browsers never saw
 // updates again until the cache was manually cleared — wrong for a site
 // whose whole point is data that changes every 2 hours. Everything that can
 // change (pages + data JSON) is now network-first; only bio pages (rarely
 // updated) stay cache-first for speed. Bumping CACHE_NAME also forces every
-// existing installation to drop its stale v2 cache on this update.
-const CACHE_NAME = 'hearing-tracker-v3';
+// existing installation to drop its stale cache on this update.
+// v4: domewatch_meeting_committees.json and domewatch_calendar.json were
+// added after v3 shipped and were missing from NETWORK_FIRST_DATA, so any
+// installation that had already cached them (via the catch-all cache-first
+// branch) would keep serving that first-ever snapshot forever — the same
+// staleness bug v3 fixed for everything else, just missed for these two.
+const CACHE_NAME = 'hearing-tracker-v4';
 
 const PRECACHE = [
   '/hearing-tracker/',
@@ -26,6 +31,7 @@ const NETWORK_FIRST_PAGES = [
 const NETWORK_FIRST_DATA = [
   'snapshot.json', 'baseline.json', 'members.json', 'calendar_history.json',
   'domewatch_whip.json', 'domewatch_floor.json', 'domewatch_meetings.json',
+  'domewatch_meeting_committees.json', 'domewatch_calendar.json',
 ];
 
 function isNetworkFirst(url) {

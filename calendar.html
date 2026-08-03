@@ -106,7 +106,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     <a href="/hearing-tracker/">Hearings</a>
     <a href="/hearing-tracker/members.html">Members</a>
     <a href="/hearing-tracker/calendar.html" class="active">Calendar</a>
-    <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()">&#9728;</button>
+    <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()">☀️</button>
   </div>
 </nav>
 
@@ -165,14 +165,14 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   window.toggleTheme = function() {
     var light = document.body.classList.toggle("light");
     localStorage.setItem("theme", light ? "light" : "dark");
-    document.getElementById("theme-toggle").textContent = light ? ")" : "&#9728;";
+    document.getElementById("theme-toggle").textContent = light ? "🌙" : "☀️";
   };
   (function() {
     var t = localStorage.getItem("theme") ||
             (window.matchMedia("(prefers-color-scheme:light)").matches ? "light" : "dark");
     if (t === "light") {
       document.body.classList.add("light");
-      document.getElementById("theme-toggle").textContent = ")";
+      document.getElementById("theme-toggle").textContent = "🌙";
     }
   })();
 
