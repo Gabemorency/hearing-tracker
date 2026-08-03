@@ -225,6 +225,24 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
       .catch(function() { var bar = document.getElementById("floor-bar"); if (bar) bar.style.display = "none"; });
   }
 
+  // ── HTML/URL safety ──────────────────────────────────────────────────────
+  // Event titles/meta come from scraped hearing data and DomeWatch/congress.gov
+  // — not user input, so real risk is low, but showDetail() builds its panel
+  // with innerHTML, so everything landing in it should be escaped rather than
+  // trusted verbatim. (renderCalendar()'s day chips already use textContent,
+  // which is inherently safe — no change needed there.)
+  var ESCAPE_MAP = {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"};
+  function escapeHtml(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function(c) { return ESCAPE_MAP[c]; });
+  }
+  function safeUrl(u) {
+    if (!u) return "";
+    try {
+      var p = new URL(u, location.href);
+      return (p.protocol === "http:" || p.protocol === "https:") ? p.href : "";
+    } catch (e) { return ""; }
+  }
+
   function dateKey(d) {
     var m = d.getMonth() + 1, dd = d.getDate();
     return d.getFullYear() + "-" + (m<10?"0":"") + m + "-" + (dd<10?"0":"") + dd;
@@ -516,21 +534,22 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
         ev.type === "committee" ? "Committee Meeting" :
         ev.type === "hearing"   ? "Hearing" : "Floor / Vote"
       );
+      var evUrl = safeUrl(ev.url);
       html += '<div class="detail-event detail-event--' + ev.type + '">';
-      html += '<div class="detail-event__type">' + label + '</div>';
+      html += '<div class="detail-event__type">' + escapeHtml(label) + '</div>';
       // Title — link if URL available
-      var titleHtml = ev.url
-        ? '<a href="' + ev.url + '" target="_blank" rel="noopener">' + ev.title + '</a>'
-        : ev.title;
+      var titleHtml = evUrl
+        ? '<a href="' + escapeHtml(evUrl) + '" target="_blank" rel="noopener">' + escapeHtml(ev.title) + '</a>'
+        : escapeHtml(ev.title);
       html += '<div class="detail-event__title">' + titleHtml + '</div>';
       // Meta line — time + location
       var metaParts = [];
-      if (ev.timeStr) metaParts.push(ev.timeStr);
-      if (ev.locStr)  metaParts.push(ev.locStr);
-      if (ev.meta && !ev.timeStr) metaParts.push(ev.meta);
+      if (ev.timeStr) metaParts.push(escapeHtml(ev.timeStr));
+      if (ev.locStr)  metaParts.push(escapeHtml(ev.locStr));
+      if (ev.meta && !ev.timeStr) metaParts.push(escapeHtml(ev.meta));
       if (metaParts.length) html += '<div class="detail-event__meta">' + metaParts.join(" · ") + '</div>';
-      if (ev.type === "hearing" && ev.url) {
-        html += '<a class="detail-event__watch" href="' + ev.url + '" target="_blank" rel="noopener">&#128308; Watch / committee hearings page &#8599;</a>';
+      if (ev.type === "hearing" && evUrl) {
+        html += '<a class="detail-event__watch" href="' + escapeHtml(evUrl) + '" target="_blank" rel="noopener">&#128308; Watch / committee hearings page &#8599;</a>';
       }
       html += '</div>';
     });

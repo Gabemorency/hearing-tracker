@@ -7,10 +7,18 @@ Sources:
 Outputs: members.json + members.html
 """
 
+import html
 import json
 import re
 import sys
 from datetime import datetime, timezone, timedelta
+
+
+def safe_url(u):
+    """Only allow http(s) URLs through into a src/href attribute."""
+    if not u:
+        return ""
+    return u if re.match(r"^https?://", u) else ""
 
 try:
     import requests
@@ -477,24 +485,26 @@ def build_bio_page(m, paragraphs):
         'PR':'Puerto Rico','VI':'U.S. Virgin Islands','GU':'Guam','AS':'American Samoa',
         'MP':'Northern Mariana Islands'
     }
-    state_full = state_names.get(m["state"], m["state"])
-    dist_str   = f"District {m['district']} · " if m.get("district") and m["chamber"]=="house" else ""
-    role_str   = m["leadership"]["label"] if m.get("leadership") else ""
-    bio_photo  = m.get("photo_url", "")
+    state_full = html.escape(state_names.get(m["state"], m["state"]))
+    dist_str   = f"District {html.escape(str(m['district']))} · " if m.get("district") and m["chamber"]=="house" else ""
+    role_str   = html.escape(m["leadership"]["label"]) if m.get("leadership") else ""
+    bio_photo  = safe_url(m.get("photo_url", ""))
     init_color = "180,60,60" if pc=="rep" else "50,100,160" if pc=="dem" else "100,50,160"
 
+    # paragraphs are LLM-generated (generate_bios.py/bio_sync.py) — escape
+    # rather than trust verbatim, same as every other external-data field here.
     para_html = ""
     for p in (paragraphs or []):
         if p and p.strip():
-            para_html += f'<p class="bio-para">{p.strip()}</p>'
+            para_html += f'<p class="bio-para">{html.escape(p.strip())}</p>'
 
     if not para_html:
         para_html = '<p class="bio-para" style="font-style:italic;opacity:0.5">Biography not yet available.</p>'
 
     onerror_js = "this.style.display='none';this.nextElementSibling.style.display='flex';"
-    name_safe  = m["name"].replace('"', '&quot;')
+    name_safe  = html.escape(m["name"])
     # Always include both photo and initials — onerror swaps them if photo 404s
-    photo_html = f'<img class="hero-photo" src="{bio_photo}" onerror="{onerror_js}" alt="{name_safe}">' if bio_photo else ""
+    photo_html = f'<img class="hero-photo" src="{html.escape(bio_photo)}" onerror="{onerror_js}" alt="{name_safe}">' if bio_photo else ""
     initials_display = "none" if bio_photo else "flex"
 
     return f"""<!DOCTYPE html>
@@ -511,7 +521,7 @@ def build_bio_page(m, paragraphs):
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
-<title>{m["name"]} — Congressional Hearing Tracker</title>
+<title>{name_safe} — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
@@ -631,16 +641,16 @@ def build_bio_page(m, paragraphs):
     <a href="../index.html">🏛 Hearings</a> &nbsp;·&nbsp;
     <a href="../members.html">Members</a> &nbsp;·&nbsp;
     <a href="../calendar.html">Calendar</a> &nbsp;·&nbsp;
-    <span>{m["name"]}</span>
+    <span>{name_safe}</span>
   </div>
   <button class="toggle" id="tog" onclick="toggleTheme()">☀️</button>
 </div>
 <div class="content">
   <div class="hero">
     {photo_html}
-    <div class="hero-initials" id="initials" style="display:{initials_display}">{m["initials"]}</div>
+    <div class="hero-initials" id="initials" style="display:{initials_display}">{html.escape(m["initials"])}</div>
     <div class="hero-info">
-      <div class="member-name">{m["name"]}</div>
+      <div class="member-name">{name_safe}</div>
       <div class="member-sub">
         {chamber_full}<br>
         {dist_str}{state_full} · {party_full}
@@ -1031,6 +1041,23 @@ let chamber = 'senate';
 let group   = 'party';
 let caucus  = 'all';
 
+// ── HTML/URL safety ──────────────────────────────────────────────────────────
+// Member data comes from the unitedstates/congress-legislators project — a
+// curated, structured dataset, not arbitrary scraped text — so real risk is
+// low, but everything landing in innerHTML below is still escaped rather
+// than trusted verbatim.
+const ESCAPE_MAP = {{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}};
+function escapeHtml(s) {{
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ESCAPE_MAP[c]);
+}}
+function safeUrl(u) {{
+  if (!u) return "";
+  try {{
+    const p = new URL(u, location.href);
+    return (p.protocol === "http:" || p.protocol === "https:") ? p.href : "";
+  }} catch (e) {{ return ""; }}
+}}
+
 // ── Theme ──────────────────────────────────────────────────────────────────────
 function sysTheme(){{ return matchMedia('(prefers-color-scheme:light)').matches?'light':'dark'; }}
 function applyTheme(t){{
@@ -1068,7 +1095,7 @@ function roleHtml(m){{
                 : tier===6 ? 'Subcmte. Chair'
                 : 'Subcmte. Ranking Member';
   const sizeStyle = tier >= 6 ? 'font-size:7px;opacity:0.85;' : '';
-  return `<span class="mrole ${{cls}}" style="${{sizeStyle}}">${{display}}</span>`;
+  return `<span class="mrole ${{cls}}" style="${{sizeStyle}}">${{escapeHtml(display)}}</span>`;
 }}
 
 function roleClass(m){{
@@ -1079,12 +1106,13 @@ function roleClass(m){{
 }}
 
 function photoEl(m, cls, initCls){{
-  return m.photo_url
-    ? `<img class="${{cls}}" src="${{m.photo_url}}"
+  const photoUrl = safeUrl(m.photo_url);
+  return photoUrl
+    ? `<img class="${{cls}}" src="${{escapeHtml(photoUrl)}}"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-         alt="${{m.name}}" loading="lazy">
-       <div class="${{initCls}} i-${{m.party_class}}" style="display:none">${{m.initials}}</div>`
-    : `<div class="${{initCls}} i-${{m.party_class}}">${{m.initials}}</div>`;
+         alt="${{escapeHtml(m.name)}}" loading="lazy">
+       <div class="${{initCls}} i-${{m.party_class}}" style="display:none">${{escapeHtml(m.initials)}}</div>`
+    : `<div class="${{initCls}} i-${{m.party_class}}">${{escapeHtml(m.initials)}}</div>`;
 }}
 
 function fullRoleDescription(m){{
@@ -1126,17 +1154,17 @@ function buildCommitteeSections(m){{
 
   if(chairs.length){{
     html += `<div class="modal-section-label" style="margin-top:14px">Chairs</div>`;
-    html += chairs.map(c=>`<div class="modal-cmte" style="border-left-color:var(--gold)">${{c.committee}}</div>`).join('');
+    html += chairs.map(c=>`<div class="modal-cmte" style="border-left-color:var(--gold)">${{escapeHtml(c.committee)}}</div>`).join('');
   }}
 
   if(rankings.length){{
     html += `<div class="modal-section-label" style="margin-top:14px">Ranking Member</div>`;
-    html += rankings.map(c=>`<div class="modal-cmte">${{c.committee}}</div>`).join('');
+    html += rankings.map(c=>`<div class="modal-cmte">${{escapeHtml(c.committee)}}</div>`).join('');
   }}
 
   if(members.length){{
     html += `<div class="modal-section-label" style="margin-top:14px">Committee Assignments</div>`;
-    html += members.map(c=>`<div class="modal-cmte">${{c.committee}}</div>`).join('');
+    html += members.map(c=>`<div class="modal-cmte">${{escapeHtml(c.committee)}}</div>`).join('');
   }}
 
   return html;
@@ -1149,7 +1177,7 @@ function openModal(m){{
   const chamberFull = m.chamber==='senate'
     ? 'United States Senate'
     : 'United States House of Representatives';
-  const dist = m.chamber==='house' && m.district ? `District ${{m.district}} · ` : '';
+  const dist = m.chamber==='house' && m.district ? `District ${{escapeHtml(m.district)}} · ` : '';
   const stateFull = STATE_NAMES[m.state] || m.state;
 
   // Institutional role (tier 1-3 only)
@@ -1162,28 +1190,29 @@ function openModal(m){{
       : label;
   }}
 
-  const photoHtml = m.photo_url
-    ? `<img class="modal-photo" src="${{m.photo_url}}"
+  const modalPhotoUrl = safeUrl(m.photo_url);
+  const photoHtml = modalPhotoUrl
+    ? `<img class="modal-photo" src="${{escapeHtml(modalPhotoUrl)}}"
          onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
-         alt="${{m.name}}">
-       <div class="modal-initials i-${{pc}}" style="display:none">${{m.initials}}</div>`
-    : `<div class="modal-initials i-${{pc}}">${{m.initials}}</div>`;
+         alt="${{escapeHtml(m.name)}}">
+       <div class="modal-initials i-${{pc}}" style="display:none">${{escapeHtml(m.initials)}}</div>`
+    : `<div class="modal-initials i-${{pc}}">${{escapeHtml(m.initials)}}</div>`;
 
   document.getElementById('modal-body').innerHTML = `
     <div class="modal-photo-wrap">${{photoHtml}}</div>
-    <div class="modal-name">${{m.name}}</div>
+    <div class="modal-name">${{escapeHtml(m.name)}}</div>
     <div class="modal-sub">
       ${{chamberFull}}<br>
-      ${{dist}}${{stateFull}} · ${{partyFull}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span>
+      ${{dist}}${{escapeHtml(stateFull)}} · ${{partyFull}} <span class="pbadge b-${{pc}}">${{escapeHtml(m.party_short)}}</span>
     </div>
     ${{instRole ? `
     <hr class="modal-divider">
     <div class="modal-section-label">Leadership Role</div>
-    <div class="modal-section-value">${{instRole}}</div>` : ''}}
+    <div class="modal-section-value">${{escapeHtml(instRole)}}</div>` : ''}}
     <hr class="modal-divider">
     <div class="modal-section-label">About</div>
     ${{m.bio_slug ? `
-    <a href="bios/${{m.bio_slug}}.html"
+    <a href="bios/${{encodeURIComponent(m.bio_slug)}}.html"
        style="display:block;font-family:'IBM Plex Mono',monospace;font-size:12px;
               letter-spacing:0.06em;padding:10px 16px;border:1px solid rgba(200,169,110,0.35);
               border-radius:8px;color:var(--gold);text-decoration:none;
@@ -1214,14 +1243,14 @@ document.addEventListener('keydown', e => {{ if(e.key==='Escape') closeModal(nul
 function card(m){{
   const pc   = m.party_class;
   const cc   = roleClass(m);
-  const dist = (m.chamber==='house' && m.district) ? ` · District ${{m.district}}` : '';
+  const dist = (m.chamber==='house' && m.district) ? ` · District ${{escapeHtml(m.district)}}` : '';
   const idx  = CURRENT_MEMBERS.push(m) - 1;
   return `<div class="member-card ${{cc}}" onclick="openModal(CURRENT_MEMBERS[${{idx}}])">
     <div class="card-face">
       ${{photoEl(m,'photo','initials-box')}}
       <div class="info">
-        <div class="mname">${{m.name}}</div>
-        <div class="mmeta">${{m.state}}${{dist}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span></div>
+        <div class="mname">${{escapeHtml(m.name)}}</div>
+        <div class="mmeta">${{escapeHtml(m.state)}}${{dist}} <span class="pbadge b-${{pc}}">${{escapeHtml(m.party_short)}}</span></div>
         ${{roleHtml(m)}}
       </div>
     </div>
@@ -1287,13 +1316,13 @@ function buildCbcPanel(){{
   const miniCard = (m) => {{
     const idx = CURRENT_MEMBERS.push(m)-1;
     const pc  = m.party_class;
-    const dist = m.chamber==='house'&&m.district?` · District ${{m.district}}`:'';
+    const dist = m.chamber==='house'&&m.district?` · District ${{escapeHtml(m.district)}}`:'';
     return `<div class="member-card" onclick="openModal(CURRENT_MEMBERS[${{idx}}])">
       <div class="card-face">
         ${{photoEl(m,'photo','initials-box')}}
         <div class="info">
-          <div class="mname">${{m.name}}</div>
-          <div class="mmeta">${{m.state}}${{dist}} <span class="pbadge b-${{pc}}">${{m.party_short}}</span></div>
+          <div class="mname">${{escapeHtml(m.name)}}</div>
+          <div class="mmeta">${{escapeHtml(m.state)}}${{dist}} <span class="pbadge b-${{pc}}">${{escapeHtml(m.party_short)}}</span></div>
           ${{roleHtml(m)}}
         </div>
       </div>
@@ -1306,7 +1335,7 @@ function buildCbcPanel(){{
     const chairs   = arr.filter(m=>m.leadership&&m.leadership.tier===4);
     const rankings = arr.filter(m=>m.leadership&&m.leadership.tier===5);
     const rest     = arr.filter(m=>!m.leadership||m.leadership.tier>5);
-    let h = `<div class="party-col-hdr col-dem" style="margin-bottom:8px">${{label}} · ${{arr.length}}</div>`;
+    let h = `<div class="party-col-hdr col-dem" style="margin-bottom:8px">${{escapeHtml(label)}} · ${{arr.length}}</div>`;
     if(leaders.length) {{
       h += `<div class="section-hdr" style="font-size:9px;margin-bottom:6px">── Leadership</div>`;
       h += `<div class="party-cols">${{leaders.map(miniCard).join('')}}</div>`;
@@ -1410,7 +1439,7 @@ function renderState(members){{
   const by={{}};
   members.forEach(m=>{{(by[m.state]=by[m.state]||[]).push(m);}});
   return Object.keys(by).sort().map(s=>
-    `<div class="group-block"><div class="group-title">${{s}}</div>${{by[s].map(card).join('')}}</div>`
+    `<div class="group-block"><div class="group-title">${{escapeHtml(s)}}</div>${{by[s].map(card).join('')}}</div>`
   ).join('') || '<div class="empty">No members found.</div>';
 }}
 
@@ -1423,7 +1452,7 @@ function renderCommittee(members){{
   }});
   if(!Object.keys(by).length) return '<div class="empty">No committee data found.</div>';
   return Object.keys(by).sort().map(c=>
-    `<div class="group-block"><div class="group-title cmte-title">${{c}}</div>${{by[c].map(card).join('')}}</div>`
+    `<div class="group-block"><div class="group-title cmte-title">${{escapeHtml(c)}}</div>${{by[c].map(card).join('')}}</div>`
   ).join('');
 }}
 
@@ -1447,14 +1476,14 @@ function renderVacancies(){{
           return `<div class="member-card" style="cursor:default;opacity:0.8">
             <div class="card-face">
               <div class="initials-box" style="background:rgba(120,120,120,0.3);border:1px solid var(--bdr);color:var(--text-d);font-size:18px">
-                ${{v.state}}-${{v.district}}
+                ${{escapeHtml(v.state)}}-${{escapeHtml(v.district)}}
               </div>
               <div class="info">
                 <div class="mname" style="color:var(--text-d)">Vacant</div>
-                <div class="mmeta">${{v.label}}</div>
+                <div class="mmeta">${{escapeHtml(v.label)}}</div>
                 <div style="font-size:11px;color:var(--text-d);margin-top:4px;line-height:1.5">
-                  ${{v.reason}}<br>
-                  <span style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:10px">${{v.election}}</span>
+                  ${{escapeHtml(v.reason)}}<br>
+                  <span style="color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:10px">${{escapeHtml(v.election)}}</span>
                 </div>
               </div>
             </div>
