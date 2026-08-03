@@ -77,13 +77,15 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .detail-event a{color:var(--blue);text-decoration:none;}
 .detail-event a:hover{text-decoration:underline;}
 .loading{text-align:center;padding:3rem;color:var(--text-m);font-family:'IBM Plex Mono',monospace;font-size:0.85rem;}
-.floor-bar{display:flex;align-items:center;gap:0.6rem;padding:0.55rem 1.5rem;font-size:0.8rem;border-bottom:1px solid var(--border);background:var(--bg2);color:var(--text-s);}
+.floor-bar{display:flex;flex-direction:column;gap:0.25rem;padding:0.55rem 1.5rem;font-size:0.8rem;border-bottom:1px solid var(--border);background:var(--bg2);color:var(--text-s);}
+.floor-bar__row{display:flex;align-items:center;gap:0.6rem;}
 .floor-bar__dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;background:var(--text-m);}
 .floor-bar--in-session .floor-bar__dot{background:#6DBF8A;}
 .floor-bar--vote-active .floor-bar__dot{background:var(--gold);}
 .floor-bar--in-session .floor-bar__text,.floor-bar--vote-active .floor-bar__text{color:var(--text);font-weight:600;}
 .floor-bar__vote{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;padding:1px 7px;border-radius:10px;background:rgba(224,184,112,0.15);color:var(--gold);}
 .floor-bar__time{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--text-m);}
+.floor-bar__lastvote{font-size:0.74rem;color:var(--text-m);padding-left:18px;}
 @media(max-width:600px){
   .cal-day{height:52px;padding:0.25rem;}
   .cal-chip{display:none;}
@@ -105,10 +107,13 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 </nav>
 
 <div id="floor-bar" class="floor-bar floor-bar--loading" style="display:none">
-  <span class="floor-bar__dot"></span>
-  <span id="floor-bar__text" class="floor-bar__text">Checking House floor status&hellip;</span>
-  <span id="floor-bar__vote" class="floor-bar__vote" style="display:none"></span>
-  <span id="floor-bar__time" class="floor-bar__time"></span>
+  <div class="floor-bar__row">
+    <span class="floor-bar__dot"></span>
+    <span id="floor-bar__text" class="floor-bar__text">Checking House floor status&hellip;</span>
+    <span id="floor-bar__vote" class="floor-bar__vote" style="display:none"></span>
+    <span id="floor-bar__time" class="floor-bar__time"></span>
+  </div>
+  <div id="floor-bar__lastvote" class="floor-bar__lastvote" style="display:none"></div>
 </div>
 
 <div class="page-header">
@@ -177,10 +182,11 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     fetch("/hearing-tracker/domewatch_floor.json")
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(d) {
-        var bar = document.getElementById("floor-bar");
-        var txt = document.getElementById("floor-bar__text");
-        var vot = document.getElementById("floor-bar__vote");
-        var tim = document.getElementById("floor-bar__time");
+        var bar  = document.getElementById("floor-bar");
+        var txt  = document.getElementById("floor-bar__text");
+        var vot  = document.getElementById("floor-bar__vote");
+        var tim  = document.getElementById("floor-bar__time");
+        var last = document.getElementById("floor-bar__lastvote");
         if (!bar) return;
         if (!d || !d.now) { bar.style.display = "none"; return; }
         var inSession  = d.now.value !== "house_not_in_session";
@@ -199,6 +205,14 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
         } else {
           bar.classList.add("floor-bar--recess");
           txt.textContent = d.now.text || "House Not In Session";
+        }
+        if (!activeVote && d.roll_call && d.votes && d.votes.counts && d.votes.counts.totals) {
+          var t = d.votes.counts.totals;
+          var q = d.roll_call.question || "Roll Call";
+          last.textContent = "Last vote: " + q + " — Yea " + (t.yeas || 0) + " · Nay " + (t.nays || 0);
+          last.style.display = "block";
+        } else {
+          last.style.display = "none";
         }
         if (d.fetchedAt) tim.textContent = "Updated " + fmtTime(d.fetchedAt);
         bar.style.display = "flex";
