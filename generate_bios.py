@@ -11,6 +11,7 @@ import json
 import time
 import os
 import re
+import datetime
 
 # ── Load members ──────────────────────────────────────────────────────────────
 print("📥 Loading legislators...")
@@ -63,7 +64,8 @@ def write_bio(name, chamber, state_code, party, role, district=None):
     party_full   = {"Republican": "Republican", "Democrat": "Democrat",
                     "Independent": "Independent"}.get(party, party)
 
-    prompt = f"""Write a professional 3-paragraph biography for {name}, a {party_full} {chamber_word}{dist_str}{role_str}.
+    today = datetime.date.today().isoformat()
+    prompt = f"""Today's date is {today}. Write a professional 3-paragraph biography for {name}, a {party_full} {chamber_word}{dist_str}{role_str}.
 
 Paragraph 1 — Background (2-3 sentences):
 Where they are from, their upbringing, education, and professional career before entering Congress.
@@ -82,7 +84,10 @@ Requirements:
 - Separate paragraphs with a single blank line
 - No headers, labels, bullet points, or preamble
 - No citation brackets like [1] or [2]
-- Draw on your knowledge of this person's public career
+- Draw on your knowledge of this person's public career, but describe every officeholder's title
+  and status (President, Speaker, Governor, etc.) as it actually stands on the date above, not as
+  it stood at your knowledge cutoff — do not call a currently-serving official "former" or a
+  departed one current
 
 Return ONLY the three paragraphs."""
 

@@ -5,6 +5,7 @@ writes bios for them via Claude API,
 removes departed members from bios_hardcoded.json.
 """
 
+import datetime
 import json
 import os
 import re
@@ -58,13 +59,17 @@ def write_bio(display_name, chamber, state, party, district=None):
     chamber_word = "Senator" if "Senate" in chamber else "Representative"
     dist_str     = f"representing {state_full}'s {district}th Congressional District" if district else f"from {state_full}"
 
+    today = datetime.date.today().isoformat()
     prompt = (
-        f"Write a professional 3-paragraph biography for {display_name}, "
-        f"a {party_full} {chamber_word} {dist_str}.\n\n"
+        f"Today's date is {today}. Write a professional 3-paragraph biography for "
+        f"{display_name}, a {party_full} {chamber_word} {dist_str}.\n\n"
         "Paragraph 1 (2-3 sentences): Background — birthplace, education, career before Congress.\n"
         "Paragraph 2 (2-3 sentences): Congressional career — when first elected, key committees, what they are known for.\n"
         "Paragraph 3 (2-3 sentences): Current role — current focus, policy priorities, recent work.\n\n"
         "Rules: Third person, professional tone, no citation brackets, no headers. "
+        "Describe every officeholder's title and status (President, Speaker, Governor, etc.) as it "
+        "actually stands on the date above, not as it stood at your knowledge cutoff — do not call a "
+        "currently-serving official 'former' or a departed one current. "
         "Separate paragraphs with a blank line. Return ONLY the 3 paragraphs."
     )
 
