@@ -76,6 +76,8 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 .detail-event__meta{font-size:0.76rem;color:var(--text-s);}
 .detail-event a{color:var(--blue);text-decoration:none;}
 .detail-event a:hover{text-decoration:underline;}
+.detail-event__watch{display:inline-flex;align-items:center;gap:5px;margin-top:0.4rem;font-size:0.76rem;font-weight:600;color:var(--text)!important;text-decoration:none!important;padding:4px 9px;border:1px solid var(--border);border-radius:5px;background:var(--bg2);}
+.detail-event__watch:hover{border-color:var(--gold);}
 .loading{text-align:center;padding:3rem;color:var(--text-m);font-family:'IBM Plex Mono',monospace;font-size:0.85rem;}
 .floor-bar{display:flex;flex-direction:column;gap:0.25rem;padding:0.55rem 1.5rem;font-size:0.8rem;border-bottom:1px solid var(--border);background:var(--bg2);color:var(--text-s);}
 .floor-bar__row{display:flex;align-items:center;gap:0.6rem;}
@@ -246,10 +248,15 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
     }
 
     function addHearing(dk, h) {
+      var room = (h.room && h.room !== "TBD" && h.room !== "Closed") ? h.room : "";
+      var locStr = room && h.building ? ("Room " + room + ", " + h.building)
+                 : room ? room
+                 : (h.building || "");
       addEvent(dk, {
         type: "hearing",
         title: h.committee || "Hearing",
         meta: (h.topic || "") + (h.time ? " · " + h.time : ""),
+        locStr: locStr,
         url: h.link || null
       });
     }
@@ -467,6 +474,9 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
       if (ev.locStr)  metaParts.push(ev.locStr);
       if (ev.meta && !ev.timeStr) metaParts.push(ev.meta);
       if (metaParts.length) html += '<div class="detail-event__meta">' + metaParts.join(" · ") + '</div>';
+      if (ev.type === "hearing" && ev.url) {
+        html += '<a class="detail-event__watch" href="' + ev.url + '" target="_blank" rel="noopener">&#128308; Watch / committee hearings page &#8599;</a>';
+      }
       html += '</div>';
     });
     html += '</div>';
