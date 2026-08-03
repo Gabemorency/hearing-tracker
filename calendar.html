@@ -317,6 +317,11 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
             var dk = (m.startDate || "").substring(0,10);
             if (dk < from || dk > to) return;
 
+            // A real recorded meeting is solid evidence the House was in
+            // session that day — same fallback pattern as the whip notices
+            // below, and never overrides an explicit calendar_history entry.
+            if (!sessionStatus.hasOwnProperty(dk)) sessionStatus[dk] = true;
+
             var typeLabel = TYPES[m.meetingType] || "Meeting";
 
             var timeStr = "";
