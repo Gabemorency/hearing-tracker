@@ -15,28 +15,30 @@
 <title>Carol D. Miller — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Carol D. Miller was born and raised in West Virginia and comes from a family with deep roots in the state's business and civic life, being the daughter of former West Virginia Governor Cecil Underwood. She pursued her education and built a career as a businesswoman and community leader before transitioning to public service, earlier serving in the West Virginia House of Delegates, where she represented the 16th district for over a decade.</p><p class="bio-para">Miller was first elected to the United States House of Representatives in 2018, becoming the first woman elected to Congress from West Virginia's 3rd Congressional District, which was later redrawn as the 1st Congressional District following redistricting. She has served on the House Ways and Means Committee, a prestigious assignment that has allowed her to influence tax, trade, and economic policy at the federal level. Miller is broadly known for her advocacy on behalf of West Virginia's working families, energy sector workers, and rural communities.</p><p class="bio-para">Miller continues to serve as a senior member of West Virginia's congressional delegation, focusing on issues critical to her constituents, including energy production, economic development, and preserving West Virginia's coal and natural gas industries. She has been a vocal opponent of federal regulations she views as harmful to the state's energy economy and has worked to advance legislation supporting domestic energy independence. Her recent legislative priorities have also included efforts to improve healthcare access and infrastructure investment for the rural communities that make up much of her district.</p>
+    <p class="bio-para">Carol D. Miller was born and raised in West Virginia and comes from a family with deep roots in the state&#x27;s business and civic life, being the daughter of former West Virginia Governor Cecil Underwood. She pursued her education and built a career as a businesswoman and community leader before transitioning to public service, earlier serving in the West Virginia House of Delegates, where she represented the 16th district for over a decade.</p><p class="bio-para">Miller was first elected to the United States House of Representatives in 2018, becoming the first woman elected to Congress from West Virginia&#x27;s 3rd Congressional District, which was later redrawn as the 1st Congressional District following redistricting. She has served on the House Ways and Means Committee, a prestigious assignment that has allowed her to influence tax, trade, and economic policy at the federal level. Miller is broadly known for her advocacy on behalf of West Virginia&#x27;s working families, energy sector workers, and rural communities.</p><p class="bio-para">Miller continues to serve as a senior member of West Virginia&#x27;s congressional delegation, focusing on issues critical to her constituents, including energy production, economic development, and preserving West Virginia&#x27;s coal and natural gas industries. She has been a vocal opponent of federal regulations she views as harmful to the state&#x27;s energy economy and has worked to advance legislation supporting domestic energy independence. Her recent legislative priorities have also included efforts to improve healthcare access and infrastructure investment for the rural communities that make up much of her district.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

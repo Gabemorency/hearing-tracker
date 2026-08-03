@@ -15,28 +15,30 @@
 <title>Wesley Bell — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Wesley Bell was born and raised in the St. Louis, Missouri area, where he developed a deep commitment to public service and community advocacy. He earned his undergraduate degree from the University of Missouri and went on to obtain his law degree, building a career as an attorney and criminal justice reform advocate. Before entering Congress, Bell served as the Prosecuting Attorney of St. Louis County, a role in which he gained national attention for his progressive approach to criminal justice and his efforts to reform the local justice system.</p><p class="bio-para">Bell was elected to represent Missouri's 1st Congressional District in 2024, defeating longtime incumbent Cori Bush in the Democratic primary before winning the general election. He has positioned himself as a pragmatic progressive focused on economic opportunity, public safety, and healthcare access for his constituents in the St. Louis region. His background as a prosecutor and local elected official has shaped his approach to federal legislation, particularly around criminal justice, civil rights, and community investment.</p><p class="bio-para">In his current role in the House of Representatives, Bell continues to advocate for policies that reflect the needs of Missouri's 1st District, including issues of economic equity, workforce development, and healthcare affordability. He has emphasized a commitment to bipartisan cooperation where possible while maintaining a progressive policy agenda rooted in his years of experience in local government. His work remains closely tied to the communities of St. Louis, where he has long focused on reducing inequality and expanding opportunity for working families.</p>
+    <p class="bio-para">Wesley Bell was born and raised in the St. Louis, Missouri area, where he developed a deep commitment to public service and community advocacy. He earned his undergraduate degree from the University of Missouri and went on to obtain his law degree, building a career as an attorney and criminal justice reform advocate. Before entering Congress, Bell served as the Prosecuting Attorney of St. Louis County, a role in which he gained national attention for his progressive approach to criminal justice and his efforts to reform the local justice system.</p><p class="bio-para">Bell was elected to represent Missouri&#x27;s 1st Congressional District in 2024, defeating longtime incumbent Cori Bush in the Democratic primary before winning the general election. He has positioned himself as a pragmatic progressive focused on economic opportunity, public safety, and healthcare access for his constituents in the St. Louis region. His background as a prosecutor and local elected official has shaped his approach to federal legislation, particularly around criminal justice, civil rights, and community investment.</p><p class="bio-para">In his current role in the House of Representatives, Bell continues to advocate for policies that reflect the needs of Missouri&#x27;s 1st District, including issues of economic equity, workforce development, and healthcare affordability. He has emphasized a commitment to bipartisan cooperation where possible while maintaining a progressive policy agenda rooted in his years of experience in local government. His work remains closely tied to the communities of St. Louis, where he has long focused on reducing inequality and expanding opportunity for working families.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

@@ -15,28 +15,30 @@
 <title>Sarah Elfreth — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Sarah Elfreth was born and raised in Maryland, developing deep roots in the Annapolis area where she would later build her public service career. She earned her undergraduate degree from Tulane University and went on to work in environmental advocacy and community organizing before transitioning into elected office. Prior to her congressional career, Elfreth served in the Maryland State Senate, representing the Annapolis area and earning a reputation as a dedicated advocate for environmental protection and working families.</p><p class="bio-para">Elfreth was first elected to represent Maryland's 3rd Congressional District in November 2024, succeeding John Sarbanes who had represented the district for many years. She campaigned on a platform centered on environmental stewardship, economic opportunity, and protecting access to healthcare, drawing on her record in the state legislature. In Congress, she has sought committee assignments that align with her core policy interests, particularly those touching on environmental and infrastructure issues.</p><p class="bio-para">As a freshman member of Congress, Elfreth has focused on establishing herself as a voice for Maryland's diverse communities along the Chesapeake Bay region and the greater Baltimore and Annapolis areas. She has prioritized legislation and advocacy related to clean water, climate resilience, and economic development for working- and middle-class constituents. Elfreth continues to build on her state legislative record, working to bring federal resources to her district while advancing progressive priorities on environmental and social policy.</p>
+    <p class="bio-para">Sarah Elfreth was born and raised in Maryland, developing deep roots in the Annapolis area where she would later build her public service career. She earned her undergraduate degree from Tulane University and went on to work in environmental advocacy and community organizing before transitioning into elected office. Prior to her congressional career, Elfreth served in the Maryland State Senate, representing the Annapolis area and earning a reputation as a dedicated advocate for environmental protection and working families.</p><p class="bio-para">Elfreth was first elected to represent Maryland&#x27;s 3rd Congressional District in November 2024, succeeding John Sarbanes who had represented the district for many years. She campaigned on a platform centered on environmental stewardship, economic opportunity, and protecting access to healthcare, drawing on her record in the state legislature. In Congress, she has sought committee assignments that align with her core policy interests, particularly those touching on environmental and infrastructure issues.</p><p class="bio-para">As a freshman member of Congress, Elfreth has focused on establishing herself as a voice for Maryland&#x27;s diverse communities along the Chesapeake Bay region and the greater Baltimore and Annapolis areas. She has prioritized legislation and advocacy related to clean water, climate resilience, and economic development for working- and middle-class constituents. Elfreth continues to build on her state legislative record, working to bring federal resources to her district while advancing progressive priorities on environmental and social policy.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

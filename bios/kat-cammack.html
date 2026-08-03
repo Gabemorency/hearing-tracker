@@ -15,28 +15,30 @@
 <title>Kat Cammack — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Kat Cammack was born and raised in rural Colorado, where she developed a deep appreciation for agriculture and small-town values before her family faced financial hardship, an experience that profoundly shaped her political outlook. She earned a degree in political science and later built a career as a political consultant and campaign manager, most notably serving as deputy chief of staff to Congressman Ted Yoho of Florida, which introduced her to the congressional landscape she would eventually enter herself.</p><p class="bio-para">Cammack was first elected to represent Florida's 3rd Congressional District in 2020, becoming one of the youngest Republican women ever elected to Congress at the time. She has served on the House Energy and Commerce Committee, where she has focused on telecommunications, healthcare, and technology policy, and she is widely recognized for her outspoken advocacy on border security, election integrity, and Second Amendment rights. Her willingness to engage directly with constituents and her active presence on social media have made her a visible and vocal member of the House Republican caucus.</p><p class="bio-para">Cammack continues to represent north-central Florida, championing issues that reflect both her rural roots and her conservative principles. She has been a consistent advocate for agricultural communities, veterans' affairs, and policies aimed at limiting federal government overreach. In recent legislative sessions, she has drawn attention for her work on border security legislation and her vocal criticism of policies she views as harmful to American energy independence and national security.</p>
+    <p class="bio-para">Kat Cammack was born and raised in rural Colorado, where she developed a deep appreciation for agriculture and small-town values before her family faced financial hardship, an experience that profoundly shaped her political outlook. She earned a degree in political science and later built a career as a political consultant and campaign manager, most notably serving as deputy chief of staff to Congressman Ted Yoho of Florida, which introduced her to the congressional landscape she would eventually enter herself.</p><p class="bio-para">Cammack was first elected to represent Florida&#x27;s 3rd Congressional District in 2020, becoming one of the youngest Republican women ever elected to Congress at the time. She has served on the House Energy and Commerce Committee, where she has focused on telecommunications, healthcare, and technology policy, and she is widely recognized for her outspoken advocacy on border security, election integrity, and Second Amendment rights. Her willingness to engage directly with constituents and her active presence on social media have made her a visible and vocal member of the House Republican caucus.</p><p class="bio-para">Cammack continues to represent north-central Florida, championing issues that reflect both her rural roots and her conservative principles. She has been a consistent advocate for agricultural communities, veterans&#x27; affairs, and policies aimed at limiting federal government overreach. In recent legislative sessions, she has drawn attention for her work on border security legislation and her vocal criticism of policies she views as harmful to American energy independence and national security.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

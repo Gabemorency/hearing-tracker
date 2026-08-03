@@ -15,28 +15,30 @@
 <title>Maxine Dexter — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Maxine Dexter is a physician and public health advocate from Portland, Oregon, who built her career as a pulmonologist and critical care specialist before transitioning into public service. She earned her medical degree and developed a deep expertise in respiratory medicine, experience that would later shape her legislative priorities. Prior to her congressional career, Dexter served in the Oregon State Legislature, where she represented a Portland-area district and focused on healthcare access and environmental health issues.</p><p class="bio-para">Dexter was elected to the United States House of Representatives in 2024, winning the seat vacated by Earl Blumenauer in Oregon's 3rd Congressional District. She is best known for bringing a medical perspective to policy debates, particularly on issues related to public health, air quality, and healthcare affordability. Her background as a frontline physician has distinguished her as a legislator who grounds her advocacy in clinical experience and direct patient care.</p><p class="bio-para">In her current role, Dexter serves as a member of the Democratic caucus with a focus on expanding access to affordable healthcare and addressing the health impacts of climate change. She has prioritized issues such as prescription drug pricing, environmental justice, and investments in public health infrastructure. Her recent legislative work reflects her commitment to bridging the gap between medical expertise and federal policymaking on behalf of Oregon's diverse communities.</p>
+    <p class="bio-para">Maxine Dexter is a physician and public health advocate from Portland, Oregon, who built her career as a pulmonologist and critical care specialist before transitioning into public service. She earned her medical degree and developed a deep expertise in respiratory medicine, experience that would later shape her legislative priorities. Prior to her congressional career, Dexter served in the Oregon State Legislature, where she represented a Portland-area district and focused on healthcare access and environmental health issues.</p><p class="bio-para">Dexter was elected to the United States House of Representatives in 2024, winning the seat vacated by Earl Blumenauer in Oregon&#x27;s 3rd Congressional District. She is best known for bringing a medical perspective to policy debates, particularly on issues related to public health, air quality, and healthcare affordability. Her background as a frontline physician has distinguished her as a legislator who grounds her advocacy in clinical experience and direct patient care.</p><p class="bio-para">In her current role, Dexter serves as a member of the Democratic caucus with a focus on expanding access to affordable healthcare and addressing the health impacts of climate change. She has prioritized issues such as prescription drug pricing, environmental justice, and investments in public health infrastructure. Her recent legislative work reflects her commitment to bridging the gap between medical expertise and federal policymaking on behalf of Oregon&#x27;s diverse communities.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

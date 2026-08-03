@@ -15,28 +15,30 @@
 <title>Nicholas J. Begich III — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Nicholas J. Begich III was born and raised in Alaska, coming from a prominent political family — his grandfather, Nick Begich, served as Alaska's U.S. Representative before disappearing in a plane crash in 1972. Begich attended the University of Alaska and went on to build a career in business, entrepreneurship, and education technology, founding and leading several companies focused on online learning and workforce development. His professional background gave him a reputation as a pragmatic, business-oriented figure before he turned his attention to electoral politics.</p><p class="bio-para">Begich ran unsuccessfully for Alaska's sole U.S. House seat in 2022 under the state's new ranked-choice voting system, narrowly losing to Democrat Mary Peltola in a closely watched race. He ran again in 2024, defeating Peltola to finally claim the seat, becoming Alaska's first Republican House representative in several years. Since taking office, he has been assigned to committees relevant to Alaska's key industries, including natural resources and fisheries, and has been known as an advocate for Alaska's economic independence and energy development.</p><p class="bio-para">Begich currently serves as Alaska's sole member of the U.S. House of Representatives, representing the interests of one of the nation's most geographically and economically distinct states. He focuses heavily on issues critical to Alaska, including resource extraction, commercial fishing, federal land management, and energy production, reflecting the priorities of his constituents. His recent legislative work has emphasized expanding Alaska's economic opportunities while reducing federal regulatory burdens on the state's industries.</p>
+    <p class="bio-para">Nicholas J. Begich III was born and raised in Alaska, coming from a prominent political family — his grandfather, Nick Begich, served as Alaska&#x27;s U.S. Representative before disappearing in a plane crash in 1972. Begich attended the University of Alaska and went on to build a career in business, entrepreneurship, and education technology, founding and leading several companies focused on online learning and workforce development. His professional background gave him a reputation as a pragmatic, business-oriented figure before he turned his attention to electoral politics.</p><p class="bio-para">Begich ran unsuccessfully for Alaska&#x27;s sole U.S. House seat in 2022 under the state&#x27;s new ranked-choice voting system, narrowly losing to Democrat Mary Peltola in a closely watched race. He ran again in 2024, defeating Peltola to finally claim the seat, becoming Alaska&#x27;s first Republican House representative in several years. Since taking office, he has been assigned to committees relevant to Alaska&#x27;s key industries, including natural resources and fisheries, and has been known as an advocate for Alaska&#x27;s economic independence and energy development.</p><p class="bio-para">Begich currently serves as Alaska&#x27;s sole member of the U.S. House of Representatives, representing the interests of one of the nation&#x27;s most geographically and economically distinct states. He focuses heavily on issues critical to Alaska, including resource extraction, commercial fishing, federal land management, and energy production, reflecting the priorities of his constituents. His recent legislative work has emphasized expanding Alaska&#x27;s economic opportunities while reducing federal regulatory burdens on the state&#x27;s industries.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

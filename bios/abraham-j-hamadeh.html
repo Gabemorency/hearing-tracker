@@ -15,28 +15,30 @@
 <title>Abraham J. Hamadeh — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Abraham J. Hamadeh is a first-generation American of Jordanian descent who was raised in Arizona and built his career in law and public service. He earned his law degree and went on to work as a prosecutor in Maricopa County, where he gained experience in criminal law before transitioning into Republican politics. Prior to his congressional service, he ran as the Republican nominee for Arizona Attorney General in 2022, a closely contested race that drew national attention due to its narrow margin and subsequent legal challenges.</p><p class="bio-para">Hamadeh was elected to represent Arizona's 8th Congressional District in 2024, flipping a seat that had been held by a Democrat and reflecting the shifting political landscape of the Phoenix-area district. He has aligned himself with conservative priorities including border security, law enforcement, and government accountability since taking office. He has served on committees relevant to his district's interests and has been recognized as a strong advocate for Arizona's communities within the House Republican Conference.</p><p class="bio-para">In his current role, Hamadeh focuses on issues central to his constituents in the greater Phoenix region, including immigration enforcement, public safety, and reducing federal spending. He has been an active voice within the House Republican majority, supporting efforts to advance conservative policy priorities consistent with his background as a prosecutor and public servant. His recent legislative work has emphasized border security measures and holding the executive branch accountable, positioning him as a rising figure within Arizona's Republican delegation.</p>
+    <p class="bio-para">Abraham J. Hamadeh is a first-generation American of Jordanian descent who was raised in Arizona and built his career in law and public service. He earned his law degree and went on to work as a prosecutor in Maricopa County, where he gained experience in criminal law before transitioning into Republican politics. Prior to his congressional service, he ran as the Republican nominee for Arizona Attorney General in 2022, a closely contested race that drew national attention due to its narrow margin and subsequent legal challenges.</p><p class="bio-para">Hamadeh was elected to represent Arizona&#x27;s 8th Congressional District in 2024, flipping a seat that had been held by a Democrat and reflecting the shifting political landscape of the Phoenix-area district. He has aligned himself with conservative priorities including border security, law enforcement, and government accountability since taking office. He has served on committees relevant to his district&#x27;s interests and has been recognized as a strong advocate for Arizona&#x27;s communities within the House Republican Conference.</p><p class="bio-para">In his current role, Hamadeh focuses on issues central to his constituents in the greater Phoenix region, including immigration enforcement, public safety, and reducing federal spending. He has been an active voice within the House Republican majority, supporting efforts to advance conservative policy priorities consistent with his background as a prosecutor and public servant. His recent legislative work has emphasized border security measures and holding the executive branch accountable, positioning him as a rising figure within Arizona&#x27;s Republican delegation.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

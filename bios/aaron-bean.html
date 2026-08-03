@@ -15,28 +15,30 @@
 <title>Aaron Bean — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Aaron Bean was born and raised in Fernandina Beach, Florida, where he developed deep roots in the local community. He earned his degree from the University of Florida and went on to build a successful career as an insurance professional and small business owner. Before entering federal office, Bean served in the Florida state legislature, including time in both the Florida House of Representatives and the Florida Senate, where he represented constituents in Nassau and Duval counties for nearly two decades.</p><p class="bio-para">Bean was elected to represent Florida's 4th Congressional District in 2022, succeeding John Rutherford after redistricting reshaped the northeast Florida seat. He secured a seat on the House Committee on Education and the Workforce, where he has focused on issues related to workforce development, education policy, and government accountability. Bean is widely known as a steadfast conservative voice who emphasizes fiscal responsibility and limited government in his legislative approach.</p><p class="bio-para">Bean continues to serve the constituents of northeast Florida with a focus on issues critical to the region, including veterans' affairs, military readiness, and economic growth. He has been a vocal advocate for strengthening workforce pipelines and expanding opportunities for students and workers in his district. Bean's recent legislative priorities have reflected his commitment to reducing federal spending, supporting small businesses, and ensuring that Florida's communities have a strong representation in Washington.</p>
+    <p class="bio-para">Aaron Bean was born and raised in Fernandina Beach, Florida, where he developed deep roots in the local community. He earned his degree from the University of Florida and went on to build a successful career as an insurance professional and small business owner. Before entering federal office, Bean served in the Florida state legislature, including time in both the Florida House of Representatives and the Florida Senate, where he represented constituents in Nassau and Duval counties for nearly two decades.</p><p class="bio-para">Bean was elected to represent Florida&#x27;s 4th Congressional District in 2022, succeeding John Rutherford after redistricting reshaped the northeast Florida seat. He secured a seat on the House Committee on Education and the Workforce, where he has focused on issues related to workforce development, education policy, and government accountability. Bean is widely known as a steadfast conservative voice who emphasizes fiscal responsibility and limited government in his legislative approach.</p><p class="bio-para">Bean continues to serve the constituents of northeast Florida with a focus on issues critical to the region, including veterans&#x27; affairs, military readiness, and economic growth. He has been a vocal advocate for strengthening workforce pipelines and expanding opportunities for students and workers in his district. Bean&#x27;s recent legislative priorities have reflected his commitment to reducing federal spending, supporting small businesses, and ensuring that Florida&#x27;s communities have a strong representation in Washington.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

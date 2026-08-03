@@ -15,28 +15,30 @@
 <title>Patrick Ryan — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Patrick Ryan was born and raised in the Hudson Valley region of New York, where he developed a strong connection to his community and its working families. He graduated from the United States Military Academy at West Point and served as an Army intelligence officer, completing tours in Iraq, before transitioning to a career in technology entrepreneurship and founding a cybersecurity firm. His background blending military service and business leadership shaped the policy priorities he would carry into public office.</p><p class="bio-para">Ryan first entered Congress in August 2022 after winning a special election to represent New York's 19th Congressional District, and he subsequently won election in November 2022 to represent the newly drawn 18th Congressional District beginning in 2023. He has served on the House Armed Services Committee and the House Science, Space, and Technology Committee, where his military and technology backgrounds have informed his legislative work. Ryan is particularly known for his focus on veterans' issues, national security, and supporting economic development in the Hudson Valley region he calls home.</p><p class="bio-para">Ryan currently represents a competitive district that includes communities in the mid-Hudson Valley, and he works to address concerns central to his constituents, including infrastructure investment, healthcare access, and workforce development. He has been a vocal advocate for protecting abortion rights and reproductive freedoms, an issue that featured prominently in his special election campaign and continued to define his legislative identity. Ryan remains focused on balancing the needs of a politically diverse district while championing policies that reflect his background in service and his commitment to middle-class families.</p>
+    <p class="bio-para">Patrick Ryan was born and raised in the Hudson Valley region of New York, where he developed a strong connection to his community and its working families. He graduated from the United States Military Academy at West Point and served as an Army intelligence officer, completing tours in Iraq, before transitioning to a career in technology entrepreneurship and founding a cybersecurity firm. His background blending military service and business leadership shaped the policy priorities he would carry into public office.</p><p class="bio-para">Ryan first entered Congress in August 2022 after winning a special election to represent New York&#x27;s 19th Congressional District, and he subsequently won election in November 2022 to represent the newly drawn 18th Congressional District beginning in 2023. He has served on the House Armed Services Committee and the House Science, Space, and Technology Committee, where his military and technology backgrounds have informed his legislative work. Ryan is particularly known for his focus on veterans&#x27; issues, national security, and supporting economic development in the Hudson Valley region he calls home.</p><p class="bio-para">Ryan currently represents a competitive district that includes communities in the mid-Hudson Valley, and he works to address concerns central to his constituents, including infrastructure investment, healthcare access, and workforce development. He has been a vocal advocate for protecting abortion rights and reproductive freedoms, an issue that featured prominently in his special election campaign and continued to define his legislative identity. Ryan remains focused on balancing the needs of a politically diverse district while championing policies that reflect his background in service and his commitment to middle-class families.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

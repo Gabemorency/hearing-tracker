@@ -15,28 +15,30 @@
 <title>LaMonica McIver — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">LaMonica McIver is a Democratic politician from Newark, New Jersey, where she was raised and built her career in public service. She earned her education in New Jersey and went on to work in community advocacy and local government before ascending to higher office, including serving on the Newark Municipal Council and later as a member of the Essex County Board of County Commissioners.</p><p class="bio-para">McIver was elected to represent New Jersey's 10th Congressional District in a special election in 2025, following the death of longtime Representative Donald Payne Jr. She has focused on continuing the district's legacy of advocacy for working-class communities, economic development, and constituent services in one of the most densely populated and diverse congressional districts in the nation. Her election marked a significant moment for Newark and Essex County, as she carried forward deep ties to the community she has served for years.</p><p class="bio-para">In her current role, McIver represents a district encompassing parts of Essex and Hudson counties, with a strong emphasis on issues including infrastructure investment, healthcare access, and economic opportunity for underserved communities. She has prioritized constituent engagement and federal resources for urban communities facing persistent challenges such as poverty, housing, and public safety. As a newer member of Congress, McIver has worked to establish her legislative footprint while building coalitions to address the needs of New Jersey's 10th District residents.</p>
+    <p class="bio-para">LaMonica McIver is a Democratic politician from Newark, New Jersey, where she was raised and built her career in public service. She earned her education in New Jersey and went on to work in community advocacy and local government before ascending to higher office, including serving on the Newark Municipal Council and later as a member of the Essex County Board of County Commissioners.</p><p class="bio-para">McIver was elected to represent New Jersey&#x27;s 10th Congressional District in a special election in 2025, following the death of longtime Representative Donald Payne Jr. She has focused on continuing the district&#x27;s legacy of advocacy for working-class communities, economic development, and constituent services in one of the most densely populated and diverse congressional districts in the nation. Her election marked a significant moment for Newark and Essex County, as she carried forward deep ties to the community she has served for years.</p><p class="bio-para">In her current role, McIver represents a district encompassing parts of Essex and Hudson counties, with a strong emphasis on issues including infrastructure investment, healthcare access, and economic opportunity for underserved communities. She has prioritized constituent engagement and federal resources for urban communities facing persistent challenges such as poverty, housing, and public safety. As a newer member of Congress, McIver has worked to establish her legislative footprint while building coalitions to address the needs of New Jersey&#x27;s 10th District residents.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

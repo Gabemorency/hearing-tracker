@@ -15,28 +15,30 @@
 <title>Brian K. Fitzpatrick — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Brian K. Fitzpatrick was born and raised in Levittown, Pennsylvania, a community in Bucks County that has remained central to his identity and public service. He earned his law degree from Pennsylvania State University's Dickinson School of Law and later pursued graduate studies in accounting, going on to work as both a licensed attorney and CPA. Before entering elected office, Fitzpatrick served for over a decade as a special agent with the Federal Bureau of Investigation, where he worked on public corruption, organized crime, and international assignments.</p><p class="bio-para">Fitzpatrick was first elected to Congress in 2016, succeeding his brother Michael Fitzpatrick in representing Pennsylvania's 1st Congressional District, and has since built a reputation as one of the most bipartisan members of the House. He is a founding co-chair of the Problem Solvers Caucus, a bipartisan group dedicated to finding common ground on legislative priorities, which has become one of his most defining roles in Congress. Fitzpatrick has served on the House Financial Services Committee and the House Foreign Affairs Committee, where he has worked on issues ranging from financial regulation to national security.</p><p class="bio-para">Fitzpatrick continues to serve as a leading voice for bipartisan cooperation in a deeply divided Congress, frequently crossing party lines to support legislation on issues such as infrastructure, healthcare, and environmental protection. He has consistently focused on issues important to his Bucks County constituents, including veterans' affairs, public safety, and economic development. His recent legislative priorities have included efforts to address the opioid crisis, strengthen ethics in government, and support policies that reflect the moderate, pragmatic approach he has championed throughout his congressional career.</p>
+    <p class="bio-para">Brian K. Fitzpatrick was born and raised in Levittown, Pennsylvania, a community in Bucks County that has remained central to his identity and public service. He earned his law degree from Pennsylvania State University&#x27;s Dickinson School of Law and later pursued graduate studies in accounting, going on to work as both a licensed attorney and CPA. Before entering elected office, Fitzpatrick served for over a decade as a special agent with the Federal Bureau of Investigation, where he worked on public corruption, organized crime, and international assignments.</p><p class="bio-para">Fitzpatrick was first elected to Congress in 2016, succeeding his brother Michael Fitzpatrick in representing Pennsylvania&#x27;s 1st Congressional District, and has since built a reputation as one of the most bipartisan members of the House. He is a founding co-chair of the Problem Solvers Caucus, a bipartisan group dedicated to finding common ground on legislative priorities, which has become one of his most defining roles in Congress. Fitzpatrick has served on the House Financial Services Committee and the House Foreign Affairs Committee, where he has worked on issues ranging from financial regulation to national security.</p><p class="bio-para">Fitzpatrick continues to serve as a leading voice for bipartisan cooperation in a deeply divided Congress, frequently crossing party lines to support legislation on issues such as infrastructure, healthcare, and environmental protection. He has consistently focused on issues important to his Bucks County constituents, including veterans&#x27; affairs, public safety, and economic development. His recent legislative priorities have included efforts to address the opioid crisis, strengthen ethics in government, and support policies that reflect the moderate, pragmatic approach he has championed throughout his congressional career.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

@@ -15,28 +15,30 @@
 <title>Nick LaLota — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Nick LaLota was born and raised on Long Island, New York, and pursued his education at the United States Naval Academy, where he earned a Bachelor of Science degree, before later obtaining a law degree from Hofstra University School of Law. He served as an officer in the United States Navy and subsequently built a career in both the private sector and local government, including serving as the Chief of Staff for the Suffolk County Board of Elections.</p><p class="bio-para">LaLota was first elected to represent New York's 1st Congressional District in November 2022, flipping the seat and joining the House of Representatives at the start of the 118th Congress. He secured a seat on the House Armed Services Committee, reflecting his background in military service, and has been recognized for his focus on issues affecting Long Island constituents, including public safety and veterans' affairs. LaLota has been noted for occasionally taking independent positions within his party, demonstrating a willingness to diverge from Republican leadership on select procedural and governance matters.</p><p class="bio-para">In his current role, LaLota continues to serve on the House Armed Services Committee, where he advocates for a strong national defense and the needs of the military community in his district. He remains focused on issues of particular concern to Long Island residents, including combating crime, addressing illegal immigration, and supporting local economic interests. LaLota has also been active in oversight efforts and has positioned himself as a voice for pragmatic, constituent-driven governance within the House Republican Conference.</p>
+    <p class="bio-para">Nick LaLota was born and raised on Long Island, New York, and pursued his education at the United States Naval Academy, where he earned a Bachelor of Science degree, before later obtaining a law degree from Hofstra University School of Law. He served as an officer in the United States Navy and subsequently built a career in both the private sector and local government, including serving as the Chief of Staff for the Suffolk County Board of Elections.</p><p class="bio-para">LaLota was first elected to represent New York&#x27;s 1st Congressional District in November 2022, flipping the seat and joining the House of Representatives at the start of the 118th Congress. He secured a seat on the House Armed Services Committee, reflecting his background in military service, and has been recognized for his focus on issues affecting Long Island constituents, including public safety and veterans&#x27; affairs. LaLota has been noted for occasionally taking independent positions within his party, demonstrating a willingness to diverge from Republican leadership on select procedural and governance matters.</p><p class="bio-para">In his current role, LaLota continues to serve on the House Armed Services Committee, where he advocates for a strong national defense and the needs of the military community in his district. He remains focused on issues of particular concern to Long Island residents, including combating crime, addressing illegal immigration, and supporting local economic interests. LaLota has also been active in oversight efforts and has positioned himself as a voice for pragmatic, constituent-driven governance within the House Republican Conference.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

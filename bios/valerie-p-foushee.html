@@ -15,28 +15,30 @@
 <title>Valerie P. Foushee — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Valerie P. Foushee was born and raised in Chapel Hill, North Carolina, and has deep roots in the communities she now represents. She earned her undergraduate degree from the University of North Carolina at Chapel Hill and pursued graduate studies at North Carolina Central University. Before entering federal office, Foushee built a career in public service that included serving on the Orange County Board of Commissioners and in the North Carolina General Assembly, where she served in both the House and the Senate.</p><p class="bio-para">Foushee was first elected to the United States House of Representatives in November 2022, succeeding the retiring David Price in representing North Carolina's 4th Congressional District. She serves on the House Committee on Transportation and Infrastructure as well as the House Committee on Science, Space, and Technology, bringing a focus on infrastructure investment and research funding to her legislative work. She is broadly recognized as a champion for progressive priorities, civil rights, and the interests of her diverse district, which includes the Research Triangle region.</p><p class="bio-para">In her current role, Foushee continues to advocate for her constituents in one of the most research- and education-rich corridors in the United States, working to support higher education, scientific innovation, and workforce development. She has emphasized issues including voting rights, affordable housing, and equitable access to healthcare as central pillars of her legislative agenda. Foushee remains a prominent voice within the Congressional Black Caucus and continues to advance legislation aimed at addressing systemic inequities and expanding economic opportunity for North Carolinians.</p>
+    <p class="bio-para">Valerie P. Foushee was born and raised in Chapel Hill, North Carolina, and has deep roots in the communities she now represents. She earned her undergraduate degree from the University of North Carolina at Chapel Hill and pursued graduate studies at North Carolina Central University. Before entering federal office, Foushee built a career in public service that included serving on the Orange County Board of Commissioners and in the North Carolina General Assembly, where she served in both the House and the Senate.</p><p class="bio-para">Foushee was first elected to the United States House of Representatives in November 2022, succeeding the retiring David Price in representing North Carolina&#x27;s 4th Congressional District. She serves on the House Committee on Transportation and Infrastructure as well as the House Committee on Science, Space, and Technology, bringing a focus on infrastructure investment and research funding to her legislative work. She is broadly recognized as a champion for progressive priorities, civil rights, and the interests of her diverse district, which includes the Research Triangle region.</p><p class="bio-para">In her current role, Foushee continues to advocate for her constituents in one of the most research- and education-rich corridors in the United States, working to support higher education, scientific innovation, and workforce development. She has emphasized issues including voting rights, affordable housing, and equitable access to healthcare as central pillars of her legislative agenda. Foushee remains a prominent voice within the Congressional Black Caucus and continues to advance legislation aimed at addressing systemic inequities and expanding economic opportunity for North Carolinians.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

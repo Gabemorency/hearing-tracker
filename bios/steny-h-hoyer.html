@@ -15,28 +15,30 @@
 <title>Steny H. Hoyer — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Steny Hamilton Hoyer was born on June 14, 1939, in New York City, and grew up in various places before settling in Maryland. He earned his undergraduate degree from the University of Maryland in 1963 and his law degree from Georgetown University Law Center in 1966, and worked as a lawyer and served in the Maryland State Senate from 1966 to 1978 before winning his congressional seat.</p><p class="bio-para">Hoyer was elected to the U.S. House in a 1981 special election, representing Maryland's 5th Congressional District in Prince George's County, and has been reelected since. He served as House Democratic Whip and then House Majority Leader during the Obama and Biden administrations, making him one of the most senior and powerful Democrats in Congress.</p><p class="bio-para">Hoyer is one of the longest-serving members of Congress and a senior member of the House Appropriations Committee. He focuses on federal workers' pay and benefits, defense funding for the many military installations in Maryland, healthcare access, and economic opportunity. He is a senior statesman of the House Democratic Caucus.</p>
+    <p class="bio-para">Steny Hamilton Hoyer was born on June 14, 1939, in New York City, and grew up in various places before settling in Maryland. He earned his undergraduate degree from the University of Maryland in 1963 and his law degree from Georgetown University Law Center in 1966, and worked as a lawyer and served in the Maryland State Senate from 1966 to 1978 before winning his congressional seat.</p><p class="bio-para">Hoyer was elected to the U.S. House in a 1981 special election, representing Maryland&#x27;s 5th Congressional District in Prince George&#x27;s County, and has been reelected since. He served as House Democratic Whip and then House Majority Leader during the Obama and Biden administrations, making him one of the most senior and powerful Democrats in Congress.</p><p class="bio-para">Hoyer is one of the longest-serving members of Congress and a senior member of the House Appropriations Committee. He focuses on federal workers&#x27; pay and benefits, defense funding for the many military installations in Maryland, healthcare access, and economic opportunity. He is a senior statesman of the House Democratic Caucus.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

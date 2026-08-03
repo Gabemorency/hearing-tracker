@@ -15,28 +15,30 @@
 <title>Nydia M. Velázquez — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Nydia M. Velázquez was born on March 28, 1953, in Yabucoa, Puerto Rico, the seventh of nine children raised in a working-class family. She earned a bachelor's degree in political science from the University of Puerto Rico in 1974 and later a master's degree in political science from New York University in 1976. Before entering Congress, Velázquez served as a faculty member at the University of Puerto Rico and Hunter College, and was appointed by New York City Mayor Ed Koch as the first Latina to serve on the New York City Council in 1984.</p><p class="bio-para">Velázquez was first elected to the U.S. House of Representatives in 1992, becoming the first Puerto Rican woman ever elected to Congress. She has served on the House Financial Services Committee and has been a long-standing member and former chair of the Congressional Hispanic Caucus, using both platforms to advocate for small businesses, affordable housing, and underserved communities. She is perhaps best known for her tenure as the first Latina to chair the House Small Business Committee, where she championed legislation supporting minority-owned businesses and economic development in low-income communities.</p><p class="bio-para">Velázquez currently represents New York's 7th Congressional District, which encompasses parts of Brooklyn, Manhattan, and Queens, and continues to serve on the House Financial Services Committee and the House Natural Resources Committee. She remains a prominent voice on issues including housing affordability, immigration reform, and economic equity for Latino and working-class communities. In recent years, she has focused considerable attention on Puerto Rico's recovery and fiscal challenges, advocating for greater federal investment and relief for the island and its residents.</p>
+    <p class="bio-para">Nydia M. Velázquez was born on March 28, 1953, in Yabucoa, Puerto Rico, the seventh of nine children raised in a working-class family. She earned a bachelor&#x27;s degree in political science from the University of Puerto Rico in 1974 and later a master&#x27;s degree in political science from New York University in 1976. Before entering Congress, Velázquez served as a faculty member at the University of Puerto Rico and Hunter College, and was appointed by New York City Mayor Ed Koch as the first Latina to serve on the New York City Council in 1984.</p><p class="bio-para">Velázquez was first elected to the U.S. House of Representatives in 1992, becoming the first Puerto Rican woman ever elected to Congress. She has served on the House Financial Services Committee and has been a long-standing member and former chair of the Congressional Hispanic Caucus, using both platforms to advocate for small businesses, affordable housing, and underserved communities. She is perhaps best known for her tenure as the first Latina to chair the House Small Business Committee, where she championed legislation supporting minority-owned businesses and economic development in low-income communities.</p><p class="bio-para">Velázquez currently represents New York&#x27;s 7th Congressional District, which encompasses parts of Brooklyn, Manhattan, and Queens, and continues to serve on the House Financial Services Committee and the House Natural Resources Committee. She remains a prominent voice on issues including housing affordability, immigration reform, and economic equity for Latino and working-class communities. In recent years, she has focused considerable attention on Puerto Rico&#x27;s recovery and fiscal challenges, advocating for greater federal investment and relief for the island and its residents.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

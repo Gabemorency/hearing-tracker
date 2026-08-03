@@ -15,28 +15,30 @@
 <title>Daniel Meuser — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Daniel Meuser was born and raised in Kingston, Pennsylvania, and went on to attend Boston University, where he earned his degree. He built a successful career in the private sector as the President and CEO of Pride Mobility Products, a leading manufacturer of power wheelchairs and scooters based in Exeter, Pennsylvania, before transitioning into public service. Prior to his congressional career, Meuser also served as Pennsylvania's Secretary of Revenue under Governor Tom Corbett from 2011 to 2015.</p><p class="bio-para">Meuser was first elected to represent Pennsylvania's 9th Congressional District in 2018 and has been re-elected to successive terms since then. He serves on the House Financial Services Committee, where he has focused on issues related to banking regulation, economic growth, and consumer financial protections. He is widely known for his advocacy on behalf of small businesses and his efforts to reduce regulatory burdens on American manufacturers and entrepreneurs.</p><p class="bio-para">Meuser continues to serve Pennsylvania's 9th District, which encompasses much of the north-central and northeastern region of the state, championing the interests of his largely rural constituents. He has been an active voice on issues including energy policy, veterans' affairs, border security, and economic development, reflecting the priorities of his district. In recent legislative sessions, he has also focused on fiscal responsibility and opposing what he characterizes as excessive federal spending, aligning himself with conservative economic principles.</p>
+    <p class="bio-para">Daniel Meuser was born and raised in Kingston, Pennsylvania, and went on to attend Boston University, where he earned his degree. He built a successful career in the private sector as the President and CEO of Pride Mobility Products, a leading manufacturer of power wheelchairs and scooters based in Exeter, Pennsylvania, before transitioning into public service. Prior to his congressional career, Meuser also served as Pennsylvania&#x27;s Secretary of Revenue under Governor Tom Corbett from 2011 to 2015.</p><p class="bio-para">Meuser was first elected to represent Pennsylvania&#x27;s 9th Congressional District in 2018 and has been re-elected to successive terms since then. He serves on the House Financial Services Committee, where he has focused on issues related to banking regulation, economic growth, and consumer financial protections. He is widely known for his advocacy on behalf of small businesses and his efforts to reduce regulatory burdens on American manufacturers and entrepreneurs.</p><p class="bio-para">Meuser continues to serve Pennsylvania&#x27;s 9th District, which encompasses much of the north-central and northeastern region of the state, championing the interests of his largely rural constituents. He has been an active voice on issues including energy policy, veterans&#x27; affairs, border security, and economic development, reflecting the priorities of his district. In recent legislative sessions, he has also focused on fiscal responsibility and opposing what he characterizes as excessive federal spending, aligning himself with conservative economic principles.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

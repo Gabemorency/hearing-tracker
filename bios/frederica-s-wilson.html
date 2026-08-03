@@ -15,28 +15,30 @@
 <title>Frederica S. Wilson — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Frederica S. Wilson was born and raised in Miami, Florida, where she built a long career in public service before reaching the national stage. She earned a Bachelor of Science degree from Fisk University and a Master of Science degree from the University of Miami, and she later worked as an educator and school principal in Miami-Dade County. Before entering Congress, Wilson served in both the Florida House of Representatives and the Florida Senate, establishing herself as a persistent advocate for education and underserved communities.</p><p class="bio-para">Wilson was first elected to the United States House of Representatives in 2010, representing Florida's 24th Congressional District, which encompasses parts of Miami-Dade and Broward counties. She has served on the House Committee on Education and Labor as well as the House Committee on Transportation and Infrastructure, focusing her legislative efforts on workforce development, educational equity, and infrastructure investment. She is perhaps best known nationally for her outspoken advocacy on behalf of Gold Star families and her public dispute with the Trump administration regarding a condolence call made to the widow of a fallen soldier in 2017.</p><p class="bio-para">Wilson continues to serve as the Representative for Florida's 24th Congressional District, where she remains a vocal voice for her predominantly African American and working-class constituents. She has concentrated her efforts on issues including criminal justice reform, mental health resources, affordable housing, and closing the racial wealth gap. Wilson has also been a consistent champion for federal investment in education and has pushed for legislation addressing gun violence, which disproportionately affects the communities she represents.</p>
+    <p class="bio-para">Frederica S. Wilson was born and raised in Miami, Florida, where she built a long career in public service before reaching the national stage. She earned a Bachelor of Science degree from Fisk University and a Master of Science degree from the University of Miami, and she later worked as an educator and school principal in Miami-Dade County. Before entering Congress, Wilson served in both the Florida House of Representatives and the Florida Senate, establishing herself as a persistent advocate for education and underserved communities.</p><p class="bio-para">Wilson was first elected to the United States House of Representatives in 2010, representing Florida&#x27;s 24th Congressional District, which encompasses parts of Miami-Dade and Broward counties. She has served on the House Committee on Education and Labor as well as the House Committee on Transportation and Infrastructure, focusing her legislative efforts on workforce development, educational equity, and infrastructure investment. She is perhaps best known nationally for her outspoken advocacy on behalf of Gold Star families and her public dispute with the Trump administration regarding a condolence call made to the widow of a fallen soldier in 2017.</p><p class="bio-para">Wilson continues to serve as the Representative for Florida&#x27;s 24th Congressional District, where she remains a vocal voice for her predominantly African American and working-class constituents. She has concentrated her efforts on issues including criminal justice reform, mental health resources, affordable housing, and closing the racial wealth gap. Wilson has also been a consistent champion for federal investment in education and has pushed for legislation addressing gun violence, which disproportionately affects the communities she represents.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

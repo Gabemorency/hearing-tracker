@@ -15,28 +15,30 @@
 <title>Elise M. Stefanik — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Elise Marie Stefanik was born on July 2, 1984, in Albany, New York, and was raised in the nearby town of Guilderland. She graduated from Harvard University in 2006 with a degree in Government, after which she worked in the George W. Bush White House as a staff member in the Office of Legislative Affairs and later joined the Foreign Policy Initiative, a Washington-based policy organization.</p><p class="bio-para">Stefanik was first elected to Congress in 2014, representing New York's 21st Congressional District, becoming at that time the youngest woman ever elected to the United States House of Representatives. She has served on several prominent committees, including the House Armed Services Committee, the House Permanent Select Committee on Intelligence, and the House Education and the Workforce Committee. Stefanik gained significant national prominence during the impeachment proceedings against President Donald Trump, where she became a highly visible defender of the President and a leading voice within the House Republican Conference.</p><p class="bio-para">Stefanik currently serves as Chair of the House Republican Conference, the third-highest ranking position in the House Republican leadership, a role she has held since 2021. In that capacity, she focuses on messaging and strategy for House Republicans while continuing to advocate for issues including national security, military readiness, agricultural policy, and support for rural communities in upstate New York. She has remained a close ally of former President Trump and has been a prominent figure in shaping the direction of the Republican Party's legislative agenda.</p>
+    <p class="bio-para">Elise Marie Stefanik was born on July 2, 1984, in Albany, New York, and was raised in the nearby town of Guilderland. She graduated from Harvard University in 2006 with a degree in Government, after which she worked in the George W. Bush White House as a staff member in the Office of Legislative Affairs and later joined the Foreign Policy Initiative, a Washington-based policy organization.</p><p class="bio-para">Stefanik was first elected to Congress in 2014, representing New York&#x27;s 21st Congressional District, becoming at that time the youngest woman ever elected to the United States House of Representatives. She has served on several prominent committees, including the House Armed Services Committee, the House Permanent Select Committee on Intelligence, and the House Education and the Workforce Committee. Stefanik gained significant national prominence during the impeachment proceedings against President Donald Trump, where she became a highly visible defender of the President and a leading voice within the House Republican Conference.</p><p class="bio-para">Stefanik currently serves as Chair of the House Republican Conference, the third-highest ranking position in the House Republican leadership, a role she has held since 2021. In that capacity, she focuses on messaging and strategy for House Republicans while continuing to advocate for issues including national security, military readiness, agricultural policy, and support for rural communities in upstate New York. She has remained a close ally of former President Trump and has been a prominent figure in shaping the direction of the Republican Party&#x27;s legislative agenda.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

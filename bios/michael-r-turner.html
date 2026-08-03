@@ -15,28 +15,30 @@
 <title>Michael R. Turner — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Michael R. Turner was born on January 11, 1960, in Dayton, Ohio, where he was raised and developed deep roots in the region. He earned his undergraduate degree from Ohio Northern University, a law degree from Case Western Reserve University School of Law, and a master's degree in business administration from the University of Dayton. Before entering Congress, Turner served as Mayor of Dayton from 1994 to 2002, during which time he focused on economic development and urban revitalization efforts.</p><p class="bio-para">Turner was first elected to the United States House of Representatives in 2002, representing Ohio's 10th Congressional District, which encompasses the Dayton area and surrounding communities. Throughout his congressional career, he has served on the House Armed Services Committee, where he has been a consistent advocate for national defense, military readiness, and the interests of Wright-Patterson Air Force Base, a critical installation in his district. He has also served on the Permanent Select Committee on Intelligence, building a reputation as a leading voice on matters of national security and foreign policy.</p><p class="bio-para">Turner currently serves as the Chairman of the House Permanent Select Committee on Intelligence, a position that places him at the center of the nation's most sensitive security oversight responsibilities. In this role, he has focused heavily on countering threats from adversarial nations, including Russia and China, and has been a prominent figure in congressional deliberations surrounding U.S. support for Ukraine following Russia's 2022 invasion. Turner has also continued his longstanding efforts to secure robust funding and policy support for the defense installations and defense-related industries that are vital to his constituents in southwestern Ohio.</p>
+    <p class="bio-para">Michael R. Turner was born on January 11, 1960, in Dayton, Ohio, where he was raised and developed deep roots in the region. He earned his undergraduate degree from Ohio Northern University, a law degree from Case Western Reserve University School of Law, and a master&#x27;s degree in business administration from the University of Dayton. Before entering Congress, Turner served as Mayor of Dayton from 1994 to 2002, during which time he focused on economic development and urban revitalization efforts.</p><p class="bio-para">Turner was first elected to the United States House of Representatives in 2002, representing Ohio&#x27;s 10th Congressional District, which encompasses the Dayton area and surrounding communities. Throughout his congressional career, he has served on the House Armed Services Committee, where he has been a consistent advocate for national defense, military readiness, and the interests of Wright-Patterson Air Force Base, a critical installation in his district. He has also served on the Permanent Select Committee on Intelligence, building a reputation as a leading voice on matters of national security and foreign policy.</p><p class="bio-para">Turner currently serves as the Chairman of the House Permanent Select Committee on Intelligence, a position that places him at the center of the nation&#x27;s most sensitive security oversight responsibilities. In this role, he has focused heavily on countering threats from adversarial nations, including Russia and China, and has been a prominent figure in congressional deliberations surrounding U.S. support for Ukraine following Russia&#x27;s 2022 invasion. Turner has also continued his longstanding efforts to secure robust funding and policy support for the defense installations and defense-related industries that are vital to his constituents in southwestern Ohio.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

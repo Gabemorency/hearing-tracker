@@ -15,28 +15,30 @@
 <title>Kevin Cramer — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Kevin John Cramer was born on January 21, 1961, in Rolette, North Dakota, and grew up in that state. He earned his undergraduate degree from Concordia College in 1983 and his master's degree from the University of Mary in 2003, and worked as a radio host, economic development director, and state energy policy advisor before serving as North Dakota's Public Service Commissioner.</p><p class="bio-para">Cramer was elected to the U.S. House in 2012, representing North Dakota's at-large congressional district, and then to the Senate in 2018, defeating two-term incumbent Heidi Heitkamp in a decisive race. He has served on the Armed Services, Banking, Environment and Public Works, and Veterans' Affairs Committees.</p><p class="bio-para">Cramer is the junior senator from North Dakota and focuses on energy production, agricultural policy, military affairs, and fiscal conservatism. He is a strong advocate for oil and gas production in the Bakken Formation and has worked to reduce energy regulations. He serves on the Environment and Public Works Committee where he advocates for fossil fuel interests.</p>
+    <p class="bio-para">Kevin John Cramer was born on January 21, 1961, in Rolette, North Dakota, and grew up in that state. He earned his undergraduate degree from Concordia College in 1983 and his master&#x27;s degree from the University of Mary in 2003, and worked as a radio host, economic development director, and state energy policy advisor before serving as North Dakota&#x27;s Public Service Commissioner.</p><p class="bio-para">Cramer was elected to the U.S. House in 2012, representing North Dakota&#x27;s at-large congressional district, and then to the Senate in 2018, defeating two-term incumbent Heidi Heitkamp in a decisive race. He has served on the Armed Services, Banking, Environment and Public Works, and Veterans&#x27; Affairs Committees.</p><p class="bio-para">Cramer is the junior senator from North Dakota and focuses on energy production, agricultural policy, military affairs, and fiscal conservatism. He is a strong advocate for oil and gas production in the Bakken Formation and has worked to reduce energy regulations. He serves on the Environment and Public Works Committee where he advocates for fossil fuel interests.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

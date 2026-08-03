@@ -15,28 +15,30 @@
 <title>Alma S. Adams — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Alma S. Adams was born in High Point, North Carolina, and raised in a family that instilled in her a deep commitment to education and public service. She earned her bachelor's degree from North Carolina A&T State University, followed by a master's degree and a Ph.D. in art education from The Ohio State University. Before entering federal office, Adams built a distinguished career as an educator, teaching for decades at Bennett College in Greensboro, North Carolina, where she also served as a professor and administrator.</p><p class="bio-para">Adams was first elected to the United States House of Representatives in a November 2014 special election to fill a vacancy in North Carolina's 12th Congressional District, making her the 100th woman serving in Congress at the time of her swearing-in. She has served on the House Committee on Education and the Workforce and the House Committee on Agriculture, championing issues related to historically Black colleges and universities, or HBCUs, and food security. Adams is perhaps best known as the founder and co-chair of the bipartisan HBCU Caucus, through which she has worked to secure increased federal funding and support for minority-serving institutions.</p><p class="bio-para">Adams continues to represent North Carolina's 12th Congressional District, which encompasses the Charlotte metropolitan area, and remains a prominent voice on issues of education equity, economic opportunity, and health disparities affecting underserved communities. She has been a strong advocate for maternal health, co-founding the Black Maternal Health Caucus and championing the Black Maternal Health Momnibus Act to address the disproportionate rates of maternal mortality among Black women. Her legislative priorities reflect a broader commitment to closing systemic gaps in education, healthcare, and economic access for communities of color.</p>
+    <p class="bio-para">Alma S. Adams was born in High Point, North Carolina, and raised in a family that instilled in her a deep commitment to education and public service. She earned her bachelor&#x27;s degree from North Carolina A&amp;T State University, followed by a master&#x27;s degree and a Ph.D. in art education from The Ohio State University. Before entering federal office, Adams built a distinguished career as an educator, teaching for decades at Bennett College in Greensboro, North Carolina, where she also served as a professor and administrator.</p><p class="bio-para">Adams was first elected to the United States House of Representatives in a November 2014 special election to fill a vacancy in North Carolina&#x27;s 12th Congressional District, making her the 100th woman serving in Congress at the time of her swearing-in. She has served on the House Committee on Education and the Workforce and the House Committee on Agriculture, championing issues related to historically Black colleges and universities, or HBCUs, and food security. Adams is perhaps best known as the founder and co-chair of the bipartisan HBCU Caucus, through which she has worked to secure increased federal funding and support for minority-serving institutions.</p><p class="bio-para">Adams continues to represent North Carolina&#x27;s 12th Congressional District, which encompasses the Charlotte metropolitan area, and remains a prominent voice on issues of education equity, economic opportunity, and health disparities affecting underserved communities. She has been a strong advocate for maternal health, co-founding the Black Maternal Health Caucus and championing the Black Maternal Health Momnibus Act to address the disproportionate rates of maternal mortality among Black women. Her legislative priorities reflect a broader commitment to closing systemic gaps in education, healthcare, and economic access for communities of color.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

@@ -15,28 +15,30 @@
 <title>Brandon Gill — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Brandon Gill is a Republican politician from Texas who was born and raised in the Dallas-Fort Worth area. Gill attended the University of Mississippi, where he earned his undergraduate degree, before pursuing a career in business and media, including work associated with conservative media ventures. Prior to his congressional run, he was known for his involvement in political commentary and his close ties to prominent conservative figures, including Turning Point USA founder Charlie Kirk, whose niece Gill married.</p><p class="bio-para">Gill was elected to Congress in November 2024, winning the race for Texas's 26th Congressional District, which covers suburban areas north of Fort Worth including parts of Denton County. He ran on a platform emphasizing border security, fiscal conservatism, and opposition to what he characterized as government overreach. His election was seen as part of a broader Republican wave in Texas suburban districts, and he was appointed to serve on committees where he could advance his priorities as a freshman member.</p><p class="bio-para">Gill currently serves as a member of the House of Representatives representing the constituents of Texas's 26th District, focusing on issues including immigration enforcement, energy policy, and reducing federal spending. He has aligned himself closely with the MAGA wing of the Republican Party and has been an outspoken advocate for the policy agenda associated with former President Donald Trump. As a freshman legislator, Gill continues to build his legislative record while maintaining a prominent public profile through media appearances and engagement with conservative political networks.</p>
+    <p class="bio-para">Brandon Gill is a Republican politician from Texas who was born and raised in the Dallas-Fort Worth area. Gill attended the University of Mississippi, where he earned his undergraduate degree, before pursuing a career in business and media, including work associated with conservative media ventures. Prior to his congressional run, he was known for his involvement in political commentary and his close ties to prominent conservative figures, including Turning Point USA founder Charlie Kirk, whose niece Gill married.</p><p class="bio-para">Gill was elected to Congress in November 2024, winning the race for Texas&#x27;s 26th Congressional District, which covers suburban areas north of Fort Worth including parts of Denton County. He ran on a platform emphasizing border security, fiscal conservatism, and opposition to what he characterized as government overreach. His election was seen as part of a broader Republican wave in Texas suburban districts, and he was appointed to serve on committees where he could advance his priorities as a freshman member.</p><p class="bio-para">Gill currently serves as a member of the House of Representatives representing the constituents of Texas&#x27;s 26th District, focusing on issues including immigration enforcement, energy policy, and reducing federal spending. He has aligned himself closely with the MAGA wing of the Republican Party and has been an outspoken advocate for the policy agenda associated with former President Donald Trump. As a freshman legislator, Gill continues to build his legislative record while maintaining a prominent public profile through media appearances and engagement with conservative political networks.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>

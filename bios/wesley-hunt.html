@@ -15,28 +15,30 @@
 <title>Wesley Hunt — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
-  /* ── CSS variables — dark default ── */
+  /* --bg, --gold, --border come from theme.css directly; the rest are short
+     local aliases to canonical tokens. applyTheme() toggles the class on
+     <html> (:root), same as index.html, so the local @media fallback below
+     is safe the same way index.html's is (see theme.css's own comment). */
   :root {
-    --bg:#0D0C0A; --bg2:#111009; --text:#F0E8D8; --text2:#C8B89A;
-    --muted:#A09070; --dim:#807050; --faint:#504030;
-    --gold:#E0B870; --border:rgba(255,255,255,0.08);
-    --header-bg:rgba(200,169,110,0.03); --header-border:rgba(200,169,110,0.2);
-    --tog-bg:rgba(255,255,255,0.08); --tog-border:rgba(255,255,255,0.16);
+    --bg2: var(--bg-secondary);
+    --text: var(--text-primary);
+    --text2: var(--text-secondary);
+    --muted: var(--text-muted);
+    --dim: var(--text-dim);
+    --faint: var(--text-faint);
+    --header-bg: var(--bg-header);
+    --header-border: var(--border-header);
+    --tog-bg: var(--toggle-bg);
+    --tog-border: var(--toggle-border);
   }
-  :root.light {
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
+  @media(prefers-color-scheme:light){:root:not(.dark):not(.light){
+    --bg:#F5F3EE; --bg-secondary:#EAE7DF; --text-primary:#0E0C0A; --text-secondary:#3A3020;
+    --text-muted:#5A4A35; --text-dim:#7A6A55; --text-faint:#A09080;
     --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
-  }
-  @media(prefers-color-scheme:light){:root:not(.dark){
-    --bg:#F5F3EE; --bg2:#EAE7DF; --text:#0E0C0A; --text2:#3A3020;
-    --muted:#5A4A35; --dim:#7A6A55; --faint:#A09080;
-    --gold:#B8860B; --border:rgba(0,0,0,0.08);
-    --header-bg:rgba(200,169,110,0.06); --header-border:rgba(180,130,50,0.3);
-    --tog-bg:rgba(0,0,0,0.05); --tog-border:rgba(0,0,0,0.12);
+    --bg-header:rgba(200,169,110,0.06); --border-header:rgba(180,130,50,0.3);
+    --toggle-bg:rgba(0,0,0,0.05); --toggle-border:rgba(0,0,0,0.12);
   }}
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;transition:background 0.2s,color 0.2s}
@@ -152,7 +154,7 @@
 
   <div class="bio-section">
     <div class="section-label">Biography</div>
-    <p class="bio-para">Wesley Hunt was born and raised in Houston, Texas, and comes from a family with a strong tradition of military service. He graduated from the United States Military Academy at West Point and went on to serve as an Army aviation officer, flying Apache helicopters and completing multiple deployments overseas before leaving the military as a captain. After his military career, Hunt pursued a career in the energy sector, working in the oil and gas industry in his home state of Texas.</p><p class="bio-para">Hunt was first elected to Congress in November 2022, representing Texas's newly drawn 38th Congressional District in the northwestern Houston suburbs. He serves on the House Permanent Select Committee on Intelligence and the House Armed Services Committee, bringing his military background to bear on national security and defense policy. He is widely recognized as a prominent conservative voice and is considered one of the rising figures within the Republican Party, having earned strong support from party leadership early in his congressional tenure.</p><p class="bio-para">Hunt continues to represent the constituents of Texas's 38th District with a focus on energy independence, national security, and fiscal conservatism. He has been an outspoken advocate for the domestic oil and gas industry, reflecting the economic priorities of his district and his own professional experience in the energy sector. Hunt has also remained engaged on issues related to veterans' affairs and military readiness, drawing directly on his background as a combat veteran to inform his legislative work.</p>
+    <p class="bio-para">Wesley Hunt was born and raised in Houston, Texas, and comes from a family with a strong tradition of military service. He graduated from the United States Military Academy at West Point and went on to serve as an Army aviation officer, flying Apache helicopters and completing multiple deployments overseas before leaving the military as a captain. After his military career, Hunt pursued a career in the energy sector, working in the oil and gas industry in his home state of Texas.</p><p class="bio-para">Hunt was first elected to Congress in November 2022, representing Texas&#x27;s newly drawn 38th Congressional District in the northwestern Houston suburbs. He serves on the House Permanent Select Committee on Intelligence and the House Armed Services Committee, bringing his military background to bear on national security and defense policy. He is widely recognized as a prominent conservative voice and is considered one of the rising figures within the Republican Party, having earned strong support from party leadership early in his congressional tenure.</p><p class="bio-para">Hunt continues to represent the constituents of Texas&#x27;s 38th District with a focus on energy independence, national security, and fiscal conservatism. He has been an outspoken advocate for the domestic oil and gas industry, reflecting the economic priorities of his district and his own professional experience in the energy sector. Hunt has also remained engaged on issues related to veterans&#x27; affairs and military readiness, drawing directly on his background as a combat veteran to inform his legislative work.</p>
   </div>
 
   <a href="../members.html" class="back-btn">← Back to Directory</a>
