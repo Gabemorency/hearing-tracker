@@ -14,18 +14,27 @@
 <link rel="stylesheet" href="/hearing-tracker/theme.css">
 <style>
 /* --bg, --gold, --blue, --purple, --teal, --border come from theme.css —
-   only calendar-specific short names and two local-only tints stay here. */
+   only calendar-specific short names and two local-only tints stay here.
+   The --bg2/--text/--text-s/--text-m aliases must be declared on body, not
+   :root: this page toggles .light on <body>, not <html>, and a var()
+   reference bakes in the value of the referenced property *at the element
+   where the alias itself is declared* — aliasing them at :root would have
+   permanently resolved --bg-secondary/etc. against <html> (which never
+   gets .light here), leaving every element that uses --bg2/--text/--text-s
+   /--text-m stuck on dark-mode colors even after switching to light. */
 :root {
-  --bg2: var(--bg-secondary);
-  --text: var(--text-primary);
-  --text-s: var(--text-secondary);
-  --text-m: var(--text-muted);
   --gold-dim: #8A6830;
   --hover: rgba(255,255,255,0.05);
 }
 .light {
   --gold-dim: #8A6620;
   --hover: rgba(0,0,0,0.04);
+}
+body {
+  --bg2: var(--bg-secondary);
+  --text: var(--text-primary);
+  --text-s: var(--text-secondary);
+  --text-m: var(--text-muted);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
