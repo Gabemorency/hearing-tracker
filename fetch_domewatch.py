@@ -57,6 +57,14 @@ from datetime import datetime, timedelta
 today = datetime.utcnow().strftime("%Y-%m-%d")
 end   = (datetime.utcnow() + timedelta(days=30)).strftime("%Y-%m-%d")
 data  = fetch("/committee-meetings", {"from": today, "to": end})
+if data is not None and not data.get("data"):
+    print(f"  Note: /committee-meetings returned 0 results for {today}..{end} "
+          f"(request succeeded — likely no data published that far out, or this "
+          f"account's plan doesn't include this endpoint; not a code error)")
 save("domewatch_meetings.json", data, {"data": []})
+
+# 4. House floor status (in session / recess / active vote)
+data = fetch("/floor")
+save("domewatch_floor.json", data, {})
 
 print("DomeWatch fetch complete.")

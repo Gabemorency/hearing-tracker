@@ -125,6 +125,25 @@ def test_diff_hearing_reports_cancellation():
     assert "CANCELLED" in scrape.diff_hearing(old, new)
 
 
+def test_watch_link_matches_senate_committee():
+    assert scrape.watch_link("Senate", "Committee on the Judiciary") == \
+        "https://www.judiciary.senate.gov/committee-activity/hearings"
+
+
+def test_watch_link_matches_house_committee():
+    assert scrape.watch_link("House", "Financial Services") == \
+        "https://financialservices.house.gov/calendar/"
+
+
+def test_watch_link_joint_falls_back_to_senate_pages():
+    assert scrape.watch_link("Joint", "Joint Economic Committee") == \
+        "https://www.jec.senate.gov/public/index.cfm/hearings-calendar"
+
+
+def test_watch_link_no_match_returns_empty():
+    assert scrape.watch_link("House", "Totally Fake Committee") == ""
+
+
 def test_diff_hearing_no_changes_when_identical():
     h = {"time": "10:00 AM", "room": "SD-106", "building": "Dirksen (SD)",
          "witnesses": [], "cancelled": False}

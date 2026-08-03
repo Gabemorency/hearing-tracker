@@ -9,7 +9,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write
       issues: write
 
     steps:
@@ -28,6 +28,15 @@ jobs:
         id: validate
         run: python validate_hardcoded.py
         continue-on-error: true
+
+      - name: Commit auto-cleaned data if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add bios_hardcoded.json vacant_seats.json
+          git diff --cached --quiet || git commit -m "Validator cleanup $(date -u '+%Y-%m-%d')"
+          git pull --rebase
+          git push
 
       - name: Open GitHub Issue if validation failed
         if: steps.validate.outcome == 'failure'

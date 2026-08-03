@@ -50,26 +50,9 @@ STATE_NAMES = {
 }
 
 # ── Institutional leadership roles ────────────────────────────────────────────
-INST_ROLES = {
-    "T000250": "Senate Majority Leader",
-    "G000386": "President Pro Tempore of the United States Senate",
-    "B001261": "Senate Majority Whip",
-    "C001095": "Senate Republican Conference Chair",
-    "L000575": "Senate Republican Conference Vice Chair",
-    "C001047": "Senate Republican Policy Committee Chair",
-    "S000148": "Senate Minority Leader",
-    "D000563": "Senate Minority Whip",
-    "K000367": "Senate Democratic Steering and Policy Committee Chair",
-    "B001288": "Senate Democratic Strategic Communications Chair",
-    "J000299": "Speaker of the United States House of Representatives",
-    "S001176": "House Majority Leader",
-    "E000294": "House Majority Whip",
-    "M001136": "House Republican Conference Chair",
-    "J000294": "House Minority Leader",
-    "C001101": "House Minority Whip",
-    "A000371": "House Democratic Caucus Chair",
-    "N000191": "Assistant House Democratic Leader",
-}
+# Shared with build_members.py / validate_hardcoded.py so all three stay in sync.
+with open("institutional_leadership.json", "r", encoding="utf-8") as _lf:
+    INST_ROLES = {bid: v["full_title"] for bid, v in json.load(_lf).items()}
 
 # ── Write bio with Claude (no scraping) ──────────────────────────────────────
 def write_bio(name, chamber, state_code, party, role, district=None):

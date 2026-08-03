@@ -177,6 +177,19 @@ HOUSE_COMMITTEE_PAGES = [
     ("Ways & Means",              "https://waysandmeans.house.gov/hearings/"),
 ]
 
+def watch_link(chamber, committee):
+    """
+    Best-effort link to where a hearing can be watched: the committee's own
+    hearings page, which embeds the live webcast player during an active
+    hearing. Not a per-hearing video URL (committees don't publish one
+    consistently) but always a real, working link to the right place.
+    """
+    pages = SENATE_COMMITTEE_PAGES if chamber in ("Senate", "Joint") else HOUSE_COMMITTEE_PAGES
+    for label, url in pages:
+        if cmte_similarity(committee, label):
+            return url
+    return ""
+
 # ── Helpers ────────────────────────────────────────────────────────────────────
 def hearing_key(h):
     return f"{h['chamber']}|{h['committee'][:40]}|{h['time']}"
@@ -796,6 +809,11 @@ async def scrape():
 
     save_json(SNAPSHOT_FILE, {hearing_key(h): h for h in merged})
 
+    # Attach a watch-live link (committee's hearings page) where missing
+    for h in merged:
+        if not h.get("link"):
+            h["link"] = watch_link(h["chamber"], h["committee"])
+
     # Sort
     def sort_key(h):
         order = {"Senate": 0, "House": 1, "Joint": 2}
@@ -1094,6 +1112,9 @@ def build_html(hearings):
   .card-section-label {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 5px; }}
   .card-section-value {{ font-size: 12px; color: var(--text-secondary); line-height: 1.65; }}
 
+  .watch-link {{ font-size: 12px; font-weight: 600; color: var(--text-primary); text-decoration: none; display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border: 1px solid var(--border-header); border-radius: 5px; background: var(--bg-header); }}
+  .watch-link:hover {{ border-color: var(--gold); }}
+
   .sl-senate {{ color: var(--gold); }}
   .sl-house  {{ color: var(--blue); }}
   .sl-joint  {{ color: var(--purple); }}
@@ -1112,6 +1133,33 @@ def build_html(hearings):
   .empty {{ text-align: center; padding: 40px; color: var(--text-faint); font-size: 13px; }}
 
 /* ---- DomeWatch sections ---- */
+/* ── House floor status bar ── */
+.floor-bar {{
+  display:flex;align-items:center;gap:0.6rem;
+  padding:0.55rem 1rem;font-size:0.8rem;
+  border-bottom:1px solid var(--border, rgba(255,255,255,0.1));
+  background:var(--bg-header, rgba(200,169,110,0.04));
+  color:var(--text-secondary,#C8B89A);
+}}
+.floor-bar__dot {{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+  background:var(--text-faint,#504030);
+}}
+.floor-bar--in-session .floor-bar__dot {{ background:#6DBF8A; }}
+.floor-bar--vote-active .floor-bar__dot {{ background:var(--gold,#E0B870); }}
+.floor-bar--recess .floor-bar__dot {{ background:var(--text-faint,#504030); }}
+.floor-bar--in-session .floor-bar__text,
+.floor-bar--vote-active .floor-bar__text {{ color:var(--text-primary,#F0E8D8); font-weight:600; }}
+.floor-bar__vote {{
+  font-family:'IBM Plex Mono',monospace;font-size:0.72rem;
+  padding:1px 7px;border-radius:10px;
+  background:rgba(224,184,112,0.15);color:var(--gold,#E0B870);
+}}
+.floor-bar__time {{
+  margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;
+  color:var(--text-dim,#A09070);
+}}
+
 /* ── Coming to the Floor ── */
 .floor-section {{
   margin:2rem 1rem 0;
@@ -1241,6 +1289,13 @@ def build_html(hearings):
   <a href="members.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--text-muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;">Members</a>
   <a href="calendar.html" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;color:var(--text-muted);text-decoration:none;padding:10px 14px;border-bottom:2px solid transparent;">Calendar</a>
 </nav>
+
+<div id="floor-bar" class="floor-bar floor-bar--loading" style="display:none">
+  <span class="floor-bar__dot"></span>
+  <span id="floor-bar__text" class="floor-bar__text">Checking House floor status&hellip;</span>
+  <span id="floor-bar__vote" class="floor-bar__vote" style="display:none"></span>
+  <span id="floor-bar__time" class="floor-bar__time"></span>
+</div>
 
 <div class="stats">
   <div class="stat"><div class="stat-number" style="color:#6DBF8A">{ac}</div><div class="stat-label">Active</div></div>
@@ -1389,6 +1444,7 @@ function buildCards(filter) {{
           <div class="card-section-label sl-${{c}}">Witnesses</div>
           ${{witnessHtml}}
         </div>
+        ${{h.link ? '<div class="card-section"><a class="watch-link" href="'+h.link+'" target="_blank" rel="noopener">&#128308; Watch / committee hearings page &#8599;</a></div>' : ''}}
       </div>`;
 
     card.addEventListener('click',()=>card.classList.toggle('open'));
@@ -1430,6 +1486,40 @@ function fmtDate(iso) {{
   var d = new Date(iso);
   return d.toLocaleDateString("en-US", {{month:"short",day:"numeric"}}) + " " +
          d.toLocaleTimeString("en-US", {{hour:"numeric",minute:"2-digit",hour12:true}});
+}}
+
+// ── House floor status ───────────────────────────────────────────────────────
+function loadFloor() {{
+  fetch("/hearing-tracker/domewatch_floor.json")
+    .then(function(r) {{ return r.ok ? r.json() : null; }})
+    .then(function(d) {{
+      var bar = document.getElementById("floor-bar");
+      var txt = document.getElementById("floor-bar__text");
+      var vot = document.getElementById("floor-bar__vote");
+      var tim = document.getElementById("floor-bar__time");
+      if (!bar) return;
+      if (!d || Object.keys(d).length === 0) {{ bar.style.display = "none"; return; }}
+      bar.className = "floor-bar";
+      vot.style.display = "none";
+      if (d.inSession) {{
+        if (d.vote && d.vote.rollCall) {{
+          bar.classList.add("floor-bar--vote-active");
+          txt.textContent = "House In Session — Vote: " + (d.vote.question || "Roll Call");
+          var c = d.vote.counts || {{}};
+          vot.textContent = "D " + ((c.D || {{}}).yea || 0) + "  R " + ((c.R || {{}}).yea || 0);
+          vot.style.display = "inline";
+        }} else {{
+          bar.classList.add("floor-bar--in-session");
+          txt.textContent = "House In Session" + (d.currentActivity ? " — " + d.currentActivity : "");
+        }}
+      }} else {{
+        bar.classList.add("floor-bar--recess");
+        txt.textContent = d.currentActivity || "House Not In Session";
+      }}
+      if (d.asOf) tim.textContent = "Updated " + fmtDate(d.asOf);
+      bar.style.display = "flex";
+    }})
+    .catch(function() {{ var bar = document.getElementById("floor-bar"); if (bar) bar.style.display = "none"; }});
 }}
 
 // ── Coming to the Floor ──────────────────────────────────────────────────────
@@ -1512,12 +1602,12 @@ function loadUpdates() {{
       groupOrder.forEach(function(dateStr, i) {{
         var label = formatTabDate(dateStr);
         var activeClass = i === 0 ? " active" : "";
-        th += '<button class="updates-tab' + activeClass + '" onclick="switchTab(this,'panel-' + i + '')">' + label + '</button>';
+        th += '<button class="updates-tab' + activeClass + '" onclick="switchTab(this,\\'panel-' + i + '\\')">' + label + '</button>';
         ph += '<div class="updates-panel' + activeClass + '" id="panel-' + i + '">';
         groups[dateStr].forEach(function(u) {{
           var bodyId = "ub-" + Math.random().toString(36).slice(2);
           ph += '<div class="update-card">';
-          ph += '<div class="update-card__header" onclick="toggleUpdate('' + bodyId + '',this)">';
+          ph += '<div class="update-card__header" onclick="toggleUpdate(\\'' + bodyId + '\\',this)">';
           ph += '<span class="update-card__subject">' + (u.subject || "Floor Update") + '</span>';
           ph += '<span class="update-card__time">' + fmtDate(u.publishedAt) + '</span>';
           ph += '</div>';
@@ -1561,6 +1651,7 @@ function toggleUpdate(bodyId, header) {{
 }}
 
 document.addEventListener("DOMContentLoaded", function() {{
+  loadFloor();
   loadWhip();
   loadUpdates();
 }});
