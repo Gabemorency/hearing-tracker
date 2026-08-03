@@ -148,3 +148,55 @@ def test_diff_hearing_no_changes_when_identical():
     h = {"time": "10:00 AM", "room": "SD-106", "building": "Dirksen (SD)",
          "witnesses": [], "cancelled": False}
     assert scrape.diff_hearing(h, dict(h)) == []
+
+
+def test_word_overlap_score_real_match():
+    # Real example: July 28 Homeland Security hearing vs its actual
+    # hsgac.senate.gov link text.
+    topic = "Hearings to examine the testimony of Anthony Fauci."
+    candidate_text = "Testimony of Anthony Fauci"
+    assert scrape.word_overlap_score(topic, candidate_text) == 1.0
+
+
+def test_word_overlap_score_unrelated_text():
+    assert scrape.word_overlap_score(
+        "Hearing to examine the state of the U.S. Territories",
+        "Nomination Hearing"
+    ) < 0.34
+
+
+def test_word_overlap_score_empty_inputs():
+    assert scrape.word_overlap_score("", "Some hearing title") == 0.0
+    assert scrape.word_overlap_score("Some hearing title", "") == 0.0
+
+
+def test_best_hearing_link_picks_highest_scoring_candidate():
+    candidates = [
+        {"text": "Business Meeting to Consider Nominations", "href": "https://example.com/wrong"},
+        {"text": "Testimony of Anthony Fauci", "href": "https://example.com/right"},
+    ]
+    link = scrape.best_hearing_link(
+        "Hearings to examine the testimony of Anthony Fauci.", candidates)
+    assert link == "https://example.com/right"
+
+
+def test_best_hearing_link_returns_none_below_threshold():
+    candidates = [{"text": "Completely Unrelated Nomination Hearing", "href": "https://example.com/x"}]
+    assert scrape.best_hearing_link("The AI Deception Machine", candidates) is None
+
+
+def test_best_hearing_link_returns_none_for_empty_candidates():
+    assert scrape.best_hearing_link("Any topic", []) is None
+
+
+def test_hearing_link_rules_only_reference_real_committees():
+    """Every (chamber, name) key must exist in the corresponding committee
+    page table, or watch_link()'s generic fallback would silently never
+    fire for that rule (a typo'd committee name)."""
+    senate_names = {name for name, _ in scrape.SENATE_COMMITTEE_PAGES}
+    house_names  = {name for name, _ in scrape.HOUSE_COMMITTEE_PAGES}
+    for (chamber, name) in scrape.HEARING_LINK_RULES:
+        if chamber == "Senate":
+            assert name in senate_names, f"{name!r} not in SENATE_COMMITTEE_PAGES"
+        else:
+            assert name in house_names, f"{name!r} not in HOUSE_COMMITTEE_PAGES"
