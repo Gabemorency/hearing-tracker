@@ -3,8 +3,6 @@ Smoke tests for scrape_meeting_committees.py. DomeWatch's /committee-meetings
 API has no committee-name field (verified against its full response schema),
 so we scrape each meeting's real docs.house.gov page for it instead.
 """
-from playwright.sync_api import sync_playwright
-
 import scrape_meeting_committees as smc
 
 
@@ -53,18 +51,17 @@ NO_COMMITTEE_HTML = "<html><body><h2>Error Encountered</h2></body></html>"
 
 
 def test_extract_committee_name_real_shape():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(executable_path="/opt/pw-browsers/chromium")
-        page = browser.new_page()
-        page.set_content(REAL_EVENT_HTML)
-        assert smc.extract_committee_name(page) == "Committee on Rules"
-        browser.close()
+    assert smc.extract_committee_name(REAL_EVENT_HTML) == "Committee on Rules"
 
 
 def test_extract_committee_name_missing_returns_none():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(executable_path="/opt/pw-browsers/chromium")
-        page = browser.new_page()
-        page.set_content(NO_COMMITTEE_HTML)
-        assert smc.extract_committee_name(page) is None
-        browser.close()
+    assert smc.extract_committee_name(NO_COMMITTEE_HTML) is None
+
+
+def test_extract_committee_name_strips_nested_tags():
+    html = """
+    <h1>Meeting: X<small><blockquote>
+        <p><b>Committee on <i>Rules</i></b><br></p>
+    </blockquote></small></h1>
+    """
+    assert smc.extract_committee_name(html) == "Committee on Rules"
