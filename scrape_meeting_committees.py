@@ -11,10 +11,13 @@ so we scrape it from there instead of guessing.
 Building a small persistent cache (meeting id -> committee name) rather than
 re-scraping DomeWatch's ~200+ known meetings on every 2-hour run. Only new,
 uncached meeting ids get fetched, capped per run since each fetch is a real
-Playwright page load. A meeting whose page fails to load or doesn't match
-the expected shape (seen in the wild — some event ids 404 on the House side)
-is simply left out of the cache and calendar.html falls back to its existing
-generic "Hearing — Rm ___" label for it.
+Playwright page load, nearest to today's date first — DomeWatch returns
+meetings oldest-first, so scraping in raw API order would work chronologically
+backward from ~90 days ago and take many runs to reach whatever's actually
+visible on the calendar around today. A meeting whose page fails to load or
+doesn't match the expected shape (seen in the wild — some event ids 404 on
+the House side) is simply left out of the cache and calendar.html falls back
+to its existing generic "Hearing — Rm ___" label for it.
 
 The meeting id is docs.house.gov's own permanent EventId (it's literally in
 the url, e.g. ?EventId=119443), not something DomeWatch invents, so it
@@ -29,6 +32,7 @@ backlog of brand-new meetings is caught up for a given run.
 import json
 import os
 import re
+from datetime import datetime, timezone
 from playwright.sync_api import sync_playwright
 
 MEETINGS_FILE   = "domewatch_meetings.json"
@@ -48,9 +52,27 @@ def load_json(path, fallback):
             return json.load(f)
     return fallback
 
-def pending_meetings(meetings, cache, max_per_run=MAX_PER_RUN):
-    """Meetings with an id/url not yet in the cache, capped to max_per_run."""
+def _parse_date(iso_str):
+    try:
+        return datetime.fromisoformat(iso_str.replace("Z", "+00:00"))
+    except (AttributeError, ValueError):
+        return None
+
+def pending_meetings(meetings, cache, max_per_run=MAX_PER_RUN, today=None):
+    """Meetings with an id/url not yet in the cache, nearest to today's date
+    first, capped to max_per_run. DomeWatch's API returns meetings sorted
+    oldest-first, so scraping in raw API order works chronologically
+    backward from ~90 days ago instead of filling in what's actually
+    visible on the calendar around today — sorting by distance from today
+    fixes that (a meeting with no parseable date sorts last, not first)."""
+    today = today or datetime.now(timezone.utc)
     pending = [m for m in meetings if m.get("id") and m.get("url") and m["id"] not in cache]
+
+    def distance(m):
+        d = _parse_date(m.get("startDate", ""))
+        return abs((d - today).total_seconds()) if d else float("inf")
+
+    pending.sort(key=distance)
     return pending[:max_per_run]
 
 def recheck_candidates(meetings, cache, limit):
