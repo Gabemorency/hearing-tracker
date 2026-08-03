@@ -573,7 +573,7 @@ async def scrape():
                     continue
                 seen_senate.add(dk)
 
-                topic   = topic_cell.strip()[:200]
+                topic   = topic_cell.strip()[:1000]
 
                 # Skip placeholder "no hearings" rows from senate.gov
                 PLACEHOLDER_PHRASES = [
@@ -807,12 +807,15 @@ async def scrape():
             else:
                 h["changes"] = old.get("changes", [])
 
-    save_json(SNAPSHOT_FILE, {hearing_key(h): h for h in merged})
-
-    # Attach a watch-live link (committee's hearings page) where missing
+    # Attach a watch-live link (committee's hearings page) where missing —
+    # must happen before snapshot.json is written, or the file calendar.html
+    # actually reads never gets the link (only the in-memory list used to
+    # build index.html would have it).
     for h in merged:
         if not h.get("link"):
             h["link"] = watch_link(h["chamber"], h["committee"])
+
+    save_json(SNAPSHOT_FILE, {hearing_key(h): h for h in merged})
 
     # Sort
     def sort_key(h):
