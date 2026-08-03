@@ -1,7 +1,4 @@
 {
-  "119296": "Committee on House Administration",
-  "119257": "Europe Subcommittee (Committee on Foreign Affairs)",
-  "119272": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
   "119273": "Committee on Armed Services",
   "119277": "Subcommittee on Federal Law Enforcement (Committee on Oversight and Government Reform)",
   "119271": "Committee on Education and Workforce",
@@ -235,5 +232,8 @@
   "119282": "Committee on Appropriations",
   "119269": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
   "119294": "Subcommittee on Health (Committee on Energy and Commerce)",
-  "119274": "Subcommittee on Seapower and Projection Forces (Committee on Armed Services)"
+  "119274": "Subcommittee on Seapower and Projection Forces (Committee on Armed Services)",
+  "119296": "Committee on House Administration",
+  "119257": "Europe Subcommittee (Committee on Foreign Affairs)",
+  "119272": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)"
 }
