@@ -1506,17 +1506,28 @@ function loadWhip() {{
       // notice is for a day that's already passed (e.g. no new one since a
       // recess started), swap "Coming to the Floor" for "Last on the Floor"
       // so it reads as history instead of an upcoming schedule.
-      var noticeDate = n.publishDate || (n.postedAt || "").substring(0,10);
-      var shortDate  = "";
-      if (noticeDate) {{
-        var nd = new Date(noticeDate + "T12:00:00");
-        shortDate = nd.toLocaleDateString("en-US", {{month:"short", day:"numeric"}});
-        if (title) {{
-          title.textContent = noticeDate < TODAY_ISO ? "Last on the Floor" : "Coming to the Floor";
-        }}
-        if (src) {{
-          src.textContent = "Whip Notice for " + nd.toLocaleDateString("en-US",
-            {{weekday:"long", month:"long", day:"numeric"}});
+      //
+      // Compared as actual Date objects, not raw strings — DomeWatch's
+      // publishDate has always been zero-padded ("2026-07-23") in practice,
+      // but a lexicographic string compare would silently mis-rank an
+      // unpadded date (e.g. "2026-8-2" sorts *after* "2026-08-02"). Date
+      // parsing either works correctly or produces Invalid Date, which
+      // compares false either way and safely falls through to the default
+      // "Coming to the Floor" instead of an actively wrong label.
+      var noticeDateStr = n.publishDate || (n.postedAt || "").substring(0,10);
+      var shortDate = "";
+      if (noticeDateStr) {{
+        var nd = new Date(noticeDateStr + "T12:00:00");
+        var today = new Date(TODAY_ISO + "T12:00:00");
+        if (!isNaN(nd.getTime()) && !isNaN(today.getTime())) {{
+          shortDate = nd.toLocaleDateString("en-US", {{month:"short", day:"numeric"}});
+          if (title) {{
+            title.textContent = nd < today ? "Last on the Floor" : "Coming to the Floor";
+          }}
+          if (src) {{
+            src.textContent = "Whip Notice for " + nd.toLocaleDateString("en-US",
+              {{weekday:"long", month:"long", day:"numeric"}});
+          }}
         }}
       }}
       var dateSuffix = shortDate ? " (" + shortDate + ")" : "";
