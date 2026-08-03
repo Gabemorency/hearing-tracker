@@ -73,41 +73,38 @@ def save(filename, data, fallback):
             json.dump(fallback, f)
         print(f"  {filename} created with fallback")
 
-def main(floor_only=False):
+def main():
     if not API_KEY:
         print("WARNING: DOMEWATCH_API_KEY not set — skipping DomeWatch fetch")
         return
 
     print("Fetching DomeWatch data...")
 
-    if not floor_only:
-        # 1. Whip notices — daily bulletins, no need to poll faster than update.yml's cadence
-        data = fetch("/whip-notices", {"limit": 3})
-        data = fix_whip_bill_urls(data)
-        save("domewatch_whip.json", data, {"data": []})
+    # 1. Whip notices
+    data = fetch("/whip-notices", {"limit": 3})
+    data = fix_whip_bill_urls(data)
+    save("domewatch_whip.json", data, {"data": []})
 
-        # 2. Floor updates
-        data = fetch("/floor-updates", {"limit": 8})
-        save("domewatch_updates.json", data, {"data": []})
+    # 2. Floor updates
+    data = fetch("/floor-updates", {"limit": 8})
+    save("domewatch_updates.json", data, {"data": []})
 
-        # 3. Committee meetings — next 30 days
-        from datetime import datetime, timedelta
-        today = datetime.utcnow().strftime("%Y-%m-%d")
-        end   = (datetime.utcnow() + timedelta(days=30)).strftime("%Y-%m-%d")
-        data  = fetch("/committee-meetings", {"from": today, "to": end})
-        if data is not None and not data.get("data"):
-            print(f"  Note: /committee-meetings returned 0 results for {today}..{end} "
-                  f"(request succeeded — likely no data published that far out, or this "
-                  f"account's plan doesn't include this endpoint; not a code error)")
-        save("domewatch_meetings.json", data, {"data": []})
+    # 3. Committee meetings — next 30 days
+    from datetime import datetime, timedelta
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    end   = (datetime.utcnow() + timedelta(days=30)).strftime("%Y-%m-%d")
+    data  = fetch("/committee-meetings", {"from": today, "to": end})
+    if data is not None and not data.get("data"):
+        print(f"  Note: /committee-meetings returned 0 results for {today}..{end} "
+              f"(request succeeded — likely no data published that far out, or this "
+              f"account's plan doesn't include this endpoint; not a code error)")
+    save("domewatch_meetings.json", data, {"data": []})
 
-    # 4. House floor status (in session / recess / active vote) — the one thing
-    # that genuinely changes on a timescale shorter than update.yml's 2 hours.
+    # 4. House floor status (in session / recess / active vote)
     data = fetch("/floor")
     save("domewatch_floor.json", data, {})
 
     print("DomeWatch fetch complete.")
 
 if __name__ == "__main__":
-    import sys
-    main(floor_only="--floor-only" in sys.argv)
+    main()
