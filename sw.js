@@ -13,7 +13,11 @@
 // v5: added theme.css (the shared design-token stylesheet every page now
 // links) to PRECACHE — without it, an offline visitor's first-ever page
 // load would render entirely unstyled.
-const CACHE_NAME = 'hearing-tracker-v5';
+// v6: bio pages are cache-first by design (see above), so a factual
+// correction to a bio's text (e.g. a stale "former President" reference)
+// never reaches a browser that had already cached that page — cache-first
+// means it's never re-fetched until this version bumps and evicts it.
+const CACHE_NAME = 'hearing-tracker-v6';
 
 const PRECACHE = [
   '/hearing-tracker/',
