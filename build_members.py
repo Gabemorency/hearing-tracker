@@ -505,6 +505,7 @@ def build_bio_page(m, paragraphs):
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+<meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
 <title>{name_safe} — Congressional Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -662,6 +663,8 @@ function applyTheme(t){{
   document.documentElement.classList.remove('light','dark');
   document.documentElement.classList.add(t);
   document.getElementById('tog').textContent = t==='dark'?'☀️':'🌙';
+  var tcm = document.getElementById('theme-color-meta');
+  if (tcm) tcm.setAttribute('content', t==='light'?'#F5F3EE':'#0D0C0A');
 }}
 function toggleTheme(){{
   const n = document.documentElement.classList.contains('light')?'dark':'light';
@@ -693,6 +696,7 @@ def build_html(members_json):
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+<meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
 <title>Congressional Directory — {today_str}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -1053,6 +1057,8 @@ function applyTheme(t){{
   document.documentElement.classList.remove('light','dark');
   document.documentElement.classList.add(t);
   document.getElementById('tog').textContent = t==='dark'?'☀️':'🌙';
+  const tcm = document.getElementById('theme-color-meta');
+  if (tcm) tcm.setAttribute('content', t==='light'?'#F5F3EE':'#0D0C0A');
 }}
 function toggleTheme(){{
   const n = document.documentElement.classList.contains('light')?'dark':'light';

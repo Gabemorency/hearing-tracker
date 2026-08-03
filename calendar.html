@@ -7,6 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
+<meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
 <title>Congressional Calendar - Hearing Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -166,10 +167,19 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   var DAYS   = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
   // Theme
+  // Mobile browser chrome (Android address bar, iOS status bar in Safari
+  // tabs) colors itself from this meta tag, not the page's own CSS — left
+  // hardcoded to the dark --bg value it never followed the light/dark
+  // toggle, so switching to light mode still showed a black bar up top.
+  function updateThemeColor(light) {
+    var meta = document.getElementById("theme-color-meta");
+    if (meta) meta.setAttribute("content", light ? "#F5F3EE" : "#0D0C0A");
+  }
   window.toggleTheme = function() {
     var light = document.body.classList.toggle("light");
     localStorage.setItem("theme", light ? "light" : "dark");
     document.getElementById("theme-toggle").textContent = light ? "🌙" : "☀️";
+    updateThemeColor(light);
   };
   (function() {
     var t = localStorage.getItem("theme") ||
@@ -178,6 +188,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
       document.body.classList.add("light");
       document.getElementById("theme-toggle").textContent = "🌙";
     }
+    updateThemeColor(t === "light");
   })();
 
   // House floor status
