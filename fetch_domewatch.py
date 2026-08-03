@@ -85,15 +85,21 @@ def main():
     data = fix_whip_bill_urls(data)
     save("domewatch_whip.json", data, {"data": []})
 
-    # 2. Committee meetings — next 30 days
+    # 2. Committee meetings — DomeWatch's data here is mostly a record of
+    # meetings that already happened, not a forward schedule, so querying
+    # only "today..+30 days" returns 0 results whenever nothing's been
+    # published that far ahead (e.g. during a recess) even though real
+    # meetings from the recent past exist. calendar.html's own committee
+    # rendering already looks back 90 days, so match that window here.
     from datetime import datetime, timedelta
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+    start = (datetime.utcnow() - timedelta(days=90)).strftime("%Y-%m-%d")
     end   = (datetime.utcnow() + timedelta(days=30)).strftime("%Y-%m-%d")
-    data  = fetch("/committee-meetings", {"from": today, "to": end})
+    data  = fetch("/committee-meetings", {"from": start, "to": end})
     if data is not None and not data.get("data"):
-        print(f"  Note: /committee-meetings returned 0 results for {today}..{end} "
-              f"(request succeeded — likely no data published that far out, or this "
-              f"account's plan doesn't include this endpoint; not a code error)")
+        print(f"  Note: /committee-meetings returned 0 results for {start}..{end} "
+              f"(request succeeded — this account's plan may not include this "
+              f"endpoint, or DomeWatch has no meeting records in this window; "
+              f"not a code error)")
     save("domewatch_meetings.json", data, {"data": []})
 
     # 3. House floor status (in session / recess / active vote)
