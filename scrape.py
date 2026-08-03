@@ -1423,7 +1423,7 @@ buildCards('All');
 
 <section id="whip-section" class="floor-section" style="display:none">
   <div class="floor-section__header">
-    <span class="floor-section__title">Coming to the Floor</span>
+    <span id="whip-title" class="floor-section__title">Coming to the Floor</span>
     <span id="whip-source" class="floor-section__source">DomeWatch Whip Notice</span>
   </div>
   <div id="whip-schedule" class="floor-schedule" style="display:none"></div>
@@ -1432,6 +1432,7 @@ buildCards('All');
 
 <script>
 // DomeWatch data — loaded from local JSON, updated every 2 hours
+var TODAY_ISO = "{today_iso}";
 function fmtDate(iso) {{
   if (!iso) return "";
   var d = new Date(iso);
@@ -1490,22 +1491,29 @@ function loadWhip() {{
     .then(function(r) {{ return r.ok ? r.json() : null; }})
     .then(function(data) {{
       if (!data || !data.data || !data.data.length) return;
-      var n   = data.data[0];
-      var sec = document.getElementById("whip-section");
-      var src = document.getElementById("whip-source");
-      var sch = document.getElementById("whip-schedule");
-      var itm = document.getElementById("whip-items");
+      var n     = data.data[0];
+      var sec   = document.getElementById("whip-section");
+      var title = document.getElementById("whip-title");
+      var src   = document.getElementById("whip-source");
+      var sch   = document.getElementById("whip-schedule");
+      var itm   = document.getElementById("whip-items");
       if (!sec) return;
 
       // Notice date — the schedule times below (House Meets, First/Last Votes)
       // are all relative to this specific day, not "today." Shown both in the
       // section header and directly on each time (the header line is easy to
-      // skim past; the times are what people are actually reading).
+      // skim past; the times are what people are actually reading). If the
+      // notice is for a day that's already passed (e.g. no new one since a
+      // recess started), swap "Coming to the Floor" for "Last on the Floor"
+      // so it reads as history instead of an upcoming schedule.
       var noticeDate = n.publishDate || (n.postedAt || "").substring(0,10);
       var shortDate  = "";
       if (noticeDate) {{
         var nd = new Date(noticeDate + "T12:00:00");
         shortDate = nd.toLocaleDateString("en-US", {{month:"short", day:"numeric"}});
+        if (title) {{
+          title.textContent = noticeDate < TODAY_ISO ? "Last on the Floor" : "Coming to the Floor";
+        }}
         if (src) {{
           src.textContent = "Whip Notice for " + nd.toLocaleDateString("en-US",
             {{weekday:"long", month:"long", day:"numeric"}});
