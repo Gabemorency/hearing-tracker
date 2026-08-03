@@ -1,72 +1,44 @@
 """
 TEMPORARY diagnostic script — to be deleted after use.
-Investigates whether DomeWatch's API exposes a forward-looking session
-calendar (projected in-session/recess days for the next few months),
-the way their website shows one. Tries a range of plausible endpoint
-names and also dumps the full shape of any hit so we know what fields
-are available.
+Round 2: DomeWatch's own API has no forward-looking session-calendar
+endpoint (confirmed round 1 — all candidates 404). The House Majority
+Leader's office and the Senate leadership both publish official
+projected floor schedules months in advance; check whether those are
+fetchable/parseable server-side.
 """
-import os
-import json
 import requests
 
-API_KEY = os.environ.get("DOMEWATCH_API_KEY", "")
-BASE = "https://data.domewatch.us/v1"
-
-CANDIDATES = [
-    "/session-calendar",
-    "/calendar",
-    "/legislative-calendar",
-    "/schedule",
-    "/session-days",
-    "/floor-calendar",
-    "/in-session",
-    "/house-calendar",
-    "/senate-calendar",
-    "/floor/calendar",
-    "/floor-schedule",
-    "/congress-calendar",
+TARGETS = [
+    ("House Majority Leader calendar", "https://www.majorityleader.gov/calendar"),
+    ("House Majority Leader legislative calendar", "https://www.majorityleader.gov/legislative-calendar"),
+    ("Clerk of the House legislative calendar", "https://clerk.house.gov/Legislative"),
+    ("docs.house.gov calendar", "https://docs.house.gov/Committee/Calendar/index.aspx"),
+    ("Senate floor schedule", "https://www.senate.gov/legislative/schedule.htm"),
+    ("Senate floor activity", "https://www.senate.gov/legislative/floor_activity.htm"),
 ]
 
-def fetch(endpoint, params=None):
-    url = BASE + endpoint
-    headers = {"X-API-Key": API_KEY, "Accept": "application/json"}
-    try:
-        r = requests.get(url, headers=headers, params=params, timeout=15)
-        print(f"  {endpoint} -> HTTP {r.status_code}")
-        if r.status_code == 200:
-            try:
-                return r.json()
-            except Exception as e:
-                print(f"    (not JSON: {e}); body[:300]={r.text[:300]!r}")
-        else:
-            print(f"    body[:300]={r.text[:300]!r}")
-        return None
-    except requests.exceptions.RequestException as e:
-        print(f"  {endpoint} -> request failed: {e}")
-        return None
-
 def main():
-    if not API_KEY:
-        print("WARNING: DOMEWATCH_API_KEY not set")
-        return
-
-    print("=== Trying candidate session-calendar endpoints ===")
-    for ep in CANDIDATES:
-        data = fetch(ep)
-        if data:
-            print(f"    HIT! Keys: {list(data.keys()) if isinstance(data, dict) else type(data)}")
-            print(f"    Sample: {json.dumps(data, indent=2)[:2000]}")
-
-    print("\n=== Re-checking known-good /floor endpoint for hints of a calendar field ===")
-    data = fetch("/floor")
-    if data:
-        print(json.dumps(data, indent=2)[:3000])
-
-    print("\n=== Re-checking /committee-meetings response shape for any calendar-like sibling data ===")
-    data = fetch("/committee-meetings", {"from": "2026-08-01", "to": "2026-08-10"})
-    if data:
-        print(f"Top-level keys: {list(data.keys()) if isinstance(data, dict) else type(data)}")
+    for label, url in TARGETS:
+        try:
+            r = requests.get(url, timeout=15, headers={
+                "User-Agent": "Mozilla/5.0 (compatible; hearing-tracker-diagnostic/1.0)"
+            })
+            print(f"\n=== {label} ({url}) -> HTTP {r.status_code}, {len(r.text)} bytes ===")
+            if r.status_code == 200:
+                # Print a stripped-down snippet: title + first chunk of visible-ish text
+                text = r.text
+                import re
+                title_m = re.search(r"<title[^>]*>(.*?)</title>", text, re.S | re.I)
+                print(f"  title: {title_m.group(1).strip() if title_m else '(none)'}")
+                # crude strip of script/style then tags, to eyeball if real calendar content is there
+                stripped = re.sub(r"<script.*?</script>|<style.*?</style>", "", text, flags=re.S | re.I)
+                stripped = re.sub(r"<[^>]+>", " ", stripped)
+                stripped = re.sub(r"\s+", " ", stripped).strip()
+                print(f"  body snippet[:1500]: {stripped[:1500]!r}")
+            else:
+                print(f"  body[:300]: {r.text[:300]!r}")
+        except requests.exceptions.RequestException as e:
+            print(f"\n=== {label} ({url}) -> request failed: {e} ===")
 
 if __name__ == "__main__":
     main()
