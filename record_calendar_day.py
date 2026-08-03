@@ -38,12 +38,13 @@ if os.path.exists("snapshot.json"):
 
 # Prefer the live floor-status feed for in-session accuracy; fall back to
 # "any non-cancelled hearing today" for days the feed is unavailable/empty.
+# DomeWatch's /floor response shape: {"now": {"value": "house_not_in_session", ...}, ...}
 in_session = None
 if os.path.exists("domewatch_floor.json"):
     with open("domewatch_floor.json", "r", encoding="utf-8") as f:
         floor = json.load(f)
-    if floor:
-        in_session = bool(floor.get("inSession"))
+    if floor and floor.get("now"):
+        in_session = floor["now"].get("value") != "house_not_in_session"
 
 if in_session is None:
     in_session = any(not h.get("cancelled") for h in hearings)

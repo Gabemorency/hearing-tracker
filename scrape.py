@@ -1498,25 +1498,25 @@ function loadFloor() {{
       var vot = document.getElementById("floor-bar__vote");
       var tim = document.getElementById("floor-bar__time");
       if (!bar) return;
-      if (!d || Object.keys(d).length === 0) {{ bar.style.display = "none"; return; }}
+      if (!d || !d.now) {{ bar.style.display = "none"; return; }}
+      var inSession   = d.now.value !== "house_not_in_session";
+      var activeVote  = d.timer && parseInt(d.timer.seconds_remaining, 10) > 0;
       bar.className = "floor-bar";
       vot.style.display = "none";
-      if (d.inSession) {{
-        if (d.vote && d.vote.rollCall) {{
-          bar.classList.add("floor-bar--vote-active");
-          txt.textContent = "House In Session — Vote: " + (d.vote.question || "Roll Call");
-          var c = d.vote.counts || {{}};
-          vot.textContent = "D " + ((c.D || {{}}).yea || 0) + "  R " + ((c.R || {{}}).yea || 0);
-          vot.style.display = "inline";
-        }} else {{
-          bar.classList.add("floor-bar--in-session");
-          txt.textContent = "House In Session" + (d.currentActivity ? " — " + d.currentActivity : "");
-        }}
+      if (activeVote && d.roll_call) {{
+        bar.classList.add("floor-bar--vote-active");
+        txt.textContent = "House In Session — Vote: " + (d.roll_call.question || "Roll Call");
+        var c = (d.votes && d.votes.counts && d.votes.counts.totals) || {{}};
+        vot.textContent = "Yea " + (c.yeas || 0) + "  Nay " + (c.nays || 0);
+        vot.style.display = "inline";
+      }} else if (inSession) {{
+        bar.classList.add("floor-bar--in-session");
+        txt.textContent = d.now.text || "House In Session";
       }} else {{
         bar.classList.add("floor-bar--recess");
-        txt.textContent = d.currentActivity || "House Not In Session";
+        txt.textContent = d.now.text || "House Not In Session";
       }}
-      if (d.asOf) tim.textContent = "Updated " + fmtDate(d.asOf);
+      if (d.fetchedAt) tim.textContent = "Updated " + fmtDate(d.fetchedAt);
       bar.style.display = "flex";
     }})
     .catch(function() {{ var bar = document.getElementById("floor-bar"); if (bar) bar.style.display = "none"; }});
