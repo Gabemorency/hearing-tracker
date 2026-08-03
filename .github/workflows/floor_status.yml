@@ -1,0 +1,46 @@
+name: Floor Status
+
+# House floor/vote status changes on a timescale of minutes (a vote is
+# often open only ~15 minutes), much faster than update.yml's 2-hour
+# scrape cycle. This workflow only hits the lightweight /floor endpoint
+# (no Playwright/scraping) so it can run far more often.
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # every 5 minutes
+  workflow_dispatch:
+
+jobs:
+  floor-status:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install requests
+
+      - name: Fetch House floor status
+        env:
+          DOMEWATCH_API_KEY: ${{ secrets.DOMEWATCH_API_KEY }}
+        run: python fetch_domewatch.py --floor-only
+
+      - name: Record today in calendar history
+        run: python record_calendar_day.py
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add domewatch_floor.json calendar_history.json
+          git diff --cached --quiet || git commit -m "Floor status $(date -u '+%Y-%m-%d %H:%M UTC')"
+          git pull --rebase
+          git push
