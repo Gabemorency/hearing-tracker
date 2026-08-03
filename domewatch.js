@@ -1,11 +1,11 @@
 // DomeWatch live floor data
 // API key injected at build time
 (function () {
-  var KEY = '__DOMEWATCH_KEY_ROTATED_OUT__';
+  var KEY = '__DOMEWATCH_KEY__';
   var BASE = 'https://data.domewatch.us/v1';
   var etag = '';
 
-  if (!KEY || KEY === 'DOMEWATCH_KEY_PLACEHOLDER') return;
+  if (!KEY || KEY === '__DOMEWATCH_KEY__') return;
 
   function fmt(iso) {
     if (!iso) return '';

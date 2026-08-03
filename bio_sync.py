@@ -2,16 +2,17 @@
 Bio Sync — runs every 6 hours via bio_sync.yml
 Detects new members in legislators-current.yaml,
 writes bios for them via Claude API,
-removes departed members from bios_hardcoded.py.
+removes departed members from bios_hardcoded.json.
 """
 
 import json
 import os
 import re
 import sys
-import importlib.util
 import requests
 import yaml
+
+BIOS_FILE = "bios_hardcoded.json"
 
 BASE    = "https://raw.githubusercontent.com/unitedstates/congress-legislators/main"
 HEADERS = {"User-Agent": "Mozilla/5.0 (compatible; hearing-tracker-biosync/1.0)"}
@@ -39,29 +40,15 @@ def fetch_yaml(url):
     return yaml.safe_load(r.text)
 
 def load_bios():
-    if not os.path.exists("bios_hardcoded.py"):
+    if not os.path.exists(BIOS_FILE):
         return {}
-    spec = importlib.util.spec_from_file_location("bios_hardcoded", "bios_hardcoded.py")
-    mod  = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return dict(getattr(mod, "MEMBER_BIOS", {}))
+    with open(BIOS_FILE, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 def save_bios(bios):
-    lines = [
-        '"""',
-        "Member bios for the current Congress.",
-        "Auto-maintained by bio_sync.py — do not edit placeholders manually.",
-        '"""',
-        "",
-        "MEMBER_BIOS = {",
-    ]
-    for bid, bio in sorted(bios.items()):
-        escaped = bio.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
-        lines.append(f'    "{bid}": "{escaped}",')
-    lines.append("}")
-    lines.append("")
-    with open("bios_hardcoded.py", "w", encoding="utf-8") as f:
-        f.write("\n".join(lines))
+    with open(BIOS_FILE, "w", encoding="utf-8") as f:
+        json.dump(bios, f, indent=2, sort_keys=True, ensure_ascii=False)
+        f.write("\n")
 
 def write_bio(display_name, chamber, state, party, district=None):
     if not API_KEY:
