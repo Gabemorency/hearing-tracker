@@ -32,6 +32,33 @@ def test_pending_meetings_respects_cap():
     assert len(pending) == 3
 
 
+def test_recheck_candidates_only_returns_still_known_cached_meetings():
+    meetings = [
+        {"id": "1", "url": "http://x/1"},
+        {"id": "2", "url": "http://x/2"},
+    ]
+    # "3" is cached but no longer in the meeting list (aged out of the
+    # 90-day window) — shouldn't be a recheck candidate, there's no url
+    # left to re-fetch it from.
+    cache = {"1": "Committee A", "2": "Committee B", "3": "Committee C"}
+    candidates = smc.recheck_candidates(meetings, cache, limit=10)
+    assert [m["id"] for m in candidates] == ["1", "2"]
+
+
+def test_recheck_candidates_respects_limit_and_oldest_first():
+    meetings = [{"id": str(i), "url": f"http://x/{i}"} for i in range(5)]
+    # dict insertion order == check recency; "0" was cached longest ago
+    cache = {"0": "A", "1": "B", "2": "C", "3": "D", "4": "E"}
+    candidates = smc.recheck_candidates(meetings, cache, limit=2)
+    assert [m["id"] for m in candidates] == ["0", "1"]
+
+
+def test_recheck_candidates_zero_limit_returns_nothing():
+    meetings = [{"id": "1", "url": "http://x/1"}]
+    cache = {"1": "Committee A"}
+    assert smc.recheck_candidates(meetings, cache, limit=0) == []
+
+
 # Real shape confirmed against a live docs.house.gov ByEvent.aspx page:
 # <h1>Meeting: <title><small class="text-tiny"><blockquote>
 #   <p>Committee on Rules<br></p></blockquote></small></h1>
