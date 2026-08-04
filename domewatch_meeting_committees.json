@@ -1,7 +1,4 @@
 {
-  "119492": "Committee on Oversight and Government Reform",
-  "119494": "Committee on Ways and Means",
-  "119400": "Subcommittee on Modernization and Innovation (Committee on House Administration)",
   "119475": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
   "119477": "Subcommittee on Housing and Insurance (Committee on Financial Services)",
   "119389": "Subcommittee on Energy and Mineral Resources (Committee on Natural Resources)",
@@ -235,5 +232,8 @@
   "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
   "119483": "Committee on Small Business",
   "119485": "Committee on Appropriations",
-  "119486": "Committee on House Administration"
+  "119486": "Committee on House Administration",
+  "119492": "Committee on Oversight and Government Reform",
+  "119494": "Committee on Ways and Means",
+  "119400": "Subcommittee on Modernization and Innovation (Committee on House Administration)"
 }
