@@ -57,6 +57,13 @@ today_variants = [
     today_str, today_long,
     now_et.strftime("%b. %-d, %Y"),
     now_et.strftime("%b %-d, %Y"),
+    # Zero-padded-day variants — senate.gov's own hearings/meetings listing
+    # ("Tuesday, Aug 04, 2026") never matched any variant above (all of
+    # them use a non-padded day, "%-d"), so is_today() returned False for
+    # the entire page even on days with real, live hearings including
+    # Judiciary's business meeting to vote on Todd Blanche's AG nomination.
+    now_et.strftime("%A, %b %d, %Y"),
+    now_et.strftime("%b %d, %Y"),
     now_et.strftime("%-d-%b-%Y").upper(),
     now_et.strftime("%-d-%b-%y").upper(),
     today_iso,
@@ -253,16 +260,31 @@ def hearing_key(h):
 def detect_cancellation_near_date(text, window=400):
     """
     Smart cancellation: only returns True if a cancellation keyword appears
-    within `window` characters of today's date string in the text.
-    Prevents false positives from old/unrelated postponed hearings on the page.
+    near today's date string in the text. Prevents false positives from
+    old/unrelated postponed hearings elsewhere on the page.
+
+    On listing pages, each entry's own title precedes its date/time line
+    (title, location, date — repeated per entry, often only ~30-40 chars
+    apart), so a cancellation keyword for *this* entry sits behind the date
+    match, not ahead of it — text after the date belongs to the *next*
+    entry, too close to reliably exclude with any forward peek. Real
+    example: Judiciary's page listed "Executive Business Meeting" (the
+    real, active Blanche AG vote) immediately followed by an unrelated
+    hearing titled "POSTPONED: Prescribing Sunshine...", only ~38 chars
+    after the Blanche entry's own date — a forward-looking window picked
+    up that next title's "POSTPONED" and flagged Judiciary's whole
+    committee (Blanche vote included) as cancelled. Looking backward only
+    keeps the check confined to this entry's own title.
     """
     cancel_words = ["postponed", "cancelled", "canceled", "rescheduled",
                     "withdrawn", "notice of cancellation"]
+    text_lower = text.lower()
     for variant in today_variants:
-        idx = text.lower().find(variant.lower())
+        variant_lower = variant.lower()
+        idx = text_lower.find(variant_lower)
         if idx == -1:
             continue
-        surrounding = text[max(0, idx - window//2) : idx + window].lower()
+        surrounding = text_lower[max(0, idx - window):idx]
         if any(w in surrounding for w in cancel_words):
             return True
     return False
