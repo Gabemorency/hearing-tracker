@@ -126,37 +126,61 @@ def test_is_today_matches_senate_gov_weekday_zero_padded_format():
     assert scrape.is_today(real_page_text) is True
 
 
-def test_detect_cancellation_near_date_ignores_next_entrys_title():
-    # Real senate.gov committee listing pages repeat "title, location,
-    # date" once per entry with only ~30-40 chars between one entry's date
-    # and the next entry's own title. A window that looks forward from a
-    # date match can cross into that next title and misattribute its
-    # cancellation wording to the entry that actually matched today.
-    date = scrape.now_et.strftime("%m/%d/%y")
-    real_judiciary_page_text = (
+# Real judiciary.senate.gov page text, captured live on 2026-08-04: three
+# same-day entries — a real, active business meeting (the Blanche AG vote),
+# a genuinely postponed unrelated hearing, and a second real, active
+# hearing — each entry only ~150-200 chars apart.
+BLANCHE_TOPIC     = "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General."
+DRUG_COSTS_TOPIC  = "Prescribing Sunshine: How Competition & Transparency Lowers Prescription Drug Costs"
+AI_SURVEILLANCE_TOPIC = "Your Data, Their Profit: The Consumer Cost of AI Surveillance Pricing"
+
+def _real_judiciary_page_text(date):
+    return (
         "Upcoming Hearings\n"
         "Executive Business Meeting\n"
         "Hart Senate Office Building Room 216\n"
         f"{date} at 09:00am\n"
         "Add to Calendar ▿\n"
-        "POSTPONED: An unrelated hearing on a different topic\n"
+        f"POSTPONED: {DRUG_COSTS_TOPIC}\n"
         "Hart Senate Office Building Room 216\n"
         f"{date} at 10:15am\n"
         "Add to Calendar ▿\n"
+        f"{AI_SURVEILLANCE_TOPIC}\n"
+        "Dirksen Senate Office Building Room 226\n"
+        f"{date} at 02:30pm\n"
+        "Add to Calendar ▿\n"
     )
-    assert scrape.detect_cancellation_near_date(real_judiciary_page_text) is False
 
 
-def test_detect_cancellation_near_date_still_catches_same_entry_cancellation():
+def test_find_cancelled_contexts_finds_exactly_the_one_cancelled_entry():
+    # Three same-day entries on one page; only the middle one is actually
+    # cancelled. A forward-looking window would misattribute it to the
+    # first entry (Blanche); a fixed-size backward window large enough to
+    # span multiple entries would misattribute it to the third (AI
+    # Surveillance) too, since all three dates sit within ~350 chars of
+    # each other. Exactly one context should come back.
     date = scrape.now_et.strftime("%m/%d/%y")
-    genuinely_cancelled_text = (
-        "Upcoming Hearings\n"
-        "POSTPONED: An unrelated hearing on a different topic\n"
-        "Hart Senate Office Building Room 216\n"
-        f"{date} at 10:15am\n"
-        "Add to Calendar ▿\n"
-    )
-    assert scrape.detect_cancellation_near_date(genuinely_cancelled_text) is True
+    contexts = scrape.find_cancelled_contexts(_real_judiciary_page_text(date))
+    assert len(contexts) == 1
+    assert "postponed" in contexts[0]
+
+
+def test_cancellation_only_applies_to_matching_topic_not_whole_committee():
+    # The real regression this guards against: a committee page with a
+    # cancelled item sandwiched between two active ones on the same day
+    # used to get collapsed into a single boolean and applied to *every*
+    # hearing under that committee — flagging both the real, active
+    # Blanche AG vote AND the real, active AI-surveillance hearing as
+    # cancelled, just because an unrelated hearing on the same page was
+    # genuinely postponed. Cancellation must be matched against each
+    # hearing's own topic text, the same word-overlap approach already
+    # used for hearing links.
+    date = scrape.now_et.strftime("%m/%d/%y")
+    contexts = scrape.find_cancelled_contexts(_real_judiciary_page_text(date))
+
+    assert not any(scrape.word_overlap_score(BLANCHE_TOPIC, c) >= 0.5 for c in contexts)
+    assert not any(scrape.word_overlap_score(AI_SURVEILLANCE_TOPIC, c) >= 0.5 for c in contexts)
+    assert any(scrape.word_overlap_score(DRUG_COSTS_TOPIC, c) >= 0.5 for c in contexts)
 
 
 def test_diff_hearing_reports_time_and_room_changes():
