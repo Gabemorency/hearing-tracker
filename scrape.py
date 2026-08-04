@@ -261,6 +261,7 @@ HEARING_LINK_RULES = {
     ("Senate", "Appropriations"):             "a.url.summary.pull-left",
     ("Senate", "Banking"):                    "a.url.summary.pull-left",
     ("Senate", "Budget"):                     "a.url.summary.pull-left",
+    ("Senate", "Finance"):                    "a.url.summary.pull-left",
     ("Senate", "Commerce"):                   ".capigacr-meetings-table__title",
     ("Senate", "Environment & Public Works"): ".recordListTitle a.ContentGrid",
     ("Senate", "Small Business"):             ".recordListTitle a.ContentGrid",
@@ -271,8 +272,10 @@ HEARING_LINK_RULES = {
     ("Senate", "Joint Economic"):             ".hearing-item-left a.title",
     ("Senate", "Foreign Relations"):          "a[href*='/hearings/']",
     ("Senate", "Energy & Natural Resources"): "a[href*='/hearings/20']",
+    ("Senate", "Agriculture"):                ".LegislationList__link",
     ("House",  "Financial Services"):         "a[href*='EventSingle.aspx']",
     ("House",  "Ways & Means"):               ".info a.name",
+    ("House",  "Education & Workforce"):      "a.middleheadline",
 }
 
 def word_overlap_score(a, b):
