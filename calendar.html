@@ -278,7 +278,8 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
   }
 
   function loadAll() {
-    var now  = new Date();
+    var now      = new Date();
+    var todayKey = dateKey(now);
     var from = dateKey(new Date(now.getTime() - 90*86400000));
     var to   = dateKey(new Date(now.getTime() + 30*86400000));
     var done = 0;
@@ -308,6 +309,13 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
 
     // 0. Day-by-day history (past hearings + in-session status), grown automatically
     //    each day by record_calendar_day.py — no manual backfill needed going forward.
+    // record_calendar_day.py writes *today* into this file on every run too
+    // (so it's never missing a day once the day is over), which means its
+    // hearings for today are just a point-in-time snapshot — snapshot.json
+    // below is the fresher, authoritative source for today's actual
+    // hearings. Still take today's inSession status from here (nothing
+    // else sets it), just skip re-adding today's hearings a second time —
+    // that duplication was the reason every hearing looked doubled today.
     fetch("/hearing-tracker/calendar_history.json")
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
@@ -315,6 +323,7 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
           Object.keys(data).forEach(function(dk) {
             var entry = data[dk];
             sessionStatus[dk] = !!entry.inSession;
+            if (dk === todayKey) return;
             (entry.hearings || []).forEach(function(h) { addHearing(dk, h); });
           });
         }
@@ -327,7 +336,6 @@ body{background:var(--bg);color:var(--text);font-family:'IBM Plex Sans',sans-ser
       .then(function(r) { return r.ok ? r.json() : null; })
       .then(function(data) {
         if (data) {
-          var todayKey = dateKey(now);
           Object.keys(data).forEach(function(k) { addHearing(todayKey, data[k]); });
         }
         check();

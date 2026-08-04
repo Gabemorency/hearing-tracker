@@ -53,27 +53,75 @@ generated   = now_et.strftime("%-I:%M %p ET")
 change_time = now_et.strftime("%-I:%M %p")
 tz_label    = "EDT" if ET_OFFSET.seconds//3600 == 20 else "EST"  # 20h = -4h unsigned
 
-today_variants = [
-    today_str, today_long,
-    now_et.strftime("%b. %-d, %Y"),
-    now_et.strftime("%b %-d, %Y"),
-    # Zero-padded-day variants — senate.gov's own hearings/meetings listing
-    # ("Tuesday, Aug 04, 2026") never matched any variant above (all of
-    # them use a non-padded day, "%-d"), so is_today() returned False for
-    # the entire page even on days with real, live hearings including
-    # Judiciary's business meeting to vote on Todd Blanche's AG nomination.
-    now_et.strftime("%A, %b %d, %Y"),
-    now_et.strftime("%b %d, %Y"),
-    now_et.strftime("%-d-%b-%Y").upper(),
-    now_et.strftime("%-d-%b-%y").upper(),
-    today_iso,
-    now_et.strftime("%m/%d/%Y"),
-    now_et.strftime("%m/%d/%y"),
-    now_et.strftime("%m%d%y"),
-    now_et.strftime("%m%d%Y"),
-    "Today,",
-    now_et.strftime("%a, %b %-d"),
+# ── Semantic date matching ──────────────────────────────────────────────────
+# is_today() used to check membership in `today_variants`, a hand-maintained
+# list of exact string renderings of today's date ("August 4, 2026",
+# "08/04/2026", etc). That approach is fundamentally brittle: any committee
+# page — Senate or House, on any day, in or out of session — is free to
+# render its date in some format nobody anticipated, and the check silently
+# returns False for the whole page with no error, no warning, nothing. That
+# already happened once for real: senate.gov's own main hearings/meetings
+# listing renders "Tuesday, Aug 04, 2026" (zero-padded day), which matched
+# none of the ~12 variants on file, so is_today() returned False for the
+# *entire page* even on a day with real hearings — including a Judiciary
+# Committee business meeting to vote on a nominee for Attorney General.
+#
+# Rather than keep growing that list one newly-discovered format at a time,
+# this parses ANY date-shaped substring found in the page text (via regex)
+# and compares its actual (year, month, day) value against today's real
+# date — immune to zero-padding, month abbreviation style, weekday-name
+# inclusion, or any other formatting choice a page happens to make.
+_MONTH_ALT = (r"January|February|March|April|May|June|July|August|September|"
+              r"October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec")
+_WEEKDAY_ALT = (r"Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday|"
+                r"Mon|Tue|Tues|Wed|Thu|Thur|Thurs|Fri|Sat|Sun")
+
+_DATED_FORMATS = [
+    "%A, %B %d, %Y", "%A, %b %d, %Y", "%A, %b. %d, %Y",
+    "%a, %B %d, %Y", "%a, %b %d, %Y", "%a, %b. %d, %Y",
+    "%B %d, %Y", "%b %d, %Y", "%b. %d, %Y",
+    "%d-%b-%Y", "%d-%b-%y",
+    "%Y-%m-%d",
+    "%m/%d/%Y", "%m/%d/%y",
 ]
+_YEARLESS_FORMATS = ["%A, %b %d", "%a, %b %d", "%A, %B %d", "%a, %B %d", "%b %d", "%B %d"]
+
+# Each entry: (regex, candidate formats to try, whether the match omits a year)
+_DATE_PATTERNS = [
+    # "Tuesday, August 4, 2026" / "Tue, Aug. 04, 2026" / "August 4, 2026"
+    (re.compile(rf"(?:(?:{_WEEKDAY_ALT})\.?,?\s+)?(?:{_MONTH_ALT})\.?\s+\d{{1,2}},?\s+\d{{4}}", re.IGNORECASE),
+     _DATED_FORMATS, False),
+    # "4-AUG-2026" / "4-AUG-26"
+    (re.compile(rf"\d{{1,2}}-(?:{_MONTH_ALT})-\d{{2,4}}", re.IGNORECASE),
+     _DATED_FORMATS, False),
+    # "2026-08-04"
+    (re.compile(r"\d{4}-\d{2}-\d{2}"), _DATED_FORMATS, False),
+    # "08/04/2026" / "08/04/26" — bounded so it can't grab part of a longer number
+    (re.compile(r"(?<!\d)\d{1,2}/\d{1,2}/\d{2,4}(?!\d)"), _DATED_FORMATS, False),
+    # Year-less near-term listings: "Tue, Aug 4" / "August 4" — assume the
+    # current year, the only sensible reading for a live "upcoming" listing.
+    (re.compile(rf"(?:(?:{_WEEKDAY_ALT})\.?,?\s+)?(?:{_MONTH_ALT})\.?\s+\d{{1,2}}(?!\S)", re.IGNORECASE),
+     _YEARLESS_FORMATS, True),
+]
+
+def _iter_dates_with_positions(text):
+    """Yields (start_index, parsed_date) for every date-shaped match in `text`."""
+    for regex, formats, yearless in _DATE_PATTERNS:
+        for m in regex.finditer(text):
+            candidate = re.sub(r"\s+", " ", m.group(0).strip())
+            for fmt in formats:
+                try:
+                    parsed = datetime.strptime(candidate, fmt)
+                    if yearless:
+                        parsed = parsed.replace(year=now_et.year)
+                    yield m.start(), parsed.date()
+                    break
+                except ValueError:
+                    continue
+
+def extract_dates(text):
+    """All calendar dates found anywhere in `text`, in whatever format."""
+    return {d for _, d in _iter_dates_with_positions(text)}
 
 SNAPSHOT_FILE = "snapshot.json"
 BASELINE_FILE = "baseline.json"
@@ -257,37 +305,55 @@ def best_hearing_link(topic, candidates, threshold=0.5):
 def hearing_key(h):
     return f"{h['chamber']}|{h['committee'][:40]}|{h['time']}"
 
-def detect_cancellation_near_date(text, window=400):
+def find_cancelled_contexts(text, window=400):
     """
-    Smart cancellation: only returns True if a cancellation keyword appears
-    near today's date string in the text. Prevents false positives from
-    old/unrelated postponed hearings elsewhere on the page.
+    Returns the preceding-text "context" (title, location, etc.) for every
+    today-dated entry on the page whose text has a cancellation keyword
+    nearby — one context string per matching entry, not just a single
+    yes/no for the whole page. Prevents false positives from old/unrelated
+    postponed hearings elsewhere on the page, AND — critically — lets the
+    caller check per-hearing whether a *specific* hearing is the one that's
+    actually cancelled, rather than blanket-flagging every hearing under
+    the same committee that day.
 
     On listing pages, each entry's own title precedes its date/time line
-    (title, location, date — repeated per entry, often only ~30-40 chars
-    apart), so a cancellation keyword for *this* entry sits behind the date
-    match, not ahead of it — text after the date belongs to the *next*
-    entry, too close to reliably exclude with any forward peek. Real
-    example: Judiciary's page listed "Executive Business Meeting" (the
-    real, active Blanche AG vote) immediately followed by an unrelated
-    hearing titled "POSTPONED: Prescribing Sunshine...", only ~38 chars
-    after the Blanche entry's own date — a forward-looking window picked
-    up that next title's "POSTPONED" and flagged Judiciary's whole
-    committee (Blanche vote included) as cancelled. Looking backward only
-    keeps the check confined to this entry's own title.
+    (title, location, date — repeated per entry, often only ~150-200 chars
+    apart on a busy day), so a cancellation keyword for *this* entry sits
+    behind the date match, not ahead of it — text after the date belongs
+    to the *next* entry. A fixed-size backward window has the same problem
+    in the other direction on a page with 3+ same-day entries: scanning
+    `window` chars back from the *third* entry's date can reach past the
+    *second* entry's date and into the second entry's own (possibly
+    cancelled) title, misattributing it to the third entry. Real example:
+    Judiciary's page listed a real Executive Business Meeting (the active
+    Blanche AG vote) at 9am, an unrelated hearing genuinely titled
+    "POSTPONED: Prescribing Sunshine..." at 10:15am, and another real,
+    active hearing at 2:30pm — a naive 400-char backward scan from the
+    2:30pm entry reached back through the 10:15am entry's date and picked
+    up its "POSTPONED" title, incorrectly flagging the 2:30pm hearing too.
+    Bounding each entry's backward scan at the *previous* entry's own date
+    match (not just a fixed character count) confines it to text that
+    actually belongs to this entry, however many same-day entries there
+    are. The per-entry context returned here is then matched against each
+    hearing's own topic (via word_overlap_score, same approach as
+    best_hearing_link) so a genuinely cancelled item never taints an
+    active one under the same committee.
     """
     cancel_words = ["postponed", "cancelled", "canceled", "rescheduled",
                     "withdrawn", "notice of cancellation"]
     text_lower = text.lower()
-    for variant in today_variants:
-        variant_lower = variant.lower()
-        idx = text_lower.find(variant_lower)
-        if idx == -1:
-            continue
-        surrounding = text_lower[max(0, idx - window):idx]
+    today = now_et.date()
+    today_positions = sorted(
+        idx for idx, parsed in _iter_dates_with_positions(text) if parsed == today
+    )
+    contexts = []
+    for i, idx in enumerate(today_positions):
+        prev_entry_start = today_positions[i - 1] if i > 0 else 0
+        start = max(prev_entry_start, idx - window)
+        surrounding = text_lower[start:idx]
         if any(w in surrounding for w in cancel_words):
-            return True
-    return False
+            contexts.append(surrounding)
+    return contexts
 
 def detect_cancellation(text):
     """Loose check — only used on topic/committee name strings, not full pages."""
@@ -295,7 +361,7 @@ def detect_cancellation(text):
                ["postponed", "cancelled", "canceled", "rescheduled", "withdrawn"])
 
 def is_today(text):
-    return any(v in text for v in today_variants)
+    return now_et.date() in extract_dates(text)
 
 def extract_witnesses(text):
     witnesses = []
@@ -551,7 +617,7 @@ async def scrape():
     scraped         = []
     witness_cache   = {}
     chair_cache     = {}
-    cancelled_cache = set()
+    cancelled_context_cache = {}
     hearing_link_cache = {}
 
     async with async_playwright() as p:
@@ -618,6 +684,17 @@ async def scrape():
 
             full_text = await page.inner_text("body")
             print(f"Senate today found: {is_today(full_text)}")
+            # This page lists hearings for many days, not just today, so it
+            # should contain *some* parseable date virtually always — zero
+            # is a strong signal the page structure or date format changed
+            # in a way none of our patterns recognize (the exact failure
+            # mode that silently hid today's Judiciary business meeting),
+            # not that Congress happens to have nothing scheduled at all.
+            if not extract_dates(full_text):
+                print("  🚨 ANOMALY: zero parseable dates found anywhere on the "
+                      "Senate hearings/meetings page — likely a page-structure or "
+                      "date-format change our patterns don't recognize, not a "
+                      "genuinely empty schedule. Needs investigation.")
             rows = await page.query_selector_all("table tr")
             print(f"Senate rows after show-all: {len(rows)}")
 
@@ -717,10 +794,14 @@ async def scrape():
 
                     print(f"  📋 {chamber_label} {name}: today found")
 
-                    # Smart cancellation — only flag if near today's date
-                    if detect_cancellation_near_date(text):
-                        cancelled_cache.add(name.lower())
-                        print(f"  ⚠️  Cancellation: {name}")
+                    # Smart cancellation — only flag if near today's date,
+                    # matched per-hearing later (not a blanket per-committee
+                    # flag — a committee can have one cancelled item and one
+                    # active one on the same day).
+                    cancelled_contexts = find_cancelled_contexts(text)
+                    if cancelled_contexts:
+                        cancelled_context_cache[name.lower()] = cancelled_contexts
+                        print(f"  ⚠️  Cancellation candidate(s) on {name}'s page: {len(cancelled_contexts)}")
 
                     # Witnesses from page text
                     witnesses = extract_witnesses(text)
@@ -795,31 +876,71 @@ async def scrape():
         ]
         await asyncio.gather(*committee_tasks)
 
-        await browser.close()
+        # ── Apply enrichment ──────────────────────────────────────────────────
+        # Runs before browser.close() (not after, like it used to) because
+        # the witness fetch below needs the browser to visit each hearing's
+        # own specific link, which this loop is what resolves onto h["link"].
+        for h in scraped:
+            cmte_lower = h["committee"].lower()
+            for key, witnesses in witness_cache.items():
+                if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                    if witnesses and not h["witnesses"]:
+                        h["witnesses"] = witnesses
+                        break
+            for key, chair in chair_cache.items():
+                if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                    if chair and not h["chair"]:
+                        h["chair"] = chair
+                        break
+            for key, contexts in cancelled_context_cache.items():
+                if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                    # Match against THIS hearing's own topic, same threshold as
+                    # best_hearing_link — a committee having some cancelled
+                    # item today doesn't mean every hearing under it is.
+                    if any(word_overlap_score(h.get("topic", ""), ctx) >= 0.5 for ctx in contexts):
+                        h["cancelled"] = True
+                    break
+            for key, candidates in hearing_link_cache.items():
+                if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                    link = best_hearing_link(h.get("topic", ""), candidates)
+                    if link:
+                        h["link"] = link
+                    break
 
-    # ── Apply enrichment ──────────────────────────────────────────────────────
-    for h in scraped:
-        cmte_lower = h["committee"].lower()
-        for key, witnesses in witness_cache.items():
-            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
-                if witnesses and not h["witnesses"]:
-                    h["witnesses"] = witnesses
-                    break
-        for key, chair in chair_cache.items():
-            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
-                if chair and not h["chair"]:
-                    h["chair"] = chair
-                    break
-        for key in cancelled_cache:
-            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
-                h["cancelled"] = True
-                break
-        for key, candidates in hearing_link_cache.items():
-            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
-                link = best_hearing_link(h.get("topic", ""), candidates)
-                if link:
-                    h["link"] = link
-                break
+        # ── Witnesses from each hearing's own specific page ────────────────────
+        # The committee-page enrichment above only reads the committee's
+        # *listing* page (title/time/location per entry) — verified via a
+        # real fetch that witness names are never there, only on each
+        # hearing's own individual page. Only worth a fetch when h["link"]
+        # resolved to a specific hearing page (via HEARING_LINK_RULES,
+        # above) rather than watch_link()'s generic committee-homepage
+        # fallback — refetching that would just find the same listing text
+        # again, for nothing.
+        witness_sem = asyncio.Semaphore(COMMITTEE_CONCURRENCY)
+
+        async def fetch_hearing_witnesses(h):
+            link = h.get("link")
+            if not link or h.get("witnesses"):
+                return
+            if link == watch_link(h["chamber"], h["committee"]):
+                return
+            async with witness_sem:
+                try:
+                    page = await context.new_page()
+                    await page.goto(link, wait_until="networkidle", timeout=15000)
+                    await asyncio.sleep(1)
+                    text = await page.inner_text("body")
+                    witnesses = extract_witnesses(text)
+                    if witnesses:
+                        h["witnesses"] = witnesses
+                        print(f"  👤 {h['committee']}: {len(witnesses)} witnesses (hearing page)")
+                    await page.close()
+                except Exception as e:
+                    print(f"  ⚠️  {h['committee']}: witness fetch failed ({e})")
+
+        await asyncio.gather(*[fetch_hearing_witnesses(h) for h in scraped])
+
+        await browser.close()
 
     # ── Global deduplication of scraped list ──────────────────────────────────
     # Different sources (senate.gov, committee pages, congress.gov) can return
@@ -887,11 +1008,6 @@ async def scrape():
                     enriched["chair"] = scraped_match["chair"]
                 if scraped_match.get("link") and not h.get("link"):
                     enriched["link"] = scraped_match["link"]
-                # Apply hardcoded chair if still missing
-                if not enriched.get("chair"):
-                    hardcoded = lookup_chair(enriched["committee"])
-                    if hardcoded:
-                        enriched["chair"] = hardcoded
                 if scraped_match.get("cancelled"):
                     enriched["cancelled"] = True
                 enriched["changes"] = h.get("changes", [])
@@ -899,26 +1015,30 @@ async def scrape():
             else:
                 kept = dict(h)
                 kept["changes"] = h.get("changes", [])
-                # Apply hardcoded chair if missing
-                if not kept.get("chair"):
-                    hardcoded = lookup_chair(kept["committee"])
-                    if hardcoded:
-                        kept["chair"] = hardcoded
                 merged.append(kept)
                 print(f"  📌 Kept from baseline: {h['committee']}")
 
         # Add new hearings found by scraper not in baseline
         for s in scraped:
             if not any(fuzzy_match(s, m) for m in merged):
-                if not s.get("chair"):
-                    hardcoded = lookup_chair(s["committee"])
-                    if hardcoded:
-                        s["chair"] = hardcoded
                 merged.append(s)
                 print(f"  ➕ New from scraper: {s['committee']}")
     else:
         print(f"⚠️  No valid baseline — using scraped data only")
         merged = scraped
+
+    # Hardcoded chair/ranking-member fallback (COMMITTEE_CHAIRS) — applied
+    # once, unconditionally, to every hearing regardless of which branch
+    # above produced `merged`. This used to run only inside the baseline-
+    # merge branches, so any day baseline.json's date didn't match today
+    # (e.g. "No valid baseline" above, which is common) skipped it
+    # entirely — chair silently stayed empty for every hearing that day,
+    # even though the real chair was already known and hardcoded.
+    for h in merged:
+        if not h.get("chair"):
+            hardcoded = lookup_chair(h["committee"])
+            if hardcoded:
+                h["chair"] = hardcoded
 
     # ── Change detection ──────────────────────────────────────────────────────
     snapshot = load_json(SNAPSHOT_FILE)
