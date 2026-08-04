@@ -110,6 +110,55 @@ def test_detect_cancellation_loose_check():
     assert not scrape.detect_cancellation("Hearing on the state of the economy")
 
 
+def test_is_today_matches_senate_gov_weekday_zero_padded_format():
+    # senate.gov's own hearings/meetings listing renders today's date as
+    # "Tuesday, Aug 04, 2026" (full weekday, abbreviated month, zero-padded
+    # day) — a format none of the original today_variants matched, so the
+    # whole page silently read as having no hearings today, even on days
+    # with real, live hearings (e.g. a committee's business meeting to
+    # vote on a nominee).
+    real_page_text = (
+        "Time-Room\tCommittee\tTopic\n"
+        f"{scrape.now_et.strftime('%A, %b %d, %Y')}\n"
+        "9:00 AM – SH-216\tJudiciary\n"
+        "\tBusiness meeting to consider a nomination.\n"
+    )
+    assert scrape.is_today(real_page_text) is True
+
+
+def test_detect_cancellation_near_date_ignores_next_entrys_title():
+    # Real senate.gov committee listing pages repeat "title, location,
+    # date" once per entry with only ~30-40 chars between one entry's date
+    # and the next entry's own title. A window that looks forward from a
+    # date match can cross into that next title and misattribute its
+    # cancellation wording to the entry that actually matched today.
+    date = scrape.now_et.strftime("%m/%d/%y")
+    real_judiciary_page_text = (
+        "Upcoming Hearings\n"
+        "Executive Business Meeting\n"
+        "Hart Senate Office Building Room 216\n"
+        f"{date} at 09:00am\n"
+        "Add to Calendar ▿\n"
+        "POSTPONED: An unrelated hearing on a different topic\n"
+        "Hart Senate Office Building Room 216\n"
+        f"{date} at 10:15am\n"
+        "Add to Calendar ▿\n"
+    )
+    assert scrape.detect_cancellation_near_date(real_judiciary_page_text) is False
+
+
+def test_detect_cancellation_near_date_still_catches_same_entry_cancellation():
+    date = scrape.now_et.strftime("%m/%d/%y")
+    genuinely_cancelled_text = (
+        "Upcoming Hearings\n"
+        "POSTPONED: An unrelated hearing on a different topic\n"
+        "Hart Senate Office Building Room 216\n"
+        f"{date} at 10:15am\n"
+        "Add to Calendar ▿\n"
+    )
+    assert scrape.detect_cancellation_near_date(genuinely_cancelled_text) is True
+
+
 def test_diff_hearing_reports_time_and_room_changes():
     old = {"time": "10:00 AM", "room": "SD-106", "building": "Dirksen (SD)", "witnesses": []}
     new = {"time": "2:00 PM", "room": "SR-325", "building": "Russell (SR)", "witnesses": []}
