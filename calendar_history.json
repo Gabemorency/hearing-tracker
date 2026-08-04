@@ -357,7 +357,92 @@
     "inSession": false
   },
   "2026-08-04": {
-    "hearings": [],
+    "hearings": [
+      {
+        "chamber": "Senate",
+        "committee": "Judiciary",
+        "chair": "",
+        "time": "9:00 AM ET",
+        "building": "Hart (SH)",
+        "room": "SH-216",
+        "topic": "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General.",
+        "witnesses": [],
+        "details": "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General.",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.judiciary.senate.gov/committee-activity/hearings/the-nomination-of-the-honorable-todd-blanche-to-be-attorney-general-of-the-united-states-day-2"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Finance — Subcommittee on Health Care",
+        "chair": "",
+        "time": "10:00 AM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-215",
+        "topic": "Hearings to examine building a resilient health care future with biotechnology.",
+        "witnesses": [],
+        "details": "Hearings to examine building a resilient health care future with biotechnology.",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.finance.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Budget",
+        "chair": "",
+        "time": "10:00 AM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-608",
+        "topic": "Hearings to examine the reality of Medicaid.",
+        "witnesses": [],
+        "details": "Hearings to examine the reality of Medicaid.",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.budget.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Judiciary — Subcommittee on Crime and Counterterrorism",
+        "chair": "",
+        "time": "2:30 PM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-226",
+        "topic": "Hearings to examine data and profit, focusing on the consumer cost of AI surveillance pricing.",
+        "witnesses": [],
+        "details": "Hearings to examine data and profit, focusing on the consumer cost of AI surveillance pricing.",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.judiciary.senate.gov/committee-activity/hearings/your-data-their-profit-the-consumer-cost-of-ai-surveillance-pricing"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Intelligence",
+        "chair": "",
+        "time": "3:00 PM ET",
+        "building": "Hart (SH)",
+        "room": "SH-219",
+        "topic": "Closed hearings to examine certain intelligence matters.",
+        "witnesses": [],
+        "details": "Closed hearings to examine certain intelligence matters.",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.intelligence.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Indian Affairs",
+        "chair": "",
+        "time": "4:00 PM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-628",
+        "topic": "Hearings to examine tracking prediction markets' exponential growth, focusing on tribal implications and beyond.",
+        "witnesses": [],
+        "details": "Hearings to examine tracking prediction markets' exponential growth, focusing on tribal implications and beyond.",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.indian.senate.gov/hearings/roundtable-titled-tracking-prediction-markets-exponential-growth-tribal-implications-and-beyond/"
+      }
+    ],
     "inSession": false
   }
 }
