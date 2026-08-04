@@ -1,7 +1,4 @@
 {
-  "119357": "Committee on Natural Resources",
-  "119463": "Committee on Foreign Affairs",
-  "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
   "119483": "Committee on Small Business",
   "119485": "Committee on Appropriations",
   "119486": "Committee on House Administration",
@@ -235,5 +232,8 @@
   "119488": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
   "119482": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
   "119484": "Committee on Science, Space, and Technology",
-  "119489": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)"
+  "119489": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
+  "119357": "Committee on Natural Resources",
+  "119463": "Committee on Foreign Affairs",
+  "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)"
 }
