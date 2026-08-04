@@ -361,21 +361,25 @@
       {
         "chamber": "Senate",
         "committee": "Judiciary",
-        "chair": "",
+        "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
         "time": "9:00 AM ET",
         "building": "Hart (SH)",
         "room": "SH-216",
         "topic": "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General.",
-        "witnesses": [],
+        "witnesses": [
+          "The Honorable John Ashcroft"
+        ],
         "details": "Business meeting to consider the nomination of Todd Blanche, of Florida, to be Attorney General.",
         "cancelled": false,
-        "changes": [],
+        "changes": [
+          "Witness added: The Honorable John Ashcroft · 12:30 PM"
+        ],
         "link": "https://www.judiciary.senate.gov/committee-activity/hearings/the-nomination-of-the-honorable-todd-blanche-to-be-attorney-general-of-the-united-states-day-2"
       },
       {
         "chamber": "Senate",
         "committee": "Finance — Subcommittee on Health Care",
-        "chair": "",
+        "chair": "Sen. Mike Crapo (R-ID), Chair · Sen. Ron Wyden (D-OR), Ranking Member",
         "time": "10:00 AM ET",
         "building": "Dirksen (SD)",
         "room": "SD-215",
@@ -389,7 +393,7 @@
       {
         "chamber": "Senate",
         "committee": "Budget",
-        "chair": "",
+        "chair": "Sen. Lindsey Graham (R-SC), Chair · Sen. Jeff Merkley (D-OR), Ranking Member",
         "time": "10:00 AM ET",
         "building": "Dirksen (SD)",
         "room": "SD-608",
@@ -403,7 +407,7 @@
       {
         "chamber": "Senate",
         "committee": "Judiciary — Subcommittee on Crime and Counterterrorism",
-        "chair": "",
+        "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
         "time": "2:30 PM ET",
         "building": "Dirksen (SD)",
         "room": "SD-226",
@@ -417,7 +421,7 @@
       {
         "chamber": "Senate",
         "committee": "Intelligence",
-        "chair": "",
+        "chair": "Sen. Tom Cotton (R-AR), Chair · Sen. Mark Warner (D-VA), Ranking Member",
         "time": "3:00 PM ET",
         "building": "Hart (SH)",
         "room": "SH-219",
@@ -431,15 +435,23 @@
       {
         "chamber": "Senate",
         "committee": "Indian Affairs",
-        "chair": "",
+        "chair": "Sen. Lisa Murkowski (R-AK), Chair · Sen. Brian Schatz (D-HI), Ranking Member",
         "time": "4:00 PM ET",
         "building": "Dirksen (SD)",
         "room": "SD-628",
         "topic": "Hearings to examine tracking prediction markets' exponential growth, focusing on tribal implications and beyond.",
-        "witnesses": [],
+        "witnesses": [
+          "The Honorable Mark Macarro",
+          "The Honorable Tehassi Hill",
+          "Mr. Jamie Hummingbird",
+          "The Honorable Mathura Sridharan",
+          "Dr. Harry Levant"
+        ],
         "details": "Hearings to examine tracking prediction markets' exponential growth, focusing on tribal implications and beyond.",
         "cancelled": false,
-        "changes": [],
+        "changes": [
+          "Witnesses added: Dr. Harry Levant, Mr. Jamie Hummingbird +3 more · 12:30 PM"
+        ],
         "link": "https://www.indian.senate.gov/hearings/roundtable-titled-tracking-prediction-markets-exponential-growth-tribal-implications-and-beyond/"
       }
     ],
