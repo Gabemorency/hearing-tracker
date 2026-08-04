@@ -105,6 +105,15 @@ def test_lookup_chair_no_match_returns_empty():
     assert scrape.lookup_chair("Totally Made Up Committee Name") == ""
 
 
+def test_lookup_chair_matches_subcommittee_name():
+    # Real committee name from a live hearing: "Judiciary — Subcommittee on
+    # Crime and Counterterrorism" should still resolve to the full
+    # committee's chair, not fail to match just because of the subcommittee
+    # suffix.
+    chair = scrape.lookup_chair("Judiciary — Subcommittee on Crime and Counterterrorism")
+    assert "Grassley" in chair
+
+
 def test_detect_cancellation_loose_check():
     assert scrape.detect_cancellation("Hearing postponed until further notice")
     assert not scrape.detect_cancellation("Hearing on the state of the economy")

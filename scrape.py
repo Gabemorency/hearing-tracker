@@ -876,35 +876,71 @@ async def scrape():
         ]
         await asyncio.gather(*committee_tasks)
 
-        await browser.close()
+        # ── Apply enrichment ──────────────────────────────────────────────────
+        # Runs before browser.close() (not after, like it used to) because
+        # the witness fetch below needs the browser to visit each hearing's
+        # own specific link, which this loop is what resolves onto h["link"].
+        for h in scraped:
+            cmte_lower = h["committee"].lower()
+            for key, witnesses in witness_cache.items():
+                if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                    if witnesses and not h["witnesses"]:
+                        h["witnesses"] = witnesses
+                        break
+            for key, chair in chair_cache.items():
+                if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                    if chair and not h["chair"]:
+                        h["chair"] = chair
+                        break
+            for key, contexts in cancelled_context_cache.items():
+                if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                    # Match against THIS hearing's own topic, same threshold as
+                    # best_hearing_link — a committee having some cancelled
+                    # item today doesn't mean every hearing under it is.
+                    if any(word_overlap_score(h.get("topic", ""), ctx) >= 0.5 for ctx in contexts):
+                        h["cancelled"] = True
+                    break
+            for key, candidates in hearing_link_cache.items():
+                if key in cmte_lower or any(w in cmte_lower for w in key.split()):
+                    link = best_hearing_link(h.get("topic", ""), candidates)
+                    if link:
+                        h["link"] = link
+                    break
 
-    # ── Apply enrichment ──────────────────────────────────────────────────────
-    for h in scraped:
-        cmte_lower = h["committee"].lower()
-        for key, witnesses in witness_cache.items():
-            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
-                if witnesses and not h["witnesses"]:
-                    h["witnesses"] = witnesses
-                    break
-        for key, chair in chair_cache.items():
-            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
-                if chair and not h["chair"]:
-                    h["chair"] = chair
-                    break
-        for key, contexts in cancelled_context_cache.items():
-            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
-                # Match against THIS hearing's own topic, same threshold as
-                # best_hearing_link — a committee having some cancelled
-                # item today doesn't mean every hearing under it is.
-                if any(word_overlap_score(h.get("topic", ""), ctx) >= 0.5 for ctx in contexts):
-                    h["cancelled"] = True
-                break
-        for key, candidates in hearing_link_cache.items():
-            if key in cmte_lower or any(w in cmte_lower for w in key.split()):
-                link = best_hearing_link(h.get("topic", ""), candidates)
-                if link:
-                    h["link"] = link
-                break
+        # ── Witnesses from each hearing's own specific page ────────────────────
+        # The committee-page enrichment above only reads the committee's
+        # *listing* page (title/time/location per entry) — verified via a
+        # real fetch that witness names are never there, only on each
+        # hearing's own individual page. Only worth a fetch when h["link"]
+        # resolved to a specific hearing page (via HEARING_LINK_RULES,
+        # above) rather than watch_link()'s generic committee-homepage
+        # fallback — refetching that would just find the same listing text
+        # again, for nothing.
+        witness_sem = asyncio.Semaphore(COMMITTEE_CONCURRENCY)
+
+        async def fetch_hearing_witnesses(h):
+            link = h.get("link")
+            if not link or h.get("witnesses"):
+                return
+            if link == watch_link(h["chamber"], h["committee"]):
+                return
+            async with witness_sem:
+                try:
+                    page = await context.new_page()
+                    await page.goto(link, wait_until="networkidle", timeout=15000)
+                    await asyncio.sleep(1)
+                    text = await page.inner_text("body")
+                    witnesses = extract_witnesses(text)
+                    if witnesses:
+                        h["witnesses"] = witnesses
+                        print(f"  👤 {h['committee']}: {len(witnesses)} witnesses (hearing page)")
+                    await page.close()
+                except Exception as e:
+                    print(f"  ⚠️  {h['committee']}: witness fetch failed ({e})")
+
+        await asyncio.gather(*[fetch_hearing_witnesses(h) for h in scraped])
+
+        await browser.close()
 
     # ── Global deduplication of scraped list ──────────────────────────────────
     # Different sources (senate.gov, committee pages, congress.gov) can return
@@ -972,11 +1008,6 @@ async def scrape():
                     enriched["chair"] = scraped_match["chair"]
                 if scraped_match.get("link") and not h.get("link"):
                     enriched["link"] = scraped_match["link"]
-                # Apply hardcoded chair if still missing
-                if not enriched.get("chair"):
-                    hardcoded = lookup_chair(enriched["committee"])
-                    if hardcoded:
-                        enriched["chair"] = hardcoded
                 if scraped_match.get("cancelled"):
                     enriched["cancelled"] = True
                 enriched["changes"] = h.get("changes", [])
@@ -984,26 +1015,30 @@ async def scrape():
             else:
                 kept = dict(h)
                 kept["changes"] = h.get("changes", [])
-                # Apply hardcoded chair if missing
-                if not kept.get("chair"):
-                    hardcoded = lookup_chair(kept["committee"])
-                    if hardcoded:
-                        kept["chair"] = hardcoded
                 merged.append(kept)
                 print(f"  📌 Kept from baseline: {h['committee']}")
 
         # Add new hearings found by scraper not in baseline
         for s in scraped:
             if not any(fuzzy_match(s, m) for m in merged):
-                if not s.get("chair"):
-                    hardcoded = lookup_chair(s["committee"])
-                    if hardcoded:
-                        s["chair"] = hardcoded
                 merged.append(s)
                 print(f"  ➕ New from scraper: {s['committee']}")
     else:
         print(f"⚠️  No valid baseline — using scraped data only")
         merged = scraped
+
+    # Hardcoded chair/ranking-member fallback (COMMITTEE_CHAIRS) — applied
+    # once, unconditionally, to every hearing regardless of which branch
+    # above produced `merged`. This used to run only inside the baseline-
+    # merge branches, so any day baseline.json's date didn't match today
+    # (e.g. "No valid baseline" above, which is common) skipped it
+    # entirely — chair silently stayed empty for every hearing that day,
+    # even though the real chair was already known and hardcoded.
+    for h in merged:
+        if not h.get("chair"):
+            hardcoded = lookup_chair(h["committee"])
+            if hardcoded:
+                h["chair"] = hardcoded
 
     # ── Change detection ──────────────────────────────────────────────────────
     snapshot = load_json(SNAPSHOT_FILE)
