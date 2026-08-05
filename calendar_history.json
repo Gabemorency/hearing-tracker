@@ -519,6 +519,20 @@
       },
       {
         "chamber": "Senate",
+        "committee": "Indian Affairs",
+        "chair": "Sen. Lisa Murkowski (R-AK), Chair · Sen. Brian Schatz (D-HI), Ranking Member",
+        "time": "2:00 PM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-628",
+        "topic": "Business meeting to consider S.239, to take certain mineral interests into trust for the benefit of the Crow Tribe of Montana, S.1055, to amend the Indian Health Care Improvement Act to modify the notification requirement for emergency contract health services for certain beneficiaries, S.1514, to take certain land in the State of Washington into trust for the benefit of the Quinault Indian Nation, S.3219, to transfer certain Federal land into trust for certain Indian Pueblos in the State of New Mexico, and H.R.2400, to take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe.",
+        "witnesses": [],
+        "details": "Business meeting to consider S.239, to take certain mineral interests into trust for the benefit of the Crow Tribe of Montana, S.1055, to amend the Indian Health Care Improvement Act to modify the notification requirement for emergency contract health services for certain beneficiaries, S.1514, to take certain land in the State of Washington into trust for the benefit of the Quinault Indian Nation, S.3219, to transfer certain Federal land into trust for certain Indian Pueblos in the State of New Mexico, and H.R.2400, to take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe.",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.indian.senate.gov/hearings/business-meeting-to-consider-s-239-s-1055-s-1514-s-3219-h-r-2400/"
+      },
+      {
+        "chamber": "Senate",
         "committee": "Judiciary — Subcommittee on Federal Courts, Oversight, Agency Action, and Federal Rights",
         "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
         "time": "2:30 PM ET",
@@ -530,20 +544,6 @@
         "cancelled": false,
         "changes": [],
         "link": "https://www.judiciary.senate.gov/committee-activity/hearings/hidden-in-plain-sight-confronting-the-muslim-brotherhood-network-in-america-08-05-2026"
-      },
-      {
-        "chamber": "Senate",
-        "committee": "Indian Affairs",
-        "chair": "Sen. Lisa Murkowski (R-AK), Chair · Sen. Brian Schatz (D-HI), Ranking Member",
-        "time": "2:30 PM ET",
-        "building": "Dirksen (SD)",
-        "room": "SD-628",
-        "topic": "Business meeting to consider S.239, to take certain mineral interests into trust for the benefit of the Crow Tribe of Montana, S.1055, to amend the Indian Health Care Improvement Act to modify the notification requirement for emergency contract health services for certain beneficiaries, S.1514, to take certain land in the State of Washington into trust for the benefit of the Quinault Indian Nation, S.3219, to transfer certain Federal land into trust for certain Indian Pueblos in the State of New Mexico, and H.R.2400, to take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe.",
-        "witnesses": [],
-        "details": "Business meeting to consider S.239, to take certain mineral interests into trust for the benefit of the Crow Tribe of Montana, S.1055, to amend the Indian Health Care Improvement Act to modify the notification requirement for emergency contract health services for certain beneficiaries, S.1514, to take certain land in the State of Washington into trust for the benefit of the Quinault Indian Nation, S.3219, to transfer certain Federal land into trust for certain Indian Pueblos in the State of New Mexico, and H.R.2400, to take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe.",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://www.indian.senate.gov/hearings/business-meeting-to-consider-s-239-s-1055-s-1514-s-3219-h-r-2400/"
       },
       {
         "chamber": "Senate",
