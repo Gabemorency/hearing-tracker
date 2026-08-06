@@ -1,7 +1,4 @@
 {
-  "118854": "Committee on Rules",
-  "119443": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
-  "119437": "Committee on Energy and Commerce",
   "119438": "Committee on Ways and Means",
   "119427": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
   "119407": "Committee on Transportation and Infrastructure",
@@ -235,5 +232,8 @@
   "119441": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
   "119444": "Committee on Foreign Affairs",
   "119446": "Committee on Small Business",
-  "119450": "Committee on Financial Services"
+  "119450": "Committee on Financial Services",
+  "118854": "Committee on Rules",
+  "119443": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
+  "119437": "Committee on Energy and Commerce"
 }
