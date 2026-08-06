@@ -1,135 +1,63 @@
 {
-  "Senate|Finance|10:00 AM ET": {
+  "Senate|Homeland Security and Governmental Affai|8:30 AM ET": {
     "chamber": "Senate",
-    "committee": "Finance",
-    "chair": "Sen. Mike Crapo (R-ID), Chair \u00b7 Sen. Ron Wyden (D-OR), Ranking Member",
-    "time": "10:00 AM ET",
+    "committee": "Homeland Security and Governmental Affairs",
+    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
+    "time": "8:30 AM ET",
     "building": "Dirksen (SD)",
-    "room": "SD-215",
-    "topic": "Hearings to examine exploring process approaches for addressing Social Security solvency.",
-    "witnesses": [
-      "The Honorable Charles Blahous, Ph.D."
-    ],
-    "details": "Hearings to examine exploring process approaches for addressing Social Security solvency.",
+    "room": "SD-342",
+    "topic": "Business meeting to consider an original resolution regarding Contempt of Congress,\u00a0S.2732, to strengthen employee cost savings suggestions programs within the Federal Government, S.2733, to require the Comptroller General of the United States to analyze certain legislation in order to prevent duplication of and overlap with existing Federal programs, offices, and initiatives, S.252, to increase access to agency guidance documents, S.164, to amend chapter 8 of title 5, United States Code, to provide for en bloc consideration in resolutions of disapproval for \"midnight rules\", H.R.5235, to amend title 41, United States Code, to prohibit minimum educational requirements for proposed contractor personnel in certain contract solicitations, S.3175, to establish a pilot program for ZIP Code boundary changes, S.4505, to require the United States Postal Service to designate ZIP Codes for certain communities, S.1735, to require certain agencies to include a page on the website of the agency rel",
+    "witnesses": [],
+    "details": "Business meeting to consider an original resolution regarding Contempt of Congress,\u00a0S.2732, to strengthen employee cost savings suggestions programs within the Federal Government, S.2733, to require the Comptroller General of the United States to analyze certain legislation in order to prevent duplication of and overlap with existing Federal programs, offices, and initiatives, S.252, to increase access to agency guidance documents, S.164, to amend chapter 8 of title 5, United States Code, to provide for en bloc consideration in resolutions of disapproval for \"midnight rules\", H.R.5235, to amend title 41, United States Code, to prohibit minimum educational requirements for proposed contractor personnel in certain contract solicitations, S.3175, to establish a pilot program for ZIP Code boundary changes, S.4505, to require the United States Postal Service to designate ZIP Codes for certain communities, S.1735, to require certain agencies to include a page on the website of the agency rel",
     "cancelled": false,
     "changes": [],
-    "link": "https://www.finance.senate.gov/hearings/exploring-process-approaches-for-addressing-social-security-solvency"
+    "link": "https://www.hsgac.senate.gov/hearings/business-meeting-44/"
   },
-  "Senate|Foreign Relations|10:00 AM ET": {
+  "Senate|Agriculture, Nutrition, and Forestry|9:30 AM ET": {
+    "chamber": "Senate",
+    "committee": "Agriculture, Nutrition, and Forestry",
+    "chair": "Sen. John Boozman (R-AR), Chair \u00b7 Sen. Amy Klobuchar (D-MN), Ranking Member",
+    "time": "9:30 AM ET",
+    "building": "Russell (SR)",
+    "room": "SR-318",
+    "topic": "Business meeting to consider an original bill entitled, \"Agricultural Act of 2026\".",
+    "witnesses": [],
+    "details": "Business meeting to consider an original bill entitled, \"Agricultural Act of 2026\".",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.agriculture.senate.gov/hearings/business-meeting-08-06-2026"
+  },
+  "Senate|Banking, Housing, and Urban Affairs|10:15 AM ET": {
+    "chamber": "Senate",
+    "committee": "Banking, Housing, and Urban Affairs",
+    "chair": "Sen. Tim Scott (R-SC), Chair \u00b7 Sen. Elizabeth Warren (D-MA), Ranking Member",
+    "time": "10:15 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-538",
+    "topic": "Hearings to examine empowering Main Street by unlocking access to capital.",
+    "witnesses": [
+      "Ms. Dalia Blass",
+      "The Honorable Kenneth Bentsen",
+      "Mr. Mike Flood",
+      "Mr. Cantrell Dumas"
+    ],
+    "details": "Hearings to examine empowering Main Street by unlocking access to capital.",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.banking.senate.gov/hearings/empowering-main-street-by-unlocking-access-to-capital"
+  },
+  "Senate|Foreign Relations|11:00 AM ET": {
     "chamber": "Senate",
     "committee": "Foreign Relations",
     "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
-    "time": "10:00 AM ET",
+    "time": "11:00 AM ET",
     "building": "Dirksen (SD)",
     "room": "SD-419",
-    "topic": "Hearings to examine the nominations of Peter McCoy, of South Carolina, to be Ambassador to Montenegro, Daniel Travis, of California, a Career Member of the Senior Foreign Service, Class of Counselor, to be Ambassador to the Republic of Sierra Leone, and Nathaniel Morris, of Kentucky, to be Ambassador to the Republic of Colombia, all of the Department of State.",
+    "topic": "Hearings to examine protecting Americans from global scam operations, focusing on assessing the United States response.",
     "witnesses": [],
-    "details": "Hearings to examine the nominations of Peter McCoy, of South Carolina, to be Ambassador to Montenegro, Daniel Travis, of California, a Career Member of the Senior Foreign Service, Class of Counselor, to be Ambassador to the Republic of Sierra Leone, and Nathaniel Morris, of Kentucky, to be Ambassador to the Republic of Colombia, all of the Department of State.",
+    "details": "Hearings to examine protecting Americans from global scam operations, focusing on assessing the United States response.",
     "cancelled": false,
     "changes": [],
-    "link": "https://www.foreign.senate.gov/hearings"
-  },
-  "Senate|Commerce, Science, and Transportation|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Commerce, Science, and Transportation",
-    "chair": "Sen. Ted Cruz (R-TX), Chair \u00b7 Sen. Maria Cantwell (D-WA), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Russell (SR)",
-    "room": "SR-253",
-    "topic": "Business meeting to markup S.737, to require certain interactive computer services to adopt and operate technology verification measures to ensure that users of the platform are not minors, S.1748, to protect the safety of children on the internet, S.4199, to require entities that make artificial intelligence chatbots available to minors to implement certain safe design features, S.4407, to require the creation of family accounts for children to be able to use artificial intelligence chatbots, to require verifiable parental consent for teens using artificial intelligence chatbots, S.5171, to require a study of AI-enabled toys and development of a joint action plan regarding the marketing and sale of AI-enabled toys, and a promotion list in the Coast Guard.",
-    "witnesses": [],
-    "details": "Business meeting to markup S.737, to require certain interactive computer services to adopt and operate technology verification measures to ensure that users of the platform are not minors, S.1748, to protect the safety of children on the internet, S.4199, to require entities that make artificial intelligence chatbots available to minors to implement certain safe design features, S.4407, to require the creation of family accounts for children to be able to use artificial intelligence chatbots, to require verifiable parental consent for teens using artificial intelligence chatbots, S.5171, to require a study of AI-enabled toys and development of a joint action plan regarding the marketing and sale of AI-enabled toys, and a promotion list in the Coast Guard.",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.commerce.senate.gov/hearings"
-  },
-  "Senate|Judiciary|10:15 AM ET": {
-    "chamber": "Senate",
-    "committee": "Judiciary",
-    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
-    "time": "10:15 AM ET",
-    "building": "Hart (SH)",
-    "room": "SH-216",
-    "topic": "Hearings to examine the nominations of Anna St. John, of Louisiana, to be United States Circuit Judge for the Fifth Circuit, Gregory Carl Cook, to be United States District Judge for the Northern District of Alabama, D. Adam Candeub, of the District of Columbia, to be an Assistant Attorney General, Department of Justice, and John Peter Cronan, of New York, and Jason Manion, of Ohio, each to be a Member of the United States Sentencing Commission.",
-    "witnesses": [],
-    "details": "Hearings to examine the nominations of Anna St. John, of Louisiana, to be United States Circuit Judge for the Fifth Circuit, Gregory Carl Cook, to be United States District Judge for the Northern District of Alabama, D. Adam Candeub, of the District of Columbia, to be an Assistant Attorney General, Department of Justice, and John Peter Cronan, of New York, and Jason Manion, of Ohio, each to be a Member of the United States Sentencing Commission.",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.judiciary.senate.gov/committee-activity/hearings/nominations-08-05-2026"
-  },
-  "Senate|Indian Affairs|2:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Indian Affairs",
-    "chair": "Sen. Lisa Murkowski (R-AK), Chair \u00b7 Sen. Brian Schatz (D-HI), Ranking Member",
-    "time": "2:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-628",
-    "topic": "Business meeting to consider S.239, to take certain mineral interests into trust for the benefit of the Crow Tribe of Montana, S.1055, to amend the Indian Health Care Improvement Act to modify the notification requirement for emergency contract health services for certain beneficiaries, S.1514, to take certain land in the State of Washington into trust for the benefit of the Quinault Indian Nation, S.3219, to transfer certain Federal land into trust for certain Indian Pueblos in the State of New Mexico, and H.R.2400, to take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe.",
-    "witnesses": [],
-    "details": "Business meeting to consider S.239, to take certain mineral interests into trust for the benefit of the Crow Tribe of Montana, S.1055, to amend the Indian Health Care Improvement Act to modify the notification requirement for emergency contract health services for certain beneficiaries, S.1514, to take certain land in the State of Washington into trust for the benefit of the Quinault Indian Nation, S.3219, to transfer certain Federal land into trust for certain Indian Pueblos in the State of New Mexico, and H.R.2400, to take certain Federal land in the State of California into trust for the benefit of the Pit River Tribe.",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.indian.senate.gov/hearings/business-meeting-to-consider-s-239-s-1055-s-1514-s-3219-h-r-2400/"
-  },
-  "Senate|Judiciary \u2014 Subcommittee on Federal Cour|2:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Judiciary \u2014 Subcommittee on Federal Courts, Oversight, Agency Action, and Federal Rights",
-    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
-    "time": "2:30 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-226",
-    "topic": "Hearings to examine the Muslim brotherhood network in America.",
-    "witnesses": [],
-    "details": "Hearings to examine the Muslim brotherhood network in America.",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.judiciary.senate.gov/committee-activity/hearings/hidden-in-plain-sight-confronting-the-muslim-brotherhood-network-in-america-08-05-2026"
-  },
-  "Senate|Small Business and Entrepreneurship|2:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Small Business and Entrepreneurship",
-    "chair": "Sen. Joni Ernst (R-IA), Chair \u00b7 Sen. Ed Markey (D-MA), Ranking Member",
-    "time": "2:30 PM ET",
-    "building": "Russell (SR)",
-    "room": "SR-428A",
-    "topic": "Hearings to examine the next 250, focusing on small businesses leading the way.",
-    "witnesses": [
-      "Dr. Ajay \"AJ\" P. Malshe",
-      "Ms. Lorena Cantarovici",
-      "Mr. Valjay Rigby",
-      "Ms. Nikki High"
-    ],
-    "details": "Hearings to examine the next 250, focusing on small businesses leading the way.",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.sbc.senate.gov/public/index.cfm/hearings?ID=353ADA36-C5AA-4B7B-88BA-3B2410824900"
-  },
-  "Senate|Intelligence|3:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Intelligence",
-    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
-    "time": "3:00 PM ET",
-    "building": "Hart (SH)",
-    "room": "SH-219",
-    "topic": "Closed business meeting to consider certain intelligence matters; to be immediately followed by a closed briefing on certain intelligence matters.",
-    "witnesses": [],
-    "details": "Closed business meeting to consider certain intelligence matters; to be immediately followed by a closed briefing on certain intelligence matters.",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.intelligence.senate.gov/hearings"
-  },
-  "Senate|Foreign Relations|3:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Foreign Relations",
-    "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
-    "time": "3:00 PM ET",
-    "building": "Capitol Visitor Center",
-    "room": "SVC-217",
-    "topic": "To receive a closed briefing update on the war in Sudan.",
-    "witnesses": [],
-    "details": "To receive a closed briefing update on the war in Sudan.",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.foreign.senate.gov/hearings/update-on-the-war-in-sudan"
+    "link": "https://www.foreign.senate.gov/hearings/protecting-americans-from-global-scam-operations-assessing-the-us-response"
   }
 }
