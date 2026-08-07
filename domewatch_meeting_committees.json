@@ -1,7 +1,4 @@
 {
-  "119415": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
-  "119417": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
-  "119419": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
   "119425": "Committee on Ways and Means",
   "119430": "Committee on Financial Services",
   "119435": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
@@ -235,5 +232,8 @@
   "119423": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
   "119416": "Subcommittee on Health (Committee on Veterans' Affairs)",
   "119418": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
-  "119256": "Europe Subcommittee (Committee on Foreign Affairs)"
+  "119256": "Europe Subcommittee (Committee on Foreign Affairs)",
+  "119415": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
+  "119417": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
+  "119419": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)"
 }
