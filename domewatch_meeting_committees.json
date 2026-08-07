@@ -1,7 +1,4 @@
 {
-  "119391": "Committee on Science, Space, and Technology",
-  "119396": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
-  "119401": "Subcommittee on Capital Markets (Committee on Financial Services)",
   "119402": "Subcommittee on Economic Opportunity (Committee on Veterans' Affairs)",
   "119404": "Committee on Small Business",
   "119406": "Subcommittee on Homeland Security (Committee on Appropriations)",
@@ -235,5 +232,8 @@
   "119397": "Committee on House Administration",
   "119405": "Subcommittee on Oversight and Investigations (Committee on Energy and Commerce)",
   "119420": "Committee on Education and Workforce",
-  "119386": "Subcommittee on Energy and Mineral Resources (Committee on Natural Resources)"
+  "119386": "Subcommittee on Energy and Mineral Resources (Committee on Natural Resources)",
+  "119391": "Committee on Science, Space, and Technology",
+  "119396": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
+  "119401": "Subcommittee on Capital Markets (Committee on Financial Services)"
 }
