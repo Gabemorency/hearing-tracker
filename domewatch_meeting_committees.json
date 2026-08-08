@@ -1,7 +1,4 @@
 {
-  "119364": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
-  "119367": "Subcommittee on Energy (Committee on Energy and Commerce)",
-  "119329": "Committee on Foreign Affairs",
   "119365": "Committee on the Judiciary",
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
@@ -235,5 +232,8 @@
   "119377": "Subcommittee on Social Security (Committee on Ways and Means)",
   "119358": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
   "119368": "Committee on Ways and Means",
-  "119380": "Committee on Appropriations"
+  "119380": "Committee on Appropriations",
+  "119364": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
+  "119367": "Subcommittee on Energy (Committee on Energy and Commerce)",
+  "119329": "Committee on Foreign Affairs"
 }
