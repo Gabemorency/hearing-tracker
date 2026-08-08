@@ -1,7 +1,4 @@
 {
-  "119382": "Committee on Financial Services",
-  "119355": "Committee on Education and Workforce",
-  "119381": "Subcommittee on Defense (Committee on Appropriations)",
   "119370": "Committee on Education and Workforce",
   "119378": "Subcommittee on Health (Committee on Energy and Commerce)",
   "119356": "Committee on Natural Resources",
@@ -235,5 +232,8 @@
   "119409": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
   "118852": "Committee on Rules",
   "119326": "Committee on Natural Resources",
-  "119376": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)"
+  "119376": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
+  "119382": "Committee on Financial Services",
+  "119355": "Committee on Education and Workforce",
+  "119381": "Subcommittee on Defense (Committee on Appropriations)"
 }
