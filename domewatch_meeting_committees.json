@@ -1,7 +1,4 @@
 {
-  "119413": "Committee on House Administration",
-  "119297": "Committee on Homeland Security",
-  "119390": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
   "119395": "Committee on Agriculture",
   "119399": "Committee on Financial Services",
   "119409": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
@@ -235,5 +232,8 @@
   "119414": "Committee on Appropriations",
   "119383": "Committee on Natural Resources",
   "119392": "Subcommittee on Environment (Committee on Energy and Commerce)",
-  "119394": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)"
+  "119394": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
+  "119413": "Committee on House Administration",
+  "119297": "Committee on Homeland Security",
+  "119390": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)"
 }
