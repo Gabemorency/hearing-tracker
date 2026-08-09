@@ -1,7 +1,4 @@
 {
-  "119343": "Subcommittee on Environment (Committee on Energy and Commerce)",
-  "119362": "Committee on Appropriations",
-  "119338": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119339": "Committee on House Administration",
   "119345": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
   "119243": "Committee on Homeland Security",
@@ -235,5 +232,8 @@
   "119352": "Committee on Ways and Means",
   "119353": "Committee on Financial Services",
   "119354": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
-  "119330": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)"
+  "119330": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
+  "119343": "Subcommittee on Environment (Committee on Energy and Commerce)",
+  "119362": "Committee on Appropriations",
+  "119338": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)"
 }
