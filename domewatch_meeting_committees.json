@@ -1,7 +1,4 @@
 {
-  "119335": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
-  "119254": "Subcommittee on Cybersecurity and Infrastructure Protection (Committee on Homeland Security)",
-  "119285": "Subcommittee on Environment (Committee on Science, Space, and Technology)",
   "119292": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
   "119298": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
   "119325": "Committee on Education and Workforce",
@@ -235,5 +232,8 @@
   "119340": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
   "119359": "Committee on the Judiciary",
   "118850": "Committee on Rules",
-  "119286": "Subcommittee on Commerce, Justice, Science, and Related Agencies (Committee on Appropriations)"
+  "119286": "Subcommittee on Commerce, Justice, Science, and Related Agencies (Committee on Appropriations)",
+  "119335": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
+  "119254": "Subcommittee on Cybersecurity and Infrastructure Protection (Committee on Homeland Security)",
+  "119285": "Subcommittee on Environment (Committee on Science, Space, and Technology)"
 }
