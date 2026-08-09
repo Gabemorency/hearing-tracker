@@ -1,7 +1,4 @@
 {
-  "119333": "Committee on Armed Services",
-  "119342": "Committee on Transportation and Infrastructure",
-  "119346": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
   "119348": "Committee on Agriculture",
   "119350": "Subcommittee on Environment (Committee on Science, Space, and Technology)",
   "119352": "Committee on Ways and Means",
@@ -235,5 +232,8 @@
   "119331": "Subcommittee on Federal Lands (Committee on Natural Resources)",
   "119341": "Subcommittee on Aviation (Committee on Transportation and Infrastructure)",
   "119349": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
-  "119351": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)"
+  "119351": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
+  "119333": "Committee on Armed Services",
+  "119342": "Committee on Transportation and Infrastructure",
+  "119346": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)"
 }
