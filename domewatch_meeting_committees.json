@@ -1,7 +1,4 @@
 {
-  "119341": "Subcommittee on Aviation (Committee on Transportation and Infrastructure)",
-  "119349": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
-  "119351": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
   "119333": "Committee on Armed Services",
   "119342": "Committee on Transportation and Infrastructure",
   "119346": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
@@ -235,5 +232,8 @@
   "119361": "Subcommittee on Homeland Security (Committee on Appropriations)",
   "119344": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
   "119258": "Subcommittee on Cybersecurity and Infrastructure Protection (Committee on Homeland Security)",
-  "119331": "Subcommittee on Federal Lands (Committee on Natural Resources)"
+  "119331": "Subcommittee on Federal Lands (Committee on Natural Resources)",
+  "119341": "Subcommittee on Aviation (Committee on Transportation and Infrastructure)",
+  "119349": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
+  "119351": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)"
 }
