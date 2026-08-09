@@ -1,7 +1,4 @@
 {
-  "119336": "Committee on Foreign Affairs",
-  "119337": "Committee on Small Business",
-  "119340": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
   "119359": "Committee on the Judiciary",
   "118850": "Committee on Rules",
   "119286": "Subcommittee on Commerce, Justice, Science, and Related Agencies (Committee on Appropriations)",
@@ -235,5 +232,8 @@
   "119338": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119339": "Committee on House Administration",
   "119345": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
-  "119243": "Committee on Homeland Security"
+  "119243": "Committee on Homeland Security",
+  "119336": "Committee on Foreign Affairs",
+  "119337": "Committee on Small Business",
+  "119340": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)"
 }
