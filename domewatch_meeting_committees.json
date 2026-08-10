@@ -1,7 +1,4 @@
 {
-  "119320": "Committee on Small Business",
-  "119319": "Committee on Appropriations",
-  "119293": "Subcommittee on Oversight and Investigations (Committee on Energy and Commerce)",
   "119305": "Committee on Veterans' Affairs",
   "119309": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
   "119128": "Committee on Homeland Security",
@@ -235,5 +232,8 @@
   "119299": "Subcommittee on Elections (Committee on House Administration)",
   "119304": "Subcommittee on Health (Committee on Energy and Commerce)",
   "119308": "Subcommittee on Capital Markets (Committee on Financial Services)",
-  "119317": "Subcommittee on Oversight and Investigations (Committee on Natural Resources)"
+  "119317": "Subcommittee on Oversight and Investigations (Committee on Natural Resources)",
+  "119320": "Committee on Small Business",
+  "119319": "Committee on Appropriations",
+  "119293": "Subcommittee on Oversight and Investigations (Committee on Energy and Commerce)"
 }
