@@ -1,7 +1,4 @@
 {
-  "119307": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
-  "119311": "Committee on the Judiciary",
-  "119312": "Committee on Armed Services",
   "119313": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
   "119316": "Committee on Oversight and Government Reform",
   "119315": "Permanent Select Committee on Intelligence",
@@ -235,5 +232,8 @@
   "119128": "Committee on Homeland Security",
   "119284": "Committee on Science, Space, and Technology",
   "119300": "Subcommittee on Tax (Committee on Ways and Means)",
-  "119303": "Committee on Foreign Affairs"
+  "119303": "Committee on Foreign Affairs",
+  "119307": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
+  "119311": "Committee on the Judiciary",
+  "119312": "Committee on Armed Services"
 }
