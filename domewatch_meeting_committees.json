@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119478": "Subcommittee on Commodity Markets, Digital Assets, and Rural Development (Committee on Agriculture)",
-  "119480": "Committee on the Judiciary",
-  "119481": "Subcommittee on Delivering on Government Efficiency (Committee on Oversight and Government Reform)",
   "119493": "Committee on Science, Space, and Technology",
   "119474": "Permanent Select Committee on Intelligence",
   "119490": "Committee on Energy and Commerce",
@@ -236,5 +233,8 @@
   "119491": "Committee on Education and Workforce",
   "119462": "Committee on Foreign Affairs",
   "119472": "Permanent Select Committee on Intelligence",
-  "119476": "Subcommittee on National Security, Illicit Finance, and International Financial Institutions (Committee on Financial Services)"
+  "119476": "Subcommittee on National Security, Illicit Finance, and International Financial Institutions (Committee on Financial Services)",
+  "119478": "Subcommittee on Commodity Markets, Digital Assets, and Rural Development (Committee on Agriculture)",
+  "119480": "Committee on the Judiciary",
+  "119481": "Subcommittee on Delivering on Government Efficiency (Committee on Oversight and Government Reform)"
 }
