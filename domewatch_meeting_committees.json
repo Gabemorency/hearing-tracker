@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119452": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
-  "119454": "Subcommittee on Elections (Committee on House Administration)",
-  "119455": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
   "119456": "Permanent Select Committee on Intelligence",
   "119457": "Subcommittee on Health (Committee on Energy and Commerce)",
   "119464": "Committee on Education and Workforce",
@@ -236,5 +233,8 @@
   "119490": "Committee on Energy and Commerce",
   "118855": "Committee on Rules",
   "119461": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
-  "119471": "Committee on the Budget"
+  "119471": "Committee on the Budget",
+  "119452": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
+  "119454": "Subcommittee on Elections (Committee on House Administration)",
+  "119455": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)"
 }
