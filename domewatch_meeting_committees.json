@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119486": "Committee on House Administration",
-  "119492": "Committee on Oversight and Government Reform",
-  "119494": "Committee on Ways and Means",
   "119400": "Subcommittee on Modernization and Innovation (Committee on House Administration)",
   "119475": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
   "119477": "Subcommittee on Housing and Insurance (Committee on Financial Services)",
@@ -235,5 +232,8 @@
   "119463": "Committee on Foreign Affairs",
   "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
   "119483": "Committee on Small Business",
-  "119485": "Committee on Appropriations"
+  "119485": "Committee on Appropriations",
+  "119486": "Committee on House Administration",
+  "119492": "Committee on Oversight and Government Reform",
+  "119494": "Committee on Ways and Means"
 }
