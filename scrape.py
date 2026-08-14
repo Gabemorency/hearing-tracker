@@ -1621,7 +1621,8 @@ function loadFloor() {{
       if (!bar) return;
       if (!d || !d.now) {{ bar.style.display = "none"; return; }}
       var inSession   = d.now.value !== "house_not_in_session";
-      var activeVote  = d.timer && parseInt(d.timer.seconds_remaining, 10) > 0;
+      var timerAge    = (d.timer && d.timer.timestamp) ? (new Date(d.fetchedAt || Date.now()) - new Date(d.timer.timestamp)) : Infinity;
+      var activeVote  = inSession && d.timer && parseInt(d.timer.seconds_remaining, 10) > 0 && timerAge >= 0 && timerAge < 30 * 60 * 1000;
       bar.className = "floor-bar";
       vot.style.display = "none";
       if (activeVote && d.roll_call) {{
