@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119397": "Committee on House Administration",
-  "119405": "Subcommittee on Oversight and Investigations (Committee on Energy and Commerce)",
-  "119420": "Committee on Education and Workforce",
   "119386": "Subcommittee on Energy and Mineral Resources (Committee on Natural Resources)",
   "119391": "Committee on Science, Space, and Technology",
   "119396": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
@@ -236,5 +233,8 @@
   "119403": "Subcommittee on Disability Assistance and Memorial Affairs (Committee on Veterans' Affairs)",
   "119412": "Committee on Ways and Means",
   "119424": "Subcommittee on Health (Committee on Energy and Commerce)",
-  "119385": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa"
+  "119385": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
+  "119397": "Committee on House Administration",
+  "119405": "Subcommittee on Oversight and Investigations (Committee on Energy and Commerce)",
+  "119420": "Committee on Education and Workforce"
 }
