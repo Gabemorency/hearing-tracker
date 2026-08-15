@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "118851": "Committee on Rules",
-  "119306": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
-  "119360": "Subcommittee on Labor, Health and Human Services, Education, and Related Agencies (Committee on Appropriations)",
   "119361": "Subcommittee on Homeland Security (Committee on Appropriations)",
   "119344": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
   "119258": "Subcommittee on Cybersecurity and Infrastructure Protection (Committee on Homeland Security)",
@@ -236,5 +233,8 @@
   "119367": "Subcommittee on Energy (Committee on Energy and Commerce)",
   "119329": "Committee on Foreign Affairs",
   "119365": "Committee on the Judiciary",
-  "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)"
+  "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
+  "118851": "Committee on Rules",
+  "119306": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
+  "119360": "Subcommittee on Labor, Health and Human Services, Education, and Related Agencies (Committee on Appropriations)"
 }
