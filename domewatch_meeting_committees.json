@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119295": "Committee on Small Business",
-  "119302": "Subcommittee on National Security, Illicit Finance, and International Financial Institutions (Committee on Financial Services)",
-  "119310": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
   "119327": "Committee on Energy and Commerce",
   "119328": "Committee on Ways and Means",
   "119318": "Subcommittee on Military Construction, Veterans Affairs, and Related Agencies (Committee on Appropriations)",
@@ -236,5 +233,8 @@
   "119298": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
   "119325": "Committee on Education and Workforce",
   "119211": "Committee on Transportation and Infrastructure",
-  "119263": "Subcommittee on Federal Lands (Committee on Natural Resources)"
+  "119263": "Subcommittee on Federal Lands (Committee on Natural Resources)",
+  "119295": "Committee on Small Business",
+  "119302": "Subcommittee on National Security, Illicit Finance, and International Financial Institutions (Committee on Financial Services)",
+  "119310": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)"
 }
