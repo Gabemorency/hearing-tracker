@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119330": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
-  "119343": "Subcommittee on Environment (Committee on Energy and Commerce)",
-  "119362": "Committee on Appropriations",
   "119338": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119339": "Committee on House Administration",
   "119345": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
@@ -236,5 +233,8 @@
   "119350": "Subcommittee on Environment (Committee on Science, Space, and Technology)",
   "119352": "Committee on Ways and Means",
   "119353": "Committee on Financial Services",
-  "119354": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)"
+  "119354": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
+  "119330": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
+  "119343": "Subcommittee on Environment (Committee on Energy and Commerce)",
+  "119362": "Committee on Appropriations"
 }
