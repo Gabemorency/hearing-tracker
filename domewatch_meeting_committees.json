@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119299": "Subcommittee on Elections (Committee on House Administration)",
-  "119304": "Subcommittee on Health (Committee on Energy and Commerce)",
-  "119308": "Subcommittee on Capital Markets (Committee on Financial Services)",
   "119317": "Subcommittee on Oversight and Investigations (Committee on Natural Resources)",
   "119320": "Committee on Small Business",
   "119319": "Committee on Appropriations",
@@ -236,5 +233,8 @@
   "119318": "Subcommittee on Military Construction, Veterans Affairs, and Related Agencies (Committee on Appropriations)",
   "119321": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
   "119323": "Subcommittee on Interior, Environment, and Related Agencies (Committee on Appropriations)",
-  "119324": "Subcommittee on Seapower and Projection Forces (Committee on Armed Services)"
+  "119324": "Subcommittee on Seapower and Projection Forces (Committee on Armed Services)",
+  "119299": "Subcommittee on Elections (Committee on House Administration)",
+  "119304": "Subcommittee on Health (Committee on Energy and Commerce)",
+  "119308": "Subcommittee on Capital Markets (Committee on Financial Services)"
 }
