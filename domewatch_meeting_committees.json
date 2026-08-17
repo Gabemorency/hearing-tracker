@@ -30,9 +30,6 @@
   "119276": "Committee on Armed Services",
   "119283": "Subcommittee on Energy and Water Development and Related Agencies (Committee on Appropriations)",
   "119281": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
-  "119482": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
-  "119484": "Committee on Science, Space, and Technology",
-  "119489": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
   "119357": "Committee on Natural Resources",
   "119463": "Committee on Foreign Affairs",
   "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
@@ -236,5 +233,8 @@
   "119408": "Subcommittee on Oversight (Committee on the Judiciary)",
   "119432": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
   "119487": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-  "119488": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)"
+  "119488": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
+  "119482": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
+  "119484": "Committee on Science, Space, and Technology",
+  "119489": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)"
 }
