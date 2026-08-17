@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119128": "Committee on Homeland Security",
-  "119284": "Committee on Science, Space, and Technology",
-  "119300": "Subcommittee on Tax (Committee on Ways and Means)",
   "119303": "Committee on Foreign Affairs",
   "119307": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
   "119311": "Committee on the Judiciary",
@@ -236,5 +233,8 @@
   "119319": "Committee on Appropriations",
   "119293": "Subcommittee on Oversight and Investigations (Committee on Energy and Commerce)",
   "119305": "Committee on Veterans' Affairs",
-  "119309": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)"
+  "119309": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
+  "119128": "Committee on Homeland Security",
+  "119284": "Committee on Science, Space, and Technology",
+  "119300": "Subcommittee on Tax (Committee on Ways and Means)"
 }
