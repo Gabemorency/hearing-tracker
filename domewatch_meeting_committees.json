@@ -4,9 +4,6 @@
   "119266": "Subcommittee on Defense (Committee on Appropriations)",
   "118848": "Committee on Rules",
   "119262": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119321": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119323": "Subcommittee on Interior, Environment, and Related Agencies (Committee on Appropriations)",
-  "119324": "Subcommittee on Seapower and Projection Forces (Committee on Armed Services)",
   "119299": "Subcommittee on Elections (Committee on House Administration)",
   "119304": "Subcommittee on Health (Committee on Energy and Commerce)",
   "119308": "Subcommittee on Capital Markets (Committee on Financial Services)",
@@ -236,5 +233,8 @@
   "119310": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
   "119327": "Committee on Energy and Commerce",
   "119328": "Committee on Ways and Means",
-  "119318": "Subcommittee on Military Construction, Veterans Affairs, and Related Agencies (Committee on Appropriations)"
+  "119318": "Subcommittee on Military Construction, Veterans Affairs, and Related Agencies (Committee on Appropriations)",
+  "119321": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
+  "119323": "Subcommittee on Interior, Environment, and Related Agencies (Committee on Appropriations)",
+  "119324": "Subcommittee on Seapower and Projection Forces (Committee on Armed Services)"
 }
