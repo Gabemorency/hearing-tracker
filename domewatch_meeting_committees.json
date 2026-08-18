@@ -30,9 +30,6 @@
   "119276": "Committee on Armed Services",
   "119283": "Subcommittee on Energy and Water Development and Related Agencies (Committee on Appropriations)",
   "119281": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
-  "119452": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
-  "119454": "Subcommittee on Elections (Committee on House Administration)",
-  "119455": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
   "119456": "Permanent Select Committee on Intelligence",
   "119457": "Subcommittee on Health (Committee on Energy and Commerce)",
   "119464": "Committee on Education and Workforce",
@@ -237,5 +234,8 @@
   "119490": "Committee on Energy and Commerce",
   "118855": "Committee on Rules",
   "119461": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
-  "119471": "Committee on the Budget"
+  "119471": "Committee on the Budget",
+  "119452": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
+  "119454": "Subcommittee on Elections (Committee on House Administration)",
+  "119455": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)"
 }
