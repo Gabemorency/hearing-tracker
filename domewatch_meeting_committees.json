@@ -30,9 +30,6 @@
   "119276": "Committee on Armed Services",
   "119283": "Subcommittee on Energy and Water Development and Related Agencies (Committee on Appropriations)",
   "119281": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
-  "119414": "Committee on Appropriations",
-  "119383": "Committee on Natural Resources",
-  "119392": "Subcommittee on Environment (Committee on Energy and Commerce)",
   "119394": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119413": "Committee on House Administration",
   "119297": "Committee on Homeland Security",
@@ -237,5 +234,8 @@
   "119411": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
   "119398": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)",
   "119388": "Permanent Select Committee on Intelligence",
-  "119393": "Subcommittee on Energy (Committee on Energy and Commerce)"
+  "119393": "Subcommittee on Energy (Committee on Energy and Commerce)",
+  "119414": "Committee on Appropriations",
+  "119383": "Committee on Natural Resources",
+  "119392": "Subcommittee on Environment (Committee on Energy and Commerce)"
 }
