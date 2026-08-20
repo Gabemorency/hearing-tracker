@@ -710,7 +710,24 @@
     "inSession": false
   },
   "2026-08-19": {
-    "hearings": [],
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Committee on House Administration",
+        "chair": "",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2237 RHOB",
+        "topic": "Committee on House Administration Joint Deposition of Matt DeBergalis",
+        "details": "Committee on House Administration Joint Deposition of Matt DeBergalis",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": ""
+      }
+    ],
     "inSession": false
   }
 }

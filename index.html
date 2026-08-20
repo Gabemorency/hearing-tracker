@@ -295,7 +295,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 9:40 PM ET · Wednesday, August 19, 2026 · Updates every 2 hours · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 11:03 PM ET · Wednesday, August 19, 2026 · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -316,10 +316,10 @@
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">1</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
 
@@ -339,7 +339,7 @@
 </div>
 
 <script>
-const HEARINGS = [];
+const HEARINGS = [{"chamber": "House", "committee": "Committee on House Administration", "chair": "", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "2237 RHOB", "topic": "Committee on House Administration Joint Deposition of Matt DeBergalis", "details": "Committee on House Administration Joint Deposition of Matt DeBergalis", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": ""}];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
