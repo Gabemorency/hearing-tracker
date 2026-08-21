@@ -30,9 +30,6 @@
   "119276": "Committee on Armed Services",
   "119283": "Subcommittee on Energy and Water Development and Related Agencies (Committee on Appropriations)",
   "119281": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
-  "119361": "Subcommittee on Homeland Security (Committee on Appropriations)",
-  "119344": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
-  "119258": "Subcommittee on Cybersecurity and Infrastructure Protection (Committee on Homeland Security)",
   "119331": "Subcommittee on Federal Lands (Committee on Natural Resources)",
   "119341": "Subcommittee on Aviation (Committee on Transportation and Infrastructure)",
   "119349": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
@@ -237,5 +234,8 @@
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
   "119306": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
-  "119360": "Subcommittee on Labor, Health and Human Services, Education, and Related Agencies (Committee on Appropriations)"
+  "119360": "Subcommittee on Labor, Health and Human Services, Education, and Related Agencies (Committee on Appropriations)",
+  "119361": "Subcommittee on Homeland Security (Committee on Appropriations)",
+  "119344": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
+  "119258": "Subcommittee on Cybersecurity and Infrastructure Protection (Committee on Homeland Security)"
 }
