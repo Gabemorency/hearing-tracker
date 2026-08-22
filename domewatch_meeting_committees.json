@@ -30,9 +30,6 @@
   "119276": "Committee on Armed Services",
   "119283": "Subcommittee on Energy and Water Development and Related Agencies (Committee on Appropriations)",
   "119281": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
-  "119352": "Committee on Ways and Means",
-  "119353": "Committee on Financial Services",
-  "119354": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
   "119330": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
   "119343": "Subcommittee on Environment (Committee on Energy and Commerce)",
   "119362": "Committee on Appropriations",
@@ -237,5 +234,8 @@
   "119342": "Committee on Transportation and Infrastructure",
   "119346": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
   "119348": "Committee on Agriculture",
-  "119350": "Subcommittee on Environment (Committee on Science, Space, and Technology)"
+  "119350": "Subcommittee on Environment (Committee on Science, Space, and Technology)",
+  "119352": "Committee on Ways and Means",
+  "119353": "Committee on Financial Services",
+  "119354": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)"
 }
