@@ -69,9 +69,6 @@
   "119314": "Committee on Rules",
   "119289": "Committee on Armed Services",
   "119290": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-  "119475": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
-  "119477": "Subcommittee on Housing and Insurance (Committee on Financial Services)",
-  "119460": "Committee on Education and Workforce",
   "119389": "Subcommittee on Energy and Mineral Resources (Committee on Natural Resources)",
   "119473": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)",
   "119491": "Committee on Education and Workforce",
@@ -237,5 +234,8 @@
   "119486": "Committee on House Administration",
   "119492": "Committee on Oversight and Government Reform",
   "119494": "Committee on Ways and Means",
-  "119400": "Subcommittee on Modernization and Innovation (Committee on House Administration)"
+  "119400": "Subcommittee on Modernization and Innovation (Committee on House Administration)",
+  "119475": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
+  "119477": "Subcommittee on Housing and Insurance (Committee on Financial Services)",
+  "119460": "Committee on Education and Workforce"
 }
