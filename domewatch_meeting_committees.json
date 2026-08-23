@@ -69,9 +69,6 @@
   "119314": "Committee on Rules",
   "119289": "Committee on Armed Services",
   "119290": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-  "119464": "Committee on Education and Workforce",
-  "119384": "Committee on Natural Resources",
-  "119439": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
   "119451": "Committee on Foreign Affairs",
   "119453": "Committee on Financial Services",
   "119465": "Committee on Ways and Means",
@@ -237,5 +234,8 @@
   "119454": "Subcommittee on Elections (Committee on House Administration)",
   "119455": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
   "119456": "Permanent Select Committee on Intelligence",
-  "119457": "Subcommittee on Health (Committee on Energy and Commerce)"
+  "119457": "Subcommittee on Health (Committee on Energy and Commerce)",
+  "119464": "Committee on Education and Workforce",
+  "119384": "Committee on Natural Resources",
+  "119439": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa"
 }
