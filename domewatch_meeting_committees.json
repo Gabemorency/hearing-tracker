@@ -69,9 +69,6 @@
   "119314": "Committee on Rules",
   "119289": "Committee on Armed Services",
   "119290": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-  "119378": "Subcommittee on Health (Committee on Energy and Commerce)",
-  "119356": "Committee on Natural Resources",
-  "119369": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
   "119371": "Committee on Agriculture",
   "119372": "Committee on Science, Space, and Technology",
   "119373": "Subcommittee on Housing and Insurance (Committee on Financial Services)",
@@ -238,5 +235,8 @@
   "119382": "Committee on Financial Services",
   "119355": "Committee on Education and Workforce",
   "119381": "Subcommittee on Defense (Committee on Appropriations)",
-  "119370": "Committee on Education and Workforce"
+  "119370": "Committee on Education and Workforce",
+  "119378": "Subcommittee on Health (Committee on Energy and Commerce)",
+  "119356": "Committee on Natural Resources",
+  "119369": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)"
 }
