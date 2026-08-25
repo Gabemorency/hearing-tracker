@@ -781,5 +781,30 @@
       }
     ],
     "inSession": false
+  },
+  "2026-08-25": {
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Committee on Education and Workforce",
+        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+        "time": "11:30 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "Richmond City Hall\n36725 Division Road\nRichmond, MI 48062",
+        "topic": "Deployed, Not Disqualified: Defending Servicemembers in Our Schools",
+        "details": "\"BUILDING AN AI-READY AMERICA: HOW AI IS CREATING OPPORTUNITIES ACROSS AMERICA'S WORKFORCE\"",
+        "witnesses": [
+          "Mrs. Amy Stier, Richmond, Michigan",
+          "Witnesses not yet publicly posted",
+          "Mr. Chris Neeley, Superintendent, South Carolina Public Charter School District, Columbia, South Carolina"
+        ],
+        "cancelled": false,
+        "changes": [
+          "Witnesses added: Mrs. Amy Stier, Richmond, Michigan, Mr. Chris Neeley, Superintendent, South Carolina Public Charter School District, Columbia, South Carolina · 12:46 AM"
+        ],
+        "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413680"
+      }
+    ],
+    "inSession": false
   }
 }
