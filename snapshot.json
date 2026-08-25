@@ -1,1 +1,18 @@
-{}
+{
+  "House|Committee on Education and Workforce|11:30 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Education and Workforce",
+    "chair": "Rep. Tim Walberg (R-MI), Chair \u00b7 Rep. Bobby Scott (D-VA), Ranking Member",
+    "time": "11:30 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "Richmond City Hall\n36725 Division Road\nRichmond, MI 48062",
+    "topic": "Deployed, Not Disqualified: Defending Servicemembers in Our Schools",
+    "details": "\"BUILDING AN AI-READY AMERICA: HOW AI IS CREATING OPPORTUNITIES ACROSS AMERICA'S WORKFORCE\"",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://edworkforce.house.gov/hearings/"
+  }
+}
