@@ -421,14 +421,18 @@ def building_from_room(room):
     for k, v in mapping.items():
         if room.startswith(k):
             return v
-    return "Dirksen (SD)"
+    # Room text that doesn't match any known Capitol Hill room-code prefix
+    # is a field hearing at an off-site address, not a guess at a DC building.
+    return "Off-site"
 
 def house_building_from_room(room):
     if "LHOB" in room:  return "Longworth (LHOB)"
     if "CHOB" in room:  return "Cannon (CHOB)"
     if "RHOB" in room:  return "Rayburn (RHOB)"
     if room.startswith("H-") or room.startswith("H "): return "Capitol"
-    return "Rayburn (RHOB)"
+    # Room text that doesn't match any known Capitol Hill room-code prefix
+    # is a field hearing at an off-site address, not a guess at a DC building.
+    return "Off-site"
 
 def load_json(path):
     if os.path.exists(path):
