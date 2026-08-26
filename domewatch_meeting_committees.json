@@ -69,9 +69,6 @@
   "119314": "Committee on Rules",
   "119289": "Committee on Armed Services",
   "119290": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-  "119368": "Committee on Ways and Means",
-  "119380": "Committee on Appropriations",
-  "119364": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
   "119367": "Subcommittee on Energy (Committee on Energy and Commerce)",
   "119329": "Committee on Foreign Affairs",
   "119365": "Committee on the Judiciary",
@@ -238,5 +235,8 @@
   "119373": "Subcommittee on Housing and Insurance (Committee on Financial Services)",
   "119375": "Committee on House Administration",
   "119377": "Subcommittee on Social Security (Committee on Ways and Means)",
-  "119358": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)"
+  "119358": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
+  "119368": "Committee on Ways and Means",
+  "119380": "Committee on Appropriations",
+  "119364": "Subcommittee on Workforce Protections (Committee on Education and Workforce)"
 }
