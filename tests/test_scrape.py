@@ -87,13 +87,20 @@ def test_extract_chair_finds_valid_chair():
 def test_building_from_room_maps_known_prefixes():
     assert scrape.building_from_room("SR-325") == "Russell (SR)"
     assert scrape.building_from_room("SD-106") == "Dirksen (SD)"
-    assert scrape.building_from_room("unknown-room") == "Dirksen (SD)"
+    assert scrape.building_from_room("unknown-room") == "Off-site"
 
 
 def test_house_building_from_room_maps_known_buildings():
     assert scrape.house_building_from_room("2154 RHOB") == "Rayburn (RHOB)"
     assert scrape.house_building_from_room("1100 LHOB") == "Longworth (LHOB)"
     assert scrape.house_building_from_room("2247 CHOB") == "Cannon (CHOB)"
+
+
+def test_house_building_from_room_does_not_guess_a_dc_building_for_field_hearings():
+    # A field hearing's location cell is a full off-site street address, not
+    # a Capitol Hill room code — this must not be mislabeled as Rayburn.
+    room = "Richmond City Hall\n36725 Division Road\nRichmond, MI 48062"
+    assert scrape.house_building_from_room(room) == "Off-site"
 
 
 def test_lookup_chair_matches_known_committee():
