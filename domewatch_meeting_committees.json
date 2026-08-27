@@ -69,9 +69,6 @@
   "119314": "Committee on Rules",
   "119289": "Committee on Armed Services",
   "119290": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-  "119337": "Committee on Small Business",
-  "119340": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
-  "119359": "Committee on the Judiciary",
   "118850": "Committee on Rules",
   "119286": "Subcommittee on Commerce, Justice, Science, and Related Agencies (Committee on Appropriations)",
   "119335": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
@@ -242,5 +239,8 @@
   "119339": "Committee on House Administration",
   "119345": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
   "119243": "Committee on Homeland Security",
-  "119336": "Committee on Foreign Affairs"
+  "119336": "Committee on Foreign Affairs",
+  "119337": "Committee on Small Business",
+  "119340": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
+  "119359": "Committee on the Judiciary"
 }
