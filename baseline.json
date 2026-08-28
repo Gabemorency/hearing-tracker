@@ -1,5 +1,36 @@
 {
-  "date": "2026-08-28",
-  "generated": "6:54 AM ET · Thursday, August 27, 2026",
-  "hearings": []
+  "date": "2026-08-31",
+  "generated": "8:30 AM ET · Friday, August 28, 2026",
+  "hearings": [
+    {
+      "chamber": "House",
+      "committee": "Permanent Select Committee on Intelligence",
+      "chair": "",
+      "time": "1:00 PM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "Flight 93 National Memorial\nStoystown, PA 0",
+      "topic": "Committee Business to Consider: Review of the 9/11 Commission Report",
+      "details": "Committee Business to Consider: Review of the 9/11 Commission Report",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Rules",
+      "chair": "",
+      "time": "4:00 PM ET",
+      "building": "Capitol",
+      "room": "H-313 CAPITOL",
+      "topic": "H.R. 9436 – To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulation concerning the North Atlantic right whale are effective. [Northeast Lobsterman Pro",
+      "details": "H.R. 9436 – To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulation concerning the North Atlantic right whale are effective. [Northeast Lobsterman Pro",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    }
+  ]
 }
