@@ -69,9 +69,6 @@
   "119314": "Committee on Rules",
   "119289": "Committee on Armed Services",
   "119290": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-  "119461": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
-  "119471": "Committee on the Budget",
-  "119452": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
   "119454": "Subcommittee on Elections (Committee on House Administration)",
   "119455": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
   "119456": "Permanent Select Committee on Intelligence",
@@ -260,5 +257,8 @@
   "119493": "Committee on Science, Space, and Technology",
   "119474": "Permanent Select Committee on Intelligence",
   "119490": "Committee on Energy and Commerce",
-  "118855": "Committee on Rules"
+  "118855": "Committee on Rules",
+  "119461": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
+  "119471": "Committee on the Budget",
+  "119452": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)"
 }
