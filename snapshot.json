@@ -4,7 +4,7 @@
     "committee": "Permanent Select Committee on Intelligence",
     "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
     "time": "1:00 PM ET",
-    "building": "Rayburn (RHOB)",
+    "building": "Off-site",
     "room": "Flight 93 National Memorial\nStoystown, PA 0",
     "topic": "Committee Business to Consider: Review of the 9/11 Commission Report",
     "details": "Committee Business to Consider: Review of the 9/11 Commission Report",
@@ -12,7 +12,9 @@
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
-    "changes": [],
+    "changes": [
+      "Location changed to Off-site \u00b7 4:32 AM"
+    ],
     "link": ""
   },
   "House|Committee on Rules|4:00 PM ET": {

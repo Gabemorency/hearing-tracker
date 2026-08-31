@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
-<title>Congressional Hearing Tracker — August 30, 2026</title>
+<title>Congressional Hearing Tracker — August 31, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hearing-tracker/theme.css">
@@ -295,7 +295,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 8:21 PM ET · Sunday, August 30, 2026 · Updates every 2 hours · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 4:32 AM ET · Monday, August 31, 2026 · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -339,7 +339,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "House", "committee": "Permanent Select Committee on Intelligence", "chair": "Sen. Tom Cotton (R-AR), Chair · Sen. Mark Warner (D-VA), Ranking Member", "time": "1:00 PM ET", "building": "Rayburn (RHOB)", "room": "Flight 93 National Memorial\nStoystown, PA 0", "topic": "Committee Business to Consider: Review of the 9/11 Commission Report", "details": "Committee Business to Consider: Review of the 9/11 Commission Report", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": ""}, {"chamber": "House", "committee": "Committee on Rules", "chair": "Sen. Amy Klobuchar (D-MN) · Sen. Deb Fischer (R-NE), Chair", "time": "4:00 PM ET", "building": "Capitol", "room": "H-313 CAPITOL", "topic": "H.R. 9436 – To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulation concerning the North Atlantic right whale are effective. [Northeast Lobsterman Pro", "details": "H.R. 9436 – To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulation concerning the North Atlantic right whale are effective. [Northeast Lobsterman Pro", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": ""}];
+const HEARINGS = [{"chamber": "House", "committee": "Permanent Select Committee on Intelligence", "chair": "Sen. Tom Cotton (R-AR), Chair · Sen. Mark Warner (D-VA), Ranking Member", "time": "1:00 PM ET", "building": "Off-site", "room": "Flight 93 National Memorial\nStoystown, PA 0", "topic": "Committee Business to Consider: Review of the 9/11 Commission Report", "details": "Committee Business to Consider: Review of the 9/11 Commission Report", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": ["Location changed to Off-site · 4:32 AM"], "link": ""}, {"chamber": "House", "committee": "Committee on Rules", "chair": "Sen. Amy Klobuchar (D-MN) · Sen. Deb Fischer (R-NE), Chair", "time": "4:00 PM ET", "building": "Capitol", "room": "H-313 CAPITOL", "topic": "H.R. 9436 – To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulation concerning the North Atlantic right whale are effective. [Northeast Lobsterman Pro", "details": "H.R. 9436 – To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulation concerning the North Atlantic right whale are effective. [Northeast Lobsterman Pro", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": ""}];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
@@ -493,7 +493,7 @@ buildCards('All');
 
 <script>
 // DomeWatch data — loaded from local JSON, updated every 2 hours
-var TODAY_ISO = "2026-08-30";
+var TODAY_ISO = "2026-08-31";
 function fmtDate(iso) {
   if (!iso) return "";
   var d = new Date(iso);
