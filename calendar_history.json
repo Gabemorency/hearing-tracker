@@ -898,5 +898,99 @@
       }
     ],
     "inSession": false
+  },
+  "2026-09-01": {
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
+        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2172 RHOB",
+        "topic": "Countering Houthi Terrorism: Protecting U.S. Interests and Security in the Red Sea",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://foreignaffairs.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
+        "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2141 RHOB",
+        "topic": "Sanctuary Policies, Tragic Consequences",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://judiciary.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
+        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+        "time": "10:15 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2175 RHOB",
+        "topic": "Supporting Working Families: State-Led Child Care Solutions",
+        "witnesses": [
+          "Ms. Ryan Page, Director of Child Care, Iowa Department of Health and Human Services",
+          "Ms. Kate Shanks, Senior Vice President of Public Affairs, Kentucky Chamber of Commerce",
+          "Ms. Hanna Melnick, Senior Policy Advisor and Director of Early Learning Policy, Learning Policy Institute",
+          "Ms. Jude White, Assistant Commissioner for Child Care and Community Service, Tennessee Department of Human Services"
+        ],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413691"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
+        "chair": "Rep. Brett Guthrie (R-KY), Chair · Rep. Frank Pallone (D-NJ), Ranking Member",
+        "time": "10:15 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2125 RHOB",
+        "topic": "Markup of Twelve Pieces of Legislation",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://energycommerce.house.gov/hearings"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Work and Welfare (Committee on Ways and Means)",
+        "chair": "THE COMMITTEE",
+        "time": "2:00 PM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2020 RHOB",
+        "topic": "Subcommittee Hearing on Welfare Reform at 30: Restoring the Promise of Work and Personal Responsibility in Federal Welfare Programs",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://waysandmeans.house.gov/event/work-welfare-subcommittee-hearing-on-welfare-reform-at-30-restoring-the-promise-of-work-and-personal-responsibility-in-federal-welfare-programs/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
+        "chair": "Rep. Brett Guthrie (R-KY), Chair · Rep. Frank Pallone (D-NJ), Ranking Member",
+        "time": "2:00 PM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2123 RHOB",
+        "topic": "Subcommittee Markup of 6 Bills",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://energycommerce.house.gov/hearings"
+      }
+    ],
+    "inSession": false
   }
 }

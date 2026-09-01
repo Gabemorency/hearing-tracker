@@ -1,36 +1,91 @@
 {
-  "House|Permanent Select Committee on Intelligen|1:00 PM ET": {
+  "House|Middle East and North Africa Subcommitte|10:00 AM ET": {
     "chamber": "House",
-    "committee": "Permanent Select Committee on Intelligence",
-    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
-    "time": "1:00 PM ET",
-    "building": "Off-site",
-    "room": "Flight 93 National Memorial\nStoystown, PA 0",
-    "topic": "Committee Business to Consider: Review of the 9/11 Commission Report",
-    "details": "Committee Business to Consider: Review of the 9/11 Commission Report",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [
-      "Location changed to Off-site \u00b7 4:32 AM"
-    ],
-    "link": ""
-  },
-  "House|Committee on Rules|4:00 PM ET": {
-    "chamber": "House",
-    "committee": "Committee on Rules",
-    "chair": "Sen. Amy Klobuchar (D-MN) \u00b7 Sen. Deb Fischer (R-NE), Chair",
-    "time": "4:00 PM ET",
-    "building": "Capitol",
-    "room": "H-313 CAPITOL",
-    "topic": "H.R. 9436 \u2013 To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulation concerning the North Atlantic right whale are effective. [Northeast Lobsterman Pro",
-    "details": "H.R. 9436 \u2013 To amend the Consolidated Appropriations Act, 2023 to extend the time period for which certain regulation concerning the North Atlantic right whale are effective. [Northeast Lobsterman Pro",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "committee": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
+    "chair": "Rep. Brian Mast (R-FL), Chair \u00b7 Rep. Gregory Meeks (D-NY), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2172 RHOB",
+    "topic": "Countering Houthi Terrorism: Protecting U.S. Interests and Security in the Red Sea",
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
-    "link": ""
+    "link": "https://foreignaffairs.house.gov/hearings/"
+  },
+  "House|Subcommittee on Immigration Integrity, S|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
+    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2141 RHOB",
+    "topic": "Sanctuary Policies, Tragic Consequences",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://judiciary.house.gov/hearings/"
+  },
+  "House|Subcommittee on Early Childhood, Element|10:15 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
+    "chair": "Rep. Tim Walberg (R-MI), Chair \u00b7 Rep. Bobby Scott (D-VA), Ranking Member",
+    "time": "10:15 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2175 RHOB",
+    "topic": "Supporting Working Families: State-Led Child Care Solutions",
+    "witnesses": [
+      "Ms. Ryan Page, Director of Child Care, Iowa Department of Health and Human Services",
+      "Ms. Kate Shanks, Senior Vice President of Public Affairs, Kentucky Chamber of Commerce",
+      "Ms. Hanna Melnick, Senior Policy Advisor and Director of Early Learning Policy, Learning Policy Institute",
+      "Ms. Jude White, Assistant Commissioner for Child Care and Community Service, Tennessee Department of Human Services"
+    ],
+    "details": "",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413691"
+  },
+  "House|Subcommittee on Commerce, Manufacturing,|10:15 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
+    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
+    "time": "10:15 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2125 RHOB",
+    "topic": "Markup of Twelve Pieces of Legislation",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://energycommerce.house.gov/hearings"
+  },
+  "House|Subcommittee on Work and Welfare (Commit|2:00 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Work and Welfare (Committee on Ways and Means)",
+    "chair": "THE COMMITTEE",
+    "time": "2:00 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2020 RHOB",
+    "topic": "Subcommittee Hearing on Welfare Reform at 30: Restoring the Promise of Work and Personal Responsibility in Federal Welfare Programs",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://waysandmeans.house.gov/event/work-welfare-subcommittee-hearing-on-welfare-reform-at-30-restoring-the-promise-of-work-and-personal-responsibility-in-federal-welfare-programs/"
+  },
+  "House|Subcommittee on Communications and Techn|2:00 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
+    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
+    "time": "2:00 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2123 RHOB",
+    "topic": "Subcommittee Markup of 6 Bills",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://energycommerce.house.gov/hearings"
   }
 }
