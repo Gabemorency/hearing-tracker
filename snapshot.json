@@ -1,4 +1,20 @@
 {
+  "House|Subcommittee on Environment (Committee o|9:00 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Environment (Committee on Energy and Commerce)",
+    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
+    "time": "9:00 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2123 RHOB",
+    "topic": "Reliable Water in the Digital Age: Examining Legislation to Strengthen Drinking Water Systems and Protect Ratepayers.",
+    "details": "Reliable Water in the Digital Age: Examining Legislation to Strengthen Drinking Water Systems and Protect Ratepayers.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://energycommerce.house.gov/hearings"
+  },
   "House|Permanent Select Committee on Intelligen|10:00 AM ET": {
     "chamber": "House",
     "committee": "Permanent Select Committee on Intelligence",
@@ -6,11 +22,9 @@
     "time": "10:00 AM ET",
     "building": "Longworth (LHOB)",
     "room": "1334 LHOB",
-    "topic": "Persistent Competition & Legacy Architectures",
-    "details": "Persistent Competition & Legacy Architectures",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "topic": "Renewal of USPTO Fee Setting Authority: Giving Full Effect to the America Invents Act",
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": ""
@@ -23,10 +37,8 @@
     "building": "Capitol",
     "room": "H-313 CAPITOL",
     "topic": "Member Day Hearing on Proposed Rules Changes for the 120th Congress",
-    "details": "Member Day Hearing on Proposed Rules Changes for the 120th Congress",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": ""
@@ -38,11 +50,9 @@
     "time": "10:00 AM ET",
     "building": "Longworth (LHOB)",
     "room": "1324 LHOB",
-    "topic": "Legislative hearing on: H.R. 642 (Rep. Steube), \u201cMyakka Wild and Scenic River Act of 2025\u201d; H.R. 5470 (Rep. LaHood), \u201cRoute 66 National Historic Trail Designation Act\u201d; H.R. 6788 (Rep. Downing), \u201cMont",
-    "details": "Legislative hearing on: H.R. 642 (Rep. Steube), \u201cMyakka Wild and Scenic River Act of 2025\u201d; H.R. 5470 (Rep. LaHood), \u201cRoute 66 National Historic Trail Designation Act\u201d; H.R. 6788 (Rep. Downing), \u201cMont",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "topic": "Legislative hearing on: H.R. 642 (Rep. Steube), \u201cMyakka Wild and Scenic River Act of 2025\u201d; H.R. 5470 (Rep. LaHood), \u201cRoute 66 National Historic Trail Designation Act\u201d; H.R. 6788 (Rep. Downing), \u201cMontana Sportsmen Conservation Act\u201d; H.R. 9269 (Rep. Clyburn), \u201cRenewing the African American Civil Rights Network Act\u201d; H.R. 9600 (Rep. Raskin), \"Common Sense Act 250 Act of 2026\"; H.R. 9779 (Rep. Gonzalez), \u201cHands Off Our Boca Chica Beach Act of 2026\u201d ; H.R. 10128 (Rep. McClintock), To codify Secretary's Order No. 3434 of the Department of the Interior; H.R. 10136 (Rep. Westerman), \u201cCrossett Experimental Forest Act of 2026\u201d; S. 675 (Rep. Hoeven) \u201cTheodore Roosevelt Presidential Library Act",
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": "https://naturalresources.house.gov/hearings/"
@@ -55,32 +65,11 @@
     "building": "Rayburn (RHOB)",
     "room": "2123 RHOB",
     "topic": "Ten Pieces of Legislation",
-    "details": "Ten Pieces of Legislation",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": "https://energycommerce.house.gov/hearings"
-  },
-  "House|Subcommittee on Courts, Intellectual Pro|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
-    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Longworth (LHOB)",
-    "room": "1334 LHOB",
-    "topic": "Renewal of USPTO Fee Setting Authority: Giving Full Effect to the America Invents Act",
-    "details": "Renewal of USPTO Fee Setting Authority: Giving Full Effect to the America Invents Act",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [
-      "Room changed to 1334 LHOB \u00b7 12:05 AM",
-      "Location changed to Longworth (LHOB) \u00b7 12:05 AM"
-    ],
-    "link": "https://judiciary.house.gov/hearings/"
   },
   "House|Committee on Financial Services|10:00 AM ET": {
     "chamber": "House",
@@ -90,14 +79,13 @@
     "building": "Rayburn (RHOB)",
     "room": "2128 RHOB",
     "topic": "Strengthening the American Economy: Promoting Growth, Opportunity, and Prosperity",
-    "details": "Strengthening the American Economy: Promoting Growth, Opportunity, and Prosperity",
     "witnesses": [
       "The Honorable Heath Talbert, President, Circle",
-      "Mr. Alex Pollock, Senior Fellow, Mises Institute",
-      "Witnesses not yet publicly posted",
       "Ms. Kathleen Kraninger, President and Chief Executive Officer, Florida Bankers Association",
-      "Ms. Lynn Martin, President, New York Stock Exchange"
+      "Ms. Lynn Martin, President, New York Stock Exchange",
+      "Mr. Alex Pollock, Senior Fellow, Mises Institute"
     ],
+    "details": "",
     "cancelled": false,
     "changes": [
       "Witnesses added: The Honorable Heath Talbert, President, Circle, Mr. Alex Pollock, Senior Fellow, Mises Institute +2 more \u00b7 12:05 AM"
@@ -112,10 +100,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2360 RHOB",
     "topic": "Fueling the Golden Age: Future Resource Needs and Small Business Opportunity.",
-    "details": "Fueling the Golden Age: Future Resource Needs and Small Business Opportunity.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": ""
@@ -128,10 +114,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2154 RHOB",
     "topic": "No Flame, More Pain: How State and Local Bans on Natural Gas Increase Costs",
-    "details": "No Flame, More Pain: How State and Local Bans on Natural Gas Increase Costs",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": "https://oversight.house.gov/hearings/"
@@ -144,14 +128,13 @@
     "building": "Cannon (CHOB)",
     "room": "390 CHOB",
     "topic": "Full Committee Hearing on Strategic Partnerships to Secure Critical Resources and Supply Chains",
-    "details": "Full Committee Hearing on Strategic Partnerships to Secure Critical Resources and Supply Chains",
     "witnesses": [
-      "Ms. Melinda St. Louis",
-      "Witnesses not yet publicly posted",
       "Dr. Gracelin Baskaran",
+      "Mr. Daniel F. Runde",
       "Dr. Morgan Bazilian",
-      "Mr. Daniel F. Runde"
+      "Ms. Melinda St. Louis"
     ],
+    "details": "",
     "cancelled": false,
     "changes": [
       "Witnesses added: Dr. Gracelin Baskaran, Dr. Morgan Bazilian +2 more \u00b7 12:05 AM"
@@ -166,10 +149,8 @@
     "building": "Cannon (CHOB)",
     "room": "360 CHOB",
     "topic": "A Resolution to assign Representative Goodlander to subcommittees on the House Committee on Veterans\u2019 Affairs",
-    "details": "A Resolution to assign Representative Goodlander to subcommittees on the House Committee on Veterans\u2019 Affairs",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": "https://veterans.house.gov/hearings/"
@@ -182,15 +163,14 @@
     "building": "Rayburn (RHOB)",
     "room": "2318 RHOB",
     "topic": "Powering the Nuclear Renaissance: Accelerating U.S. Leadership in Advanced Nuclear Reactors",
-    "details": "Powering the Nuclear Renaissance: Accelerating U.S. Leadership in Advanced Nuclear Reactors",
     "witnesses": [
+      "Dr. Joe Hoagland, Associate Lab Director for Fusion and Fission Energy Science, Oak Ridge National Laboratory",
       "Mr. Isaiah Taylor, CEO and Founder, Valar Atomics",
       "Mr. Matt Loszak, CEO, Aalo Atomics",
-      "Witnesses not yet publicly posted",
-      "Dr. Joe Hoagland, Associate Lab Director for Fusion and Fission Energy Science, Oak Ridge National Laboratory",
       "Dr. Steven Shannon, Head of the Department of Nuclear Engineering, North Carolina State University",
       "Mr. Jordan Bramble, CEO and Co-Founder, Antares Nuclear"
     ],
+    "details": "",
     "cancelled": false,
     "changes": [
       "Witnesses added: Dr. Joe Hoagland, Associate Lab Director for Fusion and Fission Energy Science, Oak Ridge National Laboratory, Mr. Isaiah Taylor, CEO and Founder, Valar Atomics +3 more \u00b7 12:05 AM"
@@ -205,10 +185,8 @@
     "building": "Cannon (CHOB)",
     "room": "360 CHOB",
     "topic": "Beyond Go-Live: VA Electronic Health Record Modernization Status Update",
-    "details": "Beyond Go-Live: VA Electronic Health Record Modernization Status Update",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": "https://veterans.house.gov/hearings/"
@@ -221,14 +199,13 @@
     "building": "Rayburn (RHOB)",
     "room": "2175 RHOB",
     "topic": "Less Red Tape, More Opportunity: Unleashing American Workers and Job Creators",
-    "details": "Less Red Tape, More Opportunity: Unleashing American Workers and Job Creators",
     "witnesses": [
       "Mr. Austen Bannan, Employment Policy Fellow, Americans for Prosperity (AFP)",
       "Ms. Elizabeth Milito, Executive Director, National Federation of Independent Business (NFIB) Small Business Legal Center",
-      "Dr. Douglas Holtz-Eakin, President, American Action Forum (AAF)",
-      "Witnesses not yet publicly posted",
-      "Ms. Rebeccca L. Reindel, Director of Occupational Safety and Health, AFL-CIO"
+      "Ms. Rebeccca L. Reindel, Director of Occupational Safety and Health, AFL-CIO",
+      "Dr. Douglas Holtz-Eakin, President, American Action Forum (AAF)"
     ],
+    "details": "",
     "cancelled": false,
     "changes": [
       "Witnesses added: Mr. Austen Bannan, Employment Policy Fellow, Americans for Prosperity (AFP), Ms. Rebeccca L. Reindel, Director of Occupational Safety and Health, AFL-CIO +2 more \u00b7 12:05 AM"
@@ -243,10 +220,8 @@
     "building": "Rayburn (RHOB)",
     "room": "2141 RHOB",
     "topic": "\u2018\u201cSubject to the Jurisdiction Thereof\u2019: Birthright Citizenship and the Fourteenth Amendment, Part II",
-    "details": "\u2018\u201cSubject to the Jurisdiction Thereof\u2019: Birthright Citizenship and the Fourteenth Amendment, Part II",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "witnesses": [],
+    "details": "",
     "cancelled": false,
     "changes": [],
     "link": "https://judiciary.house.gov/hearings/"
