@@ -1285,7 +1285,7 @@
         "room": "2128 RHOB",
         "topic": "Strengthening the American Economy: Promoting Growth, Opportunity, and Prosperity",
         "witnesses": [
-          "The Honorable Heath Talbert, President, Circle",
+          "The Honorable Heath Tarbert, President, Circle",
           "Ms. Kathleen Kraninger, President and Chief Executive Officer, Florida Bankers Association",
           "Ms. Lynn Martin, President, New York Stock Exchange",
           "Mr. Alex Pollock, Senior Fellow, Mises Institute"
@@ -1293,7 +1293,8 @@
         "details": "",
         "cancelled": false,
         "changes": [
-          "Witnesses added: The Honorable Heath Talbert, President, Circle, Mr. Alex Pollock, Senior Fellow, Mises Institute +2 more · 12:05 AM"
+          "Witnesses added: The Honorable Heath Talbert, President, Circle, Mr. Alex Pollock, Senior Fellow, Mises Institute +2 more · 12:05 AM",
+          "Witness added: The Honorable Heath Tarbert, President, Circle · 10:16 AM"
         ],
         "link": "https://financialservices.house.gov/calendar/EventSingle.aspx?EventID=411217"
       },
@@ -1432,6 +1433,6 @@
         "link": "https://judiciary.house.gov/hearings/"
       }
     ],
-    "inSession": false
+    "inSession": true
   }
 }
