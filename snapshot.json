@@ -68,32 +68,41 @@
     "committee": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
     "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
     "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2141 RHOB",
+    "building": "Longworth (LHOB)",
+    "room": "1334 LHOB",
     "topic": "Renewal of USPTO Fee Setting Authority: Giving Full Effect to the America Invents Act",
     "details": "Renewal of USPTO Fee Setting Authority: Giving Full Effect to the America Invents Act",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
-    "changes": [],
+    "changes": [
+      "Room changed to 1334 LHOB \u00b7 12:05 AM",
+      "Location changed to Longworth (LHOB) \u00b7 12:05 AM"
+    ],
     "link": "https://judiciary.house.gov/hearings/"
   },
   "House|Committee on Financial Services|10:00 AM ET": {
     "chamber": "House",
     "committee": "Committee on Financial Services",
-    "chair": "Rep. French Hill (R-AR), Chair \u00b7 Rep. Maxine Waters (D-CA), Ranking Member",
+    "chair": "About Us",
     "time": "10:00 AM ET",
     "building": "Rayburn (RHOB)",
     "room": "2128 RHOB",
     "topic": "Strengthening the American Economy: Promoting Growth, Opportunity, and Prosperity",
     "details": "Strengthening the American Economy: Promoting Growth, Opportunity, and Prosperity",
     "witnesses": [
-      "Witnesses not yet publicly posted"
+      "The Honorable Heath Talbert, President, Circle",
+      "Mr. Alex Pollock, Senior Fellow, Mises Institute",
+      "Witnesses not yet publicly posted",
+      "Ms. Kathleen Kraninger, President and Chief Executive Officer, Florida Bankers Association",
+      "Ms. Lynn Martin, President, New York Stock Exchange"
     ],
     "cancelled": false,
-    "changes": [],
-    "link": "https://financialservices.house.gov/calendar/"
+    "changes": [
+      "Witnesses added: The Honorable Heath Talbert, President, Circle, Mr. Alex Pollock, Senior Fellow, Mises Institute +2 more \u00b7 12:05 AM"
+    ],
+    "link": "https://financialservices.house.gov/calendar/EventSingle.aspx?EventID=411217"
   },
   "House|Subcommittee on Rural Development, Energ|10:00 AM ET": {
     "chamber": "House",
@@ -130,18 +139,24 @@
   "House|Committee on Ways and Means|10:00 AM ET": {
     "chamber": "House",
     "committee": "Committee on Ways and Means",
-    "chair": "Rep. Jason Smith (R-MO), Chair \u00b7 Rep. Richard Neal (D-MA), Ranking Member",
+    "chair": "THE COMMITTEE",
     "time": "10:00 AM ET",
     "building": "Cannon (CHOB)",
     "room": "390 CHOB",
     "topic": "Full Committee Hearing on Strategic Partnerships to Secure Critical Resources and Supply Chains",
     "details": "Full Committee Hearing on Strategic Partnerships to Secure Critical Resources and Supply Chains",
     "witnesses": [
-      "Witnesses not yet publicly posted"
+      "Ms. Melinda St. Louis",
+      "Witnesses not yet publicly posted",
+      "Dr. Gracelin Baskaran",
+      "Dr. Morgan Bazilian",
+      "Mr. Daniel F. Runde"
     ],
     "cancelled": false,
-    "changes": [],
-    "link": "https://waysandmeans.house.gov/hearings/"
+    "changes": [
+      "Witnesses added: Dr. Gracelin Baskaran, Dr. Morgan Bazilian +2 more \u00b7 12:05 AM"
+    ],
+    "link": "https://waysandmeans.house.gov/event/full-committee-hearing-on-strategic-partnerships-to-secure-critical-resources-and-supply-chains/"
   },
   "House|Committee on Veterans' Affairs|10:00 AM ET": {
     "chamber": "House",
@@ -169,11 +184,18 @@
     "topic": "Powering the Nuclear Renaissance: Accelerating U.S. Leadership in Advanced Nuclear Reactors",
     "details": "Powering the Nuclear Renaissance: Accelerating U.S. Leadership in Advanced Nuclear Reactors",
     "witnesses": [
-      "Witnesses not yet publicly posted"
+      "Mr. Isaiah Taylor, CEO and Founder, Valar Atomics",
+      "Mr. Matt Loszak, CEO, Aalo Atomics",
+      "Witnesses not yet publicly posted",
+      "Dr. Joe Hoagland, Associate Lab Director for Fusion and Fission Energy Science, Oak Ridge National Laboratory",
+      "Dr. Steven Shannon, Head of the Department of Nuclear Engineering, North Carolina State University",
+      "Mr. Jordan Bramble, CEO and Co-Founder, Antares Nuclear"
     ],
     "cancelled": false,
-    "changes": [],
-    "link": "https://science.house.gov/hearings"
+    "changes": [
+      "Witnesses added: Dr. Joe Hoagland, Associate Lab Director for Fusion and Fission Energy Science, Oak Ridge National Laboratory, Mr. Isaiah Taylor, CEO and Founder, Valar Atomics +3 more \u00b7 12:05 AM"
+    ],
+    "link": "https://science.house.gov/2026/9/energy-subcommittee-hearing-nuclear-renaissance"
   },
   "House|Committee on Veterans' Affairs|10:15 AM ET": {
     "chamber": "House",
@@ -201,15 +223,17 @@
     "topic": "Less Red Tape, More Opportunity: Unleashing American Workers and Job Creators",
     "details": "Less Red Tape, More Opportunity: Unleashing American Workers and Job Creators",
     "witnesses": [
-      "Ms. Hanna Melnick, Senior Policy Advisor and Director of Early Learning Policy, Learning Policy Institute",
-      "Ms. Ryan Page, Director of Child Care, Iowa Department of Health and Human Services",
+      "Mr. Austen Bannan, Employment Policy Fellow, Americans for Prosperity (AFP)",
+      "Ms. Elizabeth Milito, Executive Director, National Federation of Independent Business (NFIB) Small Business Legal Center",
+      "Dr. Douglas Holtz-Eakin, President, American Action Forum (AAF)",
       "Witnesses not yet publicly posted",
-      "Ms. Kate Shanks, Senior Vice President of Public Affairs, Kentucky Chamber of Commerce",
-      "Ms. Jude White, Assistant Commissioner for Child Care and Community Service, Tennessee Department of Human Services"
+      "Ms. Rebeccca L. Reindel, Director of Occupational Safety and Health, AFL-CIO"
     ],
     "cancelled": false,
-    "changes": [],
-    "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413691"
+    "changes": [
+      "Witnesses added: Mr. Austen Bannan, Employment Policy Fellow, Americans for Prosperity (AFP), Ms. Rebeccca L. Reindel, Director of Occupational Safety and Health, AFL-CIO +2 more \u00b7 12:05 AM"
+    ],
+    "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413692"
   },
   "House|Subcommittee on the Constitution and Lim|2:00 PM ET": {
     "chamber": "House",
@@ -226,75 +250,5 @@
     "cancelled": false,
     "changes": [],
     "link": "https://judiciary.house.gov/hearings/"
-  },
-  "House|Middle East and North Africa Subcommitte|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-    "chair": "Rep. Brian Mast (R-FL), Chair \u00b7 Rep. Gregory Meeks (D-NY), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2172 RHOB",
-    "topic": "Countering Houthi Terrorism: Protecting U.S. Interests and Security in the Red Sea",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://foreignaffairs.house.gov/hearings/"
-  },
-  "House|Subcommittee on Immigration Integrity, S|10:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
-    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2141 RHOB",
-    "topic": "Sanctuary Policies, Tragic Consequences",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://judiciary.house.gov/hearings/"
-  },
-  "House|Subcommittee on Commerce, Manufacturing,|10:15 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
-    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
-    "time": "10:15 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2125 RHOB",
-    "topic": "Markup of Twelve Pieces of Legislation",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://energycommerce.house.gov/hearings"
-  },
-  "House|Subcommittee on Work and Welfare (Commit|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Work and Welfare (Committee on Ways and Means)",
-    "chair": "THE COMMITTEE",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2020 RHOB",
-    "topic": "Subcommittee Hearing on Welfare Reform at 30: Restoring the Promise of Work and Personal Responsibility in Federal Welfare Programs",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://waysandmeans.house.gov/event/work-welfare-subcommittee-hearing-on-welfare-reform-at-30-restoring-the-promise-of-work-and-personal-responsibility-in-federal-welfare-programs/"
-  },
-  "House|Subcommittee on Communications and Techn|2:00 PM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
-    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
-    "time": "2:00 PM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Subcommittee Markup of 6 Bills",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://energycommerce.house.gov/hearings"
   }
 }
