@@ -69,9 +69,6 @@
   "119314": "Committee on Rules",
   "119289": "Committee on Armed Services",
   "119290": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-  "119416": "Subcommittee on Health (Committee on Veterans' Affairs)",
-  "119418": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
-  "119256": "Europe Subcommittee (Committee on Foreign Affairs)",
   "119415": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
   "119417": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
   "119419": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
@@ -261,5 +258,8 @@
   "119431": "Subcommittee on Disability Assistance and Memorial Affairs (Committee on Veterans' Affairs)",
   "119363": "Subcommittee on Border Security and Enforcement (Committee on Homeland Security)Subcommittee on Counterterrorism and Intelligence (Committee on Homeland Security)",
   "119421": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
-  "119423": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)"
+  "119423": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
+  "119416": "Subcommittee on Health (Committee on Veterans' Affairs)",
+  "119418": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
+  "119256": "Europe Subcommittee (Committee on Foreign Affairs)"
 }
