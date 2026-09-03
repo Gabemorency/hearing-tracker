@@ -295,7 +295,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 12:03 AM ET · Thursday, September 3, 2026 · Updates every 2 hours · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 4:51 AM ET · Thursday, September 3, 2026 · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -316,10 +316,10 @@
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">2</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">2</div><div class="stat-label">Total</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">1</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">2</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
 
@@ -339,7 +339,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "House", "committee": "Subcommittee on Environment (Committee on Energy and Commerce)", "chair": "Rep. Brett Guthrie (R-KY), Chair · Rep. Frank Pallone (D-NJ), Ranking Member", "time": "9:00 AM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Reliable Water in the Digital Age: Examining Legislation to Strengthen Drinking Water Systems and Protect Ratepayers.", "details": "Reliable Water in the Digital Age: Examining Legislation to Strengthen Drinking Water Systems and Protect Ratepayers.", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": "https://energycommerce.house.gov/hearings"}];
+const HEARINGS = [{"chamber": "House", "committee": "Subcommittee on Defense (Committee on Appropriations)", "chair": "Tom Cole", "time": "1:00 PM ET", "building": "Rayburn (RHOB)", "room": "College of the Canyons Performing Arts Center\n26455 Rockwell Canyon Road\nSanta Clarita, CA 91355", "topic": "Industrial Base and Workforce Development for Skilled Trades", "details": "Industrial Base and Workforce Development for Skilled Trades", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": "https://appropriations.house.gov/events/hearings"}, {"chamber": "House", "committee": "Subcommittee on Environment (Committee on Energy and Commerce)", "chair": "Rep. Brett Guthrie (R-KY), Chair · Rep. Frank Pallone (D-NJ), Ranking Member", "time": "9:00 AM ET", "building": "Rayburn (RHOB)", "room": "2123 RHOB", "topic": "Reliable Water in the Digital Age: Examining Legislation to Strengthen Drinking Water Systems and Protect Ratepayers.", "witnesses": [], "details": "", "cancelled": false, "changes": [], "link": "https://energycommerce.house.gov/hearings"}];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
