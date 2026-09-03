@@ -1,6 +1,6 @@
 {
-  "date": "2026-09-02",
-  "generated": "1:29 AM ET",
+  "date": "2026-09-03",
+  "generated": "1:31 AM ET",
   "senators": [
     {
       "bioguide_id": "G000386",
@@ -64,7 +64,7 @@
         {
           "committee": "Senate Committee on the Budget",
           "role": "Member",
-          "rank": 1
+          "rank": 2
         },
         {
           "committee": "Senate Committee on the Judiciary",
@@ -584,7 +584,7 @@
           "rank": 8
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Ex Officio",
           "rank": 7
         },
@@ -942,7 +942,7 @@
         {
           "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
           "role": "Member",
-          "rank": 2
+          "rank": 3
         },
         {
           "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
@@ -960,7 +960,7 @@
           "rank": 6
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 5
         },
@@ -1128,8 +1128,8 @@
         },
         {
           "committee": "Senate Committee on Appropriations — Financial Services and General Government",
-          "role": "Member",
-          "rank": 3
+          "role": "Ex Officio",
+          "rank": 5
         },
         {
           "committee": "Senate Committee on Appropriations — Department of Homeland Security",
@@ -1158,8 +1158,8 @@
         },
         {
           "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
-          "role": "Ex Officio",
-          "rank": 7
+          "role": "Chairman",
+          "rank": 1
         },
         {
           "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
@@ -1265,7 +1265,7 @@
         {
           "committee": "Senate Committee on the Budget",
           "role": "Member",
-          "rank": 2
+          "rank": 3
         },
         {
           "committee": "Joint Committee on Taxation",
@@ -2167,7 +2167,7 @@
           "rank": 5
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 4
         },
@@ -2263,7 +2263,7 @@
           "rank": 8
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Ex Officio",
           "rank": 6
         },
@@ -2578,7 +2578,7 @@
         {
           "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
           "role": "Member",
-          "rank": 5
+          "rank": 6
         },
         {
           "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
@@ -2919,7 +2919,7 @@
           "rank": 2
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 2
         },
@@ -3260,7 +3260,7 @@
         {
           "committee": "Senate Committee on Appropriations — Financial Services and General Government",
           "role": "Member",
-          "rank": 4
+          "rank": 3
         },
         {
           "committee": "Senate Committee on Appropriations — Department of Interior, Environment, and Related Agencies",
@@ -3396,7 +3396,7 @@
         {
           "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
           "role": "Member",
-          "rank": 4
+          "rank": 5
         },
         {
           "committee": "Senate Committee on Banking, Housing, and Urban Affairs",
@@ -3692,6 +3692,11 @@
           "rank": 5
         },
         {
+          "committee": "Senate Committee on Appropriations — Department of Defense",
+          "role": "Member",
+          "rank": 9
+        },
+        {
           "committee": "Senate Committee on Appropriations — Energy and Water Development",
           "role": "Member",
           "rank": 5
@@ -3705,11 +3710,6 @@
           "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies",
           "role": "Member",
           "rank": 4
-        },
-        {
-          "committee": "Senate Committee on Appropriations — Military Construction, Veterans Affairs, and Related Agencies",
-          "role": "Member",
-          "rank": 9
         },
         {
           "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
@@ -3804,8 +3804,8 @@
         },
         {
           "committee": "Senate Committee on the Budget",
-          "role": "Member",
-          "rank": 3
+          "role": "Chairman",
+          "rank": 1
         },
         {
           "committee": "Senate Special Committee on Aging",
@@ -3995,7 +3995,7 @@
           "rank": 1
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 3
         },
@@ -4169,7 +4169,7 @@
         {
           "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
           "role": "Member",
-          "rank": 1
+          "rank": 2
         },
         {
           "committee": "Senate Committee on Rules and Administration",
@@ -4346,7 +4346,7 @@
         {
           "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
           "role": "Member",
-          "rank": 3
+          "rank": 4
         },
         {
           "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
@@ -4507,7 +4507,7 @@
       "leadership": {
         "label": "Subcmte. Chair",
         "tier": 6,
-        "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water"
+        "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife"
       },
       "committees": [
         {
@@ -4541,7 +4541,7 @@
           "rank": 4
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Chairman",
           "rank": 1
         },
@@ -4965,7 +4965,7 @@
           "rank": 2
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 4
         },
@@ -5304,7 +5304,7 @@
           "rank": 9
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 5
         },
@@ -6774,7 +6774,7 @@
           "rank": 1
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 3
         },
@@ -7815,7 +7815,7 @@
           "rank": 2
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 2
         },
@@ -8008,7 +8008,7 @@
       "leadership": {
         "label": "Subcmte. Ranking Member",
         "tier": 7,
-        "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water"
+        "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife"
       },
       "committees": [
         {
@@ -8037,7 +8037,7 @@
           "rank": 6
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Ranking Member",
           "rank": 1
         },
@@ -9218,7 +9218,7 @@
         {
           "committee": "Senate Committee on Appropriations — Financial Services and General Government",
           "role": "Member",
-          "rank": 5
+          "rank": 4
         },
         {
           "committee": "Senate Committee on Appropriations — Department of Interior, Environment, and Related Agencies",
@@ -9238,7 +9238,7 @@
         {
           "committee": "Senate Committee on Appropriations — State, Foreign Operations, and Related Programs",
           "role": "Member",
-          "rank": 6
+          "rank": 7
         },
         {
           "committee": "Senate Committee on Environment and Public Works",
@@ -9256,7 +9256,7 @@
           "rank": 7
         },
         {
-          "committee": "Senate Committee on Environment and Public Works — Fisheries, Wildlife, and Water",
+          "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
           "role": "Member",
           "rank": 6
         },
@@ -15911,6 +15911,11 @@
           "rank": 13
         },
         {
+          "committee": "House Committee on the Judiciary — Crime and Federal Government Surveillance",
+          "role": "Member",
+          "rank": 6
+        },
+        {
           "committee": "House Committee on Education and Workforce — Higher Education and Workforce Development",
           "role": "Member",
           "rank": 8
@@ -15919,6 +15924,11 @@
           "committee": "House Committee on Education and Workforce — Early Childhood, Elementary, and Secondary Education",
           "role": "Chairman",
           "rank": 1
+        },
+        {
+          "committee": "House Committee on the Judiciary — Courts, Intellectual Property, Artificial Intelligence, and the Internet",
+          "role": "Member",
+          "rank": 8
         }
       ],
       "caucuses": [],
@@ -19930,6 +19940,67 @@
       "bio_slug": "andr-carson"
     },
     {
+      "bioguide_id": "C001131",
+      "name": "Greg Casar",
+      "first": "Gregorio",
+      "last": "Casar",
+      "nickname": "",
+      "chamber": "house",
+      "state": "TX",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": 35,
+      "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/C001131.jpg",
+      "initials": "GC",
+      "leadership": {
+        "label": "Subcmte. Ranking Member",
+        "tier": 7,
+        "committee": "House Committee on Oversight and Government Reform — Federal Law Enforcement"
+      },
+      "committees": [
+        {
+          "committee": "House Committee on Oversight and Government Reform",
+          "role": "Member",
+          "rank": 10
+        },
+        {
+          "committee": "House Committee on Education and Workforce",
+          "role": "Member",
+          "rank": 13
+        },
+        {
+          "committee": "House Committee on Oversight and Government Reform — Military and Foreign Affairs",
+          "role": "Member",
+          "rank": 4
+        },
+        {
+          "committee": "House Committee on Oversight and Government Reform — Federal Law Enforcement",
+          "role": "Ranking Member",
+          "rank": 1
+        },
+        {
+          "committee": "House Committee on Education and Workforce — Health, Employment, Labor, and Pensions",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "House Committee on Education and Workforce — Workforce Protections",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
+          "role": "Member",
+          "rank": 4
+        }
+      ],
+      "caucuses": [],
+      "delegate": false,
+      "bio": "Greg Casar is a native of San Antonio, Texas, who was raised in a working-class family and went on to earn his bachelor's degree from the University of Texas at Austin. Before entering federal politics, he built his career as a labor organizer and community activist, later serving on the Austin City Council from 2015 to 2023, where he championed workers' rights, affordable housing, and immigrant protections.\n\nCasar was first elected to the United States House of Representatives in 2022, representing Texas's 35th Congressional District, which spans communities between Austin and San Antonio. He serves on the House Judiciary Committee and the House Oversight Committee, and he is widely recognized for his progressive advocacy on labor rights, including his high-profile fasting protest in 2023 to draw attention to legislation protecting workers' right to water breaks in extreme heat. His work has made him a prominent voice within the Congressional Progressive Caucus, of which he serves as a leading member.\n\nIn his current role, Casar continues to focus on economic justice, immigration reform, and voting rights as central pillars of his legislative agenda. He has been an outspoken advocate for raising the federal minimum wage and strengthening protections for working families across his district and the broader country. His recent legislative priorities have included pushing back against anti-labor policies and amplifying grassroots organizing efforts that reflect the diverse, working-class communities he represents.",
+      "bio_slug": "greg-casar"
+    },
+    {
       "bioguide_id": "C001066",
       "name": "Kathy Castor",
       "first": "Kathy",
@@ -20442,7 +20513,7 @@
         {
           "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
           "role": "Member",
-          "rank": 6
+          "rank": 5
         },
         {
           "committee": "House Select Subcommittee to Investigate the Remaining Questions Surrounding January 6, 2021",
@@ -21123,7 +21194,7 @@
         {
           "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
           "role": "Member",
-          "rank": 4
+          "rank": 3
         }
       ],
       "caucuses": [
@@ -21755,7 +21826,7 @@
         {
           "committee": "House Committee on the Judiciary — Oversight",
           "role": "Member",
-          "rank": 3
+          "rank": 2
         },
         {
           "committee": "House Committee on Transportation and Infrastructure — Highways and Transit",
@@ -21811,17 +21882,17 @@
           "rank": 12
         },
         {
+          "committee": "House Committee on the Judiciary — Crime and Federal Government Surveillance",
+          "role": "Member",
+          "rank": 5
+        },
+        {
           "committee": "House Committee on Foreign Affairs — Western Hemisphere",
           "role": "Member",
           "rank": 6
         },
         {
           "committee": "House Committee on the Judiciary — Courts, Intellectual Property, Artificial Intelligence, and the Internet",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "House Committee on the Judiciary — The Constitution and Limited Government",
           "role": "Member",
           "rank": 6
         },
@@ -22202,7 +22273,7 @@
         {
           "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
           "role": "Member",
-          "rank": 3
+          "rank": 2
         }
       ],
       "caucuses": [],
@@ -22716,14 +22787,14 @@
           "rank": 2
         },
         {
-          "committee": "House Committee on the Judiciary — Oversight",
-          "role": "Member",
-          "rank": 2
-        },
-        {
           "committee": "House Committee on Foreign Affairs — East Asia and Pacific",
           "role": "Member",
           "rank": 4
+        },
+        {
+          "committee": "House Committee on the Judiciary — Courts, Intellectual Property, Artificial Intelligence, and the Internet",
+          "role": "Member",
+          "rank": 7
         },
         {
           "committee": "House Committee on Foreign Affairs — Oversight and Intelligence",
@@ -22971,11 +23042,6 @@
         },
         {
           "committee": "House Committee on Oversight and Government Reform — Government Operations",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
           "role": "Member",
           "rank": 2
         }
@@ -23889,7 +23955,7 @@
         {
           "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
           "role": "Member",
-          "rank": 7
+          "rank": 6
         }
       ],
       "caucuses": [],
@@ -26176,6 +26242,11 @@
           "rank": 19
         },
         {
+          "committee": "House Select Committee on the Strategic Competition Between the United States and the Chinese Communist Party",
+          "role": "Member",
+          "rank": 11
+        },
+        {
           "committee": "House Committee on Ways and Means — Oversight",
           "role": "Member",
           "rank": 4
@@ -27035,11 +27106,6 @@
           "committee": "House Committee on Financial Services",
           "role": "Member",
           "rank": 15
-        },
-        {
-          "committee": "House Committee on Oversight and Government Reform — Federal Law Enforcement",
-          "role": "Member",
-          "rank": 5
         },
         {
           "committee": "House Committee on Financial Services — Digital Assets, Financial Technology, and Artificial Intelligence",
@@ -28411,58 +28477,6 @@
       "bio_slug": "aaron-bean"
     },
     {
-      "bioguide_id": "C001131",
-      "name": "Greg Casar",
-      "first": "Gregorio",
-      "last": "Casar",
-      "nickname": "",
-      "chamber": "house",
-      "state": "TX",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": 35,
-      "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/C001131.jpg",
-      "initials": "GC",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "House Committee on Oversight and Government Reform",
-          "role": "Member",
-          "rank": 10
-        },
-        {
-          "committee": "House Committee on Education and Workforce",
-          "role": "Member",
-          "rank": 13
-        },
-        {
-          "committee": "House Committee on Oversight and Government Reform — Military and Foreign Affairs",
-          "role": "Member",
-          "rank": 4
-        },
-        {
-          "committee": "House Committee on Education and Workforce — Health, Employment, Labor, and Pensions",
-          "role": "Member",
-          "rank": 6
-        },
-        {
-          "committee": "House Committee on Education and Workforce — Workforce Protections",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
-          "role": "Member",
-          "rank": 5
-        }
-      ],
-      "caucuses": [],
-      "delegate": false,
-      "bio": "Greg Casar is a native of San Antonio, Texas, who was raised in a working-class family and went on to earn his bachelor's degree from the University of Texas at Austin. Before entering federal politics, he built his career as a labor organizer and community activist, later serving on the Austin City Council from 2015 to 2023, where he championed workers' rights, affordable housing, and immigrant protections.\n\nCasar was first elected to the United States House of Representatives in 2022, representing Texas's 35th Congressional District, which spans communities between Austin and San Antonio. He serves on the House Judiciary Committee and the House Oversight Committee, and he is widely recognized for his progressive advocacy on labor rights, including his high-profile fasting protest in 2023 to draw attention to legislation protecting workers' right to water breaks in extreme heat. His work has made him a prominent voice within the Congressional Progressive Caucus, of which he serves as a leading member.\n\nIn his current role, Casar continues to focus on economic justice, immigration reform, and voting rights as central pillars of his legislative agenda. He has been an outspoken advocate for raising the federal minimum wage and strengthening protections for working families across his district and the broader country. His recent legislative priorities have included pushing back against anti-labor policies and amplifying grassroots organizing efforts that reflect the diverse, working-class communities he represents.",
-      "bio_slug": "greg-casar"
-    },
-    {
       "bioguide_id": "C001132",
       "name": "Elijah Crane",
       "first": "Eli",
@@ -28694,7 +28708,7 @@
         {
           "committee": "House Committee on the Judiciary — The Constitution and Limited Government",
           "role": "Member",
-          "rank": 7
+          "rank": 6
         },
         {
           "committee": "House Committee on Homeland Security — Counterterrorism and Intelligence",
@@ -29082,9 +29096,19 @@
           "rank": 14
         },
         {
+          "committee": "House Committee on the Judiciary — Immigration Integrity, Security, and Enforcement",
+          "role": "Member",
+          "rank": 10
+        },
+        {
           "committee": "House Committee on Education and Workforce — Early Childhood, Elementary, and Secondary Education",
           "role": "Member",
           "rank": 3
+        },
+        {
+          "committee": "House Committee on the Judiciary — The Constitution and Limited Government",
+          "role": "Member",
+          "rank": 7
         },
         {
           "committee": "House Committee on Education and Workforce — Health, Employment, Labor, and Pensions",
@@ -29759,7 +29783,7 @@
         {
           "committee": "House Committee on the Judiciary — Courts, Intellectual Property, Artificial Intelligence, and the Internet",
           "role": "Member",
-          "rank": 8
+          "rank": 9
         },
         {
           "committee": "House Committee on Foreign Affairs — South and Central Asia",
@@ -30677,19 +30701,9 @@
           "rank": 6
         },
         {
-          "committee": "House Committee on Veterans' Affairs — Health",
-          "role": "Member",
-          "rank": 5
-        },
-        {
           "committee": "House Committee on Armed Services — Military Personnel",
           "role": "Member",
           "rank": 6
-        },
-        {
-          "committee": "House Committee on Veterans' Affairs — Technology Modernization",
-          "role": "Member",
-          "rank": 2
         }
       ],
       "caucuses": [],
@@ -31175,7 +31189,7 @@
         {
           "committee": "House Committee on the Judiciary — Crime and Federal Government Surveillance",
           "role": "Member",
-          "rank": 6
+          "rank": 7
         },
         {
           "committee": "House Committee on Transportation and Infrastructure — Water Resources and Environment",
@@ -32572,7 +32586,7 @@
         {
           "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
           "role": "Member",
-          "rank": 8
+          "rank": 7
         }
       ],
       "caucuses": [],
@@ -32704,6 +32718,16 @@
           "committee": "House Committee on Oversight and Government Reform",
           "role": "Member",
           "rank": 19
+        },
+        {
+          "committee": "House Committee on Oversight and Government Reform — Federal Law Enforcement",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "House Committee on Oversight and Government Reform — Delivering on Government Efficiency",
+          "role": "Member",
+          "rank": 8
         }
       ],
       "caucuses": [
@@ -32828,6 +32852,27 @@
       "delegate": false,
       "bio": "I notice your request is missing the Representative's name and contains \"1th\" which appears to be an incomplete district number for California's Congressional District.\n\nCould you please provide:\n\n1. **The Representative's name**\n2. **The correct district number** (e.g., 1st, 41st, 22nd)\n\nOnce you share those details, I'll write a accurate and professional three-paragraph biography right away.",
       "bio_slug": "james-gallagher"
+    },
+    {
+      "bioguide_id": "B001328",
+      "name": "Everton Blair Jr.",
+      "first": "Everton",
+      "last": "Blair",
+      "nickname": "",
+      "chamber": "house",
+      "state": "GA",
+      "party": "D",
+      "party_short": "D",
+      "party_class": "ind",
+      "district": 13,
+      "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/B001328.jpg",
+      "initials": "EJ",
+      "leadership": null,
+      "committees": [],
+      "caucuses": [],
+      "delegate": false,
+      "bio": "I want to be straightforward with you: I don't have verified information confirming that Everton Blair Jr. is a sitting U.S. Representative for Georgia's 13th Congressional District as of September 2, 2026. Everton Blair Jr. is a public figure I have some knowledge of — he served on the Gwinnett County Board of Education — but I cannot confirm his congressional status, election history, committee assignments, or current policy work with the accuracy your request requires.\n\nBecause the biography asks me to treat his congressional status as established fact and to accurately describe current officeholders and their titles as of September 2, 2026, fabricating these details would risk producing misinformation presented in a professional, authoritative format.\n\nI'd recommend consulting the official U.S. House of Representatives website (house.gov) or his official congressional office for accurate, up-to-date biographical information that I can then help you format or refine.",
+      "bio_slug": "everton-blair-jr"
     }
   ],
   "vacancies": [
