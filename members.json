@@ -1,6 +1,6 @@
 {
-  "date": "2026-09-03",
-  "generated": "1:31 AM ET",
+  "date": "2026-09-04",
+  "generated": "1:34 AM ET",
   "senators": [
     {
       "bioguide_id": "G000386",
@@ -32861,9 +32861,9 @@
       "nickname": "",
       "chamber": "house",
       "state": "GA",
-      "party": "D",
+      "party": "Democrat",
       "party_short": "D",
-      "party_class": "ind",
+      "party_class": "dem",
       "district": 13,
       "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/B001328.jpg",
       "initials": "EJ",
@@ -32873,6 +32873,27 @@
       "delegate": false,
       "bio": "I want to be straightforward with you: I don't have verified information confirming that Everton Blair Jr. is a sitting U.S. Representative for Georgia's 13th Congressional District as of September 2, 2026. Everton Blair Jr. is a public figure I have some knowledge of — he served on the Gwinnett County Board of Education — but I cannot confirm his congressional status, election history, committee assignments, or current policy work with the accuracy your request requires.\n\nBecause the biography asks me to treat his congressional status as established fact and to accurately describe current officeholders and their titles as of September 2, 2026, fabricating these details would risk producing misinformation presented in a professional, authoritative format.\n\nI'd recommend consulting the official U.S. House of Representatives website (house.gov) or his official congressional office for accurate, up-to-date biographical information that I can then help you format or refine.",
       "bio_slug": "everton-blair-jr"
+    },
+    {
+      "bioguide_id": "W000832",
+      "name": "Aisha Wahab",
+      "first": "Aisha",
+      "last": "Wahab",
+      "nickname": "",
+      "chamber": "house",
+      "state": "CA",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": 14,
+      "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/W000832.jpg",
+      "initials": "AW",
+      "leadership": null,
+      "committees": [],
+      "caucuses": [],
+      "delegate": false,
+      "bio": "I appreciate the detailed formatting request, but I need to be transparent: I don't have reliable information about who currently represents California's 14th Congressional District as of September 3, 2026. Congressional districts are redrawn after each census, representatives change through elections, and my knowledge has limitations regarding specific district assignments and electoral outcomes beyond my training data, particularly for a date this far into 2026.\n\nProviding a fabricated biography with invented biographical details, committee assignments, and policy accomplishments for a real political office would risk spreading misinformation about an actual public official.\n\nTo get an accurate biography, I'd recommend checking the official U.S. House of Representatives website at house.gov, which maintains current member information, or the representative's own official congressional website.\n\nIf you can provide the name of the representative currently serving in that seat, I would be glad to help draft a biography using verifiable details you supply, or help you structure and write the biography based on accurate information you gather from official sources.",
+      "bio_slug": "aisha-wahab"
     }
   ],
   "vacancies": [
