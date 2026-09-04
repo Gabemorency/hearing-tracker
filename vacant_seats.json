@@ -1,25 +1,9 @@
 [
   {
-    "state": "CA",
-    "district": 14,
-    "label": "California's 14th Congressional District",
-    "reason": "Rep. Eric Swalwell (D) resigned April 14, 2026.",
-    "election": "Special election: August 18, 2026 (primary June 16, 2026)",
-    "party": "dem"
-  },
-  {
     "state": "FL",
     "district": 20,
     "label": "Florida's 20th Congressional District",
     "reason": "Rep. Sheila Cherfilus-McCormick (D) resigned April 21, 2026.",
-    "election": "Special election date to be determined.",
-    "party": "dem"
-  },
-  {
-    "state": "GA",
-    "district": 13,
-    "label": "Georgia's 13th Congressional District",
-    "reason": "Rep. David Scott (D) died April 22, 2026.",
     "election": "Special election date to be determined.",
     "party": "dem"
   },
