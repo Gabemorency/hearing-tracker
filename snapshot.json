@@ -4,7 +4,7 @@
     "committee": "Subcommittee on Defense (Committee on Appropriations)",
     "chair": "Tom Cole",
     "time": "1:00 PM ET",
-    "building": "Rayburn (RHOB)",
+    "building": "Off-site",
     "room": "College of the Canyons Performing Arts Center\n26455 Rockwell Canyon Road\nSanta Clarita, CA 91355",
     "topic": "Industrial Base and Workforce Development for Skilled Trades",
     "details": "Industrial Base and Workforce Development for Skilled Trades",
@@ -12,21 +12,9 @@
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
-    "changes": [],
+    "changes": [
+      "Location changed to Off-site \u00b7 12:07 AM"
+    ],
     "link": "https://appropriations.house.gov/events/hearings"
-  },
-  "House|Subcommittee on Environment (Committee o|9:00 AM ET": {
-    "chamber": "House",
-    "committee": "Subcommittee on Environment (Committee on Energy and Commerce)",
-    "chair": "Rep. Brett Guthrie (R-KY), Chair \u00b7 Rep. Frank Pallone (D-NJ), Ranking Member",
-    "time": "9:00 AM ET",
-    "building": "Rayburn (RHOB)",
-    "room": "2123 RHOB",
-    "topic": "Reliable Water in the Digital Age: Examining Legislation to Strengthen Drinking Water Systems and Protect Ratepayers.",
-    "witnesses": [],
-    "details": "",
-    "cancelled": false,
-    "changes": [],
-    "link": "https://energycommerce.house.gov/hearings"
   }
 }
