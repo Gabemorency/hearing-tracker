@@ -69,9 +69,6 @@
   "119314": "Committee on Rules",
   "119289": "Committee on Armed Services",
   "119290": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-  "119388": "Permanent Select Committee on Intelligence",
-  "119393": "Subcommittee on Energy (Committee on Energy and Commerce)",
-  "119414": "Committee on Appropriations",
   "119383": "Committee on Natural Resources",
   "119513": "Permanent Select Committee on Intelligence",
   "119392": "Subcommittee on Environment (Committee on Energy and Commerce)",
@@ -262,5 +259,8 @@
   "119406": "Subcommittee on Homeland Security (Committee on Appropriations)",
   "119410": "Subcommittee on Delivering on Government Efficiency (Committee on Oversight and Government Reform)",
   "119411": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
-  "119398": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)"
+  "119398": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)",
+  "119388": "Permanent Select Committee on Intelligence",
+  "119393": "Subcommittee on Energy (Committee on Energy and Commerce)",
+  "119414": "Committee on Appropriations"
 }
