@@ -97,9 +97,6 @@
   "119337": "Committee on Small Business",
   "119340": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
   "119359": "Committee on the Judiciary",
-  "119506": "Subcommittee on Federal Lands (Committee on Natural Resources)",
-  "119520": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
-  "119522": "Committee on Financial Services",
   "119524": "Subcommittee on Rural Development, Energy, and Supply Chains (Committee on Small Business)",
   "119527": "Subcommittee on Economic Growth, Energy Policy, and Regulatory Affairs (Committee on Oversight and Government Reform)",
   "119530": "Committee on Ways and Means",
@@ -262,5 +259,8 @@
   "119516": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
   "119514": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
   "119519": "Subcommittee on Work and Welfare (Committee on Ways and Means)",
-  "119498": "Committee on Rules"
+  "119498": "Committee on Rules",
+  "119506": "Subcommittee on Federal Lands (Committee on Natural Resources)",
+  "119520": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
+  "119522": "Committee on Financial Services"
 }
