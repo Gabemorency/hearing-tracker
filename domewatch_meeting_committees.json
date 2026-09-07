@@ -76,8 +76,6 @@
   "119258": "Subcommittee on Cybersecurity and Infrastructure Protection (Committee on Homeland Security)",
   "119331": "Subcommittee on Federal Lands (Committee on Natural Resources)",
   "119341": "Subcommittee on Aviation (Committee on Transportation and Infrastructure)",
-  "119514": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
-  "119519": "Subcommittee on Work and Welfare (Committee on Ways and Means)",
   "119349": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
   "119351": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
   "119333": "Committee on Armed Services",
@@ -99,7 +97,6 @@
   "119337": "Committee on Small Business",
   "119340": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
   "119359": "Committee on the Judiciary",
-  "119498": "Committee on Rules",
   "119506": "Subcommittee on Federal Lands (Committee on Natural Resources)",
   "119520": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
   "119522": "Committee on Financial Services",
@@ -262,5 +259,8 @@
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
   "119515": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-  "119516": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)"
+  "119516": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
+  "119514": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
+  "119519": "Subcommittee on Work and Welfare (Committee on Ways and Means)",
+  "119498": "Committee on Rules"
 }
