@@ -97,12 +97,9 @@
   "119337": "Committee on Small Business",
   "119340": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
   "119359": "Committee on the Judiciary",
-  "119504": "Committee on House Administration",
   "118850": "Committee on Rules",
   "119286": "Subcommittee on Commerce, Justice, Science, and Related Agencies (Committee on Appropriations)",
   "119335": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
-  "119408": "Subcommittee on Oversight (Committee on the Judiciary)",
-  "119432": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
   "119487": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
   "119497": "Permanent Select Committee on Intelligence",
   "119532": "Subcommittee on Energy (Committee on Science, Space, and Technology)",
@@ -262,5 +259,8 @@
   "119530": "Committee on Ways and Means",
   "119517": "Committee on Veterans' Affairs",
   "119521": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
-  "119526": "Subcommittee on the Constitution and Limited Government (Committee on the Judiciary)"
+  "119526": "Subcommittee on the Constitution and Limited Government (Committee on the Judiciary)",
+  "119504": "Committee on House Administration",
+  "119408": "Subcommittee on Oversight (Committee on the Judiciary)",
+  "119432": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)"
 }
