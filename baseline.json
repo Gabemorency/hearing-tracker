@@ -1,5 +1,36 @@
 {
-  "date": "2026-09-11",
-  "generated": "1:36 AM ET · Thursday, September 10, 2026",
-  "hearings": []
+  "date": "2026-09-14",
+  "generated": "1:37 AM ET · Friday, September 11, 2026",
+  "hearings": [
+    {
+      "chamber": "House",
+      "committee": "Committee on Rules",
+      "chair": "",
+      "time": "4:00 PM ET",
+      "building": "Capitol",
+      "room": "H-313 CAPITOL",
+      "topic": "H.J. Res. 210 – Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Environmental Protection Agency relating to \"California State Nonro",
+      "details": "H.J. Res. 210 – Providing for congressional disapproval under chapter 8 of title 5, United States Code, of the rule submitted by the Environmental Protection Agency relating to \"California State Nonro",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
+      "chair": "",
+      "time": "9:00 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "Charlotte Marriott City Center, Uptown Ballroom, 1st/2nd Ward\n100 W Trade Street\nCharlotte, NC 28202",
+      "topic": "Examining Healthcare Markets: Fraud and Competition",
+      "details": "Examining Healthcare Markets: Fraud and Competition",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    }
+  ]
 }
