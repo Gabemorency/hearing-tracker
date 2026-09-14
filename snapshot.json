@@ -20,7 +20,7 @@
     "committee": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
     "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
     "time": "9:00 AM ET",
-    "building": "Rayburn (RHOB)",
+    "building": "Off-site",
     "room": "Charlotte Marriott City Center, Uptown Ballroom, 1st/2nd Ward\n100 W Trade Street\nCharlotte, NC 28202",
     "topic": "Examining Healthcare Markets: Fraud and Competition",
     "details": "Examining Healthcare Markets: Fraud and Competition",
@@ -28,7 +28,9 @@
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
-    "changes": [],
+    "changes": [
+      "Location changed to Off-site \u00b7 12:32 AM"
+    ],
     "link": "https://judiciary.house.gov/hearings/"
   }
 }
