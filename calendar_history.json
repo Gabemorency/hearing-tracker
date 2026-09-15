@@ -1603,48 +1603,429 @@
   "2026-09-15": {
     "hearings": [
       {
+        "chamber": "Senate",
+        "committee": "Energy and Natural Resources",
+        "chair": "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-366",
+        "topic": "Hearings to examine S.456, to amend the Energy Policy Act of 2005 to expedite geothermal exploration and development in previously studied or developed areas, S.1568, to amend the Energy Policy and Co",
+        "details": "Hearings to examine S.456, to amend the Energy Policy Act of 2005 to expedite geothermal exploration and development in previously studied or developed areas, S.1568, to amend the Energy Policy and Co",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.energy.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Foreign Relations",
+        "chair": "Sen. Jim Risch (R-ID), Chair · Sen. Jeanne Shaheen (D-NH), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-419",
+        "topic": "Hearings to examine certain pending nominations.",
+        "details": "Hearings to examine certain pending nominations.",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.foreign.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Health, Education, Labor, and Pensions",
+        "chair": "",
+        "time": "10:00 AM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-430",
+        "topic": "Hearings to examine the nominations of Gerard Klomp, of Utah, to be Deputy Secretary, Timothy Westlake, of Wisconsin, to be Assistant Secretary for Mental Health and Substance Use, and Nicole Saphier,",
+        "details": "Hearings to examine the nominations of Gerard Klomp, of Utah, to be Deputy Secretary, Timothy Westlake, of Wisconsin, to be Assistant Secretary for Mental Health and Substance Use, and Nicole Saphier,",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.help.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Commerce, Science, and Transportation",
+        "chair": "Sen. Ted Cruz (R-TX), Chair · Sen. Maria Cantwell (D-WA), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Russell (SR)",
+        "room": "SR-253",
+        "topic": "Business meeting to consider S.2586, to require the Administrator of the National Oceanic and Atmospheric Administration to establish an assessment program for commercial-scale offshore aquaculture th",
+        "details": "Business meeting to consider S.2586, to require the Administrator of the National Oceanic and Atmospheric Administration to establish an assessment program for commercial-scale offshore aquaculture th",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.commerce.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Judiciary",
+        "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
+        "time": "10:15 AM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-G50",
+        "topic": "Hearings to examine certain pending nominations.",
+        "details": "Hearings to examine certain pending nominations.",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.judiciary.senate.gov/committee-activity/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Indian Affairs",
+        "chair": "Sen. Lisa Murkowski (R-AK), Chair · Sen. Brian Schatz (D-HI), Ranking Member",
+        "time": "2:30 PM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-628",
+        "topic": "Hearings to examine housing needs in native communities, including  S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996.",
+        "details": "Oversight Hearing entitled, “Examining Housing Needs in Native Communities,” and Legislative Hearing to receive testimony on S. 5354, the Native American Housing Assistance and Self-Determination Mode",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.indian.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Intelligence",
+        "chair": "Sen. Tom Cotton (R-AR), Chair · Sen. Mark Warner (D-VA), Ranking Member",
+        "time": "3:00 PM ET",
+        "building": "Hart (SH)",
+        "room": "SH-219",
+        "topic": "To receive a closed briefing on certain intelligence matters.",
+        "details": "To receive a closed briefing on certain intelligence matters.",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.intelligence.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Aging",
+        "chair": "",
+        "time": "3:30 PM ET",
+        "building": "Hart (SH)",
+        "room": "SH-216",
+        "topic": "Hearings to examine the menopause care gap in America.",
+        "details": "Hearings to examine the menopause care gap in America.",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.aging.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Agriculture, Nutrition, and Forestry",
+        "chair": "Sen. John Boozman (R-AR), Chair · Sen. Amy Klobuchar (D-MN), Ranking Member",
+        "time": "3:30 PM ET",
+        "building": "Russell (SR)",
+        "room": "SR-318",
+        "topic": "Business meeting to consider an original bill entitled, \"Agricultural Act of 2026\".",
+        "details": "Business meeting to consider an original bill entitled, \"Agricultural Act of 2026\".",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.agriculture.senate.gov/hearings"
+      },
+      {
+        "chamber": "Senate",
+        "committee": "Environment and Public Works",
+        "chair": "Sen. Shelley Moore Capito (R-WV), Chair · Sen. Sheldon Whitehouse (D-RI), Ranking Member",
+        "time": "9:30 AM ET",
+        "building": "Dirksen (SD)",
+        "room": "SD-406",
+        "topic": "Business meeting to consider S.5045, to amend the Clean Air Act to modify the handling of air quality monitoring with respect to prescribed fires, S.3135, to require the Administrator of the Environme",
+        "details": "Business meeting to consider S.5045, to amend the Clean Air Act to modify the handling of air quality monitoring with respect to prescribed fires, S.3135, to require the Administrator of the Environme",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://www.epw.senate.gov/public/index.cfm/hearings"
+      },
+      {
         "chamber": "House",
-        "committee": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
+        "committee": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
+        "chair": "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Longworth (LHOB)",
+        "room": "1324 LHOB",
+        "topic": "Legislative Hearing on: • H.R. 177 (Rep. McClintock), “Yosemite National Park Equal Access and Fairness Act” • H.R. 3717 (Rep. Harder), “Golden Mussel Eradication and Control Act of 2025” • H.R. 5935 ",
+        "details": "Legislative Hearing on: • H.R. 177 (Rep. McClintock), “Yosemite National Park Equal Access and Fairness Act” • H.R. 3717 (Rep. Harder), “Golden Mussel Eradication and Control Act of 2025” • H.R. 5935 ",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://naturalresources.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on Homeland Security",
+        "chair": "Sen. Rand Paul (R-KY), Chair · Sen. Gary Peters (D-MI), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Cannon (CHOB)",
+        "room": "310 CHOB",
+        "topic": "25 Years Later: Evolutions in Federal, State, and Local Counterterrorism Efforts Since 9/11",
+        "details": "25 Years Later: Evolutions in Federal, State, and Local Counterterrorism Efforts Since 9/11",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://homeland.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
+        "chair": "",
+        "time": "10:00 AM ET",
+        "building": "Cannon (CHOB)",
+        "room": "390 CHOB",
+        "topic": "Import Controls: Tools to Counter the CCP’s Industrial Policy and Supply Chain Threats",
+        "details": "Import Controls: Tools to Counter the CCP’s Industrial Policy and Supply Chain Threats",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": ""
+      },
+      {
+        "chamber": "House",
+        "committee": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
+        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2172 RHOB",
+        "topic": "Twenty-Five Years After 9/11: The Evolving Terrorism Landscape and State's Counterterrorism Response",
+        "details": "Oversight Hearing entitled, “Examining Housing Needs in Native Communities,” and Legislative Hearing to receive testimony on S. 5354, the Native American Housing Assistance and Self-Determination Mode",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://foreignaffairs.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
         "chair": "Tom Cole",
         "time": "10:00 AM ET",
         "building": "Rayburn (RHOB)",
         "room": "2362-A RHOB",
-        "topic": "The Annual Testimony of the Secretary of the Treasury on the State of the International Financial System",
+        "topic": "Budget Hearing – Trade and Investment Agencies",
+        "details": "Capitol Complex, 2362-A RHOB, Washington, DC, 20515, USA",
         "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://appropriations.house.gov/events/hearings"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
+        "chair": "",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2318 RHOB",
+        "topic": "Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
+        "details": "Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
+        "witnesses": [
+          "Ms. Melissa Roberts, Founder and Executive Director, American Flood Coalition",
+          "Dr. Mike Falkowski, Lead Scientist, Earth Fire Alliance",
+          "Mr. John Gale, Federal Affairs Director, Pano AI",
+          "Witnesses not yet publicly posted",
+          "Dr. Ali Mostafavidarani, Founder and CEO, Resilitix AI"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://science.house.gov/2026/9/full-committee-hearing-innovation-in-disaster-prevention-advancing-tech-for-prediction-and-response"
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on Financial Services",
+        "chair": "Tom Cole",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2362-A RHOB",
+        "topic": "Various Measures",
+        "details": "Various Measures",
+        "witnesses": [
+          "Witnesses not yet publicly posted",
           "The Honorable Scott Bessent, Secretary, U.S. Department of the Treasury"
         ],
-        "details": "",
         "cancelled": false,
         "changes": [],
         "link": "https://financialservices.house.gov/calendar/EventSingle.aspx?EventID=411218"
       },
       {
         "chamber": "House",
-        "committee": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
+        "committee": "Committee on the Judiciary",
         "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
         "time": "10:00 AM ET",
         "building": "Rayburn (RHOB)",
         "room": "2141 RHOB",
-        "topic": "The Continuing Tragedy of Sanctuary Laws",
-        "witnesses": [],
-        "details": "",
+        "topic": "H.R. 2442, the Freedom from Unfair Gun Taxes Act of 2025; H.R. 9298, the Stopping Harmful and Outrageous Torts Act; H.R. 9503, the Officer Leslie Coffelt U.S. Secret Service Police Act; H.R. 3342, the",
+        "details": "H.R. 2442, the Freedom from Unfair Gun Taxes Act of 2025; H.R. 9298, the Stopping Harmful and Outrageous Torts Act; H.R. 9503, the Officer Leslie Coffelt U.S. Secret Service Police Act; H.R. 3342, the",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
         "cancelled": false,
         "changes": [],
         "link": "https://judiciary.house.gov/hearings/"
       },
       {
         "chamber": "House",
-        "committee": "Subcommittee on Crime and Federal Government Surveillance (Committee on the Judiciary)",
-        "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
+        "committee": "Committee on Energy and Commerce",
+        "chair": "Rep. Brett Guthrie (R-KY), Chair · Rep. Frank Pallone (D-NJ), Ranking Member",
         "time": "10:00 AM ET",
         "building": "Rayburn (RHOB)",
-        "room": "2237 RHOB",
-        "topic": "Missing and Murdered Indigenous People: Strengthening Public Safety in Tribal Communities",
-        "witnesses": [],
-        "details": "",
+        "room": "2123 RHOB",
+        "topic": "Markup of Sixteen Bills",
+        "details": "Markup of Sixteen Bills",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
         "cancelled": false,
         "changes": [],
-        "link": "https://judiciary.house.gov/hearings/"
+        "link": "https://energycommerce.house.gov/hearings"
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on Ways and Means",
+        "chair": "Rep. Jason Smith (R-MO), Chair · Rep. Richard Neal (D-MA), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "210 CAPITOL",
+        "topic": "H.R. 10357, H.R. 10334, H.R. 6130, H.R. 5439, H.R. 4093, H.R. 10346, and H.R. 10356",
+        "details": "H.R. 10357, H.R. 10334, H.R. 6130, H.R. 5439, H.R. 4093, H.R. 10346, and H.R. 10356",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://waysandmeans.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
+        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+        "time": "10:15 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2175 RHOB",
+        "topic": "Who Gets the Scholarship? How the Global Shift in College Sports Affects Americans",
+        "details": "Who Gets the Scholarship? How the Global Shift in College Sports Affects Americans",
+        "witnesses": [
+          "Dr. Adam Dean, Associate Professor of Political Science, The George Washington University",
+          "Mr. Thomas Jones, President, American Accountability Foundation",
+          "Mr. Akash Chougule, President, Foundation for Research on Equal Opportunity",
+          "Witnesses not yet publicly posted",
+          "Mr. Greg Mourad, Vice President of Federal Affairs, National Right to Work Committee"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413749"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Federal Lands (Committee on Natural Resources)",
+        "chair": "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member",
+        "time": "2:00 PM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "TBD",
+        "topic": "Legislative Hearing on 9 bills: H.R. 1031 (Rep.Tenney), “Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act”; H.R. 2323 (Rep. Pfluger), “Big Bend National Park Boundary ",
+        "details": "Legislative Hearing on 9 bills: H.R. 1031 (Rep.Tenney), “Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act”; H.R. 2323 (Rep. Pfluger), “Big Bend National Park Boundary ",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://naturalresources.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
+        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
+        "time": "2:00 PM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2200 RHOB",
+        "topic": "Lives, not Leverage: the Long Arm of China and North Korea’s Repression",
+        "details": "Oversight Hearing entitled, “Examining Housing Needs in Native Communities,” and Legislative Hearing to receive testimony on S. 5354, the Native American Housing Assistance and Self-Determination Mode",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": true,
+        "changes": [],
+        "link": "https://foreignaffairs.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on Agriculture",
+        "chair": "Sen. John Boozman (R-AR), Chair · Sen. Amy Klobuchar (D-MN), Ranking Member",
+        "time": "9:30 AM ET",
+        "building": "Longworth (LHOB)",
+        "room": "1300 LHOB",
+        "topic": "Increasing Demand and Opportunities for Homegrown Products Here and Abroad",
+        "details": "Increasing Demand and Opportunities for Homegrown Products Here and Abroad",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://agriculture.house.gov/calendar/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on the Budget",
+        "chair": "Sen. Lindsey Graham (R-SC), Chair · Sen. Jeff Merkley (D-OR), Ranking Member",
+        "time": "9:30 AM ET",
+        "building": "Cannon (CHOB)",
+        "room": "210 CHOB",
+        "topic": "H.R. 4464, the Preventive Health Savings Act; H.R. 6470, the Increasing Baseline Updates Act",
+        "details": "H.R. 4464, the Preventive Health Savings Act; H.R. 6470, the Increasing Baseline Updates Act",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": ""
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on Small Business",
+        "chair": "Sen. Joni Ernst (R-IA), Chair · Sen. Ed Markey (D-MA), Ranking Member",
+        "time": "9:45 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2360 RHOB",
+        "topic": "Various Measures",
+        "details": "Various Measures",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": ""
       },
       {
         "chamber": "House",
@@ -1659,58 +2040,6 @@
         "cancelled": false,
         "changes": [],
         "link": "https://appropriations.house.gov/events/hearings"
-      },
-      {
-        "chamber": "House",
-        "committee": "Committee on Science, Space, and Technology",
-        "chair": "",
-        "time": "10:00 AM ET",
-        "building": "Rayburn (RHOB)",
-        "room": "2318 RHOB",
-        "topic": "Innovation in Disaster Prevention: Advancing Technology for Prediction and Response",
-        "witnesses": [
-          "Mr. John Gale, Federal Affairs Director, Pano AI",
-          "Ms. Melissa Roberts, Founder and Executive Director, American Flood Coalition",
-          "Dr. Ali Mostafavidarani, Founder and CEO, Resilitix AI",
-          "Dr. Mike Falkowski, Lead Scientist, Earth Fire Alliance"
-        ],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://science.house.gov/2026/9/full-committee-hearing-innovation-in-disaster-prevention-advancing-tech-for-prediction-and-response"
-      },
-      {
-        "chamber": "House",
-        "committee": "Europe Subcommittee (Committee on Foreign Affairs)",
-        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
-        "time": "10:00 AM ET",
-        "building": "Rayburn (RHOB)",
-        "room": "2172 RHOB",
-        "topic": "U.S. Policy and Regional Security Challenges in the Western Balkans",
-        "witnesses": [],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://foreignaffairs.house.gov/hearings/"
-      },
-      {
-        "chamber": "House",
-        "committee": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
-        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
-        "time": "10:15 AM ET",
-        "building": "Rayburn (RHOB)",
-        "room": "2175 RHOB",
-        "topic": "Out of Touch: When Union Politics Leave Workers Behind",
-        "witnesses": [
-          "Mr. Thomas Jones, President, American Accountability Foundation",
-          "Mr. Akash Chougule, President, Foundation for Research on Equal Opportunity",
-          "Mr. Greg Mourad, Vice President of Federal Affairs, National Right to Work Committee",
-          "Dr. Adam Dean, Associate Professor of Political Science, The George Washington University"
-        ],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413749"
       },
       {
         "chamber": "House",
@@ -1767,20 +2096,6 @@
         "cancelled": false,
         "changes": [],
         "link": ""
-      },
-      {
-        "chamber": "House",
-        "committee": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
-        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
-        "time": "2:00 PM ET",
-        "building": "Rayburn (RHOB)",
-        "room": "2200 RHOB",
-        "topic": "Trojan Horses: Covert Foreign Malign Influence Operations in America",
-        "witnesses": [],
-        "details": "",
-        "cancelled": true,
-        "changes": [],
-        "link": "https://foreignaffairs.house.gov/hearings/"
       },
       {
         "chamber": "House",
@@ -1853,20 +2168,6 @@
         "cancelled": false,
         "changes": [],
         "link": "https://www.finance.senate.gov/hearings/hearing-to-consider-the-nominations-of-gerard-klomp-of-utah-to-be-deputy-secretary-of-health-and-human-services-vice-james-oneill-resigned-james-gadwood-of-maryland-to-be-chief-counsel-for-the-internal-revenue-service-and-an-assistant-general-counsel-in-the-department-of-the-treasury-vice-marjorie-a-rollinson-ge-bai-of-virginia-to-be-an-assistant-secretary-of-health-and-human-services-vice-richard-g-frank-and-andrew-a-de-mello-of-virginia-to-be-a-judge-of-the-united-states-tax-court-for-a-term-of-fifteen-years-vice-maurice-b-foley-resigned"
-      },
-      {
-        "chamber": "Senate",
-        "committee": "Intelligence",
-        "chair": "Sen. Tom Cotton (R-AR), Chair · Sen. Mark Warner (D-VA), Ranking Member",
-        "time": "3:00 PM ET",
-        "building": "Hart (SH)",
-        "room": "SH-219",
-        "topic": "To receive a closed briefing on certain intelligence matters.",
-        "witnesses": [],
-        "details": "To receive a closed briefing on certain intelligence matters.",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://www.intelligence.senate.gov/hearings"
       }
     ],
     "inSession": false
