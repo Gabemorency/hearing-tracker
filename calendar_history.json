@@ -1852,10 +1852,10 @@
         "topic": "Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
         "details": "Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
         "witnesses": [
-          "Ms. Melissa Roberts, Founder and Executive Director, American Flood Coalition",
-          "Dr. Mike Falkowski, Lead Scientist, Earth Fire Alliance",
           "Mr. John Gale, Federal Affairs Director, Pano AI",
+          "Ms. Melissa Roberts, Founder and Executive Director, American Flood Coalition",
           "Witnesses not yet publicly posted",
+          "Dr. Mike Falkowski, Lead Scientist, Earth Fire Alliance",
           "Dr. Ali Mostafavidarani, Founder and CEO, Resilitix AI"
         ],
         "cancelled": false,
@@ -1939,8 +1939,8 @@
         "witnesses": [
           "Dr. Adam Dean, Associate Professor of Political Science, The George Washington University",
           "Mr. Thomas Jones, President, American Accountability Foundation",
-          "Mr. Akash Chougule, President, Foundation for Research on Equal Opportunity",
           "Witnesses not yet publicly posted",
+          "Mr. Akash Chougule, President, Foundation for Research on Equal Opportunity",
           "Mr. Greg Mourad, Vice President of Federal Affairs, National Right to Work Committee"
         ],
         "cancelled": false,
@@ -2170,6 +2170,6 @@
         "link": "https://www.finance.senate.gov/hearings/hearing-to-consider-the-nominations-of-gerard-klomp-of-utah-to-be-deputy-secretary-of-health-and-human-services-vice-james-oneill-resigned-james-gadwood-of-maryland-to-be-chief-counsel-for-the-internal-revenue-service-and-an-assistant-general-counsel-in-the-department-of-the-treasury-vice-marjorie-a-rollinson-ge-bai-of-virginia-to-be-an-assistant-secretary-of-health-and-human-services-vice-richard-g-frank-and-andrew-a-de-mello-of-virginia-to-be-a-judge-of-the-united-states-tax-court-for-a-term-of-fifteen-years-vice-maurice-b-foley-resigned"
       }
     ],
-    "inSession": false
+    "inSession": true
   }
 }
