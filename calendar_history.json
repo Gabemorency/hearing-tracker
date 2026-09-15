@@ -1852,11 +1852,11 @@
         "topic": "Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
         "details": "Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
         "witnesses": [
-          "Mr. John Gale, Federal Affairs Director, Pano AI",
-          "Ms. Melissa Roberts, Founder and Executive Director, American Flood Coalition",
           "Witnesses not yet publicly posted",
+          "Mr. John Gale, Federal Affairs Director, Pano AI",
+          "Dr. Ali Mostafavidarani, Founder and CEO, Resilitix AI",
           "Dr. Mike Falkowski, Lead Scientist, Earth Fire Alliance",
-          "Dr. Ali Mostafavidarani, Founder and CEO, Resilitix AI"
+          "Ms. Melissa Roberts, Founder and Executive Director, American Flood Coalition"
         ],
         "cancelled": false,
         "changes": [],
@@ -1937,11 +1937,11 @@
         "topic": "Who Gets the Scholarship? How the Global Shift in College Sports Affects Americans",
         "details": "Who Gets the Scholarship? How the Global Shift in College Sports Affects Americans",
         "witnesses": [
-          "Dr. Adam Dean, Associate Professor of Political Science, The George Washington University",
-          "Mr. Thomas Jones, President, American Accountability Foundation",
           "Witnesses not yet publicly posted",
-          "Mr. Akash Chougule, President, Foundation for Research on Equal Opportunity",
-          "Mr. Greg Mourad, Vice President of Federal Affairs, National Right to Work Committee"
+          "Mr. Thomas Jones, President, American Accountability Foundation",
+          "Dr. Adam Dean, Associate Professor of Political Science, The George Washington University",
+          "Mr. Greg Mourad, Vice President of Federal Affairs, National Right to Work Committee",
+          "Mr. Akash Chougule, President, Foundation for Research on Equal Opportunity"
         ],
         "cancelled": false,
         "changes": [],
@@ -2151,8 +2151,10 @@
           "The Honorable Kash Patel"
         ],
         "details": "An oversight hearing to examine the Federal Bureau of Investigation.",
-        "cancelled": false,
-        "changes": [],
+        "cancelled": true,
+        "changes": [
+          "CANCELLED · 5:09 PM"
+        ],
         "link": "https://www.judiciary.senate.gov/committee-activity/hearings/oversight-of-the-federal-bureau-of-investigation-09-15-2026"
       },
       {
