@@ -2242,20 +2242,6 @@
       },
       {
         "chamber": "House",
-        "committee": "Committee on Agriculture",
-        "chair": "Sen. John Boozman (R-AR), Chair · Sen. Amy Klobuchar (D-MN), Ranking Member",
-        "time": "9:30 AM ET",
-        "building": "Longworth (LHOB)",
-        "room": "1300 LHOB",
-        "topic": "Increasing Demand and Opportunities for Homegrown Products Here and Abroad",
-        "witnesses": [],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://agriculture.house.gov/calendar/"
-      },
-      {
-        "chamber": "House",
         "committee": "Committee on the Budget",
         "chair": "Sen. Lindsey Graham (R-SC), Chair · Sen. Jeff Merkley (D-OR), Ranking Member",
         "time": "9:30 AM ET",
@@ -2267,6 +2253,20 @@
         "cancelled": false,
         "changes": [],
         "link": ""
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on Agriculture",
+        "chair": "Sen. John Boozman (R-AR), Chair · Sen. Amy Klobuchar (D-MN), Ranking Member",
+        "time": "9:30 AM ET",
+        "building": "Longworth (LHOB)",
+        "room": "1300 LHOB",
+        "topic": "Increasing Demand and Opportunities for Homegrown Products Here and Abroad",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://agriculture.house.gov/calendar/"
       },
       {
         "chamber": "House",
@@ -2284,62 +2284,6 @@
       },
       {
         "chamber": "House",
-        "committee": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
-        "chair": "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member",
-        "time": "10:00 AM ET",
-        "building": "Longworth (LHOB)",
-        "room": "1324 LHOB",
-        "topic": "Legislative Hearing on: • H.R. 177 (Rep. McClintock), “Yosemite National Park Equal Access and Fairness Act” • H.R. 3717 (Rep. Harder), “Golden Mussel Eradication and Control Act of 2025” • H.R. 5935 (Rep. Calvert), “Agua Caliente Band of Cahuilla Indians Water Rights Settlement Act” • H.R. 6869 (Rep. Leger Fernandez), To amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, and for other purposes. • H.R. 8546 (Rep. Issa), “Pechanga Band of Indians Water Rights Settlement Technical Amendments Act” • H.R. 9017 (Rep. Donalds), “Pechanga Band of Indians Water Rights Settlement Technical Amendments Act” • H.R. 9590 (Rep. Webster), “SAFE for Manatees Act” • H.R. 10117 (Rep. Steube), “GATOR Act",
-        "witnesses": [],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://naturalresources.house.gov/hearings/"
-      },
-      {
-        "chamber": "House",
-        "committee": "Committee on Homeland Security",
-        "chair": "Sen. Rand Paul (R-KY), Chair · Sen. Gary Peters (D-MI), Ranking Member",
-        "time": "10:00 AM ET",
-        "building": "Cannon (CHOB)",
-        "room": "310 CHOB",
-        "topic": "25 Years Later: Evolutions in Federal, State, and Local Counterterrorism Efforts Since 9/11",
-        "witnesses": [],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://homeland.house.gov/hearings/"
-      },
-      {
-        "chamber": "House",
-        "committee": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-        "chair": "",
-        "time": "10:00 AM ET",
-        "building": "Cannon (CHOB)",
-        "room": "390 CHOB",
-        "topic": "Import Controls: Tools to Counter the CCP’s Industrial Policy and Supply Chain Threats",
-        "witnesses": [],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": ""
-      },
-      {
-        "chamber": "House",
-        "committee": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
-        "time": "10:00 AM ET",
-        "building": "Rayburn (RHOB)",
-        "room": "2172 RHOB",
-        "topic": "Twenty-Five Years After 9/11: The Evolving Terrorism Landscape and State's Counterterrorism Response",
-        "witnesses": [],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://foreignaffairs.house.gov/hearings/"
-      },
-      {
-        "chamber": "House",
         "committee": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
         "chair": "Tom Cole",
         "time": "10:00 AM ET",
@@ -2351,6 +2295,36 @@
         "cancelled": false,
         "changes": [],
         "link": "https://appropriations.house.gov/events/hearings"
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on the Judiciary",
+        "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2141 RHOB",
+        "topic": "H.R. 2442, the Freedom from Unfair Gun Taxes Act of 2025; H.R. 9298, the Stopping Harmful and Outrageous Torts Act; H.R. 9503, the Officer Leslie Coffelt U.S. Secret Service Police Act; H.R. 3342, the BOP Direct-Hire Authority Act; H.R. 10335, the Restoring Civil Rights Attorney’s Fees Act of 2026; H.R. 9834, the No Racketeers on our Shores Act; and H.R. 8330, the Stop Climate Shakedowns Act of 2026",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://judiciary.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on Financial Services",
+        "chair": "About Us",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2128 RHOB",
+        "topic": "Various Measures",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [
+          "Room changed to 2128 RHOB · 12:41 AM"
+        ],
+        "link": "https://financialservices.house.gov/calendar/EventSingle.aspx?EventID=411219"
       },
       {
         "chamber": "House",
@@ -2371,36 +2345,6 @@
           "Witnesses added: Dr. Anemone Franz, Visiting Research Fellow, American Enterprise Institute, Mr. Joshua Hodges, Visiting Fellow, Hoover Institution +1 more · 12:41 AM"
         ],
         "link": "https://science.house.gov/2026/9/investigations-and-oversight-subcommittee-balancing-biotechnology-innovation-and-biosecurity"
-      },
-      {
-        "chamber": "House",
-        "committee": "Committee on Financial Services",
-        "chair": "About Us",
-        "time": "10:00 AM ET",
-        "building": "Rayburn (RHOB)",
-        "room": "2128 RHOB",
-        "topic": "Various Measures",
-        "witnesses": [],
-        "details": "",
-        "cancelled": false,
-        "changes": [
-          "Room changed to 2128 RHOB · 12:41 AM"
-        ],
-        "link": "https://financialservices.house.gov/calendar/EventSingle.aspx?EventID=411219"
-      },
-      {
-        "chamber": "House",
-        "committee": "Committee on the Judiciary",
-        "chair": "Sen. Chuck Grassley (R-IA), Chair · Sen. Dick Durbin (D-IL), Ranking Member",
-        "time": "10:00 AM ET",
-        "building": "Rayburn (RHOB)",
-        "room": "2141 RHOB",
-        "topic": "H.R. 2442, the Freedom from Unfair Gun Taxes Act of 2025; H.R. 9298, the Stopping Harmful and Outrageous Torts Act; H.R. 9503, the Officer Leslie Coffelt U.S. Secret Service Police Act; H.R. 3342, the BOP Direct-Hire Authority Act; H.R. 10335, the Restoring Civil Rights Attorney’s Fees Act of 2026; H.R. 9834, the No Racketeers on our Shores Act; and H.R. 8330, the Stop Climate Shakedowns Act of 2026",
-        "witnesses": [],
-        "details": "",
-        "cancelled": false,
-        "changes": [],
-        "link": "https://judiciary.house.gov/hearings/"
       },
       {
         "chamber": "House",
@@ -2434,6 +2378,62 @@
       },
       {
         "chamber": "House",
+        "committee": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
+        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2172 RHOB",
+        "topic": "Twenty-Five Years After 9/11: The Evolving Terrorism Landscape and State's Counterterrorism Response",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://foreignaffairs.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
+        "chair": "",
+        "time": "10:00 AM ET",
+        "building": "Cannon (CHOB)",
+        "room": "390 CHOB",
+        "topic": "Import Controls: Tools to Counter the CCP’s Industrial Policy and Supply Chain Threats",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": ""
+      },
+      {
+        "chamber": "House",
+        "committee": "Committee on Homeland Security",
+        "chair": "Sen. Rand Paul (R-KY), Chair · Sen. Gary Peters (D-MI), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Cannon (CHOB)",
+        "room": "310 CHOB",
+        "topic": "25 Years Later: Evolutions in Federal, State, and Local Counterterrorism Efforts Since 9/11",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://homeland.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
+        "chair": "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Longworth (LHOB)",
+        "room": "1324 LHOB",
+        "topic": "Legislative Hearing on: • H.R. 177 (Rep. McClintock), “Yosemite National Park Equal Access and Fairness Act” • H.R. 3717 (Rep. Harder), “Golden Mussel Eradication and Control Act of 2025” • H.R. 5935 (Rep. Calvert), “Agua Caliente Band of Cahuilla Indians Water Rights Settlement Act” • H.R. 6869 (Rep. Leger Fernandez), To amend the Aamodt Litigation Settlement Act to modify a provision relating to the extension of certain dates for the completion of the Regional Water System, and for other purposes. • H.R. 8546 (Rep. Issa), “Pechanga Band of Indians Water Rights Settlement Technical Amendments Act” • H.R. 9017 (Rep. Donalds), “Pechanga Band of Indians Water Rights Settlement Technical Amendments Act” • H.R. 9590 (Rep. Webster), “SAFE for Manatees Act” • H.R. 10117 (Rep. Steube), “GATOR Act",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://naturalresources.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
         "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
         "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
         "time": "10:15 AM ET",
@@ -2455,20 +2455,17 @@
       },
       {
         "chamber": "House",
-        "committee": "Subcommittee on Federal Lands (Committee on Natural Resources)",
-        "chair": "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member",
-        "time": "2:00 PM ET",
-        "building": "Longworth (LHOB)",
-        "room": "1324 LHOB",
-        "topic": "Legislative Hearing on 9 bills: H.R. 1031 (Rep.Tenney), “Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act”; H.R. 2323 (Rep. Pfluger), “Big Bend National Park Boundary Adjustment Act”; H.R. 7495 (Rep. Fitzgerald), To authorize the establishment of memorials to the Wisconsin infantry officers and enlisted men who fought in the Battle of Antietam and the Second Battle of Bull Run, and for other purposes.; H.R. 8276 (Rep. Schmidt), “Quindaro Townsite National Historic Landmark Act”; H.R. 9104 (Rep. Norton), “Rock Creek National Park Act of 2026”; H.R. 9148 (Rep. Hill), “Scipio Jones House Assessment Act”; H.R. 9999 (Rep. Pettersen), “Mountain Pine Beetle Coordination Act”; S. 1051 (Sen. Lankford), “Historic Greenwood District—Black Wall Street National Monument Establishment Act”; S. 1377 (Sen. Hoeven), “Theodore Roosevelt National Park Wild Horses Protection Act",
+        "committee": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
+        "chair": "",
+        "time": "1:00 PM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2167 RHOB",
+        "topic": "Always Ready: A Day in the Life of a United States Coast Guard Member",
         "witnesses": [],
         "details": "",
         "cancelled": false,
-        "changes": [
-          "Room changed to 1324 LHOB · 12:41 AM",
-          "Location changed to Longworth (LHOB) · 12:41 AM"
-        ],
-        "link": "https://naturalresources.house.gov/hearings/"
+        "changes": [],
+        "link": "https://transportation.house.gov/hearings/"
       },
       {
         "chamber": "House",
@@ -2485,6 +2482,23 @@
           "Room changed to 2172 RHOB · 12:41 AM"
         ],
         "link": "https://foreignaffairs.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Federal Lands (Committee on Natural Resources)",
+        "chair": "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member",
+        "time": "2:00 PM ET",
+        "building": "Longworth (LHOB)",
+        "room": "1324 LHOB",
+        "topic": "Legislative Hearing on 9 bills: H.R. 1031 (Rep.Tenney), “Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act”; H.R. 2323 (Rep. Pfluger), “Big Bend National Park Boundary Adjustment Act”; H.R. 7495 (Rep. Fitzgerald), To authorize the establishment of memorials to the Wisconsin infantry officers and enlisted men who fought in the Battle of Antietam and the Second Battle of Bull Run, and for other purposes.; H.R. 8276 (Rep. Schmidt), “Quindaro Townsite National Historic Landmark Act”; H.R. 9104 (Rep. Norton), “Rock Creek National Park Act of 2026”; H.R. 9148 (Rep. Hill), “Scipio Jones House Assessment Act”; H.R. 9999 (Rep. Pettersen), “Mountain Pine Beetle Coordination Act”; S. 1051 (Sen. Lankford), “Historic Greenwood District—Black Wall Street National Monument Establishment Act”; S. 1377 (Sen. Hoeven), “Theodore Roosevelt National Park Wild Horses Protection Act",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [
+          "Room changed to 1324 LHOB · 12:41 AM",
+          "Location changed to Longworth (LHOB) · 12:41 AM"
+        ],
+        "link": "https://naturalresources.house.gov/hearings/"
       },
       {
         "chamber": "Senate",
