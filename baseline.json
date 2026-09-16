@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-16",
-  "generated": "1:49 AM ET · Tuesday, September 15, 2026",
+  "date": "2026-09-17",
+  "generated": "1:38 AM ET · Wednesday, September 16, 2026",
   "hearings": [
     {
       "chamber": "Senate",
-      "committee": "Energy and Natural Resources",
+      "committee": "Banking, Housing, and Urban Affairs",
       "chair": "",
       "time": "10:00 AM ET",
       "building": "Dirksen (SD)",
-      "room": "SD-366",
-      "topic": "Hearings to examine S.456, to amend the Energy Policy Act of 2005 to expedite geothermal exploration and development in previously studied or developed areas, S.1568, to amend the Energy Policy and Co",
-      "details": "Hearings to examine S.456, to amend the Energy Policy Act of 2005 to expedite geothermal exploration and development in previously studied or developed areas, S.1568, to amend the Energy Policy and Co",
+      "room": "SD-538",
+      "topic": "Business meeting to markup the Terrorism Risk Insurance Program Reauthorization Act of 2026, and the nominations of Brian Johnson, of Ohio, to be Director, Bureau of Consumer Financial Protection, Abb",
+      "details": "Business meeting to markup the Terrorism Risk Insurance Program Reauthorization Act of 2026, and the nominations of Brian Johnson, of Ohio, to be Director, Bureau of Consumer Financial Protection, Abb",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
@@ -21,11 +21,11 @@
       "chamber": "Senate",
       "committee": "Foreign Relations",
       "chair": "",
-      "time": "10:00 AM ET",
+      "time": "10:30 AM ET",
       "building": "Dirksen (SD)",
       "room": "SD-419",
-      "topic": "Hearings to examine certain pending nominations.",
-      "details": "Hearings to examine certain pending nominations.",
+      "topic": "Hearings to examine the nominations of Michael Young, of Utah, to be Ambassador to the Republic of Serbia, Ronald Johnson, of Massachusetts, to be Ambassador to Bosnia and Herzegovina, Julia Nesheiwat",
+      "details": "Hearings to examine the nominations of Michael Young, of Utah, to be Ambassador to the Republic of Serbia, Ronald Johnson, of Massachusetts, to be Ambassador to Bosnia and Herzegovina, Julia Nesheiwat",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
@@ -34,118 +34,13 @@
     },
     {
       "chamber": "Senate",
-      "committee": "Health, Education, Labor, and Pensions",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-430",
-      "topic": "Hearings to examine the nominations of Gerard Klomp, of Utah, to be Deputy Secretary, Timothy Westlake, of Wisconsin, to be Assistant Secretary for Mental Health and Substance Use, and Nicole Saphier,",
-      "details": "Hearings to examine the nominations of Gerard Klomp, of Utah, to be Deputy Secretary, Timothy Westlake, of Wisconsin, to be Assistant Secretary for Mental Health and Substance Use, and Nicole Saphier,",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Commerce, Science, and Transportation",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Russell (SR)",
-      "room": "SR-253",
-      "topic": "Business meeting to consider S.2586, to require the Administrator of the National Oceanic and Atmospheric Administration to establish an assessment program for commercial-scale offshore aquaculture th",
-      "details": "Business meeting to consider S.2586, to require the Administrator of the National Oceanic and Atmospheric Administration to establish an assessment program for commercial-scale offshore aquaculture th",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Judiciary",
-      "chair": "",
-      "time": "10:15 AM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-G50",
-      "topic": "Hearings to examine certain pending nominations.",
-      "details": "Hearings to examine certain pending nominations.",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Indian Affairs",
-      "chair": "",
-      "time": "2:30 PM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-628",
-      "topic": "Hearings to examine housing needs in native communities, including  S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996.",
-      "details": "Oversight Hearing entitled, “Examining Housing Needs in Native Communities,” and Legislative Hearing to receive testimony on S. 5354, the Native American Housing Assistance and Self-Determination Mode",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Intelligence",
-      "chair": "",
-      "time": "3:00 PM ET",
-      "building": "Hart (SH)",
-      "room": "SH-219",
-      "topic": "To receive a closed briefing on certain intelligence matters.",
-      "details": "To receive a closed briefing on certain intelligence matters.",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Aging",
-      "chair": "",
-      "time": "3:30 PM ET",
-      "building": "Hart (SH)",
-      "room": "SH-216",
-      "topic": "Hearings to examine the menopause care gap in America.",
-      "details": "Hearings to examine the menopause care gap in America.",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Agriculture, Nutrition, and Forestry",
-      "chair": "",
-      "time": "3:30 PM ET",
-      "building": "Russell (SR)",
-      "room": "SR-318",
-      "topic": "Business meeting to consider an original bill entitled, \"Agricultural Act of 2026\".",
-      "details": "Business meeting to consider an original bill entitled, \"Agricultural Act of 2026\".",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Environment and Public Works",
+      "committee": "Armed Services",
       "chair": "",
       "time": "9:30 AM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-406",
-      "topic": "Business meeting to consider S.5045, to amend the Clean Air Act to modify the handling of air quality monitoring with respect to prescribed fires, S.3135, to require the Administrator of the Environme",
-      "details": "Business meeting to consider S.5045, to amend the Clean Air Act to modify the handling of air quality monitoring with respect to prescribed fires, S.3135, to require the Administrator of the Environme",
+      "building": "Capitol Visitor Center",
+      "room": "SVC-217",
+      "topic": "To receive a closed briefing on the implementation of the National Defense Strategy and its impact on global defense posture.",
+      "details": "To receive a closed briefing on the implementation of the National Defense Strategy and its impact on global defense posture.",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
@@ -154,238 +49,13 @@
     },
     {
       "chamber": "House",
-      "committee": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
+      "committee": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
       "chair": "",
-      "time": "10:00 AM ET",
+      "time": "10:30 AM ET",
       "building": "Longworth (LHOB)",
       "room": "1324 LHOB",
-      "topic": "Legislative Hearing on: • H.R. 177 (Rep. McClintock), “Yosemite National Park Equal Access and Fairness Act” • H.R. 3717 (Rep. Harder), “Golden Mussel Eradication and Control Act of 2025” • H.R. 5935 ",
-      "details": "Legislative Hearing on: • H.R. 177 (Rep. McClintock), “Yosemite National Park Equal Access and Fairness Act” • H.R. 3717 (Rep. Harder), “Golden Mussel Eradication and Control Act of 2025” • H.R. 5935 ",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Homeland Security",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Cannon (CHOB)",
-      "room": "310 CHOB",
-      "topic": "25 Years Later: Evolutions in Federal, State, and Local Counterterrorism Efforts Since 9/11",
-      "details": "25 Years Later: Evolutions in Federal, State, and Local Counterterrorism Efforts Since 9/11",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Cannon (CHOB)",
-      "room": "390 CHOB",
-      "topic": "Import Controls: Tools to Counter the CCP’s Industrial Policy and Supply Chain Threats",
-      "details": "Import Controls: Tools to Counter the CCP’s Industrial Policy and Supply Chain Threats",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2172 RHOB",
-      "topic": "Twenty-Five Years After 9/11: The Evolving Terrorism Landscape and State's Counterterrorism Response",
-      "details": "Oversight Hearing entitled, “Examining Housing Needs in Native Communities,” and Legislative Hearing to receive testimony on S. 5354, the Native American Housing Assistance and Self-Determination Mode",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
-      "chair": "Tom Cole",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2362-A RHOB",
-      "topic": "Budget Hearing – Trade and Investment Agencies",
-      "details": "Capitol Complex, 2362-A RHOB, Washington, DC, 20515, USA",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2318 RHOB",
-      "topic": "Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
-      "details": "Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Financial Services",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2128 RHOB",
-      "topic": "Various Measures",
-      "details": "Various Measures",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on the Judiciary",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2141 RHOB",
-      "topic": "H.R. 2442, the Freedom from Unfair Gun Taxes Act of 2025; H.R. 9298, the Stopping Harmful and Outrageous Torts Act; H.R. 9503, the Officer Leslie Coffelt U.S. Secret Service Police Act; H.R. 3342, the",
-      "details": "H.R. 2442, the Freedom from Unfair Gun Taxes Act of 2025; H.R. 9298, the Stopping Harmful and Outrageous Torts Act; H.R. 9503, the Officer Leslie Coffelt U.S. Secret Service Police Act; H.R. 3342, the",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Energy and Commerce",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2123 RHOB",
-      "topic": "Markup of Sixteen Bills",
-      "details": "Markup of Sixteen Bills",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Ways and Means",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "210 CAPITOL",
-      "topic": "H.R. 10357, H.R. 10334, H.R. 6130, H.R. 5439, H.R. 4093, H.R. 10346, and H.R. 10356",
-      "details": "H.R. 10357, H.R. 10334, H.R. 6130, H.R. 5439, H.R. 4093, H.R. 10346, and H.R. 10356",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
-      "chair": "",
-      "time": "10:15 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2175 RHOB",
-      "topic": "Who Gets the Scholarship? How the Global Shift in College Sports Affects Americans",
-      "details": "Who Gets the Scholarship? How the Global Shift in College Sports Affects Americans",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Subcommittee on Federal Lands (Committee on Natural Resources)",
-      "chair": "",
-      "time": "2:00 PM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "TBD",
-      "topic": "Legislative Hearing on 9 bills: H.R. 1031 (Rep.Tenney), “Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act”; H.R. 2323 (Rep. Pfluger), “Big Bend National Park Boundary ",
-      "details": "Legislative Hearing on 9 bills: H.R. 1031 (Rep.Tenney), “Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act”; H.R. 2323 (Rep. Pfluger), “Big Bend National Park Boundary ",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
-      "chair": "",
-      "time": "2:00 PM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2172 RHOB",
-      "topic": "Lives, not Leverage: the Long Arm of China and North Korea’s Repression",
-      "details": "Oversight Hearing entitled, “Examining Housing Needs in Native Communities,” and Legislative Hearing to receive testimony on S. 5354, the Native American Housing Assistance and Self-Determination Mode",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Agriculture",
-      "chair": "",
-      "time": "9:30 AM ET",
-      "building": "Longworth (LHOB)",
-      "room": "1300 LHOB",
-      "topic": "Increasing Demand and Opportunities for Homegrown Products Here and Abroad",
-      "details": "Increasing Demand and Opportunities for Homegrown Products Here and Abroad",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on the Budget",
-      "chair": "",
-      "time": "9:30 AM ET",
-      "building": "Cannon (CHOB)",
-      "room": "210 CHOB",
-      "topic": "H.R. 4464, the Preventive Health Savings Act; H.R. 6470, the Increasing Baseline Updates Act",
-      "details": "H.R. 4464, the Preventive Health Savings Act; H.R. 6470, the Increasing Baseline Updates Act",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Small Business",
-      "chair": "",
-      "time": "9:45 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2360 RHOB",
-      "topic": "Various Measures",
-      "details": "Various Measures",
+      "topic": "Legislative Hearing on: H.R. 7269 (Rep. Randall), \"Helping Out People Act of 2026\" and H.R. 8674 (Rep. Begich), \"Geese House Site Conveyance Act",
+      "details": "Legislative Hearing on: H.R. 7269 (Rep. Randall), \"Helping Out People Act of 2026\" and H.R. 8674 (Rep. Begich), \"Geese House Site Conveyance Act",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
