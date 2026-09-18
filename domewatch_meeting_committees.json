@@ -122,9 +122,6 @@
   "119365": "Committee on the Judiciary",
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
-  "119463": "Committee on Foreign Affairs",
-  "119535": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
-  "119534": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
   "119531": "Committee on Veterans' Affairs",
   "119533": "Subcommittee on Defense (Committee on Appropriations)",
   "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
@@ -300,5 +297,8 @@
   "119482": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
   "119484": "Committee on Science, Space, and Technology",
   "119489": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
-  "119357": "Committee on Natural Resources"
+  "119357": "Committee on Natural Resources",
+  "119463": "Committee on Foreign Affairs",
+  "119535": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
+  "119534": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)"
 }
