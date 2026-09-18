@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
-<title>Congressional Hearing Tracker — September 17, 2026</title>
+<title>Congressional Hearing Tracker — September 18, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hearing-tracker/theme.css">
@@ -295,7 +295,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 8:02 PM ET · Thursday, September 17, 2026 · Updates every 2 hours · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 12:19 AM ET · Friday, September 18, 2026 · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -316,10 +316,10 @@
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">5</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">5</div><div class="stat-label">Total</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--gold)">3</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">2</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">1</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
 
@@ -339,7 +339,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "Senate", "committee": "Banking, Housing, and Urban Affairs", "chair": "Sen. Tim Scott (R-SC), Chair · Sen. Elizabeth Warren (D-MA), Ranking Member", "time": "10:00 AM ET", "building": "Dirksen (SD)", "room": "SD-538", "topic": "Business meeting to markup the Terrorism Risk Insurance Program Reauthorization Act of 2026, and the nominations of Brian Johnson, of Ohio, to be Director, Bureau of Consumer Financial Protection, Abby Warren, of Virginia, to be an Assistant Secretary of Commerce, and Irving Dennis, of Ohio, to be Chief Financial Officer, and Jeffrey Ledbetter, of Virginia, to be Inspector General, both of the Department of Housing and Urban Development.", "witnesses": [], "details": "Business meeting to markup the Terrorism Risk Insurance Program Reauthorization Act of 2026, and the nominations of Brian Johnson, of Ohio, to be Director, Bureau of Consumer Financial Protection, Abby Warren, of Virginia, to be an Assistant Secretary of Commerce, and Irving Dennis, of Ohio, to be Chief Financial Officer, and Jeffrey Ledbetter, of Virginia, to be Inspector General, both of the Department of Housing and Urban Development.", "cancelled": false, "changes": [], "link": "https://www.banking.senate.gov/hearings"}, {"chamber": "Senate", "committee": "Foreign Relations", "chair": "Sen. Jim Risch (R-ID), Chair · Sen. Jeanne Shaheen (D-NH), Ranking Member", "time": "10:30 AM ET", "building": "Dirksen (SD)", "room": "SD-419", "topic": "Hearings to examine the nominations of Michael Young, of Utah, to be Ambassador to the Republic of Serbia, Ronald Johnson, of Massachusetts, to be Ambassador to Bosnia and Herzegovina, Julia Nesheiwat, of Florida, to be Ambassador-at-Large for the Arctic, Steven Gillen, of Virginia, to be Ambassador to the Kyrgyz Republic, and Nutan Patel, of California, to be Ambassador to the Republic of Cabo Verde, all of the Department of State.", "witnesses": [], "details": "Hearings to examine the nominations of Michael Young, of Utah, to be Ambassador to the Republic of Serbia, Ronald Johnson, of Massachusetts, to be Ambassador to Bosnia and Herzegovina, Julia Nesheiwat, of Florida, to be Ambassador-at-Large for the Arctic, Steven Gillen, of Virginia, to be Ambassador to the Kyrgyz Republic, and Nutan Patel, of California, to be Ambassador to the Republic of Cabo Verde, all of the Department of State.", "cancelled": false, "changes": [], "link": "https://www.foreign.senate.gov/hearings"}, {"chamber": "Senate", "committee": "Armed Services", "chair": "Sen. Roger Wicker (R-MS), Chair · Sen. Jack Reed (D-RI), Ranking Member", "time": "9:30 AM ET", "building": "Capitol Visitor Center", "room": "SVC-217", "topic": "To receive a closed briefing on the implementation of the National Defense Strategy and its impact on global defense posture.", "witnesses": [], "details": "To receive a closed briefing on the implementation of the National Defense Strategy and its impact on global defense posture.", "cancelled": false, "changes": [], "link": "https://www.armed-services.senate.gov/hearings/to-receive-a-briefing-on-the-implementation-of-the-national-defense-strategy-and-its-impact-on-global-defense-posture"}, {"chamber": "House", "committee": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)", "chair": "Sen. Mike Lee (R-UT), Chair · Sen. Martin Heinrich (D-NM), Ranking Member", "time": "10:30 AM ET", "building": "Longworth (LHOB)", "room": "1324 LHOB", "topic": "Legislative Hearing on: H.R. 7269 (Rep. Randall), \"Helping Out People Act of 2026\" and H.R. 8674 (Rep. Begich), \"Geese House Site Conveyance Act", "witnesses": [], "details": "", "cancelled": false, "changes": [], "link": "https://naturalresources.house.gov/hearings/"}, {"chamber": "House", "committee": "Subcommittee on Financial Institutions (Committee on Financial Services)", "chair": "Rep. French Hill (R-AR), Chair · Rep. Maxine Waters (D-CA), Ranking Member", "time": "12:00 PM ET", "building": "Rayburn (RHOB)", "room": "Center for the Arts, Eastern Kentucky University\n822 Hall Drive\nRichmond, KY 40475", "topic": "Main Street Capital Access Act: Empowering Community Banks to Drive Economic Growth", "details": "Main Street Capital Access Act: Empowering Community Banks to Drive Economic Growth", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": "https://financialservices.house.gov/calendar/"}];
+const HEARINGS = [{"chamber": "House", "committee": "Subcommittee on Financial Institutions (Committee on Financial Services)", "chair": "About Us", "time": "12:00 PM ET", "building": "Off-site", "room": "Center for the Arts, Eastern Kentucky University\n822 Hall Drive\nRichmond, KY 40475", "topic": "Main Street Capital Access Act: Empowering Community Banks to Drive Economic Growth", "details": "Main Street Capital Access Act: Empowering Community Banks to Drive Economic Growth", "witnesses": ["Mr. Kyle Aud, President and Chief Executive Officer, Cornerstone Community Bank", "Mr. Timothy Schennk, President and Chief Executive Officer, Kentucy Bankers Association", "Mr. Jason Hawkins, President and Chief Executive Officer, First United Bank", "Witnesses not yet publicly posted", "Mr. Zach Worsham, Vice President, Winterwood Inc."], "cancelled": false, "changes": ["Location changed to Off-site · 12:19 AM", "Witnesses added: Mr. Kyle Aud, President and Chief Executive Officer, Cornerstone Community Bank, Mr. Timothy Schennk, President and Chief Executive Officer, Kentucy Bankers Association +2 more · 12:19 AM"], "link": "https://financialservices.house.gov/calendar/EventSingle.aspx?EventID=411220"}];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
@@ -493,7 +493,7 @@ buildCards('All');
 
 <script>
 // DomeWatch data — loaded from local JSON, updated every 2 hours
-var TODAY_ISO = "2026-09-17";
+var TODAY_ISO = "2026-09-18";
 function fmtDate(iso) {
   if (!iso) return "";
   var d = new Date(iso);
