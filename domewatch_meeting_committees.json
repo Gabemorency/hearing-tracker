@@ -122,9 +122,6 @@
   "119365": "Committee on the Judiciary",
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
-  "119545": "South and Central Asia Subcommittee (Committee on Foreign Affairs)",
-  "119553": "Subcommittee on Delivering on Government Efficiency (Committee on Oversight and Government Reform)",
-  "118857": "Committee on Rules",
   "119306": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
   "119483": "Committee on Small Business",
   "119485": "Committee on Appropriations",
@@ -300,5 +297,8 @@
   "119557": "Subcommittee on Health Care and Financial Services (Committee on Oversight and Government Reform)",
   "119544": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
   "119549": "Subcommittee on Health (Committee on Energy and Commerce)",
-  "119541": "Subcommittee on Innovation, Entrepreneurship, and Workforce Development (Committee on Small Business)"
+  "119541": "Subcommittee on Innovation, Entrepreneurship, and Workforce Development (Committee on Small Business)",
+  "119545": "South and Central Asia Subcommittee (Committee on Foreign Affairs)",
+  "119553": "Subcommittee on Delivering on Government Efficiency (Committee on Oversight and Government Reform)",
+  "118857": "Committee on Rules"
 }
