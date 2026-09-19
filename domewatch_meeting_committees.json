@@ -122,9 +122,6 @@
   "119365": "Committee on the Judiciary",
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
-  "119554": "Europe Subcommittee (Committee on Foreign Affairs)",
-  "119556": "Committee on Science, Space, and Technology",
-  "119557": "Subcommittee on Health Care and Financial Services (Committee on Oversight and Government Reform)",
   "119544": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
   "119549": "Subcommittee on Health (Committee on Energy and Commerce)",
   "119541": "Subcommittee on Innovation, Entrepreneurship, and Workforce Development (Committee on Small Business)",
@@ -300,5 +297,8 @@
   "119543": "Subcommittee on Crime and Federal Government Surveillance (Committee on the Judiciary)",
   "119546": "Committee on Financial Services",
   "119548": "Subcommittee on Transportation, and Housing and Urban Development, and Related Agencies (Committee on Appropriations)",
-  "119550": "Subcommittee on Energy (Committee on Energy and Commerce)"
+  "119550": "Subcommittee on Energy (Committee on Energy and Commerce)",
+  "119554": "Europe Subcommittee (Committee on Foreign Affairs)",
+  "119556": "Committee on Science, Space, and Technology",
+  "119557": "Subcommittee on Health Care and Financial Services (Committee on Oversight and Government Reform)"
 }
