@@ -1,1 +1,18 @@
-{}
+{
+  "House|Committee on the Budget|2:00 PM ET": {
+    "chamber": "House",
+    "committee": "Committee on the Budget",
+    "chair": "Sen. Lindsey Graham (R-SC), Chair \u00b7 Sen. Jeff Merkley (D-OR), Ranking Member",
+    "time": "2:00 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "Old Parkland\n3819 Maple Ave\nDallas, TX 75219",
+    "topic": "America's Fiscal Future: Examining the Need for a Fiscal Commission",
+    "details": "America's Fiscal Future: Examining the Need for a Fiscal Commission",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": ""
+  }
+}
