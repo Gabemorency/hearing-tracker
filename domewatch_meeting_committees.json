@@ -122,9 +122,6 @@
   "119365": "Committee on the Judiciary",
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
-  "119555": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-  "119560": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
-  "119563": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
   "119558": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119507": "Subcommittee on Federal Lands (Committee on Natural Resources)",
   "119561": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
@@ -300,5 +297,8 @@
   "119462": "Committee on Foreign Affairs",
   "119559": "Committee on Agriculture",
   "119529": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
-  "119537": "Committee on Homeland Security"
+  "119537": "Committee on Homeland Security",
+  "119555": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
+  "119560": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
+  "119563": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)"
 }
