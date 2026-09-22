@@ -1,1 +1,178 @@
-{}
+{
+  "Senate|Environment and Public Works|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Environment and Public Works",
+    "chair": "Sen. Shelley Moore Capito (R-WV), Chair \u00b7 Sen. Sheldon Whitehouse (D-RI), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-406",
+    "topic": "Hearings to examine updating America's nuclear waste management policy.",
+    "details": "Hearings to examine updating America's nuclear waste management policy.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.epw.senate.gov/public/index.cfm/hearings"
+  },
+  "Senate|Foreign Relations|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Foreign Relations",
+    "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Capitol Visitor Center",
+    "room": "SVC-217",
+    "topic": "Closed hearings to examine\u00a0combating and deterring wrongful detentions, focusing on an update on U.S. efforts.",
+    "details": "Closed hearings to examine\u00a0combating and deterring wrongful detentions, focusing on an update on U.S. efforts.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.foreign.senate.gov/hearings"
+  },
+  "Senate|Judiciary|10:15 AM ET": {
+    "chamber": "Senate",
+    "committee": "Judiciary",
+    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
+    "time": "10:15 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-G50",
+    "topic": "Hearings to examine standing up for women in sports, focusing on ensuring opportunity, fairness and safety for female athletes.",
+    "details": "Hearings to examine standing up for women in sports, focusing on ensuring opportunity, fairness and safety for female athletes.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": true,
+    "changes": [],
+    "link": "https://www.judiciary.senate.gov/committee-activity/hearings"
+  },
+  "Senate|Judiciary \u2014 Subcommittee on Crime and Co|2:30 PM ET": {
+    "chamber": "Senate",
+    "committee": "Judiciary \u2014 Subcommittee on Crime and Counterterrorism",
+    "chair": "Sen. Chuck Grassley (R-IA), Chair \u00b7 Sen. Dick Durbin (D-IL), Ranking Member",
+    "time": "2:30 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-562",
+    "topic": "Hearings to examine flock's nationwide AI surveillance network.",
+    "details": "Hearings to examine flock's nationwide AI surveillance network.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": true,
+    "changes": [],
+    "link": "https://www.judiciary.senate.gov/committee-activity/hearings"
+  },
+  "Senate|Indian Affairs|2:30 PM ET": {
+    "chamber": "Senate",
+    "committee": "Indian Affairs",
+    "chair": "Sen. Lisa Murkowski (R-AK), Chair \u00b7 Sen. Brian Schatz (D-HI), Ranking Member",
+    "time": "2:30 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-628",
+    "topic": "Business meeting to consider S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996; to be immediately followed by hearings to examine S.1750, to reaffirm the",
+    "details": "Business meeting to consider S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996; to be immediately followed by hearings to examine S.1750, to reaffirm the",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.indian.senate.gov/hearings"
+  },
+  "Senate|Small Business and Entrepreneurship|2:30 PM ET": {
+    "chamber": "Senate",
+    "committee": "Small Business and Entrepreneurship",
+    "chair": "Sen. Joni Ernst (R-IA), Chair \u00b7 Sen. Ed Markey (D-MA), Ranking Member",
+    "time": "2:30 PM ET",
+    "building": "Russell (SR)",
+    "room": "SR-428A",
+    "topic": "Hearings to examine small business, big impact, focusing on entrepreneurs at the heart of thriving communities for 250 years.",
+    "details": "Hearings to examine small business, big impact, focusing on entrepreneurs at the heart of thriving communities for 250 years.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.sbc.senate.gov/public/index.cfm/hearings"
+  },
+  "Senate|Armed Services \u2014 Subcommittee on Cyberse|2:30 PM ET": {
+    "chamber": "Senate",
+    "committee": "Armed Services \u2014 Subcommittee on Cybersecurity",
+    "chair": "Sen. Roger Wicker (R-MS), Chair \u00b7 Sen. Jack Reed (D-RI), Ranking Member",
+    "time": "2:30 PM ET",
+    "building": "Capitol Visitor Center",
+    "room": "SVC-217",
+    "topic": "To receive a closed briefing on cyber operations and readiness for the second and third quarters of Fiscal Year 2026 as well as an update on election security.",
+    "details": "To receive a closed briefing on cyber operations and readiness for the second and third quarters of Fiscal Year 2026 as well as an update on election security.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.armed-services.senate.gov/hearings"
+  },
+  "Senate|Intelligence|3:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Intelligence",
+    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
+    "time": "3:00 PM ET",
+    "building": "Hart (SH)",
+    "room": "SH-219",
+    "topic": "To receive a closed briefing on certain intelligence matters.",
+    "details": "To receive a closed briefing on certain intelligence matters.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.intelligence.senate.gov/hearings"
+  },
+  "Senate|Aging|3:30 PM ET": {
+    "chamber": "Senate",
+    "committee": "Aging",
+    "chair": "",
+    "time": "3:30 PM ET",
+    "building": "Hart (SH)",
+    "room": "SH-216",
+    "topic": "Hearings to examine leveling the playing field, focusing on restoring America's edge in generic drug manufacturing.",
+    "details": "Hearings to examine leveling the playing field, focusing on restoring America's edge in generic drug manufacturing.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.aging.senate.gov/hearings"
+  },
+  "Senate|Veterans' Affairs|4:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Veterans' Affairs",
+    "chair": "Sen. Jerry Moran (R-KS), Chair \u00b7 Sen. Richard Blumenthal (D-CT), Ranking Member",
+    "time": "4:00 PM ET",
+    "building": "Russell (SR)",
+    "room": "SR-418",
+    "topic": "Hearings to examine pending nominations.",
+    "details": "Business Meeting is to consider S.5354 & Legislative Hearing to receive testimony on S. 1750, S. 3859, S. 4053, & H.R. 226",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.veterans.senate.gov/hearings"
+  },
+  "Senate|Armed Services|9:30 AM ET": {
+    "chamber": "Senate",
+    "committee": "Armed Services",
+    "chair": "Sen. Roger Wicker (R-MS), Chair \u00b7 Sen. Jack Reed (D-RI), Ranking Member",
+    "time": "9:30 AM ET",
+    "building": "Capitol Visitor Center",
+    "room": "SVC-217",
+    "topic": "To receive a closed briefing on an update on the United States Central Command area of operations.",
+    "details": "To receive a closed briefing on an update on the United States Central Command area of operations.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.armed-services.senate.gov/hearings"
+  }
+}
