@@ -1,19 +1,19 @@
 {
-  "Senate|Environment and Public Works|10:00 AM ET": {
+  "Senate|Finance|10:00 AM ET": {
     "chamber": "Senate",
-    "committee": "Environment and Public Works",
-    "chair": "Sen. Shelley Moore Capito (R-WV), Chair \u00b7 Sen. Sheldon Whitehouse (D-RI), Ranking Member",
+    "committee": "Finance",
+    "chair": "Sen. Mike Crapo (R-ID), Chair \u00b7 Sen. Ron Wyden (D-OR), Ranking Member",
     "time": "10:00 AM ET",
     "building": "Dirksen (SD)",
-    "room": "SD-406",
-    "topic": "Hearings to examine updating America's nuclear waste management policy.",
-    "details": "Hearings to examine updating America's nuclear waste management policy.",
+    "room": "SD-215",
+    "topic": "Business meeting to consider the nominations of Gerard Klomp, of Utah, to be Deputy Secretary, and\u00a0Ge Bai, of Virginia, to be an Assistant Secretary, both of the Department of Health and Human Service",
+    "details": "Business meeting to consider the nominations of Gerard Klomp, of Utah, to be Deputy Secretary, and\u00a0Ge Bai, of Virginia, to be an Assistant Secretary, both of the Department of Health and Human Service",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
     "changes": [],
-    "link": "https://www.epw.senate.gov/public/index.cfm/hearings"
+    "link": "https://www.finance.senate.gov/hearings"
   },
   "Senate|Foreign Relations|10:00 AM ET": {
     "chamber": "Senate",
@@ -22,14 +22,30 @@
     "time": "10:00 AM ET",
     "building": "Capitol Visitor Center",
     "room": "SVC-217",
-    "topic": "Closed hearings to examine\u00a0combating and deterring wrongful detentions, focusing on an update on U.S. efforts.",
-    "details": "Closed hearings to examine\u00a0combating and deterring wrongful detentions, focusing on an update on U.S. efforts.",
+    "topic": "Hearings to examine pending nominations.",
+    "details": "Hearings to examine pending nominations.",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
     "changes": [],
-    "link": "https://www.foreign.senate.gov/hearings"
+    "link": "https://www.foreign.senate.gov/hearings/combating-and-deterring-wrongful-detentions-an-update-on-us-efforts"
+  },
+  "Senate|Health, Education, Labor, and Pensions|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Health, Education, Labor, and Pensions",
+    "chair": "",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-430",
+    "topic": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided ",
+    "details": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided ",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.help.senate.gov/hearings"
   },
   "Senate|Judiciary|10:15 AM ET": {
     "chamber": "Senate",
@@ -38,14 +54,74 @@
     "time": "10:15 AM ET",
     "building": "Dirksen (SD)",
     "room": "SD-G50",
-    "topic": "Hearings to examine standing up for women in sports, focusing on ensuring opportunity, fairness and safety for female athletes.",
-    "details": "Hearings to examine standing up for women in sports, focusing on ensuring opportunity, fairness and safety for female athletes.",
+    "topic": "Business meeting to consider\u00a0the nominations of Anna St. John, of Louisiana, to be United States Circuit Judge for the Fifth Circuit, Gregory Carl Cook, to be United States District Judge for the Nort",
+    "details": "Business meeting to consider\u00a0the nominations of Anna St. John, of Louisiana, to be United States Circuit Judge for the Fifth Circuit, Gregory Carl Cook, to be United States District Judge for the Nort",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
-    "cancelled": true,
+    "cancelled": false,
     "changes": [],
     "link": "https://www.judiciary.senate.gov/committee-activity/hearings"
+  },
+  "Senate|Health, Education, Labor, and Pensions|10:30 AM ET": {
+    "chamber": "Senate",
+    "committee": "Health, Education, Labor, and Pensions",
+    "chair": "",
+    "time": "10:30 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-430",
+    "topic": "Hearings to examine the nomination of Heidi Overton, of New Mexico, to be Commissioner of Food and Drugs, Department of Health and Human Services.",
+    "details": "Hearings to examine the nomination of Heidi Overton, of New Mexico, to be Commissioner of Food and Drugs, Department of Health and Human Services.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.help.senate.gov/hearings"
+  },
+  "Senate|Armed Services|9:30 AM ET": {
+    "chamber": "Senate",
+    "committee": "Armed Services",
+    "chair": "Sen. Roger Wicker (R-MS), Chair \u00b7 Sen. Jack Reed (D-RI), Ranking Member",
+    "time": "9:30 AM ET",
+    "building": "Capitol Visitor Center",
+    "room": "SVC-217",
+    "topic": "To receive a closed briefing on an update on the budget of the Department of Defense.",
+    "details": "To receive a closed briefing on an update on the budget of the Department of Defense.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.armed-services.senate.gov/hearings/to-receive-an-update-on-the-united-states-central-command-area-of-operations"
+  },
+  "Senate|Homeland Security and Governmental Affai|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Homeland Security and Governmental Affairs",
+    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-342",
+    "topic": "Business meeting to consider the request to direct Senate Legal Counsel to file an application seeking immunity.",
+    "witnesses": [],
+    "details": "Business meeting to consider the request to direct Senate Legal Counsel to file an application seeking immunity.",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.hsgac.senate.gov/hearings"
+  },
+  "Senate|Environment and Public Works|10:00 AM ET": {
+    "chamber": "Senate",
+    "committee": "Environment and Public Works",
+    "chair": "Sen. Shelley Moore Capito (R-WV), Chair \u00b7 Sen. Sheldon Whitehouse (D-RI), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-406",
+    "topic": "Hearings to examine updating America's nuclear waste management policy.",
+    "witnesses": [],
+    "details": "Hearings to examine updating America's nuclear waste management policy.",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.epw.senate.gov/public/index.cfm/hearings?ID=00331A4A-2209-4573-B3BB-051C701D6346"
   },
   "Senate|Judiciary \u2014 Subcommittee on Crime and Co|2:30 PM ET": {
     "chamber": "Senate",
@@ -55,11 +131,9 @@
     "building": "Dirksen (SD)",
     "room": "SD-562",
     "topic": "Hearings to examine flock's nationwide AI surveillance network.",
+    "witnesses": [],
     "details": "Hearings to examine flock's nationwide AI surveillance network.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": true,
+    "cancelled": false,
     "changes": [],
     "link": "https://www.judiciary.senate.gov/committee-activity/hearings"
   },
@@ -70,30 +144,20 @@
     "time": "2:30 PM ET",
     "building": "Dirksen (SD)",
     "room": "SD-628",
-    "topic": "Business meeting to consider S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996; to be immediately followed by hearings to examine S.1750, to reaffirm the",
-    "details": "Business meeting to consider S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996; to be immediately followed by hearings to examine S.1750, to reaffirm the",
+    "topic": "Business meeting to consider S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996; to be immediately followed by hearings to examine S.1750, to reaffirm the applicability of the Indian Reorganization Act to the Poarch Band of Creek Indians, S.3859, to amend the Catawba Indian Tribe of South Carolina Land Claims Settlement Act of 1993 with respect to future membership in the Catawba Indian Nation, S.4053, to take certain land in the State of California into trust for the benefit of the Pechanga Band of Indians, and H.R.226, to take certain Federal lands in Tennessee into trust for the benefit of the Eastern Band of Cherokee Indians.",
     "witnesses": [
-      "Witnesses not yet publicly posted"
+      "Mr. Brian Mercier",
+      "The Honorable Stephanie Bryan",
+      "The Honorable Patricia Leach",
+      "The Honorable Mark Macarro",
+      "The Honorable Michell Hicks"
     ],
+    "details": "Business meeting to consider S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996; to be immediately followed by hearings to examine S.1750, to reaffirm the applicability of the Indian Reorganization Act to the Poarch Band of Creek Indians, S.3859, to amend the Catawba Indian Tribe of South Carolina Land Claims Settlement Act of 1993 with respect to future membership in the Catawba Indian Nation, S.4053, to take certain land in the State of California into trust for the benefit of the Pechanga Band of Indians, and H.R.226, to take certain Federal lands in Tennessee into trust for the benefit of the Eastern Band of Cherokee Indians.",
     "cancelled": false,
-    "changes": [],
-    "link": "https://www.indian.senate.gov/hearings"
-  },
-  "Senate|Small Business and Entrepreneurship|2:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Small Business and Entrepreneurship",
-    "chair": "Sen. Joni Ernst (R-IA), Chair \u00b7 Sen. Ed Markey (D-MA), Ranking Member",
-    "time": "2:30 PM ET",
-    "building": "Russell (SR)",
-    "room": "SR-428A",
-    "topic": "Hearings to examine small business, big impact, focusing on entrepreneurs at the heart of thriving communities for 250 years.",
-    "details": "Hearings to examine small business, big impact, focusing on entrepreneurs at the heart of thriving communities for 250 years.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
+    "changes": [
+      "Witnesses added: The Honorable Mark Macarro, Mr. Brian Mercier +3 more \u00b7 3:38 AM"
     ],
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.sbc.senate.gov/public/index.cfm/hearings"
+    "link": "https://www.indian.senate.gov/hearings/legislative-hearing-to-receive-testimony-on-s-1750-s-3859-s-4053-h-r-226/"
   },
   "Senate|Armed Services \u2014 Subcommittee on Cyberse|2:30 PM ET": {
     "chamber": "Senate",
@@ -103,13 +167,11 @@
     "building": "Capitol Visitor Center",
     "room": "SVC-217",
     "topic": "To receive a closed briefing on cyber operations and readiness for the second and third quarters of Fiscal Year 2026 as well as an update on election security.",
+    "witnesses": [],
     "details": "To receive a closed briefing on cyber operations and readiness for the second and third quarters of Fiscal Year 2026 as well as an update on election security.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
     "cancelled": false,
     "changes": [],
-    "link": "https://www.armed-services.senate.gov/hearings"
+    "link": "https://www.armed-services.senate.gov/hearings/to-receive-a-briefing-on-cyber-operations-and-readiness-for-the-second-and-third-quarters-of-fiscal-year-2026-as-well-as-an-update-on-election-security"
   },
   "Senate|Intelligence|3:00 PM ET": {
     "chamber": "Senate",
@@ -119,10 +181,8 @@
     "building": "Hart (SH)",
     "room": "SH-219",
     "topic": "To receive a closed briefing on certain intelligence matters.",
+    "witnesses": [],
     "details": "To receive a closed briefing on certain intelligence matters.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
     "cancelled": false,
     "changes": [],
     "link": "https://www.intelligence.senate.gov/hearings"
@@ -135,13 +195,11 @@
     "building": "Hart (SH)",
     "room": "SH-216",
     "topic": "Hearings to examine leveling the playing field, focusing on restoring America's edge in generic drug manufacturing.",
+    "witnesses": [],
     "details": "Hearings to examine leveling the playing field, focusing on restoring America's edge in generic drug manufacturing.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
     "cancelled": false,
     "changes": [],
-    "link": "https://www.aging.senate.gov/hearings"
+    "link": "https://www.aging.senate.gov/hearings/leveling-the-playing-field-restoring-americas-edge-in-generic-drug-manufacturing"
   },
   "Senate|Veterans' Affairs|4:00 PM ET": {
     "chamber": "Senate",
@@ -150,29 +208,11 @@
     "time": "4:00 PM ET",
     "building": "Russell (SR)",
     "room": "SR-418",
-    "topic": "Hearings to examine pending nominations.",
-    "details": "Business Meeting is to consider S.5354 & Legislative Hearing to receive testimony on S. 1750, S. 3859, S. 4053, & H.R. 226",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "topic": "Hearings to examine the nominations of Maria Lopez, of Florida, to be Chairman of the Board of Veterans' Appeals, Department of Veterans Affairs, and Robert R. Fleck, of Pennsylvania, David M. Jones, of Virginia, Daniel F. Rendleman, of Illinois, and James Lewis Quinn, of Virginia, each to be a Judge of the United States Court of Appeals for Veterans Claims.",
+    "witnesses": [],
+    "details": "Hearings to examine the nominations of Maria Lopez, of Florida, to be Chairman of the Board of Veterans' Appeals, Department of Veterans Affairs, and Robert R. Fleck, of Pennsylvania, David M. Jones, of Virginia, Daniel F. Rendleman, of Illinois, and James Lewis Quinn, of Virginia, each to be a Judge of the United States Court of Appeals for Veterans Claims.",
     "cancelled": false,
     "changes": [],
     "link": "https://www.veterans.senate.gov/hearings"
-  },
-  "Senate|Armed Services|9:30 AM ET": {
-    "chamber": "Senate",
-    "committee": "Armed Services",
-    "chair": "Sen. Roger Wicker (R-MS), Chair \u00b7 Sen. Jack Reed (D-RI), Ranking Member",
-    "time": "9:30 AM ET",
-    "building": "Capitol Visitor Center",
-    "room": "SVC-217",
-    "topic": "To receive a closed briefing on an update on the United States Central Command area of operations.",
-    "details": "To receive a closed briefing on an update on the United States Central Command area of operations.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.armed-services.senate.gov/hearings"
   }
 }
