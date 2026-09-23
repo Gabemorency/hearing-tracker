@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-23",
-  "generated": "1:52 AM ET · Tuesday, September 22, 2026",
+  "date": "2026-09-24",
+  "generated": "1:29 AM ET · Wednesday, September 23, 2026",
   "hearings": [
     {
       "chamber": "Senate",
-      "committee": "Environment and Public Works",
+      "committee": "Finance",
       "chair": "",
       "time": "10:00 AM ET",
       "building": "Dirksen (SD)",
-      "room": "SD-406",
-      "topic": "Hearings to examine updating America's nuclear waste management policy.",
-      "details": "Hearings to examine updating America's nuclear waste management policy.",
+      "room": "SD-215",
+      "topic": "Business meeting to consider the nominations of Gerard Klomp, of Utah, to be Deputy Secretary, and Ge Bai, of Virginia, to be an Assistant Secretary, both of the Department of Health and Human Service",
+      "details": "Business meeting to consider the nominations of Gerard Klomp, of Utah, to be Deputy Secretary, and Ge Bai, of Virginia, to be an Assistant Secretary, both of the Department of Health and Human Service",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
@@ -22,10 +22,25 @@
       "committee": "Foreign Relations",
       "chair": "",
       "time": "10:00 AM ET",
-      "building": "Capitol Visitor Center",
-      "room": "SVC-217",
-      "topic": "Closed hearings to examine combating and deterring wrongful detentions, focusing on an update on U.S. efforts.",
-      "details": "Closed hearings to examine combating and deterring wrongful detentions, focusing on an update on U.S. efforts.",
+      "building": "Dirksen (SD)",
+      "room": "SD-419",
+      "topic": "Hearings to examine pending nominations.",
+      "details": "Hearings to examine pending nominations.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Health, Education, Labor, and Pensions",
+      "chair": "",
+      "time": "10:00 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-430",
+      "topic": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided ",
+      "details": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided ",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
@@ -37,100 +52,10 @@
       "committee": "Judiciary",
       "chair": "",
       "time": "10:15 AM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-G50",
-      "topic": "Hearings to examine standing up for women in sports, focusing on ensuring opportunity, fairness and safety for female athletes.",
-      "details": "Hearings to examine standing up for women in sports, focusing on ensuring opportunity, fairness and safety for female athletes.",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": true,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Judiciary — Subcommittee on Crime and Counterterrorism",
-      "chair": "",
-      "time": "2:30 PM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-562",
-      "topic": "Hearings to examine flock's nationwide AI surveillance network.",
-      "details": "Hearings to examine flock's nationwide AI surveillance network.",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": true,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Indian Affairs",
-      "chair": "",
-      "time": "2:30 PM ET",
-      "building": "Dirksen (SD)",
-      "room": "SD-628",
-      "topic": "Business meeting to consider S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996; to be immediately followed by hearings to examine S.1750, to reaffirm the",
-      "details": "Business meeting to consider S.5354, to reauthorize the Native American Housing Assistance and Self-Determination Act of 1996; to be immediately followed by hearings to examine S.1750, to reaffirm the",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Small Business and Entrepreneurship",
-      "chair": "",
-      "time": "2:30 PM ET",
-      "building": "Russell (SR)",
-      "room": "SR-428A",
-      "topic": "Hearings to examine small business, big impact, focusing on entrepreneurs at the heart of thriving communities for 250 years.",
-      "details": "Hearings to examine small business, big impact, focusing on entrepreneurs at the heart of thriving communities for 250 years.",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Armed Services — Subcommittee on Cybersecurity",
-      "chair": "",
-      "time": "2:30 PM ET",
-      "building": "Capitol Visitor Center",
-      "room": "SVC-217",
-      "topic": "To receive a closed briefing on cyber operations and readiness for the second and third quarters of Fiscal Year 2026 as well as an update on election security.",
-      "details": "To receive a closed briefing on cyber operations and readiness for the second and third quarters of Fiscal Year 2026 as well as an update on election security.",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Intelligence",
-      "chair": "",
-      "time": "3:00 PM ET",
-      "building": "Hart (SH)",
-      "room": "SH-219",
-      "topic": "To receive a closed briefing on certain intelligence matters.",
-      "details": "To receive a closed briefing on certain intelligence matters.",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "Senate",
-      "committee": "Aging",
-      "chair": "",
-      "time": "3:30 PM ET",
       "building": "Hart (SH)",
       "room": "SH-216",
-      "topic": "Hearings to examine leveling the playing field, focusing on restoring America's edge in generic drug manufacturing.",
-      "details": "Hearings to examine leveling the playing field, focusing on restoring America's edge in generic drug manufacturing.",
+      "topic": "Business meeting to consider the nominations of Anna St. John, of Louisiana, to be United States Circuit Judge for the Fifth Circuit, Gregory Carl Cook, to be United States District Judge for the Nort",
+      "details": "Business meeting to consider the nominations of Anna St. John, of Louisiana, to be United States Circuit Judge for the Fifth Circuit, Gregory Carl Cook, to be United States District Judge for the Nort",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
@@ -139,13 +64,13 @@
     },
     {
       "chamber": "Senate",
-      "committee": "Veterans' Affairs",
+      "committee": "Health, Education, Labor, and Pensions",
       "chair": "",
-      "time": "4:00 PM ET",
-      "building": "Russell (SR)",
-      "room": "SR-418",
-      "topic": "Hearings to examine pending nominations.",
-      "details": "Business Meeting is to consider S.5354 & Legislative Hearing to receive testimony on S. 1750, S. 3859, S. 4053, & H.R. 226",
+      "time": "10:30 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-430",
+      "topic": "Hearings to examine the nomination of Heidi Overton, of New Mexico, to be Commissioner of Food and Drugs, Department of Health and Human Services.",
+      "details": "Hearings to examine the nomination of Heidi Overton, of New Mexico, to be Commissioner of Food and Drugs, Department of Health and Human Services.",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
@@ -159,8 +84,8 @@
       "time": "9:30 AM ET",
       "building": "Capitol Visitor Center",
       "room": "SVC-217",
-      "topic": "To receive a closed briefing on an update on the United States Central Command area of operations.",
-      "details": "To receive a closed briefing on an update on the United States Central Command area of operations.",
+      "topic": "To receive a closed briefing on an update on the budget of the Department of Defense.",
+      "details": "To receive a closed briefing on an update on the budget of the Department of Defense.",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
