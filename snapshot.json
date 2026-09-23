@@ -61,7 +61,7 @@
     ],
     "cancelled": false,
     "changes": [],
-    "link": "https://www.judiciary.senate.gov/committee-activity/hearings"
+    "link": "https://www.judiciary.senate.gov/committee-activity/hearings/standing-up-for-women-in-sports-ensuring-opportunity-fairness-and-safety-for-female-athletes"
   },
   "Senate|Health, Education, Labor, and Pensions|10:30 AM ET": {
     "chamber": "Senate",
@@ -131,11 +131,15 @@
     "building": "Dirksen (SD)",
     "room": "SD-562",
     "topic": "Hearings to examine flock's nationwide AI surveillance network.",
-    "witnesses": [],
+    "witnesses": [
+      "The Honorable Ross Teeple"
+    ],
     "details": "Hearings to examine flock's nationwide AI surveillance network.",
     "cancelled": false,
-    "changes": [],
-    "link": "https://www.judiciary.senate.gov/committee-activity/hearings"
+    "changes": [
+      "Witness added: The Honorable Ross Teeple \u00b7 9:32 AM"
+    ],
+    "link": "https://www.judiciary.senate.gov/committee-activity/hearings/always-watching-flocks-nationwide-ai-surveillance-network"
   },
   "Senate|Indian Affairs|2:30 PM ET": {
     "chamber": "Senate",
