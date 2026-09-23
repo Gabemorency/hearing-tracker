@@ -122,9 +122,6 @@
   "119365": "Committee on the Judiciary",
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
-  "119470": "Subcommittee on Health (Committee on Energy and Commerce)",
-  "119301": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
-  "119442": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
   "119448": "Subcommittee on Environment (Committee on Energy and Commerce)",
   "119449": "Oversight and Intelligence Subcommittee (Committee on Foreign Affairs)",
   "119562": "Committee on Natural Resources",
@@ -300,5 +297,8 @@
   "119465": "Committee on Ways and Means",
   "119466": "Committee on the Judiciary",
   "119467": "Subcommittee on Space and Aeronautics (Committee on Science, Space, and Technology)",
-  "119518": "Committee on Energy and Commerce"
+  "119518": "Committee on Energy and Commerce",
+  "119470": "Subcommittee on Health (Committee on Energy and Commerce)",
+  "119301": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
+  "119442": "Subcommittee on Financial Services and General Government (Committee on Appropriations)"
 }
