@@ -122,9 +122,6 @@
   "119365": "Committee on the Judiciary",
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
-  "119433": "Subcommittee on Oversight and Investigations (Committee on Natural Resources)Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
-  "119445": "Committee on Education and Workforce",
-  "119447": "Subcommittee on Energy (Committee on Energy and Commerce)",
   "119441": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
   "119444": "Committee on Foreign Affairs",
   "119446": "Committee on Small Business",
@@ -300,5 +297,8 @@
   "119562": "Committee on Natural Resources",
   "119567": "Committee on Oversight and Government Reform",
   "119565": "Committee on Financial Services",
-  "119564": "Subcommittee on Financial Institutions (Committee on Financial Services)"
+  "119564": "Subcommittee on Financial Institutions (Committee on Financial Services)",
+  "119433": "Subcommittee on Oversight and Investigations (Committee on Natural Resources)Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
+  "119445": "Committee on Education and Workforce",
+  "119447": "Subcommittee on Energy (Committee on Energy and Commerce)"
 }
