@@ -1,5 +1,21 @@
 {
   "date": "2026-09-28",
-  "generated": "1:49 AM ET · Friday, September 25, 2026",
-  "hearings": []
+  "generated": "1:51 AM ET · Saturday, September 26, 2026",
+  "hearings": [
+    {
+      "chamber": "Senate",
+      "committee": "Commission on Security and Cooperation in Europe",
+      "chair": "",
+      "time": "2:00 PM ET",
+      "building": "Russell (SR)",
+      "room": "SR-188",
+      "topic": "To receive a briefing on protecting Ukraine's energy infrastructure, focusing on winter, war, and lessons for the United States.",
+      "details": "To receive a briefing on protecting Ukraine's energy infrastructure, focusing on winter, war, and lessons for the United States.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    }
+  ]
 }
