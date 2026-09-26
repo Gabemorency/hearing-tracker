@@ -122,8 +122,6 @@
   "119365": "Committee on the Judiciary",
   "119366": "Subcommittee on Oversight and Investigations (Committee on Financial Services)",
   "118851": "Committee on Rules",
-  "119435": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
-  "118853": "Committee on Rules",
   "119403": "Subcommittee on Disability Assistance and Memorial Affairs (Committee on Veterans' Affairs)",
   "119412": "Committee on Ways and Means",
   "119424": "Subcommittee on Health (Committee on Energy and Commerce)",
@@ -132,7 +130,6 @@
   "119405": "Subcommittee on Oversight and Investigations (Committee on Energy and Commerce)",
   "119420": "Committee on Education and Workforce",
   "119386": "Subcommittee on Energy and Mineral Resources (Committee on Natural Resources)",
-  "119538": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
   "119391": "Committee on Science, Space, and Technology",
   "119572": "Subcommittee on Oversight (Committee on the Judiciary)",
   "119539": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
@@ -300,5 +297,8 @@
   "119417": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
   "119419": "Subcommittee on Coast Guard and Maritime Transportation (Committee on Transportation and Infrastructure)",
   "119425": "Committee on Ways and Means",
-  "119430": "Committee on Financial Services"
+  "119430": "Committee on Financial Services",
+  "119435": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
+  "118853": "Committee on Rules",
+  "119538": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa"
 }
