@@ -131,8 +131,6 @@
   "119420": "Committee on Education and Workforce",
   "119386": "Subcommittee on Energy and Mineral Resources (Committee on Natural Resources)",
   "119391": "Committee on Science, Space, and Technology",
-  "119574": "Committee on Ways and Means",
-  "119569": "Committee on the Budget",
   "119396": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
   "119401": "Subcommittee on Capital Markets (Committee on Financial Services)",
   "119402": "Subcommittee on Economic Opportunity (Committee on Veterans' Affairs)",
@@ -145,7 +143,6 @@
   "119393": "Subcommittee on Energy (Committee on Energy and Commerce)",
   "119414": "Committee on Appropriations",
   "119383": "Committee on Natural Resources",
-  "119513": "Permanent Select Committee on Intelligence",
   "119392": "Subcommittee on Environment (Committee on Energy and Commerce)",
   "119394": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119413": "Committee on House Administration",
@@ -300,5 +297,8 @@
   "119566": "Committee on the Budget",
   "119568": "Committee on Small Business",
   "119570": "Committee on the Judiciary",
-  "119573": "Committee on Energy and Commerce"
+  "119573": "Committee on Energy and Commerce",
+  "119574": "Committee on Ways and Means",
+  "119569": "Committee on the Budget",
+  "119513": "Permanent Select Committee on Intelligence"
 }

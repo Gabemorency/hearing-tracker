@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
-<title>Congressional Hearing Tracker — September 26, 2026</title>
+<title>Congressional Hearing Tracker — September 27, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hearing-tracker/theme.css">
@@ -295,7 +295,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 8:24 PM ET · Saturday, September 26, 2026 · Updates every 2 hours · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 3:57 AM ET · Sunday, September 27, 2026 · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -316,9 +316,9 @@
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--gold)">1</div><div class="stat-label">Senate</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
@@ -339,7 +339,7 @@
 </div>
 
 <script>
-const HEARINGS = [];
+const HEARINGS = [{"chamber": "Senate", "committee": "Commission on Security and Cooperation in Europe", "chair": "", "time": "2:00 PM ET", "building": "Russell (SR)", "room": "SR-188", "topic": "To receive a briefing on protecting Ukraine's energy infrastructure, focusing on winter, war, and lessons for the United States.", "details": "To receive a briefing on protecting Ukraine's energy infrastructure, focusing on winter, war, and lessons for the United States.", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": "https://www.commerce.senate.gov/hearings"}];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
@@ -493,7 +493,7 @@ buildCards('All');
 
 <script>
 // DomeWatch data — loaded from local JSON, updated every 2 hours
-var TODAY_ISO = "2026-09-26";
+var TODAY_ISO = "2026-09-27";
 function fmtDate(iso) {
   if (!iso) return "";
   var d = new Date(iso);
