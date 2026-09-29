@@ -1,16 +1,106 @@
 {
-  "date": "2026-09-28",
-  "generated": "3:13 PM ET · Sunday, September 27, 2026",
+  "date": "2026-09-30",
+  "generated": "2:34 AM ET · Tuesday, September 29, 2026",
   "hearings": [
     {
       "chamber": "Senate",
-      "committee": "Commission on Security and Cooperation in Europe",
+      "committee": "Energy and Natural Resources",
       "chair": "",
-      "time": "2:00 PM ET",
-      "building": "Russell (SR)",
-      "room": "SR-188",
-      "topic": "To receive a briefing on protecting Ukraine's energy infrastructure, focusing on winter, war, and lessons for the United States.",
-      "details": "To receive a briefing on protecting Ukraine's energy infrastructure, focusing on winter, war, and lessons for the United States.",
+      "time": "10:00 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-366",
+      "topic": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
+      "details": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Foreign Relations",
+      "chair": "",
+      "time": "10:00 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-419",
+      "topic": "Hearings to examine certain pending nominations.",
+      "details": "Hearings to examine certain pending nominations.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Judiciary",
+      "chair": "",
+      "time": "10:15 AM ET",
+      "building": "Hart (SH)",
+      "room": "SH-216",
+      "topic": "Hearings to examine pending nominations.",
+      "details": "Hearings to examine pending nominations.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Homeland Security and Governmental Affairs — Subcommittee on Disaster Management, District of Columbia, and Census",
+      "chair": "",
+      "time": "2:30 PM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-342",
+      "topic": "Hearings to examine rogue AI, focusing on securing the homeland against AI agents.",
+      "details": "Hearings to examine rogue AI, focusing on securing the homeland against AI agents.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Foreign Relations — Subcommittee on Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues",
+      "chair": "",
+      "time": "3:00 PM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-419",
+      "topic": "Hearings to examine Nicaragua's political crisis, focusing on Ortega's assault on democracy.",
+      "details": "Hearings to examine Nicaragua's political crisis, focusing on Ortega's assault on democracy.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Intelligence",
+      "chair": "",
+      "time": "3:00 PM ET",
+      "building": "Hart (SH)",
+      "room": "SH-219",
+      "topic": "To receive a closed briefing on certain intelligence matters.",
+      "details": "To receive a closed briefing on certain intelligence matters.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "Senate",
+      "committee": "Health, Education, Labor, and Pensions",
+      "chair": "",
+      "time": "9:45 AM ET",
+      "building": "Dirksen (SD)",
+      "room": "SD-430",
+      "topic": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided ",
+      "details": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided ",
       "witnesses": [
         "Witnesses not yet publicly posted"
       ],
