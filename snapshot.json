@@ -137,8 +137,10 @@
       "The Honorable John A. Squires"
     ],
     "details": "Oversight hearings to examine the United States Patent and Trademark Office.",
-    "cancelled": false,
-    "changes": [],
+    "cancelled": true,
+    "changes": [
+      "CANCELLED \u00b7 6:07 PM"
+    ],
     "link": "https://www.judiciary.senate.gov/committee-activity/hearings/oversight-of-the-united-states-patent-and-trademark-office-09-29-2026"
   },
   "Senate|Armed Services \u2014 Subcommittee on Strateg|4:00 PM ET": {
