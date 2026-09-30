@@ -152,9 +152,6 @@
   "119399": "Committee on Financial Services",
   "119409": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
   "118852": "Committee on Rules",
-  "119533": "Subcommittee on Defense (Committee on Appropriations)",
-  "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
-  "119540": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
   "119542": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
   "119543": "Subcommittee on Crime and Federal Government Surveillance (Committee on the Judiciary)",
   "119546": "Committee on Financial Services",
@@ -300,5 +297,8 @@
   "119463": "Committee on Foreign Affairs",
   "119535": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
   "119534": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
-  "119531": "Committee on Veterans' Affairs"
+  "119531": "Committee on Veterans' Affairs",
+  "119533": "Subcommittee on Defense (Committee on Appropriations)",
+  "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
+  "119540": "Subcommittee on Financial Services and General Government (Committee on Appropriations)"
 }
