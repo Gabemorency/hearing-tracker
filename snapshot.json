@@ -1,4 +1,18 @@
 {
+  "Senate|Health, Education, Labor, and Pensions|9:45 AM ET": {
+    "chamber": "Senate",
+    "committee": "Health, Education, Labor, and Pensions",
+    "chair": "",
+    "time": "9:45 AM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-430",
+    "topic": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided by law and regulations, and to be Surgeon General of the Public Health Service, Timothy Westlake, of Wisconsin, to be Assistant Secretary for Mental Health and Substance Use, and Mary Lazare, of Florida, to be Assistant Secretary for Aging, all of the Department of Health and Human Services, and Loren E. Sweatt, of Virginia, and Douglas Ralph, of Kentucky, both to be a Member of the National Mediation Board.",
+    "witnesses": [],
+    "details": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided by law and regulations, and to be Surgeon General of the Public Health Service, Timothy Westlake, of Wisconsin, to be Assistant Secretary for Mental Health and Substance Use, and Mary Lazare, of Florida, to be Assistant Secretary for Aging, all of the Department of Health and Human Services, and Loren E. Sweatt, of Virginia, and Douglas Ralph, of Kentucky, both to be a Member of the National Mediation Board.",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.help.senate.gov/hearings/the-following-agenda-to-be-considered-06-24-2026"
+  },
   "Senate|Energy and Natural Resources|10:00 AM ET": {
     "chamber": "Senate",
     "committee": "Energy and Natural Resources",
@@ -6,30 +20,12 @@
     "time": "10:00 AM ET",
     "building": "Dirksen (SD)",
     "room": "SD-366",
-    "topic": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
-    "details": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the ma",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
+    "topic": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the maintenance work on Bolts Ditch and the Bolts Ditch Headgate within the Holy Cross Wilderness, Colorado, S.462, to provide for economic development and conservation in Washoe County, Nevada, S.465, to require the Federal Energy Regulatory Commission to reform the interconnection queue process for the prioritization and approval of certain projects, S.730, to direct the Secretary of the Interior to conduct a study to assess the suitability and feasibility of establishing the African Burial Ground International Memorial Museum and Educational Center at the African Burial Ground National Monument, S.764, to provide for the designation of certain wilderness areas, recreation management areas, and conservation areas in the State of Colorado, S.791, to establish the Justice Thurgood Marshall Natio",
+    "witnesses": [],
+    "details": "Business meeting to consider S.365 and H.R.1729, bills to amend the John D. Dingell, Jr. Conservation, Management, and Recreation Act to allow for additional entities to be eligible to complete the maintenance work on Bolts Ditch and the Bolts Ditch Headgate within the Holy Cross Wilderness, Colorado, S.462, to provide for economic development and conservation in Washoe County, Nevada, S.465, to require the Federal Energy Regulatory Commission to reform the interconnection queue process for the prioritization and approval of certain projects, S.730, to direct the Secretary of the Interior to conduct a study to assess the suitability and feasibility of establishing the African Burial Ground International Memorial Museum and Educational Center at the African Burial Ground National Monument, S.764, to provide for the designation of certain wilderness areas, recreation management areas, and conservation areas in the State of Colorado, S.791, to establish the Justice Thurgood Marshall Natio",
     "cancelled": false,
     "changes": [],
     "link": "https://www.energy.senate.gov/hearings"
-  },
-  "Senate|Foreign Relations|10:00 AM ET": {
-    "chamber": "Senate",
-    "committee": "Foreign Relations",
-    "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
-    "time": "10:00 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-419",
-    "topic": "Hearings to examine certain pending nominations.",
-    "details": "Hearings to examine certain pending nominations.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.foreign.senate.gov/hearings"
   },
   "Senate|Judiciary|10:15 AM ET": {
     "chamber": "Senate",
@@ -39,77 +35,11 @@
     "building": "Hart (SH)",
     "room": "SH-216",
     "topic": "Hearings to examine pending nominations.",
+    "witnesses": [],
     "details": "Hearings to examine pending nominations.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
     "cancelled": false,
     "changes": [],
     "link": "https://www.judiciary.senate.gov/committee-activity/hearings/nominations-09-30-2026"
-  },
-  "Senate|Homeland Security and Governmental Affai|2:30 PM ET": {
-    "chamber": "Senate",
-    "committee": "Homeland Security and Governmental Affairs \u2014 Subcommittee on Disaster Management, District of Columbia, and Census",
-    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
-    "time": "2:30 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-342",
-    "topic": "Hearings to examine rogue AI, focusing on securing the homeland against AI agents.",
-    "details": "Hearings to examine rogue AI, focusing on securing the homeland against AI agents.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.hsgac.senate.gov/subcommittees/dmdcc/hearings/rogue-ai-securing-the-homeland-against-ai-agent-attacks/"
-  },
-  "Senate|Foreign Relations \u2014 Subcommittee on West|3:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Foreign Relations \u2014 Subcommittee on Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues",
-    "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
-    "time": "3:00 PM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-419",
-    "topic": "Hearings to examine Nicaragua's political crisis, focusing on Ortega's assault on democracy.",
-    "details": "Hearings to examine Nicaragua's political crisis, focusing on Ortega's assault on democracy.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.foreign.senate.gov/hearings/nicaraguas-political-crisis-ortegas-assault-on-democracy"
-  },
-  "Senate|Intelligence|3:00 PM ET": {
-    "chamber": "Senate",
-    "committee": "Intelligence",
-    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
-    "time": "3:00 PM ET",
-    "building": "Hart (SH)",
-    "room": "SH-219",
-    "topic": "To receive a closed briefing on certain intelligence matters.",
-    "details": "To receive a closed briefing on certain intelligence matters.",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.intelligence.senate.gov/hearings"
-  },
-  "Senate|Health, Education, Labor, and Pensions|9:45 AM ET": {
-    "chamber": "Senate",
-    "committee": "Health, Education, Labor, and Pensions",
-    "chair": "",
-    "time": "9:45 AM ET",
-    "building": "Dirksen (SD)",
-    "room": "SD-430",
-    "topic": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided ",
-    "details": "Business meeting to consider the nominations of Nicole Saphier, of New Jersey, to be Medical Director in the Regular Corps of the Public Health Service, subject to qualifications therefor as provided ",
-    "witnesses": [
-      "Witnesses not yet publicly posted"
-    ],
-    "cancelled": false,
-    "changes": [],
-    "link": "https://www.help.senate.gov/hearings/the-following-agenda-to-be-considered-06-24-2026"
   },
   "Senate|Foreign Relations|10:30 AM ET": {
     "chamber": "Senate",
@@ -124,5 +54,47 @@
     "cancelled": false,
     "changes": [],
     "link": "https://www.foreign.senate.gov/hearings"
+  },
+  "Senate|Homeland Security and Governmental Affai|2:30 PM ET": {
+    "chamber": "Senate",
+    "committee": "Homeland Security and Governmental Affairs \u2014 Subcommittee on Disaster Management, District of Columbia, and Census",
+    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
+    "time": "2:30 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-342",
+    "topic": "Hearings to examine rogue AI, focusing on securing the homeland against AI agents.",
+    "witnesses": [],
+    "details": "Hearings to examine rogue AI, focusing on securing the homeland against AI agents.",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.hsgac.senate.gov/subcommittees/dmdcc/hearings/rogue-ai-securing-the-homeland-against-ai-agent-attacks/"
+  },
+  "Senate|Foreign Relations \u2014 Subcommittee on West|3:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Foreign Relations \u2014 Subcommittee on Western Hemisphere, Transnational Crime, Civilian Security, Democracy, Human Rights, and Global Women's Issues",
+    "chair": "Sen. Jim Risch (R-ID), Chair \u00b7 Sen. Jeanne Shaheen (D-NH), Ranking Member",
+    "time": "3:00 PM ET",
+    "building": "Dirksen (SD)",
+    "room": "SD-419",
+    "topic": "Hearings to examine Nicaragua's political crisis, focusing on Ortega's assault on democracy.",
+    "witnesses": [],
+    "details": "Hearings to examine Nicaragua's political crisis, focusing on Ortega's assault on democracy.",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.foreign.senate.gov/hearings/nicaraguas-political-crisis-ortegas-assault-on-democracy"
+  },
+  "Senate|Intelligence|3:00 PM ET": {
+    "chamber": "Senate",
+    "committee": "Intelligence",
+    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
+    "time": "3:00 PM ET",
+    "building": "Hart (SH)",
+    "room": "SH-219",
+    "topic": "To receive a closed briefing on certain intelligence matters.",
+    "witnesses": [],
+    "details": "To receive a closed briefing on certain intelligence matters.",
+    "cancelled": false,
+    "changes": [],
+    "link": "https://www.intelligence.senate.gov/hearings"
   }
 }
