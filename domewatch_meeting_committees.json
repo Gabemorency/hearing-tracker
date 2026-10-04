@@ -152,9 +152,6 @@
   "119399": "Committee on Financial Services",
   "119409": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
   "118852": "Committee on Rules",
-  "119455": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
-  "119456": "Permanent Select Committee on Intelligence",
-  "118858": "Committee on Rules",
   "119508": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
   "119457": "Subcommittee on Health (Committee on Energy and Commerce)",
   "119464": "Committee on Education and Workforce",
@@ -301,5 +298,8 @@
   "119461": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
   "119471": "Committee on the Budget",
   "119452": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
-  "119454": "Subcommittee on Elections (Committee on House Administration)"
+  "119454": "Subcommittee on Elections (Committee on House Administration)",
+  "119455": "Subcommittee on Government Operations (Committee on Oversight and Government Reform)",
+  "119456": "Permanent Select Committee on Intelligence",
+  "118858": "Committee on Rules"
 }
