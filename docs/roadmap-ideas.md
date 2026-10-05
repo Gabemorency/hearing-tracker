@@ -37,10 +37,47 @@ replacement — only for capabilities a static site structurally can't do.
 - Side benefit: cheap aggregate queries for free (hearings per committee
   per month, etc.) once the data lives in a real table.
 
-### 3. Fix floor-vote staleness (see below for the deep dive)
+### 3. Fix floor-vote staleness
 - A narrow, additive Supabase Realtime + frequent-poll piece just for the
   House floor banner, layered on top of the existing 2-hour DomeWatch
-  fetch rather than replacing it.
+  fetch rather than replacing it (not a replacement for the 2-hour scrape).
+- Caveat to check before building: ~1-minute polling is a ~100x increase
+  in call volume to DomeWatch vs. today's 2-hour cadence — need to confirm
+  their rate limits/ToS tolerate that, even gated to likely session windows.
+
+### 4. Member history database (bios, photos, join/leave over time)
+- Already solved today: photos (via `unitedstates/images`, keyed by
+  `bioguide_id`, no hosting needed), current bios, and automatic add/remove
+  of members as they join/leave (`bio_sync.py`, every 6h).
+- The gap: departed members are just deleted from `bios_hardcoded.json` —
+  no history kept. Can't answer "who held this seat before," "this
+  member's full career," or "who left this term and why."
+- Model: `members` (stable person record, bioguide_id as key) +
+  `member_terms` (chamber, state, district, party *at that time*, start/end
+  date, how the term ended). Party-at-the-time matters because of
+  switching.
+- `unitedstates/congress-legislators` also publishes
+  `legislators-historical.yaml` — decades of past membership back to 1789 —
+  so this can be backfilled in one import, not built up from scratch.
+- Note: doesn't strictly need Supabase. Historical terms don't change once
+  over, so this could ship as static pages too. Fits the backend better if
+  built alongside the rest, but isn't blocked on it.
+
+### 5. Per-member vote records ("who voted what on what")
+- New data source, not an extension of an existing one: DomeWatch only
+  gives aggregate tallies for the *current* floor vote, not who voted
+  which way, and not history. Per-member roll-call data comes from the
+  Clerk of the House / Senate LIS XML feeds instead.
+- Granularity decision made: stop at **per-member vote records attached to
+  member profiles** ("Sen. X — recent votes"), linking out to the bill on
+  congress.gov rather than mirroring its full text/status/cosponsors.
+  Going further (full bill tracking, voting-alignment analytics) is a
+  different product — GovTrack/ProPublica Represent already do that well,
+  and it's a lot of ongoing maintenance surface for something that isn't
+  this site's core identity.
+- General granularity rule this sets for the app: stay deep on hearings
+  (the core), go wide-but-shallow on adjacent context (members, votes) —
+  enough to be useful, not enough to become a second app.
 
 ## Other ideas from the same conversation
 
@@ -57,6 +94,20 @@ replacement — only for capabilities a static site structurally can't do.
 - **Internal pipeline health dashboard** — one page showing scraper
   anomalies (unmatched committees, "Off-site" buildings, witness-fetch
   failures) instead of grepping Action logs.
+- **Committee rosters over time** — which members sat on which committee
+  when, not just who chaired it (already tracked). Reuses `member_terms`
+  directly; connects hearing data to who was actually on the committee at
+  the time.
+- **"This witness has testified before" cross-referencing** — a free
+  byproduct of the full-text-search work: witness names are already
+  extracted per hearing, so once history is durable, link a name to their
+  past appearances automatically.
+- **Weekly digest email** — "here's what's coming up for your followed
+  committees," a lower-frequency complement to instant alerts. Same
+  subscriptions infrastructure, different cadence/UX.
+- **CSV export of search results / a member's vote history** — cheap
+  add-on once search and votes exist; serves researchers/journalists
+  without needing the full public-API build.
 
 ## Explicitly deprioritized
 
