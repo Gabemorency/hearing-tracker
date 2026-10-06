@@ -3642,5 +3642,24 @@
   "2026-10-05": {
     "hearings": [],
     "inSession": false
+  },
+  "2026-10-06": {
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Committee on Ways and Means",
+        "chair": "THE COMMITTEE",
+        "time": "9:00 AM ET",
+        "building": "Off-site",
+        "room": "Orgill Innovation Center\n4027 Bailey Station Rd\nCollierville, TN 38017",
+        "topic": "The One, Big, Beautiful Bill Delivering for Small Business, Manufacturing, and Working Families",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://waysandmeans.house.gov/event/full-committee-field-hearing-the-one-big-beautiful-bill-delivering-for-small-business-manufacturing-and-working-families/"
+      }
+    ],
+    "inSession": false
   }
 }
