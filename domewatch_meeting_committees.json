@@ -175,9 +175,6 @@
   "119430": "Committee on Financial Services",
   "119435": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
   "118853": "Committee on Rules",
-  "119535": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
-  "119534": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
-  "119531": "Committee on Veterans' Affairs",
   "119533": "Subcommittee on Defense (Committee on Appropriations)",
   "119479": "Subcommittee on Forestry and Horticulture (Committee on Agriculture)",
   "119540": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
@@ -302,5 +299,8 @@
   "119583": "Committee on Education and Workforce",
   "119489": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
   "119357": "Committee on Natural Resources",
-  "119463": "Committee on Foreign Affairs"
+  "119463": "Committee on Foreign Affairs",
+  "119535": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
+  "119534": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
+  "119531": "Committee on Veterans' Affairs"
 }
