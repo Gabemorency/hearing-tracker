@@ -175,9 +175,6 @@
   "119430": "Committee on Financial Services",
   "119435": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
   "118853": "Committee on Rules",
-  "119544": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
-  "119549": "Subcommittee on Health (Committee on Energy and Commerce)",
-  "119541": "Subcommittee on Innovation, Entrepreneurship, and Workforce Development (Committee on Small Business)",
   "119545": "South and Central Asia Subcommittee (Committee on Foreign Affairs)",
   "119553": "Subcommittee on Delivering on Government Efficiency (Committee on Oversight and Government Reform)",
   "118857": "Committee on Rules",
@@ -302,5 +299,8 @@
   "119550": "Subcommittee on Energy (Committee on Energy and Commerce)",
   "119554": "Europe Subcommittee (Committee on Foreign Affairs)",
   "119556": "Committee on Science, Space, and Technology",
-  "119557": "Subcommittee on Health Care and Financial Services (Committee on Oversight and Government Reform)"
+  "119557": "Subcommittee on Health Care and Financial Services (Committee on Oversight and Government Reform)",
+  "119544": "Subcommittee on Health, Employment, Labor, and Pensions (Committee on Education and Workforce)",
+  "119549": "Subcommittee on Health (Committee on Energy and Commerce)",
+  "119541": "Subcommittee on Innovation, Entrepreneurship, and Workforce Development (Committee on Small Business)"
 }
