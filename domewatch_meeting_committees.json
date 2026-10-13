@@ -175,9 +175,6 @@
   "119430": "Committee on Financial Services",
   "119435": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
   "118853": "Committee on Rules",
-  "119491": "Committee on Education and Workforce",
-  "119501": "Committee on Education and Workforce",
-  "119462": "Committee on Foreign Affairs",
   "119559": "Committee on Agriculture",
   "119529": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
   "119537": "Committee on Homeland Security",
@@ -302,5 +299,8 @@
   "119477": "Subcommittee on Housing and Insurance (Committee on Financial Services)",
   "119460": "Committee on Education and Workforce",
   "119389": "Subcommittee on Energy and Mineral Resources (Committee on Natural Resources)",
-  "119473": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)"
+  "119473": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)",
+  "119491": "Committee on Education and Workforce",
+  "119501": "Committee on Education and Workforce",
+  "119462": "Committee on Foreign Affairs"
 }
