@@ -194,8 +194,6 @@
   "119442": "Subcommittee on Financial Services and General Government (Committee on Appropriations)",
   "119448": "Subcommittee on Environment (Committee on Energy and Commerce)",
   "119449": "Oversight and Intelligence Subcommittee (Committee on Foreign Affairs)",
-  "119565": "Committee on Financial Services",
-  "119564": "Subcommittee on Financial Institutions (Committee on Financial Services)",
   "119433": "Subcommittee on Oversight and Investigations (Committee on Natural Resources)Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
   "119445": "Committee on Education and Workforce",
   "119447": "Subcommittee on Energy (Committee on Energy and Commerce)",
@@ -205,7 +203,6 @@
   "119450": "Committee on Financial Services",
   "118854": "Committee on Rules",
   "119443": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
-  "119538": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
   "119572": "Subcommittee on Oversight (Committee on the Judiciary)",
   "119539": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
   "119566": "Committee on the Budget",
@@ -302,5 +299,8 @@
   "119508": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
   "119518": "Committee on Energy and Commerce",
   "119562": "Committee on Natural Resources",
-  "119567": "Committee on Oversight and Government Reform"
+  "119567": "Committee on Oversight and Government Reform",
+  "119565": "Committee on Financial Services",
+  "119564": "Subcommittee on Financial Institutions (Committee on Financial Services)",
+  "119538": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa"
 }
