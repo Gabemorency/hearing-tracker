@@ -203,9 +203,6 @@
   "119450": "Committee on Financial Services",
   "118854": "Committee on Rules",
   "119443": "Subcommittee on Technology Modernization (Committee on Veterans' Affairs)",
-  "119515": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-  "119516": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
-  "119514": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)",
   "119519": "Subcommittee on Work and Welfare (Committee on Ways and Means)",
   "119498": "Committee on Rules",
   "119506": "Subcommittee on Federal Lands (Committee on Natural Resources)",
@@ -302,5 +299,8 @@
   "119573": "Committee on Energy and Commerce",
   "119574": "Committee on Ways and Means",
   "119569": "Committee on the Budget",
-  "119513": "Permanent Select Committee on Intelligence"
+  "119513": "Permanent Select Committee on Intelligence",
+  "119515": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
+  "119516": "Subcommittee on Immigration Integrity, Security, and Enforcement (Committee on the Judiciary)",
+  "119514": "Subcommittee on Early Childhood, Elementary, and Secondary Education (Committee on Education and Workforce)"
 }
