@@ -210,9 +210,6 @@
   "119473": "Subcommittee on Oversight and Investigations (Committee on Veterans' Affairs)",
   "119491": "Committee on Education and Workforce",
   "119462": "Committee on Foreign Affairs",
-  "119559": "Committee on Agriculture",
-  "119529": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
-  "119537": "Committee on Homeland Security",
   "119555": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
   "119560": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
   "119563": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
@@ -302,5 +299,8 @@
   "119492": "Committee on Oversight and Government Reform",
   "119494": "Committee on Ways and Means",
   "119460": "Committee on Education and Workforce",
-  "119501": "Committee on Education and Workforce"
+  "119501": "Committee on Education and Workforce",
+  "119559": "Committee on Agriculture",
+  "119529": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
+  "119537": "Committee on Homeland Security"
 }
