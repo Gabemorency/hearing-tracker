@@ -220,9 +220,6 @@
   "119490": "Committee on Energy and Commerce",
   "118855": "Committee on Rules",
   "119461": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
-  "118858": "Committee on Rules",
-  "119508": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
-  "119518": "Committee on Energy and Commerce",
   "119562": "Committee on Natural Resources",
   "119567": "Committee on Oversight and Government Reform",
   "119565": "Committee on Financial Services",
@@ -302,5 +299,8 @@
   "119563": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
   "119558": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119507": "Subcommittee on Federal Lands (Committee on Natural Resources)",
-  "119561": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)"
+  "119561": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
+  "118858": "Committee on Rules",
+  "119508": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
+  "119518": "Committee on Energy and Commerce"
 }
