@@ -220,9 +220,6 @@
   "119490": "Committee on Energy and Commerce",
   "118855": "Committee on Rules",
   "119461": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
-  "119570": "Committee on the Judiciary",
-  "119573": "Committee on Energy and Commerce",
-  "119574": "Committee on Ways and Means",
   "119569": "Committee on the Budget",
   "119513": "Permanent Select Committee on Intelligence",
   "119515": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
@@ -302,5 +299,8 @@
   "119572": "Subcommittee on Oversight (Committee on the Judiciary)",
   "119539": "Subcommittee on the Administrative State, Regulatory Reform, and Antitrust (Committee on the Judiciary)",
   "119566": "Committee on the Budget",
-  "119568": "Committee on Small Business"
+  "119568": "Committee on Small Business",
+  "119570": "Committee on the Judiciary",
+  "119573": "Committee on Energy and Commerce",
+  "119574": "Committee on Ways and Means"
 }
