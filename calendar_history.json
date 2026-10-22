@@ -3723,7 +3723,24 @@
     "inSession": false
   },
   "2026-10-22": {
-    "hearings": [],
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Committee on Education and Workforce",
+        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "Northampton Community College, Fowler Family Southside Center\n511 East Third Street\nBethlehem, PA 18015",
+        "topic": "More Choices, Brighter Futures: Expanding Education Freedom",
+        "details": "“WHO GETS THE SCHOLARSHIP? HOW THE GLOBAL SHIFT IN COLLEGE SPORTS AFFECTS AMERICANS”",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://edworkforce.house.gov/hearings/"
+      }
+    ],
     "inSession": false
   }
 }
