@@ -220,9 +220,6 @@
   "119490": "Committee on Energy and Commerce",
   "118855": "Committee on Rules",
   "119461": "Subcommittee on Digital Assets, Financial Technology, and Artificial Intelligence (Committee on Financial Services)",
-  "119522": "Committee on Financial Services",
-  "119524": "Subcommittee on Rural Development, Energy, and Supply Chains (Committee on Small Business)",
-  "119527": "Subcommittee on Economic Growth, Energy Policy, and Regulatory Affairs (Committee on Oversight and Government Reform)",
   "119530": "Committee on Ways and Means",
   "119517": "Committee on Veterans' Affairs",
   "119521": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
@@ -302,5 +299,8 @@
   "119519": "Subcommittee on Work and Welfare (Committee on Ways and Means)",
   "119498": "Committee on Rules",
   "119506": "Subcommittee on Federal Lands (Committee on Natural Resources)",
-  "119520": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)"
+  "119520": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
+  "119522": "Committee on Financial Services",
+  "119524": "Subcommittee on Rural Development, Energy, and Supply Chains (Committee on Small Business)",
+  "119527": "Subcommittee on Economic Growth, Energy Policy, and Regulatory Affairs (Committee on Oversight and Government Reform)"
 }
