@@ -3742,5 +3742,32 @@
       }
     ],
     "inSession": false
+  },
+  "2026-10-23": {
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Committee on Education and Workforce",
+        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Off-site",
+        "room": "Northampton Community College, Fowler Family Southside Center\n511 East Third Street\nBethlehem, PA 18015",
+        "topic": "More Choices, Brighter Futures: Expanding Education Freedom",
+        "witnesses": [
+          "Mr. Nathan Benefield, Chief Policy Officer, Commonwealth Foundation",
+          "Ms. Ilen Perez-Valdes, Future Leaders Fellow, AFC",
+          "Ms. Susan Spicka, Executive Director, Education Voters of Pennsylvania",
+          "Mr. Eric Paisner, Chief Legal Officer, National Alliance for Public Charter Schools"
+        ],
+        "details": "",
+        "cancelled": false,
+        "changes": [
+          "Location changed to Off-site · 3:18 AM",
+          "Witnesses added: Mr. Eric Paisner, Chief Legal Officer, National Alliance for Public Charter Schools, Mr. Nathan Benefield, Chief Policy Officer, Commonwealth Foundation +2 more · 3:18 AM"
+        ],
+        "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413812"
+      }
+    ],
+    "inSession": false
   }
 }
