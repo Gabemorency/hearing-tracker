@@ -223,12 +223,9 @@
   "119408": "Subcommittee on Oversight (Committee on the Judiciary)",
   "119432": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
   "119487": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-  "119532": "Subcommittee on Energy (Committee on Science, Space, and Technology)",
-  "119528": "Subcommittee on Environment (Committee on Energy and Commerce)",
   "119488": "Subcommittee on Communications and Technology (Committee on Energy and Commerce)",
   "119482": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
   "119484": "Committee on Science, Space, and Technology",
-  "119583": "Committee on Education and Workforce",
   "119489": "Subcommittee on Commerce, Manufacturing, and Trade (Committee on Energy and Commerce)",
   "119357": "Committee on Natural Resources",
   "119463": "Committee on Foreign Affairs",
@@ -302,5 +299,8 @@
   "119521": "Subcommittee on Workforce Protections (Committee on Education and Workforce)",
   "119526": "Subcommittee on the Constitution and Limited Government (Committee on the Judiciary)",
   "119504": "Committee on House Administration",
-  "119497": "Permanent Select Committee on Intelligence"
+  "119497": "Permanent Select Committee on Intelligence",
+  "119532": "Subcommittee on Energy (Committee on Science, Space, and Technology)",
+  "119528": "Subcommittee on Environment (Committee on Energy and Commerce)",
+  "119583": "Committee on Education and Workforce"
 }
