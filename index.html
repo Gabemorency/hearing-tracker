@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
-<title>Congressional Hearing Tracker — October 23, 2026</title>
+<title>Congressional Hearing Tracker — October 24, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hearing-tracker/theme.css">
@@ -295,7 +295,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 7:00 PM ET · Friday, October 23, 2026 · Updates every 2 hours · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 12:14 AM ET · Saturday, October 24, 2026 · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -316,10 +316,10 @@
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">0</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">0</div><div class="stat-label">Total</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">1</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">0</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
 
@@ -339,7 +339,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "House", "committee": "Committee on Education and Workforce", "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member", "time": "10:00 AM ET", "building": "Off-site", "room": "Northampton Community College, Fowler Family Southside Center\n511 East Third Street\nBethlehem, PA 18015", "topic": "More Choices, Brighter Futures: Expanding Education Freedom", "witnesses": ["Mr. Nathan Benefield, Chief Policy Officer, Commonwealth Foundation", "Ms. Ilen Perez-Valdes, Future Leaders Fellow, AFC", "Ms. Susan Spicka, Executive Director, Education Voters of Pennsylvania", "Mr. Eric Paisner, Chief Legal Officer, National Alliance for Public Charter Schools"], "details": "", "cancelled": false, "changes": ["Location changed to Off-site · 3:18 AM", "Witnesses added: Mr. Eric Paisner, Chief Legal Officer, National Alliance for Public Charter Schools, Mr. Nathan Benefield, Chief Policy Officer, Commonwealth Foundation +2 more · 3:18 AM"], "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413812"}];
+const HEARINGS = [];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
@@ -493,7 +493,7 @@ buildCards('All');
 
 <script>
 // DomeWatch data — loaded from local JSON, updated every 2 hours
-var TODAY_ISO = "2026-10-23";
+var TODAY_ISO = "2026-10-24";
 function fmtDate(iso) {
   if (!iso) return "";
   var d = new Date(iso);
