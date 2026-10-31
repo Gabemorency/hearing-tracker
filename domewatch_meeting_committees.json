@@ -236,9 +236,6 @@
   "119492": "Committee on Oversight and Government Reform",
   "119494": "Committee on Ways and Means",
   "119460": "Committee on Education and Workforce",
-  "119507": "Subcommittee on Federal Lands (Committee on Natural Resources)",
-  "119561": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
-  "118858": "Committee on Rules",
   "119508": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
   "119518": "Committee on Energy and Commerce",
   "119562": "Committee on Natural Resources",
@@ -302,5 +299,9 @@
   "119555": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
   "119560": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
   "119563": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
-  "119558": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)"
+  "119558": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
+  "119575": "Committee on Ways and Means",
+  "119507": "Subcommittee on Federal Lands (Committee on Natural Resources)",
+  "119561": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
+  "118858": "Committee on Rules"
 }
