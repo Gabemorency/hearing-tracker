@@ -1,6 +1,6 @@
 {
-  "date": "2026-11-04",
-  "generated": "2:17 AM ET",
+  "date": "2026-11-05",
+  "generated": "2:45 AM ET",
   "senators": [
     {
       "bioguide_id": "G000386",
@@ -576,12 +576,12 @@
         {
           "committee": "Senate Committee on Environment and Public Works — Chemical Safety, Waste Management, Environmental Justice, and Regulatory Oversight",
           "role": "Ex Officio",
-          "rank": 5
+          "rank": 6
         },
         {
           "committee": "Senate Committee on Environment and Public Works — Clean Air, Climate, and Nuclear Innovation and Safety",
           "role": "Ex Officio",
-          "rank": 8
+          "rank": 9
         },
         {
           "committee": "Senate Committee on Environment and Public Works — Fisheries, Water, and Wildlife",
@@ -591,7 +591,7 @@
         {
           "committee": "Senate Committee on Environment and Public Works — Transportation and Infrastructure",
           "role": "Ex Officio",
-          "rank": 8
+          "rank": 9
         },
         {
           "committee": "Senate Committee on Rules and Administration",
@@ -1124,12 +1124,12 @@
         {
           "committee": "Senate Committee on Appropriations — Energy and Water Development",
           "role": "Ex Officio",
-          "rank": 9
+          "rank": 10
         },
         {
           "committee": "Senate Committee on Appropriations — Financial Services and General Government",
           "role": "Ex Officio",
-          "rank": 5
+          "rank": 6
         },
         {
           "committee": "Senate Committee on Appropriations — Department of Homeland Security",
@@ -1144,7 +1144,7 @@
         {
           "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies",
           "role": "Ex Officio",
-          "rank": 9
+          "rank": 10
         },
         {
           "committee": "Senate Committee on Appropriations — Legislative Branch",
@@ -9460,7 +9460,93 @@
       "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/G000608.jpg",
       "initials": "DG",
       "leadership": null,
-      "committees": [],
+      "committees": [
+        {
+          "committee": "Senate Committee on Appropriations",
+          "role": "Member",
+          "rank": 15
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Commerce, Justice, Science, and Related Agencies",
+          "role": "Member",
+          "rank": 9
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Energy and Water Development",
+          "role": "Member",
+          "rank": 9
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Financial Services and General Government",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Departments of Labor, Health and Human Services, and Education, and Related Agencies",
+          "role": "Member",
+          "rank": 9
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Military Construction, Veterans Affairs, and Related Agencies",
+          "role": "Member",
+          "rank": 9
+        },
+        {
+          "committee": "Senate Committee on Appropriations — Transportation, Housing and Urban Development, and Related Agencies",
+          "role": "Member",
+          "rank": 9
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works",
+          "role": "Member",
+          "rank": 10
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works — Chemical Safety, Waste Management, Environmental Justice, and Regulatory Oversight",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works — Clean Air, Climate, and Nuclear Innovation and Safety",
+          "role": "Member",
+          "rank": 8
+        },
+        {
+          "committee": "Senate Committee on Environment and Public Works — Transportation and Infrastructure",
+          "role": "Member",
+          "rank": 8
+        },
+        {
+          "committee": "Senate Committee on the Budget",
+          "role": "Member",
+          "rank": 11
+        },
+        {
+          "committee": "Senate Committee on the Judiciary",
+          "role": "Member",
+          "rank": 12
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Crime and Counterterrorism",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Federal Courts, Oversight, Agency Action, and Federal Rights",
+          "role": "Member",
+          "rank": 6
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Border Security and Immigration",
+          "role": "Member",
+          "rank": 7
+        },
+        {
+          "committee": "Senate Committee on the Judiciary — Privacy, Technology, and the Law",
+          "role": "Member",
+          "rank": 6
+        }
+      ],
       "caucuses": [],
       "delegate": false,
       "bio": "Darline Graham was born and raised in South Carolina, where she developed a deep commitment to public service and community leadership. She earned her undergraduate degree from the University of South Carolina before going on to complete a law degree, which she leveraged throughout a distinguished career in state politics and private legal practice prior to her election to the United States Senate.\n\nSenator Graham was first elected to the Senate representing South Carolina as a member of the Republican Party, where she quickly distinguished herself as a pragmatic and principled voice on key legislative matters. She has served on prominent committees focused on judiciary, defense, and fiscal policy, earning a reputation for her strong advocacy on behalf of military families, veterans, and small business owners across her home state. Her colleagues have long recognized her ability to build bipartisan coalitions on issues of national security and economic development.\n\nIn her current role, Senator Graham remains deeply focused on strengthening South Carolina's economy, securing the nation's borders, and ensuring robust funding for the state's significant military installations and defense contractors. She has been an outspoken advocate for conservative judicial appointments and has championed legislation aimed at reducing federal spending while protecting essential services for working families. Her recent work has centered on expanding workforce development programs and addressing infrastructure needs critical to the continued growth of South Carolina's communities.",
@@ -21667,6 +21753,69 @@
       "bio_slug": "val-t-hoyle"
     },
     {
+      "bioguide_id": "J000309",
+      "name": "Jonathan L. Jackson",
+      "first": "Jonathan",
+      "last": "Jackson",
+      "nickname": "",
+      "chamber": "house",
+      "state": "IL",
+      "party": "Democrat",
+      "party_short": "D",
+      "party_class": "dem",
+      "district": 1,
+      "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/J000309.jpg",
+      "initials": "JJ",
+      "leadership": {
+        "label": "Subcmte. Ranking Member",
+        "tier": 7,
+        "committee": "House Committee on Foreign Affairs — Oversight and Intelligence"
+      },
+      "committees": [
+        {
+          "committee": "House Committee on Agriculture",
+          "role": "Member",
+          "rank": 14
+        },
+        {
+          "committee": "House Committee on Foreign Affairs",
+          "role": "Member",
+          "rank": 11
+        },
+        {
+          "committee": "House Committee on Agriculture — Nutrition and Foreign Agriculture",
+          "role": "Member",
+          "rank": 7
+        },
+        {
+          "committee": "House Committee on Agriculture — Commodity Markets, Digital Assets, and Rural Development",
+          "role": "Member",
+          "rank": 3
+        },
+        {
+          "committee": "House Committee on Foreign Affairs — Africa",
+          "role": "Member",
+          "rank": 2
+        },
+        {
+          "committee": "House Committee on Foreign Affairs — Western Hemisphere",
+          "role": "Member",
+          "rank": 5
+        },
+        {
+          "committee": "House Committee on Foreign Affairs — Oversight and Intelligence",
+          "role": "Ranking Member",
+          "rank": 1
+        }
+      ],
+      "caucuses": [
+        "cbc"
+      ],
+      "delegate": false,
+      "bio": "Jonathan L. Jackson was born in Chicago, Illinois, and is the son of civil rights leader Reverend Jesse L. Jackson Sr., growing up immersed in the traditions of social justice and political activism. He pursued higher education and built a career in business, media, and community advocacy before transitioning into electoral politics, drawing on his family's deep roots in the Chicago civil rights community.\n\nJackson was first elected to represent Illinois's 1st Congressional District in a special election in November 2023, succeeding Bobby Rush who had held the seat for decades. He serves on committees relevant to the district's economic and social needs, and has focused on issues including economic equity, community investment, and expanding opportunity for underserved urban communities. He is broadly known for carrying forward the progressive legacy of his predecessor and his district's long history as a center of Black political representation in Congress.\n\nJackson currently serves as the Representative for Illinois's 1st Congressional District, which encompasses Chicago's South Side and several southern suburbs. His legislative priorities center on affordable housing, workforce development, criminal justice reform, and increasing federal investment in historically marginalized communities. He has worked to establish himself as an advocate for his constituents on both economic and social justice fronts, building coalitions to address the systemic challenges facing one of Chicago's most storied congressional districts.",
+      "bio_slug": "jonathan-l-jackson"
+    },
+    {
       "bioguide_id": "J000305",
       "name": "Sara Jacobs",
       "first": "Sara",
@@ -21704,7 +21853,7 @@
         {
           "committee": "House Committee on Foreign Affairs — Western Hemisphere",
           "role": "Member",
-          "rank": 3
+          "rank": 4
         },
         {
           "committee": "House Committee on Armed Services — Intelligence and Special Operations",
@@ -22008,7 +22157,7 @@
         {
           "committee": "House Committee on Foreign Affairs — Middle East and North Africa",
           "role": "Member",
-          "rank": 2
+          "rank": 5
         }
       ],
       "caucuses": [],
@@ -22768,7 +22917,7 @@
       "leadership": {
         "label": "Subcmte. Ranking Member",
         "tier": 7,
-        "committee": "House Committee on Foreign Affairs — Oversight and Intelligence"
+        "committee": "House Committee on Foreign Affairs — Middle East and North Africa"
       },
       "committees": [
         {
@@ -22797,7 +22946,7 @@
           "rank": 7
         },
         {
-          "committee": "House Committee on Foreign Affairs — Oversight and Intelligence",
+          "committee": "House Committee on Foreign Affairs — Middle East and North Africa",
           "role": "Ranking Member",
           "rank": 1
         },
@@ -23720,8 +23869,8 @@
         },
         {
           "committee": "House Committee on Foreign Affairs — Middle East and North Africa",
-          "role": "Ranking Member",
-          "rank": 1
+          "role": "Member",
+          "rank": 2
         }
       ],
       "caucuses": [],
@@ -23833,7 +23982,7 @@
         {
           "committee": "House Committee on Foreign Affairs — Western Hemisphere",
           "role": "Member",
-          "rank": 4
+          "rank": 2
         }
       ],
       "caucuses": [],
@@ -24202,7 +24351,7 @@
         {
           "committee": "House Committee on Foreign Affairs — Western Hemisphere",
           "role": "Member",
-          "rank": 2
+          "rank": 3
         },
         {
           "committee": "House Committee on Foreign Affairs — Europe",
@@ -24473,6 +24622,11 @@
           "committee": "House Committee on Appropriations — Energy and Water Development and Related Agencies",
           "role": "Member",
           "rank": 3
+        },
+        {
+          "committee": "House Committee on Foreign Affairs — Oversight and Intelligence",
+          "role": "Member",
+          "rank": 4
         },
         {
           "committee": "House Committee on Appropriations — Military Construction, Veterans Affairs, and Related Agencies",
@@ -25179,6 +25333,11 @@
           "committee": "House Committee on Appropriations — Financial Services and General Government",
           "role": "Member",
           "rank": 2
+        },
+        {
+          "committee": "House Committee on Foreign Affairs — Africa",
+          "role": "Member",
+          "rank": 5
         }
       ],
       "caucuses": [],
@@ -25265,9 +25424,9 @@
           "rank": 4
         },
         {
-          "committee": "House Committee on Foreign Affairs — Oversight and Intelligence",
+          "committee": "House Committee on Foreign Affairs — Middle East and North Africa",
           "role": "Member",
-          "rank": 3
+          "rank": 6
         }
       ],
       "caucuses": [],
@@ -26571,7 +26730,7 @@
         {
           "committee": "House Committee on Foreign Affairs — Oversight and Intelligence",
           "role": "Member",
-          "rank": 4
+          "rank": 3
         }
       ],
       "caucuses": [],
@@ -28875,60 +29034,6 @@
       "bio_slug": "glenn-ivey"
     },
     {
-      "bioguide_id": "J000309",
-      "name": "Jonathan L. Jackson",
-      "first": "Jonathan",
-      "last": "Jackson",
-      "nickname": "",
-      "chamber": "house",
-      "state": "IL",
-      "party": "Democrat",
-      "party_short": "D",
-      "party_class": "dem",
-      "district": 1,
-      "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/J000309.jpg",
-      "initials": "JJ",
-      "leadership": null,
-      "committees": [
-        {
-          "committee": "House Committee on Agriculture",
-          "role": "Member",
-          "rank": 14
-        },
-        {
-          "committee": "House Committee on Foreign Affairs",
-          "role": "Member",
-          "rank": 11
-        },
-        {
-          "committee": "House Committee on Agriculture — Nutrition and Foreign Agriculture",
-          "role": "Member",
-          "rank": 7
-        },
-        {
-          "committee": "House Committee on Agriculture — Commodity Markets, Digital Assets, and Rural Development",
-          "role": "Member",
-          "rank": 3
-        },
-        {
-          "committee": "House Committee on Foreign Affairs — Africa",
-          "role": "Member",
-          "rank": 2
-        },
-        {
-          "committee": "House Committee on Foreign Affairs — Western Hemisphere",
-          "role": "Member",
-          "rank": 5
-        }
-      ],
-      "caucuses": [
-        "cbc"
-      ],
-      "delegate": false,
-      "bio": "Jonathan L. Jackson was born in Chicago, Illinois, and is the son of civil rights leader Reverend Jesse L. Jackson Sr., growing up immersed in the traditions of social justice and political activism. He pursued higher education and built a career in business, media, and community advocacy before transitioning into electoral politics, drawing on his family's deep roots in the Chicago civil rights community.\n\nJackson was first elected to represent Illinois's 1st Congressional District in a special election in November 2023, succeeding Bobby Rush who had held the seat for decades. He serves on committees relevant to the district's economic and social needs, and has focused on issues including economic equity, community investment, and expanding opportunity for underserved urban communities. He is broadly known for carrying forward the progressive legacy of his predecessor and his district's long history as a center of Black political representation in Congress.\n\nJackson currently serves as the Representative for Illinois's 1st Congressional District, which encompasses Chicago's South Side and several southern suburbs. His legislative priorities center on affordable housing, workforce development, criminal justice reform, and increasing federal investment in historically marginalized communities. He has worked to establish himself as an advocate for his constituents on both economic and social justice fronts, building coalitions to address the systemic challenges facing one of Chicago's most storied congressional districts.",
-      "bio_slug": "jonathan-l-jackson"
-    },
-    {
       "bioguide_id": "J000307",
       "name": "John James",
       "first": "John",
@@ -29843,6 +29948,11 @@
           "rank": 25
         },
         {
+          "committee": "House Committee on Foreign Affairs — Western Hemisphere",
+          "role": "Member",
+          "rank": 7
+        },
+        {
           "committee": "House Committee on Oversight and Government Reform — Federal Law Enforcement",
           "role": "Member",
           "rank": 3
@@ -30701,9 +30811,19 @@
           "rank": 6
         },
         {
+          "committee": "House Committee on Veterans' Affairs — Health",
+          "role": "Member",
+          "rank": 5
+        },
+        {
           "committee": "House Committee on Armed Services — Military Personnel",
           "role": "Member",
           "rank": 6
+        },
+        {
+          "committee": "House Committee on Veterans' Affairs — Technology Modernization",
+          "role": "Member",
+          "rank": 2
         }
       ],
       "caucuses": [],
@@ -32868,7 +32988,13 @@
       "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/B001328.jpg",
       "initials": "EJ",
       "leadership": null,
-      "committees": [],
+      "committees": [
+        {
+          "committee": "House Committee on Financial Services",
+          "role": "Member",
+          "rank": 24
+        }
+      ],
       "caucuses": [],
       "delegate": false,
       "bio": "I want to be straightforward with you: I don't have verified information confirming that Everton Blair Jr. is a sitting U.S. Representative for Georgia's 13th Congressional District as of September 2, 2026. Everton Blair Jr. is a public figure I have some knowledge of — he served on the Gwinnett County Board of Education — but I cannot confirm his congressional status, election history, committee assignments, or current policy work with the accuracy your request requires.\n\nBecause the biography asks me to treat his congressional status as established fact and to accurately describe current officeholders and their titles as of September 2, 2026, fabricating these details would risk producing misinformation presented in a professional, authoritative format.\n\nI'd recommend consulting the official U.S. House of Representatives website (house.gov) or his official congressional office for accurate, up-to-date biographical information that I can then help you format or refine.",
