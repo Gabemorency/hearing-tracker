@@ -1,5 +1,21 @@
 {
-  "date": "2026-11-06",
-  "generated": "2:42 AM ET · Thursday, November 5, 2026",
-  "hearings": []
+  "date": "2026-11-09",
+  "generated": "2:39 AM ET · Friday, November 6, 2026",
+  "hearings": [
+    {
+      "chamber": "House",
+      "committee": "Committee on Rules",
+      "chair": "",
+      "time": "4:00 PM ET",
+      "building": "Capitol",
+      "room": "H-313 CAPITOL",
+      "topic": "H.R. 1013 – Retirement Fairness for Charities and Educational Institutions Act of 2025",
+      "details": "H.R. 1013 – Retirement Fairness for Charities and Educational Institutions Act of 2025",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    }
+  ]
 }
