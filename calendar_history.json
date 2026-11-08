@@ -3829,5 +3829,26 @@
   "2026-11-07": {
     "hearings": [],
     "inSession": false
+  },
+  "2026-11-08": {
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Committee on Rules",
+        "chair": "Sen. Amy Klobuchar (D-MN) · Sen. Deb Fischer (R-NE), Chair",
+        "time": "4:00 PM ET",
+        "building": "Capitol",
+        "room": "H-313 CAPITOL",
+        "topic": "H.R. 1013 – Retirement Fairness for Charities and Educational Institutions Act of 2025",
+        "details": "H.R. 1013 – Retirement Fairness for Charities and Educational Institutions Act of 2025",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": ""
+      }
+    ],
+    "inSession": false
   }
 }
