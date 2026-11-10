@@ -3871,5 +3871,26 @@
       }
     ],
     "inSession": false
+  },
+  "2026-11-10": {
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
+        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+        "time": "10:15 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2175 RHOB",
+        "topic": "The Rise of Sports Gambling on College Campuses",
+        "details": "The Rise of Sports Gambling on College Campuses",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://edworkforce.house.gov/hearings/"
+      }
+    ],
+    "inSession": false
   }
 }

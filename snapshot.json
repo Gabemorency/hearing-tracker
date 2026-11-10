@@ -1,18 +1,18 @@
 {
-  "House|Committee on Rules|4:00 PM ET": {
+  "House|Subcommittee on Higher Education and Wor|10:15 AM ET": {
     "chamber": "House",
-    "committee": "Committee on Rules",
-    "chair": "Sen. Amy Klobuchar (D-MN) \u00b7 Sen. Deb Fischer (R-NE), Chair",
-    "time": "4:00 PM ET",
-    "building": "Capitol",
-    "room": "H-313 CAPITOL",
-    "topic": "H.R. 1013 \u2013 Retirement Fairness for Charities and Educational Institutions Act of 2025",
-    "details": "H.R. 1013 \u2013 Retirement Fairness for Charities and Educational Institutions Act of 2025",
+    "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
+    "chair": "Rep. Tim Walberg (R-MI), Chair \u00b7 Rep. Bobby Scott (D-VA), Ranking Member",
+    "time": "10:15 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2175 RHOB",
+    "topic": "The Rise of Sports Gambling on College Campuses",
+    "details": "The Rise of Sports Gambling on College Campuses",
     "witnesses": [
       "Witnesses not yet publicly posted"
     ],
     "cancelled": false,
     "changes": [],
-    "link": ""
+    "link": "https://edworkforce.house.gov/hearings/"
   }
 }
