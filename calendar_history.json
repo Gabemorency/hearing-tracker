@@ -3892,5 +3892,45 @@
       }
     ],
     "inSession": false
+  },
+  "2026-11-11": {
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Africa Subcommittee (Committee on Foreign Affairs)",
+        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
+        "time": "11:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2172 RHOB",
+        "topic": "One Year Later: Assessing Nigeria’s Efforts to Protect Christians and Secure the Middle Belt",
+        "details": "One Year Later: Assessing Nigeria’s Efforts to Protect Christians and Secure the Middle Belt",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://foreignaffairs.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
+        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+        "time": "10:15 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2175 RHOB",
+        "topic": "The Rise of Sports Gambling on College Campuses",
+        "witnesses": [
+          "Dr. Daniel Durkin, Associate Professor, University of Mississippi",
+          "Mr. Jordan Maynard, Chair, Massachusetts Gaming Commission"
+        ],
+        "details": "",
+        "cancelled": false,
+        "changes": [
+          "Witnesses added: Dr. Daniel Durkin, Associate Professor, University of Mississippi, Mr. Jordan Maynard, Chair, Massachusetts Gaming Commission · 4:09 AM"
+        ],
+        "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413855"
+      }
+    ],
+    "inSession": false
   }
 }
