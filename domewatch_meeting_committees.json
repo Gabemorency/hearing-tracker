@@ -236,9 +236,6 @@
   "119492": "Committee on Oversight and Government Reform",
   "119494": "Committee on Ways and Means",
   "119460": "Committee on Education and Workforce",
-  "118857": "Committee on Rules",
-  "119306": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
-  "119501": "Committee on Education and Workforce",
   "119559": "Committee on Agriculture",
   "119529": "Subcommittee on Water, Wildlife and Fisheries (Committee on Natural Resources)",
   "119537": "Committee on Homeland Security",
@@ -307,5 +304,12 @@
   "119588": "Committee on Education and Workforce",
   "119541": "Subcommittee on Innovation, Entrepreneurship, and Workforce Development (Committee on Small Business)",
   "119545": "South and Central Asia Subcommittee (Committee on Foreign Affairs)",
-  "119553": "Subcommittee on Delivering on Government Efficiency (Committee on Oversight and Government Reform)"
+  "119553": "Subcommittee on Delivering on Government Efficiency (Committee on Oversight and Government Reform)",
+  "119589": "Committee on Homeland Security",
+  "119597": "Subcommittee on Contracting and Infrastructure (Committee on Small Business)",
+  "119594": "Subcommittee on Federal Law Enforcement (Committee on Oversight and Government Reform)",
+  "119596": "Subcommittee on Health (Committee on Veterans' Affairs)",
+  "118857": "Committee on Rules",
+  "119306": "Western Hemisphere Subcommittee (Committee on Foreign Affairs)",
+  "119501": "Committee on Education and Workforce"
 }
