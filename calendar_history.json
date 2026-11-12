@@ -3932,5 +3932,40 @@
       }
     ],
     "inSession": false
+  },
+  "2026-11-12": {
+    "hearings": [
+      {
+        "chamber": "House",
+        "committee": "Committee on Education and Workforce",
+        "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member",
+        "time": "10:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "The Dubois Center at UNC Charlotte Center City\n320 East 9th Street, Room 1104\nCharlotte, NC 28202",
+        "topic": "Workers in Charge: Restoring Choice and Accountability in the Workplace",
+        "details": "Workers in Charge: Restoring Choice and Accountability in the Workplace",
+        "witnesses": [
+          "Witnesses not yet publicly posted"
+        ],
+        "cancelled": false,
+        "changes": [],
+        "link": "https://edworkforce.house.gov/hearings/"
+      },
+      {
+        "chamber": "House",
+        "committee": "Africa Subcommittee (Committee on Foreign Affairs)",
+        "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member",
+        "time": "11:00 AM ET",
+        "building": "Rayburn (RHOB)",
+        "room": "2172 RHOB",
+        "topic": "One Year Later: Assessing Nigeria’s Efforts to Protect Christians and Secure the Middle Belt",
+        "witnesses": [],
+        "details": "",
+        "cancelled": false,
+        "changes": [],
+        "link": "https://foreignaffairs.house.gov/hearings/"
+      }
+    ],
+    "inSession": false
   }
 }
