@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="apple-touch-icon" href="/hearing-tracker/icons/icon-192.png">
 <meta name="theme-color" content="#0D0C0A" id="theme-color-meta">
-<title>Congressional Hearing Tracker — November 12, 2026</title>
+<title>Congressional Hearing Tracker — November 13, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/hearing-tracker/theme.css">
@@ -295,7 +295,7 @@
   <div class="header-left">
     <div class="header-eyebrow">🏛 Congressional Hearing Tracker</div>
     <h1>Today's Hearings</h1>
-    <div class="header-timestamp">As of 6:29 PM ET · Thursday, November 12, 2026 · Updates every 2 hours · Schedules subject to change.</div>
+    <div class="header-timestamp">As of 1:12 AM ET · Friday, November 13, 2026 · Updates every 2 hours · Schedules subject to change.</div>
   </div>
   <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode">☀️</button>
 </div>
@@ -316,10 +316,10 @@
 </div>
 
 <div class="stats">
-  <div class="stat"><div class="stat-number" style="color:#6DBF8A">2</div><div class="stat-label">Active</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">2</div><div class="stat-label">Total</div></div>
+  <div class="stat"><div class="stat-number" style="color:#6DBF8A">1</div><div class="stat-label">Active</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--text-secondary)">1</div><div class="stat-label">Total</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--gold)">0</div><div class="stat-label">Senate</div></div>
-  <div class="stat"><div class="stat-number" style="color:var(--blue)">2</div><div class="stat-label">House</div></div>
+  <div class="stat"><div class="stat-number" style="color:var(--blue)">1</div><div class="stat-label">House</div></div>
   <div class="stat"><div class="stat-number" style="color:var(--purple)">0</div><div class="stat-label">Joint</div></div>
 </div>
 
@@ -339,7 +339,7 @@
 </div>
 
 <script>
-const HEARINGS = [{"chamber": "House", "committee": "Committee on Education and Workforce", "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member", "time": "10:00 AM ET", "building": "Rayburn (RHOB)", "room": "The Dubois Center at UNC Charlotte Center City\n320 East 9th Street, Room 1104\nCharlotte, NC 28202", "topic": "Workers in Charge: Restoring Choice and Accountability in the Workplace", "details": "Workers in Charge: Restoring Choice and Accountability in the Workplace", "witnesses": ["Witnesses not yet publicly posted"], "cancelled": false, "changes": [], "link": "https://edworkforce.house.gov/hearings/"}, {"chamber": "House", "committee": "Africa Subcommittee (Committee on Foreign Affairs)", "chair": "Rep. Brian Mast (R-FL), Chair · Rep. Gregory Meeks (D-NY), Ranking Member", "time": "11:00 AM ET", "building": "Rayburn (RHOB)", "room": "2172 RHOB", "topic": "One Year Later: Assessing Nigeria’s Efforts to Protect Christians and Secure the Middle Belt", "witnesses": [], "details": "", "cancelled": false, "changes": [], "link": "https://foreignaffairs.house.gov/hearings/"}];
+const HEARINGS = [{"chamber": "House", "committee": "Committee on Education and Workforce", "chair": "Rep. Tim Walberg (R-MI), Chair · Rep. Bobby Scott (D-VA), Ranking Member", "time": "10:00 AM ET", "building": "Off-site", "room": "The Dubois Center at UNC Charlotte Center City\n320 East 9th Street, Room 1104\nCharlotte, NC 28202", "topic": "Workers in Charge: Restoring Choice and Accountability in the Workplace", "details": "Workers in Charge: Restoring Choice and Accountability in the Workplace", "witnesses": ["Mr. William Messenger, Vice President and Legal Director, National Right to Work Legal Defense Foundation", "Witnesses not yet publicly posted", "Ms. Jennifer Betts, Office Managing Shareholder, Ogletree Deakins P.C.", "Mr. Terry Bowman, Chairman, Institute for the American Worker", "Mr. Braxton Winston, President, North Carolina AFL-CIO"], "cancelled": false, "changes": ["Location changed to Off-site · 1:12 AM", "Witnesses added: Mr. William Messenger, Vice President and Legal Director, National Right to Work Legal Defense Foundation, Mr. Terry Bowman, Chairman, Institute for the American Worker +2 more · 1:12 AM"], "link": "https://edworkforce.house.gov/calendar/eventsingle.aspx?EventID=413850"}];
 
 // ── Theme system ──────────────────────────────────────────────────────────────
 function getSystemTheme() {
@@ -493,7 +493,7 @@ buildCards('All');
 
 <script>
 // DomeWatch data — loaded from local JSON, updated every 2 hours
-var TODAY_ISO = "2026-11-12";
+var TODAY_ISO = "2026-11-13";
 function fmtDate(iso) {
   if (!iso) return "";
   var d = new Date(iso);
