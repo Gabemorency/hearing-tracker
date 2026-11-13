@@ -236,9 +236,6 @@
   "119492": "Committee on Oversight and Government Reform",
   "119494": "Committee on Ways and Means",
   "119460": "Committee on Education and Workforce",
-  "119555": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
-  "119560": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
-  "119563": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)",
   "119558": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119575": "Committee on Ways and Means",
   "119507": "Subcommittee on Federal Lands (Committee on Natural Resources)",
@@ -311,5 +308,16 @@
   "119537": "Committee on Homeland Security",
   "119590": "Subcommittee on Higher Education and Workforce Development (Committee on Education and Workforce)",
   "119592": "Africa Subcommittee (Committee on Foreign Affairs)",
-  "119593": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa"
+  "119593": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
+  "119598": "Subcommittee on Commodity Markets, Digital Assets, and Rural Development (Committee on Agriculture)",
+  "119600": "Committee on Veterans' Affairs",
+  "119601": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
+  "119608": "Committee on Foreign Affairs",
+  "119599": "Committee on Veterans' Affairs",
+  "119604": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
+  "119605": "South and Central Asia Subcommittee (Committee on Foreign Affairs)",
+  "119606": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
+  "119555": "Middle East and North Africa Subcommittee (Committee on Foreign Affairs)",
+  "119560": "Subcommittee on National Security, Department of State, and Related Programs (Committee on Appropriations)",
+  "119563": "Subcommittee on Investigations and Oversight (Committee on Science, Space, and Technology)"
 }
