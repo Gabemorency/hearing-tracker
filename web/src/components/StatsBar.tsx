@@ -1,3 +1,39 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+// Counts up from 0 to the real value on mount — numbers that move feel
+// alive, and it's a genuinely interactive cue that "this data just
+// loaded," not just decoration.
+function useCountUp(target: number, durationMs = 550) {
+  const [value, setValue] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / durationMs, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.round(target * eased));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [target, durationMs]);
+  return value;
+}
+
+function StatCell({ label, value, color, accent }: { label: string; value: number; color: string; accent: string }) {
+  const displayValue = useCountUp(value);
+  return (
+    <div className="stat" style={{ borderTopColor: accent }}>
+      <div className="stat-number" style={{ color }}>
+        {displayValue}
+      </div>
+      <div className="stat-label">{label}</div>
+    </div>
+  );
+}
+
 export default function StatsBar({
   active,
   total,
@@ -15,18 +51,13 @@ export default function StatsBar({
     ["Active", active, "var(--stat-active)", "var(--stat-active)"],
     ["Total", total, "var(--text-secondary)", "var(--text-muted)"],
     ["Senate", senate, "var(--gold)", "var(--gold)"],
-    ["House", house, "var(--blue)", "var(--blue)"],
+    ["House", house, "var(--teal)", "var(--teal)"],
     ["Joint", joint, "var(--purple)", "var(--purple)"],
   ];
   return (
     <div className="stats">
       {stats.map(([label, value, color, accent]) => (
-        <div className="stat" key={label} style={{ borderTopColor: accent }}>
-          <div className="stat-number" style={{ color }}>
-            {value}
-          </div>
-          <div className="stat-label">{label}</div>
-        </div>
+        <StatCell key={label} label={label} value={value} color={color} accent={accent} />
       ))}
     </div>
   );
