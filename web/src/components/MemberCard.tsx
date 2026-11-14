@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { InstitutionalLeadership, Member, MemberTerm } from "@/lib/types";
 
 export function currentTerm(terms: MemberTerm[]): MemberTerm | null {
@@ -7,7 +8,7 @@ export function currentTerm(terms: MemberTerm[]): MemberTerm | null {
   return [...terms].sort((a, b) => b.start_date.localeCompare(a.start_date))[0];
 }
 
-function partyClass(party: string | null) {
+export function partyClass(party: string | null) {
   if (!party) return "";
   const p = party[0]?.toUpperCase();
   if (p === "D") return "party-d";
@@ -15,7 +16,7 @@ function partyClass(party: string | null) {
   return "party-i";
 }
 
-function initials(fullName: string) {
+export function initials(fullName: string) {
   const parts = fullName.split(" ").filter(Boolean);
   if (parts.length === 0) return "?";
   if (parts.length === 1) return parts[0][0]?.toUpperCase() ?? "?";
@@ -33,13 +34,13 @@ export default function MemberCard({ member, leadership }: { member: Member; lea
     : "Seat unknown";
 
   return (
-    <div className="member-card">
+    <Link href={`/members/${member.bioguide_id}`} className="member-card">
       <div className={`member-avatar ${pc}`}>{initials(member.full_name)}</div>
       <div className="member-info">
         <div className="member-name">{member.full_name}</div>
         <div className="member-seat">{seat}</div>
         {leadership && <div className="member-leadership">{leadership.label}</div>}
       </div>
-    </div>
+    </Link>
   );
 }
