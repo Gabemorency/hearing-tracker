@@ -50,7 +50,11 @@ today_long  = now_et.strftime("%A, %B %-d, %Y")
 today_id    = now_et.strftime("%m%d%Y")
 today_iso   = now_et.strftime("%Y-%m-%d")
 generated   = now_et.strftime("%-I:%M %p ET")
-change_time = now_et.strftime("%-I:%M %p")
+change_time = now_et.strftime("%b %-d, %-I:%M %p")  # e.g. "Nov 14, 2:15 PM" — a
+# hearing is often scraped repeatedly over several days before its date
+# arrives, so a bare time-of-day can't tell two changes on different days
+# apart; this is cumulative (see the `changes` dedup below), so every
+# stamp needs its own day for the history to read correctly.
 tz_label    = "EDT" if ET_OFFSET.seconds//3600 == 20 else "EST"  # 20h = -4h unsigned
 
 # ── Semantic date matching ──────────────────────────────────────────────────
