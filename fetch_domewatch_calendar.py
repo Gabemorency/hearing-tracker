@@ -32,6 +32,8 @@ import json
 from datetime import datetime, timezone
 from playwright.sync_api import sync_playwright
 
+from supabase_client import safe_supabase_upsert
+
 OUT_FILE     = "domewatch_calendar.json"
 NUM_MONTHS   = 5
 CALENDAR_URL = "https://domewatch.us/calendar"
@@ -99,6 +101,11 @@ def scrape_calendar(num_months=NUM_MONTHS):
     return all_days
 
 
+def build_domewatch_calendar_rows(fetched_at, days):
+    """Pure transform: the {date: [labels]} shape -> domewatch_calendar rows."""
+    return [{"date": date, "labels": labels, "fetched_at": fetched_at} for date, labels in days.items()]
+
+
 def main():
     try:
         days = scrape_calendar()
@@ -118,6 +125,10 @@ def main():
     with open(OUT_FILE, "w", encoding="utf-8") as f:
         json.dump(out, f, indent=2, ensure_ascii=False)
         f.write("\n")
+
+    safe_supabase_upsert(
+        "domewatch_calendar", build_domewatch_calendar_rows(out["fetchedAt"], days), on_conflict="date"
+    )
 
     print(f"fetch_domewatch_calendar: saved {len(days)} labeled day(s) "
           f"across {NUM_MONTHS} months to {OUT_FILE}")

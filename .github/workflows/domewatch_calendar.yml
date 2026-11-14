@@ -22,12 +22,15 @@ jobs:
           python-version: '3.11'
 
       - name: Install Python dependencies
-        run: pip install playwright
+        run: pip install playwright requests
 
       - name: Install Chromium
         run: playwright install chromium
 
       - name: Fetch DomeWatch projected calendar
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python fetch_domewatch_calendar.py
 
       - name: Commit and push if changed

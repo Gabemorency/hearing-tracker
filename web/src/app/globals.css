@@ -531,8 +531,20 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
   padding-bottom: 6px;
   border-bottom: 1px solid var(--border);
 }
-.calendar-day-title { font-family: var(--display); font-size: 15px; font-weight: 700; color: var(--text-heading); }
+.calendar-day-title { font-family: var(--display); font-size: 15px; font-weight: 700; color: var(--text-heading); display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .calendar-day-count { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.05em; text-transform: uppercase; }
+.calendar-day-labels { display: inline-flex; gap: 4px; flex-wrap: wrap; }
+.calendar-label-pill {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--joint-bg);
+  color: var(--purple);
+  border: 1px solid var(--joint-border);
+}
 
 /* ── Member detail ─────────────────────────────────────────────────────── */
 .back-link {
