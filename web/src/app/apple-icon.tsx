@@ -16,15 +16,15 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0D0C0A",
+          background: "#0A0E1A",
         }}
       >
         <svg width="108" height="108" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2.5 20 7.5V9H4V7.5L12 2.5Z" fill="#E0B870" />
-          <rect x="11" y="9" width="2" height="10" fill="#E0B870" />
-          <rect x="6" y="9" width="2" height="10" fill="#E0B870" />
-          <rect x="16" y="9" width="2" height="10" fill="#E0B870" />
-          <rect x="3" y="19.5" width="18" height="2" fill="#E0B870" />
+          <path d="M12 2.5 20 7.5V9H4V7.5L12 2.5Z" fill="#5B8CDB" />
+          <rect x="11" y="9" width="2" height="10" fill="#5B8CDB" />
+          <rect x="6" y="9" width="2" height="10" fill="#5B8CDB" />
+          <rect x="16" y="9" width="2" height="10" fill="#5B8CDB" />
+          <rect x="3" y="19.5" width="18" height="2" fill="#5B8CDB" />
         </svg>
       </div>
     ),
