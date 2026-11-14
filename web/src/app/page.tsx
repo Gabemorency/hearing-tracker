@@ -1,54 +1,64 @@
 import { createClient } from "@/lib/supabase/server";
+import type { Hearing } from "@/lib/types";
+import Header from "@/components/Header";
+import StatsBar from "@/components/StatsBar";
+import HearingList from "@/components/HearingList";
 
 // Always rendered per-request — this page reads live data, and without
 // this Next would try to prerender it at build time (failing wherever
 // Supabase env vars aren't set, e.g. a fresh checkout or CI).
 export const dynamic = "force-dynamic";
 
-// Phase 0 proof-of-life: confirms the Next.js app can actually reach
-// Supabase and read through RLS. Expect 0 rows until Phase 2 points the
-// scraper's write path here — an empty, error-free result is success for
-// this page's purpose, not a bug.
+function formatTimestamp(now: Date) {
+  const datePart = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  }).format(now);
+  const timePart = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }).format(now);
+  return `As of ${timePart} ET · ${datePart} · Updates every 2 hours · Schedules subject to change.`;
+}
+
 export default async function Home() {
   const supabase = await createClient();
-  const today = new Date().toISOString().slice(0, 10);
+  const now = new Date();
+  const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(now); // en-CA -> YYYY-MM-DD
 
-  const { data: hearings, error } = await supabase
+  const { data, error } = await supabase
     .from("hearings")
-    .select("id, chamber, committee, topic, time")
+    .select("id, chamber, committee, chair, time, building, room, topic, details, witnesses, cancelled, changes, link")
     .eq("date", today)
     .order("time", { ascending: true });
 
-  return (
-    <main>
-      <div className="header-eyebrow sub" style={{ fontFamily: "var(--mono)", fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--gold)" }}>
-        Congressional Hearing Tracker
-      </div>
-      <h1>Today&apos;s Hearings</h1>
-      <p className="sub">{today} · reading from Supabase</p>
+  const hearings = (data ?? []) as Hearing[];
 
-      <div className="panel" style={{ marginTop: 18 }}>
-        {error ? (
+  const active = hearings.filter((h) => !h.cancelled).length;
+  const senate = hearings.filter((h) => h.chamber === "Senate").length;
+  const house = hearings.filter((h) => h.chamber === "House").length;
+  const joint = hearings.filter((h) => h.chamber === "Joint").length;
+
+  return (
+    <div className="page">
+      <Header title="Today's Hearings" timestamp={formatTimestamp(now)} />
+      {error ? (
+        <div className="panel" style={{ marginTop: 18 }}>
           <div className="row" style={{ color: "var(--text-dim)" }}>
             Couldn&apos;t reach Supabase: {error.message}
           </div>
-        ) : hearings && hearings.length > 0 ? (
-          hearings.map((h) => (
-            <div className="row" key={h.id}>
-              <div style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--text-secondary)" }}>
-                {h.time} · {h.chamber}
-              </div>
-              <div style={{ fontWeight: 600, marginTop: 2 }}>{h.committee}</div>
-              <div className="sub" style={{ fontSize: 12, marginTop: 2 }}>{h.topic}</div>
-            </div>
-          ))
-        ) : (
-          <div className="empty">
-            No hearings in Supabase yet — expected until the scraper&apos;s
-            write path is pointed here (Phase 2).
-          </div>
-        )}
-      </div>
-    </main>
+        </div>
+      ) : (
+        <>
+          <StatsBar active={active} total={hearings.length} senate={senate} house={house} joint={joint} />
+          <HearingList hearings={hearings} />
+        </>
+      )}
+    </div>
   );
 }
