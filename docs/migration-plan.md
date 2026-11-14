@@ -101,20 +101,28 @@ Derived from the real JSON shapes in the current pipeline:
 touches the live domain)
 
 **Phase 0 — Scaffold + backfill.**
-- Prerequisite on the user's side (no credentials for these exist in this
-  session): create the Supabase project, create a Vercel project pointed
-  at this repo with Root Directory `web/`, add `SUPABASE_URL` /
-  `SUPABASE_ANON_KEY` / `SUPABASE_SERVICE_ROLE_KEY` as GitHub Actions
-  secrets the same way `ANTHROPIC_API_KEY`/`DOMEWATCH_API_KEY` already are.
-- `web/` scaffolded (Next.js 16 + TS + Vitest, modeled on Ledger's
-  `package.json`), `supabase/migrations/0001_init.sql` with the schema
-  above.
-- One-time Python backfill scripts (reuse existing parsing logic, change
-  only the output target) load `members.json`, `calendar_history.json`
-  (all accumulated days), `legislators-historical.yaml`,
+- ✅ Done: Supabase project created, `supabase/migrations/0001_init.sql`
+  run successfully (13 tables + RLS confirmed in Table Editor).
+- ✅ Done: `web/` scaffolded (Next.js 16.4.6 + TS), GitHub repo secrets
+  (`SUPABASE_URL`/`SUPABASE_ANON_KEY`/`SUPABASE_SERVICE_ROLE_KEY`) added
+  for the future scraper write path.
+- ✅ Done: Vercel project connected (Root Directory `web/`, env vars
+  `NEXT_PUBLIC_SUPABASE_URL`/`NEXT_PUBLIC_SUPABASE_ANON_KEY` set as Config
+  type on Production + Preview). Live and verified end to end — the
+  deployed proof-of-life page correctly reads the empty `hearings` table
+  through RLS and shows the expected "no hearings yet" state.
+  (Note for next time this comes up: the Supabase dashboard's "Project
+  URL" field is sometimes copied including a `/rest/v1/` suffix from a
+  different part of the UI — the env var must be just
+  `https://<ref>.supabase.co`, nothing appended, or the Supabase client's
+  own path-building breaks with "Invalid path specified in request URL.")
+- ⏳ Remaining: one-time Python backfill scripts (reuse existing parsing
+  logic, change only the output target) to load `members.json`,
+  `calendar_history.json` (all accumulated days), `legislators-historical.yaml`,
   `institutional_leadership.json`, `vacant_seats.json` into Supabase.
-- **Verify**: query row counts match source file counts; spot-check a few
-  known hearings/members against the old JSON.
+- **Verify** (once backfill is written): query row counts match source
+  file counts; spot-check a few known hearings/members against the old
+  JSON.
 
 **Phase 1 — Port reads.** Next.js pages for today's hearings, calendar,
 member directory, member profile — reading Supabase, styled in the new
