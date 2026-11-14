@@ -27,9 +27,15 @@ jobs:
         run: playwright install chromium
 
       - name: Build hearing baseline for tomorrow
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python build_baseline.py
 
       - name: Build member directory
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python build_members.py
 
       - name: Inject API keys into HTML

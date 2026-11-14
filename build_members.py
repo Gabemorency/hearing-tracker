@@ -13,6 +13,9 @@ import re
 import sys
 from datetime import datetime, timezone, timedelta
 
+from backfill_members import build_member_row, build_term_rows
+from supabase_client import safe_supabase_upsert, safe_supabase_patch
+
 
 def safe_url(u):
     """Only allow http(s) URLs through into a src/href attribute."""
@@ -159,6 +162,25 @@ def build():
     print("📥 Fetching legislators-current.yaml...")
     legislators = fetch_yaml(f"{BASE}/legislators-current.yaml")
     print(f"  {len(legislators)} members loaded")
+
+    # Sync the current roster into Supabase — a full resync (reset every
+    # row to is_current=false, then flip back to true whoever's still in
+    # this list) rather than a diff, so someone who lost re-election or
+    # retired correctly drops out even though nothing here ever has to
+    # special-case "why" a term ended. bios=None (the default) so this
+    # never touches the "bio" column bio_sync.py owns separately.
+    member_rows, term_rows = [], []
+    for person in legislators:
+        row = build_member_row(person, is_current=True)
+        if row:
+            member_rows.append(row)
+            term_rows.extend(build_term_rows(person))
+    print(f"🔄 Syncing {len(member_rows)} current members to Supabase...")
+    safe_supabase_patch("members", "is_current=eq.true", {"is_current": False})
+    safe_supabase_upsert("members", member_rows, on_conflict="bioguide_id")
+    safe_supabase_upsert(
+        "member_terms", term_rows, on_conflict="member_id,chamber,state,district,start_date"
+    )
 
     print("📥 Fetching committee-membership-current.yaml...")
     cmte_membership = fetch_yaml(f"{BASE}/committee-membership-current.yaml")

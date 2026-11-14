@@ -38,6 +38,9 @@ jobs:
         run: python scrape_meeting_committees.py
 
       - name: Record today in calendar history
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: python record_calendar_day.py
 
       - name: Inject API keys into HTML
