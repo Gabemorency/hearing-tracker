@@ -9,6 +9,8 @@ import os
 from datetime import datetime, timezone, timedelta
 
 from scrape import watch_link
+from backfill_hearings import build_hearing_rows
+from supabase_client import safe_supabase_upsert
 
 HISTORY_FILE = "calendar_history.json"
 
@@ -80,6 +82,13 @@ def main():
 
     print(f"calendar_history.json: {today_iso} -> inSession={in_session}, hearings={len(hearings)} ({len(history)} days tracked total)"
           + (f"; backfilled {filled} missing watch link(s) in history" if filled else ""))
+
+    # Also sync just today's day into Supabase — same row shape and the
+    # same (date, chamber, committee, time) uniqueness constraint the
+    # one-time backfill used, so this is a pure additive step alongside
+    # the JSON file above, not a replacement for it.
+    rows, skipped = build_hearing_rows({today_iso: history[today_iso]})
+    safe_supabase_upsert("hearings", rows, on_conflict="date,chamber,committee,time")
 
 
 if __name__ == "__main__":

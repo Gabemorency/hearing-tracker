@@ -20,6 +20,20 @@ def test_build_member_row_basic():
     }
 
 
+def test_build_member_row_omits_bio_key_when_bios_not_passed():
+    # The nightly roster sync (build_members.py) must never touch the
+    # "bio" column — bio_sync.py owns that on its own, more frequent
+    # schedule. Passing no bios arg has to omit the key entirely, not
+    # send "bio": None, or the upsert would null out an existing bio.
+    person = {
+        "id": {"bioguide": "C000127"},
+        "name": {"first": "Maria", "last": "Cantwell", "official_full": "Maria Cantwell"},
+        "terms": [{"type": "sen", "state": "WA"}],
+    }
+    row = bm.build_member_row(person, is_current=True)
+    assert "bio" not in row
+
+
 def test_build_member_row_missing_bioguide_returns_none():
     person = {"id": {}, "name": {"first": "No", "last": "Id"}, "terms": []}
     assert bm.build_member_row(person, is_current=True, bios={}) is None

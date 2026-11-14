@@ -21,6 +21,8 @@ import os
 import requests
 import yaml
 
+from supabase_client import supabase_upsert
+
 BASE = "https://raw.githubusercontent.com/unitedstates/congress-legislators/main"
 HEADERS_FETCH = {"User-Agent": "Mozilla/5.0 (compatible; hearing-tracker-backfill/1.0)"}
 TERRITORIES = {"DC", "PR", "VI", "GU", "AS", "MP"}
@@ -41,28 +43,11 @@ def load_json(path):
         return json.load(f)
 
 
-def supabase_upsert(base_url, service_key, table, rows, on_conflict):
-    if not rows:
-        print(f"  (nothing to upsert into {table})")
-        return
-    url = f"{base_url}/rest/v1/{table}?on_conflict={on_conflict}"
-    headers = {
-        "apikey": service_key,
-        "Authorization": f"Bearer {service_key}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates,return=minimal",
-    }
-    chunk_size = 500
-    for i in range(0, len(rows), chunk_size):
-        chunk = rows[i : i + chunk_size]
-        r = requests.post(url, headers=headers, json=chunk, timeout=60)
-        if not r.ok:
-            print(f"  ERROR upserting into {table}: {r.status_code} {r.text[:500]}")
-            r.raise_for_status()
-    print(f"  upserted {len(rows)} rows into {table}")
-
-
-def build_member_row(person, is_current, bios):
+def build_member_row(person, is_current, bios=None):
+    """bios=None omits the "bio" key entirely rather than sending "bio":
+    None — callers that don't own bio data (the nightly roster sync) must
+    not include that key at all, or their upsert would null out whatever
+    bio_sync.py's separate, more-frequent write path already set."""
     bioguide = person.get("id", {}).get("bioguide")
     if not bioguide:
         return None
@@ -70,7 +55,7 @@ def build_member_row(person, is_current, bios):
     full_name = name.get("official_full") or f"{name.get('first', '')} {name.get('last', '')}".strip()
     terms = person.get("terms", [])
     delegate = any(t.get("type") == "rep" and t.get("state") in TERRITORIES for t in terms)
-    return {
+    row = {
         "bioguide_id": bioguide,
         "first_name": name.get("first"),
         "last_name": name.get("last"),
@@ -78,8 +63,10 @@ def build_member_row(person, is_current, bios):
         "nickname": name.get("nickname"),
         "delegate": delegate,
         "is_current": is_current,
-        "bio": bios.get(bioguide),
     }
+    if bios is not None:
+        row["bio"] = bios.get(bioguide)
+    return row
 
 
 def build_term_rows(person):

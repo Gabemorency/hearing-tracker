@@ -18,6 +18,9 @@ import io
 from datetime import datetime, timezone, timedelta
 from playwright.async_api import async_playwright
 
+from backfill_hearings import build_baseline_rows
+from supabase_client import safe_supabase_upsert
+
 try:
     import pdfplumber
     HAS_PDF = True
@@ -638,5 +641,8 @@ async def build():
         json.dump(baseline, f, indent=2, ensure_ascii=False)
 
     print(f"✅ baseline.json written for {target_iso} ({target_long})")
+
+    baseline_rows = build_baseline_rows(target_iso, hearings)
+    safe_supabase_upsert("baseline_hearings", baseline_rows, on_conflict="date,chamber,committee,time")
 
 asyncio.run(build())

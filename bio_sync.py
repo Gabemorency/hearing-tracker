@@ -13,6 +13,8 @@ import sys
 import requests
 import yaml
 
+from supabase_client import safe_supabase_upsert
+
 BIOS_FILE = "bios_hardcoded.json"
 
 BASE    = "https://raw.githubusercontent.com/unitedstates/congress-legislators/main"
@@ -134,6 +136,7 @@ def main():
     # 3. Write bios for new/placeholder members
     import time
     written = 0
+    written_bids = []
     for m in new_or_placeholder:
         bid      = m.get("id", {}).get("bioguide", "")
         name     = m.get("name", {}).get("official_full", "")
@@ -150,6 +153,7 @@ def main():
         if bio:
             bios[bid] = bio
             written += 1
+            written_bids.append(bid)
             print("✓")
         else:
             print("✗ (API error)")
@@ -157,6 +161,12 @@ def main():
 
     save_bios(bios)
     print(f"\nDone. Written: {written}, Removed: {len(departed)}, Total: {len(bios)}")
+
+    # Sync just the bio text for members written this run — a minimal
+    # {bioguide_id, bio} payload so this never touches the name/term/
+    # is_current fields that build_members.py's separate sync owns.
+    bio_rows = [{"bioguide_id": bid, "bio": bios[bid]} for bid in written_bids]
+    safe_supabase_upsert("members", bio_rows, on_conflict="bioguide_id")
 
 if __name__ == "__main__":
     main()

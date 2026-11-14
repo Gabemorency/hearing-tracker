@@ -14,32 +14,11 @@ Usage: python3 backfill_hearings.py
 import json
 import os
 
-import requests
+from supabase_client import supabase_upsert
 
 
 def blank_to_none(s):
     return s if s else None
-
-
-def supabase_upsert(base_url, service_key, table, rows, on_conflict):
-    if not rows:
-        print(f"  (nothing to upsert into {table})")
-        return
-    url = f"{base_url}/rest/v1/{table}?on_conflict={on_conflict}"
-    headers = {
-        "apikey": service_key,
-        "Authorization": f"Bearer {service_key}",
-        "Content-Type": "application/json",
-        "Prefer": "resolution=merge-duplicates,return=minimal",
-    }
-    chunk_size = 500
-    for i in range(0, len(rows), chunk_size):
-        chunk = rows[i : i + chunk_size]
-        r = requests.post(url, headers=headers, json=chunk, timeout=60)
-        if not r.ok:
-            print(f"  ERROR upserting into {table}: {r.status_code} {r.text[:500]}")
-            r.raise_for_status()
-    print(f"  upserted {len(rows)} rows into {table}")
 
 
 def build_hearing_rows(history):
@@ -70,6 +49,32 @@ def build_hearing_rows(history):
                 }
             )
     return rows, skipped
+
+
+def build_baseline_rows(date_iso, hearings):
+    """Pure transform: build_baseline.py's flat hearing-list shape ->
+    baseline_hearings table rows (no "link" field — that table has no
+    link column)."""
+    rows = []
+    for h in hearings:
+        if not h.get("chamber") or not h.get("committee"):
+            continue
+        rows.append(
+            {
+                "date": date_iso,
+                "chamber": h.get("chamber"),
+                "committee": h.get("committee"),
+                "chair": blank_to_none(h.get("chair")),
+                "time": blank_to_none(h.get("time")),
+                "building": blank_to_none(h.get("building")),
+                "room": blank_to_none(h.get("room")),
+                "topic": h.get("topic"),
+                "details": blank_to_none(h.get("details")),
+                "witnesses": h.get("witnesses", []),
+                "cancelled": bool(h.get("cancelled", False)),
+            }
+        )
+    return rows
 
 
 def main():
