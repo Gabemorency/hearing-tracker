@@ -331,6 +331,7 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 .tag-house  { background: var(--house-bg);  color: var(--blue); border: 1px solid var(--house-border); }
 .tag-joint  { background: var(--joint-bg);  color: var(--purple); border: 1px solid var(--joint-border); }
 .tag-cancelled { background: rgba(200,60,60,0.15); color: var(--danger); border: 1px solid rgba(200,60,60,0.3); }
+.tag-updated { display: inline-flex; background: rgba(224,184,112,0.12); color: var(--gold); border: 1px solid rgba(224,184,112,0.3); }
 
 .card-time { font-family: var(--mono); font-size: 11px; color: var(--text-secondary); letter-spacing: 0.04em; }
 .card-committee { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.4; margin-bottom: 3px; }
@@ -351,9 +352,12 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 .bc-house  { color: var(--blue); }
 .bc-joint  { color: var(--purple); }
 
-.change-pills { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
-.change-pill { display: inline-flex; align-items: center; gap: 4px; font-family: var(--mono); font-size: 9px; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 10px; background: rgba(224,184,112,0.12); color: var(--gold); border: 1px solid rgba(224,184,112,0.3); }
-.change-pill.cancelled-pill { background: rgba(200,60,60,0.12); color: var(--danger); border-color: rgba(200,60,60,0.3); }
+.update-timeline { display: flex; flex-direction: column; gap: 10px; }
+.update-timeline-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+.update-timeline-item__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-top: 6px; flex-shrink: 0; }
+.update-timeline-item__stamp { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
+.update-timeline-item.cancelled { color: var(--danger); }
+.update-timeline-item.cancelled .update-timeline-item__dot { background: var(--danger); }
 
 /* Accordion: grid-template-rows 0fr→1fr animates height smoothly without
    measuring the DOM, and degrades gracefully (content just appears) in

@@ -42,16 +42,9 @@ export default function HearingCard({ hearing: h }: { hearing: Hearing }) {
           <div className="card-committee">{h.committee}</div>
           <div className="card-topic">{h.topic}</div>
           {hasChanges && (
-            <div className="change-pills">
-              {h.changes.map((ch) => (
-                <span
-                  key={ch}
-                  className={`change-pill${ch.toLowerCase().includes("cancel") ? " cancelled-pill" : ""}`}
-                >
-                  <BoltIcon /> {ch}
-                </span>
-              ))}
-            </div>
+            <span className="tag tag-updated" style={{ marginTop: 6 }}>
+              <BoltIcon /> {h.changes.length} update{h.changes.length !== 1 ? "s" : ""}
+            </span>
           )}
         </div>
         <div className="card-right">
@@ -94,6 +87,28 @@ export default function HearingCard({ hearing: h }: { hearing: Hearing }) {
               <a className="watch-link" href={h.link} target="_blank" rel="noopener" onClick={(e) => e.stopPropagation()}>
                 <LiveDotIcon className="watch-link__dot" /> Watch / committee hearings page
               </a>
+            </div>
+          )}
+          {hasChanges && (
+            <div className="card-section">
+              <div className={`card-section-label sl-${c}`}>Update History</div>
+              <div className="update-timeline">
+                {[...h.changes].reverse().map((ch) => {
+                  const idx = ch.lastIndexOf(" · ");
+                  const desc = idx >= 0 ? ch.slice(0, idx) : ch;
+                  const stamp = idx >= 0 ? ch.slice(idx + 3) : "";
+                  const isCancelled = desc.toLowerCase().includes("cancel");
+                  return (
+                    <div className={`update-timeline-item${isCancelled ? " cancelled" : ""}`} key={ch}>
+                      <span className="update-timeline-item__dot" />
+                      <span>
+                        {desc}
+                        {stamp && <span className="update-timeline-item__stamp"> · {stamp}</span>}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>
