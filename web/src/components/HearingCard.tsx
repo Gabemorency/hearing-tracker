@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import type { Hearing } from "@/lib/types";
+import { BoltIcon, ChevronIcon, LiveDotIcon, XIcon } from "./icons";
 
 function chamberClass(chamber: string) {
   return chamber === "Senate" ? "senate" : chamber === "House" ? "house" : "joint";
@@ -31,7 +32,11 @@ export default function HearingCard({ hearing: h }: { hearing: Hearing }) {
         <div className="card-left">
           <div className="card-meta">
             <span className={`tag tag-${c}`}>{h.chamber}</span>
-            {h.cancelled && <span className="tag tag-cancelled">Cancelled</span>}
+            {h.cancelled && (
+              <span className="tag tag-cancelled">
+                <XIcon size={8} /> Cancelled
+              </span>
+            )}
             <span className="card-time">{h.time}</span>
           </div>
           <div className="card-committee">{h.committee}</div>
@@ -43,7 +48,7 @@ export default function HearingCard({ hearing: h }: { hearing: Hearing }) {
                   key={ch}
                   className={`change-pill${ch.toLowerCase().includes("cancel") ? " cancelled-pill" : ""}`}
                 >
-                  ⚡ {ch}
+                  <BoltIcon /> {ch}
                 </span>
               ))}
             </div>
@@ -52,43 +57,46 @@ export default function HearingCard({ hearing: h }: { hearing: Hearing }) {
         <div className="card-right">
           <div className={`card-building bc-${c}`}>{h.building}</div>
           <div className="card-room">{h.room}</div>
+          <ChevronIcon className="card-chevron" />
         </div>
       </div>
 
       <div className="card-body">
-        <div className="card-section">
-          <div className={`card-section-label sl-${c}`}>Chair</div>
-          <div className="card-section-value">
-            {h.chair || <span className="faint-italic">Not yet posted</span>}
-          </div>
-        </div>
-        {hasAbout && (
+        <div className="card-body__inner">
           <div className="card-section">
-            <div className={`card-section-label sl-${c}`}>About</div>
-            <div className="card-section-value">{h.details}</div>
+            <div className={`card-section-label sl-${c}`}>Chair</div>
+            <div className="card-section-value">
+              {h.chair || <span className="faint-italic">Not yet posted</span>}
+            </div>
           </div>
-        )}
-        <div className="card-section">
-          <div className={`card-section-label sl-${c}`}>Witnesses</div>
-          {realWitnesses ? (
-            realWitnesses.map((w) => (
-              <div className={`witness wb-${c}`} key={w}>
-                {w}
+          {hasAbout && (
+            <div className="card-section">
+              <div className={`card-section-label sl-${c}`}>About</div>
+              <div className="card-section-value">{h.details}</div>
+            </div>
+          )}
+          <div className="card-section">
+            <div className={`card-section-label sl-${c}`}>Witnesses</div>
+            {realWitnesses ? (
+              realWitnesses.map((w) => (
+                <div className={`witness wb-${c}`} key={w}>
+                  {w}
+                </div>
+              ))
+            ) : (
+              <div className="faint-italic" style={{ fontSize: 12, paddingLeft: 10 }}>
+                Not yet posted
               </div>
-            ))
-          ) : (
-            <div className="faint-italic" style={{ fontSize: 12, paddingLeft: 10 }}>
-              Not yet posted
+            )}
+          </div>
+          {h.link && (
+            <div className="card-section">
+              <a className="watch-link" href={h.link} target="_blank" rel="noopener" onClick={(e) => e.stopPropagation()}>
+                <LiveDotIcon className="watch-link__dot" /> Watch / committee hearings page
+              </a>
             </div>
           )}
         </div>
-        {h.link && (
-          <div className="card-section">
-            <a className="watch-link" href={h.link} target="_blank" rel="noopener" onClick={(e) => e.stopPropagation()}>
-              🔴 Watch / committee hearings page ↗
-            </a>
-          </div>
-        )}
       </div>
     </div>
   );

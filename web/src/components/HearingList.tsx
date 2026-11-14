@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Hearing } from "@/lib/types";
 import HearingCard from "./HearingCard";
+import { BoltIcon, CapitolIcon, InfoIcon, XIcon } from "./icons";
 
 type Filter = "All" | "Senate" | "House" | "Joint" | "Updated" | "Cancelled";
 const FILTERS: Filter[] = ["All", "Senate", "House", "Joint", "Updated", "Cancelled"];
@@ -21,7 +22,7 @@ export default function HearingList({ hearings }: { hearings: Hearing[] }) {
     return (
       <div className="cards">
         <div className="empty empty--hero">
-          <div className="empty__icon">🏛</div>
+          <CapitolIcon size={32} className="empty__icon" />
           <div className="empty__title">No hearings today</div>
           <div className="empty__sub">Congress may be in recess or no committees are scheduled. Check back tomorrow.</div>
         </div>
@@ -38,7 +39,17 @@ export default function HearingList({ hearings }: { hearings: Hearing[] }) {
             className={`filter-btn${filter === f ? " active" : ""}`}
             onClick={() => setFilter(f)}
           >
-            {f === "Updated" ? "⚡ Updated" : f === "Cancelled" ? "✕ Cancelled" : f}
+            {f === "Updated" ? (
+              <>
+                <BoltIcon /> Updated
+              </>
+            ) : f === "Cancelled" ? (
+              <>
+                <XIcon size={9} /> Cancelled
+              </>
+            ) : (
+              f
+            )}
           </button>
         ))}
       </div>
@@ -55,7 +66,9 @@ export default function HearingList({ hearings }: { hearings: Hearing[] }) {
             ))}
           </div>
         )}
-        <div className="source-note">ℹ Auto-updated every 2 hrs · docs.house.gov · senate.gov · Individual committee pages</div>
+        <div className="source-note">
+          <InfoIcon /> Auto-updated every 2 hrs · docs.house.gov · senate.gov · Individual committee pages
+        </div>
       </div>
     </>
   );

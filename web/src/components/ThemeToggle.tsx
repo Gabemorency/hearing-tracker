@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { SunIcon, MoonIcon } from "./icons";
 
 // Theme lives outside React — in the `.light` class on <html> (set by the
 // pre-hydration bootstrap script in layout.tsx) and in localStorage — so
@@ -43,7 +44,7 @@ export default function ThemeToggle() {
       title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       aria-label="Toggle light/dark mode"
     >
-      {theme === "dark" ? "☀️" : "🌙"}
+      {theme === "dark" ? <SunIcon /> : <MoonIcon />}
     </button>
   );
 }
