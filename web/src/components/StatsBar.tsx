@@ -11,17 +11,17 @@ export default function StatsBar({
   house: number;
   joint: number;
 }) {
-  const stats: Array<[string, number, string]> = [
-    ["Active", active, "var(--stat-active)"],
-    ["Total", total, "var(--text-secondary)"],
-    ["Senate", senate, "var(--gold)"],
-    ["House", house, "var(--blue)"],
-    ["Joint", joint, "var(--purple)"],
+  const stats: Array<[string, number, string, string]> = [
+    ["Active", active, "var(--stat-active)", "var(--stat-active)"],
+    ["Total", total, "var(--text-secondary)", "var(--text-muted)"],
+    ["Senate", senate, "var(--gold)", "var(--gold)"],
+    ["House", house, "var(--blue)", "var(--blue)"],
+    ["Joint", joint, "var(--purple)", "var(--purple)"],
   ];
   return (
     <div className="stats">
-      {stats.map(([label, value, color]) => (
-        <div className="stat" key={label}>
+      {stats.map(([label, value, color, accent]) => (
+        <div className="stat" key={label} style={{ borderTopColor: accent }}>
           <div className="stat-number" style={{ color }}>
             {value}
           </div>
