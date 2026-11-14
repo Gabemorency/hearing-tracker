@@ -9,6 +9,7 @@ const NAV = [
   { href: "/", label: "Hearings" },
   { href: "/members", label: "Members" },
   { href: "/calendar", label: "Calendar" },
+  { href: "/search", label: "Search" },
 ] as const;
 
 export default function Header({
@@ -34,15 +35,18 @@ export default function Header({
         <ThemeToggle />
       </div>
       <nav className="site-nav">
-        {NAV.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`site-nav__link${pathname === item.href ? " site-nav__link--active" : ""}`}
-          >
-            {item.label}
-          </Link>
-        ))}
+        {NAV.map((item) => {
+          const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+          return (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`site-nav__link${active ? " site-nav__link--active" : ""}`}
+            >
+              {item.label}
+            </Link>
+          );
+        })}
       </nav>
     </>
   );
