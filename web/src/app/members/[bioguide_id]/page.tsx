@@ -7,6 +7,8 @@ import { currentTerm, initials, partyClass } from "@/components/MemberCard";
 import ErrorPanel from "@/components/ErrorPanel";
 import MemberAvatar from "@/components/MemberAvatar";
 import SourceNote from "@/components/SourceNote";
+import DistrictMap, { type DistrictGeometry } from "@/components/DistrictMap";
+import { currentCongress } from "@/lib/congress";
 
 export const dynamic = "force-dynamic";
 
@@ -58,6 +60,23 @@ export default async function MemberDetailPage({
   const pc = partyClass(term?.party ?? null);
   const terms = [...m.member_terms].sort((a, b) => b.start_date.localeCompare(a.start_date));
 
+  let districtGeometry: DistrictGeometry | null = null;
+  let mapLabel = "";
+  if (term) {
+    const districtKey = term.chamber === "Senate" ? "" : (term.district ?? "0");
+    mapLabel = term.chamber === "Senate" ? term.state : `${term.state}-${term.district ?? "AL"}`;
+    const todayIso = new Date().toISOString().slice(0, 10);
+    const { congress } = currentCongress(todayIso);
+    const { data: shapeRow } = await supabase
+      .from("district_shapes")
+      .select("geometry")
+      .eq("congress", congress)
+      .eq("state", term.state)
+      .eq("district", districtKey)
+      .maybeSingle();
+    districtGeometry = (shapeRow?.geometry as DistrictGeometry | undefined) ?? null;
+  }
+
   const seatLine = term
     ? term.chamber === "Senate"
       ? `U.S. Senator for ${term.state}${term.party ? ` · ${term.party}` : ""}`
@@ -89,6 +108,13 @@ export default async function MemberDetailPage({
           {m.delegate && <div className="member-detail__note">Non-voting delegate</div>}
         </div>
       </div>
+
+      {districtGeometry && (
+        <div className="panel district-map-panel">
+          <DistrictMap geometry={districtGeometry} size={180} label={`Map of ${mapLabel}`} />
+          <div className="district-map-caption">{mapLabel}</div>
+        </div>
+      )}
 
       {m.bio && (
         <div className="panel" style={{ marginTop: 18, padding: "16px 18px" }}>

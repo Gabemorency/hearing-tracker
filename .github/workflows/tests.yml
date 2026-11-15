@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install pytest playwright beautifulsoup4 lxml pdfplumber requests pyyaml
+        run: pip install pytest playwright beautifulsoup4 lxml pdfplumber requests pyyaml pyshp
 
       - name: Run smoke tests
         run: python -m pytest tests/ -v
