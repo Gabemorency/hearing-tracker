@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import type { InstitutionalLeadership, Member } from "@/lib/types";
 import Header from "@/components/Header";
 import MemberDirectory from "@/components/MemberDirectory";
+import ErrorPanel from "@/components/ErrorPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -21,11 +22,7 @@ export default async function MembersPage() {
     <div className="page">
       <Header title="Members of Congress" timestamp={`${(members ?? []).length} current members · House and Senate`} />
       {membersError ? (
-        <div className="panel" style={{ marginTop: 18 }}>
-          <div className="row" style={{ color: "var(--text-dim)" }}>
-            Couldn&apos;t reach Supabase: {membersError.message}
-          </div>
-        </div>
+        <ErrorPanel message={membersError.message} />
       ) : (
         <MemberDirectory
           members={(members ?? []) as Member[]}

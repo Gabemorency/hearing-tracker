@@ -47,6 +47,9 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: THEME_BOOTSTRAP }} />
       </head>
       <body className={`${playfair.variable} ${plexSans.variable} ${plexMono.variable}`}>
+        <a href="#bottom-nav" className="skip-link">
+          Skip to navigation
+        </a>
         {children}
         <BottomNav />
       </body>

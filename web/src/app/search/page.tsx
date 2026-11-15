@@ -3,6 +3,7 @@ import type { Hearing } from "@/lib/types";
 import Header from "@/components/Header";
 import HearingCard from "@/components/HearingCard";
 import { CapitolIcon, SearchIcon } from "@/components/icons";
+import ErrorPanel from "@/components/ErrorPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -72,11 +73,7 @@ export default async function SearchPage({
       </form>
 
       {error ? (
-        <div className="panel" style={{ marginTop: 18 }}>
-          <div className="row" style={{ color: "var(--text-dim)" }}>
-            Couldn&apos;t reach Supabase: {error}
-          </div>
-        </div>
+        <ErrorPanel message={error} />
       ) : !query ? (
         <div className="cards">
           <div className="empty empty--hero">

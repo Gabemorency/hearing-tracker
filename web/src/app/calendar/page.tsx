@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase/server";
 import type { Hearing } from "@/lib/types";
 import Header from "@/components/Header";
 import CalendarGrid from "@/components/CalendarGrid";
+import ErrorPanel from "@/components/ErrorPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -85,11 +86,7 @@ export default async function CalendarPage({
     <div className="page">
       <Header title="Hearing Calendar" timestamp="Tap any day to see what's scheduled." />
       {error ? (
-        <div className="panel" style={{ marginTop: 18 }}>
-          <div className="row" style={{ color: "var(--text-dim)" }}>
-            Couldn&apos;t reach Supabase: {error.message}
-          </div>
-        </div>
+        <ErrorPanel message={error.message} />
       ) : (
         <CalendarGrid
           year={year}

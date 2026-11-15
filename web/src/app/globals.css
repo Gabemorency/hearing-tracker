@@ -151,6 +151,25 @@ a { color: inherit; }
   border-radius: 4px;
 }
 
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  z-index: 100;
+  background: var(--brand);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus-visible {
+  top: 8px;
+  outline-offset: 0;
+}
+
 /* ── Responsive page column ──────────────────────────────────────────────
    Mobile-first (matches the static site's feel), widening at two
    breakpoints so desktop gets real breathing room instead of a narrow
@@ -161,6 +180,9 @@ a { color: inherit; }
 }
 @media (min-width: 900px) {
   .page { max-width: 760px; padding: 40px 32px 140px; }
+}
+@media (min-width: 1200px) {
+  .page { max-width: 1040px; padding: 48px 40px 140px; }
 }
 
 h1 {
@@ -183,6 +205,21 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 }
 .row { padding: 14px 0; border-bottom: 1px solid var(--border); }
 .row:last-child { border-bottom: 0; }
+
+.error-panel .row { border-bottom: 0; padding: 18px 0; text-align: center; }
+.error-panel__title { font-family: var(--display); font-size: 17px; color: var(--text-muted); margin-bottom: 6px; }
+.error-panel__sub { font-size: 13px; color: var(--text-dim); margin-bottom: 10px; }
+.error-panel__details { font-size: 12px; color: var(--text-faint); }
+.error-panel__details summary { cursor: pointer; }
+.error-panel__details code {
+  display: block;
+  margin-top: 8px;
+  padding: 10px 12px;
+  background: var(--bg-source);
+  border-radius: 8px;
+  word-break: break-word;
+  text-align: left;
+}
 
 .empty { text-align: center; padding: 40px 20px; color: var(--text-faint); font-size: 13px; }
 .empty--hero { padding: 60px 20px; }
