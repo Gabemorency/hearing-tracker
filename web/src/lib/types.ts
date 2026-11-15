@@ -3,6 +3,7 @@ export type Chamber = "Senate" | "House" | "Joint";
 export type Hearing = {
   id: number;
   date?: string;
+  updated_at?: string;
   chamber: Chamber;
   committee: string;
   chair: string | null;
