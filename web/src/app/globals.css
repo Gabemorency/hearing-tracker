@@ -387,12 +387,15 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 .card-list > .card:nth-child(n+6) { animation-delay: 200ms; }
 
 .card {
+  display: block;
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 16px 18px;
   cursor: pointer;
   background: var(--bg-card);
   box-shadow: var(--shadow-card);
+  text-decoration: none;
+  color: inherit;
   transition: background 0.2s var(--ease), box-shadow 0.25s var(--ease), transform 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-card-hover); border-color: var(--border-header); }
@@ -428,6 +431,25 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 .tag-joint  { background: var(--joint-bg);  color: var(--purple); border: 1px solid var(--joint-border); }
 .tag-cancelled { background: rgba(200,60,60,0.15); color: var(--danger); border: 1px solid rgba(200,60,60,0.3); }
 .tag-updated { display: inline-flex; background: rgba(224,184,112,0.12); color: var(--gold); border: 1px solid rgba(224,184,112,0.3); }
+.tag-vote-pass { background: rgba(82,201,140,0.15); color: var(--stat-active); border: 1px solid rgba(82,201,140,0.4); }
+
+.vote-tally { font-family: var(--mono); font-size: 18px; font-weight: 700; white-space: nowrap; }
+.vote-tally__yea { color: var(--stat-active); }
+.vote-tally__nay { color: var(--danger); }
+.vote-tally__sep { color: var(--text-faint); margin: 0 3px; }
+
+.vote-roster { display: flex; flex-wrap: wrap; gap: 6px; padding-left: 2px; }
+.vote-roster__member {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--bg-source);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 3px 8px;
+  text-decoration: none;
+  transition: border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+.vote-roster__member:hover { border-color: var(--brand); color: var(--brand); }
 
 .card-time { font-family: var(--mono); font-size: 11px; color: var(--text-secondary); letter-spacing: 0.04em; }
 .card-committee { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.4; margin-bottom: 3px; }

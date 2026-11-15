@@ -48,6 +48,34 @@ export type InstitutionalLeadership = {
   tier: number;
 };
 
+export type VotePosition = "Yea" | "Nay" | "Present" | "Not Voting";
+
+export type Vote = {
+  congress: number;
+  session: number;
+  chamber: MemberChamber;
+  roll_number: number;
+  date: string;
+  question: string;
+  description: string | null;
+  bill_number: string | null;
+  result: string;
+  yea_count: number;
+  nay_count: number;
+  present_count: number;
+  not_voting_count: number;
+};
+
+export type MemberVote = {
+  congress: number;
+  session: number;
+  chamber: MemberChamber;
+  roll_number: number;
+  member_id: string;
+  position: VotePosition;
+  members?: { full_name: string; bioguide_id: string } | null;
+};
+
 export type CommitteeMembership = {
   committee: string;
   chamber: MemberChamber | "Joint";

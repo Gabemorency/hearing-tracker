@@ -137,6 +137,15 @@ export function CommitteeIcon({ size = 20, className }: IconProps) {
   );
 }
 
+export function VoteIcon({ size = 20, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="2" />
+      <path d="M7.5 12.5 10.5 15.5 16.5 8.5" />
+    </svg>
+  );
+}
+
 export function LiveDotIcon({ size = 9, className }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 10 10" className={className} aria-hidden="true">
