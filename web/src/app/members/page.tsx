@@ -1,14 +1,15 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { InstitutionalLeadership, Member } from "@/lib/types";
 import Header from "@/components/Header";
 import MemberDirectory from "@/components/MemberDirectory";
 import ErrorPanel from "@/components/ErrorPanel";
 import SourceNote from "@/components/SourceNote";
 
-export const dynamic = "force-dynamic";
+// Cached for 5 minutes (ISR) — the roster only changes on the nightly sync.
+export const revalidate = 300;
 
 export default async function MembersPage() {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
 
   const [{ data: members, error: membersError }, { data: leadership }] = await Promise.all([
     supabase

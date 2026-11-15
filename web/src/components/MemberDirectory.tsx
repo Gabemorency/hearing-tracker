@@ -67,7 +67,11 @@ export default function MemberDirectory({
         ))}
         <span style={{ width: 1, background: "var(--border)", margin: "0 2px" }} />
         {(["All", "D", "R", "I"] as const).map((p) => (
-          <button key={p} className={`chip${party === p ? " active" : ""}`} onClick={() => setParty(p)}>
+          <button
+            key={p}
+            className={`chip${party === p ? ` active chip--party-${p.toLowerCase()}` : ""}`}
+            onClick={() => setParty(p)}
+          >
             {p === "All" ? "All parties" : p}
           </button>
         ))}

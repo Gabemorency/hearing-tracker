@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+import { ViewTransition } from "react";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { InstitutionalLeadership, Member } from "@/lib/types";
 import Header from "@/components/Header";
 import { currentTerm, initials, partyClass } from "@/components/MemberCard";
@@ -8,16 +9,13 @@ import ErrorPanel from "@/components/ErrorPanel";
 import MemberAvatar from "@/components/MemberAvatar";
 import SourceNote from "@/components/SourceNote";
 import DistrictMap, { type DistrictGeometry } from "@/components/DistrictMap";
+import TermHistory from "@/components/TermHistory";
 import { currentCongress } from "@/lib/congress";
 
-export const dynamic = "force-dynamic";
-
-function formatDate(iso: string) {
-  const [y, m, d] = iso.split("-").map(Number);
-  return new Intl.DateTimeFormat("en-US", { year: "numeric", month: "short", day: "numeric" }).format(
-    new Date(Date.UTC(y, m - 1, d, 12)),
-  );
-}
+// Cached for 5 minutes per bioguide_id (ISR) — a member's bio/terms only
+// change on the nightly sync. Pages are generated on-demand per id on
+// first visit, not all up front at build time.
+export const revalidate = 300;
 
 export default async function MemberDetailPage({
   params,
@@ -25,7 +23,7 @@ export default async function MemberDetailPage({
   params: Promise<{ bioguide_id: string }>;
 }) {
   const { bioguide_id } = await params;
-  const supabase = await createClient();
+  const supabase = createPublicClient();
 
   const [{ data: member, error }, { data: leadership }] = await Promise.all([
     supabase
@@ -60,21 +58,27 @@ export default async function MemberDetailPage({
   const pc = partyClass(term?.party ?? null);
   const terms = [...m.member_terms].sort((a, b) => b.start_date.localeCompare(a.start_date));
 
-  let districtGeometry: DistrictGeometry | null = null;
+  let stateGeometry: DistrictGeometry | null = null;
+  const districtEntries: { id: string; geometry: DistrictGeometry }[] = [];
+  let highlightId: string | undefined;
   let mapLabel = "";
   if (term) {
-    const districtKey = term.chamber === "Senate" ? "" : (term.district ?? "0");
+    highlightId = term.chamber === "Senate" ? undefined : (term.district ?? "0");
     mapLabel = term.chamber === "Senate" ? term.state : `${term.state}-${term.district ?? "AL"}`;
     const todayIso = new Date().toISOString().slice(0, 10);
     const { congress } = currentCongress(todayIso);
-    const { data: shapeRow } = await supabase
+    const { data: shapeRows } = await supabase
       .from("district_shapes")
-      .select("geometry")
+      .select("district, geometry")
       .eq("congress", congress)
-      .eq("state", term.state)
-      .eq("district", districtKey)
-      .maybeSingle();
-    districtGeometry = (shapeRow?.geometry as DistrictGeometry | undefined) ?? null;
+      .eq("state", term.state);
+    for (const row of shapeRows ?? []) {
+      if (row.district === "") {
+        stateGeometry = row.geometry as DistrictGeometry;
+      } else {
+        districtEntries.push({ id: row.district, geometry: row.geometry as DistrictGeometry });
+      }
+    }
   }
 
   const seatLine = term
@@ -94,7 +98,9 @@ export default async function MemberDetailPage({
       </Link>
 
       <div className="member-detail">
-        <MemberAvatar photoUrl={m.photo_url} initials={initials(m.full_name)} partyClass={pc} name={m.full_name} large />
+        <ViewTransition name={`member-avatar-${m.bioguide_id}`}>
+          <MemberAvatar photoUrl={m.photo_url} initials={initials(m.full_name)} partyClass={pc} name={m.full_name} large />
+        </ViewTransition>
         <div className="member-detail__info">
           <div className="member-detail__name">
             {m.full_name}
@@ -109,9 +115,15 @@ export default async function MemberDetailPage({
         </div>
       </div>
 
-      {districtGeometry && (
+      {stateGeometry && (
         <div className="panel district-map-panel">
-          <DistrictMap geometry={districtGeometry} size={180} label={`Map of ${mapLabel}`} />
+          <DistrictMap
+            stateGeometry={stateGeometry}
+            districts={districtEntries}
+            highlightId={highlightId}
+            size={220}
+            label={`Map of ${mapLabel}`}
+          />
           <div className="district-map-caption">{mapLabel}</div>
         </div>
       )}
@@ -130,30 +142,7 @@ export default async function MemberDetailPage({
       )}
 
       <h2>Term History</h2>
-      {terms.length === 0 ? (
-        <div className="empty">No term records on file.</div>
-      ) : (
-        <div className="term-list">
-          {terms.map((t, i) => (
-            <div className="term-item" key={i}>
-              <div className={`term-item__chamber bc-${t.chamber === "Senate" ? "senate" : "house"}`}>
-                {t.chamber === "Senate" ? "Senate" : "House"}
-              </div>
-              <div className="term-item__body">
-                <div className="term-item__seat">
-                  {t.state}
-                  {t.chamber === "House" ? `-${t.district ?? "AL"}` : ""}
-                  {t.party ? ` · ${t.party}` : ""}
-                </div>
-                <div className="term-item__dates">
-                  {formatDate(t.start_date)} – {t.end_date ? formatDate(t.end_date) : "Present"}
-                </div>
-              </div>
-              {!t.end_date && <span className="tag tag-senate">Current</span>}
-            </div>
-          ))}
-        </div>
-      )}
+      <TermHistory terms={terms} />
 
       <SourceNote>Member data: unitedstates/congress-legislators · Photos: unitedstates/images</SourceNote>
     </div>

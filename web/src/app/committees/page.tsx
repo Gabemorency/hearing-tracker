@@ -1,11 +1,12 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { CommitteeMembership } from "@/lib/types";
 import Header from "@/components/Header";
 import ErrorPanel from "@/components/ErrorPanel";
 import SourceNote from "@/components/SourceNote";
 import CommitteeDirectory, { type CommitteeGroup } from "@/components/CommitteeDirectory";
 
-export const dynamic = "force-dynamic";
+// Cached for 5 minutes (ISR) — rosters only change on the nightly sync.
+export const revalidate = 300;
 
 function roleRank(role: string) {
   const r = role.toLowerCase();
@@ -16,7 +17,7 @@ function roleRank(role: string) {
 }
 
 export default async function CommitteesPage() {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const { data, error } = await supabase
     .from("committee_memberships")
     .select("committee, chamber, role, rank, is_full_committee, member_id, members(full_name, bioguide_id)")

@@ -15,6 +15,12 @@ function labelKind(label: string): "cancelled" | "holiday" | "default" {
   return "default";
 }
 
+// A day cell shows at most one status dot — pick the most significant
+// label rather than stacking one per label.
+function priorityLabel(labels: string[]) {
+  return labels.find((l) => labelKind(l) === "cancelled") ?? labels.find((l) => labelKind(l) === "holiday") ?? labels[0];
+}
+
 function dayLabel(iso: string) {
   const [y, m, d] = iso.split("-").map(Number);
   const date = new Date(Date.UTC(y, m - 1, d, 12));
@@ -105,14 +111,10 @@ export default function CalendarGrid({
               onClick={() => setSelected(iso)}
             >
               <span className="cal-cell__num">{dayNum}</span>
-              {dayHearings.length > 0 && <span className="cal-cell__count">{dayHearings.length}</span>}
-              {labels.length > 0 && (
-                <span className="cal-cell__dots">
-                  {labels.slice(0, 3).map((l, i) => (
-                    <span key={i} className={`cal-cell__dot cal-cell__dot--${labelKind(l)}`} />
-                  ))}
-                </span>
-              )}
+              <span className="cal-cell__meta">
+                {dayHearings.length > 0 && <span className="cal-cell__count">{dayHearings.length}</span>}
+                {labels.length > 0 && <span className={`cal-cell__dot cal-cell__dot--${labelKind(priorityLabel(labels))}`} />}
+              </span>
             </button>
           );
         })}

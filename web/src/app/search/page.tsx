@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { Hearing } from "@/lib/types";
 import Header from "@/components/Header";
 import HearingCard from "@/components/HearingCard";
@@ -6,7 +6,9 @@ import { CapitolIcon, SearchIcon } from "@/components/icons";
 import ErrorPanel from "@/components/ErrorPanel";
 import SourceNote from "@/components/SourceNote";
 
-export const dynamic = "force-dynamic";
+// Reading `searchParams` (for ?q=) forces fully dynamic rendering the same
+// way cookies()/headers() do, so `revalidate` wouldn't do anything here —
+// no ISR caching for this one without opting into Cache Components.
 
 function formatDateLabel(iso: string) {
   if (iso === "unknown") return "Unknown date";
@@ -28,7 +30,7 @@ export default async function SearchPage({
 }) {
   const { q } = await searchParams;
   const query = (q ?? "").trim();
-  const supabase = await createClient();
+  const supabase = createPublicClient();
 
   let hearings: Hearing[] = [];
   let error: string | null = null;

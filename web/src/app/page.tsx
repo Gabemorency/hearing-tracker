@@ -1,15 +1,20 @@
 import Link from "next/link";
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { Hearing, InstitutionalLeadership, MemberTerm } from "@/lib/types";
 import Header from "@/components/Header";
 import ErrorPanel from "@/components/ErrorPanel";
 import HearingCard from "@/components/HearingCard";
 import MemberAvatar from "@/components/MemberAvatar";
+import DashboardWeekStrip from "@/components/DashboardWeekStrip";
 import { currentTerm, initials, partyClass } from "@/components/MemberCard";
-import { BoltIcon, CalendarGridIcon, XIcon } from "@/components/icons";
+import { BoltIcon, CalendarGridIcon, ChevronIcon, XIcon } from "@/components/icons";
 import { currentCongress, ordinal } from "@/lib/congress";
 
-export const dynamic = "force-dynamic";
+// Cached for 60s and re-fetched on the next request after that (ISR) —
+// hearings only update every 2 hours anyway, so this is well within
+// freshness tolerance, and it means repeat visits within that window are
+// instant instead of re-running the whole query chain below.
+export const revalidate = 60;
 
 type LeaderMember = {
   bioguide_id: string;
@@ -39,13 +44,12 @@ function dayAbbrev(iso: string) {
 }
 
 export default async function DashboardPage() {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const now = new Date();
   const today = isoDate(now);
   const weekEnd = addDays(today, 6);
   const activityStart = addDays(today, -7);
   const activityEnd = addDays(today, 7);
-  const monthParam = today.slice(0, 7);
 
   const [
     { data: todayData, error: todayError },
@@ -61,7 +65,12 @@ export default async function DashboardPage() {
       .eq("date", today)
       .order("time", { ascending: true }),
     supabase.from("domewatch_calendar").select("labels").eq("date", today).maybeSingle(),
-    supabase.from("hearings").select("date, cancelled").gte("date", today).lte("date", weekEnd),
+    supabase
+      .from("hearings")
+      .select("id, date, chamber, committee, chair, time, building, room, topic, details, witnesses, cancelled, changes, link")
+      .gte("date", today)
+      .lte("date", weekEnd)
+      .order("time", { ascending: true }),
     supabase.from("domewatch_calendar").select("date, labels").gte("date", today).lte("date", weekEnd),
     supabase
       .from("institutional_leadership")
@@ -81,16 +90,29 @@ export default async function DashboardPage() {
   const todayLabels = (todayLabelRow?.labels ?? []) as string[];
   const nextUp = todayHearings.find((h) => !h.cancelled) ?? null;
 
-  const weekCounts = new Map<string, number>();
-  for (const row of weekHearings ?? []) {
-    if (row.cancelled) continue;
-    weekCounts.set(row.date, (weekCounts.get(row.date) ?? 0) + 1);
+  const weekHearingsByDate = new Map<string, Hearing[]>();
+  for (const h of (weekHearings ?? []) as Hearing[]) {
+    const key = h.date ?? "unknown";
+    if (!weekHearingsByDate.has(key)) weekHearingsByDate.set(key, []);
+    weekHearingsByDate.get(key)!.push(h);
   }
   const weekLabelsByDate = new Map<string, string[]>();
   for (const row of weekLabels ?? []) {
     weekLabelsByDate.set(row.date, (row.labels ?? []) as string[]);
   }
-  const weekDays = Array.from({ length: 7 }, (_, i) => addDays(today, i));
+  const weekDays = Array.from({ length: 7 }, (_, i) => {
+    const iso = addDays(today, i);
+    const hearings = weekHearingsByDate.get(iso) ?? [];
+    return {
+      iso,
+      dayLabel: dayAbbrev(iso),
+      dayNum: Number(iso.slice(8, 10)),
+      isToday: iso === today,
+      count: hearings.filter((h) => !h.cancelled).length,
+      hasLabel: (weekLabelsByDate.get(iso) ?? []).length > 0,
+      hearings,
+    };
+  });
   const { congress } = currentCongress(today);
 
   const leadership = (leadershipRows ?? []) as InstitutionalLeadership[];
@@ -134,25 +156,7 @@ export default async function DashboardPage() {
           )}
 
           <h2>This week</h2>
-          <div className="dash-week-strip">
-            {weekDays.map((iso) => {
-              const count = weekCounts.get(iso) ?? 0;
-              const labels = weekLabelsByDate.get(iso) ?? [];
-              const isToday = iso === today;
-              return (
-                <Link
-                  href={`/calendar?month=${monthParam}`}
-                  key={iso}
-                  className={`dash-week-day${isToday ? " dash-week-day--today" : ""}`}
-                >
-                  <span className="dash-week-day__label">{dayAbbrev(iso)}</span>
-                  <span className="dash-week-day__num">{Number(iso.slice(8, 10))}</span>
-                  {count > 0 && <span className="dash-week-day__count">{count}</span>}
-                  {labels.length > 0 && <span className="dash-week-day__dot" />}
-                </Link>
-              );
-            })}
-          </div>
+          <DashboardWeekStrip days={weekDays} />
           <Link href="/calendar" className="dash-more-link">
             <CalendarGridIcon size={14} /> Open full calendar
           </Link>
@@ -186,17 +190,21 @@ export default async function DashboardPage() {
           {recentActivity.length > 0 && (
             <>
               <h2>Recent activity</h2>
-              <div className="update-timeline">
+              <div className="panel dash-activity-panel">
                 {recentActivity.map((h) => {
                   const lastChange = h.changes[h.changes.length - 1];
                   const isCancelled = lastChange.toLowerCase().includes("cancel");
                   return (
-                    <div className={`update-timeline-item${isCancelled ? " cancelled" : ""}`} key={h.id}>
-                      {isCancelled ? <XIcon size={10} /> : <BoltIcon />}
-                      <span>
-                        <strong>{h.committee}</strong> — {lastChange}
+                    <Link href={`/calendar?month=${(h.date ?? today).slice(0, 7)}`} className="dash-activity-item" key={h.id}>
+                      <span className={`dash-activity-item__icon${isCancelled ? " dash-activity-item__icon--cancelled" : ""}`}>
+                        {isCancelled ? <XIcon size={10} /> : <BoltIcon />}
                       </span>
-                    </div>
+                      <span className="dash-activity-item__body">
+                        <span className="dash-activity-item__title">{h.committee}</span>
+                        <span className="dash-activity-item__desc">{lastChange}</span>
+                      </span>
+                      <ChevronIcon className="dash-activity-item__chevron" />
+                    </Link>
                   );
                 })}
               </div>
