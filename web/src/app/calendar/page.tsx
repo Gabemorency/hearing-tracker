@@ -1,11 +1,13 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { Hearing } from "@/lib/types";
 import Header from "@/components/Header";
 import CalendarGrid from "@/components/CalendarGrid";
 import ErrorPanel from "@/components/ErrorPanel";
 import SourceNote from "@/components/SourceNote";
 
-export const dynamic = "force-dynamic";
+// Reading `searchParams` (for ?month=) forces fully dynamic rendering the
+// same way cookies()/headers() do, so `revalidate` wouldn't do anything
+// here — no ISR caching for this one without opting into Cache Components.
 
 function isoDate(d: Date) {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(d);
@@ -41,7 +43,7 @@ export default async function CalendarPage({
   searchParams: Promise<{ month?: string }>;
 }) {
   const { month: monthParam } = await searchParams;
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const now = new Date();
   const todayIso = isoDate(now);
   const [todayY, todayM] = todayIso.split("-").map(Number);

@@ -26,7 +26,7 @@ export default function BottomNav() {
             href={href}
             className={`bottom-nav__item${active ? " bottom-nav__item--active" : ""}`}
           >
-            <Icon size={21} />
+            <Icon size={24} />
             <span>{label}</span>
           </Link>
         );

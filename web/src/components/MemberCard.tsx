@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ViewTransition } from "react";
 import type { InstitutionalLeadership, Member, MemberTerm } from "@/lib/types";
 import MemberAvatar from "./MemberAvatar";
 
@@ -36,12 +37,14 @@ export default function MemberCard({ member, leadership }: { member: Member; lea
 
   return (
     <Link href={`/members/${member.bioguide_id}`} className="member-card">
-      <MemberAvatar
-        photoUrl={member.photo_url}
-        initials={initials(member.full_name)}
-        partyClass={pc}
-        name={member.full_name}
-      />
+      <ViewTransition name={`member-avatar-${member.bioguide_id}`}>
+        <MemberAvatar
+          photoUrl={member.photo_url}
+          initials={initials(member.full_name)}
+          partyClass={pc}
+          name={member.full_name}
+        />
+      </ViewTransition>
       <div className="member-info">
         <div className="member-name">{member.full_name}</div>
         <div className="member-seat">{seat}</div>

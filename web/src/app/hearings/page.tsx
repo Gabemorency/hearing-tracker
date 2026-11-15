@@ -1,14 +1,13 @@
-import { createClient } from "@/lib/supabase/server";
+import { createPublicClient } from "@/lib/supabase/public";
 import type { Hearing } from "@/lib/types";
 import Header from "@/components/Header";
 import StatsBar from "@/components/StatsBar";
 import HearingList from "@/components/HearingList";
 import ErrorPanel from "@/components/ErrorPanel";
 
-// Always rendered per-request — this page reads live data, and without
-// this Next would try to prerender it at build time (failing wherever
-// Supabase env vars aren't set, e.g. a fresh checkout or CI).
-export const dynamic = "force-dynamic";
+// Cached for 60s (ISR) — hearings only update every 2 hours, so this is
+// well within freshness tolerance and makes repeat visits instant.
+export const revalidate = 60;
 
 function formatTimestamp(now: Date) {
   const datePart = new Intl.DateTimeFormat("en-US", {
@@ -28,7 +27,7 @@ function formatTimestamp(now: Date) {
 }
 
 export default async function HearingsPage() {
-  const supabase = await createClient();
+  const supabase = createPublicClient();
   const now = new Date();
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(now); // en-CA -> YYYY-MM-DD
 
