@@ -37,6 +37,32 @@ function dayAbbrev(iso: string) {
   return new Intl.DateTimeFormat("en-US", { timeZone: "UTC", weekday: "short" }).format(date);
 }
 
+// Self-computing, same convention as the Python scrapers' ET/DST offset —
+// no hardcoded congress number to remember to bump every two years. A new
+// Congress is sworn in at noon ET on January 3rd of each odd year.
+function currentCongress(iso: string) {
+  const [y, m, d] = iso.split("-").map(Number);
+  const effectiveYear = m === 1 && d < 3 ? y - 1 : y;
+  const congress = Math.floor((effectiveYear - 1789) / 2) + 1;
+  const session = (effectiveYear - 1789) % 2 === 0 ? 1 : 2;
+  return { congress, session };
+}
+
+function ordinal(n: number) {
+  const v = n % 100;
+  if (v >= 11 && v <= 13) return `${n}th`;
+  switch (n % 10) {
+    case 1:
+      return `${n}st`;
+    case 2:
+      return `${n}nd`;
+    case 3:
+      return `${n}rd`;
+    default:
+      return `${n}th`;
+  }
+}
+
 export default async function DashboardPage() {
   const supabase = await createClient();
   const now = new Date();
@@ -90,6 +116,7 @@ export default async function DashboardPage() {
     weekLabelsByDate.set(row.date, (row.labels ?? []) as string[]);
   }
   const weekDays = Array.from({ length: 7 }, (_, i) => addDays(today, i));
+  const { congress } = currentCongress(today);
 
   const leadership = (leadershipRows ?? []) as InstitutionalLeadership[];
   let leaderMembers: Map<string, LeaderMember> = new Map();
@@ -113,6 +140,7 @@ export default async function DashboardPage() {
   return (
     <div className="page">
       <Header title="Dashboard" timestamp="Your overview of what's happening in Congress right now." />
+      <div className="congress-badge">{ordinal(congress)} Congress</div>
 
       {todayError ? (
         <ErrorPanel message={todayError.message} />

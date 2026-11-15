@@ -820,6 +820,21 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 .term-item__dates { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
 
 /* ── Dashboard ─────────────────────────────────────────────────────────── */
+.congress-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand);
+  background: var(--bg-header);
+  border: 1px solid var(--border-header);
+  border-radius: 999px;
+  padding: 4px 12px;
+  margin-bottom: 18px;
+}
 .dash-week-strip {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
