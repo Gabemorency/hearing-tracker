@@ -249,29 +249,44 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 .theme-toggle:hover { background: var(--bg-card-open); border-color: var(--border-header); transform: translateY(-1px); }
 .theme-toggle:active { transform: translateY(0); }
 
-/* ── Nav ───────────────────────────────────────────────────────────────── */
-.site-nav {
+/* ── Bottom nav ────────────────────────────────────────────────────────── */
+.bottom-nav {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  z-index: 40;
   display: flex;
-  gap: 2px;
-  border-bottom: 1px solid var(--border);
-  margin: 0 -16px 20px;
-  padding: 0 16px;
+  justify-content: space-around;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+  backdrop-filter: blur(10px);
 }
-@media (min-width: 640px) { .site-nav { margin: 0 0 24px; padding: 0; } }
-.site-nav__link {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  max-width: 110px;
+  padding: 6px 4px;
+  border-radius: 10px;
   text-decoration: none;
-  padding: 10px 14px 10px 0;
-  margin-right: 14px;
-  border-bottom: 2px solid transparent;
-  color: var(--text-muted);
-  transition: color 0.18s var(--ease), border-color 0.18s var(--ease);
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  transition: color 0.16s var(--ease), background 0.16s var(--ease);
 }
-.site-nav__link:hover { color: var(--text-primary); }
-.site-nav__link--active { color: var(--brand); border-bottom-color: var(--brand); }
-.site-nav__link--active:hover { color: var(--brand); }
+.bottom-nav__item:hover { color: var(--text-primary); background: var(--bg-card); }
+.bottom-nav__item--active { color: var(--brand); }
+.bottom-nav__item--active:hover { color: var(--brand); }
+
+/* Stays a bottom bar at every width, just recentered under the page
+   column instead of stretching edge-to-edge on wide viewports. */
+@media (min-width: 640px) {
+  .bottom-nav { justify-content: center; gap: 8px; }
+  .bottom-nav__item { flex: 0 1 120px; }
+}
 
 /* ── Stats ─────────────────────────────────────────────────────────────── */
 .stats {
@@ -599,6 +614,92 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
   background: var(--joint-bg);
   color: var(--purple);
   border: 1px solid var(--joint-border);
+}
+
+/* ── Calendar grid ─────────────────────────────────────────────────────── */
+.cal-grid-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.cal-grid-nav__title { font-family: var(--display); font-size: 18px; font-weight: 700; color: var(--text-heading); margin: 0; }
+.cal-grid-nav__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--bg-card);
+  transition: background 0.16s var(--ease), color 0.16s var(--ease), border-color 0.16s var(--ease);
+}
+.cal-grid-nav__btn:hover { background: var(--bg-card-open); color: var(--brand); border-color: var(--border-header); }
+.cal-grid-nav__chevron--prev { transform: rotate(90deg); }
+.cal-grid-nav__chevron--next { transform: rotate(-90deg); }
+
+.cal-grid-weekdays { display: grid; grid-template-columns: repeat(7, 1fr); margin-bottom: 4px; }
+.cal-grid-weekday {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  padding-bottom: 6px;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+  margin-bottom: 20px;
+}
+.cal-cell {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: var(--body);
+  transition: background 0.16s var(--ease), border-color 0.16s var(--ease), transform 0.12s var(--ease);
+}
+.cal-cell:hover { background: var(--bg-card-open); border-color: var(--border-header); }
+.cal-cell:active { transform: scale(0.95); }
+.cal-cell--outside { color: var(--text-faint); opacity: 0.5; }
+.cal-cell--today { border-color: var(--brand); box-shadow: inset 0 0 0 1px var(--brand); }
+.cal-cell--selected { background: var(--brand-bg); border-color: var(--brand); }
+.cal-cell__num { font-size: 12px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cal-cell__count {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  min-width: 14px;
+  height: 14px;
+  padding: 0 3px;
+  border-radius: 7px;
+  background: var(--gold);
+  color: #050403;
+  font-family: var(--mono);
+  font-size: 8px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.cal-cell__dots { display: flex; gap: 2px; }
+.cal-cell__dot { width: 4px; height: 4px; border-radius: 50%; background: var(--purple); }
+.cal-cell__dot--cancelled { background: var(--danger); }
+.cal-cell__dot--holiday { background: var(--text-dim); }
+
+.cal-detail {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
 }
 
 /* ── Member detail ─────────────────────────────────────────────────────── */

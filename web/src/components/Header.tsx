@@ -1,16 +1,5 @@
-"use client";
-
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import ThemeToggle from "./ThemeToggle";
 import { CapitolIcon } from "./icons";
-
-const NAV = [
-  { href: "/", label: "Hearings" },
-  { href: "/members", label: "Members" },
-  { href: "/calendar", label: "Calendar" },
-  { href: "/search", label: "Search" },
-] as const;
 
 export default function Header({
   title,
@@ -19,35 +8,17 @@ export default function Header({
   title: string;
   timestamp: string;
 }) {
-  const pathname = usePathname();
-
   return (
-    <>
-      <div className="header">
-        <div className="header-left">
-          <div className="header-eyebrow">
-            <CapitolIcon className="header-eyebrow__icon" />
-            Congressional Hearing Tracker
-          </div>
-          <h1>{title}</h1>
-          <div className="header-timestamp">{timestamp}</div>
+    <div className="header">
+      <div className="header-left">
+        <div className="header-eyebrow">
+          <CapitolIcon className="header-eyebrow__icon" />
+          Congressional Hearing Tracker
         </div>
-        <ThemeToggle />
+        <h1>{title}</h1>
+        <div className="header-timestamp">{timestamp}</div>
       </div>
-      <nav className="site-nav">
-        {NAV.map((item) => {
-          const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`site-nav__link${active ? " site-nav__link--active" : ""}`}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
-    </>
+      <ThemeToggle />
+    </div>
   );
 }

@@ -1,39 +1,74 @@
 import { createClient } from "@/lib/supabase/server";
 import type { Hearing } from "@/lib/types";
 import Header from "@/components/Header";
-import CalendarList from "@/components/CalendarList";
-import { CapitolIcon } from "@/components/icons";
+import CalendarGrid from "@/components/CalendarGrid";
 
 export const dynamic = "force-dynamic";
-
-const DAYS_BACK = 7;
-const DAYS_FORWARD = 7;
 
 function isoDate(d: Date) {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(d);
 }
 
-export default async function CalendarPage() {
+function pad2(n: number) {
+  return String(n).padStart(2, "0");
+}
+
+// Always 42 cells (6 full Sun-Sat weeks) so every month renders the same
+// grid height — a 5-week month next to a 6-week month would otherwise
+// jump height on every month navigation.
+function buildMonthGrid(year: number, month: number) {
+  const firstWeekday = new Date(Date.UTC(year, month - 1, 1)).getUTCDay();
+  const start = new Date(Date.UTC(year, month - 1, 1 - firstWeekday, 12));
+  const cells: string[] = [];
+  for (let i = 0; i < 42; i++) {
+    const d = new Date(start);
+    d.setUTCDate(d.getUTCDate() + i);
+    cells.push(`${d.getUTCFullYear()}-${pad2(d.getUTCMonth() + 1)}-${pad2(d.getUTCDate())}`);
+  }
+  return cells;
+}
+
+function shiftMonth(year: number, month: number, delta: number) {
+  const base = new Date(Date.UTC(year, month - 1 + delta, 1));
+  return `${base.getUTCFullYear()}-${pad2(base.getUTCMonth() + 1)}`;
+}
+
+export default async function CalendarPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ month?: string }>;
+}) {
+  const { month: monthParam } = await searchParams;
   const supabase = await createClient();
   const now = new Date();
-  const start = new Date(now);
-  start.setDate(start.getDate() - DAYS_BACK);
-  const end = new Date(now);
-  end.setDate(end.getDate() + DAYS_FORWARD);
-
-  const startIso = isoDate(start);
-  const endIso = isoDate(end);
   const todayIso = isoDate(now);
+  const [todayY, todayM] = todayIso.split("-").map(Number);
+
+  let year = todayY;
+  let month = todayM;
+  if (monthParam && /^\d{4}-\d{2}$/.test(monthParam)) {
+    const [y, m] = monthParam.split("-").map(Number);
+    if (m >= 1 && m <= 12) {
+      year = y;
+      month = m;
+    }
+  }
+
+  const cells = buildMonthGrid(year, month);
+  const gridStart = cells[0];
+  const gridEnd = cells[cells.length - 1];
 
   const [{ data, error }, { data: domewatchDays }] = await Promise.all([
     supabase
       .from("hearings")
-      .select("id, date, chamber, committee, chair, time, building, room, topic, details, witnesses, cancelled, changes, link")
-      .gte("date", startIso)
-      .lte("date", endIso)
+      .select(
+        "id, date, chamber, committee, chair, time, building, room, topic, details, witnesses, cancelled, changes, link",
+      )
+      .gte("date", gridStart)
+      .lte("date", gridEnd)
       .order("date", { ascending: true })
       .order("time", { ascending: true }),
-    supabase.from("domewatch_calendar").select("date, labels").gte("date", startIso).lte("date", endIso),
+    supabase.from("domewatch_calendar").select("date, labels").gte("date", gridStart).lte("date", gridEnd),
   ]);
 
   const hearings = (data ?? []) as Hearing[];
@@ -41,32 +76,32 @@ export default async function CalendarPage() {
   for (const row of domewatchDays ?? []) {
     labelsByDate[row.date] = (row.labels ?? []) as string[];
   }
-  const hasDomewatchContext = Object.keys(labelsByDate).length > 0;
+
+  const monthLabel = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric", timeZone: "UTC" }).format(
+    new Date(Date.UTC(year, month - 1, 15, 12)),
+  );
 
   return (
     <div className="page">
-      <Header
-        title="Hearing Calendar"
-        timestamp={`${DAYS_BACK} days back · ${DAYS_FORWARD} days ahead · America/New_York`}
-      />
+      <Header title="Hearing Calendar" timestamp="Tap any day to see what's scheduled." />
       {error ? (
         <div className="panel" style={{ marginTop: 18 }}>
           <div className="row" style={{ color: "var(--text-dim)" }}>
             Couldn&apos;t reach Supabase: {error.message}
           </div>
         </div>
-      ) : hearings.length === 0 && !hasDomewatchContext ? (
-        <div className="cards">
-          <div className="empty empty--hero">
-            <CapitolIcon size={32} className="empty__icon" />
-            <div className="empty__title">No hearings in this window</div>
-            <div className="empty__sub">
-              Nothing scheduled or recorded for {startIso} through {endIso} yet.
-            </div>
-          </div>
-        </div>
       ) : (
-        <CalendarList hearings={hearings} todayIso={todayIso} labelsByDate={labelsByDate} />
+        <CalendarGrid
+          year={year}
+          month={month}
+          cells={cells}
+          hearings={hearings}
+          labelsByDate={labelsByDate}
+          todayIso={todayIso}
+          prevMonth={shiftMonth(year, month, -1)}
+          nextMonth={shiftMonth(year, month, 1)}
+          monthLabel={monthLabel}
+        />
       )}
     </div>
   );

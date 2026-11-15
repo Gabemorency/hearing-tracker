@@ -88,6 +88,36 @@ export function ExternalLinkIcon({ size = 11, className }: IconProps) {
   );
 }
 
+export function GavelIcon({ size = 20, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <path d="m14.5 4.5 5 5M9.5 9.5l5 5M4 15l5-5 4 4-5 5-4-4Z" />
+      <path d="M11 17.5 14.5 21M3 21h7" />
+    </svg>
+  );
+}
+
+export function PeopleIcon({ size = 20, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <circle cx="9" cy="8" r="3.2" />
+      <path d="M3.5 19.5c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5" />
+      <path d="M16 14.3c2.6.3 4.5 2.3 4.5 5.2" />
+      <circle cx="16.3" cy="7.5" r="2.4" />
+    </svg>
+  );
+}
+
+export function CalendarGridIcon({ size = 20, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect x="3.5" y="4.5" width="17" height="16" rx="2" />
+      <path d="M3.5 9.5h17M8 3v3M16 3v3" />
+      <path d="M7.5 13.2h2M11 13.2h2M14.5 13.2h2M7.5 16.7h2M11 16.7h2" />
+    </svg>
+  );
+}
+
 export function LiveDotIcon({ size = 9, className }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 10 10" className={className} aria-hidden="true">
