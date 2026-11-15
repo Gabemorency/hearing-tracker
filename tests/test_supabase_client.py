@@ -49,6 +49,44 @@ def test_safe_supabase_delete_swallows_request_errors(monkeypatch, capsys):
     assert "WARNING" in capsys.readouterr().out
 
 
+def test_supabase_upsert_respects_custom_chunk_size(monkeypatch):
+    calls = []
+
+    class FakeResponse:
+        ok = True
+
+    def fake_post(url, headers=None, json=None, timeout=None):
+        calls.append(json)
+        return FakeResponse()
+
+    monkeypatch.setattr(sc.requests, "post", fake_post)
+    rows = [{"n": i} for i in range(130)]
+    sc.supabase_upsert("https://example.supabase.co", "secret", "district_shapes", rows, "id", chunk_size=50)
+
+    assert len(calls) == 3  # 50 + 50 + 30
+    assert [len(c) for c in calls] == [50, 50, 30]
+
+
+def test_safe_supabase_upsert_default_chunk_size_unchanged(monkeypatch):
+    calls = []
+
+    class FakeResponse:
+        ok = True
+
+    def fake_post(url, headers=None, json=None, timeout=None):
+        calls.append(json)
+        return FakeResponse()
+
+    monkeypatch.setenv("SUPABASE_URL", "https://example.supabase.co")
+    monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "secret")
+    monkeypatch.setattr(sc.requests, "post", fake_post)
+    rows = [{"n": i} for i in range(600)]
+    sc.safe_supabase_upsert("hearings", rows, "id")
+
+    assert len(calls) == 2  # default chunk_size=500: 500 + 100
+    assert [len(c) for c in calls] == [500, 100]
+
+
 def test_safe_supabase_upsert_swallows_request_errors(monkeypatch, capsys):
     monkeypatch.setenv("SUPABASE_URL", "https://example.supabase.co")
     monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "secret")
