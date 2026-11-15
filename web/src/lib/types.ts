@@ -46,3 +46,13 @@ export type InstitutionalLeadership = {
   full_title: string;
   tier: number;
 };
+
+export type CommitteeMembership = {
+  committee: string;
+  chamber: MemberChamber | "Joint";
+  role: string;
+  rank: number | null;
+  is_full_committee: boolean;
+  member_id: string;
+  members: { full_name: string; bioguide_id: string } | null;
+};

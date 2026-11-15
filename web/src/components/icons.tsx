@@ -118,6 +118,15 @@ export function CalendarGridIcon({ size = 20, className }: IconProps) {
   );
 }
 
+export function CommitteeIcon({ size = 20, className }: IconProps) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect x="3.5" y="4.5" width="17" height="15" rx="2" />
+      <path d="M7.5 9.5h9M7.5 13h6M7.5 16.5h4" />
+    </svg>
+  );
+}
+
 export function LiveDotIcon({ size = 9, className }: IconProps) {
   return (
     <svg width={size} height={size} viewBox="0 0 10 10" className={className} aria-hidden="true">

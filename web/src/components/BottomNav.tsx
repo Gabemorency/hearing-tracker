@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GavelIcon, PeopleIcon, CalendarGridIcon, SearchIcon } from "./icons";
+import { GavelIcon, PeopleIcon, CalendarGridIcon, CommitteeIcon, SearchIcon } from "./icons";
 
 const NAV = [
   { href: "/", label: "Hearings", Icon: GavelIcon },
   { href: "/members", label: "Members", Icon: PeopleIcon },
+  { href: "/committees", label: "Committees", Icon: CommitteeIcon },
   { href: "/calendar", label: "Calendar", Icon: CalendarGridIcon },
   { href: "/search", label: "Search", Icon: SearchIcon },
 ] as const;
