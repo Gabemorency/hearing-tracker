@@ -8,7 +8,30 @@ import { BoltIcon, CapitolIcon, InfoIcon, XIcon } from "./icons";
 type Filter = "All" | "Senate" | "House" | "Joint" | "Updated" | "Cancelled";
 const FILTERS: Filter[] = ["All", "Senate", "House", "Joint", "Updated", "Cancelled"];
 
-export default function HearingList({ hearings }: { hearings: Hearing[] }) {
+function emptyStateCopy(labels: string[]) {
+  const lower = labels.map((l) => l.toLowerCase());
+  if (lower.some((l) => l.includes("holiday"))) {
+    return { title: "Federal holiday", sub: "Congress is not in session today." };
+  }
+  if (lower.some((l) => l.includes("cancel"))) {
+    return { title: "Votes cancelled today", sub: "No committee hearings are scheduled." };
+  }
+  if (labels.length > 0) {
+    return { title: labels.join(", "), sub: "No committee hearings are scheduled today." };
+  }
+  return {
+    title: "No hearings today",
+    sub: "Congress may be in recess or no committees are scheduled. Check back tomorrow.",
+  };
+}
+
+export default function HearingList({
+  hearings,
+  sessionLabels = [],
+}: {
+  hearings: Hearing[];
+  sessionLabels?: string[];
+}) {
   const [filter, setFilter] = useState<Filter>("All");
 
   const filtered = useMemo(() => {
@@ -19,12 +42,13 @@ export default function HearingList({ hearings }: { hearings: Hearing[] }) {
   }, [hearings, filter]);
 
   if (hearings.length === 0) {
+    const { title, sub } = emptyStateCopy(sessionLabels);
     return (
       <div className="cards">
         <div className="empty empty--hero">
           <CapitolIcon size={32} className="empty__icon" />
-          <div className="empty__title">No hearings today</div>
-          <div className="empty__sub">Congress may be in recess or no committees are scheduled. Check back tomorrow.</div>
+          <div className="empty__title">{title}</div>
+          <div className="empty__sub">{sub}</div>
         </div>
       </div>
     );

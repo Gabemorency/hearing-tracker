@@ -15,7 +15,7 @@ export default function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="bottom-nav" aria-label="Primary">
+    <nav className="bottom-nav" aria-label="Primary" id="bottom-nav" tabIndex={-1}>
       {NAV.map(({ href, label, Icon }) => {
         const active = href === "/" ? pathname === "/" : pathname.startsWith(href);
         return (

@@ -3,6 +3,7 @@ import type { Hearing } from "@/lib/types";
 import Header from "@/components/Header";
 import StatsBar from "@/components/StatsBar";
 import HearingList from "@/components/HearingList";
+import ErrorPanel from "@/components/ErrorPanel";
 
 // Always rendered per-request — this page reads live data, and without
 // this Next would try to prerender it at build time (failing wherever
@@ -31,13 +32,17 @@ export default async function Home() {
   const now = new Date();
   const today = new Intl.DateTimeFormat("en-CA", { timeZone: "America/New_York" }).format(now); // en-CA -> YYYY-MM-DD
 
-  const { data, error } = await supabase
-    .from("hearings")
-    .select("id, chamber, committee, chair, time, building, room, topic, details, witnesses, cancelled, changes, link")
-    .eq("date", today)
-    .order("time", { ascending: true });
+  const [{ data, error }, { data: todayLabelRow }] = await Promise.all([
+    supabase
+      .from("hearings")
+      .select("id, chamber, committee, chair, time, building, room, topic, details, witnesses, cancelled, changes, link")
+      .eq("date", today)
+      .order("time", { ascending: true }),
+    supabase.from("domewatch_calendar").select("labels").eq("date", today).maybeSingle(),
+  ]);
 
   const hearings = (data ?? []) as Hearing[];
+  const todayLabels = (todayLabelRow?.labels ?? []) as string[];
 
   const active = hearings.filter((h) => !h.cancelled).length;
   const senate = hearings.filter((h) => h.chamber === "Senate").length;
@@ -48,15 +53,11 @@ export default async function Home() {
     <div className="page">
       <Header title="Today's Hearings" timestamp={formatTimestamp(now)} />
       {error ? (
-        <div className="panel" style={{ marginTop: 18 }}>
-          <div className="row" style={{ color: "var(--text-dim)" }}>
-            Couldn&apos;t reach Supabase: {error.message}
-          </div>
-        </div>
+        <ErrorPanel message={error.message} />
       ) : (
         <>
           <StatsBar active={active} total={hearings.length} senate={senate} house={house} joint={joint} />
-          <HearingList hearings={hearings} />
+          <HearingList hearings={hearings} sessionLabels={todayLabels} />
         </>
       )}
     </div>

@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import type { InstitutionalLeadership, Member } from "@/lib/types";
 import Header from "@/components/Header";
 import { currentTerm, initials, partyClass } from "@/components/MemberCard";
+import ErrorPanel from "@/components/ErrorPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -41,11 +42,7 @@ export default async function MemberDetailPage({
     return (
       <div className="page">
         <Header title="Member" timestamp="" />
-        <div className="panel" style={{ marginTop: 18 }}>
-          <div className="row" style={{ color: "var(--text-dim)" }}>
-            Couldn&apos;t reach Supabase: {error.message}
-          </div>
-        </div>
+        <ErrorPanel message={error.message} />
       </div>
     );
   }
