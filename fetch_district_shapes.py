@@ -166,7 +166,11 @@ def main():
 
     all_rows = district_rows + state_rows
     print(f"Upserting {len(all_rows)} shapes to Supabase...")
-    safe_supabase_upsert("district_shapes", all_rows, on_conflict="congress,state,district")
+    # Small chunks — these rows carry a full GeoJSON geometry each, and a
+    # single request bundling hundreds of them can time out Supabase even
+    # though the same rows split into small batches write fine (confirmed
+    # live: one 497-row request timed out at 60s).
+    safe_supabase_upsert("district_shapes", all_rows, on_conflict="congress,state,district", chunk_size=50)
 
 
 if __name__ == "__main__":

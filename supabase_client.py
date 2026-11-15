@@ -25,7 +25,14 @@ def supabase_env():
     return base_url.rstrip("/"), service_key
 
 
-def supabase_upsert(base_url, service_key, table, rows, on_conflict):
+def supabase_upsert(base_url, service_key, table, rows, on_conflict, chunk_size=500):
+    """chunk_size defaults to 500, fine for the small rows most callers
+    write. Callers upserting rows with a large payload per row (e.g. a
+    GeoJSON geometry column) should pass a much smaller chunk_size —
+    Supabase can time out processing one request that bundles hundreds of
+    large rows, even though the same rows split into smaller batches
+    write fine (confirmed against district_shapes: a single 497-row
+    request timed out at 60s; 50-row batches did not)."""
     if not rows:
         print(f"  (nothing to upsert into {table})")
         return
@@ -36,7 +43,6 @@ def supabase_upsert(base_url, service_key, table, rows, on_conflict):
         "Content-Type": "application/json",
         "Prefer": "resolution=merge-duplicates,return=minimal",
     }
-    chunk_size = 500
     for i in range(0, len(rows), chunk_size):
         chunk = rows[i : i + chunk_size]
         r = requests.post(url, headers=headers, json=chunk, timeout=60)
@@ -46,7 +52,7 @@ def supabase_upsert(base_url, service_key, table, rows, on_conflict):
     print(f"  upserted {len(rows)} rows into {table}")
 
 
-def safe_supabase_upsert(table, rows, on_conflict):
+def safe_supabase_upsert(table, rows, on_conflict, chunk_size=500):
     """Best-effort upsert for the live scraper path: logs and returns
     instead of raising if Supabase env vars are missing or the request
     fails, so callers can add this one line without risking the JSON
@@ -56,7 +62,7 @@ def safe_supabase_upsert(table, rows, on_conflict):
         print(f"  (SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set — skipping {table} upsert)")
         return
     try:
-        supabase_upsert(base_url, service_key, table, rows, on_conflict)
+        supabase_upsert(base_url, service_key, table, rows, on_conflict, chunk_size=chunk_size)
     except Exception as e:
         print(f"  WARNING: Supabase upsert into {table} failed, continuing anyway: {e}")
 
