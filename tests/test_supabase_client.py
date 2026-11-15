@@ -87,6 +87,40 @@ def test_safe_supabase_upsert_default_chunk_size_unchanged(monkeypatch):
     assert [len(c) for c in calls] == [500, 100]
 
 
+def test_safe_supabase_select_noop_without_env(monkeypatch, capsys):
+    monkeypatch.delenv("SUPABASE_URL", raising=False)
+    monkeypatch.delenv("SUPABASE_SERVICE_ROLE_KEY", raising=False)
+    assert sc.safe_supabase_select("votes", {"select": "roll_number"}) == []
+    assert "skipping votes select" in capsys.readouterr().out
+
+
+def test_safe_supabase_select_returns_parsed_json(monkeypatch):
+    monkeypatch.setenv("SUPABASE_URL", "https://example.supabase.co")
+    monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "secret")
+
+    class FakeResponse:
+        ok = True
+
+        def json(self):
+            return [{"roll_number": 42}]
+
+    monkeypatch.setattr(sc.requests, "get", lambda *a, **k: FakeResponse())
+    rows = sc.safe_supabase_select("votes", {"select": "roll_number"})
+    assert rows == [{"roll_number": 42}]
+
+
+def test_safe_supabase_select_swallows_request_errors(monkeypatch, capsys):
+    monkeypatch.setenv("SUPABASE_URL", "https://example.supabase.co")
+    monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "secret")
+
+    def boom(*args, **kwargs):
+        raise RuntimeError("network is down")
+
+    monkeypatch.setattr(sc.requests, "get", boom)
+    assert sc.safe_supabase_select("votes", {"select": "roll_number"}) == []
+    assert "WARNING" in capsys.readouterr().out
+
+
 def test_safe_supabase_upsert_swallows_request_errors(monkeypatch, capsys):
     monkeypatch.setenv("SUPABASE_URL", "https://example.supabase.co")
     monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "secret")

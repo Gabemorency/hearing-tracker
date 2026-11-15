@@ -1,13 +1,14 @@
 import Link from "next/link";
 import { createPublicClient } from "@/lib/supabase/public";
-import type { Hearing, InstitutionalLeadership, MemberTerm } from "@/lib/types";
+import type { Hearing, InstitutionalLeadership, MemberTerm, Vote } from "@/lib/types";
 import Header from "@/components/Header";
 import ErrorPanel from "@/components/ErrorPanel";
 import HearingCard from "@/components/HearingCard";
 import MemberAvatar from "@/components/MemberAvatar";
 import DashboardWeekStrip from "@/components/DashboardWeekStrip";
+import { voteSlug } from "@/lib/votes";
 import { currentTerm, initials, partyClass } from "@/components/MemberCard";
-import { BoltIcon, CalendarGridIcon, ChevronIcon, XIcon } from "@/components/icons";
+import { BoltIcon, CalendarGridIcon, ChevronIcon, VoteIcon, XIcon } from "@/components/icons";
 import { currentCongress, ordinal } from "@/lib/congress";
 
 // Cached for 60s and re-fetched on the next request after that (ISR) —
@@ -58,6 +59,7 @@ export default async function DashboardPage() {
     { data: weekLabels },
     { data: leadershipRows },
     { data: activityHearings },
+    { data: activityVotes },
   ] = await Promise.all([
     supabase
       .from("hearings")
@@ -84,6 +86,12 @@ export default async function DashboardPage() {
       .lte("date", activityEnd)
       .order("updated_at", { ascending: false })
       .limit(40),
+    supabase
+      .from("votes")
+      .select("congress, session, chamber, roll_number, date, question, bill_number, result")
+      .order("date", { ascending: false })
+      .order("roll_number", { ascending: false })
+      .limit(5),
   ]);
 
   const todayHearings = (todayData ?? []) as Hearing[];
@@ -129,10 +137,48 @@ export default async function DashboardPage() {
   }
   const leaders = leadership.map((l) => ({ ...l, member: leaderMembers.get(l.bioguide_id) ?? null }));
 
-  const recentActivity = ((activityHearings ?? []) as Hearing[])
+  type ActivityItem = {
+    key: string;
+    sortKey: string;
+    href: string;
+    cancelled: boolean;
+    title: string;
+    desc: string;
+    icon: "vote" | "bolt" | "cancelled";
+  };
+
+  const hearingActivity: ActivityItem[] = ((activityHearings ?? []) as Hearing[])
     .filter((h) => h.changes.length > 0)
-    .sort((a, b) => (b.updated_at ?? "").localeCompare(a.updated_at ?? ""))
-    .slice(0, 5);
+    .map((h) => {
+      const lastChange = h.changes[h.changes.length - 1];
+      const isCancelled = lastChange.toLowerCase().includes("cancel");
+      return {
+        key: `hearing-${h.id}`,
+        sortKey: h.updated_at ?? "",
+        href: `/calendar?month=${(h.date ?? today).slice(0, 7)}`,
+        cancelled: isCancelled,
+        title: h.committee,
+        desc: lastChange,
+        icon: isCancelled ? "cancelled" : "bolt",
+      };
+    });
+
+  // There's no bill-tracking data source wired up (yet) to link to the
+  // underlying legislation itself — this links to the vote's own detail
+  // page, which is the most concrete "go see the thing" available today.
+  const voteActivity: ActivityItem[] = ((activityVotes ?? []) as Vote[]).map((v) => ({
+    key: `vote-${voteSlug(v)}`,
+    sortKey: `${v.date}T12:00:00`,
+    href: `/votes/${voteSlug(v)}`,
+    cancelled: false,
+    title: `${v.chamber} Roll Call ${v.roll_number}${v.bill_number ? ` · ${v.bill_number}` : ""}`,
+    desc: `${v.question} — ${v.result}`,
+    icon: "vote",
+  }));
+
+  const recentActivity = [...hearingActivity, ...voteActivity]
+    .sort((a, b) => b.sortKey.localeCompare(a.sortKey))
+    .slice(0, 6);
 
   return (
     <div className="page">
@@ -191,22 +237,18 @@ export default async function DashboardPage() {
             <>
               <h2>Recent activity</h2>
               <div className="panel dash-activity-panel">
-                {recentActivity.map((h) => {
-                  const lastChange = h.changes[h.changes.length - 1];
-                  const isCancelled = lastChange.toLowerCase().includes("cancel");
-                  return (
-                    <Link href={`/calendar?month=${(h.date ?? today).slice(0, 7)}`} className="dash-activity-item" key={h.id}>
-                      <span className={`dash-activity-item__icon${isCancelled ? " dash-activity-item__icon--cancelled" : ""}`}>
-                        {isCancelled ? <XIcon size={10} /> : <BoltIcon />}
-                      </span>
-                      <span className="dash-activity-item__body">
-                        <span className="dash-activity-item__title">{h.committee}</span>
-                        <span className="dash-activity-item__desc">{lastChange}</span>
-                      </span>
-                      <ChevronIcon className="dash-activity-item__chevron" />
-                    </Link>
-                  );
-                })}
+                {recentActivity.map((item) => (
+                  <Link href={item.href} className="dash-activity-item" key={item.key}>
+                    <span className={`dash-activity-item__icon${item.icon === "cancelled" ? " dash-activity-item__icon--cancelled" : ""}`}>
+                      {item.icon === "cancelled" ? <XIcon size={10} /> : item.icon === "vote" ? <VoteIcon size={13} /> : <BoltIcon />}
+                    </span>
+                    <span className="dash-activity-item__body">
+                      <span className="dash-activity-item__title">{item.title}</span>
+                      <span className="dash-activity-item__desc">{item.desc}</span>
+                    </span>
+                    <ChevronIcon className="dash-activity-item__chevron" />
+                  </Link>
+                ))}
               </div>
             </>
           )}

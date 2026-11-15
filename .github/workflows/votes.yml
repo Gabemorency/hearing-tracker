@@ -1,0 +1,27 @@
+name: Roll Call Votes
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'  # Every 2 hours — votes cluster on session days but there's no fixed schedule to target instead
+  workflow_dispatch:
+
+jobs:
+  fetch-votes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pyyaml --break-system-packages
+
+      - name: Fetch roll call votes
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 fetch_votes.py

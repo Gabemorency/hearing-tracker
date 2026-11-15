@@ -67,6 +67,29 @@ def safe_supabase_upsert(table, rows, on_conflict, chunk_size=500):
         print(f"  WARNING: Supabase upsert into {table} failed, continuing anyway: {e}")
 
 
+def safe_supabase_select(table, params, default=None):
+    """Best-effort GET for the live scraper path: never raises. `params` is
+    a dict of raw PostgREST query params (e.g. {"select": "roll_number",
+    "chamber": "eq.House", "order": "roll_number.desc", "limit": "1"}).
+    Returns `default` (an empty list, unless overridden) on any failure —
+    callers doing incremental fetches should treat that the same as "no
+    rows yet" rather than crashing the run."""
+    base_url, service_key = supabase_env()
+    if not base_url:
+        print(f"  (SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set — skipping {table} select)")
+        return default if default is not None else []
+    headers = {"apikey": service_key, "Authorization": f"Bearer {service_key}"}
+    try:
+        r = requests.get(f"{base_url}/rest/v1/{table}", headers=headers, params=params, timeout=30)
+        if not r.ok:
+            print(f"  WARNING: select on {table} failed: {r.status_code} {r.text[:300]}")
+            return default if default is not None else []
+        return r.json()
+    except Exception as e:
+        print(f"  WARNING: select on {table} failed, continuing anyway: {e}")
+        return default if default is not None else []
+
+
 def safe_supabase_delete(table, filter_query):
     """Best-effort DELETE for the live scraper path: never raises.
     filter_query is a raw PostgREST filter, e.g. "id=gt.0" to match every

@@ -10,6 +10,9 @@ import MemberAvatar from "@/components/MemberAvatar";
 import SourceNote from "@/components/SourceNote";
 import DistrictMap, { type DistrictGeometry } from "@/components/DistrictMap";
 import TermHistory from "@/components/TermHistory";
+import VoteCard from "@/components/VoteCard";
+import { voteSlug } from "@/lib/votes";
+import type { MemberVote, Vote } from "@/lib/types";
 import { currentCongress } from "@/lib/congress";
 
 // Cached for 5 minutes per bioguide_id (ISR) — a member's bio/terms only
@@ -81,6 +84,45 @@ export default async function MemberDetailPage({
     }
   }
 
+  const { data: memberVoteRows } = await supabase
+    .from("member_votes")
+    .select("congress, session, chamber, roll_number, position")
+    .eq("member_id", bioguide_id)
+    .order("congress", { ascending: false })
+    .order("session", { ascending: false })
+    .order("roll_number", { ascending: false })
+    .limit(15);
+
+  const memberVotes = (memberVoteRows ?? []) as Pick<MemberVote, "congress" | "session" | "chamber" | "roll_number" | "position">[];
+  const voteGroups = new Map<string, { chamber: string; congress: number; session: number; rolls: number[] }>();
+  for (const mv of memberVotes) {
+    const key = `${mv.chamber}-${mv.congress}-${mv.session}`;
+    const g = voteGroups.get(key) ?? { chamber: mv.chamber, congress: mv.congress, session: mv.session, rolls: [] };
+    g.rolls.push(mv.roll_number);
+    voteGroups.set(key, g);
+  }
+  const voteResults = await Promise.all(
+    [...voteGroups.values()].map((g) =>
+      supabase
+        .from("votes")
+        .select(
+          "congress, session, chamber, roll_number, date, question, description, bill_number, result, yea_count, nay_count, present_count, not_voting_count",
+        )
+        .eq("chamber", g.chamber)
+        .eq("congress", g.congress)
+        .eq("session", g.session)
+        .in("roll_number", g.rolls),
+    ),
+  );
+  const votesBySlug = new Map<string, Vote>();
+  for (const { data } of voteResults) {
+    for (const v of (data ?? []) as Vote[]) votesBySlug.set(voteSlug(v), v);
+  }
+  const recentVotes = memberVotes
+    .map((mv) => ({ vote: votesBySlug.get(voteSlug(mv)), position: mv.position }))
+    .filter((v): v is { vote: Vote; position: MemberVote["position"] } => Boolean(v.vote))
+    .sort((a, b) => b.vote.date.localeCompare(a.vote.date));
+
   const seatLine = term
     ? term.chamber === "Senate"
       ? `U.S. Senator for ${term.state}${term.party ? ` · ${term.party}` : ""}`
@@ -143,6 +185,17 @@ export default async function MemberDetailPage({
 
       <h2>Term History</h2>
       <TermHistory terms={terms} />
+
+      {recentVotes.length > 0 && (
+        <>
+          <h2>Voting Record</h2>
+          <div className="card-list">
+            {recentVotes.map(({ vote, position }) => (
+              <VoteCard vote={vote} positions={[]} linkToDetail memberPosition={position} key={voteSlug(vote)} />
+            ))}
+          </div>
+        </>
+      )}
 
       <SourceNote>Member data: unitedstates/congress-legislators · Photos: unitedstates/images</SourceNote>
     </div>
