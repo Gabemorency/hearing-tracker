@@ -9,7 +9,16 @@
 -- vote it belongs to, and upserting both tables from one scraper pass
 -- without a round trip to re-fetch a generated id is much simpler if
 -- there's nothing to fetch back in the first place.
-create table if not exists votes (
+--
+-- Dropped first rather than `create table if not exists`: if a `votes`
+-- table already exists from some earlier, unrelated attempt with a
+-- different column set, "if not exists" silently no-ops and leaves the
+-- wrong schema in place. Safe here because nothing has ever successfully
+-- synced into these two tables — this feature is brand new.
+drop table if exists member_votes;
+drop table if exists votes;
+
+create table votes (
   congress         int not null,
   session          int not null,          -- 1 or 2
   chamber          text not null check (chamber in ('House', 'Senate')),
@@ -29,7 +38,7 @@ create table if not exists votes (
 create index if not exists votes_date_idx on votes (date);
 
 -- One row per (vote, member) — how that member voted on that roll call.
-create table if not exists member_votes (
+create table member_votes (
   congress    int not null,
   session     int not null,
   chamber     text not null,
