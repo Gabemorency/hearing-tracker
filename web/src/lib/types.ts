@@ -36,6 +36,7 @@ export type Member = {
   delegate: boolean;
   bio: string | null;
   is_current: boolean;
+  photo_url: string | null;
   member_terms: MemberTerm[];
 };
 

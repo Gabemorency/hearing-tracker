@@ -3,7 +3,8 @@
 import { useMemo, useState } from "react";
 import type { Hearing } from "@/lib/types";
 import HearingCard from "./HearingCard";
-import { BoltIcon, CapitolIcon, InfoIcon, XIcon } from "./icons";
+import { BoltIcon, CapitolIcon, XIcon } from "./icons";
+import SourceNote from "./SourceNote";
 
 type Filter = "All" | "Senate" | "House" | "Joint" | "Updated" | "Cancelled";
 const FILTERS: Filter[] = ["All", "Senate", "House", "Joint", "Updated", "Cancelled"];
@@ -50,6 +51,7 @@ export default function HearingList({
           <div className="empty__title">{title}</div>
           <div className="empty__sub">{sub}</div>
         </div>
+        <SourceNote>Auto-updated every 2 hrs · docs.house.gov · senate.gov · Individual committee pages</SourceNote>
       </div>
     );
   }
@@ -90,9 +92,7 @@ export default function HearingList({
             ))}
           </div>
         )}
-        <div className="source-note">
-          <InfoIcon /> Auto-updated every 2 hrs · docs.house.gov · senate.gov · Individual committee pages
-        </div>
+        <SourceNote>Auto-updated every 2 hrs · docs.house.gov · senate.gov · Individual committee pages</SourceNote>
       </div>
     </>
   );

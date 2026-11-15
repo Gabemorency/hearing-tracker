@@ -16,6 +16,7 @@ def test_build_member_row_basic():
         "nickname": None,
         "delegate": False,
         "is_current": True,
+        "photo_url": "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/C000127.jpg",
         "bio": "Her bio.",
     }
 
@@ -102,3 +103,14 @@ def test_build_term_rows_skips_incomplete_terms():
 
 def test_build_term_rows_missing_bioguide_returns_empty():
     assert bm.build_term_rows({"id": {}, "terms": [{"type": "rep"}]}) == []
+
+
+def test_photo_url_builds_images_repo_link():
+    assert bm.photo_url("C000127") == (
+        "https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/C000127.jpg"
+    )
+
+
+def test_photo_url_empty_bioguide_returns_none():
+    assert bm.photo_url("") is None
+    assert bm.photo_url(None) is None

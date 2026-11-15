@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { InstitutionalLeadership, Member, MemberTerm } from "@/lib/types";
+import MemberAvatar from "./MemberAvatar";
 
 export function currentTerm(terms: MemberTerm[]): MemberTerm | null {
   if (terms.length === 0) return null;
@@ -35,7 +36,12 @@ export default function MemberCard({ member, leadership }: { member: Member; lea
 
   return (
     <Link href={`/members/${member.bioguide_id}`} className="member-card">
-      <div className={`member-avatar ${pc}`}>{initials(member.full_name)}</div>
+      <MemberAvatar
+        photoUrl={member.photo_url}
+        initials={initials(member.full_name)}
+        partyClass={pc}
+        name={member.full_name}
+      />
       <div className="member-info">
         <div className="member-name">{member.full_name}</div>
         <div className="member-seat">{seat}</div>

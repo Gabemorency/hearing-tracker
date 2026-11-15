@@ -22,10 +22,10 @@ function useCountUp(target: number, durationMs = 550) {
   return value;
 }
 
-function StatCell({ label, value, color, accent }: { label: string; value: number; color: string; accent: string }) {
+function StatCell({ label, value, color }: { label: string; value: number; color: string }) {
   const displayValue = useCountUp(value);
   return (
-    <div className="stat" style={{ borderTopColor: accent }}>
+    <div className="stat">
       <div className="stat-number" style={{ color }}>
         {displayValue}
       </div>
@@ -47,17 +47,17 @@ export default function StatsBar({
   house: number;
   joint: number;
 }) {
-  const stats: Array<[string, number, string, string]> = [
-    ["Active", active, "var(--stat-active)", "var(--stat-active)"],
-    ["Total", total, "var(--text-secondary)", "var(--text-muted)"],
-    ["Senate", senate, "var(--gold)", "var(--gold)"],
-    ["House", house, "var(--teal)", "var(--teal)"],
-    ["Joint", joint, "var(--purple)", "var(--purple)"],
+  const stats: Array<[string, number, string]> = [
+    ["Active", active, "var(--stat-active)"],
+    ["Total", total, "var(--text-secondary)"],
+    ["Senate", senate, "var(--gold)"],
+    ["House", house, "var(--teal)"],
+    ["Joint", joint, "var(--purple)"],
   ];
   return (
     <div className="stats">
-      {stats.map(([label, value, color, accent]) => (
-        <StatCell key={label} label={label} value={value} color={color} accent={accent} />
+      {stats.map(([label, value, color]) => (
+        <StatCell key={label} label={label} value={value} color={color} />
       ))}
     </div>
   );

@@ -5,6 +5,8 @@ import type { InstitutionalLeadership, Member } from "@/lib/types";
 import Header from "@/components/Header";
 import { currentTerm, initials, partyClass } from "@/components/MemberCard";
 import ErrorPanel from "@/components/ErrorPanel";
+import MemberAvatar from "@/components/MemberAvatar";
+import SourceNote from "@/components/SourceNote";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +29,7 @@ export default async function MemberDetailPage({
     supabase
       .from("members")
       .select(
-        "bioguide_id, full_name, nickname, delegate, bio, is_current, member_terms(member_id, chamber, state, district, party, start_date, end_date)",
+        "bioguide_id, full_name, nickname, delegate, bio, is_current, photo_url, member_terms(member_id, chamber, state, district, party, start_date, end_date)",
       )
       .eq("bioguide_id", bioguide_id)
       .maybeSingle(),
@@ -73,7 +75,7 @@ export default async function MemberDetailPage({
       </Link>
 
       <div className="member-detail">
-        <div className={`member-avatar member-avatar--lg ${pc}`}>{initials(m.full_name)}</div>
+        <MemberAvatar photoUrl={m.photo_url} initials={initials(m.full_name)} partyClass={pc} name={m.full_name} large />
         <div className="member-detail__info">
           <div className="member-detail__name">
             {m.full_name}
@@ -126,6 +128,8 @@ export default async function MemberDetailPage({
           ))}
         </div>
       )}
+
+      <SourceNote>Member data: unitedstates/congress-legislators · Photos: unitedstates/images</SourceNote>
     </div>
   );
 }

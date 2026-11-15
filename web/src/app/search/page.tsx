@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import HearingCard from "@/components/HearingCard";
 import { CapitolIcon, SearchIcon } from "@/components/icons";
 import ErrorPanel from "@/components/ErrorPanel";
+import SourceNote from "@/components/SourceNote";
 
 export const dynamic = "force-dynamic";
 
@@ -115,6 +116,9 @@ export default async function SearchPage({
             </div>
           ))}
         </>
+      )}
+      {!error && (
+        <SourceNote>Auto-updated every 2 hrs · docs.house.gov · senate.gov · Individual committee pages</SourceNote>
       )}
     </div>
   );

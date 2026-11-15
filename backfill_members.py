@@ -28,6 +28,14 @@ HEADERS_FETCH = {"User-Agent": "Mozilla/5.0 (compatible; hearing-tracker-backfil
 TERRITORIES = {"DC", "PR", "VI", "GU", "AS", "MP"}
 
 
+def photo_url(bioguide_id):
+    """unitedstates/images on GitHub — returns 200 for every member with a
+    bioguide ID, current or historical."""
+    if not bioguide_id:
+        return None
+    return f"https://raw.githubusercontent.com/unitedstates/images/gh-pages/congress/450x550/{bioguide_id}.jpg"
+
+
 def fetch_yaml(url):
     r = requests.get(url, headers=HEADERS_FETCH, timeout=60)
     r.raise_for_status()
@@ -63,6 +71,7 @@ def build_member_row(person, is_current, bios=None):
         "nickname": name.get("nickname"),
         "delegate": delegate,
         "is_current": is_current,
+        "photo_url": photo_url(bioguide),
     }
     if bios is not None:
         row["bio"] = bios.get(bioguide)
