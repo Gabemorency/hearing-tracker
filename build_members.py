@@ -14,7 +14,7 @@ import sys
 from datetime import datetime, timezone, timedelta
 
 from backfill_members import build_member_row, build_term_rows
-from supabase_client import safe_supabase_upsert, safe_supabase_patch
+from supabase_client import safe_supabase_upsert, safe_supabase_patch, safe_supabase_delete
 
 
 def safe_url(u):
@@ -158,6 +158,23 @@ def get_leadership(title):
             return {"label": val[0], "tier": val[1]}
     return None
 
+
+def build_committee_membership_rows(cmte_roles_map):
+    """Pure transform: {bioguide_id: [{committee, chamber, role, rank, is_full_committee}]}
+    -> flat committee_memberships rows, one per (member, committee) pair."""
+    return [
+        {
+            "member_id": bid,
+            "committee": r["committee"],
+            "chamber": r["chamber"],
+            "role": r["role"],
+            "rank": r["rank"],
+            "is_full_committee": r["is_full_committee"],
+        }
+        for bid, roles in cmte_roles_map.items()
+        for r in roles
+    ]
+
 def build():
     print("📥 Fetching legislators-current.yaml...")
     legislators = fetch_yaml(f"{BASE}/legislators-current.yaml")
@@ -204,9 +221,11 @@ def build():
     print("🔗 Building committee role map...")
     cmte_roles_map = {}
     chair_map      = {}
+    THOMAS_CHAMBER = {"H": "House", "S": "Senate", "J": "Joint"}
     for thomas_id, members in cmte_membership.items():
         cmte_name     = cmte_names.get(thomas_id, thomas_id)
         is_full_cmte  = len(thomas_id) <= 4  # full committee IDs are 4 chars or fewer
+        cmte_chamber  = THOMAS_CHAMBER.get(thomas_id[:1], "Joint")
         for m in members:
             bid   = m.get("bioguide", "")
             title = m.get("title", "")
@@ -218,8 +237,10 @@ def build():
             role = title if title else "Member"
             cmte_roles_map[bid].append({
                 "committee": cmte_name,
+                "chamber":   cmte_chamber,
                 "role":      role,
                 "rank":      rank,
+                "is_full_committee": is_full_cmte,
             })
             # Only set chair/RM leadership badge for FULL committee chairs/RMs
             tl = title.lower() if title else ""
@@ -239,6 +260,14 @@ def build():
                 elif "ranking" in tl:
                     if bid not in chair_map:
                         chair_map[bid] = {"label": "Subcmte. Ranking Member", "tier": 7, "committee": cmte_name}
+
+    # Full snapshot resync, same reasoning as the member `is_current` reset:
+    # a member dropped from a committee has to actually disappear, and
+    # there's no stable boolean on this table to flip instead of deleting.
+    committee_membership_rows = build_committee_membership_rows(cmte_roles_map)
+    print(f"🔄 Syncing {len(committee_membership_rows)} committee memberships to Supabase...")
+    safe_supabase_delete("committee_memberships", "id=gt.0")
+    safe_supabase_upsert("committee_memberships", committee_membership_rows, on_conflict="member_id,committee")
 
     # ── Congressional Black Caucus membership ─────────────────────────────────
     # CBC page requires JavaScript to render — using bioguide IDs matched from

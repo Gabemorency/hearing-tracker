@@ -61,6 +61,31 @@ def safe_supabase_upsert(table, rows, on_conflict):
         print(f"  WARNING: Supabase upsert into {table} failed, continuing anyway: {e}")
 
 
+def safe_supabase_delete(table, filter_query):
+    """Best-effort DELETE for the live scraper path: never raises.
+    filter_query is a raw PostgREST filter, e.g. "id=gt.0" to match every
+    row — used for tables resynced as a full snapshot each run (no stable
+    boolean to flip like members.is_current), so a member dropped from a
+    committee actually disappears instead of lingering forever."""
+    base_url, service_key = supabase_env()
+    if not base_url:
+        print(f"  (SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY not set — skipping {table} delete)")
+        return
+    headers = {
+        "apikey": service_key,
+        "Authorization": f"Bearer {service_key}",
+        "Prefer": "return=minimal",
+    }
+    try:
+        r = requests.delete(f"{base_url}/rest/v1/{table}?{filter_query}", headers=headers, timeout=30)
+        if not r.ok:
+            print(f"  WARNING: delete on {table} failed: {r.status_code} {r.text[:300]}")
+            return
+        print(f"  deleted rows from {table} where {filter_query}")
+    except Exception as e:
+        print(f"  WARNING: delete on {table} failed, continuing anyway: {e}")
+
+
 def safe_supabase_patch(table, filter_query, patch_body):
     """Best-effort PATCH for the live scraper path: never raises.
     filter_query is a raw PostgREST filter, e.g. "is_current=eq.true"."""

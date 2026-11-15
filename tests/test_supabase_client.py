@@ -30,6 +30,25 @@ def test_safe_supabase_patch_noop_without_env(monkeypatch, capsys):
     assert "skipping members patch" in capsys.readouterr().out
 
 
+def test_safe_supabase_delete_noop_without_env(monkeypatch, capsys):
+    monkeypatch.delenv("SUPABASE_URL", raising=False)
+    monkeypatch.delenv("SUPABASE_SERVICE_ROLE_KEY", raising=False)
+    sc.safe_supabase_delete("committee_memberships", "id=gt.0")
+    assert "skipping committee_memberships delete" in capsys.readouterr().out
+
+
+def test_safe_supabase_delete_swallows_request_errors(monkeypatch, capsys):
+    monkeypatch.setenv("SUPABASE_URL", "https://example.supabase.co")
+    monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "secret")
+
+    def boom(*args, **kwargs):
+        raise RuntimeError("network is down")
+
+    monkeypatch.setattr(sc.requests, "delete", boom)
+    sc.safe_supabase_delete("committee_memberships", "id=gt.0")
+    assert "WARNING" in capsys.readouterr().out
+
+
 def test_safe_supabase_upsert_swallows_request_errors(monkeypatch, capsys):
     monkeypatch.setenv("SUPABASE_URL", "https://example.supabase.co")
     monkeypatch.setenv("SUPABASE_SERVICE_ROLE_KEY", "secret")

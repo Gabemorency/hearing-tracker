@@ -69,3 +69,32 @@ def test_get_leadership_unknown_title_returns_none():
 
 def test_get_leadership_empty_title_returns_none():
     assert build_members.get_leadership("") is None
+
+
+def test_build_committee_membership_rows_flattens_per_member():
+    cmte_roles_map = {
+        "C000127": [
+            {"committee": "Commerce", "chamber": "Senate", "role": "Chair", "rank": 1, "is_full_committee": True},
+            {"committee": "Commerce — Subcommittee on Communications", "chamber": "Senate", "role": "Member",
+             "rank": 4, "is_full_committee": False},
+        ],
+        "B000002": [
+            {"committee": "Judiciary", "chamber": "House", "role": "Member", "rank": 7, "is_full_committee": True},
+        ],
+    }
+    rows = build_members.build_committee_membership_rows(cmte_roles_map)
+    assert len(rows) == 3
+    assert rows[0] == {
+        "member_id": "C000127",
+        "committee": "Commerce",
+        "chamber": "Senate",
+        "role": "Chair",
+        "rank": 1,
+        "is_full_committee": True,
+    }
+    assert rows[2]["member_id"] == "B000002"
+    assert rows[2]["is_full_committee"] is True
+
+
+def test_build_committee_membership_rows_empty_map():
+    assert build_members.build_committee_membership_rows({}) == []

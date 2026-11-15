@@ -448,6 +448,29 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 .bc-house  { color: var(--teal); }
 .bc-joint  { color: var(--purple); }
 
+.committee-roster {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.committee-roster-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 4px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 13px;
+  transition: background 0.15s var(--ease);
+}
+.committee-roster-item:hover { background: var(--bg-card-open); }
+.committee-roster-item__name { color: var(--text-secondary); }
+
 .update-timeline { display: flex; flex-direction: column; gap: 10px; }
 .update-timeline-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
 .update-timeline-item__dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); margin-top: 6px; flex-shrink: 0; }
