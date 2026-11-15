@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import BottomNav from "@/components/BottomNav";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -47,6 +48,7 @@ export default function RootLayout({
       </head>
       <body className={`${playfair.variable} ${plexSans.variable} ${plexMono.variable}`}>
         {children}
+        <BottomNav />
       </body>
     </html>
   );
