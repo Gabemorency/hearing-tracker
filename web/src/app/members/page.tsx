@@ -3,6 +3,7 @@ import type { InstitutionalLeadership, Member } from "@/lib/types";
 import Header from "@/components/Header";
 import MemberDirectory from "@/components/MemberDirectory";
 import ErrorPanel from "@/components/ErrorPanel";
+import SourceNote from "@/components/SourceNote";
 
 export const dynamic = "force-dynamic";
 
@@ -12,7 +13,7 @@ export default async function MembersPage() {
   const [{ data: members, error: membersError }, { data: leadership }] = await Promise.all([
     supabase
       .from("members")
-      .select("bioguide_id, full_name, nickname, delegate, bio, is_current, member_terms(member_id, chamber, state, district, party, start_date, end_date)")
+      .select("bioguide_id, full_name, nickname, delegate, bio, is_current, photo_url, member_terms(member_id, chamber, state, district, party, start_date, end_date)")
       .eq("is_current", true)
       .order("full_name", { ascending: true }),
     supabase.from("institutional_leadership").select("bioguide_id, label, full_title, tier"),
@@ -24,10 +25,13 @@ export default async function MembersPage() {
       {membersError ? (
         <ErrorPanel message={membersError.message} />
       ) : (
-        <MemberDirectory
-          members={(members ?? []) as Member[]}
-          leadership={(leadership ?? []) as InstitutionalLeadership[]}
-        />
+        <>
+          <MemberDirectory
+            members={(members ?? []) as Member[]}
+            leadership={(leadership ?? []) as InstitutionalLeadership[]}
+          />
+          <SourceNote>Member data: unitedstates/congress-legislators · Photos: unitedstates/images</SourceNote>
+        </>
       )}
     </div>
   );

@@ -236,18 +236,14 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
   align-items: flex-start;
   gap: 12px;
 }
-/* A thin civic "ribbon": a blue band with a red hairline beneath it,
-   instead of a single hairline — a nod to the palette without being a
-   literal flag graphic. */
+/* A single, quiet hairline under the header — not a two-tone ribbon. */
 .header::after {
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 0;
-  height: 4px;
-  background: linear-gradient(to bottom,
-    var(--brand) 0, var(--brand) 2px,
-    var(--danger) 2px, var(--danger) 3px,
-    transparent 3px);
+  height: 2px;
+  background: var(--brand);
+  opacity: 0.55;
 }
 .header-eyebrow {
   display: inline-flex;
@@ -340,7 +336,6 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
   padding: 15px 4px 13px;
   text-align: center;
   border-right: 1px solid var(--border-stat);
-  border-top: 2px solid transparent;
   transition: background 0.18s var(--ease);
 }
 .stat:hover { background: var(--bg-card-open); }
@@ -609,6 +604,7 @@ h2 { font: 700 18px/1.2 var(--display); margin: 24px 0 10px; }
 .member-avatar.party-d { background: var(--party-d-bg); border-color: var(--party-d-border); color: var(--party-d); }
 .member-avatar.party-r { background: var(--party-r-bg); border-color: var(--party-r-border); color: var(--party-r); }
 .member-avatar.party-i { background: var(--party-i-bg); border-color: var(--party-i-border); color: var(--purple); }
+.member-avatar--photo { object-fit: cover; object-position: top; }
 
 .member-info { min-width: 0; flex: 1; }
 .member-name { font-size: 14px; font-weight: 600; color: var(--text-primary); line-height: 1.3; margin-bottom: 2px; }

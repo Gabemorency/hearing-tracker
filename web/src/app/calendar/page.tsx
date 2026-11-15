@@ -3,6 +3,7 @@ import type { Hearing } from "@/lib/types";
 import Header from "@/components/Header";
 import CalendarGrid from "@/components/CalendarGrid";
 import ErrorPanel from "@/components/ErrorPanel";
+import SourceNote from "@/components/SourceNote";
 
 export const dynamic = "force-dynamic";
 
@@ -88,17 +89,20 @@ export default async function CalendarPage({
       {error ? (
         <ErrorPanel message={error.message} />
       ) : (
-        <CalendarGrid
-          year={year}
-          month={month}
-          cells={cells}
-          hearings={hearings}
-          labelsByDate={labelsByDate}
-          todayIso={todayIso}
-          prevMonth={shiftMonth(year, month, -1)}
-          nextMonth={shiftMonth(year, month, 1)}
-          monthLabel={monthLabel}
-        />
+        <>
+          <CalendarGrid
+            year={year}
+            month={month}
+            cells={cells}
+            hearings={hearings}
+            labelsByDate={labelsByDate}
+            todayIso={todayIso}
+            prevMonth={shiftMonth(year, month, -1)}
+            nextMonth={shiftMonth(year, month, 1)}
+            monthLabel={monthLabel}
+          />
+          <SourceNote>Hearing schedule: docs.house.gov · senate.gov · Session calendar: domewatch.us</SourceNote>
+        </>
       )}
     </div>
   );
