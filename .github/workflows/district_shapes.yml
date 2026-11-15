@@ -1,0 +1,27 @@
+name: District & State Shapes
+
+on:
+  schedule:
+    - cron: '0 10 * * 0'  # Weekly, Sunday 10 AM UTC — boundaries only change on redistricting, not daily
+  workflow_dispatch:
+
+jobs:
+  fetch-shapes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests pyshp --break-system-packages
+
+      - name: Fetch district and state shapes
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python3 fetch_district_shapes.py
