@@ -1,4 +1,84 @@
 {
+  "House|Committee on Homeland Security|10:00 AM ET": {
+    "chamber": "House",
+    "committee": "Committee on Homeland Security",
+    "chair": "Sen. Rand Paul (R-KY), Chair \u00b7 Sen. Gary Peters (D-MI), Ranking Member",
+    "time": "10:00 AM ET",
+    "building": "Cannon (CHOB)",
+    "room": "310 CHOB",
+    "topic": "Worldwide Threats to the Homeland: 25 Years After 9/11",
+    "details": "Worldwide Threats to the Homeland: 25 Years After 9/11",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://homeland.house.gov/hearings/"
+  },
+  "House|Subcommittee on Contracting and Infrastr|10:45 AM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Contracting and Infrastructure (Committee on Small Business)",
+    "chair": "Sen. Joni Ernst (R-IA), Chair \u00b7 Sen. Ed Markey (D-MA), Ranking Member",
+    "time": "10:45 AM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2360 RHOB",
+    "topic": "Protecting Main Street, Securing America: Examining Cybersecurity Challenges for Small Business Contractors.",
+    "details": "Protecting Main Street, Securing America: Examining Cybersecurity Challenges for Small Business Contractors.",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": ""
+  },
+  "House|Subcommittee on Federal Law Enforcement |2:00 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Federal Law Enforcement (Committee on Oversight and Government Reform)",
+    "chair": "James Comer",
+    "time": "2:00 PM ET",
+    "building": "Rayburn (RHOB)",
+    "room": "2154 RHOB",
+    "topic": "Oversight of the Bureau of Alcohol, Tobacco, Firearms and Explosives\u2019 Out-of-Business Records Retention Practices",
+    "details": "Oversight of the Bureau of Alcohol, Tobacco, Firearms and Explosives\u2019 Out-of-Business Records Retention Practices",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://oversight.house.gov/hearings/"
+  },
+  "House|Subcommittee on Health (Committee on Vet|2:15 PM ET": {
+    "chamber": "House",
+    "committee": "Subcommittee on Health (Committee on Veterans' Affairs)",
+    "chair": "Sen. Jerry Moran (R-KS), Chair \u00b7 Sen. Richard Blumenthal (D-CT), Ranking Member",
+    "time": "2:15 PM ET",
+    "building": "Cannon (CHOB)",
+    "room": "360 CHOB",
+    "topic": "Psychedelic-Assisted Therapies for Veterans: The Path Forward",
+    "details": "Psychedelic-Assisted Therapies for Veterans: The Path Forward",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://veterans.house.gov/hearings/"
+  },
+  "House|Committee on Natural Resources|3:00 PM ET": {
+    "chamber": "House",
+    "committee": "Committee on Natural Resources",
+    "chair": "Sen. Mike Lee (R-UT), Chair \u00b7 Sen. Martin Heinrich (D-NM), Ranking Member",
+    "time": "3:00 PM ET",
+    "building": "Longworth (LHOB)",
+    "room": "1324 LHOB",
+    "topic": ": \u2022 H.R. 1031 (Rep. Tenney), \u201cFort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act\u201d \u2022 H.R. 2323 (Rep. Gonzales), \u201cBig Bend National Park Boundary Adjustment Act\u201d \u2022 H.R. 27",
+    "details": ": \u2022 H.R. 1031 (Rep. Tenney), \u201cFort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act\u201d \u2022 H.R. 2323 (Rep. Gonzales), \u201cBig Bend National Park Boundary Adjustment Act\u201d \u2022 H.R. 27",
+    "witnesses": [
+      "Witnesses not yet publicly posted"
+    ],
+    "cancelled": false,
+    "changes": [],
+    "link": "https://naturalresources.house.gov/hearings/"
+  },
   "House|Committee on Rules|4:00 PM ET": {
     "chamber": "House",
     "committee": "Committee on Rules",
