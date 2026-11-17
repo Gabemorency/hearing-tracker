@@ -1,1 +1,30 @@
-{}
+{
+  "House|Committee on Rules|4:00 PM ET": {
+    "chamber": "House",
+    "committee": "Committee on Rules",
+    "chair": "Sen. Amy Klobuchar (D-MN) \u00b7 Sen. Deb Fischer (R-NE), Chair",
+    "time": "4:00 PM ET",
+    "building": "Capitol",
+    "room": "H-313 CAPITOL",
+    "topic": "H.R. 3495 \u2013 Direct Seller and Real Estate Agent Harmonization Act; H.R. 5267 \u2013 American Franchise Act",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": [],
+    "link": ""
+  },
+  "House|Permanent Select Committee on Intelligen|5:15 PM ET": {
+    "chamber": "House",
+    "committee": "Permanent Select Committee on Intelligence",
+    "chair": "Sen. Tom Cotton (R-AR), Chair \u00b7 Sen. Mark Warner (D-VA), Ranking Member",
+    "time": "5:15 PM ET",
+    "building": "Off-site",
+    "room": "--------- CAPITOL",
+    "topic": "Business Meeting to Consider: Release of Unclassified Report on the Committee's Open Investigation and Additional Matters",
+    "witnesses": [],
+    "details": "",
+    "cancelled": false,
+    "changes": [],
+    "link": ""
+  }
+}
