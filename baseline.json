@@ -1,5 +1,81 @@
 {
-  "date": "2026-11-16",
-  "generated": "9:19 AM ET · Sunday, November 15, 2026",
-  "hearings": []
+  "date": "2026-11-18",
+  "generated": "3:48 AM ET · Tuesday, November 17, 2026",
+  "hearings": [
+    {
+      "chamber": "House",
+      "committee": "Committee on Homeland Security",
+      "chair": "",
+      "time": "10:00 AM ET",
+      "building": "Cannon (CHOB)",
+      "room": "310 CHOB",
+      "topic": "Worldwide Threats to the Homeland: 25 Years After 9/11",
+      "details": "Worldwide Threats to the Homeland: 25 Years After 9/11",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on Contracting and Infrastructure (Committee on Small Business)",
+      "chair": "",
+      "time": "10:45 AM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2360 RHOB",
+      "topic": "Protecting Main Street, Securing America: Examining Cybersecurity Challenges for Small Business Contractors.",
+      "details": "Protecting Main Street, Securing America: Examining Cybersecurity Challenges for Small Business Contractors.",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on Federal Law Enforcement (Committee on Oversight and Government Reform)",
+      "chair": "James Comer",
+      "time": "2:00 PM ET",
+      "building": "Rayburn (RHOB)",
+      "room": "2154 RHOB",
+      "topic": "Oversight of the Bureau of Alcohol, Tobacco, Firearms and Explosives’ Out-of-Business Records Retention Practices",
+      "details": "Oversight of the Bureau of Alcohol, Tobacco, Firearms and Explosives’ Out-of-Business Records Retention Practices",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Subcommittee on Health (Committee on Veterans' Affairs)",
+      "chair": "",
+      "time": "2:15 PM ET",
+      "building": "Cannon (CHOB)",
+      "room": "360 CHOB",
+      "topic": "Psychedelic-Assisted Therapies for Veterans: The Path Forward",
+      "details": "Psychedelic-Assisted Therapies for Veterans: The Path Forward",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    },
+    {
+      "chamber": "House",
+      "committee": "Committee on Natural Resources",
+      "chair": "",
+      "time": "3:00 PM ET",
+      "building": "Longworth (LHOB)",
+      "room": "1324 LHOB",
+      "topic": ": • H.R. 1031 (Rep. Tenney), “Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act” • H.R. 2323 (Rep. Gonzales), “Big Bend National Park Boundary Adjustment Act” • H.R. 27",
+      "details": ": • H.R. 1031 (Rep. Tenney), “Fort Ontario Holocaust Refugee Shelter National Historical Park Establishment Act” • H.R. 2323 (Rep. Gonzales), “Big Bend National Park Boundary Adjustment Act” • H.R. 27",
+      "witnesses": [
+        "Witnesses not yet publicly posted"
+      ],
+      "cancelled": false,
+      "changes": []
+    }
+  ]
 }
