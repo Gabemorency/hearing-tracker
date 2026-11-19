@@ -1,87 +1,12 @@
 {
-  "date": "2026-11-19",
-  "generated": "3:12 AM ET · Wednesday, November 18, 2026",
+  "date": "2026-11-20",
+  "generated": "3:24 AM ET · Thursday, November 19, 2026",
   "hearings": [
-    {
-      "chamber": "House",
-      "committee": "Subcommittee on Emergency Management and Technology (Committee on Homeland Security)",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Cannon (CHOB)",
-      "room": "310 CHOB",
-      "topic": "Beyond the Storm: Assessing FEMA’s Mission Readiness",
-      "details": "9/16/26\t10:00 AM\tInvestigations and Oversight Subcommittee Hearing - Balancing Biotechnology Innovation and Biosecurity: Securing U.S. Leadership in a Global Race",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Subcommittee on Commodity Markets, Digital Assets, and Rural Development (Committee on Agriculture)",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Longworth (LHOB)",
-      "room": "1300 LHOB",
-      "topic": "Strengthening Rural America Through USDA Rural Development Programs and Partnerships",
-      "details": "Strengthening Rural America Through USDA Rural Development Programs and Partnerships",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Veterans' Affairs",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Cannon (CHOB)",
-      "room": "360 CHOB",
-      "topic": "Adoption of Lease Resolutions (Postponed)",
-      "details": "Adoption of Lease Resolutions (Postponed)",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": true,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Subcommittee on Courts, Intellectual Property, Artificial Intelligence, and the Internet (Committee on the Judiciary)",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2141 RHOB",
-      "topic": "A Climate of Bias: How Environmental Activists Influence the Judiciary",
-      "details": "A Climate of Bias: How Environmental Activists Influence the Judiciary",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Foreign Affairs",
-      "chair": "",
-      "time": "10:00 AM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2172 RHOB",
-      "topic": "Committee Business",
-      "details": "Committee Business",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
     {
       "chamber": "House",
       "committee": "Select Committee on the Strategic Competition Between the United States and the Chinese Communist Pa",
       "chair": "",
-      "time": "10:00 AM ET",
+      "time": "8:30 AM ET",
       "building": "Cannon (CHOB)",
       "room": "210 CHOB",
       "topic": "Outproducing the CCP: Restoring American Manufacturing (Rescheduled)",
@@ -90,81 +15,6 @@
         "Witnesses not yet publicly posted"
       ],
       "cancelled": true,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Veterans' Affairs",
-      "chair": "",
-      "time": "10:15 AM ET",
-      "building": "Cannon (CHOB)",
-      "room": "360 CHOB",
-      "topic": "Beyond Go-Live: VA Electronic Health Record Modernization Status Update",
-      "details": "Beyond Go-Live: VA Electronic Health Record Modernization Status Update",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Subcommittee on Indian and Insular Affairs (Committee on Natural Resources)",
-      "chair": "",
-      "time": "2:00 PM ET",
-      "building": "Longworth (LHOB)",
-      "room": "1324 LHOB",
-      "topic": "Legislative Hearing on: H.R. 10307 (Rep. Begich), \"Anaktuvuk Pass Food Security Access Act\", H.R. 10458 (Rep. Salinas), \"Grand Ronde Land Transfer Act of 2026\", H.R. 10751 (Rep. Bergman), \"Tribal Oral",
-      "details": "Legislative Hearing on: H.R. 10307 (Rep. Begich), \"Anaktuvuk Pass Food Security Access Act\", H.R. 10458 (Rep. Salinas), \"Grand Ronde Land Transfer Act of 2026\", H.R. 10751 (Rep. Bergman), \"Tribal Oral",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "South and Central Asia Subcommittee (Committee on Foreign Affairs)",
-      "chair": "",
-      "time": "2:00 PM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2172 RHOB",
-      "topic": "Unlocking Central Asia: Advancing U.S. Economic and Strategic Opportunity",
-      "details": "Unlocking Central Asia: Advancing U.S. Economic and Strategic Opportunity",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "East Asia and Pacific Subcommittee (Committee on Foreign Affairs)",
-      "chair": "",
-      "time": "2:00 PM ET",
-      "building": "Rayburn (RHOB)",
-      "room": "2200 RHOB",
-      "topic": "The Hidden Chokepoint: China’s Dominance in Pharmaceuticals",
-      "details": "The Hidden Chokepoint: China’s Dominance in Pharmaceuticals",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
-      "changes": []
-    },
-    {
-      "chamber": "House",
-      "committee": "Committee on Ethics",
-      "chair": "",
-      "time": "2:30 PM ET",
-      "building": "Longworth (LHOB)",
-      "room": "1015 LHOB",
-      "topic": "Committee on Ethics Meeting",
-      "details": "Committee on Ethics Meeting",
-      "witnesses": [
-        "Witnesses not yet publicly posted"
-      ],
-      "cancelled": false,
       "changes": []
     }
   ]
